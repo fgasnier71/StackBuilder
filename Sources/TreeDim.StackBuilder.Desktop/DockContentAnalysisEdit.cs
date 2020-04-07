@@ -37,6 +37,24 @@ namespace treeDiM.StackBuilder.Desktop
             _solution = analysis.SolutionLay;
 
             InitializeComponent();
+
+            if (document is Document doc)
+            {
+                doc.TypeCreated += OnTypeCreated;
+                doc.TypeRemoved += OnTypeRemoved;
+            }            
+        }
+
+        private void OnTypeRemoved(ItemBase item)
+        {
+            if (item is InterlayerProperties)
+                FillInterlayerCombo();
+        }
+
+        private void OnTypeCreated(ItemBase item)
+        {
+            if (item is InterlayerProperties)
+                FillInterlayerCombo();
         }
         #endregion
 
@@ -70,6 +88,11 @@ namespace treeDiM.StackBuilder.Desktop
         {
             base.OnClosed(e);
             Document.RemoveView(this);
+            if (Document is Document doc)
+            {
+                doc.TypeCreated -= OnTypeCreated;
+                doc.TypeRemoved -= OnTypeRemoved; 
+            }
         }
         #endregion
 
@@ -437,15 +460,20 @@ namespace treeDiM.StackBuilder.Desktop
                 if (cbLayerType.Items.Count > 0)
                     cbLayerType.SelectedIndex = 0;
 
-                // fill combo cbInterlayer
-                Document document = Document as Document;
-                cbInterlayer.Initialize(document, this, null);
+                FillInterlayerCombo();
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
             }
         }
+        private void FillInterlayerCombo()
+        {
+            // fill combo cbInterlayer
+            Document document = Document as Document;
+            cbInterlayer.Initialize(document, this, null);
+        }
+
         protected void UpdateControls()
         {
             try

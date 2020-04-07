@@ -20,6 +20,10 @@ namespace treeDiM.StackBuilder.Graphics
         {
             PackProperties = pack;
         }
+        public SubContent(InterlayerProperties interlayer)
+        {
+            InterlayerProperties = interlayer;
+        }
         public void Draw(Graphics3D graphics, Transform3D transf)
         {
             if (Analysis is AnalysisLayered analysisLay)
@@ -37,6 +41,11 @@ namespace treeDiM.StackBuilder.Graphics
                 Pack pack = new Pack(0, PackProperties, new BoxPosition(Vector3D.Zero).Transform(transf));
                 graphics.AddBox(pack);
             }
+            else if (null != InterlayerProperties)
+            {
+                Box box = new Box(0, InterlayerProperties, new BoxPosition(Vector3D.Zero).Transform(transf));
+                graphics.AddBox(box);
+            }
         }
         public BBox3D Bbox
         {
@@ -44,12 +53,23 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 if (null != Analysis) return Analysis.Solution.BBoxGlobal;
                 else if (null != PackProperties) return new BBox3D(Vector3D.Zero, PackProperties.OuterDimensions);
+                else if (null != InterlayerProperties) return new BBox3D(Vector3D.Zero, InterlayerProperties.Dimensions);
                 else return BBox3D.Initial;
             }
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj is SubContent contentObj)
+                return contentObj.Analysis == Analysis
+                    && contentObj.PackProperties == PackProperties
+                    && contentObj.InterlayerProperties == InterlayerProperties;
+            else
+                return false;
         }
 
         private AnalysisHomo Analysis { get; set; }
         private PackProperties PackProperties { get; set; }
+        private InterlayerProperties InterlayerProperties { get; set; }
     }
     #endregion
 
@@ -66,7 +86,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
         #region Private properties
-        private uint PickId { get; set; }
+        public uint PickId { get; set; }
         private Vector3D Dimensions { get; set; }
         private BoxPosition BoxPosition { get; set; }
         public BBox3D GetBBox() => new BBox3D(BoxPosition, Dimensions);
@@ -153,7 +173,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public bool Matches(ImageInst img)
         {
-            return Content == img.Content && AxisLength == img.AxisLength && AxisWidth == img.AxisWidth;
+            return Content.Equals(img.Content) && AxisLength == img.AxisLength && AxisWidth == img.AxisWidth;
         }
         #endregion
     }

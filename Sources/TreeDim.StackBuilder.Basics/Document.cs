@@ -3926,36 +3926,43 @@ namespace treeDiM.StackBuilder.Basics
         }
         private void NotifyOnNewTypeCreated(ItemBase item)
         {
+            TypeCreated?.Invoke(item);
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewTypeCreated(this, item);
         }
         private void NotifyOnNewAnalysisCreated(Analysis analysis)
         {
+            AnalysisCreated?.Invoke(analysis);
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewAnalysisCreated(this, analysis);
         }
         private void NotifyAnalysisUpdated(Analysis analysis)
         {
+            AnalysisUpdated?.Invoke(analysis);
             foreach (IDocumentListener listener in _listeners)
                 listener.OnAnalysisUpdated(this, analysis);
         }
         private void NotifyOnNewAnalysisCreated(AnalysisHetero analysis)
         {
+            AnalysisCreated?.Invoke(analysis);
             foreach (IDocumentListener listener in _listeners)
                 listener.OnNewAnalysisCreated(this, analysis);
         }
         private void NotifyAnalysisUpdated(AnalysisHetero analysis)
         {
+            AnalysisUpdated?.Invoke(analysis);
             foreach (IDocumentListener listener in _listeners)
                 listener.OnAnalysisUpdated(this, analysis);
         }
         private void NotifyOnTypeRemoved(ItemBase item)
         {
+            TypeRemoved?.Invoke(item);
             foreach (IDocumentListener listener in _listeners)
                 listener.OnTypeRemoved(this, item);
         }
         private void NotifyOnAnalysisRemoved(ItemBase analysis)
         {
+            AnalysisRemoved?.Invoke(analysis as Analysis);
             foreach (IDocumentListener listener in _listeners)
                 listener.OnAnalysisRemoved(this, analysis);
         }
@@ -3964,6 +3971,17 @@ namespace treeDiM.StackBuilder.Basics
         #region Events
         public delegate void DocumentClosing(Document document);
         public event DocumentClosing DocumentClosed;
+
+        public delegate void AnalysisCreating(Analysis analysis);
+        public event AnalysisCreating AnalysisCreated;
+        public delegate void AnalysisRemoving(Analysis analysis);
+        public event AnalysisRemoving AnalysisRemoved;
+        public delegate void AnalysisUpdating(Analysis analysis);
+        public event AnalysisUpdating AnalysisUpdated;
+        public delegate void TypeCreating(ItemBase item);
+        public event TypeCreating TypeCreated;
+        public delegate void TypeRemoving(ItemBase item);
+        public event TypeRemoving TypeRemoved;
         #endregion
 
         #region Data members

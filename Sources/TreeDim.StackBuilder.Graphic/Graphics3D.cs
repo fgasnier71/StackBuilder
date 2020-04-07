@@ -481,10 +481,12 @@ namespace treeDiM.StackBuilder.Graphics
             if (ListImageInst.Count > 0)
             {
                 // --- sort image inst
-                SubContent content = ListImageInst[0].Content;
                 List<ImageInst> listImageInstSorted = new List<ImageInst>();
                 foreach (Box b in boxesImage1)
-                    listImageInstSorted.Add(new ImageInst(b.PickId, content, b.Dim, b.BPosition));
+                {
+                    var imageInst = ListImageInst.Find(i => i.PickId == b.PickId);
+                    listImageInstSorted.Add(new ImageInst(b.PickId, imageInst.Content, b.Dim, b.BPosition));
+                }
                 
                 // draw image inst
                 foreach (ImageInst im in listImageInstSorted)

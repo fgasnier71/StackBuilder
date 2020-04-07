@@ -77,10 +77,11 @@ namespace treeDiM.StackBuilder.Graphics
             List<ILayer> layers = Solution.Layers;
             foreach (ILayer layer in layers)
             {
+                bool aboveSelectedLayer = (Solution.SelectedLayerIndex != -1) && (layerId > Solution.SelectedLayerIndex);
+                Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, aboveSelectedLayer ? DistanceAboveSelectedLayer : 0.0));
                 BBox3D bbox = new BBox3D();
                 // ### layer of boxes
-                Layer3DBox layerBox = layer as Layer3DBox;
-                if (null != layerBox)
+                if (layer is Layer3DBox layerBox)
                 {
                     if (analysis.Content is LoadedPallet)
                     {
@@ -96,8 +97,6 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                     else if (analysis.Content is PackProperties packProperties)
                     {
-                        bool aboveSelectedLayer = (Solution.SelectedLayerIndex != -1) && (layerId > Solution.SelectedLayerIndex);
-                        Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, aboveSelectedLayer ? DistanceAboveSelectedLayer : 0.0));
 
                         foreach (BoxPosition bPosition in layerBox)
                         {
@@ -109,44 +108,56 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                     else
                     {
-                        bool aboveSelectedLayer = (Solution.SelectedLayerIndex != -1) && (layerId > Solution.SelectedLayerIndex);
-                        Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, aboveSelectedLayer ? DistanceAboveSelectedLayer : 0.0));
-
                         foreach (BoxPosition bPosition in layerBox)
                         {
                             BoxPosition boxPositionModified = bPosition.Transform(transform * upTranslation);
-                            Box b = null;
-                            if (analysis.Content is PackProperties)
-                                b = new Pack(pickId++, analysis.Content as PackProperties, boxPositionModified);
-                            else
-                                b = new Box(pickId++, analysis.Content as PackableBrick, boxPositionModified);
+                            Box b = new Box(pickId++, analysis.Content as PackableBrick, boxPositionModified);
                             graphics.AddBox(b);
                             bbox.Extend(b.BBox);
                         }
                     }
                 }
-                Layer3DCyl layerCyl = layer as Layer3DCyl;
-                if (null != layerCyl)
+                else if (layer is Layer3DCyl layerCyl)
                 {
                     foreach (Vector3D vPos in layerCyl)
                     {
+                        CylPosition cylPosition = new CylPosition(transform.transform(vPos), HalfAxis.HAxis.AXIS_Z_P);
+                        CylPosition cylPositionModified = cylPosition.Transform(transform * upTranslation);
                         Cyl cyl = null;
                         if (analysis.Content is CylinderProperties cylProp)
-                            cyl = new Cylinder(
-                                pickId++
-                                , cylProp
-                                , new CylPosition(transform.transform(vPos), HalfAxis.HAxis.AXIS_Z_P));
+                            cyl = new Cylinder(pickId++, cylProp, cylPositionModified);
                         else if (analysis.Content is BottleProperties bottleProperties)
-                            cyl = new Bottle(
-                                pickId++
-                                , bottleProperties
-                                , new CylPosition(transform.transform(vPos), HalfAxis.HAxis.AXIS_Z_P));
-
+                            cyl = new Bottle(pickId++, bottleProperties, cylPositionModified);
                         graphics.AddCylinder(cyl);
                         bbox.Extend(cyl.BBox);
                     }
                 }
-                if (null != layerBox || null != layerCyl)
+                // ### interlayer
+                else if (layer is InterlayerPos interlayerPos)
+                {
+                    InterlayerProperties interlayerProp = Solution.Interlayers[interlayerPos.TypeId];
+                    if (null != interlayerProp)
+                    {
+                        BoxPosition bPosition = new BoxPosition(
+                            new Vector3D(
+                            analysis.Offset.X + 0.5 * (analysis.ContainerDimensions.X - interlayerProp.Length)
+                            , analysis.Offset.Y + 0.5 * (analysis.ContainerDimensions.Y - interlayerProp.Width)
+                            , interlayerPos.ZLow
+                            ), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                        BoxPosition boxPositionModified = bPosition.Transform(transform * upTranslation);
+
+                        Box box = new Box(pickId++, interlayerProp, boxPositionModified);
+                        if (analysis.Content is PackProperties)
+                        {
+                            graphics.AddImage(pickId, new SubContent(interlayerProp), interlayerProp.Dimensions, boxPositionModified);
+                        }
+                        else
+                            graphics.AddBox(box);
+                        bbox.Extend(box.BBox);
+                    }
+                }
+
+                if (layer is Layer3DBox || layer is Layer3DCyl)
                 {
                     // add layer BBox
                     AddPickingBox(bbox, layerId);
@@ -156,26 +167,8 @@ namespace treeDiM.StackBuilder.Graphics
                     ++layerId;
                 }
 
-                // ### interlayer
-                if (layer is InterlayerPos interlayerPos)
-                {
-                    InterlayerProperties interlayerProp = Solution.Interlayers[interlayerPos.TypeId];
-                    if (null != interlayerProp)
-                    {
-                        bool aboveSelectedLayer = (Solution.SelectedLayerIndex != -1) && (layerId > Solution.SelectedLayerIndex);
-                        Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, aboveSelectedLayer ? DistanceAboveSelectedLayer : 0.0));
 
-                        BoxPosition bPosition = new BoxPosition(
-                            new Vector3D(
-                            analysis.Offset.X + 0.5 * (analysis.ContainerDimensions.X - interlayerProp.Length)
-                            , analysis.Offset.Y + 0.5 * (analysis.ContainerDimensions.Y - interlayerProp.Width)
-                            , interlayerPos.ZLow
-                            ), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
-                        Box box = new Box(pickId++, interlayerProp, bPosition.Transform(transform * upTranslation));
-                        graphics.AddBox(box);
-                        bbox.Extend(box.BBox);
-                    }
-                }
+
             }
             BBox3D loadBBox = Solution.BBoxLoad;
             BBox3D loadBBoxWDeco = Solution.BBoxLoadWDeco;
@@ -361,8 +354,7 @@ namespace treeDiM.StackBuilder.Graphics
             }
             // ###
             // ### layer of cylinders ###
-            Layer3DCyl layerCyl = layer as Layer3DCyl;
-            if (null != layerCyl)
+            if (layer is Layer3DCyl layerCyl)
             {
                 foreach (Vector3D vPos in layerCyl)
                 {
