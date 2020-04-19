@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,88 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Definiera in-/utdataceller och bildparametrar...</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Avbryt</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>Okej</value>
+  </data>
+  <data name="cbUnitSystem.Items" xml:space="preserve">
+    <value>Mått 1 (mm/kg/l)</value>
+  </data>
+  <data name="cbUnitSystem.Items1" xml:space="preserve">
+    <value>Mått 2 (cm/kg/l)</value>
+  </data>
+  <data name="cbUnitSystem.Items2" xml:space="preserve">
+    <value>UK (i/lb/gal)</value>
+  </data>
+  <data name="cbUnitSystem.Items3" xml:space="preserve">
+    <value>OSS (i/lb/gal)</value>
+  </data>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>Fallet</value>
+  </data>
+  <data name="gbConstraintSet.Text" xml:space="preserve">
+    <value>Begränsningar</value>
+  </data>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>Lastpall</value>
+  </data>
+  <data name="gbResults.Text" xml:space="preserve">
+    <value>Resultat</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Längd cell</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Breddcell</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Höjdcell</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Viktcell</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Totala palletWeight</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Lastens vikt</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Bildbredd def.</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Enhetssystem</value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>Höjdcell</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Längd cell</value>
+  </data>
+  <data name="lbMaximumPalletHeight.Text" xml:space="preserve">
+    <value>Maximala pall höjd</value>
+  </data>
+  <data name="lbMaximumPalletWeight.Text" xml:space="preserve">
+    <value>Maximala pall vikt</value>
+  </data>
+  <data name="lbNoCases.Text" xml:space="preserve">
+    <value>Antal fall</value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value>Viktcell</value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>Breddcell</value>
+  </data>
+  <data name="uCtrlImageDim.Text" xml:space="preserve">
+    <value>Bilddimensioner</value>
+  </data>
+  <data name="uCtrlImageLeftTop.Text" xml:space="preserve">
+    <value>Bild vänster/översta position</value>
+  </data>
 </root>

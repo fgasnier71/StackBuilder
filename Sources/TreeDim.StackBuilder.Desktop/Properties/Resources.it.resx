@@ -836,4 +836,64 @@ Closing form...</value>
   <data name="ID_ITEMS" xml:space="preserve">
     <value>Articoli</value>
   </data>
+  <data name="ID_ADDNEWBOTTLE" xml:space="preserve">
+    <value>Aggiungi nuova bottiglia...</value>
+  </data>
+  <data name="ID_ALGORITHM" xml:space="preserve">
+    <value>Algoritmo</value>
+  </data>
+  <data name="ID_BOTTLE" xml:space="preserve">
+    <value>Bottiglia</value>
+  </data>
+  <data name="ID_DATABASEITEMCOUNT" xml:space="preserve">
+    <value>{0} {1} fuori {2}</value>
+  </data>
+  <data name="ID_DIAMETER" xml:space="preserve">
+    <value>Diametro</value>
+  </data>
+  <data name="ID_EVALUATINGCASE" xml:space="preserve">
+    <value>Valutazione del caso {0} fuori {1}...</value>
+  </data>
+  <data name="ID_GOPREMIUMORUNSELECT" xml:space="preserve">
+    <value>L'utilizzo di layer modificati è una funzione "Premium". Deselezionate il livello modificato.</value>
+  </data>
+  <data name="ID_LOADEDCASES" xml:space="preserve">
+    <value>Casi caricati</value>
+  </data>
+  <data name="ID_LOADEDVOLUMEPERCENTAGE" xml:space="preserve">
+    <value>Percentuale volume caricato</value>
+  </data>
+  <data name="ID_NOANALYSISSELECTED" xml:space="preserve">
+    <value>Nessuna analisi selezionata.</value>
+  </data>
+  <data name="ID_NUMBEROFPALLETS" xml:space="preserve">
+    <value>Numero di pallet</value>
+  </data>
+  <data name="ID_PALLETDATA" xml:space="preserve">
+    <value>Dati pallet</value>
+  </data>
+  <data name="ID_PALLETWEIGHT_WU" xml:space="preserve">
+    <value>Peso del pallet</value>
+  </data>
+  <data name="ID_PALLET_NUMBER" xml:space="preserve">
+    <value>Pallet {0}</value>
+  </data>
+  <data name="ID_PREMIUMFEATURE" xml:space="preserve">
+    <value>Questa funzione è accessibile solo agli account Premium.</value>
+  </data>
+  <data name="ID_PREMIUMVERSIONURL" xml:space="preserve">
+    <value>http://www.plmpack.com/stackbuilder/premium/premium.html</value>
+  </data>
+  <data name="ID_SORTINGSOLUTIONS" xml:space="preserve">
+    <value>Soluzioni di smistamento...</value>
+  </data>
+  <data name="ID_TRUCKADMISSIBLELOAD" xml:space="preserve">
+    <value>Il camion deve avere un valore di carico ammissibile valido.</value>
+  </data>
+  <data name="ID_UNLOADEDCASES" xml:space="preserve">
+    <value>Custodie scaricate</value>
+  </data>
+  <data name="ID_WARNINGEDITLAYER" xml:space="preserve">
+    <value>Si prega di notare che solo gli account "Premium" sono in grado di utilizzare il layer modificato in una pallettizzazione.</value>
+  </data>
 </root>

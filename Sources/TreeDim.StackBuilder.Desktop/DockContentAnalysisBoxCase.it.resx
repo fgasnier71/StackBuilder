@@ -120,4 +120,13 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Analisi Astuccio/Cartone</value>
   </data>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>Smettere di criteri</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Peso massimo</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Numero massimo</value>
+  </data>
 </root>

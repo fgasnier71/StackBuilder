@@ -1429,4 +1429,70 @@
   <data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
     <value>Anleitung</value>
   </data>
+  <data name="projectToolStripMenuItem.Text" xml:space="preserve">
+    <value>Projekt</value>
+  </data>
+  <data name="toolStripMIExportAnalysesSummaryToExcel.Text" xml:space="preserve">
+    <value>Zusammenfassung der Analysen nach Excel exportieren...</value>
+  </data>
+  <data name="toolStripMIExportAnalysesSummaryToExcel.ToolTipText" xml:space="preserve">
+    <value>Zusammenfassung der Projektanalysen nach Excel exportieren...</value>
+  </data>
+  <data name="browseEditMaterialListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Materialliste durchsuchen/bearbeiten...</value>
+  </data>
+  <data name="toolStripMIPremium.Text" xml:space="preserve">
+    <value>Werden Sie Premium-Nutzer</value>
+  </data>
+  <data name="toolStripMISettings.Text" xml:space="preserve">
+    <value>Einstellungen...</value>
+  </data>
+  <data name="toolStripButtonBottle.Text" xml:space="preserve">
+    <value>Neue Flasche hinzufügen...</value>
+  </data>
+  <data name="toolStripSB_BCT.Text" xml:space="preserve">
+    <value>BCT-Berechnung</value>
+  </data>
+  <data name="toolStripButtonPremium.Text" xml:space="preserve">
+    <value>Werden Sie Premium-Nutzer</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.ToolTipText" xml:space="preserve">
+    <value>Fall-/Palettenanalyse</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.ToolTipText" xml:space="preserve">
+    <value>Zylinder-/Palettenanalyse</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylPallet.Text" xml:space="preserve">
+    <value>Horizontalzylinder/Palette</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.ToolTipText" xml:space="preserve">
+    <value>Bündel-/Palettenanalyse</value>
+  </data>
+  <data name="toolStripMIHAnalysis.Text" xml:space="preserve">
+    <value>Heterogene Palettenbeladung</value>
+  </data>
+  <data name="toolStripMIHAnalysis.ToolTipText" xml:space="preserve">
+    <value>Heterogene Palettenbeladung</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderTruck.Text" xml:space="preserve">
+    <value>Zylinder/LKW</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylTruck.Text" xml:space="preserve">
+    <value>Horizontalzylinder/LKW</value>
+  </data>
+  <data name="toolStripMIHAnalysisCaseTruck.Text" xml:space="preserve">
+    <value>Heterogener Fall/LKW</value>
+  </data>
+  <data name="palletisationBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Palettierung BCT</value>
+  </data>
+  <data name="caseBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Fall BCT</value>
+  </data>
+  <data name="saveFileDialogExport.Filter" xml:space="preserve">
+    <value>eXchange Markup Sprache (*.xml)|*.xml</value>
+  </data>
+  <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
+    <value>Neue Flasche</value>
+  </data>
 </root>

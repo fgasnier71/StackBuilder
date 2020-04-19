@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Tente preencher uma lista de casos...</value>
+  </data>
+  <data name="bnClose.Text" xml:space="preserve">
+    <value>Perto</value>
+  </data>
+  <data name="bnCreateAnalysis.Text" xml:space="preserve">
+    <value>Criar análise</value>
+  </data>
+  <data name="lbAnalysisDescription.Text" xml:space="preserve">
+    <value>Descrição da análise</value>
+  </data>
+  <data name="lbAnalysisName.Text" xml:space="preserve">
+    <value>Nome da análise</value>
+  </data>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>Caixa</value>
+  </data>
+  <data name="lbCases.Text" xml:space="preserve">
+    <value>Casos</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>statusRótulo</value>
+  </data>
+  <data name="uCtrlCaseDimensionsMax.Text" xml:space="preserve">
+    <value>Max. dimensões do caso</value>
+  </data>
+  <data name="uCtrlCaseDimensionsMin.Text" xml:space="preserve">
+    <value>Dimensões min. caso</value>
+  </data>
+  <data name="uCtrlNumberPerCase.Text" xml:space="preserve">
+    <value>Número por caso</value>
+  </data>
 </root>

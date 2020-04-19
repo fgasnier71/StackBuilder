@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bnResetDefaultSettings.Text" xml:space="preserve">
+    <value>Varsayılan ayarları sıfırlama</value>
+  </data>
+  <data name="bnShowAppFolder.Text" xml:space="preserve">
+    <value>Uygulama klasörünü açma</value>
+  </data>
+  <data name="chkbDisconnected.Text" xml:space="preserve">
+    <value>Bağlantısı kesilen kullanıma izin ver</value>
+  </data>
+  <data name="chkbShowStartPage.Text" xml:space="preserve">
+    <value>Başlangıç ekranında uygulama sayfasını göster...</value>
+  </data>
+  <data name="chkShowLogConsole.Text" xml:space="preserve">
+    <value>Günlük konsolu göster</value>
+  </data>
 </root>

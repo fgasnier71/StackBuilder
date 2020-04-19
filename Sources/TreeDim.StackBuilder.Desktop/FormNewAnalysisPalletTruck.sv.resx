@@ -141,4 +141,7 @@
   <data name="uCtrlMinDistLoadRoof.Text" xml:space="preserve">
     <value>Minsta avstånd belastning/tak</value>
   </data>
+  <data name="uCtrlMaxNoPallets.Text" xml:space="preserve">
+    <value>Maximalt antal lastpallar</value>
+  </data>
 </root>

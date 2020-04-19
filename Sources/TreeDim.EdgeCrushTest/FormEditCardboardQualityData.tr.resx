@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="lbName.Text" xml:space="preserve">
+    <value>Adı</value>
+  </data>
+  <data name="lbProfile.Text" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="lbThickness.Text" xml:space="preserve">
+    <value>Kalın -lığı</value>
+  </data>
+  <data name="lbECT.Text" xml:space="preserve">
+    <value>Vb</value>
+  </data>
+  <data name="lbRigidityX.Text" xml:space="preserve">
+    <value>Rijitlik X</value>
+  </data>
+  <data name="lbRigidityY.Text" xml:space="preserve">
+    <value>Rijitlik Y</value>
+  </data>
+  <data name="lbThicknessUnit.Text" xml:space="preserve">
+    <value>Mm</value>
+  </data>
+  <data name="lbStiffnessXUnit.Text" xml:space="preserve">
+    <value>Namlı</value>
+  </data>
+  <data name="lbStiffnessYUnit.Text" xml:space="preserve">
+    <value>Namlı</value>
+  </data>
+  <data name="lbECTUnit.Text" xml:space="preserve">
+    <value>kN/m</value>
+  </data>
+  <data name="statusLabel.Text" xml:space="preserve">
+    <value>Hazır</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>Statusstrip</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Karton kalite verilerini edin...</value>
+  </data>
 </root>

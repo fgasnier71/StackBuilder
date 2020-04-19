@@ -130,4 +130,25 @@
   <data name="uCtrlPackable.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 100</value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Créer une nouvelle analyse Cylinder/Pallet...</value>
+  </data>
+  <data name="tabPageOverhang.Text" xml:space="preserve">
+    <value>Débord</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Critère de fin</value>
+  </data>
+  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
+    <value>Hauteur maximale palette</value>
+  </data>
+  <data name="uCtrlOptMaximumNumber.Text" xml:space="preserve">
+    <value>Nombre maximum</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Poid maximum palette</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Débord</value>
+  </data>
 </root>

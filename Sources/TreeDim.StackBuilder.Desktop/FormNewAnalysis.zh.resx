@@ -135,4 +135,7 @@
   <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
     <value>toolStripStatusLabelDef</value>
   </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
 </root>

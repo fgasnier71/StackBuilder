@@ -633,4 +633,13 @@
   <data name="uMassWeight.Text" xml:space="preserve">
     <value>uMassa</value>
   </data>
+  <data name="cbColor.Items39" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>Colore</value>
+  </data>
 </root>

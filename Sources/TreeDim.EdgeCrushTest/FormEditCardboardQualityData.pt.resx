@@ -120,4 +120,46 @@
   <data name="bnOk.Text" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="lbName.Text" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="lbProfile.Text" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="lbThickness.Text" xml:space="preserve">
+    <value>Espessura</value>
+  </data>
+  <data name="lbECT.Text" xml:space="preserve">
+    <value>Ect</value>
+  </data>
+  <data name="lbRigidityX.Text" xml:space="preserve">
+    <value>Rigidez X</value>
+  </data>
+  <data name="lbRigidityY.Text" xml:space="preserve">
+    <value>Rigidez Y</value>
+  </data>
+  <data name="lbThicknessUnit.Text" xml:space="preserve">
+    <value>Mm</value>
+  </data>
+  <data name="lbStiffnessXUnit.Text" xml:space="preserve">
+    <value>M.n</value>
+  </data>
+  <data name="lbStiffnessYUnit.Text" xml:space="preserve">
+    <value>M.n</value>
+  </data>
+  <data name="lbECTUnit.Text" xml:space="preserve">
+    <value>kN/m</value>
+  </data>
+  <data name="statusLabel.Text" xml:space="preserve">
+    <value>Pronto</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>Statusstrip</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Editar dados de qualidade de papelão...</value>
+  </data>
 </root>

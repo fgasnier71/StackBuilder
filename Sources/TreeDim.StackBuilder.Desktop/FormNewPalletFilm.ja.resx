@@ -183,4 +183,10 @@
   <data name="uCtrlSpacing.Text" xml:space="preserve">
     <value>間隔</value>
   </data>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value>カラー</value>
+  </data>
+  <data name="cbColor.Items16" xml:space="preserve">
+    <value>カラー</value>
+  </data>
 </root>

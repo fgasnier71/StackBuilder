@@ -180,4 +180,13 @@
   <data name="ID_SELECTED" xml:space="preserve">
     <value>Выбранные</value>
   </data>
+  <data name="ID_INVALIDCONSTRAINTS_DIMENSIONS" xml:space="preserve">
+    <value>Недействительные ограничения измерения</value>
+  </data>
+  <data name="ID_INVALIDCONSTRAINTS_WEIGHT" xml:space="preserve">
+    <value>Недействительные ограничения веса</value>
+  </data>
+  <data name="ID_NAMEBOTTLE" xml:space="preserve">
+    <value>Бутылка</value>
+  </data>
 </root>

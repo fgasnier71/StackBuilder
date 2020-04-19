@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bnCompute.Text" xml:space="preserve">
+    <value>计算</value>
+  </data>
+  <data name="bnRefreshPallets.Text" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="chkbGenerateImageInFolder.Text" xml:space="preserve">
+    <value>在文件夹中生成图像：</value>
+  </data>
+  <data name="chkbGenerateImageInRow.Text" xml:space="preserve">
+    <value>在行中生成图像。</value>
+  </data>
+  <data name="chkbGenerateReportInFolder.Text" xml:space="preserve">
+    <value>在文件夹中生成报告：</value>
+  </data>
+  <data name="chkbOnlyZOrientation.Text" xml:space="preserve">
+    <value>仅允许垂直方向</value>
+  </data>
+  <data name="gbConstraints.Text" xml:space="preserve">
+    <value>约束</value>
+  </data>
+  <data name="gbOptions.Text" xml:space="preserve">
+    <value>选项</value>
+  </data>
+  <data name="gpPallets.Text" xml:space="preserve">
+    <value>托盘</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
+    <value>托盘高度</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>伸出量</value>
+  </data>
 </root>

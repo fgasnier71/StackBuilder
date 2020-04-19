@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Editar imagens faciais</value>
+  </data>
+  <data name="bnAdd.Text" xml:space="preserve">
+    <value>Adicione textura...</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="bnMoveDown.Text" xml:space="preserve">
+    <value>Mova-se para baixo</value>
+  </data>
+  <data name="bnMoveUp.Text" xml:space="preserve">
+    <value>Mova-se para cima</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="bnRemove.Text" xml:space="preserve">
+    <value>Remover</value>
+  </data>
+  <data name="cbFace.Items" xml:space="preserve">
+    <value>Traseira</value>
+  </data>
+  <data name="cbFace.Items1" xml:space="preserve">
+    <value>Frente</value>
+  </data>
+  <data name="cbFace.Items2" xml:space="preserve">
+    <value>Certo</value>
+  </data>
+  <data name="cbFace.Items3" xml:space="preserve">
+    <value>Deixou</value>
+  </data>
+  <data name="cbFace.Items4" xml:space="preserve">
+    <value>Fundo</value>
+  </data>
+  <data name="cbFace.Items5" xml:space="preserve">
+    <value>Início</value>
+  </data>
+  <data name="labelFace.Text" xml:space="preserve">
+    <value>Cara</value>
+  </data>
+  <data name="lbAngle.Text" xml:space="preserve">
+    <value>Ângulo</value>
+  </data>
+  <data name="lbImage.Text" xml:space="preserve">
+    <value>Imagens</value>
+  </data>
+  <data name="lbOrigin.Text" xml:space="preserve">
+    <value>Origem</value>
+  </data>
+  <data name="lbSize.Text" xml:space="preserve">
+    <value>Tamanho</value>
+  </data>
+  <data name="lbUnitAngle.Text" xml:space="preserve">
+    <value>°</value>
+  </data>
+  <data name="openImageFileDialog.Filter" xml:space="preserve">
+    <value>Arquivos de imagem (*.bmp,*.gif, *.jpg)|*.bmp;*.gif;*.jpg</value>
+  </data>
+  <data name="uCtrlOrigin.Text" xml:space="preserve">
+    <value>Origem</value>
+  </data>
+  <data name="uCtrlSize.Text" xml:space="preserve">
+    <value>Tamanho</value>
+  </data>
 </root>

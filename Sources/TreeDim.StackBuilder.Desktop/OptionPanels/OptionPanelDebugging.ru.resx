@@ -129,4 +129,7 @@
   <data name="chkShowLogConsole.Text" xml:space="preserve">
     <value>Показать журнал консоли</value>
   </data>
+  <data name="bnResetDefaultSettings.Text" xml:space="preserve">
+    <value>Настройки по умолчанию</value>
+  </data>
 </root>

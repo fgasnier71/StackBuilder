@@ -129,4 +129,16 @@
   <data name="lbCase.Text" xml:space="preserve">
     <value>Fallet</value>
   </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Max. antal</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maximal fallvikt</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Stoppa criterions</value>
+  </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>Visa bästa kombinationerna &gt;</value>
+  </data>
 </root>

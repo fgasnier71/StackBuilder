@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Opções</value>
+  </data>
+  <data name="ApplyBtn.AccessibleDescription" xml:space="preserve">
+    <value>Aplique mudanças.</value>
+  </data>
+  <data name="ApplyBtn.Text" xml:space="preserve">
+    <value>Aplicar</value>
+  </data>
+  <data name="AppRestartLabel.AccessibleDescription" xml:space="preserve">
+    <value>Esta caixa indica que o aplicativo deve reiniciar para que as alterações entrem em vigor.</value>
+  </data>
+  <data name="AppRestartLabel.Text" xml:space="preserve">
+    <value>O aplicativo deve reiniciar para que as alterações entrem em vigor.</value>
+  </data>
+  <data name="CancelBtn.AccessibleDescription" xml:space="preserve">
+    <value>Cancele alterações e feche o formulário de opções.</value>
+  </data>
+  <data name="CancelBtn.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="CatDescr.AccessibleDescription" xml:space="preserve">
+    <value>Esta caixa mostra uma descrição para cada categoria na árvore.</value>
+  </data>
+  <data name="CatDescr.Text" xml:space="preserve">
+    <value>Descrição.</value>
+  </data>
+  <data name="CatHeader.AccessibleDescription" xml:space="preserve">
+    <value>Cabeçalho da árvore categorias.</value>
+  </data>
+  <data name="CatHeader.Text" xml:space="preserve">
+    <value>Categorias:</value>
+  </data>
+  <data name="CatTree.AccessibleDescription" xml:space="preserve">
+    <value>Categorias de opções.</value>
+  </data>
+  <data name="OKBtn.AccessibleDescription" xml:space="preserve">
+    <value>Aplique alterações e feche o formulário de opções.</value>
+  </data>
+  <data name="OKBtn.Text" xml:space="preserve">
+    <value>Okey</value>
+  </data>
+  <data name="OptionDescrLabel.AccessibleDescription" xml:space="preserve">
+    <value>Esta caixa mostra uma pequena descrição para cada controle.</value>
+  </data>
+  <data name="OptionDescrLabel.Text" xml:space="preserve">
+    <value>Descrição.</value>
+  </data>
+  <data name="OptionsPanelPath.AccessibleDescription" xml:space="preserve">
+    <value>Esta caixa mostra o caminho de opções para o painel de opções atuais.</value>
+  </data>
+  <data name="OptionsPanelPath.Text" xml:space="preserve">
+    <value>Opções » Caminho</value>
+  </data>
 </root>

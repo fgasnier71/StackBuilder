@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Crie uma nova análise de palete/caminhão...</value>
+  </data>
+  <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
+    <value>Mostre apenas as melhores camadas</value>
+  </data>
+  <data name="chkbAllowMultipleLayers.Text" xml:space="preserve">
+    <value>Permitir várias camadas</value>
+  </data>
+  <data name="lbPallets.Text" xml:space="preserve">
+    <value>Paletes carregados</value>
+  </data>
+  <data name="lbTrucks.Text" xml:space="preserve">
+    <value>Caminhões</value>
+  </data>
+  <data name="uCtrlMaxNoPallets.Text" xml:space="preserve">
+    <value>Número máximo de paletes</value>
+  </data>
+  <data name="uCtrlMinDistanceLoadRoof.Text" xml:space="preserve">
+    <value>Carga/teto de distância mínima</value>
+  </data>
+  <data name="uCtrlMinDistanceLoadWall.Text" xml:space="preserve">
+    <value>Carga/parede de distância mínima</value>
+  </data>
 </root>

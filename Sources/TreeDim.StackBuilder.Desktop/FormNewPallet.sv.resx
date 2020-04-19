@@ -228,4 +228,7 @@
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Vikt</value>
   </data>
+  <data name="cbColor.Items28" xml:space="preserve">
+    <value>Färg</value>
+  </data>
 </root>

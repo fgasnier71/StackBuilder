@@ -304,4 +304,22 @@
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>Herramientas</value>
   </data>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="bnPrev.Text" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="bnRemoveAll.Text" xml:space="preserve">
+    <value>Eliminar todo</value>
+  </data>
+  <data name="bnSearch.Text" xml:space="preserve">
+    <value>Búsqueda</value>
+  </data>
+  <data name="chkbSearchDescription.Text" xml:space="preserve">
+    <value>También descripción de búsqueda</value>
+  </data>
+  <data name="lbCount.Text" xml:space="preserve">
+    <value>1-20 de 0</value>
+  </data>
 </root>

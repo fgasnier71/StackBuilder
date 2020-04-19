@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,88 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Eingabe-/Ausgabezellen und Bildparameter definieren...</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="cbUnitSystem.Items" xml:space="preserve">
+    <value>Metrik 1 (mm/kg/l)</value>
+  </data>
+  <data name="cbUnitSystem.Items1" xml:space="preserve">
+    <value>Metrik 2 (cm/kg/l)</value>
+  </data>
+  <data name="cbUnitSystem.Items2" xml:space="preserve">
+    <value>UK (in/lb/gal)</value>
+  </data>
+  <data name="cbUnitSystem.Items3" xml:space="preserve">
+    <value>US (in/lb/gal)</value>
+  </data>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>Fall</value>
+  </data>
+  <data name="gbConstraintSet.Text" xml:space="preserve">
+    <value>Bedingungssatz</value>
+  </data>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>Palette</value>
+  </data>
+  <data name="gbResults.Text" xml:space="preserve">
+    <value>Ergebnisse</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Längenzelle</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Breitenzelle</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Höhenzelle</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Gewichtszelle</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Total palletWeight</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Ladung</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Bildbreite def.</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Einheitensystem</value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>Höhenzelle</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Längenzelle</value>
+  </data>
+  <data name="lbMaximumPalletHeight.Text" xml:space="preserve">
+    <value>Maximale Palettenhöhe</value>
+  </data>
+  <data name="lbMaximumPalletWeight.Text" xml:space="preserve">
+    <value>Maximale Palette Gewicht</value>
+  </data>
+  <data name="lbNoCases.Text" xml:space="preserve">
+    <value>Zahl der Fälle</value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value>Gewichtszelle</value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>Breitenzelle</value>
+  </data>
+  <data name="uCtrlImageDim.Text" xml:space="preserve">
+    <value>Bildabmessungen</value>
+  </data>
+  <data name="uCtrlImageLeftTop.Text" xml:space="preserve">
+    <value>Bild links/top position</value>
+  </data>
 </root>

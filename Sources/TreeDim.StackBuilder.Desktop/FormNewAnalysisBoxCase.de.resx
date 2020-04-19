@@ -129,4 +129,16 @@
   <data name="lbCase.Text" xml:space="preserve">
     <value>Fall</value>
   </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Maximale Anzahl</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maximales Gehäusegewicht</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Kriterien zu stoppen</value>
+  </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>Zeigen die beste Kombinationen &gt;</value>
+  </data>
 </root>

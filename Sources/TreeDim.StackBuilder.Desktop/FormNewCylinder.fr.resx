@@ -967,4 +967,52 @@
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Poids</value>
   </data>
+  <data name="gbDimensions.Text" xml:space="preserve">
+    <value>Dimensions</value>
+  </data>
+  <data name="cbColorWallInner.Items" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorWallInner.Items91" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorWallInner.Items92" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorWallInner.Items93" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorWallInner.Items94" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorWallOuter.Items" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorWallOuter.Items90" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorWallOuter.Items91" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorWallOuter.Items92" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorWallOuter.Items93" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorTop.Items" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorTop.Items89" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorTop.Items90" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorTop.Items91" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColorTop.Items92" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
 </root>

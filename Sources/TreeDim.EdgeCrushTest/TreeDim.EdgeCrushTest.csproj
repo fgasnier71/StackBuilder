@@ -159,6 +159,42 @@
     <EmbeddedResource Include="DockContentBCTCase.de.resx">
       <DependentUpon>DockContentBCTCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTCase.es.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTCase.it.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTCase.ja.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTCase.nl.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTCase.pl.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTCase.pt.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTCase.ru.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTCase.sv.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTCase.tr.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTCase.zh.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTPalletisation.de.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTPalletisation.es.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentBCTPalletisation.fr.resx">
       <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,7 +204,55 @@
     <EmbeddedResource Include="DockContentBCTCase.resx">
       <DependentUpon>DockContentBCTCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTPalletisation.it.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTPalletisation.ja.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTPalletisation.nl.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTPalletisation.pl.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTPalletisation.pt.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTPalletisation.ru.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTPalletisation.sv.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTPalletisation.tr.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTPalletisation.zh.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCardboardQualityList.de.resx">
+      <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCardboardQualityList.es.resx">
+      <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCardboardQualityList.fr.resx">
+      <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCardboardQualityList.it.resx">
+      <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCardboardQualityList.ja.resx">
+      <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCardboardQualityList.nl.resx">
+      <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCardboardQualityList.pl.resx">
+      <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCardboardQualityList.pt.resx">
       <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCardboardQualityList.resx">
@@ -176,6 +260,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentBCTPalletisation.resx">
       <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCardboardQualityList.ru.resx">
+      <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCardboardQualityList.sv.resx">
+      <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCardboardQualityList.tr.resx">
+      <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCardboardQualityList.zh.resx">
+      <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditCardboardQualityData.de.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
@@ -216,20 +312,64 @@
     <EmbeddedResource Include="FormEditCardboardQualityData.zh.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.de.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.es.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.fr.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.it.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.ja.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.nl.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.pl.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.pt.resx">
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.resx">
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.ru.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.sv.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.tr.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.zh.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPalletsDatabase.resx">
       <DependentUpon>FormPalletsDatabase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de.resx" />
+    <EmbeddedResource Include="Properties\Resources.es.resx" />
     <EmbeddedResource Include="Properties\Resources.fr.resx" />
+    <EmbeddedResource Include="Properties\Resources.it.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja.resx" />
+    <EmbeddedResource Include="Properties\Resources.nl.resx" />
+    <EmbeddedResource Include="Properties\Resources.pl.resx" />
+    <EmbeddedResource Include="Properties\Resources.pt.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru.resx" />
+    <EmbeddedResource Include="Properties\Resources.sv.resx" />
+    <EmbeddedResource Include="Properties\Resources.tr.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh.resx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,692 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ID_A1" xml:space="preserve">
+    <value>A1</value>
+  </data>
+  <data name="ID_A2" xml:space="preserve">
+    <value>A2</value>
+  </data>
+  <data name="ID_A3" xml:space="preserve">
+    <value>A3</value>
+  </data>
+  <data name="ID_ABOUT" xml:space="preserve">
+    <value>{0} Hakkında</value>
+  </data>
+  <data name="ID_ADDNEWANALYSIS" xml:space="preserve">
+    <value>Yeni analiz ler ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWBOTTLE" xml:space="preserve">
+    <value>Yeni şişe ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWBOX" xml:space="preserve">
+    <value>Yeni kutu ekle...</value>
+  </data>
+  <data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
+    <value>Yeni kutu/servis talebi analizi ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWBUNDLE" xml:space="preserve">
+    <value>Yeni paket ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWBUNDLEANALYSIS" xml:space="preserve">
+    <value>Yeni paket analizi ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWCASE" xml:space="preserve">
+    <value>Yeni servis talebi ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWCASEANALYSIS" xml:space="preserve">
+    <value>Yeni servis talebi analizi ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWCYLINDER" xml:space="preserve">
+    <value>Yeni silindir ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWCYLINDERANALYSIS" xml:space="preserve">
+    <value>Yeni silindir analizi ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWECTANALYSIS" xml:space="preserve">
+    <value>Yeni EKT analizi ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWINTERLAYER" xml:space="preserve">
+    <value>Yeni interlayer ekle...</value>
+  </data>
+  <data name="ID_ADDNEWPACKANALYSIS" xml:space="preserve">
+    <value>Yeni Paket/Palet analizi ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWPALLET" xml:space="preserve">
+    <value>Yeni palet ekle...</value>
+  </data>
+  <data name="ID_ADDNEWPALLETCAP" xml:space="preserve">
+    <value>Yeni palet kapağı ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWPALLETCORNERS" xml:space="preserve">
+    <value>Yeni palet köşeleri ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWPALLETFILM" xml:space="preserve">
+    <value>Yeni palet film ekle...</value>
+  </data>
+  <data name="ID_ADDNEWTRUCK" xml:space="preserve">
+    <value>Yeni kamyon ekleyin...</value>
+  </data>
+  <data name="ID_ADDNEWTRUCKANALYSIS" xml:space="preserve">
+    <value>Yeni kamyon analizi ekleyin...</value>
+  </data>
+  <data name="ID_ALGORITHM" xml:space="preserve">
+    <value>Algoritması</value>
+  </data>
+  <data name="ID_ALLOWALIGNEDORALTERNATELAYERS" xml:space="preserve">
+    <value>Hizalanmış ve/veya alternatif katmanlar alabilmelerine izin ver</value>
+  </data>
+  <data name="ID_ANALYSIS" xml:space="preserve">
+    <value>Analysis</value>
+  </data>
+  <data name="ID_ANALYSISHASNOSOLUTION" xml:space="preserve">
+    <value>Analizin çözümü yok mu?\nTo birçok aykırılık?</value>
+  </data>
+  <data name="ID_ANALYSISHASNOVALIDSOLUTION" xml:space="preserve">
+    <value>Analiz {0} geçerli bir çözümü yoktur.</value>
+  </data>
+  <data name="ID_AREA" xml:space="preserve">
+    <value>Alan</value>
+  </data>
+  <data name="ID_AUTOIMPORT" xml:space="preserve">
+    <value>Otomatik içe aktarma</value>
+  </data>
+  <data name="ID_BOTTLE" xml:space="preserve">
+    <value>Şişe</value>
+  </data>
+  <data name="ID_BOX" xml:space="preserve">
+    <value>Kutusu</value>
+  </data>
+  <data name="ID_BOXCASECOUNT" xml:space="preserve">
+    <value>Kutu/Büyük/Büyük/Kasa sayısı</value>
+  </data>
+  <data name="ID_BOXCOUNT" xml:space="preserve">
+    <value>Kutu /Kasa</value>
+  </data>
+  <data name="ID_BOXDOESNOTFITINCASE" xml:space="preserve">
+    <value>Kutu {0} {1} durumunda uymuyor.</value>
+  </data>
+  <data name="ID_BOXES" xml:space="preserve">
+    <value>Kutu -larını</value>
+  </data>
+  <data name="ID_BUNDLE" xml:space="preserve">
+    <value>Paket</value>
+  </data>
+  <data name="ID_CANNOTUSEWEIGHTLIMIT" xml:space="preserve">
+    <value>Ağırlık sınırı, kütle olarak {0} için kullanılamaz.</value>
+  </data>
+  <data name="ID_CASE" xml:space="preserve">
+    <value>Durumda</value>
+  </data>
+  <data name="ID_CASEANALYSIS_INVALIDCONSTRAINTSET" xml:space="preserve">
+    <value>Kısıtlama kümesi geçersiz gibi göründüğünden büyük/küçük harf çözümlemesi oluşturulamaz.</value>
+  </data>
+  <data name="ID_CASECOUNT" xml:space="preserve">
+    <value># Davalar</value>
+  </data>
+  <data name="ID_CASECOUNTFORMATSTRING" xml:space="preserve">
+    <value>{0}
+{1} x{2}</value>
+  </data>
+  <data name="ID_CASEDIMENSIONS" xml:space="preserve">
+    <value>Büyük/küçük harf boyutları</value>
+  </data>
+  <data name="ID_CASEINSIDEDIMENSIONS" xml:space="preserve">
+    <value>İç boyutlar</value>
+  </data>
+  <data name="ID_CASELIMIT" xml:space="preserve">
+    <value>Sınıra ulaşıldı</value>
+  </data>
+  <data name="ID_CASENAME" xml:space="preserve">
+    <value>Çakır</value>
+  </data>
+  <data name="ID_CASEOFBOXES" xml:space="preserve">
+    <value>Kutu kılıfı</value>
+  </data>
+  <data name="ID_CASEPERLAYERCOUNT" xml:space="preserve">
+    <value># Durumlarda / Katman</value>
+  </data>
+  <data name="ID_CASEPERPALLET" xml:space="preserve">
+    <value>Büyük/palet</value>
+  </data>
+  <data name="ID_CASES" xml:space="preserve">
+    <value>Durumda</value>
+  </data>
+  <data name="ID_CASESLAYER" xml:space="preserve">
+    <value>Kılıflar/Katman</value>
+  </data>
+  <data name="ID_CASESPALLET" xml:space="preserve">
+    <value>Kılıflar/Palet</value>
+  </data>
+  <data name="ID_CASEWEIGHT" xml:space="preserve">
+    <value>Kasa ağırlığı ({0})</value>
+  </data>
+  <data name="ID_CHROMEISNOTINSTALLED" xml:space="preserve">
+    <value>Collada/webGL animasyonlarını görselleştirmek için Google Chrome tarayıcısının yüklenmesi gerekir.</value>
+  </data>
+  <data name="ID_CLOSE" xml:space="preserve">
+    <value>Yakın</value>
+  </data>
+  <data name="ID_CONSUMERSALESUNITS" xml:space="preserve">
+    <value># CSU</value>
+  </data>
+  <data name="ID_CYLINDER" xml:space="preserve">
+    <value>Silindir</value>
+  </data>
+  <data name="ID_CYLINDERCOUNT" xml:space="preserve">
+    <value>Silindir sayısı</value>
+  </data>
+  <data name="ID_CYLINDERS" xml:space="preserve">
+    <value>Silindir</value>
+  </data>
+  <data name="ID_DATABASEEMPTY" xml:space="preserve">
+    <value>Palet çözüm veritabanı boş.
+Kapanış formu...</value>
+  </data>
+  <data name="ID_DATABASEITEMCOUNT" xml:space="preserve">
+    <value>{0} {2} {1}</value>
+  </data>
+  <data name="ID_DEFINEATLEASTONEPATTERN" xml:space="preserve">
+    <value>En az bir istifleme deseni tanımlama</value>
+  </data>
+  <data name="ID_DEFINEATLEASTONEVERTICALAXIS" xml:space="preserve">
+    <value>En az bir dikey eksen tanımlayın</value>
+  </data>
+  <data name="ID_DEFINEVALIDFILEPATH" xml:space="preserve">
+    <value>Geçerli bir dosya yolu tanımlayın.</value>
+  </data>
+  <data name="ID_DELETE" xml:space="preserve">
+    <value>Silmek</value>
+  </data>
+  <data name="ID_DELETEITEM" xml:space="preserve">
+    <value>{0} silme</value>
+  </data>
+  <data name="ID_DEPENDINGANALYSES" xml:space="preserve">
+    <value>{0} aşağıdaki bağımlılıklara sahiptir:
+{1}
+Değişikliklere devam ederseniz, analizler yeniden hesaplanır ve seçili çözümler kaldırılır.
+Devam?</value>
+  </data>
+  <data name="ID_DESCRIPTION" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="ID_DESELECT" xml:space="preserve">
+    <value>Seçim -ini kaldırın</value>
+  </data>
+  <data name="ID_DIAMETER" xml:space="preserve">
+    <value>Çapı</value>
+  </data>
+  <data name="ID_DIAMETERINNER_WU" xml:space="preserve">
+    <value>İç çap ({0})</value>
+  </data>
+  <data name="ID_DIAMETEROUTER_WU" xml:space="preserve">
+    <value>Dış çap ({0})</value>
+  </data>
+  <data name="ID_DIMENSIONS" xml:space="preserve">
+    <value>Boyutlar ({0})</value>
+  </data>
+  <data name="ID_DIMEXT_WU" xml:space="preserve">
+    <value>Dim. ext. ({0})</value>
+  </data>
+  <data name="ID_DIMINT_WU" xml:space="preserve">
+    <value>Dim. int. ({0})</value>
+  </data>
+  <data name="ID_DISPLAYDEBUGGING" xml:space="preserve">
+    <value>Hata ayıklama</value>
+  </data>
+  <data name="ID_DISPLAYDIMENSIONSCASEPALLET" xml:space="preserve">
+    <value>Boyutlar Kasa/Palet</value>
+  </data>
+  <data name="ID_DISPLAYMEASUREMENTSYSTEM" xml:space="preserve">
+    <value>Dil ve Ölçüm sistemi</value>
+  </data>
+  <data name="ID_DISPLAYPALLETEDITION" xml:space="preserve">
+    <value>Palet baskı parametreleri</value>
+  </data>
+  <data name="ID_DISPLAYPLUGINS" xml:space="preserve">
+    <value>Eklentiler</value>
+  </data>
+  <data name="ID_DISPLAYREPORTING" xml:space="preserve">
+    <value>Raporlama</value>
+  </data>
+  <data name="ID_DONE" xml:space="preserve">
+    <value>Yapılır!</value>
+  </data>
+  <data name="ID_DOUBLECLICKALAYER" xml:space="preserve">
+    <value>Bir katmanı çift tıklatın!</value>
+  </data>
+  <data name="ID_ECT" xml:space="preserve">
+    <value>Vb</value>
+  </data>
+  <data name="ID_EDGECRUSHTEST" xml:space="preserve">
+    <value>Kenar Kırma Test Analizi</value>
+  </data>
+  <data name="ID_EDIT" xml:space="preserve">
+    <value>{0}'i edin...</value>
+  </data>
+  <data name="ID_EFFICIENCY" xml:space="preserve">
+    <value>Verimli -liği</value>
+  </data>
+  <data name="ID_EFFICIENCYPERCENTAGE" xml:space="preserve">
+    <value>Verimlilik (%)</value>
+  </data>
+  <data name="ID_EVALUATINGCASE" xml:space="preserve">
+    <value>{1}'den {0} vakanın değerlendirilmesi...</value>
+  </data>
+  <data name="ID_EXCELSHEETUNITSYSTEM" xml:space="preserve">
+    <value>Excel sayfasındaki ({0}) değerlerin şu anda ayarlanmış StackBuilder birim sistemi yani {1} kullanılarak ifade edilir onaylayabilir misiniz?</value>
+  </data>
+  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
+    <value>Açıklama alanı boş</value>
+  </data>
+  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
+    <value>Ad alanı boş</value>
+  </data>
+  <data name="ID_FIELDNAMEINVALID" xml:space="preserve">
+    <value>Ad zaten var.</value>
+  </data>
+  <data name="ID_FILENOTFOUND" xml:space="preserve">
+    <value>Dosya {0} bulunamadı</value>
+  </data>
+  <data name="ID_FILTER_MSWORD" xml:space="preserve">
+    <value>Microsoft Office Word (*.doc;*.docx)|*.doc;*.docx| Tüm Dosyalar (*.*)|*.*</value>
+  </data>
+  <data name="ID_GENERATECOLLADA" xml:space="preserve">
+    <value>{0} için 3B animasyon dosyası oluşturma</value>
+  </data>
+  <data name="ID_GENERATEREPORT" xml:space="preserve">
+    <value>{0} için bir rapor oluşturma</value>
+  </data>
+  <data name="ID_GENERATEREPORTHTML" xml:space="preserve">
+    <value>HTML raporu oluşturma</value>
+  </data>
+  <data name="ID_GENERATEREPORTMSWORD" xml:space="preserve">
+    <value>MS sözcük raporu oluşturma</value>
+  </data>
+  <data name="ID_GENERATEREPORTPDF" xml:space="preserve">
+    <value>PDF raporu oluşturma</value>
+  </data>
+  <data name="ID_GOPREMIUMORUNSELECT" xml:space="preserve">
+    <value>Düzenlenen katmanları kullanmak bir "Premium" özelliğidir. Düzenlenmemiş katman ı seçin.</value>
+  </data>
+  <data name="ID_HATCHINGANGLE" xml:space="preserve">
+    <value>Kuluçka açısı</value>
+  </data>
+  <data name="ID_HATCHINGSPACING" xml:space="preserve">
+    <value>Kuluçka alanı</value>
+  </data>
+  <data name="ID_HEIGHT" xml:space="preserve">
+    <value>Yükseklik</value>
+  </data>
+  <data name="ID_HEIGHT_WU" xml:space="preserve">
+    <value>Yükseklik ({0})</value>
+  </data>
+  <data name="ID_IMPORTLOADING" xml:space="preserve">
+    <value>{0} yükleniyor...</value>
+  </data>
+  <data name="ID_IMPORTSKIPPING" xml:space="preserve">
+    <value>{0} atlama ...</value>
+  </data>
+  <data name="ID_INDEX" xml:space="preserve">
+    <value>Dizin</value>
+  </data>
+  <data name="ID_INSUFFICIENTPALLETHEIGHT" xml:space="preserve">
+    <value>Maksimal palet yüksekliği ({0} {1}) {2} {3} aşmalıdır</value>
+  </data>
+  <data name="ID_INSUFFICIENTVOLUME" xml:space="preserve">
+    <value>Maksimum hacim {0} {1} paketlemek için yetersizdir.</value>
+  </data>
+  <data name="ID_INTERLAYER" xml:space="preserve">
+    <value>Katmanlar arası</value>
+  </data>
+  <data name="ID_INTERLAYERCOUNT" xml:space="preserve">
+    <value>Katmanlar arası #</value>
+  </data>
+  <data name="ID_INTERLAYERNUMBER" xml:space="preserve">
+    <value>Katmanlar arası #</value>
+  </data>
+  <data name="ID_INTERLAYERS" xml:space="preserve">
+    <value>Katmanlar arası</value>
+  </data>
+  <data name="ID_INVALIDDIAMETER" xml:space="preserve">
+    <value>İç çapı dış çaptan daha küçük olmalıdır.</value>
+  </data>
+  <data name="ID_INVALIDINSIDEHEIGHT" xml:space="preserve">
+    <value>İç yükseklik ({0}) yükseklikten daha düşük olmalıdır ({1})</value>
+  </data>
+  <data name="ID_INVALIDINSIDELENGTH" xml:space="preserve">
+    <value>İç uzunluk ({0}) uzunluktan daha düşük olmalıdır ({1})</value>
+  </data>
+  <data name="ID_INVALIDINSIDEWIDTH" xml:space="preserve">
+    <value>İç genişlik ({0}) genişliğinden daha düşük olmalıdır ({1})</value>
+  </data>
+  <data name="ID_INVALIDMASS" xml:space="preserve">
+    <value>Kütle değeri pozitif olmalı</value>
+  </data>
+  <data name="ID_INVALIDNAME" xml:space="preserve">
+    <value>Verilen ad ({0}) geçersizdir</value>
+  </data>
+  <data name="ID_INVALIDNETWEIGHT" xml:space="preserve">
+    <value>Net ağırlık ({0}) ağırlığı aşmamalıdır ({1})</value>
+  </data>
+  <data name="ID_INVALIDOUTERDIMENSION" xml:space="preserve">
+    <value>Dış boyutlar içerik boyutlarını aşmalıdır...</value>
+  </data>
+  <data name="ID_INVALIDTHICKNESSWIDTHPAIR" xml:space="preserve">
+    <value>Kalınlık genişliği aşmamalıdır</value>
+  </data>
+  <data name="ID_ITEMS" xml:space="preserve">
+    <value>Bileşen</value>
+  </data>
+  <data name="ID_LAYER" xml:space="preserve">
+    <value>Katman</value>
+  </data>
+  <data name="ID_LAYERCOUNT" xml:space="preserve">
+    <value>Katman #</value>
+  </data>
+  <data name="ID_LAYERNUMBER" xml:space="preserve">
+    <value>Katman #</value>
+  </data>
+  <data name="ID_LAYERPATTERN" xml:space="preserve">
+    <value>Katman deseni</value>
+  </data>
+  <data name="ID_LAYERPATTERNS" xml:space="preserve">
+    <value>Katman deseni(ler)</value>
+  </data>
+  <data name="ID_LAYERS" xml:space="preserve">
+    <value>Katman</value>
+  </data>
+  <data name="ID_LAYERWEIGHT" xml:space="preserve">
+    <value>Katman ağırlığı ({0})</value>
+  </data>
+  <data name="ID_LAYOUT" xml:space="preserve">
+    <value>Düzen</value>
+  </data>
+  <data name="ID_LENGTH" xml:space="preserve">
+    <value>Uzun -luğu</value>
+  </data>
+  <data name="ID_LENGTH_WU" xml:space="preserve">
+    <value>Uzunluk ({0})</value>
+  </data>
+  <data name="ID_LOAD" xml:space="preserve">
+    <value>Yük</value>
+  </data>
+  <data name="ID_LOADDIMENSIONS" xml:space="preserve">
+    <value>Yük boyutları ({0})</value>
+  </data>
+  <data name="ID_LOADEDCASES" xml:space="preserve">
+    <value>Yüklenen servis talepleri</value>
+  </data>
+  <data name="ID_LOADEDVOLUMEPERCENTAGE" xml:space="preserve">
+    <value>Yüklenen hacim yüzdesi</value>
+  </data>
+  <data name="ID_LOADHEIGHT" xml:space="preserve">
+    <value>Yük yüksekliği</value>
+  </data>
+  <data name="ID_LOADWEIGHT" xml:space="preserve">
+    <value>Yük ağırlığı</value>
+  </data>
+  <data name="ID_LOADWEIGHT_WU" xml:space="preserve">
+    <value>Yük ağırlığı ({0})</value>
+  </data>
+  <data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
+    <value>Maksimum kasa ağırlığı {0} {1} aşmalıdır.</value>
+  </data>
+  <data name="ID_MAXIMUMSPACE" xml:space="preserve">
+    <value>Maksimum alan ({0})</value>
+  </data>
+  <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
+    <value>Tutarsızlık:Maksimum {0} minimum {1} daha düşüktür.</value>
+  </data>
+  <data name="ID_NAME" xml:space="preserve">
+    <value>Adı</value>
+  </data>
+  <data name="ID_NAMEALREADYEXISTSINDB" xml:space="preserve">
+    <value>{1} adlı {0} veritabanında zaten var.</value>
+  </data>
+  <data name="ID_NETWEIGHT_WU" xml:space="preserve">
+    <value>Net ağırlık ({0})</value>
+  </data>
+  <data name="ID_NOANALYSISSELECTED" xml:space="preserve">
+    <value>Çözümleme seçilmedi.</value>
+  </data>
+  <data name="ID_NOCASESELECTED" xml:space="preserve">
+    <value>Hiçbir dava seçilmedi!</value>
+  </data>
+  <data name="ID_NODE_ANALYSES" xml:space="preserve">
+    <value>Analiz</value>
+  </data>
+  <data name="ID_NODE_BOXES" xml:space="preserve">
+    <value>Kutu -larını</value>
+  </data>
+  <data name="ID_NODE_BUNDLES" xml:space="preserve">
+    <value>Paketler</value>
+  </data>
+  <data name="ID_NODE_CASES" xml:space="preserve">
+    <value>Durumda</value>
+  </data>
+  <data name="ID_NODE_CYLINDERS" xml:space="preserve">
+    <value>Silindir</value>
+  </data>
+  <data name="ID_NODE_INTERLAYERS" xml:space="preserve">
+    <value>Katmanlar arası</value>
+  </data>
+  <data name="ID_NODE_PACKS" xml:space="preserve">
+    <value>Paketleri</value>
+  </data>
+  <data name="ID_NODE_PALLETCAPS" xml:space="preserve">
+    <value>Palet kapakları</value>
+  </data>
+  <data name="ID_NODE_PALLETCORNERS" xml:space="preserve">
+    <value>Palet köşeleri</value>
+  </data>
+  <data name="ID_NODE_PALLETFILMS" xml:space="preserve">
+    <value>Palet filmleri</value>
+  </data>
+  <data name="ID_NODE_PALLETS" xml:space="preserve">
+    <value>Palet</value>
+  </data>
+  <data name="ID_NODE_TRUCKS" xml:space="preserve">
+    <value>Kamyon</value>
+  </data>
+  <data name="ID_NOORIENTATIONSELECTED" xml:space="preserve">
+    <value>Oryantasyon seçilmedi!</value>
+  </data>
+  <data name="ID_NOPALLETSOLUTIONSELECTED" xml:space="preserve">
+    <value>Palet çözümü seçilmedi</value>
+  </data>
+  <data name="ID_NUMBER" xml:space="preserve">
+    <value>Numarası</value>
+  </data>
+  <data name="ID_NUMBEROFPALLETS" xml:space="preserve">
+    <value>Palet sayısı</value>
+  </data>
+  <data name="ID_OPTIONSDEBUGGING" xml:space="preserve">
+    <value>Seçenekler\\Hata ayıklama</value>
+  </data>
+  <data name="ID_OPTIONSDIMENSIONS" xml:space="preserve">
+    <value>Seçenekler\\Boyutlar\\Büyük/Palet</value>
+  </data>
+  <data name="ID_OPTIONSMEASUREMENTSYSTEM" xml:space="preserve">
+    <value>Seçenekler\\Dil ve Birim sistemi</value>
+  </data>
+  <data name="ID_OPTIONSPALLETEDITION" xml:space="preserve">
+    <value>Seçenekler\\Palet sürümü</value>
+  </data>
+  <data name="ID_OPTIONSPLUGINS" xml:space="preserve">
+    <value>Seçenekler\\Eklentiler</value>
+  </data>
+  <data name="ID_OPTIONSREPORTING" xml:space="preserve">
+    <value>Seçenekler\\Raporlama</value>
+  </data>
+  <data name="ID_ORIENTATION" xml:space="preserve">
+    <value>Yönlendirme</value>
+  </data>
+  <data name="ID_OUTERDIMENSIONS" xml:space="preserve">
+    <value>Dış boyutlar ({0})</value>
+  </data>
+  <data name="ID_PACK" xml:space="preserve">
+    <value>Paketi</value>
+  </data>
+  <data name="ID_PACKCOUNT" xml:space="preserve">
+    <value># Paketler</value>
+  </data>
+  <data name="ID_PALLET" xml:space="preserve">
+    <value>Palet</value>
+  </data>
+  <data name="ID_PALLETCAP" xml:space="preserve">
+    <value>Cap</value>
+  </data>
+  <data name="ID_PALLETCAPNOTLONGENOUGH" xml:space="preserve">
+    <value>Palet kapağı uzunluğu palet uzunluğunu + çıkıntı X...</value>
+  </data>
+  <data name="ID_PALLETCAPNOTWIDEENOUGH" xml:space="preserve">
+    <value>Palet kapağı genişliği palet genişliğini + çıkıntı Y...</value>
+  </data>
+  <data name="ID_PALLETCAPS" xml:space="preserve">
+    <value>Palet kapakları</value>
+  </data>
+  <data name="ID_PALLETCAPTIONEDIT" xml:space="preserve">
+    <value>Palet {0}...</value>
+  </data>
+  <data name="ID_PALLETCORNERS" xml:space="preserve">
+    <value>Köşe</value>
+  </data>
+  <data name="ID_PALLETCOUNT" xml:space="preserve">
+    <value>Palet sayısı</value>
+  </data>
+  <data name="ID_PALLETDATA" xml:space="preserve">
+    <value>Palet verileri</value>
+  </data>
+  <data name="ID_PALLETFILM" xml:space="preserve">
+    <value>Film</value>
+  </data>
+  <data name="ID_PALLETFILMS" xml:space="preserve">
+    <value>Palet filmleri</value>
+  </data>
+  <data name="ID_PALLETHEIGHT" xml:space="preserve">
+    <value>Palet yüksekliği
+({0})</value>
+  </data>
+  <data name="ID_PALLETLIMIT" xml:space="preserve">
+    <value>Sınıra ulaşıldı</value>
+  </data>
+  <data name="ID_PALLETMAXHEIGHT" xml:space="preserve">
+    <value>Yükseklik</value>
+  </data>
+  <data name="ID_PALLETMAXNUMBER" xml:space="preserve">
+    <value>Numarası</value>
+  </data>
+  <data name="ID_PALLETMAXWEIGHT" xml:space="preserve">
+    <value>Ağırlık</value>
+  </data>
+  <data name="ID_PALLETS" xml:space="preserve">
+    <value>Palet</value>
+  </data>
+  <data name="ID_PALLETWEIGHT" xml:space="preserve">
+    <value>Palet ağırlığı
+({0})</value>
+  </data>
+  <data name="ID_PALLETWEIGHT_WU" xml:space="preserve">
+    <value>Palet ağırlığı</value>
+  </data>
+  <data name="ID_PALLET_NUMBER" xml:space="preserve">
+    <value>Palet #{0}</value>
+  </data>
+  <data name="ID_PREMIUMFEATURE" xml:space="preserve">
+    <value>Bu özelliğe yalnızca Premium hesaplar erişebilir.</value>
+  </data>
+  <data name="ID_PREMIUMVERSIONURL" xml:space="preserve">
+    <value>http://www.plmpack.com/stackbuilder/premium/premium.html</value>
+  </data>
+  <data name="ID_READY" xml:space="preserve">
+    <value>Hazır</value>
+  </data>
+  <data name="ID_REGISTEREDUSERCOUNT" xml:space="preserve">
+    <value>Kullanıcı sayısı = {0}</value>
+  </data>
+  <data name="ID_REMOVINGEXISTINGTYPE" xml:space="preserve">
+    <value>Varolan tür {0} kaldırma...</value>
+  </data>
+  <data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
+    <value>Dosya{0} kaydet?</value>
+  </data>
+  <data name="ID_SELECT" xml:space="preserve">
+    <value>Seçin</value>
+  </data>
+  <data name="ID_SELECTATLEASTONELAYOUT" xml:space="preserve">
+    <value>Leat tek katmandan seçin</value>
+  </data>
+  <data name="ID_SELECTED" xml:space="preserve">
+    <value>Seçili</value>
+  </data>
+  <data name="ID_SELECTEDLAYER" xml:space="preserve">
+    <value>Seçilen katman: {0}</value>
+  </data>
+  <data name="ID_SENDTODATABASE" xml:space="preserve">
+    <value>Veritabanına gönder</value>
+  </data>
+  <data name="ID_SORTINGSOLUTIONS" xml:space="preserve">
+    <value>Çözüm sıralama...</value>
+  </data>
+  <data name="ID_SPACES_WU" xml:space="preserve">
+    <value>Boşluklar ({0})</value>
+  </data>
+  <data name="ID_TASKCANCELED" xml:space="preserve">
+    <value>Iptal!</value>
+  </data>
+  <data name="ID_THICKNESS_WU" xml:space="preserve">
+    <value>Kalınlık ({0})</value>
+  </data>
+  <data name="ID_TOTALWEIGHT_WU" xml:space="preserve">
+    <value>Toplam ağırlık ({0})</value>
+  </data>
+  <data name="ID_TRANSPARENCY" xml:space="preserve">
+    <value>Saydamlık kullanma</value>
+  </data>
+  <data name="ID_TRUCK" xml:space="preserve">
+    <value>Kamyon</value>
+  </data>
+  <data name="ID_TRUCKADMISSIBLELOAD" xml:space="preserve">
+    <value>Kamyon geçerli bir kabul edilebilir yük değerine sahip olmalıdır.</value>
+  </data>
+  <data name="ID_UNEXPECTEDTYPE" xml:space="preserve">
+    <value>Beklenmeyen tür: {0}</value>
+  </data>
+  <data name="ID_UNITSYSTEM" xml:space="preserve">
+    <value>Birim sistemi...</value>
+  </data>
+  <data name="ID_UNLOADEDCASES" xml:space="preserve">
+    <value>Boşaltılmış servis talepleri</value>
+  </data>
+  <data name="ID_UNSELECTSOLUTION" xml:space="preserve">
+    <value>Çözüm {0} seçili olmayan çözüm</value>
+  </data>
+  <data name="ID_USEATLEASTONESTOPSTACKINGCRITERION" xml:space="preserve">
+    <value>En az bir istifleme ölçütü tanımlama</value>
+  </data>
+  <data name="ID_USETRANSPARENCYORHATCHING" xml:space="preserve">
+    <value>Saydamlık ve/veya kuluçka kullanın</value>
+  </data>
+  <data name="ID_VERSION" xml:space="preserve">
+    <value>Versiyon : {0}</value>
+  </data>
+  <data name="ID_VOLUMEEFFICIENCY" xml:space="preserve">
+    <value>Verimlilik (%)</value>
+  </data>
+  <data name="ID_WARNINGEDITLAYER" xml:space="preserve">
+    <value>Lütfen, değiştirilen katmanı bir paletlemede yalnızca "Premium" hesaplarının kullanabileceğini unutmayın.</value>
+  </data>
+  <data name="ID_WEIGHT" xml:space="preserve">
+    <value>Ağırlık</value>
+  </data>
+  <data name="ID_WEIGHT_WU" xml:space="preserve">
+    <value>Ağırlık ({0})</value>
+  </data>
+  <data name="ID_WIDTH" xml:space="preserve">
+    <value>Genişlik</value>
+  </data>
+  <data name="ID_WIDTH_WU" xml:space="preserve">
+    <value>Genişlik ({0})</value>
+  </data>
 </root>

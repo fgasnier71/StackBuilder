@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,170 +59,221 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<data name="ID_FILTER_HTML" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ID_FILTER_HTML" xml:space="preserve">
     <value>HyperText Markup Language (* html) | * .html | Alla filer (*. *) | *. *</value>
   </data>
-	<data name="ID_FILTER_MSWORD" xml:space="preserve">
+  <data name="ID_FILTER_MSWORD" xml:space="preserve">
     <value>Microsoft Office Word (*.doc;*.docx)|*.doc;*.docx|Alla filer (*.*)|*.*</value>
   </data>
-	<data name="ID_FILTER_PDF" xml:space="preserve">
+  <data name="ID_FILTER_PDF" xml:space="preserve">
     <value>Adobe Acrobat (*.pdf) | * .pdf</value>
   </data>
-	<data name="ID_REPORT" xml:space="preserve">
+  <data name="ID_REPORT" xml:space="preserve">
     <value>Rapport</value>
   </data>
-	<data name="ID_REPORTANALYSIS" xml:space="preserve">
+  <data name="ID_REPORTANALYSIS" xml:space="preserve">
     <value>Rapporten {0}</value>
   </data>
-	<data name="ID_RN_ANALYSIS" xml:space="preserve">
+  <data name="ID_RN_ANALYSIS" xml:space="preserve">
     <value>Analys ({0})</value>
   </data>
-	<data name="ID_RN_ARRANGEMENT" xml:space="preserve">
+  <data name="ID_RN_ARRANGEMENT" xml:space="preserve">
     <value>Arrangemang</value>
   </data>
-	<data name="ID_RN_AUTHORS" xml:space="preserve">
+  <data name="ID_RN_AUTHORS" xml:space="preserve">
     <value>Skapad av</value>
   </data>
-	<data name="ID_RN_BOX" xml:space="preserve">
+  <data name="ID_RN_BOX" xml:space="preserve">
     <value>Kartong</value>
   </data>
-	<data name="ID_RN_BUNDLE" xml:space="preserve">
+  <data name="ID_RN_BUNDLE" xml:space="preserve">
     <value>Bunt</value>
   </data>
-	<data name="ID_RN_CASE" xml:space="preserve">
+  <data name="ID_RN_CASE" xml:space="preserve">
     <value>Låda</value>
   </data>
-	<data name="ID_RN_COMPANYLOGO" xml:space="preserve">
+  <data name="ID_RN_COMPANYLOGO" xml:space="preserve">
     <value>Företagslogotyp</value>
   </data>
-	<data name="ID_RN_CONSTRAINTSET" xml:space="preserve">
+  <data name="ID_RN_CONSTRAINTSET" xml:space="preserve">
     <value>Begränsningar</value>
   </data>
-	<data name="ID_RN_CYLINDER" xml:space="preserve">
+  <data name="ID_RN_CYLINDER" xml:space="preserve">
     <value>Cylinder</value>
   </data>
-	<data name="ID_RN_DATE" xml:space="preserve">
+  <data name="ID_RN_DATE" xml:space="preserve">
     <value>Datum</value>
   </data>
-	<data name="ID_RN_DEFAULT" xml:space="preserve">
+  <data name="ID_RN_DEFAULT" xml:space="preserve">
     <value>Standard</value>
   </data>
-	<data name="ID_RN_DESCRIPTION" xml:space="preserve">
+  <data name="ID_RN_DESCRIPTION" xml:space="preserve">
     <value>Beskrivning</value>
   </data>
-	<data name="ID_RN_DIMENSIONS" xml:space="preserve">
+  <data name="ID_RN_DIMENSIONS" xml:space="preserve">
     <value>Format</value>
   </data>
-	<data name="ID_RN_DIMENSIONSINNER" xml:space="preserve">
+  <data name="ID_RN_DIMENSIONSINNER" xml:space="preserve">
     <value>Inner format</value>
   </data>
-	<data name="ID_RN_DIMENSIONSOUTER" xml:space="preserve">
+  <data name="ID_RN_DIMENSIONSOUTER" xml:space="preserve">
     <value>Ytterformat</value>
   </data>
-	<data name="ID_RN_IMAGE" xml:space="preserve">
+  <data name="ID_RN_IMAGE" xml:space="preserve">
     <value>Bild</value>
   </data>
-	<data name="ID_RN_INTERLAYER" xml:space="preserve">
+  <data name="ID_RN_INTERLAYER" xml:space="preserve">
     <value>Mellanlägg</value>
   </data>
-	<data name="ID_RN_LAYERS" xml:space="preserve">
+  <data name="ID_RN_LAYERS" xml:space="preserve">
     <value>Lager</value>
   </data>
-	<data name="ID_RN_MAXIMUMHEIGHT" xml:space="preserve">
+  <data name="ID_RN_MAXIMUMHEIGHT" xml:space="preserve">
     <value>Max. höjd</value>
   </data>
-	<data name="ID_RN_MAXIMUMNUMBER" xml:space="preserve">
+  <data name="ID_RN_MAXIMUMNUMBER" xml:space="preserve">
     <value>Max. antal</value>
   </data>
-	<data name="ID_RN_MAXIMUMWEIGHT" xml:space="preserve">
+  <data name="ID_RN_MAXIMUMWEIGHT" xml:space="preserve">
     <value>Max. vikt</value>
   </data>
-	<data name="ID_RN_OVERHANG" xml:space="preserve">
+  <data name="ID_RN_OVERHANG" xml:space="preserve">
     <value>Överhängande</value>
   </data>
-	<data name="ID_RN_PACK" xml:space="preserve">
+  <data name="ID_RN_PACK" xml:space="preserve">
     <value>Packning</value>
   </data>
-	<data name="ID_RN_PALLET" xml:space="preserve">
+  <data name="ID_RN_PALLET" xml:space="preserve">
     <value>Lastpall</value>
   </data>
-	<data name="ID_RN_SOLUTION" xml:space="preserve">
+  <data name="ID_RN_SOLUTION" xml:space="preserve">
     <value>Lösning</value>
   </data>
-	<data name="ID_RN_SPACES" xml:space="preserve">
+  <data name="ID_RN_SPACES" xml:space="preserve">
     <value>Mellanrum</value>
   </data>
-	<data name="ID_RN_TRUCK" xml:space="preserve">
+  <data name="ID_RN_TRUCK" xml:space="preserve">
     <value>Lastbil</value>
   </data>
-	<data name="ID_RN_VIEWISO" xml:space="preserve">
+  <data name="ID_RN_VIEWISO" xml:space="preserve">
     <value>ISO</value>
   </data>
-	<data name="ID_RN_VIEWS" xml:space="preserve">
+  <data name="ID_RN_VIEWS" xml:space="preserve">
     <value>Fram/vänster/höger/bak</value>
   </data>
-	<data name="ID_RN_VOLUMEEFFICIENCY" xml:space="preserve">
+  <data name="ID_RN_VOLUMEEFFICIENCY" xml:space="preserve">
     <value>Volym effektivitet</value>
   </data>
-	<data name="ID_RN_WEIGHT" xml:space="preserve">
+  <data name="ID_RN_WEIGHT" xml:space="preserve">
     <value>Vikt</value>
+  </data>
+  <data name="ID_CASE_DIMENSIONS" xml:space="preserve">
+    <value>Case_{0}x{1}x{2}</value>
+  </data>
+  <data name="ID_REPORT_CAPTION" xml:space="preserve">
+    <value>Rapport {0}</value>
+  </data>
+  <data name="ID_RN_BOTTLE" xml:space="preserve">
+    <value>Flaska</value>
+  </data>
+  <data name="ID_RN_DYNAMICBCT" xml:space="preserve">
+    <value>Dynamisk BCT</value>
+  </data>
+  <data name="ID_RN_IMAGES" xml:space="preserve">
+    <value>Bilder</value>
+  </data>
+  <data name="ID_RN_ITEMNUMBERS" xml:space="preserve">
+    <value>Objekt</value>
+  </data>
+  <data name="ID_RN_LOADDIMENSIONS" xml:space="preserve">
+    <value>Läsa in dimensioner</value>
+  </data>
+  <data name="ID_RN_LOADWEIGHT" xml:space="preserve">
+    <value>Lastens vikt</value>
+  </data>
+  <data name="ID_RN_MATERIAL" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="ID_RN_NAME" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="ID_RN_NOINTERLAYERS" xml:space="preserve">
+    <value>Antal mellanskikt</value>
+  </data>
+  <data name="ID_RN_NOLAYERSBYNOCASES" xml:space="preserve">
+    <value>Lager x ärenden</value>
+  </data>
+  <data name="ID_RN_OVERALLDIMENSIONS" xml:space="preserve">
+    <value>Totalmått</value>
+  </data>
+  <data name="ID_RN_PACKSTRESS" xml:space="preserve">
+    <value>PackStress (på)</value>
+  </data>
+  <data name="ID_RN_PALLETISATION" xml:space="preserve">
+    <value>Palletering</value>
+  </data>
+  <data name="ID_RN_STATICBCT" xml:space="preserve">
+    <value>Statisk BCT</value>
+  </data>
+  <data name="ID_RN_TOTALWEIGHT" xml:space="preserve">
+    <value>Total vikt</value>
   </data>
 </root>

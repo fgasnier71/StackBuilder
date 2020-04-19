@@ -39,6 +39,9 @@
             this.tabPagePalletCorners = new System.Windows.Forms.TabPage();
             this.cbPalletCorners = new System.Windows.Forms.ComboBox();
             this.chkbPalletCorners = new System.Windows.Forms.CheckBox();
+            this.tabPagePalletCornersTop = new System.Windows.Forms.TabPage();
+            this.cbPalletCornersTop = new System.Windows.Forms.ComboBox();
+            this.chkbPalletCornersTop = new System.Windows.Forms.CheckBox();
             this.tabPagePalletCap = new System.Windows.Forms.TabPage();
             this.cbPalletCap = new System.Windows.Forms.ComboBox();
             this.chkbPalletCap = new System.Windows.Forms.CheckBox();
@@ -58,6 +61,7 @@
             this.tabCtrl.SuspendLayout();
             this.tabPageStrappers.SuspendLayout();
             this.tabPagePalletCorners.SuspendLayout();
+            this.tabPagePalletCornersTop.SuspendLayout();
             this.tabPagePalletCap.SuspendLayout();
             this.tabPagePalletFilm.SuspendLayout();
             this.SuspendLayout();
@@ -126,6 +130,7 @@
             resources.ApplyResources(this.tabCtrl, "tabCtrl");
             this.tabCtrl.Controls.Add(this.tabPageStrappers);
             this.tabCtrl.Controls.Add(this.tabPagePalletCorners);
+            this.tabCtrl.Controls.Add(this.tabPagePalletCornersTop);
             this.tabCtrl.Controls.Add(this.tabPagePalletCap);
             this.tabCtrl.Controls.Add(this.tabPagePalletFilm);
             this.tabCtrl.Multiline = true;
@@ -169,6 +174,29 @@
             this.chkbPalletCorners.Name = "chkbPalletCorners";
             this.chkbPalletCorners.UseVisualStyleBackColor = true;
             this.chkbPalletCorners.CheckedChanged += new System.EventHandler(this.OnPalletProtectionChanged);
+            // 
+            // tabPagePalletCornersTop
+            // 
+            this.tabPagePalletCornersTop.Controls.Add(this.cbPalletCornersTop);
+            this.tabPagePalletCornersTop.Controls.Add(this.chkbPalletCornersTop);
+            resources.ApplyResources(this.tabPagePalletCornersTop, "tabPagePalletCornersTop");
+            this.tabPagePalletCornersTop.Name = "tabPagePalletCornersTop";
+            this.tabPagePalletCornersTop.UseVisualStyleBackColor = true;
+            // 
+            // cbPalletCornersTop
+            // 
+            this.cbPalletCornersTop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPalletCornersTop.FormattingEnabled = true;
+            resources.ApplyResources(this.cbPalletCornersTop, "cbPalletCornersTop");
+            this.cbPalletCornersTop.Name = "cbPalletCornersTop";
+            this.cbPalletCornersTop.SelectedIndexChanged += new System.EventHandler(this.OnPalletProtectionChanged);
+            // 
+            // chkbPalletCornersTop
+            // 
+            resources.ApplyResources(this.chkbPalletCornersTop, "chkbPalletCornersTop");
+            this.chkbPalletCornersTop.Name = "chkbPalletCornersTop";
+            this.chkbPalletCornersTop.UseVisualStyleBackColor = true;
+            this.chkbPalletCornersTop.CheckedChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
             // tabPagePalletCap
             // 
@@ -237,6 +265,8 @@
             this.tabPageStrappers.ResumeLayout(false);
             this.tabPagePalletCorners.ResumeLayout(false);
             this.tabPagePalletCorners.PerformLayout();
+            this.tabPagePalletCornersTop.ResumeLayout(false);
+            this.tabPagePalletCornersTop.PerformLayout();
             this.tabPagePalletCap.ResumeLayout(false);
             this.tabPagePalletCap.PerformLayout();
             this.tabPagePalletFilm.ResumeLayout(false);
@@ -263,5 +293,8 @@
         private treeDiM.Basics.UCtrlOptInt uCtrlOptMaxNumber;
         private System.Windows.Forms.TabPage tabPageStrappers;
         private Basics.Controls.CtrlStrapperSet ctrlStrapperSet;
+        private System.Windows.Forms.TabPage tabPagePalletCornersTop;
+        private System.Windows.Forms.ComboBox cbPalletCornersTop;
+        private System.Windows.Forms.CheckBox chkbPalletCornersTop;
     }
 }

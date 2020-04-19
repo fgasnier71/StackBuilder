@@ -150,4 +150,13 @@
   <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
     <value>Max. antal</value>
   </data>
+  <data name="tabPageStrappers.Text" xml:space="preserve">
+    <value>Strappers (strappers)</value>
+  </data>
+  <data name="chkbPalletCornersTop.Text" xml:space="preserve">
+    <value>Lastpall hörn</value>
+  </data>
+  <data name="tabPagePalletCornersTop.Text" xml:space="preserve">
+    <value>Pall hörn Topp</value>
+  </data>
 </root>

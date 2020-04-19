@@ -120,4 +120,13 @@
   <data name="$this.Text" xml:space="preserve">
     <value>方框/案例分析..。</value>
   </data>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>停止标准</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>最大重量</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>最大数量</value>
+  </data>
 </root>

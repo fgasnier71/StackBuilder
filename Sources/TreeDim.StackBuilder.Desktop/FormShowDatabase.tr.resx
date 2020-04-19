@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Projedeki veritabanını ve içeri aktar öğelerini edin...</value>
+  </data>
+  <data name="bnClose.Text" xml:space="preserve">
+    <value>Yakın</value>
+  </data>
+  <data name="bnImport.Text" xml:space="preserve">
+    <value>Ithalat</value>
+  </data>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="bnPrev.Text" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="bnRemoveAll.Text" xml:space="preserve">
+    <value>Tümlerini kaldır</value>
+  </data>
+  <data name="bnSearch.Text" xml:space="preserve">
+    <value>Arama</value>
+  </data>
+  <data name="chkbSearchDescription.Text" xml:space="preserve">
+    <value>Ayrıca arama açıklaması</value>
+  </data>
+  <data name="lbCount.Text" xml:space="preserve">
+    <value>0 üzerinden 1-20</value>
+  </data>
+  <data name="tabPageBox.Text" xml:space="preserve">
+    <value>Kutu -larını</value>
+  </data>
+  <data name="tabPageBundle.Text" xml:space="preserve">
+    <value>Paketler</value>
+  </data>
+  <data name="tabPageCase.Text" xml:space="preserve">
+    <value>Durumda</value>
+  </data>
+  <data name="tabPageCylinder.Text" xml:space="preserve">
+    <value>Silindir</value>
+  </data>
+  <data name="tabPageInterlayer.Text" xml:space="preserve">
+    <value>Katmanlar arası</value>
+  </data>
+  <data name="tabPagePallet.Text" xml:space="preserve">
+    <value>Palet</value>
+  </data>
+  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
+    <value>Palet</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Palet kapakları</value>
+  </data>
+  <data name="tabPagePalletCorner.Text" xml:space="preserve">
+    <value>Palet köşeleri</value>
+  </data>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Palet filmleri</value>
+  </data>
+  <data name="tabPageTruck.Text" xml:space="preserve">
+    <value>Kamyon</value>
+  </data>
+  <data name="toolStripBExcel.Text" xml:space="preserve">
+    <value>Excel dosyasından alma...</value>
+  </data>
+  <data name="toolStripMain.Text" xml:space="preserve">
+    <value>Araçları</value>
+  </data>
 </root>

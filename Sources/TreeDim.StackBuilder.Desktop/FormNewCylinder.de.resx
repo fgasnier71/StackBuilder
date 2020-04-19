@@ -1632,4 +1632,49 @@
   <data name="&gt;&gt;uMassWeight.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="cbColorWallInner.Items90" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallInner.Items91" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallInner.Items92" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallInner.Items93" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallInner.Items94" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallOuter.Items89" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallOuter.Items90" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallOuter.Items91" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallOuter.Items92" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorWallOuter.Items93" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorTop.Items88" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorTop.Items89" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorTop.Items90" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorTop.Items91" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColorTop.Items92" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
 </root>

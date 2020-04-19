@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,88 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Определение входных/выходных ячеек и параметров изображения...</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>Хорошо</value>
+  </data>
+  <data name="cbUnitSystem.Items" xml:space="preserve">
+    <value>Метрика 1 (мм/кг/л)</value>
+  </data>
+  <data name="cbUnitSystem.Items1" xml:space="preserve">
+    <value>Метрика 2 (cm/кг/л)</value>
+  </data>
+  <data name="cbUnitSystem.Items2" xml:space="preserve">
+    <value>Великобритания (в/фунтов/галлон)</value>
+  </data>
+  <data name="cbUnitSystem.Items3" xml:space="preserve">
+    <value>США (в/фунтов/галлон)</value>
+  </data>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>Дело</value>
+  </data>
+  <data name="gbConstraintSet.Text" xml:space="preserve">
+    <value>Ограничение набора</value>
+  </data>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>Поддон</value>
+  </data>
+  <data name="gbResults.Text" xml:space="preserve">
+    <value>Результаты</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Длина ячейки</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Ширина ячейки</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Клетка высоты</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Весовая клетка</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Всего palletWeight</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Вес груза</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Ширина изображения def.</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Система единиц</value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>Клетка высоты</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Длина ячейки</value>
+  </data>
+  <data name="lbMaximumPalletHeight.Text" xml:space="preserve">
+    <value>Высота паллеты</value>
+  </data>
+  <data name="lbMaximumPalletWeight.Text" xml:space="preserve">
+    <value>Вес паллеты</value>
+  </data>
+  <data name="lbNoCases.Text" xml:space="preserve">
+    <value>Количество случаев</value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value>Весовая клетка</value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>Ширина ячейки</value>
+  </data>
+  <data name="uCtrlImageDim.Text" xml:space="preserve">
+    <value>Размеры изображения</value>
+  </data>
+  <data name="uCtrlImageLeftTop.Text" xml:space="preserve">
+    <value>Изображение слева/верхнее положение</value>
+  </data>
 </root>

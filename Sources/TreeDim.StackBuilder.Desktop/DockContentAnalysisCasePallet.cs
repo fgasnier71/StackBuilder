@@ -42,14 +42,16 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlOptMaximumWeight.Value = _analysis.ConstraintSet.OptMaxWeight;
             uCtrlOptMaxNumber.Value = _analysis.ConstraintSet.OptMaxNumber;
 
-            uCtrlMaxPalletHeight.ValueChanged += new UCtrlDouble.ValueChangedDelegate(this.OnCriterionChanged);
-            uCtrlOptMaximumWeight.ValueChanged += new UCtrlOptDouble.ValueChangedDelegate(this.OnCriterionChanged);
-            uCtrlOptMaxNumber.ValueChanged += new UCtrlOptInt.ValueChangedDelegate(this.OnCriterionChanged);
+            uCtrlMaxPalletHeight.ValueChanged += new UCtrlDouble.ValueChangedDelegate(OnCriterionChanged);
+            uCtrlOptMaximumWeight.ValueChanged += new UCtrlOptDouble.ValueChangedDelegate(OnCriterionChanged);
+            uCtrlOptMaxNumber.ValueChanged += new UCtrlOptInt.ValueChangedDelegate(OnCriterionChanged);
 
             AnalysisCasePallet analysisCasePallet = _analysis as AnalysisCasePallet;
 
             ComboBoxHelpers.FillCombo(PalletCorners, cbPalletCorners, analysisCasePallet?.PalletCornerProperties);
             chkbPalletCorners.Enabled = (cbPalletCorners.Items.Count > 0);
+            ComboBoxHelpers.FillCombo(PalletCorners, cbPalletCornersTop, analysisCasePallet?.PalletCornerTopProperties);
+            chkbPalletCornersTop.Enabled = (cbPalletCornersTop.Items.Count > 0);
             ComboBoxHelpers.FillCombo(PalletCaps, cbPalletCap, analysisCasePallet?.PalletCapProperties);
             chkbPalletCap.Enabled = (cbPalletCap.Items.Count > 0);
             ComboBoxHelpers.FillCombo(PalletFilms, cbPalletFilm, analysisCasePallet?.PalletFilmProperties);
@@ -58,6 +60,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (null != analysisCasePallet)
             {
                 chkbPalletCorners.Checked = null != analysisCasePallet.PalletCornerProperties;
+                chkbPalletCornersTop.Checked = null != analysisCasePallet.PalletCornerTopProperties;
                 chkbPalletCap.Checked = null != analysisCasePallet.PalletCapProperties;
                 chkbPalletFilm.Checked = null != analysisCasePallet.PalletFilmProperties;
                 ctrlStrapperSet.StrapperSet = analysisCasePallet.StrapperSet;
@@ -81,12 +84,14 @@ namespace treeDiM.StackBuilder.Desktop
             if (!_initialized)  return;
 
             cbPalletCorners.Enabled = chkbPalletCorners.Checked;
+            cbPalletCornersTop.Enabled = chkbPalletCornersTop.Checked;
             cbPalletCap.Enabled = chkbPalletCap.Checked;
             cbPalletFilm.Enabled = chkbPalletFilm.Checked;
 
             if (_solution.Analysis is AnalysisCasePallet analysisCasePallet)
             {
                 analysisCasePallet.PalletCornerProperties = SelectedPalletCorners;
+                analysisCasePallet.PalletCornerTopProperties = SelectedPalletCornersTop;
                 analysisCasePallet.PalletCapProperties = SelectedPalletCap;
                 analysisCasePallet.PalletFilmProperties = SelectedPalletFilm;
                 analysisCasePallet.StrapperSet = ctrlStrapperSet.StrapperSet;
@@ -109,6 +114,18 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     if (cbPalletCorners.SelectedItem is ItemBaseCB item)
                         return  item.Item as PalletCornerProperties;
+                }
+                return null;
+            }
+        }
+        private PalletCornerProperties SelectedPalletCornersTop
+        {
+            get
+            {
+                if (cbPalletCornersTop.Items.Count > 0 && chkbPalletCornersTop.Checked)
+                {
+                    if (cbPalletCornersTop.SelectedItem is ItemBaseCB item)
+                        return item.Item as PalletCornerProperties;
                 }
                 return null;
             }

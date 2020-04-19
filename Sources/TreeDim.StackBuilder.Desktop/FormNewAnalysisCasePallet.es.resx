@@ -168,4 +168,7 @@
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>Proyección de la</value>
   </data>
+  <data name="bnEditLayer.Text" xml:space="preserve">
+    <value>Editar capa seleccionada</value>
+  </data>
 </root>

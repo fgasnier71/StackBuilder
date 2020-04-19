@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="chkbDblWall.Text" xml:space="preserve">
+    <value>Двойная стена</value>
+  </data>
+  <data name="uCtrlForceApplied.Text" xml:space="preserve">
+    <value>Применение силы</value>
+  </data>
+  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
+    <value>Размеры корпуса</value>
+  </data>
+  <data name="lbPrintedArea.Text" xml:space="preserve">
+    <value>Печатная область</value>
+  </data>
+  <data name="gbDynamicBCT.Text" xml:space="preserve">
+    <value>Динамический БСТ</value>
+  </data>
+  <data name="toolStripLabelMcKeeFormula.Text" xml:space="preserve">
+    <value>Формула Мак-Ки</value>
+  </data>
+  <data name="tsCBMcKeeFormula.Items" xml:space="preserve">
+    <value>Классический</value>
+  </data>
+  <data name="tsCBMcKeeFormula.Items1" xml:space="preserve">
+    <value>Улучшение</value>
+  </data>
+  <data name="toolStripLabelProfile.Text" xml:space="preserve">
+    <value>Профиль</value>
+  </data>
+  <data name="tsBnReport.Text" xml:space="preserve">
+    <value>Доклад...</value>
+  </data>
+  <data name="toolStripMain.Text" xml:space="preserve">
+    <value>Главное меню</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Дело BCT</value>
+  </data>
 </root>

@@ -129,4 +129,7 @@
   <data name="toolStripButtonReport.Text" xml:space="preserve">
     <value>Generieren Sie Bericht...</value>
   </data>
+  <data name="uCtrlMaxNoPallets.Text" xml:space="preserve">
+    <value>Maximale Anzahl paletten</value>
+  </data>
 </root>

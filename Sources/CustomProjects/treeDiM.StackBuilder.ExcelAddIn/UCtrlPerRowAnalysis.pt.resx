@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bnCompute.Text" xml:space="preserve">
+    <value>Calcular</value>
+  </data>
+  <data name="bnRefreshPallets.Text" xml:space="preserve">
+    <value>Atualizar</value>
+  </data>
+  <data name="chkbGenerateImageInFolder.Text" xml:space="preserve">
+    <value>Gerar imagens na pasta:</value>
+  </data>
+  <data name="chkbGenerateImageInRow.Text" xml:space="preserve">
+    <value>Gerar imagem na linha.</value>
+  </data>
+  <data name="chkbGenerateReportInFolder.Text" xml:space="preserve">
+    <value>Gerar relatório na pasta:</value>
+  </data>
+  <data name="chkbOnlyZOrientation.Text" xml:space="preserve">
+    <value>Apenas a orientação vertical permitida</value>
+  </data>
+  <data name="gbConstraints.Text" xml:space="preserve">
+    <value>Restrições</value>
+  </data>
+  <data name="gbOptions.Text" xml:space="preserve">
+    <value>Opções</value>
+  </data>
+  <data name="gpPallets.Text" xml:space="preserve">
+    <value>Paletes</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
+    <value>Altura do palete</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Saliência</value>
+  </data>
 </root>

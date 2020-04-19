@@ -177,4 +177,10 @@
   <data name="uCtrlSize.Text" xml:space="preserve">
     <value>大小</value>
   </data>
+  <data name="lbOrigin.Text" xml:space="preserve">
+    <value>起源</value>
+  </data>
+  <data name="lbSize.Text" xml:space="preserve">
+    <value>大小</value>
+  </data>
 </root>

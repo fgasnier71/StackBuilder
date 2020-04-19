@@ -159,4 +159,16 @@
   <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
     <value>Totala palletWeight</value>
   </data>
+  <data name="ID_ERROR_NOPALLETSELECTED" xml:space="preserve">
+    <value>Ingen lastpall vald!</value>
+  </data>
+  <data name="ID_LOAD_WEIGHT" xml:space="preserve">
+    <value>Lastens vikt</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Effektivitet</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Bild</value>
+  </data>
 </root>

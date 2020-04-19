@@ -333,4 +333,13 @@
   <data name="uCtrlWallThickness.Text" xml:space="preserve">
     <value>壁の厚さ</value>
   </data>
+  <data name="cbColor.Items39" xml:space="preserve">
+    <value>カラー</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>カラー</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>カラー</value>
+  </data>
 </root>

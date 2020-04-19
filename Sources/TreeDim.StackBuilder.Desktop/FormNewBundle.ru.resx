@@ -267,4 +267,13 @@
   <data name="uCtrlWidth.Text" xml:space="preserve">
     <value>Ширина</value>
   </data>
+  <data name="cbColor.Items39" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
 </root>

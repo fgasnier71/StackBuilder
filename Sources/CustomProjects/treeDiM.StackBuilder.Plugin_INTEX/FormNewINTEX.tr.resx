@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Yeni proje oluşturun...</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
+  <data name="chkUseIntermediatePacking.Text" xml:space="preserve">
+    <value>Ara ambalaj kullanma</value>
+  </data>
+  <data name="lbCase.Text" xml:space="preserve">
+    <value>Durumda</value>
+  </data>
+  <data name="lbFilePath.Text" xml:space="preserve">
+    <value>Dosya yolu</value>
+  </data>
+  <data name="lbGenCode.Text" xml:space="preserve">
+    <value>Gen Kodu</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Palet</value>
+  </data>
+  <data name="lbRefDescription.Text" xml:space="preserve">
+    <value>Ref./Açıklama</value>
+  </data>
+  <data name="lbUPC.Text" xml:space="preserve">
+    <value>Upc</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>durumStripDef</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>araçStripStatusLabelDef</value>
+  </data>
+  <data name="uCtrlPalletHeight.Text" xml:space="preserve">
+    <value>Palet yüksekliği</value>
+  </data>
+  <data name="uCtrlThickness.Text" xml:space="preserve">
+    <value>Kalın -lığı</value>
+  </data>
+  <data name="uCtrlTriDimensions.Text" xml:space="preserve">
+    <value>Boyutlar</value>
+  </data>
+  <data name="uCtrlWeight.Text" xml:space="preserve">
+    <value>Ağırlık</value>
+  </data>
 </root>

@@ -120,4 +120,85 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Définir les cellules entrées/sorties et paramètres image...</value>
   </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="cbUnitSystem.Items" xml:space="preserve">
+    <value>Métrique 1 (mm/kg/l)</value>
+  </data>
+  <data name="cbUnitSystem.Items1" xml:space="preserve">
+    <value>Métrique 2 (cm/kg/l)</value>
+  </data>
+  <data name="cbUnitSystem.Items2" xml:space="preserve">
+    <value>UK (dans/lb/gal)</value>
+  </data>
+  <data name="cbUnitSystem.Items3" xml:space="preserve">
+    <value>US (en/lb/gal)</value>
+  </data>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>Caisse</value>
+  </data>
+  <data name="gbConstraintSet.Text" xml:space="preserve">
+    <value>Jeux de contrainte</value>
+  </data>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>Palette</value>
+  </data>
+  <data name="gbResults.Text" xml:space="preserve">
+    <value>Résultats</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Cellule de longueur</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Cellule de largeur</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Cellule de hauteur</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Cellule de poids</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Poids total de la palette</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Masse chargement</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Largeur d’image def.</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Système d'unités</value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>Cellule de hauteur</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Cellule de longueur</value>
+  </data>
+  <data name="lbMaximumPalletHeight.Text" xml:space="preserve">
+    <value>Hauteur maximale palette</value>
+  </data>
+  <data name="lbMaximumPalletWeight.Text" xml:space="preserve">
+    <value>Poid maximum palette</value>
+  </data>
+  <data name="lbNoCases.Text" xml:space="preserve">
+    <value>Nombre de caisses</value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value>Cellule de poids</value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>Cellule de largeur</value>
+  </data>
+  <data name="uCtrlImageDim.Text" xml:space="preserve">
+    <value>Dimensions d’image</value>
+  </data>
+  <data name="uCtrlImageLeftTop.Text" xml:space="preserve">
+    <value>Image gauche/position supérieure</value>
+  </data>
 </root>

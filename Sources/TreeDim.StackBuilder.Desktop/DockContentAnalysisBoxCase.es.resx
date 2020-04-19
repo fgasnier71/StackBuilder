@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -119,5 +119,14 @@
   </resheader>
   <data name="$this.Text" xml:space="preserve">
     <value>Caja de análisis...</value>
+  </data>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>Criterios de parada</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Peso máximo</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Número máximo</value>
   </data>
 </root>

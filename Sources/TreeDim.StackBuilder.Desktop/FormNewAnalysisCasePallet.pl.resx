@@ -168,4 +168,7 @@
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>Zwis</value>
   </data>
+  <data name="bnEditLayer.Text" xml:space="preserve">
+    <value>Edytowanie zaznaczonej warstwy</value>
+  </data>
 </root>

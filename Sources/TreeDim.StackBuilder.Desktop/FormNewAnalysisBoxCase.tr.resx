@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="checkBoxBestLayersOnly.Text" xml:space="preserve">
+    <value>Yalnızca en iyi katmanları göster</value>
+  </data>
+  <data name="lbBox.Text" xml:space="preserve">
+    <value>Kutusu</value>
+  </data>
+  <data name="lbCase.Text" xml:space="preserve">
+    <value>Durumda</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Maksimum sayı</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maksimum kasa ağırlığı</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Kriterlere son ver</value>
+  </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>En iyi kombinasyonları göster &gt;</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Yeni kutu/servis talebi analizi oluşturun...</value>
+  </data>
 </root>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,367 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>menüStripMain</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>Dosya</value>
+  </data>
+  <data name="newToolStripMenuItem.Text" xml:space="preserve">
+    <value>Yeni</value>
+  </data>
+  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Yeni dosya oluşturma</value>
+  </data>
+  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+    <value>Açık</value>
+  </data>
+  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Dosyayı aç</value>
+  </data>
+  <data name="toolStripMenuItemSave.Text" xml:space="preserve">
+    <value>Kaydetmek</value>
+  </data>
+  <data name="toolStripMenuItemSave.ToolTipText" xml:space="preserve">
+    <value>Dosyayı kaydet</value>
+  </data>
+  <data name="toolStripMenuItemSaveAs.Text" xml:space="preserve">
+    <value>Olarak Kaydet...</value>
+  </data>
+  <data name="toolStripMenuItemSaveAs.ToolTipText" xml:space="preserve">
+    <value>Olarak Kaydet...</value>
+  </data>
+  <data name="toolStripMenuItemSaveAll.Text" xml:space="preserve">
+    <value>Tümlerini Kaydet</value>
+  </data>
+  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
+    <value>Yakın</value>
+  </data>
+  <data name="toolStripMenuItemClose.ToolTipText" xml:space="preserve">
+    <value>Etkin belgeyi kapatma</value>
+  </data>
+  <data name="disconnectToolStripMenuItem.Text" xml:space="preserve">
+    <value>Bağlantı -sını kesmek</value>
+  </data>
+  <data name="mnuFileMRU.Text" xml:space="preserve">
+    <value>Son Dosyalar...</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Çıkış</value>
+  </data>
+  <data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Uygulamadan çıkın</value>
+  </data>
+  <data name="projectToolStripMenuItem.Text" xml:space="preserve">
+    <value>Proje</value>
+  </data>
+  <data name="toolStripMIExportAnalysesSummaryToExcel.Text" xml:space="preserve">
+    <value>Excel'e dışa aktarma analizleri özeti...</value>
+  </data>
+  <data name="toolStripMIExportAnalysesSummaryToExcel.ToolTipText" xml:space="preserve">
+    <value>İhracat proje analizleri özetini Excel'e...</value>
+  </data>
+  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+    <value>Araçları</value>
+  </data>
+  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
+    <value>Veritabanına Gözat/Edit...</value>
+  </data>
+  <data name="browseEditMaterialListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Malzeme listesine göz at/edit...</value>
+  </data>
+  <data name="toolStripMenuItemBox.Text" xml:space="preserve">
+    <value>Yeni Kutu</value>
+  </data>
+  <data name="toolStripMenuItemCase.Text" xml:space="preserve">
+    <value>Yeni Servis Talebi</value>
+  </data>
+  <data name="toolStripMenuItemPack.Text" xml:space="preserve">
+    <value>Yeni Paket</value>
+  </data>
+  <data name="toolStripMenuItemBundle.Text" xml:space="preserve">
+    <value>Yeni Paket</value>
+  </data>
+  <data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
+    <value>Yeni Silindir</value>
+  </data>
+  <data name="toolStripMenuItemPallet.Text" xml:space="preserve">
+    <value>Yeni Palet</value>
+  </data>
+  <data name="toolStripMenuItemTruck.Text" xml:space="preserve">
+    <value>Yeni Kamyon</value>
+  </data>
+  <data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
+    <value>Yeni Interlayer</value>
+  </data>
+  <data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
+    <value>Yeni Palet Köşeleri</value>
+  </data>
+  <data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
+    <value>Yeni Palet Kapağı</value>
+  </data>
+  <data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
+    <value>Yeni Palet Film</value>
+  </data>
+  <data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
+    <value>Yeni Kasa/Palet Analizi</value>
+  </data>
+  <data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>Yeni Silindir/Palet Analizi</value>
+  </data>
+  <data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
+    <value>Yeni Kutu/Kasa Analizi</value>
+  </data>
+  <data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>Yeni silindir/kasa analizi</value>
+  </data>
+  <data name="toolStripMenuItemAnalysisPalletTruck.Text" xml:space="preserve">
+    <value>Yeni palet/kamyon analizi</value>
+  </data>
+  <data name="toolStripMenuItemBestCase.Text" xml:space="preserve">
+    <value>En iyi durumda bulun</value>
+  </data>
+  <data name="toolStripMenuItemBestPack.Text" xml:space="preserve">
+    <value>En iyi paketi bulun</value>
+  </data>
+  <data name="toolStripMenuItemBestPack.ToolTipText" xml:space="preserve">
+    <value>En uygun durumda arama</value>
+  </data>
+  <data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
+    <value>PlmpackLib'i başlat</value>
+  </data>
+  <data name="toolStripMIPremium.Text" xml:space="preserve">
+    <value>Premium kullanıcı olun</value>
+  </data>
+  <data name="toolStripMISettings.Text" xml:space="preserve">
+    <value>Ayarlar...</value>
+  </data>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Yardım</value>
+  </data>
+  <data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
+    <value>Başlangıç Sayfasını Göster</value>
+  </data>
+  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
+    <value>Yardım</value>
+  </data>
+  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
+    <value>StackBuilder Hakkında...</value>
+  </data>
+  <data name="toolStripSBUser.Text" xml:space="preserve">
+    <value>araçStripSplitButton1</value>
+  </data>
+  <data name="toolStripSBUser.ToolTipText" xml:space="preserve">
+    <value>Kullanıcı</value>
+  </data>
+  <data name="toolStripSplitButtonNew.Text" xml:space="preserve">
+    <value>Yeni bir dosya oluşturun...</value>
+  </data>
+  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+    <value>Dosyayı aç</value>
+  </data>
+  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+    <value>Dosyayı aç</value>
+  </data>
+  <data name="toolStripButtonSave.Text" xml:space="preserve">
+    <value>Dosyayı kaydet</value>
+  </data>
+  <data name="toolStripButtonSaveAll.Text" xml:space="preserve">
+    <value>Tüm Dosyaları Kaydet</value>
+  </data>
+  <data name="toolStripMenuItemEditDB.ToolTipText" xml:space="preserve">
+    <value>Projedeki veritabanını ve içeri aktar öğelerini edin...</value>
+  </data>
+  <data name="toolStripButtonBox.Text" xml:space="preserve">
+    <value>Yeni Kutu Ekle</value>
+  </data>
+  <data name="toolStripButtonCase.Text" xml:space="preserve">
+    <value>Yeni servis talebi ekleyin...</value>
+  </data>
+  <data name="toolStripButtonPack.Text" xml:space="preserve">
+    <value>Yeni paket ekle...</value>
+  </data>
+  <data name="toolStripButtonBundle.Text" xml:space="preserve">
+    <value>Yeni Paket Ekle</value>
+  </data>
+  <data name="toolStripButtonCylinder.Text" xml:space="preserve">
+    <value>Yeni silindir ekle</value>
+  </data>
+  <data name="toolStripButtonBottle.Text" xml:space="preserve">
+    <value>Yeni şişe ekleyin...</value>
+  </data>
+  <data name="toolStripButtonPallet.Text" xml:space="preserve">
+    <value>Yeni Palet Ekle</value>
+  </data>
+  <data name="toolStripButtonPallet.ToolTipText" xml:space="preserve">
+    <value>Yeni bir palet ekleme</value>
+  </data>
+  <data name="toolStripButtonTruck.Text" xml:space="preserve">
+    <value>Yeni Kamyon Ekle</value>
+  </data>
+  <data name="toolStripSBPalletDeco.Text" xml:space="preserve">
+    <value>Yeni katmanlar arası oluşturun...</value>
+  </data>
+  <data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
+    <value>Palet analizleri</value>
+  </data>
+  <data name="toolStripMIAnalysisBoxCase.Text" xml:space="preserve">
+    <value>Kutu /Kasa</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>Silindir/Kasa</value>
+  </data>
+  <data name="toolStripMIAnalysisBundleCase.Text" xml:space="preserve">
+    <value>Paket /Kasa</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
+    <value>Vaka analizleri</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
+    <value>Vaka analizleri</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
+    <value>Kamyon analizleri</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
+    <value>Kamyon analizleri</value>
+  </data>
+  <data name="toolStripSBOptimisations.Text" xml:space="preserve">
+    <value>Paketleme optimizasyonları</value>
+  </data>
+  <data name="toolStripSBOptimisations.ToolTipText" xml:space="preserve">
+    <value>Paketleme optimizasyonları</value>
+  </data>
+  <data name="toolStripSB_BCT.Text" xml:space="preserve">
+    <value>BCT hesaplama</value>
+  </data>
+  <data name="toolStripButtonPremium.Text" xml:space="preserve">
+    <value>Premium kullanıcı olun</value>
+  </data>
+  <data name="toolStripButtonHelp.Text" xml:space="preserve">
+    <value>Yardım</value>
+  </data>
+  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
+    <value>Yardım</value>
+  </data>
+  <data name="toolStripButtonSettings.Text" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="toolStripStandard.Text" xml:space="preserve">
+    <value>Standart</value>
+  </data>
+  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
+    <value>Bağlantı -sını kesmek</value>
+  </data>
+  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
+    <value>Yeni...</value>
+  </data>
+  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
+    <value>Katmanlar arası</value>
+  </data>
+  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
+    <value>Yeni interlayer ekle...</value>
+  </data>
+  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
+    <value>Palet köşesi</value>
+  </data>
+  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
+    <value>Yeni palet köşesi ekleyin...</value>
+  </data>
+  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
+    <value>Palet kapağı</value>
+  </data>
+  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
+    <value>Yeni palet kapağı ekleyin...</value>
+  </data>
+  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
+    <value>Palet filmi</value>
+  </data>
+  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
+    <value>Yeni palet film ekle...</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
+    <value>Büyük/palet</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.ToolTipText" xml:space="preserve">
+    <value>Büyük/Palet analizi</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>Silindir/Palet</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.ToolTipText" xml:space="preserve">
+    <value>Silindir/palet analizi</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylPallet.Text" xml:space="preserve">
+    <value>Yatay silindir/Palet</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
+    <value>Paket/Palet</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.ToolTipText" xml:space="preserve">
+    <value>Paket/palet analizi</value>
+  </data>
+  <data name="toolStripMIHAnalysis.Text" xml:space="preserve">
+    <value>Heterojen palet yüklemesi</value>
+  </data>
+  <data name="toolStripMIHAnalysis.ToolTipText" xml:space="preserve">
+    <value>Heterojen palet yüklemesi</value>
+  </data>
+  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
+    <value>Palet/Kamyon</value>
+  </data>
+  <data name="toolStripMIAnalysisCaseTruck.Text" xml:space="preserve">
+    <value>Kasa/Kamyon</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderTruck.Text" xml:space="preserve">
+    <value>Silindir /Kamyon</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylTruck.Text" xml:space="preserve">
+    <value>Yatay silindir/Kamyon</value>
+  </data>
+  <data name="toolStripMIHAnalysisCaseTruck.Text" xml:space="preserve">
+    <value>Heterojen Kasa/Kamyon</value>
+  </data>
+  <data name="toolStripMIBestCase.Text" xml:space="preserve">
+    <value>En iyi durumda bulun</value>
+  </data>
+  <data name="toolStripMIBestCase.ToolTipText" xml:space="preserve">
+    <value>Veritabanında bulunanlar arasında büyük/küçük harf seçmeye yardımcı olun!</value>
+  </data>
+  <data name="toolStripMIBestPack.Text" xml:space="preserve">
+    <value>En iyi paketi bulun</value>
+  </data>
+  <data name="toolStripMIBestPack.ToolTipText" xml:space="preserve">
+    <value>Optimum paletleme için paket önerin</value>
+  </data>
+  <data name="palletisationBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Paletleme BCT</value>
+  </data>
+  <data name="caseBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Büyük/Küçük Harf BCT</value>
+  </data>
+  <data name="openFileDialogSB.Filter" xml:space="preserve">
+    <value>StackBuilder dosyaları (*.stb)|*.stb| Tüm dosyalar (*.*)|***</value>
+  </data>
+  <data name="openFileDialogSB.Title" xml:space="preserve">
+    <value>Dosyayı açın...</value>
+  </data>
+  <data name="saveFileDialogSB.Filter" xml:space="preserve">
+    <value>StackBuilder dosyaları (*.stb)|*.stb| Tüm dosyalar (*.*)|***</value>
+  </data>
+  <data name="saveFileDialogSB.Title" xml:space="preserve">
+    <value>Dosyayı kaydet...</value>
+  </data>
+  <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
+    <value>Htlm dosyası (*.html)|*.html</value>
+  </data>
+  <data name="saveFileDialogExport.Filter" xml:space="preserve">
+    <value>eXchange Biçimlendirme Dili (*.xml)|*.xml</value>
+  </data>
+  <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
+    <value>Yeni şişe</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>StackBuilder</value>
+  </data>
 </root>

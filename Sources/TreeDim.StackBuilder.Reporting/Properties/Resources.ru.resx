@@ -225,4 +225,55 @@
   <data name="ID_RN_WEIGHT" xml:space="preserve">
     <value>Вес</value>
   </data>
+  <data name="ID_CASE_DIMENSIONS" xml:space="preserve">
+    <value>Case_{0}x{1}{2}</value>
+  </data>
+  <data name="ID_REPORT_CAPTION" xml:space="preserve">
+    <value>Отчет {0}</value>
+  </data>
+  <data name="ID_RN_BOTTLE" xml:space="preserve">
+    <value>Бутылка</value>
+  </data>
+  <data name="ID_RN_DYNAMICBCT" xml:space="preserve">
+    <value>Динамический БСТ</value>
+  </data>
+  <data name="ID_RN_IMAGES" xml:space="preserve">
+    <value>Изображения</value>
+  </data>
+  <data name="ID_RN_ITEMNUMBERS" xml:space="preserve">
+    <value>Элементы</value>
+  </data>
+  <data name="ID_RN_LOADDIMENSIONS" xml:space="preserve">
+    <value>Габариты груза</value>
+  </data>
+  <data name="ID_RN_LOADWEIGHT" xml:space="preserve">
+    <value>Вес груза</value>
+  </data>
+  <data name="ID_RN_MATERIAL" xml:space="preserve">
+    <value>Материал</value>
+  </data>
+  <data name="ID_RN_NAME" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="ID_RN_NOINTERLAYERS" xml:space="preserve">
+    <value>Количество прослойок</value>
+  </data>
+  <data name="ID_RN_NOLAYERSBYNOCASES" xml:space="preserve">
+    <value>Слои x Чехлы</value>
+  </data>
+  <data name="ID_RN_OVERALLDIMENSIONS" xml:space="preserve">
+    <value>Габаритные размеры</value>
+  </data>
+  <data name="ID_RN_PACKSTRESS" xml:space="preserve">
+    <value>PackStress</value>
+  </data>
+  <data name="ID_RN_PALLETISATION" xml:space="preserve">
+    <value>Паллетизация</value>
+  </data>
+  <data name="ID_RN_STATICBCT" xml:space="preserve">
+    <value>Статический BCT</value>
+  </data>
+  <data name="ID_RN_TOTALWEIGHT" xml:space="preserve">
+    <value>Общий вес</value>
+  </data>
 </root>

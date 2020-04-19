@@ -129,4 +129,7 @@
   <data name="toolStripButtonReport.Text" xml:space="preserve">
     <value>レポートを生成する.</value>
   </data>
+  <data name="uCtrlMaxNoPallets.Text" xml:space="preserve">
+    <value>パレットの最大数</value>
+  </data>
 </root>

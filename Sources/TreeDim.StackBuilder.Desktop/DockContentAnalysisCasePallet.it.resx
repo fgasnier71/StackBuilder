@@ -150,4 +150,13 @@
   <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
     <value>Numero massimo</value>
   </data>
+  <data name="tabPageStrappers.Text" xml:space="preserve">
+    <value>Cinghie</value>
+  </data>
+  <data name="chkbPalletCornersTop.Text" xml:space="preserve">
+    <value>Angolari</value>
+  </data>
+  <data name="tabPagePalletCornersTop.Text" xml:space="preserve">
+    <value>Angoli pallet Superiore</value>
+  </data>
 </root>

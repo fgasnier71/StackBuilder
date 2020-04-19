@@ -936,4 +936,7 @@
   <data name="&gt;&gt;uMassWeight.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="cbColor.Items28" xml:space="preserve">
+    <value>Colore</value>
+  </data>
 </root>

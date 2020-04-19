@@ -129,4 +129,7 @@
   <data name="toolStripButtonReport.Text" xml:space="preserve">
     <value>生成报告..。</value>
   </data>
+  <data name="uCtrlMaxNoPallets.Text" xml:space="preserve">
+    <value>最大托盘数量</value>
+  </data>
 </root>

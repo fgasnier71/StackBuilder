@@ -140,4 +140,7 @@
   <data name="bnExit.Text" xml:space="preserve">
     <value>Quitter</value>
   </data>
+  <data name="toolStripMain.Text" xml:space="preserve">
+    <value>Toolstrip</value>
+  </data>
 </root>

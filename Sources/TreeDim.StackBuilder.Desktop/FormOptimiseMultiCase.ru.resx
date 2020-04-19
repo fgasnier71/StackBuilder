@@ -150,4 +150,7 @@
   <data name="uCtrlCaseDimensionsMin.Text" xml:space="preserve">
     <value>Размеры корпуса мин.</value>
   </data>
+  <data name="uCtrlNumberPerCase.Text" xml:space="preserve">
+    <value>Номер на случай</value>
+  </data>
 </root>

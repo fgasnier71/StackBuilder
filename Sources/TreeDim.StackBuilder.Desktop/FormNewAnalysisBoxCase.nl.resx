@@ -129,4 +129,16 @@
   <data name="lbCase.Text" xml:space="preserve">
     <value>Geval</value>
   </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Maximum aantal</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maximaal hoofdlettergewicht</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Stop criteria</value>
+  </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>Toon van de beste combinaties &gt;</value>
+  </data>
 </root>

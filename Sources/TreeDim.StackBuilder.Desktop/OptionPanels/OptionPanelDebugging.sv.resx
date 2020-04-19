@@ -129,4 +129,7 @@
   <data name="chkShowLogConsole.Text" xml:space="preserve">
     <value>Visa logg konsol</value>
   </data>
+  <data name="bnResetDefaultSettings.Text" xml:space="preserve">
+    <value>Återställa standardinställningar</value>
+  </data>
 </root>

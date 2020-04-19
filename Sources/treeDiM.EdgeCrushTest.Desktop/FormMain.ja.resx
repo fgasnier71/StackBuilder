@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>メイン メニューのヒント</value>
+  </data>
+  <data name="toolStripMIHelp.Text" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="editMaterialListToolStripMenuItem.Text" xml:space="preserve">
+    <value>マテリアル リストを編集します。</value>
+  </data>
+  <data name="toolStripMIMode1.Text" xml:space="preserve">
+    <value>BCT-&gt;パレットの高さ</value>
+  </data>
+  <data name="toolStripMILogConsole.Text" xml:space="preserve">
+    <value>ログのコンソールを表示します。</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="editPalletListToolStripMenuItem.Text" xml:space="preserve">
+    <value>パレット リストの編集.</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>PLMパックパックストレス</value>
+  </data>
+  <data name="toolStripMIMode.Text" xml:space="preserve">
+    <value>モード</value>
+  </data>
+  <data name="toolStripMIFile.Text" xml:space="preserve">
+    <value>ファイル</value>
+  </data>
+  <data name="toolStripMIMode2.Text" xml:space="preserve">
+    <value>適用力 -&gt; ベスト ECT</value>
+  </data>
+  <data name="toolStripMIData.Text" xml:space="preserve">
+    <value>データベース</value>
+  </data>
+  <data name="toolStripMIAbout.Text" xml:space="preserve">
+    <value>に関しては。。。</value>
+  </data>
 </root>

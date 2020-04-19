@@ -141,4 +141,7 @@
   <data name="uCtrlMinDistLoadRoof.Text" xml:space="preserve">
     <value>Minimalna odległość obciążenia/dachu</value>
   </data>
+  <data name="uCtrlMaxNoPallets.Text" xml:space="preserve">
+    <value>Maksymalna liczba palet</value>
+  </data>
 </root>

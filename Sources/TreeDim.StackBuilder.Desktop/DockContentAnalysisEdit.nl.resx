@@ -147,4 +147,7 @@
   <data name="toolStripButtonReport.Text" xml:space="preserve">
     <value>Rapport genereren...</value>
   </data>
+  <data name="toolStripButtonExport3D.Text" xml:space="preserve">
+    <value>3D-model exporteren...</value>
+  </data>
 </root>

@@ -180,4 +180,13 @@
   <data name="ID_SELECTED" xml:space="preserve">
     <value>Selezionato</value>
   </data>
+  <data name="ID_INVALIDCONSTRAINTS_DIMENSIONS" xml:space="preserve">
+    <value>Vincoli di quota non validi</value>
+  </data>
+  <data name="ID_INVALIDCONSTRAINTS_WEIGHT" xml:space="preserve">
+    <value>Vincoli di peso non validi</value>
+  </data>
+  <data name="ID_NAMEBOTTLE" xml:space="preserve">
+    <value>Bottiglia</value>
+  </data>
 </root>

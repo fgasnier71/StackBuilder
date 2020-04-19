@@ -326,4 +326,7 @@
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>Outils</value>
   </data>
+  <data name="bnRemoveAll.Text" xml:space="preserve">
+    <value>Supprimer tous les</value>
+  </data>
 </root>

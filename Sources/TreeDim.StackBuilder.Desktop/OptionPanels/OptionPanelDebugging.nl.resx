@@ -129,4 +129,7 @@
   <data name="chkShowLogConsole.Text" xml:space="preserve">
     <value>Toon log console</value>
   </data>
+  <data name="bnResetDefaultSettings.Text" xml:space="preserve">
+    <value>Standaardinstellingen opnieuw instellen</value>
+  </data>
 </root>

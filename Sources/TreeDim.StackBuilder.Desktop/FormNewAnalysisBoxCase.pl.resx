@@ -129,4 +129,16 @@
   <data name="lbCase.Text" xml:space="preserve">
     <value>skrzynia</value>
   </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Maksymalna liczba</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maksymalna waga obudowy</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Stop kryteria</value>
+  </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>Pokaż najlepsze kombinacje &gt;</value>
+  </data>
 </root>

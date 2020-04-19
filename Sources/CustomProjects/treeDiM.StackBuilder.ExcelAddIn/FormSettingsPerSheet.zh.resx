@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,88 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>定义输入/输出单元格和图像参数...</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>还行</value>
+  </data>
+  <data name="cbUnitSystem.Items" xml:space="preserve">
+    <value>公制 1 (毫米/千克/升)</value>
+  </data>
+  <data name="cbUnitSystem.Items1" xml:space="preserve">
+    <value>公制 2 (厘米/千克/升)</value>
+  </data>
+  <data name="cbUnitSystem.Items2" xml:space="preserve">
+    <value>英国 (在/磅/加仑)</value>
+  </data>
+  <data name="cbUnitSystem.Items3" xml:space="preserve">
+    <value>我们 (在/磅/加仑)</value>
+  </data>
+  <data name="gbCase.Text" xml:space="preserve">
+    <value>箱子</value>
+  </data>
+  <data name="gbConstraintSet.Text" xml:space="preserve">
+    <value>约束设置</value>
+  </data>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>托盘</value>
+  </data>
+  <data name="gbResults.Text" xml:space="preserve">
+    <value>结果</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>长度单元格</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>宽度单元格</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>高度单元格</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>重量单元格</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>托盘总重量</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>码垛物重量</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>图像宽度定义。</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>单元系统</value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>高度单元格</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>长度单元格</value>
+  </data>
+  <data name="lbMaximumPalletHeight.Text" xml:space="preserve">
+    <value>最大托盘高度</value>
+  </data>
+  <data name="lbMaximumPalletWeight.Text" xml:space="preserve">
+    <value>最大托盘重量</value>
+  </data>
+  <data name="lbNoCases.Text" xml:space="preserve">
+    <value>箱子数量</value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value>重量单元格</value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>宽度单元格</value>
+  </data>
+  <data name="uCtrlImageDim.Text" xml:space="preserve">
+    <value>图像尺寸</value>
+  </data>
+  <data name="uCtrlImageLeftTop.Text" xml:space="preserve">
+    <value>图像左侧/顶部位置</value>
+  </data>
 </root>

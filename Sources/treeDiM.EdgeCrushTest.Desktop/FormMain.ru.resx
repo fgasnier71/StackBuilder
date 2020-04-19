@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>Основные советы меню</value>
+  </data>
+  <data name="toolStripMIHelp.Text" xml:space="preserve">
+    <value>Справка</value>
+  </data>
+  <data name="editMaterialListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Отодвините список материалов...</value>
+  </data>
+  <data name="toolStripMIMode1.Text" xml:space="preserve">
+    <value>Высота паллета БСТ-Зпаллет</value>
+  </data>
+  <data name="toolStripMILogConsole.Text" xml:space="preserve">
+    <value>Показать журнал консоли</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="editPalletListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Отодвините список поддонов...</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>PLMPack PackСтресс</value>
+  </data>
+  <data name="toolStripMIMode.Text" xml:space="preserve">
+    <value>Режим</value>
+  </data>
+  <data name="toolStripMIFile.Text" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="toolStripMIMode2.Text" xml:space="preserve">
+    <value>Прикладная сила - - Лучший ЭСТ</value>
+  </data>
+  <data name="toolStripMIData.Text" xml:space="preserve">
+    <value>Базы данных</value>
+  </data>
+  <data name="toolStripMIAbout.Text" xml:space="preserve">
+    <value>О...</value>
+  </data>
 </root>

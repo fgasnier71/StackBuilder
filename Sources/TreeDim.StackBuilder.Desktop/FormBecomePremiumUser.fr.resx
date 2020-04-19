@@ -151,4 +151,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Devenir un utilisateur "Premium"...</value>
   </data>
+  <data name="rbSubscription2.Text" xml:space="preserve">
+    <value>Abonnez-vous via la facture</value>
+  </data>
+  <data name="rbSubscription1.Text" xml:space="preserve">
+    <value>Abonnez-vous via paypal</value>
+  </data>
 </root>

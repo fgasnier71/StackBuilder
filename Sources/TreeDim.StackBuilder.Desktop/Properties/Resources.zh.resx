@@ -737,4 +737,67 @@
   <data name="ID_CASECOUNTFORMATSTRING" xml:space="preserve">
     <value>{0} {1} x {2}</value>
   </data>
+  <data name="ID_ADDNEWBOTTLE" xml:space="preserve">
+    <value>添加新瓶子...</value>
+  </data>
+  <data name="ID_ALGORITHM" xml:space="preserve">
+    <value>算法</value>
+  </data>
+  <data name="ID_BOTTLE" xml:space="preserve">
+    <value>瓶</value>
+  </data>
+  <data name="ID_DATABASEITEMCOUNT" xml:space="preserve">
+    <value>{0}{1}{2}</value>
+  </data>
+  <data name="ID_DIAMETER" xml:space="preserve">
+    <value>直径</value>
+  </data>
+  <data name="ID_EVALUATINGCASE" xml:space="preserve">
+    <value>评估案例{0}{1}...</value>
+  </data>
+  <data name="ID_GOPREMIUMORUNSELECT" xml:space="preserve">
+    <value>使用编辑的图层是一个"高级"功能。取消选择编辑的图层。</value>
+  </data>
+  <data name="ID_ITEMS" xml:space="preserve">
+    <value>项目</value>
+  </data>
+  <data name="ID_LOADEDCASES" xml:space="preserve">
+    <value>已加载案例</value>
+  </data>
+  <data name="ID_LOADEDVOLUMEPERCENTAGE" xml:space="preserve">
+    <value>加载的卷百分比</value>
+  </data>
+  <data name="ID_NOANALYSISSELECTED" xml:space="preserve">
+    <value>未选择分析。</value>
+  </data>
+  <data name="ID_NUMBEROFPALLETS" xml:space="preserve">
+    <value>托盘数量</value>
+  </data>
+  <data name="ID_PALLETDATA" xml:space="preserve">
+    <value>托盘数据</value>
+  </data>
+  <data name="ID_PALLETWEIGHT_WU" xml:space="preserve">
+    <value>托盘重量</value>
+  </data>
+  <data name="ID_PALLET_NUMBER" xml:space="preserve">
+    <value>托盘 #{0}</value>
+  </data>
+  <data name="ID_PREMIUMFEATURE" xml:space="preserve">
+    <value>此功能仅对高级帐户开放。</value>
+  </data>
+  <data name="ID_PREMIUMVERSIONURL" xml:space="preserve">
+    <value>http://www.plmpack.com/stackbuilder/premium/premium.html</value>
+  </data>
+  <data name="ID_SORTINGSOLUTIONS" xml:space="preserve">
+    <value>排序解决方案...</value>
+  </data>
+  <data name="ID_TRUCKADMISSIBLELOAD" xml:space="preserve">
+    <value>卡车必须具有有效的可接受装载值。</value>
+  </data>
+  <data name="ID_UNLOADEDCASES" xml:space="preserve">
+    <value>卸载案例</value>
+  </data>
+  <data name="ID_WARNINGEDITLAYER" xml:space="preserve">
+    <value>请注意，只有"高级"帐户才能在堆垛中使用修改后的图层。</value>
+  </data>
 </root>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,616 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>为每个行分析定义输入/输出列...</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>还行</value>
+  </data>
+  <data name="cbDescription.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbDescription.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbDescription.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbDescription.Items11" xml:space="preserve">
+    <value>我</value>
+  </data>
+  <data name="cbDescription.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbDescription.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbDescription.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbDescription.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbDescription.Items16" xml:space="preserve">
+    <value>问</value>
+  </data>
+  <data name="cbDescription.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbDescription.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbDescription.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbDescription.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbDescription.Items20" xml:space="preserve">
+    <value>美国</value>
+  </data>
+  <data name="cbDescription.Items21" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="cbDescription.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbDescription.Items23" xml:space="preserve">
+    <value>Ⅹ</value>
+  </data>
+  <data name="cbDescription.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbDescription.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbDescription.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbDescription.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbDescription.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbDescription.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbDescription.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbDescription.Items8" xml:space="preserve">
+    <value>Ⅰ</value>
+  </data>
+  <data name="cbDescription.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="cbHeight.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbHeight.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbHeight.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbHeight.Items11" xml:space="preserve">
+    <value>我</value>
+  </data>
+  <data name="cbHeight.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbHeight.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbHeight.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbHeight.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbHeight.Items16" xml:space="preserve">
+    <value>问</value>
+  </data>
+  <data name="cbHeight.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbHeight.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbHeight.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbHeight.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbHeight.Items20" xml:space="preserve">
+    <value>美国</value>
+  </data>
+  <data name="cbHeight.Items21" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="cbHeight.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbHeight.Items23" xml:space="preserve">
+    <value>Ⅹ</value>
+  </data>
+  <data name="cbHeight.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbHeight.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbHeight.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbHeight.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbHeight.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbHeight.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbHeight.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbHeight.Items8" xml:space="preserve">
+    <value>Ⅰ</value>
+  </data>
+  <data name="cbHeight.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="cbLength.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbLength.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbLength.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbLength.Items11" xml:space="preserve">
+    <value>我</value>
+  </data>
+  <data name="cbLength.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbLength.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbLength.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbLength.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbLength.Items16" xml:space="preserve">
+    <value>问</value>
+  </data>
+  <data name="cbLength.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbLength.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbLength.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbLength.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbLength.Items20" xml:space="preserve">
+    <value>美国</value>
+  </data>
+  <data name="cbLength.Items21" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="cbLength.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbLength.Items23" xml:space="preserve">
+    <value>Ⅹ</value>
+  </data>
+  <data name="cbLength.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbLength.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbLength.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbLength.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbLength.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbLength.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbLength.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbLength.Items8" xml:space="preserve">
+    <value>Ⅰ</value>
+  </data>
+  <data name="cbLength.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="cbName.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbName.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbName.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbName.Items11" xml:space="preserve">
+    <value>我</value>
+  </data>
+  <data name="cbName.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbName.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbName.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbName.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbName.Items16" xml:space="preserve">
+    <value>问</value>
+  </data>
+  <data name="cbName.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbName.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbName.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbName.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbName.Items20" xml:space="preserve">
+    <value>美国</value>
+  </data>
+  <data name="cbName.Items21" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="cbName.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbName.Items23" xml:space="preserve">
+    <value>Ⅹ</value>
+  </data>
+  <data name="cbName.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbName.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbName.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbName.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbName.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbName.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbName.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbName.Items8" xml:space="preserve">
+    <value>Ⅰ</value>
+  </data>
+  <data name="cbName.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="cbOutputStart.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbOutputStart.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbOutputStart.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbOutputStart.Items11" xml:space="preserve">
+    <value>我</value>
+  </data>
+  <data name="cbOutputStart.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbOutputStart.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbOutputStart.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbOutputStart.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbOutputStart.Items16" xml:space="preserve">
+    <value>问</value>
+  </data>
+  <data name="cbOutputStart.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbOutputStart.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbOutputStart.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbOutputStart.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbOutputStart.Items20" xml:space="preserve">
+    <value>美国</value>
+  </data>
+  <data name="cbOutputStart.Items21" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="cbOutputStart.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbOutputStart.Items23" xml:space="preserve">
+    <value>Ⅹ</value>
+  </data>
+  <data name="cbOutputStart.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbOutputStart.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbOutputStart.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbOutputStart.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbOutputStart.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbOutputStart.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbOutputStart.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbOutputStart.Items8" xml:space="preserve">
+    <value>Ⅰ</value>
+  </data>
+  <data name="cbOutputStart.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="cbUnitSystem.Items" xml:space="preserve">
+    <value>公制 1 (毫米/千克/升)</value>
+  </data>
+  <data name="cbUnitSystem.Items1" xml:space="preserve">
+    <value>公制 2 (厘米/千克/升)</value>
+  </data>
+  <data name="cbUnitSystem.Items2" xml:space="preserve">
+    <value>英国 (在/磅/加仑)</value>
+  </data>
+  <data name="cbUnitSystem.Items3" xml:space="preserve">
+    <value>我们 (在/磅/加仑)</value>
+  </data>
+  <data name="cbWeight.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbWeight.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbWeight.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbWeight.Items11" xml:space="preserve">
+    <value>我</value>
+  </data>
+  <data name="cbWeight.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbWeight.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbWeight.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbWeight.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbWeight.Items16" xml:space="preserve">
+    <value>问</value>
+  </data>
+  <data name="cbWeight.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbWeight.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbWeight.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbWeight.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbWeight.Items20" xml:space="preserve">
+    <value>美国</value>
+  </data>
+  <data name="cbWeight.Items21" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="cbWeight.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbWeight.Items23" xml:space="preserve">
+    <value>Ⅹ</value>
+  </data>
+  <data name="cbWeight.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbWeight.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbWeight.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbWeight.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbWeight.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbWeight.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbWeight.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbWeight.Items8" xml:space="preserve">
+    <value>Ⅰ</value>
+  </data>
+  <data name="cbWeight.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="cbWidth.Items" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="cbWidth.Items1" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="cbWidth.Items10" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="cbWidth.Items11" xml:space="preserve">
+    <value>我</value>
+  </data>
+  <data name="cbWidth.Items12" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="cbWidth.Items13" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="cbWidth.Items14" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="cbWidth.Items15" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="cbWidth.Items16" xml:space="preserve">
+    <value>问</value>
+  </data>
+  <data name="cbWidth.Items17" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="cbWidth.Items18" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="cbWidth.Items19" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="cbWidth.Items2" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="cbWidth.Items20" xml:space="preserve">
+    <value>美国</value>
+  </data>
+  <data name="cbWidth.Items21" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="cbWidth.Items22" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="cbWidth.Items23" xml:space="preserve">
+    <value>Ⅹ</value>
+  </data>
+  <data name="cbWidth.Items24" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="cbWidth.Items25" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="cbWidth.Items3" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="cbWidth.Items4" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="cbWidth.Items5" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="cbWidth.Items6" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="cbWidth.Items7" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="cbWidth.Items8" xml:space="preserve">
+    <value>Ⅰ</value>
+  </data>
+  <data name="cbWidth.Items9" xml:space="preserve">
+    <value>J</value>
+  </data>
+  <data name="chkbDescription.Text" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="gbAdditionalProperties.Text" xml:space="preserve">
+    <value>其他属性</value>
+  </data>
+  <data name="gbInputColumns.Text" xml:space="preserve">
+    <value>输入列</value>
+  </data>
+  <data name="gbOutput.Text" xml:space="preserve">
+    <value>输出列</value>
+  </data>
+  <data name="gpConditions.Text" xml:space="preserve">
+    <value>处理条件</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>图像大小</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>麦克斯。图像生成计数</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>重量</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>单元系统</value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>高度</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>长度</value>
+  </data>
+  <data name="lbName.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="lbStartOutput.Text" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>宽度</value>
+  </data>
+  <data name="uCtrlMinDimensions.Text" xml:space="preserve">
+    <value>最小尺寸</value>
+  </data>
 </root>

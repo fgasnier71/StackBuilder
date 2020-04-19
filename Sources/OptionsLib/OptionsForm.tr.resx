@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Seçenekler</value>
+  </data>
+  <data name="ApplyBtn.AccessibleDescription" xml:space="preserve">
+    <value>Değişiklikleri uygulayın.</value>
+  </data>
+  <data name="ApplyBtn.Text" xml:space="preserve">
+    <value>Uygulamak</value>
+  </data>
+  <data name="AppRestartLabel.AccessibleDescription" xml:space="preserve">
+    <value>Bu kutu, değişikliklerin etkili olması için uygulamanın yeniden başlatılması gerektiğini belirtir.</value>
+  </data>
+  <data name="AppRestartLabel.Text" xml:space="preserve">
+    <value>Değişikliklerin etkili olması için uygulamanın yeniden başlatılması gerekir.</value>
+  </data>
+  <data name="CancelBtn.AccessibleDescription" xml:space="preserve">
+    <value>Değişiklikleri iptal edin ve seçenekleri kapatın formu.</value>
+  </data>
+  <data name="CancelBtn.Text" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="CatDescr.AccessibleDescription" xml:space="preserve">
+    <value>Bu kutu, ağaçtaki her Kategori için bir açıklama gösterir.</value>
+  </data>
+  <data name="CatDescr.Text" xml:space="preserve">
+    <value>Açıklama.</value>
+  </data>
+  <data name="CatHeader.AccessibleDescription" xml:space="preserve">
+    <value>Kategoriler ağaç Başlığı.</value>
+  </data>
+  <data name="CatHeader.Text" xml:space="preserve">
+    <value>Kategori:</value>
+  </data>
+  <data name="CatTree.AccessibleDescription" xml:space="preserve">
+    <value>Seçenekler Kategorileri.</value>
+  </data>
+  <data name="OKBtn.AccessibleDescription" xml:space="preserve">
+    <value>Değişiklikleri uygulayın ve seçenekler formunu kapatın.</value>
+  </data>
+  <data name="OKBtn.Text" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
+  <data name="OptionDescrLabel.AccessibleDescription" xml:space="preserve">
+    <value>Bu kutu, her denetim için kısa bir açıklama gösterir.</value>
+  </data>
+  <data name="OptionDescrLabel.Text" xml:space="preserve">
+    <value>Açıklama.</value>
+  </data>
+  <data name="OptionsPanelPath.AccessibleDescription" xml:space="preserve">
+    <value>Bu kutu, geçerli seçenekler paneliiçin seçenekler yolunu gösterir.</value>
+  </data>
+  <data name="OptionsPanelPath.Text" xml:space="preserve">
+    <value>Seçenekler » Yol</value>
+  </data>
 </root>

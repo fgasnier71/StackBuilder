@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cbSubscriptionDuration.Items1" xml:space="preserve">
+    <value>2 anni (90)</value>
+  </data>
+  <data name="lbSubscribe.Text" xml:space="preserve">
+    <value>Vorrei iscrivermi</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="lbEmail.Text" xml:space="preserve">
+    <value>al seguente indirizzo</value>
+  </data>
+  <data name="linkLabelPremiumVsFree.Text" xml:space="preserve">
+    <value>Scopri le differenze tra le versioni Premium e Free</value>
+  </data>
+  <data name="rbSubscription2.Text" xml:space="preserve">
+    <value>Iscriviti tramite fattura</value>
+  </data>
+  <data name="rbSubscription1.Text" xml:space="preserve">
+    <value>Iscriviti tramite paypal</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Diventa un utente "Premium"...</value>
+  </data>
+  <data name="lbVATNumber.Text" xml:space="preserve">
+    <value>Partita IVA</value>
+  </data>
+  <data name="cbSubscriptionDuration.Items" xml:space="preserve">
+    <value>1 anno (50)</value>
+  </data>
+  <data name="bnSend.Text" xml:space="preserve">
+    <value>Mandami una fattura!</value>
+  </data>
 </root>

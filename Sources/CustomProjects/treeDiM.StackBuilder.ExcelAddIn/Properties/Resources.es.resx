@@ -159,4 +159,16 @@
   <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
     <value>PalletWeight total</value>
   </data>
+  <data name="ID_ERROR_NOPALLETSELECTED" xml:space="preserve">
+    <value>¡No hay palet seleccionado!</value>
+  </data>
+  <data name="ID_LOAD_WEIGHT" xml:space="preserve">
+    <value>Carga</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Eficiencia</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Imagen</value>
+  </data>
 </root>

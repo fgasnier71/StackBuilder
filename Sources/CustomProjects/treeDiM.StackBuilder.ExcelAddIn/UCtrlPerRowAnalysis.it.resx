@@ -132,4 +132,22 @@
   <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
     <value>Altezza del pallet</value>
   </data>
+  <data name="chkbGenerateImageInFolder.Text" xml:space="preserve">
+    <value>Genera immagini nella cartella:</value>
+  </data>
+  <data name="chkbGenerateImageInRow.Text" xml:space="preserve">
+    <value>Genera immagine in fila.</value>
+  </data>
+  <data name="chkbGenerateReportInFolder.Text" xml:space="preserve">
+    <value>Genera report nella cartella:</value>
+  </data>
+  <data name="gbConstraints.Text" xml:space="preserve">
+    <value>Vincoli</value>
+  </data>
+  <data name="gpPallets.Text" xml:space="preserve">
+    <value>Pallets</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Sbalzo</value>
+  </data>
 </root>

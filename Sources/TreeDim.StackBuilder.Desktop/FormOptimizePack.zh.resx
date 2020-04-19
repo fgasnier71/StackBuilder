@@ -333,4 +333,13 @@
   <data name="uCtrlWallThickness.Text" xml:space="preserve">
     <value>壁厚</value>
   </data>
+  <data name="cbColor.Items39" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>颜色</value>
+  </data>
 </root>

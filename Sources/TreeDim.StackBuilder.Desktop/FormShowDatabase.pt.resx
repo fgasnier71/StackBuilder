@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Editar banco de dados e importar itens no projeto...</value>
+  </data>
+  <data name="bnClose.Text" xml:space="preserve">
+    <value>Perto</value>
+  </data>
+  <data name="bnImport.Text" xml:space="preserve">
+    <value>Importação</value>
+  </data>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="bnPrev.Text" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="bnRemoveAll.Text" xml:space="preserve">
+    <value>Remover todos os</value>
+  </data>
+  <data name="bnSearch.Text" xml:space="preserve">
+    <value>Busca</value>
+  </data>
+  <data name="chkbSearchDescription.Text" xml:space="preserve">
+    <value>Também a descrição da pesquisa</value>
+  </data>
+  <data name="lbCount.Text" xml:space="preserve">
+    <value>1-20 de 0</value>
+  </data>
+  <data name="tabPageBox.Text" xml:space="preserve">
+    <value>Caixas</value>
+  </data>
+  <data name="tabPageBundle.Text" xml:space="preserve">
+    <value>Pacotes</value>
+  </data>
+  <data name="tabPageCase.Text" xml:space="preserve">
+    <value>Casos</value>
+  </data>
+  <data name="tabPageCylinder.Text" xml:space="preserve">
+    <value>Cilindros</value>
+  </data>
+  <data name="tabPageInterlayer.Text" xml:space="preserve">
+    <value>Intercamadas</value>
+  </data>
+  <data name="tabPagePallet.Text" xml:space="preserve">
+    <value>Paletes</value>
+  </data>
+  <data name="tabPagePallet.ToolTipText" xml:space="preserve">
+    <value>Paletes</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Tampinhas de palete</value>
+  </data>
+  <data name="tabPagePalletCorner.Text" xml:space="preserve">
+    <value>Cantos de palete</value>
+  </data>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Filmes de paletes</value>
+  </data>
+  <data name="tabPageTruck.Text" xml:space="preserve">
+    <value>Caminhões</value>
+  </data>
+  <data name="toolStripBExcel.Text" xml:space="preserve">
+    <value>Importação do arquivo Excel...</value>
+  </data>
+  <data name="toolStripMain.Text" xml:space="preserve">
+    <value>Ferramentas</value>
+  </data>
 </root>

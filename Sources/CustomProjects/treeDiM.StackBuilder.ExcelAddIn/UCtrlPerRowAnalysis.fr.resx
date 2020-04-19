@@ -173,4 +173,7 @@
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>Débord</value>
   </data>
+  <data name="gbOptions.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
 </root>

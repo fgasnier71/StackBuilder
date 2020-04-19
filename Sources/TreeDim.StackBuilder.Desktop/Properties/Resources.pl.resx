@@ -837,4 +837,67 @@ Kontynuować?</value>
   <data name="View_Top" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\View_Top.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ID_ADDNEWBOTTLE" xml:space="preserve">
+    <value>Dodaj nową butelkę...</value>
+  </data>
+  <data name="ID_ALGORITHM" xml:space="preserve">
+    <value>Algorytm</value>
+  </data>
+  <data name="ID_BOTTLE" xml:space="preserve">
+    <value>Butelka</value>
+  </data>
+  <data name="ID_DATABASEITEMCOUNT" xml:space="preserve">
+    <value>{0} {1} z {2}</value>
+  </data>
+  <data name="ID_DIAMETER" xml:space="preserve">
+    <value>Średnica</value>
+  </data>
+  <data name="ID_EVALUATINGCASE" xml:space="preserve">
+    <value>Ocena {0} sprawy z {1}...</value>
+  </data>
+  <data name="ID_GOPREMIUMORUNSELECT" xml:space="preserve">
+    <value>Korzystanie z edytowanych warstw jest funkcją "Premium". Usuń zaznaczenie edytowanej warstwy.</value>
+  </data>
+  <data name="ID_ITEMS" xml:space="preserve">
+    <value>Elementy</value>
+  </data>
+  <data name="ID_LOADEDCASES" xml:space="preserve">
+    <value>Załadowane etui</value>
+  </data>
+  <data name="ID_LOADEDVOLUMEPERCENTAGE" xml:space="preserve">
+    <value>Procent objętości załadowanej</value>
+  </data>
+  <data name="ID_NOANALYSISSELECTED" xml:space="preserve">
+    <value>Nie wybrano żadnej analizy.</value>
+  </data>
+  <data name="ID_NUMBEROFPALLETS" xml:space="preserve">
+    <value>Liczba palet</value>
+  </data>
+  <data name="ID_PALLETDATA" xml:space="preserve">
+    <value>Dane palet</value>
+  </data>
+  <data name="ID_PALLETWEIGHT_WU" xml:space="preserve">
+    <value>waga palety</value>
+  </data>
+  <data name="ID_PALLET_NUMBER" xml:space="preserve">
+    <value>Paleta #{0}</value>
+  </data>
+  <data name="ID_PREMIUMFEATURE" xml:space="preserve">
+    <value>Ta funkcja jest dostępna tylko dla kont Premium.</value>
+  </data>
+  <data name="ID_PREMIUMVERSIONURL" xml:space="preserve">
+    <value>http://www.plmpack.com/stackbuilder/premium/premium.html</value>
+  </data>
+  <data name="ID_SORTINGSOLUTIONS" xml:space="preserve">
+    <value>Rozwiązania sortujące...</value>
+  </data>
+  <data name="ID_TRUCKADMISSIBLELOAD" xml:space="preserve">
+    <value>Ciężarówka musi mieć prawidłową dopuszczalną wartość ładunku.</value>
+  </data>
+  <data name="ID_UNLOADEDCASES" xml:space="preserve">
+    <value>Nieobciążone sprawy</value>
+  </data>
+  <data name="ID_WARNINGEDITLAYER" xml:space="preserve">
+    <value>Należy pamiętać, że tylko konta "Premium" mogą używać zmodyfikowanej warstwy w palecie.</value>
+  </data>
 </root>

@@ -39,8 +39,8 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>11</ApplicationRevision>
-    <ApplicationVersion>3.0.2.11</ApplicationVersion>
+    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationVersion>3.0.2.12</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1198,16 +1198,43 @@
     <EmbeddedResource Include="DockContentView.zh.resx">
       <DependentUpon>DockContentView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBecomePremiumUser.de.resx">
+      <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBecomePremiumUser.es.resx">
+      <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBecomePremiumUser.fr.resx">
       <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBecomePremiumUser.it.resx">
       <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBecomePremiumUser.ja.resx">
+      <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBecomePremiumUser.nl.resx">
       <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBecomePremiumUser.pl.resx">
+      <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBecomePremiumUser.pt.resx">
+      <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBecomePremiumUser.resx">
+      <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBecomePremiumUser.ru.resx">
+      <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBecomePremiumUser.sv.resx">
+      <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBecomePremiumUser.tr.resx">
+      <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBecomePremiumUser.zh.resx">
       <DependentUpon>FormBecomePremiumUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBottleInitialize.resx">
@@ -1387,6 +1414,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.pl.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.pt.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.ru.resx">
@@ -1673,13 +1703,43 @@
     <EmbeddedResource Include="FormNewAnalysisCylinderTruck.resx">
       <DependentUpon>FormNewAnalysisCylinderTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylPallet.de.resx">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylPallet.es.resx">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisHCylPallet.fr.resx">
       <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisHCylPallet.it.resx">
       <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylPallet.ja.resx">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylPallet.nl.resx">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylPallet.pl.resx">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylPallet.pt.resx">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisHCylPallet.resx">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylPallet.ru.resx">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylPallet.sv.resx">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylPallet.tr.resx">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylPallet.zh.resx">
       <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisHCylTruck.fr.resx">
@@ -1951,10 +2011,25 @@
     <EmbeddedResource Include="FormNewDocument.zh.resx">
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.de.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.es.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysis.fr.resx">
       <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysis.it.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.ja.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.nl.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.pl.resx">
       <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysis.pt.resx">
@@ -1963,7 +2038,16 @@
     <EmbeddedResource Include="FormNewHAnalysis.resx">
       <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.ru.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.sv.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysis.tr.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.zh.resx">
       <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisBoxCase.fr.resx">
@@ -1975,10 +2059,25 @@
     <EmbeddedResource Include="FormNewHAnalysisBoxCase.resx">
       <DependentUpon>FormNewHAnalysisBoxCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisCasePallet.de.resx">
+      <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisCasePallet.es.resx">
+      <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisCasePallet.fr.resx">
       <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisCasePallet.it.resx">
+      <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisCasePallet.ja.resx">
+      <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisCasePallet.nl.resx">
+      <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisCasePallet.pl.resx">
       <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisCasePallet.pt.resx">
@@ -1988,7 +2087,16 @@
       <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisCasePallet.ru.resx">
+      <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisCasePallet.sv.resx">
+      <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisCasePallet.tr.resx">
+      <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisCasePallet.zh.resx">
       <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisCaseTruck.fr.resx">
@@ -2934,17 +3042,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.ru.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru.resx" />
     <EmbeddedResource Include="Properties\Resources.sv.resx">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.sv.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.sv.resx" />
     <EmbeddedResource Include="Properties\Resources.tr.resx" />
     <EmbeddedResource Include="Properties\Resources.zh.resx">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.zh.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh.resx" />
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>

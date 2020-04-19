@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="chkbDblWall.Text" xml:space="preserve">
+    <value>二重壁</value>
+  </data>
+  <data name="uCtrlForceApplied.Text" xml:space="preserve">
+    <value>適用される力</value>
+  </data>
+  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
+    <value>ケースの大きさ</value>
+  </data>
+  <data name="lbPrintedArea.Text" xml:space="preserve">
+    <value>印刷領域</value>
+  </data>
+  <data name="gbDynamicBCT.Text" xml:space="preserve">
+    <value>ダイナミック BCT</value>
+  </data>
+  <data name="toolStripLabelMcKeeFormula.Text" xml:space="preserve">
+    <value>マックキーフォーミュラ</value>
+  </data>
+  <data name="tsCBMcKeeFormula.Items" xml:space="preserve">
+    <value>クラシック</value>
+  </data>
+  <data name="tsCBMcKeeFormula.Items1" xml:space="preserve">
+    <value>改善</value>
+  </data>
+  <data name="toolStripLabelProfile.Text" xml:space="preserve">
+    <value>プロファイル</value>
+  </data>
+  <data name="tsBnReport.Text" xml:space="preserve">
+    <value>レポート.</value>
+  </data>
+  <data name="toolStripMain.Text" xml:space="preserve">
+    <value>メインメニュー</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>ケース BCT</value>
+  </data>
 </root>

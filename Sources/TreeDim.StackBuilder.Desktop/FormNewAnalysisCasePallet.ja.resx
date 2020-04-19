@@ -168,4 +168,7 @@
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>オーバー ハング</value>
   </data>
+  <data name="bnEditLayer.Text" xml:space="preserve">
+    <value>選択したレイヤーを編集</value>
+  </data>
 </root>

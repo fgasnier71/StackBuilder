@@ -311,4 +311,7 @@
         N3z3g92YXauEAwxp1v7WAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="toolStripButtonExport3D.Text" xml:space="preserve">
+    <value>Exportar modelo 3D...</value>
+  </data>
 </root>

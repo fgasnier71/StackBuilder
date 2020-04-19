@@ -156,4 +156,10 @@
   <data name="bnCancel.Text" xml:space="preserve">
     <value>取消</value>
   </data>
+  <data name="statusLabel.Text" xml:space="preserve">
+    <value>准备就绪</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
 </root>

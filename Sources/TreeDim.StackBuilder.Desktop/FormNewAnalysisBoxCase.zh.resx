@@ -129,4 +129,16 @@
   <data name="lbCase.Text" xml:space="preserve">
     <value>箱子</value>
   </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>最大数量</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>最大箱重</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>停止标准</value>
+  </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>显示最佳组合</value>
+  </data>
 </root>

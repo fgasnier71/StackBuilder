@@ -141,4 +141,7 @@
   <data name="uCtrlMinDistLoadRoof.Text" xml:space="preserve">
     <value>最小距离负荷/屋顶</value>
   </data>
+  <data name="uCtrlMaxNoPallets.Text" xml:space="preserve">
+    <value>最大托盘数量</value>
+  </data>
 </root>

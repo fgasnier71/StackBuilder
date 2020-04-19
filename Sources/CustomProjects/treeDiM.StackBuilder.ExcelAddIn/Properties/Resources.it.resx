@@ -159,4 +159,16 @@
   <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
     <value>Totale peso pallet</value>
   </data>
+  <data name="ID_ERROR_NOPALLETSELECTED" xml:space="preserve">
+    <value>Nessun pallet selezionato!</value>
+  </data>
+  <data name="ID_LOAD_WEIGHT" xml:space="preserve">
+    <value>Carico</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Efficienza</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Immagine</value>
+  </data>
 </root>

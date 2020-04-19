@@ -55,7 +55,7 @@
     <DiagnosticsConfiguration Include="treeDiM.StackBuilder.WCFAppServContent\diagnostics.wadcfgx" />
   </ItemGroup>
   <ItemGroup>
-    <PublishProfile Include="Profiles\StackBuilderCloudAppServiceProduction.azurePubxml" />
+    <PublishProfile Include="Profiles\StackBuilderCloudServiceProduction.azurePubxml" />
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>

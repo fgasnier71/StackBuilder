@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,130 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CASETYPE_AMERICANCASE" xml:space="preserve">
+    <value>Caso americano</value>
+  </data>
+  <data name="EXCEPTION_INVALIDCARDBOARDID" xml:space="preserve">
+    <value>Id de papelão desconhecido: {0}</value>
+  </data>
+  <data name="EXCEPTION_INVALIDCASETYPE" xml:space="preserve">
+    <value>Tipo de caso desconhecido: {0}</value>
+  </data>
+  <data name="EXCEPTION_INVALIDFORMULA" xml:space="preserve">
+    <value>Tipo de fórmula inválida (Deve ser CLÁSSICO ou MELHORADO)</value>
+  </data>
+  <data name="IDS_READY" xml:space="preserve">
+    <value>Pronto</value>
+  </data>
+  <data name="ID_DATABASEITEMCOUNT" xml:space="preserve">
+    <value>{0} {1} fora de {2}</value>
+  </data>
+  <data name="ID_DELETE" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
+  <data name="ID_DESCRIPTION" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="ID_DIMENSIONS" xml:space="preserve">
+    <value>Dimensões ({0})</value>
+  </data>
+  <data name="ID_ECT" xml:space="preserve">
+    <value>Ect</value>
+  </data>
+  <data name="ID_EDIT" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="ID_FIELDDESCRIPTIONEMPTY" xml:space="preserve">
+    <value>O campo de descrição está vazio</value>
+  </data>
+  <data name="ID_FIELDNAMEEMPTY" xml:space="preserve">
+    <value>O campo nome está vazio</value>
+  </data>
+  <data name="ID_MAXLAYERCOUNT" xml:space="preserve">
+    <value>Max. contagem de camadas</value>
+  </data>
+  <data name="ID_NAME" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="ID_NAMEALREADYEXISTS" xml:space="preserve">
+    <value>{0} já existe!</value>
+  </data>
+  <data name="ID_PROFILE" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="ID_READY" xml:space="preserve">
+    <value>Pronto</value>
+  </data>
+  <data name="ID_RIGIDITYX" xml:space="preserve">
+    <value>Rigidez X</value>
+  </data>
+  <data name="ID_RIGIDITYY" xml:space="preserve">
+    <value>Rigidez Y</value>
+  </data>
+  <data name="ID_STATICBCT" xml:space="preserve">
+    <value>BCT estático</value>
+  </data>
+  <data name="ID_STATICBCT_WU" xml:space="preserve">
+    <value>BCT estático
+({0})</value>
+  </data>
+  <data name="ID_THICKNESS" xml:space="preserve">
+    <value>Espessura</value>
+  </data>
+  <data name="ID_THICKNESS_WU" xml:space="preserve">
+    <value>Espessura
+({0})</value>
+  </data>
+  <data name="ID_VALUEOUGHTTOBESPOSITIVE" xml:space="preserve">
+    <value>O valor deve ser positivo.</value>
+  </data>
+  <data name="ID_WEIGHT_WU" xml:space="preserve">
+    <value>Peso
+({0})</value>
+  </data>
+  <data name="MCKEEFORMULA_CLASSIC" xml:space="preserve">
+    <value>Clássico</value>
+  </data>
+  <data name="MCKEEFORMULA_IMPROVED" xml:space="preserve">
+    <value>Melhorado</value>
+  </data>
+  <data name="MESSAGE_CARDBOARDQUALITYDBNOTFOUND" xml:space="preserve">
+    <value>O arquivo de banco de dados de qualidade de papelão não foi encontrado.</value>
+  </data>
+  <data name="PRINTEDSURFACE_COMPLEX" xml:space="preserve">
+    <value>Complexo</value>
+  </data>
+  <data name="PRINTEDSURFACE_COVERED" xml:space="preserve">
+    <value>Coberto</value>
+  </data>
+  <data name="PRINTEDSURFACE_DISTRIBUTED" xml:space="preserve">
+    <value>Distribuído</value>
+  </data>
+  <data name="PRINTEDSURFACE_SIMPLE" xml:space="preserve">
+    <value>Simples</value>
+  </data>
+  <data name="PRINTEDSURFACE_UNKNOWN" xml:space="preserve">
+    <value>Desconhecido</value>
+  </data>
+  <data name="STORAGEDURATION_0DAY" xml:space="preserve">
+    <value>0 dia</value>
+  </data>
+  <data name="STORAGEDURATION_11_30DAYS" xml:space="preserve">
+    <value>11-30 dias</value>
+  </data>
+  <data name="STORAGEDURATION_1_3DAYS" xml:space="preserve">
+    <value>1-3 dias</value>
+  </data>
+  <data name="STORAGEDURATION_1_3MONTHES" xml:space="preserve">
+    <value>1-3 meses</value>
+  </data>
+  <data name="STORAGEDURATION_3_4MONTHES" xml:space="preserve">
+    <value>3-4 meses</value>
+  </data>
+  <data name="STORAGEDURATION_4_10DAYS" xml:space="preserve">
+    <value>4-10 dias</value>
+  </data>
+  <data name="STORAGEDURATION_4_MONTHES" xml:space="preserve">
+    <value>mais de 4 meses</value>
+  </data>
 </root>

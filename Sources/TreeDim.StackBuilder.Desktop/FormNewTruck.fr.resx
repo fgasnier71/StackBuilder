@@ -295,4 +295,10 @@
   <data name="uCtrlMaxLoadWeight.Text" xml:space="preserve">
     <value>Charge admissible</value>
   </data>
+  <data name="cbColor.Items51" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items52" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
 </root>

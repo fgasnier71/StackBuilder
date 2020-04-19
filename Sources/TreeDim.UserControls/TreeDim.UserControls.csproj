@@ -136,6 +136,9 @@
     <EmbeddedResource Include="ProgressWindow.ja.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProgressWindow.nl.resx">
+      <DependentUpon>ProgressWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.pl.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,7 +148,13 @@
     <EmbeddedResource Include="ProgressWindow.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProgressWindow.ru.resx">
+      <DependentUpon>ProgressWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.sv.resx">
+      <DependentUpon>ProgressWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressWindow.tr.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.zh.resx">
@@ -166,6 +175,9 @@
     <EmbeddedResource Include="ThreadWindow.ja.resx">
       <DependentUpon>ThreadWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.nl.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThreadWindow.pl.resx">
       <DependentUpon>ThreadWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,7 +187,13 @@
     <EmbeddedResource Include="ThreadWindow.resx">
       <DependentUpon>ThreadWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.ru.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThreadWindow.sv.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.tr.resx">
       <DependentUpon>ThreadWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThreadWindow.zh.resx">

@@ -129,4 +129,28 @@
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>Menu principale</value>
   </data>
+  <data name="chkbDblWall.Text" xml:space="preserve">
+    <value>Doppia parete</value>
+  </data>
+  <data name="uCtrlForceApplied.Text" xml:space="preserve">
+    <value>Forza applicata</value>
+  </data>
+  <data name="gbDynamicBCT.Text" xml:space="preserve">
+    <value>BCT dinamico</value>
+  </data>
+  <data name="toolStripLabelMcKeeFormula.Text" xml:space="preserve">
+    <value>Mc Kee Formula</value>
+  </data>
+  <data name="tsCBMcKeeFormula.Items" xml:space="preserve">
+    <value>Classico</value>
+  </data>
+  <data name="tsCBMcKeeFormula.Items1" xml:space="preserve">
+    <value>Migliorato</value>
+  </data>
+  <data name="tsBnReport.Text" xml:space="preserve">
+    <value>Rapporto...</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Caso BCT</value>
+  </data>
 </root>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="chkbDblWall.Text" xml:space="preserve">
+    <value>二重壁</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>オーバー ハング</value>
+  </data>
+  <data name="uCtrlCaseWeight.Text" xml:space="preserve">
+    <value>ケース重量</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>パレット</value>
+  </data>
+  <data name="toolStripLabelMcKeeFormula.Text" xml:space="preserve">
+    <value>マックキー式</value>
+  </data>
+  <data name="tsCBMcKeeFormula.Items" xml:space="preserve">
+    <value>クラシック</value>
+  </data>
+  <data name="tsCBMcKeeFormula.Items1" xml:space="preserve">
+    <value>改善</value>
+  </data>
+  <data name="toolStripLabelProfile.Text" xml:space="preserve">
+    <value>プロファイル</value>
+  </data>
+  <data name="toolStripMain.Text" xml:space="preserve">
+    <value>メインツールストリップ</value>
+  </data>
+  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
+    <value>ケースの大きさ</value>
+  </data>
+  <data name="lbWeightLowestCase.Text" xml:space="preserve">
+    <value>: 0.0 kg</value>
+  </data>
+  <data name="lbDefWeightOnLowestCase.Text" xml:space="preserve">
+    <value>最も低いケースの重量</value>
+  </data>
+  <data name="uCtrlNoLayers.Text" xml:space="preserve">
+    <value>実際のレイヤー数</value>
+  </data>
+  <data name="lbDefCount.Text" xml:space="preserve">
+    <value>ケース数の合計</value>
+  </data>
+  <data name="lbStackWeight.Text" xml:space="preserve">
+    <value>: 0.0 kg</value>
+  </data>
+  <data name="lbDefWeight.Text" xml:space="preserve">
+    <value>合計 palletWeight</value>
+  </data>
+  <data name="lbStackCount.Text" xml:space="preserve">
+    <value>: 0</value>
+  </data>
+  <data name="lbPrintedArea.Text" xml:space="preserve">
+    <value>印刷領域</value>
+  </data>
+  <data name="gbDynamicBCT.Text" xml:space="preserve">
+    <value>ダイナミック BCT</value>
+  </data>
+  <data name="lbCountMax.Text" xml:space="preserve">
+    <value>(最大: 0)</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>BCTのパレット化</value>
+  </data>
+  <data name="tsButtonReport.Text" xml:space="preserve">
+    <value>レポート</value>
+  </data>
 </root>

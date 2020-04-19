@@ -135,4 +135,70 @@
   <data name="uCtrlImageLeftTop.Text" xml:space="preserve">
     <value>Posizione in alto a sinistra immagine</value>
   </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="cbUnitSystem.Items" xml:space="preserve">
+    <value>Metrico 1 (mm/kg/l)</value>
+  </data>
+  <data name="cbUnitSystem.Items1" xml:space="preserve">
+    <value>Metrico 2 (cm/kg/l)</value>
+  </data>
+  <data name="cbUnitSystem.Items2" xml:space="preserve">
+    <value>UK (in/lb/gal)</value>
+  </data>
+  <data name="cbUnitSystem.Items3" xml:space="preserve">
+    <value>US (in/lb/gal)</value>
+  </data>
+  <data name="gbConstraintSet.Text" xml:space="preserve">
+    <value>Insieme di vincoli</value>
+  </data>
+  <data name="gbPallet.Text" xml:space="preserve">
+    <value>Pallet</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Cella Lunghezza</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Cella Larghezza</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Cella Altezza</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Cella di peso</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Totale peso pallet</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Carico</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Larghezza dell'immagine def.</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Unità di Sistema</value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value>Cella Altezza</value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value>Cella Lunghezza</value>
+  </data>
+  <data name="lbMaximumPalletHeight.Text" xml:space="preserve">
+    <value>Altezza massima bancale</value>
+  </data>
+  <data name="lbMaximumPalletWeight.Text" xml:space="preserve">
+    <value>Peso massimo del pallet</value>
+  </data>
+  <data name="lbNoCases.Text" xml:space="preserve">
+    <value>Numero di cartoni</value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value>Cella di peso</value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value>Cella Larghezza</value>
+  </data>
 </root>

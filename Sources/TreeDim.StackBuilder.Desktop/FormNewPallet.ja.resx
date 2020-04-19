@@ -282,4 +282,7 @@
   <data name="uMassWeight.Text" xml:space="preserve">
 		<value>uMass</value>
 	</data>
+  <data name="cbColor.Items28" xml:space="preserve">
+    <value>カラー</value>
+  </data>
 </root>

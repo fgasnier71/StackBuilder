@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Importar o catálogo do Excel para o banco de dados...</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="bnDownload.Text" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="bnImport.Text" xml:space="preserve">
+    <value>Importação</value>
+  </data>
+  <data name="bnStop.Text" xml:space="preserve">
+    <value>Parar</value>
+  </data>
+  <data name="chkbOverwrite.Text" xml:space="preserve">
+    <value>Sobrepor itens existentes</value>
+  </data>
+  <data name="lbExcelFilePath.Text" xml:space="preserve">
+    <value>Caminho do catálogo do Excel</value>
+  </data>
+  <data name="lbExcelFileTemplate.Text" xml:space="preserve">
+    <value>Baixar o modelo de arquivo vazio do Excel -&gt;</value>
+  </data>
+  <data name="statusLabel.Text" xml:space="preserve">
+    <value>statusRótulo</value>
+  </data>
+  <data name="statusStrip1.Text" xml:space="preserve">
+    <value>Statusstrip</value>
+  </data>
 </root>

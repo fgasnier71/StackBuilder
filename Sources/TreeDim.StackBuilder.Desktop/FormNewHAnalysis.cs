@@ -149,7 +149,7 @@ namespace treeDiM.StackBuilder.Desktop
                     // number
                     gridContent[iIndex, ++iCol] = new SourceGrid.Cells.Cell("NumericUpDown") { View = viewNormal };
                     gridContent[iIndex, iCol] = new SourceGrid.Cells.Cell((int)ci.Number) { View = viewNormal };
-                    SourceGrid.Cells.Editors.NumericUpDown l_NumericUpDownEditor = new SourceGrid.Cells.Editors.NumericUpDown(typeof(int), 1000, 0, 1);
+                    SourceGrid.Cells.Editors.NumericUpDown l_NumericUpDownEditor = new SourceGrid.Cells.Editors.NumericUpDown(typeof(int), 10000, 0, 1);
                     l_NumericUpDownEditor.SetEditValue((int)ci.Number);
                     gridContent[iIndex, iCol].Editor = l_NumericUpDownEditor;
                     gridContent[iIndex, iCol].AddController(_numUpDownEvent);

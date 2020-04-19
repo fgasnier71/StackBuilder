@@ -70,6 +70,8 @@ namespace treeDiM.StackBuilder.GUIExtension
             base.OnLoad(e);
             // initialize pallet combo
             cbPallet.Initialize();
+            cbPallet.SelectedPalletName = Settings.Default.PalletName;
+
             // initialize graphCtrlPallet
             graphCtrlPallet.DrawingContainer = this;
 
@@ -89,6 +91,7 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             base.OnClosing(e);
 
+            Settings.Default.PalletName = cbPallet.SelectedPalletName;
             Settings.Default.AllowVerticalX = uCtrlCaseOrientation.AllowedOrientations[0];
             Settings.Default.AllowVerticalY = uCtrlCaseOrientation.AllowedOrientations[1];
             Settings.Default.AllowVerticalZ = uCtrlCaseOrientation.AllowedOrientations[2];

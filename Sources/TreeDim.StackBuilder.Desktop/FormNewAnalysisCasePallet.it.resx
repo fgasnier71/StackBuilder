@@ -168,4 +168,7 @@
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>Sbalzo</value>
   </data>
+  <data name="bnEditLayer.Text" xml:space="preserve">
+    <value>Modificare il livello selezionato</value>
+  </data>
 </root>

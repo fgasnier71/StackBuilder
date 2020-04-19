@@ -285,4 +285,13 @@
   <data name="uCtrlWidth.Text" xml:space="preserve">
     <value>Bredd</value>
   </data>
+  <data name="cbColor.Items39" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>Färg</value>
+  </data>
 </root>

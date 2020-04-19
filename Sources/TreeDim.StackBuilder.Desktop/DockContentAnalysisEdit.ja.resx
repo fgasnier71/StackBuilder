@@ -147,4 +147,7 @@
   <data name="toolStripButtonReport.Text" xml:space="preserve">
     <value>レポートを生成する.</value>
   </data>
+  <data name="toolStripButtonExport3D.Text" xml:space="preserve">
+    <value>3D モデルをエクスポートします。</value>
+  </data>
 </root>

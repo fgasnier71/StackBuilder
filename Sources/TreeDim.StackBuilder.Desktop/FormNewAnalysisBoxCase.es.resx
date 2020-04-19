@@ -129,4 +129,16 @@
   <data name="lbCase.Text" xml:space="preserve">
     <value>Embalaje</value>
   </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Número máximo</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Peso máximo de la caja</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Criterios de parada</value>
+  </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>Mostrar mejores combinaciones &gt;</value>
+  </data>
 </root>

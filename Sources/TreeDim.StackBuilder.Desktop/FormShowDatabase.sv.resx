@@ -165,4 +165,22 @@
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>Verktyg</value>
   </data>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="bnPrev.Text" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="bnRemoveAll.Text" xml:space="preserve">
+    <value>Ta bort alla</value>
+  </data>
+  <data name="bnSearch.Text" xml:space="preserve">
+    <value>Sök</value>
+  </data>
+  <data name="chkbSearchDescription.Text" xml:space="preserve">
+    <value>Även sökbeskrivning</value>
+  </data>
+  <data name="lbCount.Text" xml:space="preserve">
+    <value>1-20 av 0</value>
+  </data>
 </root>

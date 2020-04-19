@@ -176,4 +176,7 @@
   <data name="tsBnReport.Text" xml:space="preserve">
     <value>Rapport</value>
   </data>
+  <data name="chkbDblWall.Text" xml:space="preserve">
+    <value>Double mur</value>
+  </data>
 </root>

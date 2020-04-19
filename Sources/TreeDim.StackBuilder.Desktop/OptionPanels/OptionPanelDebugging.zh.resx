@@ -129,4 +129,7 @@
   <data name="chkShowLogConsole.Text" xml:space="preserve">
     <value>显示日志控制台</value>
   </data>
+  <data name="bnResetDefaultSettings.Text" xml:space="preserve">
+    <value>重置默认设置</value>
+  </data>
 </root>

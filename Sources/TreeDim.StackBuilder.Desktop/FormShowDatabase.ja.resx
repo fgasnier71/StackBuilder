@@ -294,4 +294,22 @@
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>ツール</value>
   </data>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="bnPrev.Text" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="bnRemoveAll.Text" xml:space="preserve">
+    <value>すべて削除</value>
+  </data>
+  <data name="bnSearch.Text" xml:space="preserve">
+    <value>検索</value>
+  </data>
+  <data name="chkbSearchDescription.Text" xml:space="preserve">
+    <value>検索の説明も</value>
+  </data>
+  <data name="lbCount.Text" xml:space="preserve">
+    <value>0 から 1-20</value>
+  </data>
 </root>

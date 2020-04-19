@@ -150,4 +150,7 @@
   <data name="uCtrlCaseDimensionsMin.Text" xml:space="preserve">
     <value>分ケース寸法</value>
   </data>
+  <data name="uCtrlNumberPerCase.Text" xml:space="preserve">
+    <value>ケースごとの数</value>
+  </data>
 </root>

@@ -168,4 +168,7 @@
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>Вылет</value>
   </data>
+  <data name="bnEditLayer.Text" xml:space="preserve">
+    <value>Отсечение выбранного слоя</value>
+  </data>
 </root>

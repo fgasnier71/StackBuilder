@@ -737,4 +737,67 @@ Cierre el formulario...</value>
   <data name="ID_WIDTH_WU" xml:space="preserve">
     <value>Anchura ({0})</value>
   </data>
+  <data name="ID_ADDNEWBOTTLE" xml:space="preserve">
+    <value>Añadir botella nueva...</value>
+  </data>
+  <data name="ID_ALGORITHM" xml:space="preserve">
+    <value>Algoritmo</value>
+  </data>
+  <data name="ID_BOTTLE" xml:space="preserve">
+    <value>Botella</value>
+  </data>
+  <data name="ID_DATABASEITEMCOUNT" xml:space="preserve">
+    <value>{0} de {1} {2}</value>
+  </data>
+  <data name="ID_DIAMETER" xml:space="preserve">
+    <value>Diámetro</value>
+  </data>
+  <data name="ID_EVALUATINGCASE" xml:space="preserve">
+    <value>La evaluación de {0} de casos fuera de {1}...</value>
+  </data>
+  <data name="ID_GOPREMIUMORUNSELECT" xml:space="preserve">
+    <value>El uso de capas editadas es una función "Premium". Anule la selección de la capa editada.</value>
+  </data>
+  <data name="ID_ITEMS" xml:space="preserve">
+    <value>Artículos</value>
+  </data>
+  <data name="ID_LOADEDCASES" xml:space="preserve">
+    <value>Casos cargados</value>
+  </data>
+  <data name="ID_LOADEDVOLUMEPERCENTAGE" xml:space="preserve">
+    <value>Porcentaje de volumen cargado</value>
+  </data>
+  <data name="ID_NOANALYSISSELECTED" xml:space="preserve">
+    <value>No se ha seleccionado ningún análisis.</value>
+  </data>
+  <data name="ID_NUMBEROFPALLETS" xml:space="preserve">
+    <value>Número de palets</value>
+  </data>
+  <data name="ID_PALLETDATA" xml:space="preserve">
+    <value>Datos de palés</value>
+  </data>
+  <data name="ID_PALLETWEIGHT_WU" xml:space="preserve">
+    <value>Peso de plataforma</value>
+  </data>
+  <data name="ID_PALLET_NUMBER" xml:space="preserve">
+    <value>Paleta s{0}</value>
+  </data>
+  <data name="ID_PREMIUMFEATURE" xml:space="preserve">
+    <value>Esta función solo es accesible para las cuentas Premium.</value>
+  </data>
+  <data name="ID_PREMIUMVERSIONURL" xml:space="preserve">
+    <value>http://www.plmpack.com/stackbuilder/premium/premium.html</value>
+  </data>
+  <data name="ID_SORTINGSOLUTIONS" xml:space="preserve">
+    <value>Soluciones de clasificación...</value>
+  </data>
+  <data name="ID_TRUCKADMISSIBLELOAD" xml:space="preserve">
+    <value>El camión debe tener un valor de carga válido.</value>
+  </data>
+  <data name="ID_UNLOADEDCASES" xml:space="preserve">
+    <value>Casos descargados</value>
+  </data>
+  <data name="ID_WARNINGEDITLAYER" xml:space="preserve">
+    <value>Tenga en cuenta que solo las cuentas "Premium" pueden utilizar la capa modificada en una paletización.</value>
+  </data>
 </root>

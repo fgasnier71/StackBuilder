@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ID_CASE_HEIGHT" xml:space="preserve">
+    <value>Büyük/küçük harf yüksekliği</value>
+  </data>
+  <data name="ID_CASE_LENGTH" xml:space="preserve">
+    <value>Büyük/küçük harf uzunluğu</value>
+  </data>
+  <data name="ID_CASE_WEIGHT" xml:space="preserve">
+    <value>Kasa ağırlığı</value>
+  </data>
+  <data name="ID_CASE_WIDTH" xml:space="preserve">
+    <value>Büyük/küçük harf genişliği</value>
+  </data>
+  <data name="ID_CONSTRAINTS_PALLETMAXIHEIGHT" xml:space="preserve">
+    <value>Maksimum palet yüksekliği</value>
+  </data>
+  <data name="ID_CONSTRAINTS_PALLETMAXIWEIGHT" xml:space="preserve">
+    <value>Maksimum palet ağırlığı</value>
+  </data>
+  <data name="ID_ERROR_NOPALLETSELECTED" xml:space="preserve">
+    <value>Palet seçilmedi!</value>
+  </data>
+  <data name="ID_LOAD_WEIGHT" xml:space="preserve">
+    <value>Yük ağırlığı</value>
+  </data>
+  <data name="ID_PALLET_HEIGHT" xml:space="preserve">
+    <value>Palet yüksekliği</value>
+  </data>
+  <data name="ID_PALLET_LENGTH" xml:space="preserve">
+    <value>Palet uzunluğu</value>
+  </data>
+  <data name="ID_PALLET_WEIGHT" xml:space="preserve">
+    <value>Palet ağırlığı</value>
+  </data>
+  <data name="ID_PALLET_WIDTH" xml:space="preserve">
+    <value>Palet genişliği</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Verimli -liği</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Görüntü</value>
+  </data>
+  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
+    <value>Yük ağırlığı</value>
+  </data>
+  <data name="ID_RESULT_NOCASES" xml:space="preserve">
+    <value>Servis talepleri sayısı</value>
+  </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>Geçerli bir çözüm bulunamadı!</value>
+  </data>
+  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
+    <value>Toplam palet ağırlığı</value>
+  </data>
 </root>

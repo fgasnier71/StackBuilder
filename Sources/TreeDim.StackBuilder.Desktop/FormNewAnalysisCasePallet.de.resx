@@ -168,4 +168,7 @@
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>Überhang</value>
   </data>
+  <data name="bnEditLayer.Text" xml:space="preserve">
+    <value>Ausgewählte Ebene bearbeiten</value>
+  </data>
 </root>

@@ -234,4 +234,46 @@
   <data name="ID_RN_LOADWEIGHT" xml:space="preserve">
     <value>Peso del carico</value>
   </data>
+  <data name="ID_CASE_DIMENSIONS" xml:space="preserve">
+    <value>Case_{0}x{1}x{2}</value>
+  </data>
+  <data name="ID_REPORT_CAPTION" xml:space="preserve">
+    <value>{0} dei report</value>
+  </data>
+  <data name="ID_RN_BOTTLE" xml:space="preserve">
+    <value>Bottiglia</value>
+  </data>
+  <data name="ID_RN_DYNAMICBCT" xml:space="preserve">
+    <value>BCT dinamico</value>
+  </data>
+  <data name="ID_RN_ITEMNUMBERS" xml:space="preserve">
+    <value>Articoli</value>
+  </data>
+  <data name="ID_RN_MATERIAL" xml:space="preserve">
+    <value>Materiale</value>
+  </data>
+  <data name="ID_RN_NAME" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="ID_RN_NOINTERLAYERS" xml:space="preserve">
+    <value>Numero di interstrati</value>
+  </data>
+  <data name="ID_RN_NOLAYERSBYNOCASES" xml:space="preserve">
+    <value>Livelli x Casi</value>
+  </data>
+  <data name="ID_RN_OVERALLDIMENSIONS" xml:space="preserve">
+    <value>Dimensioni d'ingombro</value>
+  </data>
+  <data name="ID_RN_PACKSTRESS" xml:space="preserve">
+    <value>PackStress</value>
+  </data>
+  <data name="ID_RN_PALLETISATION" xml:space="preserve">
+    <value>Palettizzazione</value>
+  </data>
+  <data name="ID_RN_STATICBCT" xml:space="preserve">
+    <value>BCT statico</value>
+  </data>
+  <data name="ID_RN_TOTALWEIGHT" xml:space="preserve">
+    <value>Peso totale</value>
+  </data>
 </root>

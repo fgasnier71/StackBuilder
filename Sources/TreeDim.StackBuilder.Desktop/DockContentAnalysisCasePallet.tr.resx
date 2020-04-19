@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>Kriterlere son ver</value>
+  </data>
+  <data name="tabPageStrappers.Text" xml:space="preserve">
+    <value>Kayışçılar</value>
+  </data>
+  <data name="tabPagePalletCorners.Text" xml:space="preserve">
+    <value>Palet Köşeleri</value>
+  </data>
+  <data name="chkbPalletCornersTop.Text" xml:space="preserve">
+    <value>Palet köşeleri</value>
+  </data>
+  <data name="tabPagePalletCornersTop.Text" xml:space="preserve">
+    <value>Palet köşeleri Üst</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Palet Kapağı</value>
+  </data>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Palet Film</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Maksimum sayı</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maksimum ağırlık</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
+    <value>Maksimum yükseklik</value>
+  </data>
+  <data name="chkbPalletCorners.Text" xml:space="preserve">
+    <value>Palet köşeleri</value>
+  </data>
+  <data name="chkbPalletCap.Text" xml:space="preserve">
+    <value>Palet kapağı</value>
+  </data>
+  <data name="chkbPalletFilm.Text" xml:space="preserve">
+    <value>Palet filmi</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Büyük/Palet analizi...</value>
+  </data>
 </root>

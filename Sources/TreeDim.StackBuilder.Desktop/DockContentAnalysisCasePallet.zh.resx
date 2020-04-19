@@ -150,4 +150,13 @@
   <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
     <value>最大数量</value>
   </data>
+  <data name="tabPageStrappers.Text" xml:space="preserve">
+    <value>绑带</value>
+  </data>
+  <data name="chkbPalletCornersTop.Text" xml:space="preserve">
+    <value>托盘护角</value>
+  </data>
+  <data name="tabPagePalletCornersTop.Text" xml:space="preserve">
+    <value>托盘角顶部</value>
+  </data>
 </root>

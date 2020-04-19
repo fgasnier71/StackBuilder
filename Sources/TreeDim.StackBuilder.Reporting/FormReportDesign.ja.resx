@@ -362,4 +362,13 @@
   <data name="toolSBReportWord.Text" xml:space="preserve">
     <value>単語</value>
   </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
+  <data name="toolSBReportHTML.Text" xml:space="preserve">
+    <value>Html</value>
+  </data>
+  <data name="toolStrip.Text" xml:space="preserve">
+    <value>ツールストリップ1</value>
+  </data>
 </root>

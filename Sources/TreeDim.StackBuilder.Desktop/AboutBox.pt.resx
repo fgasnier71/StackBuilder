@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="okButton.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="labelRegisteredUserCount.Text" xml:space="preserve">
+    <value>Contagem de usuários</value>
+  </data>
+  <data name="textBoxDescription.Text" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="labelVersion.Text" xml:space="preserve">
+    <value>Versão</value>
+  </data>
+  <data name="labelProductName.Text" xml:space="preserve">
+    <value>Nome do produto</value>
+  </data>
+  <data name="linkLabelEmail.Text" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="linkLabelUrl.Text" xml:space="preserve">
+    <value>EmpresaWebSiteSiteUrl</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Sobre stackbuilder...</value>
+  </data>
+  <data name="labelCompanyName.Text" xml:space="preserve">
+    <value>Nome da empresa</value>
+  </data>
+  <data name="labelCopyright.Text" xml:space="preserve">
+    <value>Copyright</value>
+  </data>
 </root>

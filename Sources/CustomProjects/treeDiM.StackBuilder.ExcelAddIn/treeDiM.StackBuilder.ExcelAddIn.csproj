@@ -230,6 +230,9 @@
     <EmbeddedResource Include="FormSettingsPerRow.ja.resx">
       <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerRow.nl.resx">
+      <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSettingsPerRow.pl.resx">
       <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +251,9 @@
     <EmbeddedResource Include="FormSettingsPerRow.tr.resx">
       <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerRow.zh.resx">
+      <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSettingsPerSheet.de.resx">
       <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +267,9 @@
       <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettingsPerSheet.ja.resx">
+      <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerSheet.nl.resx">
       <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettingsPerSheet.pl.resx">
@@ -279,6 +288,9 @@
       <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettingsPerSheet.tr.resx">
+      <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingsPerSheet.zh.resx">
       <DependentUpon>FormSettingsPerSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx" />
@@ -339,6 +351,9 @@
     <EmbeddedResource Include="UCtrlPerRowAnalysis.ja.resx">
       <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPerRowAnalysis.nl.resx">
+      <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPerRowAnalysis.pl.resx">
       <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
     </EmbeddedResource>
@@ -355,6 +370,9 @@
       <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPerRowAnalysis.tr.resx">
+      <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlPerRowAnalysis.zh.resx">
       <DependentUpon>UCtrlPerRowAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlPerSheetAnalysis.fr.resx">

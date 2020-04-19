@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>Critérios de parada</value>
+  </data>
+  <data name="tabPageStrappers.Text" xml:space="preserve">
+    <value>Caçadores de Strappers</value>
+  </data>
+  <data name="tabPagePalletCorners.Text" xml:space="preserve">
+    <value>Cantos de Palete</value>
+  </data>
+  <data name="chkbPalletCornersTop.Text" xml:space="preserve">
+    <value>Cantos de palete</value>
+  </data>
+  <data name="tabPagePalletCornersTop.Text" xml:space="preserve">
+    <value>Cantos de palete topo</value>
+  </data>
+  <data name="tabPagePalletCap.Text" xml:space="preserve">
+    <value>Tampa de Palete</value>
+  </data>
+  <data name="tabPagePalletFilm.Text" xml:space="preserve">
+    <value>Filme de Palete</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Número máximo</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Peso máximo</value>
+  </data>
+  <data name="uCtrlMaxPalletHeight.Text" xml:space="preserve">
+    <value>Altura máxima</value>
+  </data>
+  <data name="chkbPalletCorners.Text" xml:space="preserve">
+    <value>Cantos de palete</value>
+  </data>
+  <data name="chkbPalletCap.Text" xml:space="preserve">
+    <value>Tampa de palete</value>
+  </data>
+  <data name="chkbPalletFilm.Text" xml:space="preserve">
+    <value>Filme de palete</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Análise de caso/palete...</value>
+  </data>
 </root>

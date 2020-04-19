@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Relatório...</value>
+  </data>
+  <data name="lbDefinitionDetail.Text" xml:space="preserve">
+    <value>Definição</value>
+  </data>
+  <data name="lbDefinitionLarge.Text" xml:space="preserve">
+    <value>Definição</value>
+  </data>
+  <data name="lbFontSizeDetail.Text" xml:space="preserve">
+    <value>Tamanho da fonte</value>
+  </data>
+  <data name="lbFontSizeLarge.Text" xml:space="preserve">
+    <value>Tamanho da fonte</value>
+  </data>
+  <data name="lbHTMLSizeDetail.Text" xml:space="preserve">
+    <value>Tamanho HTML</value>
+  </data>
+  <data name="lbHTMLSizeLarge.Text" xml:space="preserve">
+    <value>Tamanho HTML</value>
+  </data>
+  <data name="statusLabelDef.Text" xml:space="preserve">
+    <value>Pronto</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>Statusstrip</value>
+  </data>
+  <data name="tabPageDetail.Text" xml:space="preserve">
+    <value>Imagem detalhada</value>
+  </data>
+  <data name="tabPageLargeImg.Text" xml:space="preserve">
+    <value>Imagem grande</value>
+  </data>
+  <data name="toolSBDimensions.Text" xml:space="preserve">
+    <value>Mostrar / Ocultar dimensões</value>
+  </data>
+  <data name="toolSBReportHTML.Text" xml:space="preserve">
+    <value>Html</value>
+  </data>
+  <data name="toolSBReportPDF.Text" xml:space="preserve">
+    <value>Relatório PDF</value>
+  </data>
+  <data name="toolSBReportPrint.Text" xml:space="preserve">
+    <value>Imprimir...</value>
+  </data>
+  <data name="toolSBReportPrint.ToolTipText" xml:space="preserve">
+    <value>Imprimir</value>
+  </data>
+  <data name="toolSBReportWord.Text" xml:space="preserve">
+    <value>Palavra</value>
+  </data>
+  <data name="toolStrip.Text" xml:space="preserve">
+    <value>ferramentaStrip1</value>
+  </data>
 </root>

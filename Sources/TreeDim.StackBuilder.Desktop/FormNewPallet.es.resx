@@ -945,4 +945,7 @@
   <data name="uLengthWidth.Text" xml:space="preserve">
 		<value>mm</value>
 	</data>
+  <data name="cbColor.Items28" xml:space="preserve">
+    <value>Color</value>
+  </data>
 </root>

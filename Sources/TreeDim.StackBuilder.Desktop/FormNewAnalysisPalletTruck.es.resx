@@ -145,4 +145,7 @@
   <data name="uCtrlMinDistLoadRoof.Text" xml:space="preserve">
     <value>Distancia mínima/carga de la azotea</value>
   </data>
+  <data name="uCtrlMaxNoPallets.Text" xml:space="preserve">
+    <value>Número máximo de palets</value>
+  </data>
 </root>

@@ -126,4 +126,61 @@
   <data name="toolStripLabelProfile.Text" xml:space="preserve">
     <value>Profilo</value>
   </data>
+  <data name="chkbDblWall.Text" xml:space="preserve">
+    <value>Doppia parete</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Sbalzo</value>
+  </data>
+  <data name="toolStripLabelMcKeeFormula.Text" xml:space="preserve">
+    <value>Formula Mc Kee</value>
+  </data>
+  <data name="tsCBMcKeeFormula.Items" xml:space="preserve">
+    <value>Classico</value>
+  </data>
+  <data name="tsCBMcKeeFormula.Items1" xml:space="preserve">
+    <value>Migliorato</value>
+  </data>
+  <data name="toolStripMain.Text" xml:space="preserve">
+    <value>Striscia principale degli utensili</value>
+  </data>
+  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
+    <value>Dimensione Cartone</value>
+  </data>
+  <data name="lbWeightLowestCase.Text" xml:space="preserve">
+    <value>: 0,0 kg</value>
+  </data>
+  <data name="lbDefWeightOnLowestCase.Text" xml:space="preserve">
+    <value>Peso sul minuscolo del caso</value>
+  </data>
+  <data name="uCtrlNoLayers.Text" xml:space="preserve">
+    <value>Numero effettivo di layer</value>
+  </data>
+  <data name="lbDefCount.Text" xml:space="preserve">
+    <value>Conteggio totale casi</value>
+  </data>
+  <data name="lbStackWeight.Text" xml:space="preserve">
+    <value>: 0,0 kg</value>
+  </data>
+  <data name="lbDefWeight.Text" xml:space="preserve">
+    <value>Totale peso pallet</value>
+  </data>
+  <data name="lbStackCount.Text" xml:space="preserve">
+    <value>: 0</value>
+  </data>
+  <data name="lbPrintedArea.Text" xml:space="preserve">
+    <value>Area di stampa</value>
+  </data>
+  <data name="gbDynamicBCT.Text" xml:space="preserve">
+    <value>BCT dinamico</value>
+  </data>
+  <data name="lbCountMax.Text" xml:space="preserve">
+    <value>(max: 0)</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>pallettizzazione BCT</value>
+  </data>
+  <data name="tsButtonReport.Text" xml:space="preserve">
+    <value>Relazione</value>
+  </data>
 </root>

@@ -242,4 +242,136 @@
   <data name="uCtrlWallThickness.Text" xml:space="preserve">
     <value>Espesor de la pared</value>
   </data>
+  <data name="cbColor.Items" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items1" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items10" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items12" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items16" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items17" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items18" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items19" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items20" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items21" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items22" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items23" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items24" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items25" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items26" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items27" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items28" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items29" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items30" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items31" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items32" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items33" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items34" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items35" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items37" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items38" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="lbWrapperColor.Text" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
 </root>

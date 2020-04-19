@@ -173,4 +173,7 @@
   <data name="&gt;&gt;chkShowLogConsole.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="bnResetDefaultSettings.Text" xml:space="preserve">
+    <value>Ripristinare le impostazioni predefinite</value>
+  </data>
 </root>

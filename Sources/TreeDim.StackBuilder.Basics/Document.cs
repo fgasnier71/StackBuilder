@@ -1730,6 +1730,9 @@ namespace treeDiM.StackBuilder.Basics
             string sPalletCornerId = string.Empty;
             if (eltAnalysis.HasAttribute("PalletCornerId"))
                 sPalletCornerId = eltAnalysis.Attributes["PalletCornerId"].Value;
+            string sPalletCornerTopId = string.Empty;
+            if (eltAnalysis.HasAttribute("PalletCornerTopId"))
+                sPalletCornerTopId = eltAnalysis.Attributes["PalletCornerTopId"].Value;
             string sPalletCapId = string.Empty;
             if (eltAnalysis.HasAttribute("PalletCapId"))
                 sPalletCapId = eltAnalysis.Attributes["PalletCapId"].Value;
@@ -1754,6 +1757,7 @@ namespace treeDiM.StackBuilder.Basics
                 Packable packable = GetContentByGuid(Guid.Parse(sContentId)) as Packable;
                 PalletProperties palletProperties = GetTypeByGuid(sContainerId) as PalletProperties;
                 PalletCornerProperties palletCorners = GetTypeByGuid(sPalletCornerId) as PalletCornerProperties;
+                PalletCornerProperties palletCornersTop = GetTypeByGuid(sPalletCornerTopId) as PalletCornerProperties;
                 PalletCapProperties palletCap = GetTypeByGuid(sPalletCapId) as PalletCapProperties;
                 PalletFilmProperties palletFilm = GetTypeByGuid(sPalletFilmId) as PalletFilmProperties;
                 StrapperSet strapperSet = new StrapperSet();
@@ -1779,6 +1783,7 @@ namespace treeDiM.StackBuilder.Basics
                     , constraintSet as ConstraintSetCasePallet
                     , listLayerEncaps) as AnalysisLayered;
                 AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
+                analysisCasePallet.PalletCornerTopProperties = palletCornersTop;
                 analysisCasePallet.StrapperSet = strapperSet;
 
                 if (!string.IsNullOrEmpty(sId))
@@ -3353,6 +3358,13 @@ namespace treeDiM.StackBuilder.Basics
                 {
                     XmlAttribute palletCornerAttribute = xmlDoc.CreateAttribute("PalletCornerId");
                     palletCornerAttribute.Value = string.Format("{0}", analysisCasePallet1.PalletCornerProperties.ID.IGuid);
+                    xmlAnalysisElt.Attributes.Append(palletCornerAttribute);
+                }
+                // PalletCornerTopId
+                if (null != analysisCasePallet1.PalletCornerTopProperties)
+                {
+                    XmlAttribute palletCornerAttribute = xmlDoc.CreateAttribute("PalletCornerTopId");
+                    palletCornerAttribute.Value = string.Format("{0}", analysisCasePallet1.PalletCornerTopProperties.ID.IGuid);
                     xmlAnalysisElt.Attributes.Append(palletCornerAttribute);
                 }
                 // PalletCapId

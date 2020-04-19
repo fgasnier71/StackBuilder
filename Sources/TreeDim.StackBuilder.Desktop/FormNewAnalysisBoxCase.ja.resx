@@ -129,4 +129,16 @@
   <data name="lbCase.Text" xml:space="preserve">
     <value>ケース</value>
   </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>最大数</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>最大ケースウェイト</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>停止基準</value>
+  </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>最高の組み合わせを表示 &gt;</value>
+  </data>
 </root>

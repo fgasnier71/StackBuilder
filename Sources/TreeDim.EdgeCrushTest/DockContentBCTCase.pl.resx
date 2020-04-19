@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="chkbDblWall.Text" xml:space="preserve">
+    <value>Podwójna ściana</value>
+  </data>
+  <data name="uCtrlForceApplied.Text" xml:space="preserve">
+    <value>Zastosowana siła</value>
+  </data>
+  <data name="uCtrlCaseDimensions.Text" xml:space="preserve">
+    <value>Wymiary futerału</value>
+  </data>
+  <data name="lbPrintedArea.Text" xml:space="preserve">
+    <value>Obszar drukowany</value>
+  </data>
+  <data name="gbDynamicBCT.Text" xml:space="preserve">
+    <value>Dynamiczny BCT</value>
+  </data>
+  <data name="toolStripLabelMcKeeFormula.Text" xml:space="preserve">
+    <value>Formuła Mc Kee</value>
+  </data>
+  <data name="tsCBMcKeeFormula.Items" xml:space="preserve">
+    <value>Klasyczny</value>
+  </data>
+  <data name="tsCBMcKeeFormula.Items1" xml:space="preserve">
+    <value>Poprawa</value>
+  </data>
+  <data name="toolStripLabelProfile.Text" xml:space="preserve">
+    <value>Profil użytkownika</value>
+  </data>
+  <data name="tsBnReport.Text" xml:space="preserve">
+    <value>Raport...</value>
+  </data>
+  <data name="toolStripMain.Text" xml:space="preserve">
+    <value>Menu główne</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Sprawa BCT</value>
+  </data>
 </root>

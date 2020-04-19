@@ -159,4 +159,16 @@
   <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
     <value>Всего palletWeight</value>
   </data>
+  <data name="ID_ERROR_NOPALLETSELECTED" xml:space="preserve">
+    <value>Поддон не выбран!</value>
+  </data>
+  <data name="ID_LOAD_WEIGHT" xml:space="preserve">
+    <value>Вес груза</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Эффективность</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Изображение</value>
+  </data>
 </root>

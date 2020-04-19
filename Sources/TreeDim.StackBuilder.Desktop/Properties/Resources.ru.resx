@@ -737,4 +737,67 @@
   <data name="ID_CASECOUNTFORMATSTRING" xml:space="preserve">
     <value>{0} {1} x {2}</value>
   </data>
+  <data name="ID_ADDNEWBOTTLE" xml:space="preserve">
+    <value>Добавить новую бутылку...</value>
+  </data>
+  <data name="ID_ALGORITHM" xml:space="preserve">
+    <value>Алгоритм</value>
+  </data>
+  <data name="ID_BOTTLE" xml:space="preserve">
+    <value>Бутылка</value>
+  </data>
+  <data name="ID_DATABASEITEMCOUNT" xml:space="preserve">
+    <value>{0}-{1} из {2}</value>
+  </data>
+  <data name="ID_DIAMETER" xml:space="preserve">
+    <value>Диаметр</value>
+  </data>
+  <data name="ID_EVALUATINGCASE" xml:space="preserve">
+    <value>Оценка случая {0} из {1}...</value>
+  </data>
+  <data name="ID_GOPREMIUMORUNSELECT" xml:space="preserve">
+    <value>Использование отредактированных слоев является функцией "Премиум". Невыбрать отредактированный слой.</value>
+  </data>
+  <data name="ID_ITEMS" xml:space="preserve">
+    <value>Элементы</value>
+  </data>
+  <data name="ID_LOADEDCASES" xml:space="preserve">
+    <value>Загруженные чехлы</value>
+  </data>
+  <data name="ID_LOADEDVOLUMEPERCENTAGE" xml:space="preserve">
+    <value>Процент загруженного объема</value>
+  </data>
+  <data name="ID_NOANALYSISSELECTED" xml:space="preserve">
+    <value>Анализ не выбран.</value>
+  </data>
+  <data name="ID_NUMBEROFPALLETS" xml:space="preserve">
+    <value>Количество поддонов</value>
+  </data>
+  <data name="ID_PALLETDATA" xml:space="preserve">
+    <value>Данные о паллетах</value>
+  </data>
+  <data name="ID_PALLETWEIGHT_WU" xml:space="preserve">
+    <value>Вес палеты</value>
+  </data>
+  <data name="ID_PALLET_NUMBER" xml:space="preserve">
+    <value>Поддон {0}</value>
+  </data>
+  <data name="ID_PREMIUMFEATURE" xml:space="preserve">
+    <value>Эта функция доступна только для учетных записей Premium.</value>
+  </data>
+  <data name="ID_PREMIUMVERSIONURL" xml:space="preserve">
+    <value>http://www.plmpack.com/stackbuilder/premium/premium.html</value>
+  </data>
+  <data name="ID_SORTINGSOLUTIONS" xml:space="preserve">
+    <value>Решения для сортировки...</value>
+  </data>
+  <data name="ID_TRUCKADMISSIBLELOAD" xml:space="preserve">
+    <value>Грузовик должен иметь допустимое значение нагрузки.</value>
+  </data>
+  <data name="ID_UNLOADEDCASES" xml:space="preserve">
+    <value>Разгруженные чехлы</value>
+  </data>
+  <data name="ID_WARNINGEDITLAYER" xml:space="preserve">
+    <value>Обратите внимание, что только учетные записи "Премиум" могут использовать измененный слой в паллетизации.</value>
+  </data>
 </root>

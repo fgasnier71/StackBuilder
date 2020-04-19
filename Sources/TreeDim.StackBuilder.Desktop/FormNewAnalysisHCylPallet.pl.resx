@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Utwórz nową analizę cylindrów/palet...</value>
+  </data>
+  <data name="lbCylinder.Text" xml:space="preserve">
+    <value>Cylindra</value>
+  </data>
+  <data name="lbPallet.Text" xml:space="preserve">
+    <value>Palety</value>
+  </data>
+  <data name="tabPageOverhang.Text" xml:space="preserve">
+    <value>Zwis</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Stop kryteria</value>
+  </data>
+  <data name="uCtrlMaximumHeight.Text" xml:space="preserve">
+    <value>Wysokość maksymalna palety</value>
+  </data>
+  <data name="uCtrlOptMaximumNumber.Text" xml:space="preserve">
+    <value>Maksymalna liczba</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Waga palety Maksymalna</value>
+  </data>
+  <data name="uCtrlOverhang.Text" xml:space="preserve">
+    <value>Zwis</value>
+  </data>
 </root>

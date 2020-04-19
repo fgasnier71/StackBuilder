@@ -150,4 +150,7 @@
   <data name="uCtrlCaseDimensionsMin.Text" xml:space="preserve">
     <value>Dimensioni min. cartone</value>
   </data>
+  <data name="uCtrlNumberPerCase.Text" xml:space="preserve">
+    <value>Numero per caso</value>
+  </data>
 </root>

@@ -298,4 +298,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Analyse caisse/palette...</value>
   </data>
+  <data name="chkbPalletCornersTop.Text" xml:space="preserve">
+    <value>Cornières</value>
+  </data>
+  <data name="tabPagePalletCornersTop.Text" xml:space="preserve">
+    <value>Pallet coins Top</value>
+  </data>
 </root>

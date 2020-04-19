@@ -334,4 +334,10 @@
   <data name="uCtrlMaxLoadWeight.Text" xml:space="preserve">
     <value>Zulässige Lastgewicht</value>
   </data>
+  <data name="cbColor.Items51" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbColor.Items52" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
 </root>

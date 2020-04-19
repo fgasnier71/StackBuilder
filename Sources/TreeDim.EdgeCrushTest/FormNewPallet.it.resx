@@ -144,4 +144,7 @@
   <data name="lbDescription.Text" xml:space="preserve">
     <value>Descrizione</value>
   </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>controllo statusStrip</value>
+  </data>
 </root>

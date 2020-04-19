@@ -165,4 +165,22 @@
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>工具</value>
   </data>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="bnPrev.Text" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="bnRemoveAll.Text" xml:space="preserve">
+    <value>删除所有</value>
+  </data>
+  <data name="bnSearch.Text" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="chkbSearchDescription.Text" xml:space="preserve">
+    <value>还搜索说明</value>
+  </data>
+  <data name="lbCount.Text" xml:space="preserve">
+    <value>1-20 的 0</value>
+  </data>
 </root>

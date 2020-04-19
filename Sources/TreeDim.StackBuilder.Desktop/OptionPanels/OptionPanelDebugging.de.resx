@@ -133,4 +133,7 @@
   <data name="chkShowLogConsole.Text" xml:space="preserve">
     <value>Zeige Log Konsole</value>
   </data>
+  <data name="bnResetDefaultSettings.Text" xml:space="preserve">
+    <value>Standardeinstellungen zurücksetzen</value>
+  </data>
 </root>

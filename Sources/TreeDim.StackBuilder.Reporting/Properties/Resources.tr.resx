@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,160 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ID_CASE_DIMENSIONS" xml:space="preserve">
+    <value>Case_{0}x{1}x{2}</value>
+  </data>
+  <data name="ID_FILTER_HTML" xml:space="preserve">
+    <value>HyperText Biçimlendirme Dili (*html)|*.html| Tüm dosyalar (*.*)|***</value>
+  </data>
+  <data name="ID_FILTER_MSWORD" xml:space="preserve">
+    <value>Microsoft Office Word (*.doc;*.docx)|*.doc;*.docx| Tüm Dosyalar (*.*)|*.*</value>
+  </data>
+  <data name="ID_FILTER_PDF" xml:space="preserve">
+    <value>Abobe Acrobat (*.pdf)|*.pdf</value>
+  </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Rapor</value>
+  </data>
+  <data name="ID_REPORT_CAPTION" xml:space="preserve">
+    <value>rapor {0}</value>
+  </data>
+  <data name="ID_RN_ANALYSIS" xml:space="preserve">
+    <value>Analiz ({0})</value>
+  </data>
+  <data name="ID_RN_ARRANGEMENT" xml:space="preserve">
+    <value>Düzenleme</value>
+  </data>
+  <data name="ID_RN_AUTHORS" xml:space="preserve">
+    <value>Yazar</value>
+  </data>
+  <data name="ID_RN_BOTTLE" xml:space="preserve">
+    <value>Şişe</value>
+  </data>
+  <data name="ID_RN_BOX" xml:space="preserve">
+    <value>Kutusu</value>
+  </data>
+  <data name="ID_RN_BUNDLE" xml:space="preserve">
+    <value>Paket</value>
+  </data>
+  <data name="ID_RN_CASE" xml:space="preserve">
+    <value>Durumda</value>
+  </data>
+  <data name="ID_RN_COMPANYLOGO" xml:space="preserve">
+    <value>Şirket logosu</value>
+  </data>
+  <data name="ID_RN_CONSTRAINTSET" xml:space="preserve">
+    <value>Kısıtlama kümesi</value>
+  </data>
+  <data name="ID_RN_CYLINDER" xml:space="preserve">
+    <value>Silindir</value>
+  </data>
+  <data name="ID_RN_DATE" xml:space="preserve">
+    <value>Tarih</value>
+  </data>
+  <data name="ID_RN_DEFAULT" xml:space="preserve">
+    <value>Varsayılan</value>
+  </data>
+  <data name="ID_RN_DESCRIPTION" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="ID_RN_DIMENSIONS" xml:space="preserve">
+    <value>Boyutlar</value>
+  </data>
+  <data name="ID_RN_DIMENSIONSINNER" xml:space="preserve">
+    <value>İç boyutlar</value>
+  </data>
+  <data name="ID_RN_DIMENSIONSOUTER" xml:space="preserve">
+    <value>Dış boyutlar</value>
+  </data>
+  <data name="ID_RN_DYNAMICBCT" xml:space="preserve">
+    <value>Dinamik BCT</value>
+  </data>
+  <data name="ID_RN_IMAGE" xml:space="preserve">
+    <value>Görüntü</value>
+  </data>
+  <data name="ID_RN_IMAGES" xml:space="preserve">
+    <value>Görüntü</value>
+  </data>
+  <data name="ID_RN_INTERLAYER" xml:space="preserve">
+    <value>Katmanlar arası</value>
+  </data>
+  <data name="ID_RN_ITEMNUMBERS" xml:space="preserve">
+    <value>Bileşen</value>
+  </data>
+  <data name="ID_RN_LAYERS" xml:space="preserve">
+    <value>Katman</value>
+  </data>
+  <data name="ID_RN_LOADDIMENSIONS" xml:space="preserve">
+    <value>Yük boyutları</value>
+  </data>
+  <data name="ID_RN_LOADWEIGHT" xml:space="preserve">
+    <value>Yük ağırlığı</value>
+  </data>
+  <data name="ID_RN_MATERIAL" xml:space="preserve">
+    <value>Malzeme</value>
+  </data>
+  <data name="ID_RN_MAXIMUMHEIGHT" xml:space="preserve">
+    <value>Maksimum yükseklik</value>
+  </data>
+  <data name="ID_RN_MAXIMUMNUMBER" xml:space="preserve">
+    <value>Maksimum sayı</value>
+  </data>
+  <data name="ID_RN_MAXIMUMWEIGHT" xml:space="preserve">
+    <value>Maksimum ağırlık</value>
+  </data>
+  <data name="ID_RN_NAME" xml:space="preserve">
+    <value>Adı</value>
+  </data>
+  <data name="ID_RN_NOINTERLAYERS" xml:space="preserve">
+    <value>Katmanlar arası sayı</value>
+  </data>
+  <data name="ID_RN_NOLAYERSBYNOCASES" xml:space="preserve">
+    <value>Katmanlar x Kılıflar</value>
+  </data>
+  <data name="ID_RN_OVERALLDIMENSIONS" xml:space="preserve">
+    <value>Genel boyutlar</value>
+  </data>
+  <data name="ID_RN_OVERHANG" xml:space="preserve">
+    <value>Çıkıntı</value>
+  </data>
+  <data name="ID_RN_PACK" xml:space="preserve">
+    <value>Paketi</value>
+  </data>
+  <data name="ID_RN_PACKSTRESS" xml:space="preserve">
+    <value>PackStress</value>
+  </data>
+  <data name="ID_RN_PALLET" xml:space="preserve">
+    <value>Palet</value>
+  </data>
+  <data name="ID_RN_PALLETISATION" xml:space="preserve">
+    <value>Paletleme</value>
+  </data>
+  <data name="ID_RN_SOLUTION" xml:space="preserve">
+    <value>Çözüm</value>
+  </data>
+  <data name="ID_RN_SPACES" xml:space="preserve">
+    <value>Boşluk</value>
+  </data>
+  <data name="ID_RN_STATICBCT" xml:space="preserve">
+    <value>Statik BCT</value>
+  </data>
+  <data name="ID_RN_TOTALWEIGHT" xml:space="preserve">
+    <value>Toplam ağırlık</value>
+  </data>
+  <data name="ID_RN_TRUCK" xml:space="preserve">
+    <value>Kamyon</value>
+  </data>
+  <data name="ID_RN_VIEWISO" xml:space="preserve">
+    <value>ıso</value>
+  </data>
+  <data name="ID_RN_VIEWS" xml:space="preserve">
+    <value>Ön/Sol/Sağ/Arka</value>
+  </data>
+  <data name="ID_RN_VOLUMEEFFICIENCY" xml:space="preserve">
+    <value>Hacim verimliliği</value>
+  </data>
+  <data name="ID_RN_WEIGHT" xml:space="preserve">
+    <value>Ağırlık</value>
+  </data>
 </root>

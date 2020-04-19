@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cbSubscriptionDuration.Items1" xml:space="preserve">
+    <value>2 jaar (90 €)</value>
+  </data>
+  <data name="lbSubscribe.Text" xml:space="preserve">
+    <value>Ik wil me abonneren op</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="lbEmail.Text" xml:space="preserve">
+    <value>op het volgende adres</value>
+  </data>
+  <data name="linkLabelPremiumVsFree.Text" xml:space="preserve">
+    <value>Bekijk het verschil tussen Premium- en Gratis versies</value>
+  </data>
+  <data name="rbSubscription2.Text" xml:space="preserve">
+    <value>Inschrijven via factuur</value>
+  </data>
+  <data name="rbSubscription1.Text" xml:space="preserve">
+    <value>Inschrijven via paypal</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Word een "Premium" gebruiker...</value>
+  </data>
+  <data name="lbVATNumber.Text" xml:space="preserve">
+    <value>BTW-nummer</value>
+  </data>
+  <data name="cbSubscriptionDuration.Items" xml:space="preserve">
+    <value>1 jaar (50 €)</value>
+  </data>
+  <data name="bnSend.Text" xml:space="preserve">
+    <value>Stuur mij een factuur!</value>
+  </data>
 </root>

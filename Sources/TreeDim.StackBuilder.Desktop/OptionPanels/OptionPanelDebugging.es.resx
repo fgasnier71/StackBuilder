@@ -129,4 +129,7 @@
   <data name="chkShowLogConsole.Text" xml:space="preserve">
     <value>Mostrar consola de registro</value>
   </data>
+  <data name="bnResetDefaultSettings.Text" xml:space="preserve">
+    <value>Restablecer la configuración predeterminada</value>
+  </data>
 </root>

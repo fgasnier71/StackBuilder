@@ -129,4 +129,16 @@
   <data name="lbCase.Text" xml:space="preserve">
     <value>Дело</value>
   </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Максимальное число</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Максимальный вес корпуса</value>
+  </data>
+  <data name="tabPageStopCriterions.Text" xml:space="preserve">
+    <value>Остановить критерии</value>
+  </data>
+  <data name="bnBestCombination.Text" xml:space="preserve">
+    <value>Показать лучшие комбинации &gt;</value>
+  </data>
 </root>

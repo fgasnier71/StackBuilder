@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>Hoofdmenustip</value>
+  </data>
+  <data name="toolStripMIHelp.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="editMaterialListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Materiaallijst bewerken...</value>
+  </data>
+  <data name="toolStripMIMode1.Text" xml:space="preserve">
+    <value>BCT-&gt;Pallethoogte</value>
+  </data>
+  <data name="toolStripMILogConsole.Text" xml:space="preserve">
+    <value>Toon log console</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Uitgang</value>
+  </data>
+  <data name="editPalletListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Palletlijst bewerken...</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>PLMPack PackStress</value>
+  </data>
+  <data name="toolStripMIMode.Text" xml:space="preserve">
+    <value>Modus</value>
+  </data>
+  <data name="toolStripMIFile.Text" xml:space="preserve">
+    <value>Bestand</value>
+  </data>
+  <data name="toolStripMIMode2.Text" xml:space="preserve">
+    <value>Toegepaste kracht -&gt; Beste ECT</value>
+  </data>
+  <data name="toolStripMIData.Text" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="toolStripMIAbout.Text" xml:space="preserve">
+    <value>Over...</value>
+  </data>
 </root>

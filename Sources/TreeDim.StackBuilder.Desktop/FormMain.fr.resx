@@ -1619,4 +1619,37 @@
   <data name="toolStripStandard.Text" xml:space="preserve">
     <value>Standard</value>
   </data>
+  <data name="projectToolStripMenuItem.Text" xml:space="preserve">
+    <value>Projet</value>
+  </data>
+  <data name="toolStripMIExportAnalysesSummaryToExcel.Text" xml:space="preserve">
+    <value>Résumé des analyses d’exportation à Excel...</value>
+  </data>
+  <data name="toolStripMIExportAnalysesSummaryToExcel.ToolTipText" xml:space="preserve">
+    <value>Résumé des analyses de projets d’exportation à Excel...</value>
+  </data>
+  <data name="browseEditMaterialListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Parcourir la liste des matériaux...</value>
+  </data>
+  <data name="toolStripMISettings.Text" xml:space="preserve">
+    <value>Paramètres...</value>
+  </data>
+  <data name="toolStripButtonBottle.Text" xml:space="preserve">
+    <value>Ajouter une nouvelle bouteille...</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylTruck.Text" xml:space="preserve">
+    <value>Cylindre horizontal/camion</value>
+  </data>
+  <data name="palletisationBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Palettisation BCT</value>
+  </data>
+  <data name="caseBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Calcul RCV caisse</value>
+  </data>
+  <data name="saveFileDialogExport.Filter" xml:space="preserve">
+    <value>eXchange Markup Language (md.xml)</value>
+  </data>
+  <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
+    <value>Nouvelle bouteille</value>
+  </data>
 </root>

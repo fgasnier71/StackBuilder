@@ -267,4 +267,322 @@
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>重量</value>
   </data>
+  <data name="lbContent.Text" xml:space="preserve">
+    <value>内容</value>
+  </data>
+  <data name="uCtrlWrapperWalls.Text" xml:space="preserve">
+    <value>墙数</value>
+  </data>
+  <data name="uCtrlWrapperWeight.Text" xml:space="preserve">
+    <value>重量</value>
+  </data>
+  <data name="uCtrlWrapperThickness.Text" xml:space="preserve">
+    <value>厚度</value>
+  </data>
+  <data name="cbWrapperColor.Items" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items1" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items2" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items3" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items4" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items5" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items6" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items7" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items8" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items9" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items10" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items11" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items12" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items13" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items14" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items15" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items16" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items17" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items18" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items19" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items20" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items21" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items22" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items23" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items24" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items25" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items26" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items27" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items28" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items29" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items30" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items31" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items32" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items33" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items34" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items35" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items36" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items37" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items38" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items39" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items40" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items41" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbWrapperColor.Items42" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="chkbWrapper.Text" xml:space="preserve">
+    <value>包装</value>
+  </data>
+  <data name="tabWrapper.Text" xml:space="preserve">
+    <value>包装</value>
+  </data>
+  <data name="uCtrlTrayWalls.Text" xml:space="preserve">
+    <value>墙数</value>
+  </data>
+  <data name="uCtrlTrayUnitThickness.Text" xml:space="preserve">
+    <value>厚度</value>
+  </data>
+  <data name="uCtrlTrayWeight.Text" xml:space="preserve">
+    <value>重量</value>
+  </data>
+  <data name="chkbTray.Text" xml:space="preserve">
+    <value>托盘</value>
+  </data>
+  <data name="cbTrayColor.Items" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items1" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items2" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items3" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items4" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items5" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items6" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items7" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items8" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items9" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items10" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items11" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items12" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items13" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items14" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items15" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items16" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items17" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items18" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items19" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items20" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items21" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items22" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items23" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items24" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items25" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items26" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items27" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items28" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items29" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items30" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items31" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items32" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items33" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items34" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items35" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items36" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items37" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items38" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items39" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items40" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items41" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items42" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items43" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbTrayColor.Items44" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="uCtrlTrayHeight.Text" xml:space="preserve">
+    <value>高度</value>
+  </data>
+  <data name="tabTray.Text" xml:space="preserve">
+    <value>托盘</value>
+  </data>
+  <data name="tabStrappers.Text" xml:space="preserve">
+    <value>绑带</value>
+  </data>
+  <data name="lbCylLayoutType.Text" xml:space="preserve">
+    <value>布局类型</value>
+  </data>
+  <data name="cbCylLayoutType.Items" xml:space="preserve">
+    <value>一致</value>
+  </data>
+  <data name="cbCylLayoutType.Items1" xml:space="preserve">
+    <value>交错常规</value>
+  </data>
+  <data name="cbCylLayoutType.Items2" xml:space="preserve">
+    <value>交错 -1</value>
+  </data>
+  <data name="cbCylLayoutType.Items3" xml:space="preserve">
+    <value>交错 #1</value>
+  </data>
 </root>

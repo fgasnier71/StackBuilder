@@ -160,4 +160,7 @@
   <data name="uCtrlCaseDimensionsMin.Text" xml:space="preserve">
     <value>Dimensiones mín.</value>
   </data>
+  <data name="uCtrlNumberPerCase.Text" xml:space="preserve">
+    <value>Número por caso</value>
+  </data>
 </root>

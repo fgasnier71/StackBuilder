@@ -963,4 +963,13 @@
   <data name="$this.Text" xml:space="preserve">
     <value>A proposito di StackBuilder...</value>
   </data>
+  <data name="okButton.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="linkLabelEmail.Text" xml:space="preserve">
+    <value>Posta elettronica</value>
+  </data>
+  <data name="labelCopyright.Text" xml:space="preserve">
+    <value>Copyright</value>
+  </data>
 </root>

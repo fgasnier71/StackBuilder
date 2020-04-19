@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Nova análise...</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="bnNext.Text" xml:space="preserve">
+    <value>Próximo &gt;</value>
+  </data>
+  <data name="lbDescription.Text" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="lbName.Text" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value>statusStripDef</value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
 </root>

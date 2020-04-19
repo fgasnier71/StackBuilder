@@ -1,6 +1,8 @@
 ﻿#region Using directives
+using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
@@ -15,7 +17,6 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             InitializeComponent();
         }
-
         public void Initialize()
         {
             if (DesignMode)
@@ -37,20 +38,16 @@ namespace treeDiM.StackBuilder.GUIExtension
             if (Items.Count > 0)
                 SelectedIndex = 0;
         }
-
-        public ItemBase SelectedType
+        public ItemBase SelectedType => !(SelectedItem is ItemBaseWrapper wrapper) ? null : wrapper.ItemBase;
+        public PalletProperties SelectedPallet => !(SelectedItem is ItemBaseWrapper wrapper) ? null : wrapper.ItemBase as PalletProperties;
+        public string SelectedPalletName
         {
-            get
+            get => PalletData.TypeNames[SelectedIndex];
+            set
             {
-                return !(SelectedItem is ItemBaseWrapper wrapper) ? null : wrapper.ItemBase;
-            }
-        }
-
-        public PalletProperties SelectedPallet
-        {
-            get
-            {
-                return !(SelectedItem is ItemBaseWrapper wrapper) ? null : wrapper.ItemBase as PalletProperties;
+                int index = PalletData.TypeNames.IndexOf(value);
+                if (-1 != index)
+                    SelectedIndex = index;
             }
         }
     }

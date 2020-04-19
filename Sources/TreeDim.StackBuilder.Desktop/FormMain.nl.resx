@@ -842,4 +842,67 @@
   <data name="tutorialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
   </data>
+  <data name="projectToolStripMenuItem.Text" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="toolStripMIExportAnalysesSummaryToExcel.Text" xml:space="preserve">
+    <value>Overzicht van analyses exporteren naar Excel...</value>
+  </data>
+  <data name="toolStripMIExportAnalysesSummaryToExcel.ToolTipText" xml:space="preserve">
+    <value>Overzicht van projectanalyses exporteren naar Excel...</value>
+  </data>
+  <data name="browseEditMaterialListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Lijst met bladeren/bewerken van materiaal...</value>
+  </data>
+  <data name="toolStripMIPremium.Text" xml:space="preserve">
+    <value>Word een premium gebruiker</value>
+  </data>
+  <data name="toolStripButtonBottle.Text" xml:space="preserve">
+    <value>Voeg nieuwe fles...</value>
+  </data>
+  <data name="toolStripSB_BCT.Text" xml:space="preserve">
+    <value>BCT-berekening</value>
+  </data>
+  <data name="toolStripButtonPremium.Text" xml:space="preserve">
+    <value>Word een premium gebruiker</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.ToolTipText" xml:space="preserve">
+    <value>Case/pallet analyse</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.ToolTipText" xml:space="preserve">
+    <value>Cilinder/palletanalyse</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylPallet.Text" xml:space="preserve">
+    <value>Horizontale cilinder/pallet</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.ToolTipText" xml:space="preserve">
+    <value>Bundel-/palletanalyse</value>
+  </data>
+  <data name="toolStripMIHAnalysis.Text" xml:space="preserve">
+    <value>Heterogene palletlading</value>
+  </data>
+  <data name="toolStripMIHAnalysis.ToolTipText" xml:space="preserve">
+    <value>Heterogene palletlading</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderTruck.Text" xml:space="preserve">
+    <value>Cilinder/vrachtwagen</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylTruck.Text" xml:space="preserve">
+    <value>Horizontale cilinder/vrachtwagen</value>
+  </data>
+  <data name="toolStripMIHAnalysisCaseTruck.Text" xml:space="preserve">
+    <value>Heterogene case/truck</value>
+  </data>
+  <data name="palletisationBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Palletisering BCT</value>
+  </data>
+  <data name="caseBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Zaak BCT</value>
+  </data>
+  <data name="saveFileDialogExport.Filter" xml:space="preserve">
+    <value>EXchange Markup Language (*.xml)|*.xml</value>
+  </data>
+  <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
+    <value>Nieuwe fles</value>
+  </data>
 </root>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>主菜单提示</value>
+  </data>
+  <data name="toolStripMIHelp.Text" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="editMaterialListToolStripMenuItem.Text" xml:space="preserve">
+    <value>正在编辑材料列表...</value>
+  </data>
+  <data name="toolStripMIMode1.Text" xml:space="preserve">
+    <value>BCT-_托盘高度</value>
+  </data>
+  <data name="toolStripMILogConsole.Text" xml:space="preserve">
+    <value>显示日志控制台</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="editPalletListToolStripMenuItem.Text" xml:space="preserve">
+    <value>正在编辑托盘列表...</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>PLMPack 包装压力</value>
+  </data>
+  <data name="toolStripMIMode.Text" xml:space="preserve">
+    <value>模式</value>
+  </data>
+  <data name="toolStripMIFile.Text" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="toolStripMIMode2.Text" xml:space="preserve">
+    <value>应用力 -* 最佳 ECT</value>
+  </data>
+  <data name="toolStripMIData.Text" xml:space="preserve">
+    <value>数据库</value>
+  </data>
+  <data name="toolStripMIAbout.Text" xml:space="preserve">
+    <value>关于...</value>
+  </data>
 </root>

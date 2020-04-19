@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ID_CASECANNOTCONTAINITEM" xml:space="preserve">
+    <value>Büyük {0} öğe {1} içeremez.</value>
+  </data>
+  <data name="ID_ERROR_INVALIDFILE" xml:space="preserve">
+    <value>Dosya {0} hem geçerli bir öğe listesi hem de geçerli bir palet listesi içermez.</value>
+  </data>
+  <data name="ID_ERROR_NOITEMFOUND" xml:space="preserve">
+    <value>{0} bulunamadı. Geçerli bir {1} sekmesi nin var olduğunu doğrulayın!</value>
+  </data>
+  <data name="ID_PACKING" xml:space="preserve">
+    <value>Packing_{0}</value>
+  </data>
+  <data name="ID_PALLETHEIGHTINSUFFICIENT" xml:space="preserve">
+    <value>Palet yüksekliği yetersiz görünüyor.</value>
+  </data>
+  <data name="ID_READY" xml:space="preserve">
+    <value>Hazır</value>
+  </data>
 </root>
