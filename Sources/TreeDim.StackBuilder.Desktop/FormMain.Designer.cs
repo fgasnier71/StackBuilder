@@ -56,6 +56,7 @@
             this.toolStripMenuItemPack = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemBundle = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemCylinder = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemNewBottle = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPallet = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTruck = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
@@ -146,7 +147,6 @@
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripMenuItemNewBottle = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -350,6 +350,12 @@
             resources.ApplyResources(this.toolStripMenuItemCylinder, "toolStripMenuItemCylinder");
             this.toolStripMenuItemCylinder.Name = "toolStripMenuItemCylinder";
             this.toolStripMenuItemCylinder.Click += new System.EventHandler(this.ToolAddNewCylinder);
+            // 
+            // toolStripMenuItemNewBottle
+            // 
+            resources.ApplyResources(this.toolStripMenuItemNewBottle, "toolStripMenuItemNewBottle");
+            this.toolStripMenuItemNewBottle.Name = "toolStripMenuItemNewBottle";
+            this.toolStripMenuItemNewBottle.Click += new System.EventHandler(this.ToolAddNewBottle);
             // 
             // toolStripMenuItemPallet
             // 
@@ -956,12 +962,6 @@
             // 
             this.saveFileDialogExport.DefaultExt = "xml";
             resources.ApplyResources(this.saveFileDialogExport, "saveFileDialogExport");
-            // 
-            // toolStripMenuItemNewBottle
-            // 
-            resources.ApplyResources(this.toolStripMenuItemNewBottle, "toolStripMenuItemNewBottle");
-            this.toolStripMenuItemNewBottle.Name = "toolStripMenuItemNewBottle";
-            this.toolStripMenuItemNewBottle.Click += new System.EventHandler(this.ToolAddNewBottle);
             // 
             // FormMain
             // 

@@ -364,9 +364,6 @@
   <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Ouvrir le fichier</value>
   </data>
-  <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
-    <value>Échanger des Markup Language (*.xml) | * .xml</value>
-  </data>
   <data name="saveFileDialogSB.Filter" xml:space="preserve">
     <value>Fichiers StackBuilder (*.stb)|*.stb|Tous les fichiers (*.*)|*.*</value>
   </data>
@@ -1645,9 +1642,6 @@
   </data>
   <data name="caseBCTToolStripMenuItem.Text" xml:space="preserve">
     <value>Calcul RCV caisse</value>
-  </data>
-  <data name="saveFileDialogExport.Filter" xml:space="preserve">
-    <value>eXchange Markup Language (md.xml)</value>
   </data>
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>Nouvelle bouteille</value>
