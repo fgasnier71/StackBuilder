@@ -1,7 +1,8 @@
-﻿using System;
-using Microsoft.Office.Tools.Ribbon;
-using System.IO;
+﻿#region Using directives
+using System;
 using System.Windows.Forms;
+using Microsoft.Office.Tools.Ribbon;
+#endregion
 
 namespace treeDiM.StackBuilder.ExcelAddIn
 {

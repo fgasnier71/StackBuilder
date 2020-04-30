@@ -110,25 +110,49 @@
     <EmbeddedResource Include="UCtrlDouble.resx">
       <DependentUpon>UCtrlDouble.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlDouble.sl.resx">
+      <DependentUpon>UCtrlDouble.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCtrlDualDouble.resx">
+      <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlDualDouble.sl.resx">
       <DependentUpon>UCtrlDualDouble.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlInt.resx">
       <DependentUpon>UCtrlInt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlInt.sl.resx">
+      <DependentUpon>UCtrlInt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCtrlOptDouble.resx">
+      <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlOptDouble.sl.resx">
       <DependentUpon>UCtrlOptDouble.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlOptInt.resx">
       <DependentUpon>UCtrlOptInt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlOptInt.sl.resx">
+      <DependentUpon>UCtrlOptInt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCtrlOptTriDouble.resx">
+      <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlOptTriDouble.sl.resx">
       <DependentUpon>UCtrlOptTriDouble.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCtrlTriDouble.resx">
       <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlTriDouble.sl.resx">
+      <DependentUpon>UCtrlTriDouble.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCtrlTriInt.resx">
+      <DependentUpon>UCtrlTriInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCtrlTriInt.sl.resx">
       <DependentUpon>UCtrlTriInt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -141,11 +165,11 @@
 
 </PostBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\NuGet.Build.Tasks.Pack.5.5.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.5.5.0\build\NuGet.Build.Tasks.Pack.targets')" />
+  <Import Project="..\packages\NuGet.Build.Tasks.Pack.5.5.1\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.5.5.1\build\NuGet.Build.Tasks.Pack.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.5.5.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.5.5.0\build\NuGet.Build.Tasks.Pack.targets'))" />
+    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.5.5.1\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.5.5.1\build\NuGet.Build.Tasks.Pack.targets'))" />
   </Target>
 </Project>

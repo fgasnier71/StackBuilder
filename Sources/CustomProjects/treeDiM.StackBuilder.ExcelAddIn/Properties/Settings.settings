@@ -116,5 +116,17 @@
     <Setting Name="FontSizeRatio" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0.015</Value>
     </Setting>
+    <Setting Name="ImageFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ReportFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ReportTemplatePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml.xsl</Value>
+    </Setting>
+    <Setting Name="GenerateReports" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

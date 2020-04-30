@@ -27,7 +27,6 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         {
             InitializeComponent();
         }
-
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -36,20 +35,31 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             uCtrlOverhang.ValueX = Settings.Default.OverhangX;
             uCtrlOverhang.ValueY = Settings.Default.OverhangY;
 
-            chkbGenerateImageInRow.Checked = Settings.Default.GenerateImageInRow;
-            chkbGenerateImageInFolder.Checked = Settings.Default.GenerateImageInFolder;
+            GenerateImage = Settings.Default.GenerateImageInRow;
+            GenerateImageInFolder = Settings.Default.GenerateImageInFolder;
+            GenerateReport = Settings.Default.GenerateReports;
+            DirectoryPathImages = Settings.Default.ImageFolderPath;
+            DirectoryPathReports = Settings.Default.ReportFolderPath;            
 
             OnGenerateImagesChanged(this, null);
             OnGenerateReportChanged(this, null);
         }
-
+        private void SaveSettings()
+        {
+            Settings.Default.GenerateImageInRow = GenerateImage;
+            Settings.Default.GenerateImageInFolder = GenerateImageInFolder;
+            Settings.Default.GenerateReports = GenerateReport;
+            Settings.Default.ImageFolderPath = DirectoryPathImages;
+            Settings.Default.ReportFolderPath = DirectoryPathReports;
+        }
         #region Event handlers
         private void OnCompute(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            StringBuilder sbErrors = new StringBuilder();
+            SaveSettings();
 
+            StringBuilder sbErrors = new StringBuilder();
             try
             {
                 string startLetter = Settings.Default.ColumnLetterOutputStart;
@@ -98,7 +108,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                         ++iNoCols;
                     }
                     // set bold font for all header row
-                    Excel.Range headerRange = xlSheet.get_Range("a"+1, ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount)+1);
+                    Excel.Range headerRange = xlSheet.get_Range("a" + 1, ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount) + 1);
                     headerRange.Font.Bold = true;
                     // modify range for images
                     if (GenerateImage)
@@ -125,13 +135,13 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     // loop through rows
                     for (int iRow = 2; iRow <= rowCount; ++iRow)
                     {
-                        iOutputFieldCount = palletColStartIndex-1;
+                        iOutputFieldCount = palletColStartIndex;
                         try
                         {
                             // get name
                             string name = (xlSheet.get_Range(colName + iRow, colName + iRow).Value).ToString();
                             // get description
-                            string description = (xlSheet.get_Range(colDescription + iRow, colDescription + iRow).Value).ToString();
+                            string description = string.IsNullOrEmpty(colDescription) ? string.Empty : (xlSheet.get_Range(colDescription + iRow, colDescription + iRow).Value).ToString();
                             // get length
                             double length = xlSheet.get_Range(colLength + iRow, colLength + iRow).Value;
                             // get width
@@ -230,11 +240,13 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         }
         private void OnGenerateImagesChanged(object sender, EventArgs e)
         {
-            folderSelect.Enabled = chkbGenerateImageInFolder.Checked;
+            tbFolderImages.Enabled = chkbGenerateImageInFolder.Checked;
+            bnFolderImages.Enabled = chkbGenerateImageInFolder.Checked;
         }
         private void OnGenerateReportChanged(object sender, EventArgs e)
         {
-            reportFolderSelect.Enabled = chkbGenerateReportInFolder.Checked;
+            tbFolderReports.Enabled = chkbGenerateReportInFolder.Checked;
+            bnFolderReports.Enabled = chkbGenerateReportInFolder.Checked;
         }
         private void OnEditPallets(object sender, EventArgs e)
         {
@@ -320,7 +332,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                         // try & get typeName
                         string typeName = "EUR";
                         try { typeName = worksheet.get_Range("g" + i, "g" + i).Value.ToString(); }
-                        catch (Exception) {}
+                        catch (Exception) { }
                         PalletProperties palletProp = new PalletProperties(null, typeName
                             , ExcelHelpers.ReadDouble("Pallet length", worksheet, "c" + i)
                             , ExcelHelpers.ReadDouble("Pallet width", worksheet, "d" + i)
@@ -378,15 +390,15 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             bProperties.TapeWidth = new OptDouble(true, Math.Min(UnitsManager.ConvertLengthFrom(50.0, UnitsManager.UnitSystem.UNIT_METRIC1), 0.5 * width));
             bProperties.TapeColor = Color.Beige;
 
+            // generate image path
+            if (GenerateImage)
+                stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
+            else if (GenerateImageInFolder)
+                stackImagePath = Path.ChangeExtension(Path.Combine(DirectoryPathImages, name), "png");
+
             Graphics3DImage graphics = null;
             if (GenerateImage || GenerateImageInFolder)
             {
-                // generate image path
-                stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
-
-                if (GenerateImageInFolder)
-                    stackImagePath = Path.ChangeExtension(Path.Combine(Path.Combine(DirectoryPathImages, name)), "png");
-
                 graphics = new Graphics3DImage(new Size(ImageSize, ImageSize))
                 {
                     FontSizeRatio = Settings.Default.FontSizeRatio,
@@ -421,28 +433,42 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     if (GenerateReport)
                     {
                         ReportDataAnalysis inputData = new ReportDataAnalysis(analysis);
-                        string outputFilePath = Path.ChangeExtension(Path.Combine(DirectoryPathReports, string.Format("Report_{0}_on_{1}", analysis.Content.Name, analysis.Container.Name)), "doc");
+                        string outputFilePath = Path.ChangeExtension(Path.Combine(DirectoryPathReports, string.Format("Report_{0}_on_{1}", analysis.Content.Name, analysis.Container.Name)), "pdf");
 
-                        ReportNode rnRoot = null;
+                        ReportNode rnRoot = new ReportNode(Resources.ID_REPORT);
                         Margins margins = new Margins();
-                        Reporter reporter = new ReporterMSWord(inputData, ref rnRoot, Reporter.TemplatePath, outputFilePath, margins);
+                        //Reporter reporter = new ReporterMSWord(inputData, ref rnRoot, Settings.Default.ReportTemplatePath/*Reporter.TemplatePath*/, outputFilePath, margins);
+                        Reporter.SetFontSizeRatios(0.015F, 0.05F);
+                        Reporter reporter = new ReporterPDF(inputData, ref rnRoot, Settings.Default.ReportTemplatePath, outputFilePath);
                     }
                 }
             }
-            if (GenerateImage)
+            if (GenerateImage || GenerateImageInFolder)
             {
                 Bitmap bmp = graphics.Bitmap;
                 bmp.Save(stackImagePath, System.Drawing.Imaging.ImageFormat.Png);
             }
+        }
+        private void OnFolderImages(object sender, EventArgs e)
+        {
+            folderBrowserDlgImages.SelectedPath = DirectoryPathImages;
+            if (DialogResult.OK == folderBrowserDlgImages.ShowDialog())
+                DirectoryPathImages = folderBrowserDlgImages.SelectedPath;
+        }
+        private void OnFolderReports(object sender, EventArgs e)
+        {
+            folderBrowserDlgReports.SelectedPath = DirectoryPathReports;
+            if (DialogResult.OK == folderBrowserDlgReports.ShowDialog())
+                DirectoryPathReports = folderBrowserDlgReports.SelectedPath;
         }
         #endregion
 
         #region Private properties (Pane settings)
         private bool GenerateImage { get { return chkbGenerateImageInRow.Checked; } set { chkbGenerateImageInRow.Checked = value; } }
         private bool GenerateImageInFolder { get { return chkbGenerateImageInFolder.Checked; } set { chkbGenerateImageInFolder.Checked = value; } }
-        private bool GenerateReport => false;
-        private string DirectoryPathImages { get { return folderSelect.Folder; } set { folderSelect.Folder = value; } }
-        private string DirectoryPathReports { get { return reportFolderSelect.Folder; } set { reportFolderSelect.Folder = value; } }
+        private bool GenerateReport { get => chkbGenerateReportInFolder.Checked; set => chkbGenerateReportInFolder.Checked = value; }
+        private string DirectoryPathImages { get => tbFolderImages.Text; set => tbFolderImages.Text = value; }
+        private string DirectoryPathReports { get => tbFolderReports.Text; set => tbFolderReports.Text = value; }
         private int ImageSize => Settings.Default.ImageSize;
         private bool AllowOnlyZOrientation => chkbOnlyZOrientation.Checked;
         private double PalletMaximumHeight => uCtrlMaxPalletHeight.Value;
@@ -454,11 +480,5 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         #region Static member functions
         internal static string TaskPaneTitle => "Stackbuilder Per Row Analysis";
         #endregion
-
-        #region Helpers
-
-        #endregion
-
-
     }
 }

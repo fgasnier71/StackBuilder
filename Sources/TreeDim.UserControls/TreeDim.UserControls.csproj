@@ -151,6 +151,9 @@
     <EmbeddedResource Include="ProgressWindow.ru.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProgressWindow.sl.resx">
+      <DependentUpon>ProgressWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProgressWindow.sv.resx">
       <DependentUpon>ProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +191,9 @@
       <DependentUpon>ThreadWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThreadWindow.ru.resx">
+      <DependentUpon>ThreadWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadWindow.sl.resx">
       <DependentUpon>ThreadWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThreadWindow.sv.resx">

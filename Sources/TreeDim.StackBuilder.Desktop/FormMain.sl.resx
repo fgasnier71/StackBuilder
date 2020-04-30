@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="newToolStripMenuItem.Text" xml:space="preserve">
+    <value>Novih</value>
+  </data>
+  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Ustvarjanje nove datoteke</value>
+  </data>
+  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+    <value>Odprt</value>
+  </data>
+  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Odpri datoteko</value>
+  </data>
+  <data name="toolStripMenuItemSave.Text" xml:space="preserve">
+    <value>Shranite</value>
+  </data>
+  <data name="toolStripMenuItemSave.ToolTipText" xml:space="preserve">
+    <value>Shrani datoteko</value>
+  </data>
+  <data name="toolStripMenuItemSaveAs.Text" xml:space="preserve">
+    <value>Shrani kot...</value>
+  </data>
+  <data name="toolStripMenuItemSaveAs.ToolTipText" xml:space="preserve">
+    <value>Shrani kot...</value>
+  </data>
+  <data name="toolStripMenuItemSaveAll.Text" xml:space="preserve">
+    <value>Shrani vse</value>
+  </data>
+  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
+    <value>Blizu</value>
+  </data>
+  <data name="toolStripMenuItemClose.ToolTipText" xml:space="preserve">
+    <value>Zapri aktivni dokument</value>
+  </data>
+  <data name="disconnectToolStripMenuItem.Text" xml:space="preserve">
+    <value>Prekiniti</value>
+  </data>
+  <data name="mnuFileMRU.Text" xml:space="preserve">
+    <value>Nedavne datoteke...</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Izhod</value>
+  </data>
+  <data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Izhod iz aplikacije</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>Datoteke</value>
+  </data>
+  <data name="toolStripMIExportAnalysesSummaryToExcel.Text" xml:space="preserve">
+    <value>Izvozi analize Povzetek v Excel...</value>
+  </data>
+  <data name="toolStripMIExportAnalysesSummaryToExcel.ToolTipText" xml:space="preserve">
+    <value>Povzetek analiz projekta izvozi v Excel...</value>
+  </data>
+  <data name="projectToolStripMenuItem.Text" xml:space="preserve">
+    <value>Projekt</value>
+  </data>
+  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
+    <value>Prebrskaj/Uredi zbirko podatkov...</value>
+  </data>
+  <data name="browseEditMaterialListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Prebrskaj/Uredi material seznam...</value>
+  </data>
+  <data name="toolStripMenuItemBox.Text" xml:space="preserve">
+    <value>Novo polje</value>
+  </data>
+  <data name="toolStripMenuItemCase.Text" xml:space="preserve">
+    <value>Nov primer</value>
+  </data>
+  <data name="toolStripMenuItemPack.Text" xml:space="preserve">
+    <value>Novo pakiranje</value>
+  </data>
+  <data name="toolStripMenuItemBundle.Text" xml:space="preserve">
+    <value>Nov sveženj</value>
+  </data>
+  <data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
+    <value>Novi cilinder</value>
+  </data>
+  <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
+    <value>Nova steklenica</value>
+  </data>
+  <data name="toolStripMenuItemPallet.Text" xml:space="preserve">
+    <value>Nova paleta</value>
+  </data>
+  <data name="toolStripMenuItemTruck.Text" xml:space="preserve">
+    <value>Novi tovornjak</value>
+  </data>
+  <data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
+    <value>Nov interlayer</value>
+  </data>
+  <data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
+    <value>Novi Paletni koti</value>
+  </data>
+  <data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
+    <value>Nova paleta palet</value>
+  </data>
+  <data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
+    <value>Novi Paletni film</value>
+  </data>
+  <data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
+    <value>Nov primer/analiza palete</value>
+  </data>
+  <data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>Nova analiza cilindra/palete</value>
+  </data>
+  <data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
+    <value>Novo polje/analiza primera</value>
+  </data>
+  <data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>Nova analiza valja/primera</value>
+  </data>
+  <data name="toolStripMenuItemAnalysisPalletTruck.Text" xml:space="preserve">
+    <value>Nova analiza palete/tovornjakov</value>
+  </data>
+  <data name="toolStripMenuItemBestCase.Text" xml:space="preserve">
+    <value>Poiščite najboljši primer</value>
+  </data>
+  <data name="toolStripMenuItemBestPack.Text" xml:space="preserve">
+    <value>Poiščite najboljše pakiranje</value>
+  </data>
+  <data name="toolStripMenuItemBestPack.ToolTipText" xml:space="preserve">
+    <value>Iskanje optimalnega primera</value>
+  </data>
+  <data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
+    <value>Zagon PLMPackLib</value>
+  </data>
+  <data name="toolStripMIPremium.Text" xml:space="preserve">
+    <value>Postanite Premium uporabnik</value>
+  </data>
+  <data name="toolStripMISettings.Text" xml:space="preserve">
+    <value>Nastavitve...</value>
+  </data>
+  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+    <value>Orodja</value>
+  </data>
+  <data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
+    <value>Pokaži začetno stran</value>
+  </data>
+  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
+    <value>pomoč</value>
+  </data>
+  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
+    <value>O StackBuilder...</value>
+  </data>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>pomoč</value>
+  </data>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>menuStripMain</value>
+  </data>
+  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
+    <value>Prekiniti</value>
+  </data>
+  <data name="toolStripSBUser.Text" xml:space="preserve">
+    <value>toolStripSplitButton1</value>
+  </data>
+  <data name="toolStripSBUser.ToolTipText" xml:space="preserve">
+    <value>Uporabnik</value>
+  </data>
+  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
+    <value>Novih...</value>
+  </data>
+  <data name="toolStripSplitButtonNew.Text" xml:space="preserve">
+    <value>Ustvarite novo datoteko...</value>
+  </data>
+  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+    <value>Odpri datoteko</value>
+  </data>
+  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+    <value>Odpri datoteko</value>
+  </data>
+  <data name="toolStripButtonSave.Text" xml:space="preserve">
+    <value>Shrani datoteko</value>
+  </data>
+  <data name="toolStripButtonSaveAll.Text" xml:space="preserve">
+    <value>Shrani vse datoteke</value>
+  </data>
+  <data name="toolStripMenuItemEditDB.ToolTipText" xml:space="preserve">
+    <value>Urejanje zbirke podatkov &amp; uvoznih elementov v projektu...</value>
+  </data>
+  <data name="toolStripButtonBox.Text" xml:space="preserve">
+    <value>Dodaj novo polje</value>
+  </data>
+  <data name="toolStripButtonCase.Text" xml:space="preserve">
+    <value>Dodaj nov primer...</value>
+  </data>
+  <data name="toolStripButtonPack.Text" xml:space="preserve">
+    <value>Dodaj novo pakiranje...</value>
+  </data>
+  <data name="toolStripButtonBundle.Text" xml:space="preserve">
+    <value>Dodaj nov sveženj</value>
+  </data>
+  <data name="toolStripButtonCylinder.Text" xml:space="preserve">
+    <value>Dodajanje novega valja</value>
+  </data>
+  <data name="toolStripButtonBottle.Text" xml:space="preserve">
+    <value>Dodaj novo steklenico...</value>
+  </data>
+  <data name="toolStripButtonPallet.Text" xml:space="preserve">
+    <value>Dodaj novo paleto</value>
+  </data>
+  <data name="toolStripButtonPallet.ToolTipText" xml:space="preserve">
+    <value>Dodajanje nove palete</value>
+  </data>
+  <data name="toolStripButtonTruck.Text" xml:space="preserve">
+    <value>Dodaj nov tovornjak</value>
+  </data>
+  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
+    <value>Vmesnega sloja</value>
+  </data>
+  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
+    <value>Dodaj nov interlayer...</value>
+  </data>
+  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
+    <value>Paletni kotiček</value>
+  </data>
+  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
+    <value>Dodaj nov kotiček za palete...</value>
+  </data>
+  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
+    <value>Zgornja meja palete</value>
+  </data>
+  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
+    <value>Dodajanje novega pokrovčka palete...</value>
+  </data>
+  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
+    <value>Paletni film</value>
+  </data>
+  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
+    <value>Dodaj nov film palete...</value>
+  </data>
+  <data name="toolStripSBPalletDeco.Text" xml:space="preserve">
+    <value>Ustvari nov interlayer...</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
+    <value>Zadeva/paleta</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.ToolTipText" xml:space="preserve">
+    <value>Analiza primera/palete</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>Cilinder/paleta</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.ToolTipText" xml:space="preserve">
+    <value>Analiza valja/palete</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylPallet.Text" xml:space="preserve">
+    <value>Vodoravni cilinder/paleta</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
+    <value>Sveženj/paleta</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.ToolTipText" xml:space="preserve">
+    <value>Analiza snopa/palete</value>
+  </data>
+  <data name="toolStripMIHAnalysis.Text" xml:space="preserve">
+    <value>Heterogeno nakladanje palet</value>
+  </data>
+  <data name="toolStripMIHAnalysis.ToolTipText" xml:space="preserve">
+    <value>Heterogeno nakladanje palet</value>
+  </data>
+  <data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
+    <value>Analize palete</value>
+  </data>
+  <data name="toolStripMIAnalysisBoxCase.Text" xml:space="preserve">
+    <value>Polje/ohišje</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>Cilinder/ohišje</value>
+  </data>
+  <data name="toolStripMIAnalysisBundleCase.Text" xml:space="preserve">
+    <value>Sveženj/primer</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
+    <value>Analize primerov</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
+    <value>Analize primerov</value>
+  </data>
+  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
+    <value>Paleta/tovornjak</value>
+  </data>
+  <data name="toolStripMIAnalysisCaseTruck.Text" xml:space="preserve">
+    <value>Primer/tovornjak</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderTruck.Text" xml:space="preserve">
+    <value>Cilinder/tovornjak</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylTruck.Text" xml:space="preserve">
+    <value>Vodoravni cilinder/tovornjak</value>
+  </data>
+  <data name="toolStripMIHAnalysisCaseTruck.Text" xml:space="preserve">
+    <value>Heterogeni primer/tovornjak</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
+    <value>Analize tovornjakov</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
+    <value>Analize tovornjakov</value>
+  </data>
+  <data name="toolStripMIBestCase.Text" xml:space="preserve">
+    <value>Poiščite najboljši primer</value>
+  </data>
+  <data name="toolStripMIBestCase.ToolTipText" xml:space="preserve">
+    <value>Pomoč pri izbiri primera med tistimi, ki so na voljo v zbirki podatkov!</value>
+  </data>
+  <data name="toolStripMIBestPack.Text" xml:space="preserve">
+    <value>Poiščite najboljše pakiranje</value>
+  </data>
+  <data name="toolStripMIBestPack.ToolTipText" xml:space="preserve">
+    <value>Predlagajte paket za optimalno palletizacijo</value>
+  </data>
+  <data name="toolStripSBOptimisations.Text" xml:space="preserve">
+    <value>Optimizacije embalaže</value>
+  </data>
+  <data name="toolStripSBOptimisations.ToolTipText" xml:space="preserve">
+    <value>Optimizacije embalaže</value>
+  </data>
+  <data name="palletisationBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Palletizacija BCT</value>
+  </data>
+  <data name="caseBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Primer BCT</value>
+  </data>
+  <data name="toolStripSB_BCT.Text" xml:space="preserve">
+    <value>Izračun BCT</value>
+  </data>
+  <data name="toolStripButtonPremium.Text" xml:space="preserve">
+    <value>Postanite Premium uporabnik</value>
+  </data>
+  <data name="toolStripButtonHelp.Text" xml:space="preserve">
+    <value>pomoč</value>
+  </data>
+  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
+    <value>pomoč</value>
+  </data>
+  <data name="toolStripButtonSettings.Text" xml:space="preserve">
+    <value>Nastavitve</value>
+  </data>
+  <data name="toolStripStandard.Text" xml:space="preserve">
+    <value>Standardni</value>
+  </data>
+  <data name="openFileDialogSB.Filter" xml:space="preserve">
+    <value>Datoteke StackBuilder (*. STB) | *. STB | Vse datoteke (*. *) | *. *</value>
+  </data>
+  <data name="openFileDialogSB.Title" xml:space="preserve">
+    <value>Odpri datoteko...</value>
+  </data>
+  <data name="saveFileDialogSB.Filter" xml:space="preserve">
+    <value>Datoteke StackBuilder (*. STB) | *. STB | Vse datoteke (*. *) | *. *</value>
+  </data>
+  <data name="saveFileDialogSB.Title" xml:space="preserve">
+    <value>Shrani datoteko...</value>
+  </data>
+  <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
+    <value>HTLM datoteka (*. html) | *. html</value>
+  </data>
+  <data name="saveFileDialogExport.Filter" xml:space="preserve">
+    <value>Exchangevega označevalni jezik (*. xml) | *. XML | Vse datoteke | *. *</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>StackBuilder</value>
+  </data>
+</root>

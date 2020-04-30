@@ -18,41 +18,63 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         {
             base.OnLoad(e);
 
-            cbName.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterName) - 1;
-            cbDescription.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterDescription) - 1;
-            cbLength.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterLength) - 1;
-            cbWidth.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterWidth) - 1;
-            cbHeight.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterHeight) - 1;
-            cbWeight.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterWeight) - 1;
-            cbOutputStart.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterOutputStart) - 1;
-            nudImageSize.Value = (decimal)Settings.Default.ImageSize;
-            nudMaxCountImage.Value = (decimal)Settings.Default.StackCountMax;
-            uCtrlMinDimensions.Value = Settings.Default.MinDimensions;
+            ExcelHelpers.FillComboWithColumnName(cbName);
+            ExcelHelpers.FillComboWithColumnName(cbDescription);
+            ExcelHelpers.FillComboWithColumnName(cbLength);
+            ExcelHelpers.FillComboWithColumnName(cbWidth);
+            ExcelHelpers.FillComboWithColumnName(cbHeight);
+            ExcelHelpers.FillComboWithColumnName(cbWeight);
+            ExcelHelpers.FillComboWithColumnName(cbOutputStart);
 
-            chkbDescription.Checked = Settings.Default.UseDescription;
+            try
+            {
+                cbName.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterName) - 1;
+                cbDescription.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(
+                    string.IsNullOrEmpty(Settings.Default.ColumnLetterDescription) ? Settings.Default.ColumnLetterName : Settings.Default.ColumnLetterDescription) - 1;
+                cbLength.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterLength) - 1;
+                cbWidth.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterWidth) - 1;
+                cbHeight.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterHeight) - 1;
+                cbWeight.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterWeight) - 1;
+                cbOutputStart.SelectedIndex = ExcelHelpers.ColumnLetterToColumnIndex(Settings.Default.ColumnLetterOutputStart) - 1;
 
-            cbUnitSystem.SelectedIndex = Settings.Default.UnitSystem;
+                nudImageSize.Value = Settings.Default.ImageSize;
+                nudMaxCountImage.Value = Settings.Default.StackCountMax;
+                uCtrlMinDimensions.Value = Settings.Default.MinDimensions;
+
+                chkbDescription.Checked = !string.IsNullOrEmpty(Settings.Default.ColumnLetterDescription);
+                cbUnitSystem.SelectedIndex = Settings.Default.UnitSystem;
+            }
+            catch (Exception /*ex*/)
+            { 
+            }
         }
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
             if (!e.Cancel)
             {
-                Settings.Default.ColumnLetterName = cbName.SelectedItem.ToString();
-                Settings.Default.ColumnLetterDescription = cbDescription.SelectedItem.ToString();
-                Settings.Default.ColumnLetterLength = cbLength.SelectedItem.ToString();
-                Settings.Default.ColumnLetterWidth = cbWidth.SelectedItem.ToString();
-                Settings.Default.ColumnLetterHeight = cbHeight.SelectedItem.ToString();
-                Settings.Default.ColumnLetterWeight = cbWeight.SelectedItem.ToString();
-                Settings.Default.ColumnLetterOutputStart = cbOutputStart.SelectedItem.ToString();
-                Settings.Default.ImageSize = (int)nudImageSize.Value;
-                Settings.Default.StackCountMax = (int)nudMaxCountImage.Value;
-                Settings.Default.MinDimensions = uCtrlMinDimensions.Value;
+                try
+                {
+                    Settings.Default.ColumnLetterName = cbName.SelectedItem.ToString();
+                    Settings.Default.ColumnLetterDescription = cbDescription.SelectedItem.ToString();
+                    Settings.Default.ColumnLetterLength = cbLength.SelectedItem.ToString();
+                    Settings.Default.ColumnLetterWidth = cbWidth.SelectedItem.ToString();
+                    Settings.Default.ColumnLetterHeight = cbHeight.SelectedItem.ToString();
+                    Settings.Default.ColumnLetterWeight = cbWeight.SelectedItem.ToString();
+                    Settings.Default.ColumnLetterOutputStart = cbOutputStart.SelectedItem.ToString();
+                    Settings.Default.ImageSize = (int)nudImageSize.Value;
+                    Settings.Default.StackCountMax = (int)nudMaxCountImage.Value;
+                    Settings.Default.MinDimensions = uCtrlMinDimensions.Value;
 
-                Settings.Default.UseDescription = chkbDescription.Checked;
+                    if (!chkbDescription.Checked)
+                        Settings.Default.ColumnLetterDescription = string.Empty;
 
-                Settings.Default.UnitSystem = cbUnitSystem.SelectedIndex;
-                Settings.Default.Save();
+                    Settings.Default.UnitSystem = cbUnitSystem.SelectedIndex;
+                    Settings.Default.Save();
+                }
+                catch (Exception /*ex*/)
+                {                    
+                }
             }
         }
 

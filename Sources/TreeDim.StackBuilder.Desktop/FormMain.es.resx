@@ -1474,4 +1474,7 @@
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>Botella nueva</value>
   </data>
+  <data name="saveFileDialogExport.Filter" xml:space="preserve">
+    <value>Idioma de marcado de eXchange (*.xml)|*.xml|Todos los archivos|*.*</value>
+  </data>
 </root>

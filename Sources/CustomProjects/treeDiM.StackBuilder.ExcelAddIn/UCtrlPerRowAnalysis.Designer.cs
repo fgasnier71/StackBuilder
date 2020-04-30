@@ -39,11 +39,15 @@
             this.uCtrlOverhang = new treeDiM.Basics.UCtrlDualDouble();
             this.uCtrlMaxPalletHeight = new treeDiM.Basics.UCtrlDouble();
             this.gbOptions = new System.Windows.Forms.GroupBox();
-            this.reportFolderSelect = new treeDiM.UserControls.FileSelect();
             this.chkbGenerateReportInFolder = new System.Windows.Forms.CheckBox();
-            this.folderSelect = new treeDiM.UserControls.FileSelect();
             this.chkbGenerateImageInFolder = new System.Windows.Forms.CheckBox();
             this.chkbGenerateImageInRow = new System.Windows.Forms.CheckBox();
+            this.folderBrowserDlgImages = new System.Windows.Forms.FolderBrowserDialog();
+            this.folderBrowserDlgReports = new System.Windows.Forms.FolderBrowserDialog();
+            this.tbFolderImages = new System.Windows.Forms.TextBox();
+            this.bnFolderImages = new System.Windows.Forms.Button();
+            this.tbFolderReports = new System.Windows.Forms.TextBox();
+            this.bnFolderReports = new System.Windows.Forms.Button();
             this.gpPallets.SuspendLayout();
             this.gbConstraints.SuspendLayout();
             this.gbOptions.SuspendLayout();
@@ -119,23 +123,19 @@
             -2147483648});
             this.uCtrlMaxPalletHeight.Name = "uCtrlMaxPalletHeight";
             this.uCtrlMaxPalletHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMaxPalletHeight.Value = 0D;
             // 
             // gbOptions
             // 
             resources.ApplyResources(this.gbOptions, "gbOptions");
-            this.gbOptions.Controls.Add(this.reportFolderSelect);
+            this.gbOptions.Controls.Add(this.bnFolderReports);
+            this.gbOptions.Controls.Add(this.tbFolderReports);
+            this.gbOptions.Controls.Add(this.bnFolderImages);
+            this.gbOptions.Controls.Add(this.tbFolderImages);
             this.gbOptions.Controls.Add(this.chkbGenerateReportInFolder);
-            this.gbOptions.Controls.Add(this.folderSelect);
             this.gbOptions.Controls.Add(this.chkbGenerateImageInFolder);
             this.gbOptions.Controls.Add(this.chkbGenerateImageInRow);
             this.gbOptions.Name = "gbOptions";
             this.gbOptions.TabStop = false;
-            // 
-            // reportFolderSelect
-            // 
-            resources.ApplyResources(this.reportFolderSelect, "reportFolderSelect");
-            this.reportFolderSelect.Name = "reportFolderSelect";
             // 
             // chkbGenerateReportInFolder
             // 
@@ -143,11 +143,6 @@
             this.chkbGenerateReportInFolder.Name = "chkbGenerateReportInFolder";
             this.chkbGenerateReportInFolder.UseVisualStyleBackColor = true;
             this.chkbGenerateReportInFolder.CheckedChanged += new System.EventHandler(this.OnGenerateReportChanged);
-            // 
-            // folderSelect
-            // 
-            resources.ApplyResources(this.folderSelect, "folderSelect");
-            this.folderSelect.Name = "folderSelect";
             // 
             // chkbGenerateImageInFolder
             // 
@@ -161,6 +156,30 @@
             resources.ApplyResources(this.chkbGenerateImageInRow, "chkbGenerateImageInRow");
             this.chkbGenerateImageInRow.Name = "chkbGenerateImageInRow";
             this.chkbGenerateImageInRow.UseVisualStyleBackColor = true;
+            // 
+            // tbFolderImages
+            // 
+            resources.ApplyResources(this.tbFolderImages, "tbFolderImages");
+            this.tbFolderImages.Name = "tbFolderImages";
+            // 
+            // bnFolderImages
+            // 
+            resources.ApplyResources(this.bnFolderImages, "bnFolderImages");
+            this.bnFolderImages.Name = "bnFolderImages";
+            this.bnFolderImages.UseVisualStyleBackColor = true;
+            this.bnFolderImages.Click += new System.EventHandler(this.OnFolderImages);
+            // 
+            // tbFolderReports
+            // 
+            resources.ApplyResources(this.tbFolderReports, "tbFolderReports");
+            this.tbFolderReports.Name = "tbFolderReports";
+            // 
+            // bnFolderReports
+            // 
+            resources.ApplyResources(this.bnFolderReports, "bnFolderReports");
+            this.bnFolderReports.Name = "bnFolderReports";
+            this.bnFolderReports.UseVisualStyleBackColor = true;
+            this.bnFolderReports.Click += new System.EventHandler(this.OnFolderReports);
             // 
             // UCtrlPerRowAnalysis
             // 
@@ -192,10 +211,14 @@
         private System.Windows.Forms.CheckBox chkbGenerateImageInFolder;
         private System.Windows.Forms.CheckBox chkbGenerateImageInRow;
         private System.Windows.Forms.CheckedListBox lbPallets;
-        private UserControls.FileSelect folderSelect;
         private System.Windows.Forms.Button bnRefreshPallets;
         private System.Windows.Forms.Button bnEditPallets;
-        private UserControls.FileSelect reportFolderSelect;
         private System.Windows.Forms.CheckBox chkbGenerateReportInFolder;
+        private System.Windows.Forms.Button bnFolderReports;
+        private System.Windows.Forms.TextBox tbFolderReports;
+        private System.Windows.Forms.Button bnFolderImages;
+        private System.Windows.Forms.TextBox tbFolderImages;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDlgImages;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDlgReports;
     }
 }

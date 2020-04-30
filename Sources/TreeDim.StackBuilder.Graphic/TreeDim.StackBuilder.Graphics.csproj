@@ -245,6 +245,9 @@
     <EmbeddedResource Include="Controls\CCtrlComboFiltered.resx">
       <DependentUpon>CCtrlComboFiltered.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CCtrlComboFiltered.sl.resx">
+      <DependentUpon>CCtrlComboFiltered.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CCtrlComboFiltered.tr.resx">
       <DependentUpon>CCtrlComboFiltered.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +263,9 @@
     <EmbeddedResource Include="Controls\CCtrlComboLayer.resx">
       <DependentUpon>CCtrlComboLayer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CCtrlComboLayer.sl.resx">
+      <DependentUpon>CCtrlComboLayer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CCtrlComboLayer.tr.resx">
       <DependentUpon>CCtrlComboLayer.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,10 +278,16 @@
     <EmbeddedResource Include="Controls\Graphics2DLayerEditor.resx">
       <DependentUpon>Graphics2DLayerEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Graphics2DLayerEditor.sl.resx">
+      <DependentUpon>Graphics2DLayerEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\Graphics3DControl.fr.resx">
       <DependentUpon>Graphics3DControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Graphics3DControl.it.resx">
+      <DependentUpon>Graphics3DControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Graphics3DControl.sl.resx">
       <DependentUpon>Graphics3DControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlCaseOrientation.fr.resx">
@@ -296,6 +308,9 @@
       <LastGenOutput>Graphics3DControl1.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlCaseOrientation.sl.resx">
+      <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlCaseOrientation.tr.resx">
       <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +326,9 @@
     <EmbeddedResource Include="Controls\UCtrlCaseOrientationSimple.resx">
       <DependentUpon>UCtrlCaseOrientationSimple.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlCaseOrientationSimple.sl.resx">
+      <DependentUpon>UCtrlCaseOrientationSimple.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlHCylLayoutList.fr.resx">
       <DependentUpon>UCtrlHCylLayoutList.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,6 +338,9 @@
     <EmbeddedResource Include="Controls\UCtrlHCylLayoutList.resx">
       <DependentUpon>UCtrlHCylLayoutList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlHCylLayoutList.sl.resx">
+      <DependentUpon>UCtrlHCylLayoutList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlLayerList.fr.resx">
       <DependentUpon>UCtrlLayerList.cs</DependentUpon>
     </EmbeddedResource>
@@ -327,6 +348,9 @@
       <DependentUpon>UCtrlLayerList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlLayerList.resx">
+      <DependentUpon>UCtrlLayerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlLayerList.sl.resx">
       <DependentUpon>UCtrlLayerList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlPackable.fr.resx">
@@ -339,6 +363,9 @@
       <DependentUpon>UCtrlPackable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlPackable.resx">
+      <DependentUpon>UCtrlPackable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCtrlPackable.sl.resx">
       <DependentUpon>UCtrlPackable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlPackable.tr.resx">
@@ -358,6 +385,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.ru.resx" />
+    <EmbeddedResource Include="Properties\Resources.sl.resx" />
     <EmbeddedResource Include="Properties\Resources.sv.resx" />
     <EmbeddedResource Include="Properties\Resources.tr.resx" />
     <EmbeddedResource Include="Properties\Resources.zh.resx" />
@@ -418,11 +446,11 @@
   <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
     <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
   </Target>
-  <Import Project="..\packages\NuGet.Build.Tasks.Pack.5.5.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.5.5.0\build\NuGet.Build.Tasks.Pack.targets')" />
+  <Import Project="..\packages\NuGet.Build.Tasks.Pack.5.5.1\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.5.5.1\build\NuGet.Build.Tasks.Pack.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.5.5.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.5.5.0\build\NuGet.Build.Tasks.Pack.targets'))" />
+    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.5.5.1\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.5.5.1\build\NuGet.Build.Tasks.Pack.targets'))" />
   </Target>
 </Project>

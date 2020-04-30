@@ -180,6 +180,9 @@
     <EmbeddedResource Include="DockContentBCTCase.ru.resx">
       <DependentUpon>DockContentBCTCase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTCase.sl.resx">
+      <DependentUpon>DockContentBCTCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentBCTCase.sv.resx">
       <DependentUpon>DockContentBCTCase.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,6 +223,9 @@
       <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentBCTPalletisation.ru.resx">
+      <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentBCTPalletisation.sl.resx">
       <DependentUpon>DockContentBCTPalletisation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentBCTPalletisation.sv.resx">
@@ -264,6 +270,9 @@
     <EmbeddedResource Include="FormCardboardQualityList.ru.resx">
       <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCardboardQualityList.sl.resx">
+      <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCardboardQualityList.sv.resx">
       <DependentUpon>FormCardboardQualityList.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,6 +310,9 @@
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditCardboardQualityData.ru.resx">
+      <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditCardboardQualityData.sl.resx">
       <DependentUpon>FormEditCardboardQualityData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditCardboardQualityData.sv.resx">
@@ -342,6 +354,9 @@
     <EmbeddedResource Include="FormNewPallet.ru.resx">
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.sl.resx">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPallet.sv.resx">
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
@@ -352,6 +367,9 @@
       <DependentUpon>FormNewPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPalletsDatabase.resx">
+      <DependentUpon>FormPalletsDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPalletsDatabase.sl.resx">
       <DependentUpon>FormPalletsDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx" />
@@ -367,6 +385,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.ru.resx" />
+    <EmbeddedResource Include="Properties\Resources.sl.resx" />
     <EmbeddedResource Include="Properties\Resources.sv.resx" />
     <EmbeddedResource Include="Properties\Resources.tr.resx" />
     <EmbeddedResource Include="Properties\Resources.zh.resx" />

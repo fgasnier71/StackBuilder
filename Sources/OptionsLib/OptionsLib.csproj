@@ -127,6 +127,9 @@
     <EmbeddedResource Include="OptionsForm.ru.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OptionsForm.sl.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionsForm.sv.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +155,9 @@
       <LastGenOutput>OptionsPanel1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanel.ru.resx">
+      <DependentUpon>OptionsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsPanel.sl.resx">
       <DependentUpon>OptionsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsPanel.sv.resx">

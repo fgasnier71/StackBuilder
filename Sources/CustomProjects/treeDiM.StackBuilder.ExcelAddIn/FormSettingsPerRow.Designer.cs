@@ -100,33 +100,6 @@
             // 
             this.cbWeight.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWeight.FormattingEnabled = true;
-            this.cbWeight.Items.AddRange(new object[] {
-            resources.GetString("cbWeight.Items"),
-            resources.GetString("cbWeight.Items1"),
-            resources.GetString("cbWeight.Items2"),
-            resources.GetString("cbWeight.Items3"),
-            resources.GetString("cbWeight.Items4"),
-            resources.GetString("cbWeight.Items5"),
-            resources.GetString("cbWeight.Items6"),
-            resources.GetString("cbWeight.Items7"),
-            resources.GetString("cbWeight.Items8"),
-            resources.GetString("cbWeight.Items9"),
-            resources.GetString("cbWeight.Items10"),
-            resources.GetString("cbWeight.Items11"),
-            resources.GetString("cbWeight.Items12"),
-            resources.GetString("cbWeight.Items13"),
-            resources.GetString("cbWeight.Items14"),
-            resources.GetString("cbWeight.Items15"),
-            resources.GetString("cbWeight.Items16"),
-            resources.GetString("cbWeight.Items17"),
-            resources.GetString("cbWeight.Items18"),
-            resources.GetString("cbWeight.Items19"),
-            resources.GetString("cbWeight.Items20"),
-            resources.GetString("cbWeight.Items21"),
-            resources.GetString("cbWeight.Items22"),
-            resources.GetString("cbWeight.Items23"),
-            resources.GetString("cbWeight.Items24"),
-            resources.GetString("cbWeight.Items25")});
             resources.ApplyResources(this.cbWeight, "cbWeight");
             this.cbWeight.Name = "cbWeight";
             // 
@@ -134,33 +107,6 @@
             // 
             this.cbHeight.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHeight.FormattingEnabled = true;
-            this.cbHeight.Items.AddRange(new object[] {
-            resources.GetString("cbHeight.Items"),
-            resources.GetString("cbHeight.Items1"),
-            resources.GetString("cbHeight.Items2"),
-            resources.GetString("cbHeight.Items3"),
-            resources.GetString("cbHeight.Items4"),
-            resources.GetString("cbHeight.Items5"),
-            resources.GetString("cbHeight.Items6"),
-            resources.GetString("cbHeight.Items7"),
-            resources.GetString("cbHeight.Items8"),
-            resources.GetString("cbHeight.Items9"),
-            resources.GetString("cbHeight.Items10"),
-            resources.GetString("cbHeight.Items11"),
-            resources.GetString("cbHeight.Items12"),
-            resources.GetString("cbHeight.Items13"),
-            resources.GetString("cbHeight.Items14"),
-            resources.GetString("cbHeight.Items15"),
-            resources.GetString("cbHeight.Items16"),
-            resources.GetString("cbHeight.Items17"),
-            resources.GetString("cbHeight.Items18"),
-            resources.GetString("cbHeight.Items19"),
-            resources.GetString("cbHeight.Items20"),
-            resources.GetString("cbHeight.Items21"),
-            resources.GetString("cbHeight.Items22"),
-            resources.GetString("cbHeight.Items23"),
-            resources.GetString("cbHeight.Items24"),
-            resources.GetString("cbHeight.Items25")});
             resources.ApplyResources(this.cbHeight, "cbHeight");
             this.cbHeight.Name = "cbHeight";
             // 
@@ -168,33 +114,6 @@
             // 
             this.cbWidth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWidth.FormattingEnabled = true;
-            this.cbWidth.Items.AddRange(new object[] {
-            resources.GetString("cbWidth.Items"),
-            resources.GetString("cbWidth.Items1"),
-            resources.GetString("cbWidth.Items2"),
-            resources.GetString("cbWidth.Items3"),
-            resources.GetString("cbWidth.Items4"),
-            resources.GetString("cbWidth.Items5"),
-            resources.GetString("cbWidth.Items6"),
-            resources.GetString("cbWidth.Items7"),
-            resources.GetString("cbWidth.Items8"),
-            resources.GetString("cbWidth.Items9"),
-            resources.GetString("cbWidth.Items10"),
-            resources.GetString("cbWidth.Items11"),
-            resources.GetString("cbWidth.Items12"),
-            resources.GetString("cbWidth.Items13"),
-            resources.GetString("cbWidth.Items14"),
-            resources.GetString("cbWidth.Items15"),
-            resources.GetString("cbWidth.Items16"),
-            resources.GetString("cbWidth.Items17"),
-            resources.GetString("cbWidth.Items18"),
-            resources.GetString("cbWidth.Items19"),
-            resources.GetString("cbWidth.Items20"),
-            resources.GetString("cbWidth.Items21"),
-            resources.GetString("cbWidth.Items22"),
-            resources.GetString("cbWidth.Items23"),
-            resources.GetString("cbWidth.Items24"),
-            resources.GetString("cbWidth.Items25")});
             resources.ApplyResources(this.cbWidth, "cbWidth");
             this.cbWidth.Name = "cbWidth";
             // 
@@ -202,33 +121,6 @@
             // 
             this.cbLength.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLength.FormattingEnabled = true;
-            this.cbLength.Items.AddRange(new object[] {
-            resources.GetString("cbLength.Items"),
-            resources.GetString("cbLength.Items1"),
-            resources.GetString("cbLength.Items2"),
-            resources.GetString("cbLength.Items3"),
-            resources.GetString("cbLength.Items4"),
-            resources.GetString("cbLength.Items5"),
-            resources.GetString("cbLength.Items6"),
-            resources.GetString("cbLength.Items7"),
-            resources.GetString("cbLength.Items8"),
-            resources.GetString("cbLength.Items9"),
-            resources.GetString("cbLength.Items10"),
-            resources.GetString("cbLength.Items11"),
-            resources.GetString("cbLength.Items12"),
-            resources.GetString("cbLength.Items13"),
-            resources.GetString("cbLength.Items14"),
-            resources.GetString("cbLength.Items15"),
-            resources.GetString("cbLength.Items16"),
-            resources.GetString("cbLength.Items17"),
-            resources.GetString("cbLength.Items18"),
-            resources.GetString("cbLength.Items19"),
-            resources.GetString("cbLength.Items20"),
-            resources.GetString("cbLength.Items21"),
-            resources.GetString("cbLength.Items22"),
-            resources.GetString("cbLength.Items23"),
-            resources.GetString("cbLength.Items24"),
-            resources.GetString("cbLength.Items25")});
             resources.ApplyResources(this.cbLength, "cbLength");
             this.cbLength.Name = "cbLength";
             // 
@@ -236,33 +128,6 @@
             // 
             this.cbDescription.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDescription.FormattingEnabled = true;
-            this.cbDescription.Items.AddRange(new object[] {
-            resources.GetString("cbDescription.Items"),
-            resources.GetString("cbDescription.Items1"),
-            resources.GetString("cbDescription.Items2"),
-            resources.GetString("cbDescription.Items3"),
-            resources.GetString("cbDescription.Items4"),
-            resources.GetString("cbDescription.Items5"),
-            resources.GetString("cbDescription.Items6"),
-            resources.GetString("cbDescription.Items7"),
-            resources.GetString("cbDescription.Items8"),
-            resources.GetString("cbDescription.Items9"),
-            resources.GetString("cbDescription.Items10"),
-            resources.GetString("cbDescription.Items11"),
-            resources.GetString("cbDescription.Items12"),
-            resources.GetString("cbDescription.Items13"),
-            resources.GetString("cbDescription.Items14"),
-            resources.GetString("cbDescription.Items15"),
-            resources.GetString("cbDescription.Items16"),
-            resources.GetString("cbDescription.Items17"),
-            resources.GetString("cbDescription.Items18"),
-            resources.GetString("cbDescription.Items19"),
-            resources.GetString("cbDescription.Items20"),
-            resources.GetString("cbDescription.Items21"),
-            resources.GetString("cbDescription.Items22"),
-            resources.GetString("cbDescription.Items23"),
-            resources.GetString("cbDescription.Items24"),
-            resources.GetString("cbDescription.Items25")});
             resources.ApplyResources(this.cbDescription, "cbDescription");
             this.cbDescription.Name = "cbDescription";
             // 
@@ -270,33 +135,6 @@
             // 
             this.cbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbName.FormattingEnabled = true;
-            this.cbName.Items.AddRange(new object[] {
-            resources.GetString("cbName.Items"),
-            resources.GetString("cbName.Items1"),
-            resources.GetString("cbName.Items2"),
-            resources.GetString("cbName.Items3"),
-            resources.GetString("cbName.Items4"),
-            resources.GetString("cbName.Items5"),
-            resources.GetString("cbName.Items6"),
-            resources.GetString("cbName.Items7"),
-            resources.GetString("cbName.Items8"),
-            resources.GetString("cbName.Items9"),
-            resources.GetString("cbName.Items10"),
-            resources.GetString("cbName.Items11"),
-            resources.GetString("cbName.Items12"),
-            resources.GetString("cbName.Items13"),
-            resources.GetString("cbName.Items14"),
-            resources.GetString("cbName.Items15"),
-            resources.GetString("cbName.Items16"),
-            resources.GetString("cbName.Items17"),
-            resources.GetString("cbName.Items18"),
-            resources.GetString("cbName.Items19"),
-            resources.GetString("cbName.Items20"),
-            resources.GetString("cbName.Items21"),
-            resources.GetString("cbName.Items22"),
-            resources.GetString("cbName.Items23"),
-            resources.GetString("cbName.Items24"),
-            resources.GetString("cbName.Items25")});
             resources.ApplyResources(this.cbName, "cbName");
             this.cbName.Name = "cbName";
             // 
@@ -344,33 +182,6 @@
             // 
             this.cbOutputStart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbOutputStart.FormattingEnabled = true;
-            this.cbOutputStart.Items.AddRange(new object[] {
-            resources.GetString("cbOutputStart.Items"),
-            resources.GetString("cbOutputStart.Items1"),
-            resources.GetString("cbOutputStart.Items2"),
-            resources.GetString("cbOutputStart.Items3"),
-            resources.GetString("cbOutputStart.Items4"),
-            resources.GetString("cbOutputStart.Items5"),
-            resources.GetString("cbOutputStart.Items6"),
-            resources.GetString("cbOutputStart.Items7"),
-            resources.GetString("cbOutputStart.Items8"),
-            resources.GetString("cbOutputStart.Items9"),
-            resources.GetString("cbOutputStart.Items10"),
-            resources.GetString("cbOutputStart.Items11"),
-            resources.GetString("cbOutputStart.Items12"),
-            resources.GetString("cbOutputStart.Items13"),
-            resources.GetString("cbOutputStart.Items14"),
-            resources.GetString("cbOutputStart.Items15"),
-            resources.GetString("cbOutputStart.Items16"),
-            resources.GetString("cbOutputStart.Items17"),
-            resources.GetString("cbOutputStart.Items18"),
-            resources.GetString("cbOutputStart.Items19"),
-            resources.GetString("cbOutputStart.Items20"),
-            resources.GetString("cbOutputStart.Items21"),
-            resources.GetString("cbOutputStart.Items22"),
-            resources.GetString("cbOutputStart.Items23"),
-            resources.GetString("cbOutputStart.Items24"),
-            resources.GetString("cbOutputStart.Items25")});
             resources.ApplyResources(this.cbOutputStart, "cbOutputStart");
             this.cbOutputStart.Name = "cbOutputStart";
             // 
@@ -436,7 +247,6 @@
             0});
             this.uCtrlMinDimensions.Name = "uCtrlMinDimensions";
             this.uCtrlMinDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMinDimensions.Value = 0D;
             // 
             // label8
             // 

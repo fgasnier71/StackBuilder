@@ -153,6 +153,9 @@
   <data name="ID_PALLET_WIDTH" xml:space="preserve">
     <value>Pallet width</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Report</value>
+  </data>
   <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
     <value>Efficiency</value>
   </data>

@@ -137,6 +137,9 @@
     <EmbeddedResource Include="FormNewINTEX.ru.resx">
       <DependentUpon>FormNewINTEX.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewINTEX.sl.resx">
+      <DependentUpon>FormNewINTEX.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewINTEX.sv.resx">
       <DependentUpon>FormNewINTEX.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +162,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.ru.resx" />
+    <EmbeddedResource Include="Properties\Resources.sl.resx" />
     <EmbeddedResource Include="Properties\Resources.sv.resx" />
     <EmbeddedResource Include="Properties\Resources.tr.resx" />
     <EmbeddedResource Include="Properties\Resources.zh.resx" />

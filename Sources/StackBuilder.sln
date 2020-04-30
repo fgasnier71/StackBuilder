@@ -149,6 +149,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpGLTF.Core", "SharpGLTF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpGLTF.Toolkit", "SharpGLTF.Toolkit\SharpGLTF.Toolkit.csproj", "{0115547D-7417-4BF8-9F2D-1AC804FF0996}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Engine.TestChunkSolver", "treeDiM.StackBuilder.Engine.TestChunkSolver\treeDiM.StackBuilder.Engine.TestChunkSolver.csproj", "{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -895,6 +897,22 @@ Global
 		{0115547D-7417-4BF8-9F2D-1AC804FF0996}.Release|x64.Build.0 = Release|Any CPU
 		{0115547D-7417-4BF8-9F2D-1AC804FF0996}.Release|x86.ActiveCfg = Release|Any CPU
 		{0115547D-7417-4BF8-9F2D-1AC804FF0996}.Release|x86.Build.0 = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|x64.Build.0 = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|x86.Build.0 = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|x64.ActiveCfg = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|x64.Build.0 = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|x86.ActiveCfg = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -936,8 +954,10 @@ Global
 		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{FBDBEACF-3409-4C0F-B092-40825DE0A488} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{C4AA42EA-8CC4-444F-8386-04C7FEF696F5} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_NeutralResourcesLanguage = en-001
 		RESX_ExcelExportMode = SingleSheet
 		RESX_ConfirmAddLanguageFile = False
 		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}

@@ -267,27 +267,30 @@ namespace treeDiM.StackBuilder.Reporting
             Document doc = inputData.Document;
             // name element
             XmlElement elemName = xmlDoc.CreateElement("name", ns);
-            elemName.InnerText = doc.Name;
+            elemName.InnerText = null != doc ? doc.Name : "";
             elemDocument.AppendChild(elemName);
             // description element
             if (rootNode.GetChildByName(Resources.ID_RN_DESCRIPTION).Activated)
             {
                 XmlElement elemDescription = xmlDoc.CreateElement("description", ns);
-                elemDescription.InnerText = doc.Description;
+                elemDescription.InnerText = null != doc ? doc.Description : string.Empty;
                 elemDocument.AppendChild(elemDescription);
             }
             // author element
             if (rootNode.GetChildByName(Resources.ID_RN_AUTHORS).Activated)
             {
                 XmlElement elemAuthor = xmlDoc.CreateElement("author", ns);
-                elemAuthor.InnerText = doc.Author;
+                elemAuthor.InnerText = null != doc ? doc.Author : string.Empty;
                 elemDocument.AppendChild(elemAuthor);
             }
             if (rootNode.GetChildByName(Resources.ID_RN_DATE).Activated)
             {
                 // date of creation element
                 XmlElement elemDateOfCreation = xmlDoc.CreateElement("dateOfCreation", ns);
-                elemDateOfCreation.InnerText = doc.DateOfCreation.Year < 2000 ? DateTime.Now.ToShortDateString() : doc.DateOfCreation.ToShortDateString();
+                if (null != doc)
+                    elemDateOfCreation.InnerText = doc.DateOfCreation.Year < 2000 ? DateTime.Now.ToShortDateString() : doc.DateOfCreation.ToShortDateString();
+                else
+                    elemDateOfCreation.InnerText = DateTime.Now.ToShortDateString();
                 elemDocument.AppendChild(elemDateOfCreation);
             }
 

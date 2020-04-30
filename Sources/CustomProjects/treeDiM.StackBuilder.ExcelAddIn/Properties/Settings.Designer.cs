@@ -12,7 +12,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.5.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -470,6 +470,55 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
             }
             set {
                 this["FontSizeRatio"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ImageFolderPath {
+            get {
+                return ((string)(this["ImageFolderPath"]));
+            }
+            set {
+                this["ImageFolderPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReportFolderPath {
+            get {
+                return ((string)(this["ReportFolderPath"]));
+            }
+            set {
+                this["ReportFolderPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("D:\\GitHub\\StackBuilder\\Sources\\TreeDim.StackBuilder.Reporting\\ReportTemplates\\Rep" +
+            "ortTemplateHtml.xsl")]
+        public string ReportTemplatePath {
+            get {
+                return ((string)(this["ReportTemplatePath"]));
+            }
+            set {
+                this["ReportTemplatePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool GenerateReports {
+            get {
+                return ((bool)(this["GenerateReports"]));
+            }
+            set {
+                this["GenerateReports"] = value;
             }
         }
     }

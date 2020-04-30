@@ -109,6 +109,9 @@
       <DependentUpon>ComboBoxColorPicker.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ColorPicker\ComboBoxColorPicker.sl.resx">
+      <DependentUpon>ComboBoxColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ColorPicker\ComboBoxColorPicker.tr.resx">
       <DependentUpon>ComboBoxColorPicker.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +128,9 @@
       <DependentUpon>OfficeColorPicker.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ColorPicker\OfficeColorPicker.sl.resx">
+      <DependentUpon>OfficeColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ColorPicker\OfficeColorPicker.tr.resx">
       <DependentUpon>OfficeColorPicker.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +144,9 @@
       <DependentUpon>ToolStripColorPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ColorPicker\ToolStripColorPicker.ru.resx">
+      <DependentUpon>ToolStripColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorPicker\ToolStripColorPicker.sl.resx">
       <DependentUpon>ToolStripColorPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ColorPicker\ToolStripColorPicker.sv.resx">
@@ -175,6 +184,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Util\ContextMenuForm.sl.resx">
+      <DependentUpon>ContextMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Util\ContextMenuForm.tr.resx">
       <DependentUpon>ContextMenuForm.cs</DependentUpon>
     </EmbeddedResource>

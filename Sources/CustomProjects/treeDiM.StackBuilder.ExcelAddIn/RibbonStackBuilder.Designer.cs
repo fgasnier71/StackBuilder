@@ -78,8 +78,9 @@
             // 
             this.bnParameters.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.bnParameters.Image = ((System.Drawing.Image)(resources.GetObject("bnParameters.Image")));
-            this.bnParameters.Label = "Parameters";
+            this.bnParameters.Label = "Settings";
             this.bnParameters.Name = "bnParameters";
+            this.bnParameters.ScreenTip = "Settings";
             this.bnParameters.ShowImage = true;
             this.bnParameters.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnParameters);
             // 
