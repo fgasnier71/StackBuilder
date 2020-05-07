@@ -19,7 +19,6 @@ namespace treeDiM.StackBuilder.Exporters
 {
     using VPOS = VertexPosition;
     using PRIMITIVE = PrimitiveBuilder<MaterialBuilder, VertexPosition, VertexEmpty/*VertexTexture1*/, VertexEmpty>;
-    /*using VTEX = VertexTexture1;*/
 
     #region ExporterGLB
     public class ExporterGLB : Exporter
@@ -40,15 +39,15 @@ namespace treeDiM.StackBuilder.Exporters
         public void Export(AnalysisLayered analysis, string filePath)
         {
             // solution
-            SolutionLayered sol = analysis.SolutionLay;
+            var sol = analysis.SolutionLay;
             // scene 
             var scene = new SceneBuilder();
 
             if (analysis.Content is BoxProperties boxProperties)
             {
-                Color[] colors = boxProperties.Colors;
-                Color colorFilet = boxProperties.Colors[0];
-                Color colorTape = boxProperties.TapeColor;
+                var colors = boxProperties.Colors;
+                var colorFilet = boxProperties.Colors[0];
+                var colorTape = boxProperties.TapeColor;
 
                 var meshPallet = BuildPalletMesh(analysis.Container as PalletProperties);
                 var meshCase = BuildCaseMesh("Case", (float)boxProperties.Length, (float)boxProperties.Width, (float)boxProperties.Height,
@@ -60,7 +59,7 @@ namespace treeDiM.StackBuilder.Exporters
                 scene.AddRigidMesh(meshPallet, Matrix4x4.Identity);
                 // add cases (+ interlayers) mesh 
                 
-                List<ILayer> layers = sol.Layers;
+                var layers = sol.Layers;
                 foreach (ILayer layer in layers)
                 {
                     if (layer is Layer3DBox layerBox)
@@ -70,7 +69,7 @@ namespace treeDiM.StackBuilder.Exporters
                     }
                     else if (layer is InterlayerPos interlayerPos)
                     {
-                        InterlayerProperties interlayerProp = sol.Interlayers[interlayerPos.TypeId];
+                        var interlayerProp = sol.Interlayers[interlayerPos.TypeId];
                         var bPosition = new BoxPosition(new Vector3D(
                             0.5 * (analysis.ContainerDimensions.X - interlayerProp.Length)
                             , 0.5 * (analysis.ContainerDimensions.Y - interlayerProp.Width)
@@ -83,8 +82,8 @@ namespace treeDiM.StackBuilder.Exporters
             // add pallet cap if any
             if (analysis is AnalysisCasePallet analysisCasePallet && analysisCasePallet.HasPalletCap)
             {
-                PalletCapProperties capProperties = analysisCasePallet.PalletCapProperties;
-                BoxPosition bPosition = new BoxPosition(new Vector3D(
+                var capProperties = analysisCasePallet.PalletCapProperties;
+                var bPosition = new BoxPosition(new Vector3D(
                     0.5 * (analysisCasePallet.PalletProperties.Length - capProperties.Length),
                     0.5 * (analysisCasePallet.PalletProperties.Width - capProperties.Width),
                     sol.BBoxLoad.PtMax.Z - capProperties.InsideHeight)

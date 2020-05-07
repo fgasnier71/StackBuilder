@@ -14,7 +14,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         {
             try
             {
-                return worksheet.get_Range(cellName, cellName).Value;
+                return worksheet.Range[cellName, cellName].Value;
             }
             catch (Exception ex)
             {
@@ -25,7 +25,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         {
             try
             {
-                return worksheet.get_Range(cellName, cellName).Value.ToString();
+                return worksheet.Range[cellName, cellName].Value.ToString();
             }
             catch (Exception ex)
             {
@@ -45,11 +45,11 @@ namespace treeDiM.StackBuilder.ExcelAddIn
 
         public static string ColumnIndexToColumnLetter(int colIndex)
         {
-            int div = colIndex;
-            string colLetter = string.Empty;
+            var div = colIndex;
+            var colLetter = string.Empty;
             while (div > 0)
             {
-                int mod = (div - 1) % 26;
+                var mod = (div - 1) % 26;
                 colLetter = (char)(65 + mod) + colLetter;
                 div = (div - mod) / 26;
             }
@@ -59,10 +59,10 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         {
             string columnLetterUpper = columnLetter.ToUpper();
             int sum = 0;
-            for (int i = 0; i < columnLetterUpper.Length; i++)
+            foreach (var t in columnLetterUpper)
             {
                 sum *= 26;
-                sum += (columnLetterUpper[i] - 'A' + 1);
+                sum += t - 'A' + 1;
             }
             if (sum < 0) sum = 0;
             if (sum > max) sum = max; 

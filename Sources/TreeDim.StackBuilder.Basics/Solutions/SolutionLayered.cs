@@ -127,14 +127,11 @@ namespace treeDiM.StackBuilder.Basics
         public ILayer2D Layer2D { get; set; }
         public override bool Equals(object obj)
         {
-            if (obj is LayerEncap lObj)
-            {
-                if ((null == LayerDesc && null != lObj.LayerDesc) || (null != LayerDesc && null == lObj.LayerDesc))
-                    return false;
-                return ( null != LayerDesc && LayerDesc.Equals(lObj.LayerDesc))
-                    || ( null != Layer2D && Layer2D.Equals(lObj.Layer2D));
-            }
-            return false;
+            if (!(obj is LayerEncap lObj)) return false;
+            if ((null == LayerDesc && null != lObj.LayerDesc) || (null != LayerDesc && null == lObj.LayerDesc))
+                return false;
+            return ( null != LayerDesc && LayerDesc.Equals(lObj.LayerDesc))
+                   || ( null != Layer2D && Layer2D.Equals(lObj.Layer2D));
         }
         public override int GetHashCode()
         {

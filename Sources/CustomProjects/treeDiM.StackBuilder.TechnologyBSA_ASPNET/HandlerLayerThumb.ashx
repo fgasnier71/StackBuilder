@@ -15,6 +15,8 @@ using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Engine;
+using treeDiM.StackBuilder.TechnologyBSA_ASPNET;
+
 #endregion
 
 public class HandlerLayerThumb : IHttpHandler, IRequiresSessionState

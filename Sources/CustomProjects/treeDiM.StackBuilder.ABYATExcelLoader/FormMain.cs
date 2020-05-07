@@ -418,33 +418,21 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
             }
             if (GenerateImage && stackCount <= StackCountMax)
             {
-                Bitmap bmp = graphics.Bitmap;
+                var bmp = graphics.Bitmap;
                 bmp.Save(stackImagePath, System.Drawing.Imaging.ImageFormat.Png);
                 if (Directory.Exists(ImageFolder))
                     File.Copy(stackImagePath, Path.Combine(ImageFolder, Path.ChangeExtension(name, "png")), true);
             }
         }
-        private double LargestDimMin
-        {
-            get { return Settings.Default.LargestDimMinimum; }
-        }
-        private int StackCountMax
-        {
-            get { return Settings.Default.StackCountMax; }
-        }
-        private int ImageSize
-        {
-            get { return 768; }
-        }
-        private int ImageSizeDetail
-        {
-            get { return 256; }
-        }
+        private double LargestDimMin => Settings.Default.LargestDimMinimum;
+        private int StackCountMax => Settings.Default.StackCountMax;
+        private int ImageSize => 768;
+
         private double[] StackingDims
         {
             get
             {
-                double[] dims = new double[3];
+                var dims = new double[3];
                 if (0 == Mode)
                 {
                     dims[0] = uCtrlPalletDimensions.ValueX;

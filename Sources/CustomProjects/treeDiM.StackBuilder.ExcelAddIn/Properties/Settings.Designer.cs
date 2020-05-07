@@ -521,5 +521,18 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
                 this["GenerateReports"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.plmpack.com/stackbuilder/Help/enu/MSExceladd-intogeneratepalletiza.htm" +
+            "l")]
+        public string HelpPageUrl {
+            get {
+                return ((string)(this["HelpPageUrl"]));
+            }
+            set {
+                this["HelpPageUrl"] = value;
+            }
+        }
     }
 }

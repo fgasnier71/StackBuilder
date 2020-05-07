@@ -34,45 +34,56 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl1 = this.Factory.CreateRibbonDropDownItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RibbonStackBuilder));
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl2 = this.Factory.CreateRibbonDropDownItem();
             this.tabAddInStackBuilder = this.Factory.CreateRibbonTab();
             this.gpStackBuilder = this.Factory.CreateRibbonGroup();
-            this.toggleRowSheet = this.Factory.CreateRibbonToggleButton();
+            this.cbMode = this.Factory.CreateRibbonDropDown();
+            this.gpSettings = this.Factory.CreateRibbonGroup();
             this.bnParameters = this.Factory.CreateRibbonButton();
-            this.bnCompute = this.Factory.CreateRibbonButton();
             this.gpHelp = this.Factory.CreateRibbonGroup();
             this.bnOpenSampleFile = this.Factory.CreateRibbonButton();
-            this.bnWebSite = this.Factory.CreateRibbonButton();
+            this.bnHelp = this.Factory.CreateRibbonButton();
             this.tabAddInStackBuilder.SuspendLayout();
             this.gpStackBuilder.SuspendLayout();
+            this.gpSettings.SuspendLayout();
             this.gpHelp.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabAddInStackBuilder
             // 
             this.tabAddInStackBuilder.Groups.Add(this.gpStackBuilder);
+            this.tabAddInStackBuilder.Groups.Add(this.gpSettings);
             this.tabAddInStackBuilder.Groups.Add(this.gpHelp);
             this.tabAddInStackBuilder.Label = "StackBuilder";
             this.tabAddInStackBuilder.Name = "tabAddInStackBuilder";
             // 
             // gpStackBuilder
             // 
-            this.gpStackBuilder.Items.Add(this.toggleRowSheet);
-            this.gpStackBuilder.Items.Add(this.bnParameters);
-            this.gpStackBuilder.Items.Add(this.bnCompute);
+            this.gpStackBuilder.Items.Add(this.cbMode);
             this.gpStackBuilder.Label = "StackBuilder Add-in";
             this.gpStackBuilder.Name = "gpStackBuilder";
             // 
-            // toggleRowSheet
+            // cbMode
             // 
-            this.toggleRowSheet.Checked = true;
-            this.toggleRowSheet.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.toggleRowSheet.Image = ((System.Drawing.Image)(resources.GetObject("toggleRowSheet.Image")));
-            this.toggleRowSheet.Label = "Per row mode";
-            this.toggleRowSheet.Name = "toggleRowSheet";
-            this.toggleRowSheet.ShowImage = true;
-            this.toggleRowSheet.SuperTip = "Switch analysis per row / per sheet";
-            this.toggleRowSheet.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnModeChanged);
+            ribbonDropDownItemImpl1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonDropDownItemImpl1.Image")));
+            ribbonDropDownItemImpl1.Label = "Per sheet";
+            ribbonDropDownItemImpl1.ScreenTip = "Per sheet";
+            ribbonDropDownItemImpl2.Image = ((System.Drawing.Image)(resources.GetObject("ribbonDropDownItemImpl2.Image")));
+            ribbonDropDownItemImpl2.Label = "Per row";
+            ribbonDropDownItemImpl2.ScreenTip = "Per row";
+            this.cbMode.Items.Add(ribbonDropDownItemImpl1);
+            this.cbMode.Items.Add(ribbonDropDownItemImpl2);
+            this.cbMode.Label = "Mode";
+            this.cbMode.Name = "cbMode";
+            this.cbMode.SelectionChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnModeChanged);
+            // 
+            // gpSettings
+            // 
+            this.gpSettings.Items.Add(this.bnParameters);
+            this.gpSettings.Label = "Settings";
+            this.gpSettings.Name = "gpSettings";
             // 
             // bnParameters
             // 
@@ -84,19 +95,10 @@
             this.bnParameters.ShowImage = true;
             this.bnParameters.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnParameters);
             // 
-            // bnCompute
-            // 
-            this.bnCompute.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.bnCompute.Image = ((System.Drawing.Image)(resources.GetObject("bnCompute.Image")));
-            this.bnCompute.Label = "Compute";
-            this.bnCompute.Name = "bnCompute";
-            this.bnCompute.ShowImage = true;
-            this.bnCompute.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnCompute);
-            // 
             // gpHelp
             // 
             this.gpHelp.Items.Add(this.bnOpenSampleFile);
-            this.gpHelp.Items.Add(this.bnWebSite);
+            this.gpHelp.Items.Add(this.bnHelp);
             this.gpHelp.Label = "Help";
             this.gpHelp.Name = "gpHelp";
             // 
@@ -109,25 +111,27 @@
             this.bnOpenSampleFile.ShowImage = true;
             this.bnOpenSampleFile.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnOpenSample);
             // 
-            // bnWebSite
+            // bnHelp
             // 
-            this.bnWebSite.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.bnWebSite.Image = ((System.Drawing.Image)(resources.GetObject("bnWebSite.Image")));
-            this.bnWebSite.Label = "Web Site";
-            this.bnWebSite.Name = "bnWebSite";
-            this.bnWebSite.ShowImage = true;
-            this.bnWebSite.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnShowWebSite);
+            this.bnHelp.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.bnHelp.Image = ((System.Drawing.Image)(resources.GetObject("bnHelp.Image")));
+            this.bnHelp.Label = "Help";
+            this.bnHelp.Name = "bnHelp";
+            this.bnHelp.ShowImage = true;
+            this.bnHelp.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.OnShowHelpPage);
             // 
             // RibbonStackBuilder
             // 
             this.Name = "RibbonStackBuilder";
             this.RibbonType = "Microsoft.Excel.Workbook";
             this.Tabs.Add(this.tabAddInStackBuilder);
-            this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.RibbonStackBuilder_Load);
+            this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.OnRibbonStackBuilderLoad);
             this.tabAddInStackBuilder.ResumeLayout(false);
             this.tabAddInStackBuilder.PerformLayout();
             this.gpStackBuilder.ResumeLayout(false);
             this.gpStackBuilder.PerformLayout();
+            this.gpSettings.ResumeLayout(false);
+            this.gpSettings.PerformLayout();
             this.gpHelp.ResumeLayout(false);
             this.gpHelp.PerformLayout();
             this.ResumeLayout(false);
@@ -138,12 +142,12 @@
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tabAddInStackBuilder;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup gpStackBuilder;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton bnCompute;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton bnParameters;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup gpHelp;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton bnWebSite;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton bnOpenSampleFile;
-        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton toggleRowSheet;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup gpSettings;
+        internal Microsoft.Office.Tools.Ribbon.RibbonDropDown cbMode;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton bnParameters;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton bnHelp;
     }
 
     partial class ThisRibbonCollection

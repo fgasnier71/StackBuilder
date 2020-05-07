@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="LayerEdition.aspx.cs" Inherits="LayerEdition" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="LayerEdition.aspx.cs" Inherits="treeDiM.StackBuilder.TechnologyBSA_ASPNET.LayerEdition" %>
 
 <!DOCTYPE html>
 

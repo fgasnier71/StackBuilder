@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="~/Default.aspx.cs" CodeFile="~/LayerSelectionWebGL.aspx.cs" Inherits="_Default" EnableSessionState="True" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="~/Default.aspx.cs" CodeFile="~/LayerSelectionWebGL.aspx.cs" Inherits="treeDiM.StackBuilder.TechnologyBSA_ASPNET._Default" EnableSessionState="True" %>
+<%@ Import Namespace="treeDiM.StackBuilder.TechnologyBSA_ASPNET" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">

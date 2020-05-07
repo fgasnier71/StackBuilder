@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ValidationWebGL.aspx.cs" Inherits="Validation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ValidationWebGL.aspx.cs" Inherits="treeDiM.StackBuilder.TechnologyBSA_ASPNET.Validation" %>
 
 <!DOCTYPE html>
 
@@ -172,37 +172,28 @@
                                 </asp:Panel>
                                 <br />
                                 <asp:Panel ID="PanelInterlayer" runat="server" GroupingText="Interlayers" Width="100%" BorderColor="LightGray" BackColor="Transparent">
-                                    <table  class="style100pct">
-                                        <tr>
-                                            <td>
-                                                <label class="switch">
-                                                    <asp:CheckBox ID="ChkbInterlayerBottom" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true" />
+                                    <div style="height:300px; overflow:scroll">
+                                    <asp:ListView ID="LVInterlayers" runat="server">
+                                        <LayoutTemplate>
+                                            <table id="tableInterlayers" runat="server">
+                                                <tr id="itemPlaceholder" runat="server"/>
+                                            </table>
+                                        </LayoutTemplate>
+                                        <ItemTemplate>
+                                            <tr id="ITInterlayer" runat="server">
+                                                <td id="td1" runat="server">
+                                                    <asp:Label ID="LayerLabel" Text='<%#Eval("Name") %>' runat="server"/>
+                                                </td>
+                                                <td id="td2" runat="server">
+                                                    <label class="switch">
+                                                    <asp:CheckBox ID="LayerCheckBox" AutoPostBack="true" Checked='<%#Eval("Activated") %>' runat="server"/>
                                                     <span class="slider round"/>
-                                                </label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="LBInterlayerBottom" runat="server" Text="Bottom" />
-                                            </td>
-                                            <td>
-                                                <label class="switch">
-                                                    <asp:CheckBox ID="ChkbInterlayersIntermediate" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true" />
-                                                    <span class="slider round"/>
-                                                </label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="LbInterlayerIntermadiates" runat="server" Text="Intermediate" />
-                                            </td>
-                                            <td>
-                                                <label class="switch">
-                                                    <asp:CheckBox ID="ChkbInterlayerTop" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true" />
-                                                    <span class="slider round"/>
-                                                </label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="LbInterlayerTop" runat="server" Text="Top" />
-                                            </td>
-                                        </tr>
-                                    </table>
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                    </div>
                                 </asp:Panel>
                             </td>
                         </tr>

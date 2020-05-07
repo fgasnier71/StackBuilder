@@ -1,6 +1,5 @@
 ﻿<%@ WebHandler Language="C#" Class="HandlerLayerEditor" %>
 #region Using directives
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,17 +9,18 @@ using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
+using treeDiM.StackBuilder.TechnologyBSA_ASPNET;
 #endregion
 
 public class HandlerLayerEditor : IHttpHandler, System.Web.SessionState.IRequiresSessionState
 {
     public void ProcessRequest(HttpContext context)
     {
-        Size sz = new Size((int)context.Session[SessionVariables.ImageWidth], (int)context.Session[SessionVariables.ImageHeight]);
+        var sz = new Size((int)context.Session[SessionVariables.ImageWidth], (int)context.Session[SessionVariables.ImageHeight]);
         int selectedIndex =  (int)context.Session[SessionVariables.SelectedIndex];
-        Vector3D dimCase = Vector3D.Parse((string)context.Session[SessionVariables.DimCase]);
-        Vector3D dimPallet = Vector3D.Parse((string)context.Session[SessionVariables.DimPallet]);
-        Vector2D dimContainer = new Vector2D(dimPallet.X, dimPallet.Y);
+        var dimCase = Vector3D.Parse((string)context.Session[SessionVariables.DimCase]);
+        var dimPallet = Vector3D.Parse((string)context.Session[SessionVariables.DimPallet]);
+        var dimContainer = new Vector2D(dimPallet.X, dimPallet.Y);
 
         var boxProperties = new BoxProperties(null, dimCase.X, dimCase.Y, dimCase.Z)
         {
@@ -42,10 +42,5 @@ public class HandlerLayerEditor : IHttpHandler, System.Web.SessionState.IRequire
         context.Response.End();
     }
 
-    public bool IsReusable {
-        get {
-            return false;
-        }
-    }
-
+    public bool IsReusable => false;
 }

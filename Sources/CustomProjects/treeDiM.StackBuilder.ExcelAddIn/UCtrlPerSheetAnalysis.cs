@@ -1,7 +1,5 @@
 ﻿#region Using directives
 using System;
-using System.Text;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
@@ -33,18 +31,16 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             try
             {
                 // show case in uCtrlCaseOrientation
-                if (Globals.StackBuilderAddIn.Application.ActiveSheet is Excel.Worksheet xlSheet)
-                {
-                    double caseLength = ReadDouble(xlSheet, Settings.Default.CellCaseLength, Resources.ID_CASE_LENGTH);
-                    double caseWidth = ReadDouble(xlSheet, Settings.Default.CellCaseWidth, Resources.ID_CASE_WIDTH);
-                    double caseHeight = ReadDouble(xlSheet, Settings.Default.CellCaseHeight, Resources.ID_CASE_HEIGHT);
+                if (!(Globals.StackBuilderAddIn.Application.ActiveSheet is Excel.Worksheet xlSheet)) return;
+                var caseLength = ReadDouble(xlSheet, Settings.Default.CellCaseLength, Resources.ID_CASE_LENGTH);
+                var caseWidth = ReadDouble(xlSheet, Settings.Default.CellCaseWidth, Resources.ID_CASE_WIDTH);
+                var caseHeight = ReadDouble(xlSheet, Settings.Default.CellCaseHeight, Resources.ID_CASE_HEIGHT);
 
-                    BoxProperties bProperties = new BoxProperties(null, caseLength, caseWidth, caseHeight);
-                    bProperties.SetColor(Color.Chocolate);
-                    bProperties.TapeWidth = new OptDouble(true, UnitsManager.ConvertLengthFrom(50.0, UnitsManager.UnitSystem.UNIT_METRIC1));
-                    bProperties.TapeColor = Color.Beige;
-                    uCtrlCaseOrientation.BProperties = bProperties;
-                }
+                var bProperties = new BoxProperties(null, caseLength, caseWidth, caseHeight);
+                bProperties.SetColor(Color.Chocolate);
+                bProperties.TapeWidth = new OptDouble(true, UnitsManager.ConvertLengthFrom(50.0, UnitsManager.UnitSystem.UNIT_METRIC1));
+                bProperties.TapeColor = Color.Beige;
+                uCtrlCaseOrientation.BProperties = bProperties;
             }
             catch (Exception ex)
             {
@@ -58,20 +54,20 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             {
                 if (Globals.StackBuilderAddIn.Application.ActiveSheet is Excel.Worksheet xlSheet)
                 {
-                    Console.WriteLine(string.Format("Sheet name = {0}", xlSheet.Name));
+                    Console.WriteLine($"Sheet name = {xlSheet.Name}");
 
-                    double caseLength = ReadDouble(xlSheet, Settings.Default.CellCaseLength, Resources.ID_CASE_LENGTH);
-                    double caseWidth = ReadDouble(xlSheet, Settings.Default.CellCaseWidth, Resources.ID_CASE_WIDTH);
-                    double caseHeight = ReadDouble(xlSheet, Settings.Default.CellCaseHeight, Resources.ID_CASE_HEIGHT);
-                    double caseWeight = ReadDouble(xlSheet, Settings.Default.CellCaseWeight, Resources.ID_CASE_WEIGHT);
+                    var caseLength = ReadDouble(xlSheet, Settings.Default.CellCaseLength, Resources.ID_CASE_LENGTH);
+                    var caseWidth = ReadDouble(xlSheet, Settings.Default.CellCaseWidth, Resources.ID_CASE_WIDTH);
+                    var caseHeight = ReadDouble(xlSheet, Settings.Default.CellCaseHeight, Resources.ID_CASE_HEIGHT);
+                    var caseWeight = ReadDouble(xlSheet, Settings.Default.CellCaseWeight, Resources.ID_CASE_WEIGHT);
 
-                    double palletLength = ReadDouble(xlSheet, Settings.Default.CellPalletLength, Resources.ID_PALLET_LENGTH);
-                    double palletWidth = ReadDouble(xlSheet, Settings.Default.CellPalletWidth, Resources.ID_PALLET_WIDTH);
-                    double palletHeight = ReadDouble(xlSheet, Settings.Default.CellPalletHeight, Resources.ID_PALLET_HEIGHT);
-                    double palletWeight = ReadDouble(xlSheet, Settings.Default.CellPalletWeight, Resources.ID_PALLET_WEIGHT);
+                    var palletLength = ReadDouble(xlSheet, Settings.Default.CellPalletLength, Resources.ID_PALLET_LENGTH);
+                    var palletWidth = ReadDouble(xlSheet, Settings.Default.CellPalletWidth, Resources.ID_PALLET_WIDTH);
+                    var palletHeight = ReadDouble(xlSheet, Settings.Default.CellPalletHeight, Resources.ID_PALLET_HEIGHT);
+                    var palletWeight = ReadDouble(xlSheet, Settings.Default.CellPalletWeight, Resources.ID_PALLET_WEIGHT);
 
-                    double palletMaximumHeight = ReadDouble(xlSheet, Settings.Default.CellMaxPalletHeight, Resources.ID_CONSTRAINTS_PALLETMAXIHEIGHT);
-                    double palletMaximumWeight = ReadDouble(xlSheet, Settings.Default.CellMaxPalletWeight, Resources.ID_CONSTRAINTS_PALLETMAXIWEIGHT);
+                    var palletMaximumHeight = ReadDouble(xlSheet, Settings.Default.CellMaxPalletHeight, Resources.ID_CONSTRAINTS_PALLETMAXIHEIGHT);
+                    var palletMaximumWeight = ReadDouble(xlSheet, Settings.Default.CellMaxPalletWeight, Resources.ID_CONSTRAINTS_PALLETMAXIWEIGHT);
 
                     // ### actually compute result ###
                     // build a case
@@ -98,18 +94,18 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     constraintSet.OptMaxWeight = new OptDouble(true, palletMaximumWeight);
 
                     // use a solver and get a list of sorted analyses + select the best one
-                    SolverCasePallet solver = new SolverCasePallet(bProperties, palletProperties, constraintSet);
-                    List<AnalysisLayered> analyses = solver.BuildAnalyses(true);
-                    if (analyses.Count > 0)
+                    var solver = new SolverCasePallet(bProperties, palletProperties, constraintSet);
+                    var analyzes = solver.BuildAnalyses(true);
+                    if (analyzes.Count > 0)
                     {
-                        AnalysisLayered analysis = analyses[0];
+                        var analysis = analyzes[0];
                         int caseCount = analysis.Solution.ItemCount;      // <- your case count
-                        double loadWeight = analysis.Solution.LoadWeight;
-                        double totalWeight = analysis.Solution.Weight;   // <- your pallet weight
+                        var loadWeight = analysis.Solution.LoadWeight;
+                        var totalWeight = analysis.Solution.Weight;   // <- your pallet weight
 
                         Graphics3DImage graphics = null;
                         // generate image path
-                        string stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
+                        var stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
                         graphics = new Graphics3DImage(new Size(Settings.Default.ImageSize, Settings.Default.ImageSize))
                         {
                             FontSizeRatio = Settings.Default.FontSizeRatio,
@@ -125,8 +121,6 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                         WriteInt(xlSheet, Settings.Default.CellNoCases, Resources.ID_RESULT_NOCASES, caseCount);
                         WriteDouble(xlSheet, Settings.Default.CellLoadWeight, Resources.ID_RESULT_LOADWEIGHT, loadWeight);
                         WriteDouble(xlSheet, Settings.Default.CellTotalPalletWeight, Resources.ID_RESULT_TOTALPALLETWEIGHT, totalWeight);
-
-                        string filePath = string.Empty;
 
                         Globals.StackBuilderAddIn.Application.ActiveSheet.Shapes.AddPicture(
                             stackImagePath,
@@ -148,7 +142,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         internal static string TaskPaneTitle => "Stackbuilder Per Sheet Analysis";
         #endregion
 
-        private string PalletTypeName { get { return "EUR2"; } }
+        private string PalletTypeName => "EUR2";
 
         #region Helpers
         private double ReadDouble(Excel.Worksheet wSheet, string cellName, string vName)

@@ -39,7 +39,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (InvalidOperationException ex)
             {
-                _log.Error(ex.Message);
+                Log.Error(ex.Message);
             }
         }
         private void OnMenuItemAutoHide(object sender, EventArgs e)
@@ -54,7 +54,15 @@ namespace treeDiM.StackBuilder.Desktop
                         case DockState.DockTop: DockState = DockState.DockTopAutoHide; break;
                         case DockState.DockLeft: DockState = DockState.DockLeftAutoHide; break;
                         case DockState.DockRight: DockState = DockState.DockRightAutoHide; break;
-                        default: break;
+                        case DockState.Unknown: break;
+                        case DockState.Float: break;
+                        case DockState.DockTopAutoHide: break;
+                        case DockState.DockLeftAutoHide: break;
+                        case DockState.DockBottomAutoHide: break;
+                        case DockState.DockRightAutoHide: break;
+                        case DockState.Document: break;
+                        case DockState.Hidden: break;
+                        default: throw new ArgumentOutOfRangeException();
                     }
                 }
                 else
@@ -65,13 +73,21 @@ namespace treeDiM.StackBuilder.Desktop
                         case DockState.DockTopAutoHide: DockState = DockState.DockTop; break;
                         case DockState.DockLeftAutoHide: DockState = DockState.DockLeft; break;
                         case DockState.DockRightAutoHide: DockState = DockState.DockRight; break;
-                        default: break;
+                        case DockState.Unknown: break;
+                        case DockState.Float: break;
+                        case DockState.Document: break;
+                        case DockState.DockTop: break;
+                        case DockState.DockLeft: break;
+                        case DockState.DockBottom: break;
+                        case DockState.DockRight: break;
+                        case DockState.Hidden: break;
+                        default: throw new ArgumentOutOfRangeException();
                     }
                 }
             }
             catch (InvalidOperationException ex)
             {
-                _log.Error(ex.Message);
+                Log.Error(ex.Message);
             }
         }
         private void OnMenuItemHide(object sender, EventArgs e)
@@ -80,7 +96,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
         #region Data members
-        protected static ILog _log = LogManager.GetLogger(typeof(DockContentLogConsole));
+        protected static ILog Log = LogManager.GetLogger(typeof(DockContentLogConsole));
         #endregion
     }
 }

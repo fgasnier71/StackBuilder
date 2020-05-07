@@ -128,5 +128,8 @@
     <Setting Name="GenerateReports" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="HelpPageUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.plmpack.com/stackbuilder/Help/enu/MSExceladd-intogeneratepalletiza.html</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

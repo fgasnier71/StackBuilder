@@ -22,15 +22,17 @@ namespace treeDiM.StackBuilder.ExcelAddIn
     public partial class StackBuilderAddIn
     {
         #region Mode
-        public enum Mode {  ANALYSIS_PERROW, ANALYSIS_PERSHEET }
+        public enum Mode
+        {
+            AnalysisPerRow
+            , AnalysisPerSheet
+        }
         public Mode CurrentMode { get; set; }
         #endregion
         #region Handlers
         private void StackBuilderAddIn_Startup(object sender, EventArgs e)
         {
             UnitsManager.CurrentUnitSystem = (UnitsManager.UnitSystem)Settings.Default.UnitSystem;
-            ChangeMode( (Mode)Settings.Default.Mode );
-
         }
         private void StackBuilderAddIn_Shutdown(object sender, EventArgs e)
         {
@@ -43,19 +45,20 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         public void ShowPane()
         {
             RemovePane();
-            UserControl userCtrl = null;
-            string title = string.Empty;
+            UserControl userCtrl;
+            string title;
             switch (CurrentMode)
             {
-                case Mode.ANALYSIS_PERSHEET:
+                case Mode.AnalysisPerSheet:
                     userCtrl = new UCtrlPerSheetAnalysis();
                     title = UCtrlPerSheetAnalysis.TaskPaneTitle;
                     break;
-                case Mode.ANALYSIS_PERROW:
+                case Mode.AnalysisPerRow:
                     userCtrl = new UCtrlPerRowAnalysis();
                     title = UCtrlPerRowAnalysis.TaskPaneTitle;
                     break;
-                default: break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
             var customPane = CustomTaskPanes.Add(userCtrl, title);
             customPane.Width = userCtrl.Width + 300;
@@ -63,11 +66,11 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         }
         public void RemovePane()
         {
-            for (int i = 0; i < this.CustomTaskPanes.Count; ++i)
+            for (var i = 0; i < CustomTaskPanes.Count; ++i)
             {
-                var ctp = this.CustomTaskPanes[i];
+                var ctp = CustomTaskPanes[i];
                 if (ctp.Title == UCtrlPerRowAnalysis.TaskPaneTitle || ctp.Title == UCtrlPerSheetAnalysis.TaskPaneTitle)
-                    this.CustomTaskPanes.RemoveAt(i);
+                    CustomTaskPanes.RemoveAt(i);
             }
         }
         #endregion
@@ -77,154 +80,135 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         {
             CurrentMode = mode;
             ShowPane();
-            ModeChanged(mode);
+            ModeChanged?.Invoke(mode);
         }
         #endregion
 
         #region Compute
         public void Compute()
         {
-            Excel.Worksheet xlSheet = Globals.StackBuilderAddIn.Application.ActiveSheet as Excel.Worksheet;
-            if (null != xlSheet)
+            if (!(Globals.StackBuilderAddIn.Application.ActiveSheet is Excel.Worksheet xlSheet)) return;
+            Console.WriteLine($"Sheet name = {xlSheet.Name}");
+
+            var caseLength = ReadDouble(xlSheet, Settings.Default.CellCaseLength, Resources.ID_CASE_LENGTH);
+            var caseWidth = ReadDouble(xlSheet, Settings.Default.CellCaseWidth, Resources.ID_CASE_WIDTH);
+            var caseHeight = ReadDouble(xlSheet, Settings.Default.CellCaseHeight, Resources.ID_CASE_HEIGHT);
+            var caseWeight = ReadDouble(xlSheet, Settings.Default.CellCaseWeight, Resources.ID_CASE_WEIGHT);
+
+            var palletLength = ReadDouble(xlSheet, Settings.Default.CellPalletLength, Resources.ID_PALLET_LENGTH);
+            var palletWidth = ReadDouble(xlSheet, Settings.Default.CellPalletWidth, Resources.ID_PALLET_WIDTH);
+            var palletHeight = ReadDouble(xlSheet, Settings.Default.CellPalletHeight, Resources.ID_PALLET_HEIGHT);
+            var palletWeight = ReadDouble(xlSheet, Settings.Default.CellPalletWeight, Resources.ID_PALLET_WEIGHT);
+
+            var palletMaximumHeight = ReadDouble(xlSheet, Settings.Default.CellMaxPalletHeight, Resources.ID_CONSTRAINTS_PALLETMAXIHEIGHT);
+            var palletMaximumWeight = ReadDouble(xlSheet, Settings.Default.CellMaxPalletWeight, Resources.ID_CONSTRAINTS_PALLETMAXIWEIGHT);
+
+            var imageLeft = UnitsManager.ConvertLengthTo(Settings.Default.ImageLeft, UnitsManager.UnitSystem.UNIT_METRIC2) / 0.035;
+            var imageTop = UnitsManager.ConvertLengthTo(Settings.Default.ImageTop, UnitsManager.UnitSystem.UNIT_METRIC2) / 0.035;
+
+            // delete any existing image with same position
+            foreach (Excel.Shape s in xlSheet.Shapes)
             {
-                Console.WriteLine(string.Format("Sheet name = {0}", xlSheet.Name));
-
-                double caseLength = ReadDouble(xlSheet, Settings.Default.CellCaseLength, Resources.ID_CASE_LENGTH);
-                double caseWidth = ReadDouble(xlSheet, Settings.Default.CellCaseWidth, Resources.ID_CASE_WIDTH);
-                double caseHeight = ReadDouble(xlSheet, Settings.Default.CellCaseHeight, Resources.ID_CASE_HEIGHT);
-                double caseWeight = ReadDouble(xlSheet, Settings.Default.CellCaseWeight, Resources.ID_CASE_WEIGHT);
-
-                double palletLength = ReadDouble(xlSheet, Settings.Default.CellPalletLength, Resources.ID_PALLET_LENGTH);
-                double palletWidth = ReadDouble(xlSheet, Settings.Default.CellPalletWidth, Resources.ID_PALLET_WIDTH);
-                double palletHeight = ReadDouble(xlSheet, Settings.Default.CellPalletHeight, Resources.ID_PALLET_HEIGHT);
-                double palletWeight = ReadDouble(xlSheet, Settings.Default.CellPalletWeight, Resources.ID_PALLET_WEIGHT);
-
-                double palletMaximumHeight = ReadDouble(xlSheet, Settings.Default.CellMaxPalletHeight, Resources.ID_CONSTRAINTS_PALLETMAXIHEIGHT);
-                double palletMaximumWeight = ReadDouble(xlSheet, Settings.Default.CellMaxPalletWeight, Resources.ID_CONSTRAINTS_PALLETMAXIWEIGHT);
-
-                double imageLeft = UnitsManager.ConvertLengthTo(Settings.Default.ImageLeft, UnitsManager.UnitSystem.UNIT_METRIC2) / 0.035;
-                double imageTop = UnitsManager.ConvertLengthTo(Settings.Default.ImageTop, UnitsManager.UnitSystem.UNIT_METRIC2) / 0.035;
-
-                // delete any existing image with same position
-                foreach (Excel.Shape s in xlSheet.Shapes)
-                {
-                    if (Math.Abs(s.Left - imageLeft) < 0.001
-                        && Math.Abs(s.Top - imageTop) < 0.001)
-                        s.Delete();
-                }
-                // initialize units
-                UnitsManager.CurrentUnitSystem = (UnitsManager.UnitSystem)Properties.Settings.Default.UnitSystem;
-
-                // ###
-                // build a case
-                BoxProperties bProperties = new BoxProperties(null, caseLength, caseWidth, caseHeight);
-                bProperties.SetWeight(caseWeight);
-                bProperties.SetColor(Color.Chocolate);
-                bProperties.TapeWidth = new OptDouble(true, 5);
-                bProperties.TapeColor = Color.Beige;
-
-                // build a pallet
-                PalletProperties palletProperties = new PalletProperties(null, PalletTypeName, palletLength, palletWidth, palletHeight);
-                palletProperties.Weight = palletWeight;
-                palletProperties.Color = Color.Yellow;
-
-                // build a constraint set
-                ConstraintSetCasePallet constraintSet = new ConstraintSetCasePallet();
-                constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
-                constraintSet.SetMaxHeight(new OptDouble(true, palletMaximumHeight));
-                constraintSet.OptMaxWeight = new OptDouble(true, palletMaximumWeight);
-
-                // use a solver and get a list of sorted analyses + select the best one
-                SolverCasePallet solver = new SolverCasePallet(bProperties, palletProperties, constraintSet);
-                List<AnalysisLayered> analyses = solver.BuildAnalyses(true);
-                if (analyses.Count > 0)
-                {
-                    AnalysisLayered analysis = analyses[0];
-                    int caseCount = analysis.Solution.ItemCount;      // <- your case count
-                    double loadWeight = analysis.Solution.LoadWeight;
-                    double totalWeight = analysis.Solution.Weight;   // <- your pallet weight
-
-                    // generate image
-                    Graphics3DImage graphics = null;
-                    // generate image path
-                    string stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
-                    graphics = new Graphics3DImage(new Size(Settings.Default.ImageSize, Settings.Default.ImageSize))
-                    {
-                        FontSizeRatio = Settings.Default.FontSizeRatio,
-                        CameraPosition = Graphics3D.Corner_0
-                    };
-                    ViewerSolution sv = new ViewerSolution(analysis.SolutionLay);
-                    sv.Draw(graphics, Transform3D.Identity);
-                    graphics.Flush();
-                    Bitmap bmp = graphics.Bitmap;
-                    bmp.Save(stackImagePath);
-
-                    // write values
-                    WriteInt(xlSheet, Settings.Default.CellNoCases, Resources.ID_RESULT_NOCASES, caseCount);
-                    WriteDouble(xlSheet, Settings.Default.CellLoadWeight, Resources.ID_RESULT_LOADWEIGHT, loadWeight);
-                    WriteDouble(xlSheet, Settings.Default.CellTotalPalletWeight, Resources.ID_RESULT_TOTALPALLETWEIGHT, totalWeight);
-
-                    // write picture
-                    string filePath = string.Empty;
-                    Globals.StackBuilderAddIn.Application.ActiveSheet.Shapes.AddPicture(
-                        stackImagePath,
-                        Microsoft.Office.Core.MsoTriState.msoFalse,
-                        Microsoft.Office.Core.MsoTriState.msoCTrue,
-                        imageLeft,
-                        imageTop,
-                        UnitsManager.ConvertLengthTo(Settings.Default.ImageWidth, UnitsManager.UnitSystem.UNIT_METRIC2) / 0.035,
-                        UnitsManager.ConvertLengthTo(Settings.Default.ImageHeight, UnitsManager.UnitSystem.UNIT_METRIC2) / 0.035);
-                }
-                else
-                    MessageBox.Show(Resources.ID_RESULT_NOSOLUTIONFOUND,
-                        AppDomain.CurrentDomain.FriendlyName,
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                // ###
+                if (Math.Abs(s.Left - imageLeft) < 0.001
+                    && Math.Abs(s.Top - imageTop) < 0.001)
+                    s.Delete();
             }
+            // initialize units
+            UnitsManager.CurrentUnitSystem = (UnitsManager.UnitSystem)Properties.Settings.Default.UnitSystem;
+
+            // ###
+            // build a case
+            var bProperties = new BoxProperties(null, caseLength, caseWidth, caseHeight);
+            bProperties.SetWeight(caseWeight);
+            bProperties.SetColor(Color.Chocolate);
+            bProperties.TapeWidth = new OptDouble(true, 5);
+            bProperties.TapeColor = Color.Beige;
+
+            // build a pallet
+            var palletProperties = new PalletProperties(null, PalletTypeName, palletLength, palletWidth, palletHeight);
+            palletProperties.Weight = palletWeight;
+            palletProperties.Color = Color.Yellow;
+
+            // build a constraint set
+            var constraintSet = new ConstraintSetCasePallet();
+            constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
+            constraintSet.SetMaxHeight(new OptDouble(true, palletMaximumHeight));
+            constraintSet.OptMaxWeight = new OptDouble(true, palletMaximumWeight);
+
+            // use a solver and get a list of sorted analyses + select the best one
+            var solver = new SolverCasePallet(bProperties, palletProperties, constraintSet);
+            var analyses = solver.BuildAnalyses(true);
+            if (analyses.Count > 0)
+            {
+                var analysis = analyses[0];
+                var caseCount = analysis.Solution.ItemCount;      // <- your case count
+                var loadWeight = analysis.Solution.LoadWeight;
+                var totalWeight = analysis.Solution.Weight;   // <- your pallet weight
+
+                // generate image
+                Graphics3DImage graphics = null;
+                // generate image path
+                var stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
+                graphics = new Graphics3DImage(new Size(Settings.Default.ImageSize, Settings.Default.ImageSize))
+                {
+                    FontSizeRatio = Settings.Default.FontSizeRatio,
+                    CameraPosition = Graphics3D.Corner_0
+                };
+                var sv = new ViewerSolution(analysis.SolutionLay);
+                sv.Draw(graphics, Transform3D.Identity);
+                graphics.Flush();
+                Bitmap bmp = graphics.Bitmap;
+                bmp.Save(stackImagePath);
+
+                // write values
+                WriteInt(xlSheet, Settings.Default.CellNoCases, Resources.ID_RESULT_NOCASES, caseCount);
+                WriteDouble(xlSheet, Settings.Default.CellLoadWeight, Resources.ID_RESULT_LOADWEIGHT, loadWeight);
+                WriteDouble(xlSheet, Settings.Default.CellTotalPalletWeight, Resources.ID_RESULT_TOTALPALLETWEIGHT, totalWeight);
+
+                // write picture
+                Globals.StackBuilderAddIn.Application.ActiveSheet.Shapes.AddPicture(
+                    stackImagePath,
+                    Microsoft.Office.Core.MsoTriState.msoFalse,
+                    Microsoft.Office.Core.MsoTriState.msoCTrue,
+                    imageLeft,
+                    imageTop,
+                    UnitsManager.ConvertLengthTo(Settings.Default.ImageWidth, UnitsManager.UnitSystem.UNIT_METRIC2) / 0.035,
+                    UnitsManager.ConvertLengthTo(Settings.Default.ImageHeight, UnitsManager.UnitSystem.UNIT_METRIC2) / 0.035);
+            }
+            else
+                MessageBox.Show(Resources.ID_RESULT_NOSOLUTIONFOUND,
+                    AppDomain.CurrentDomain.FriendlyName,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            // ###
 
         }
-        public Excel.Worksheet GetActiveWorksheet() { return (Excel.Worksheet)Application.ActiveSheet; }
-        private string PalletTypeName { get { return "EUR2"; } }
-        private double ReadDouble(Excel.Worksheet wSheet, string cellName, string vName)
+        public Excel.Worksheet GetActiveWorksheet() => (Excel.Worksheet)Application.ActiveSheet;
+        private string PalletTypeName { get; } = "EUR2";
+        private static double ReadDouble(Excel._Worksheet wSheet, string cellName, string vName)
         {
             try
             {
                 var cell = wSheet.Range[cellName, Type.Missing];
                 var content = cell.Value2;
-                if (content is double)
-                    return (double)content;
-                else
-                    throw new Exception("Not a double");
+                if (content is double dValue)
+                    return dValue;
+                throw new Exception("Not a double");
             }
             catch (Exception ex)
             {
                 throw new ExceptionCellReading(vName, cellName, ex.Message);
             }
         }
-        private void WriteInt(Excel.Worksheet wSheet, string cellName, string vName, int v)
+        private static void WriteInt(Excel._Worksheet wSheet, string cellName, string vName, int v)
         {
-            try
-            {
-                var cell = wSheet.Range[cellName, Type.Missing];
-                cell.Value2 = v;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            var cell = wSheet.Range[cellName, Type.Missing];
+            cell.Value2 = v;
         }
-        private void WriteDouble(Excel.Worksheet wSheet, string cellName, string vName, double v)
+        private static void WriteDouble(Excel._Worksheet wSheet, string cellName, string vName, double v)
         {
-            try
-            {
-                var cell = wSheet.Range[cellName, Type.Missing];
-                cell.Value2 = v;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            var cell = wSheet.Range[cellName, Type.Missing];
+            cell.Value2 = v;
         }
         #endregion
 
@@ -234,20 +218,19 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             // Get the assembly information
             System.Reflection.Assembly assemblyInfo = System.Reflection.Assembly.GetExecutingAssembly();
             // Location is where the assembly is run from 
-            string assemblyLocation = assemblyInfo.Location;
             // CodeBase is the location of the ClickOnce deployment files
-            Uri uriCodeBase = new Uri(assemblyInfo.CodeBase);
-            string samplePath = Path.Combine(Path.GetDirectoryName(uriCodeBase.LocalPath.ToString()), Settings.Default.SampleExcelFile);
-            string samplePathCopy = Path.ChangeExtension(Path.GetTempFileName(), Path.GetExtension(samplePath));
+            var uriCodeBase = new Uri(assemblyInfo.CodeBase);
+            var samplePath = Path.Combine(Path.GetDirectoryName(uriCodeBase.LocalPath) ?? string.Empty, Settings.Default.SampleExcelFile);
+            var samplePathCopy = Path.ChangeExtension(Path.GetTempFileName(), Path.GetExtension(samplePath));
             // Copy sample file to temp directory
             File.Copy(samplePath, samplePathCopy);
             // Open file
             FileInfo f = new FileInfo(samplePathCopy);
-            object misval = System.Reflection.Missing.Value;
-            Excel.Workbook wb = Globals.StackBuilderAddIn.Application.Workbooks.Open(
-                f.FullName, misval, misval, misval, misval,
-                misval, misval, misval, misval, misval, misval, misval,
-                misval, misval, misval);
+            object missVal = System.Reflection.Missing.Value;
+            var wb = Globals.StackBuilderAddIn.Application.Workbooks.Open(
+                f.FullName, missVal, missVal, missVal, missVal,
+                missVal, missVal, missVal, missVal, missVal, missVal, missVal,
+                missVal, missVal, missVal);
         }
         #endregion
 
@@ -258,12 +241,22 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         /// </summary>
         private void InternalStartup()
         {
-            this.Startup += new EventHandler(StackBuilderAddIn_Startup);
-            this.Shutdown += new EventHandler(StackBuilderAddIn_Shutdown);
+            Startup += StackBuilderAddIn_Startup;
+            Shutdown += StackBuilderAddIn_Shutdown;
+
+            Application.WorkbookOpen += OnWorkbookOpen;
+            ((Excel.AppEvents_Event)Application).NewWorkbook += OnNewWorkbook;
+        }
+
+        private void OnNewWorkbook(Excel.Workbook wb)
+        {
+            ChangeMode(CurrentMode);
+        }
+        private void OnWorkbookOpen(Excel.Workbook wb)
+        {
+            ChangeMode(CurrentMode);
         }
         #endregion
-
-        private const string TASKPANETITLE = "StackBuilder";
 
         public delegate void ModeChange(Mode mode);
         public event ModeChange ModeChanged;

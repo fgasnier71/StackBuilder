@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 
-/// <summary>
-/// Summary description for Extensions
-/// </summary>
-public static class Extensions
+namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 {
-	public static void Foreach<T>(this IEnumerable<T> collection, Action<T> action)
+    /// <summary>
+    /// Summary description for Extensions
+    /// </summary>
+    public static class Extensions
     {
-        if (collection != null)
+        public static void Foreach<T>(this IEnumerable<T> collection, Action<T> action)
         {
-            IEnumerator<T> enumerator = collection.GetEnumerator();
-            while (enumerator.MoveNext())
+            if (collection != null)
             {
-                action.Invoke(enumerator.Current);
+                IEnumerator<T> enumerator = collection.GetEnumerator();
+                while (enumerator.MoveNext())
+                {
+                    action.Invoke(enumerator.Current);
+                }
             }
         }
     }

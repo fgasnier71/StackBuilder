@@ -196,6 +196,15 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Layers x Per layer.
+        /// </summary>
+        internal static string ID_RESULT_LAYERCOUNT {
+            get {
+                return ResourceManager.GetString("ID_RESULT_LAYERCOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load weight.
         /// </summary>
         internal static string ID_RESULT_LOADWEIGHT {

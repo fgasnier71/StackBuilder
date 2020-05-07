@@ -31,7 +31,7 @@ namespace treeDiM.StackBuilder.Exporters
         #endregion
     }
     #region ExporterFactory
-    public class ExporterFactory
+    public static class ExporterFactory
     {
         public static Exporter GetExporterByExt(string extension)
         {
@@ -52,9 +52,8 @@ namespace treeDiM.StackBuilder.Exporters
             throw new ExceptionInvalidName(name);
         }
         #region Data members
-        private static Exporter[] All
-        {
-            get => new Exporter[]
+        private static Exporter[] All =>
+            new Exporter[]
             {
                 new ExporterCollada(),
                 new ExporterXML(),
@@ -62,7 +61,7 @@ namespace treeDiM.StackBuilder.Exporters
                 new ExporterCSV_TechBSA(),
                 new ExporterJSON()
             };
-        }
+
         #endregion
     }
     #endregion

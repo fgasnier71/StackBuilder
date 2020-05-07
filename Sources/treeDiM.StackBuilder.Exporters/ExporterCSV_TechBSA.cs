@@ -20,7 +20,6 @@ namespace treeDiM.StackBuilder.Exporters
         public static string FormatName => "csv (TechnologyBSA)";
         #endregion
         #region Constructor
-        public ExporterCSV_TechBSA() {}
         public override string Name => FormatName;
         public override string Filter => "Comma Separated Values (*.csv) |*.csv";
         public override string Extension => "csv";
@@ -84,11 +83,18 @@ namespace treeDiM.StackBuilder.Exporters
             csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.BoxDimension.P;REAL;{dimensions.Y.ToString("0,0.0", nfi)}");
             csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.BoxDimension.H;REAL;{dimensions.Z.ToString("0,0.0", nfi)}");
             csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.BoxDimension.W;REAL;{weight.ToString("0,0.0", nfi)}");
-            var palletProperties = analysis.Container as PalletProperties;
-            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.PalletDimension.L;REAL;{palletProperties.Length.ToString("0,0.0", nfi)}");
-            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.PalletDimension.P;REAL;{palletProperties.Width.ToString("0,0.0", nfi)}");
-            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.PalletDimension.H;REAL;{palletProperties.Height.ToString("0,0.0", nfi)}");
-            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.PalletDimension.W;REAL;{palletProperties.Weight.ToString("0,0.0", nfi)}");
+            if (analysis.Container is PalletProperties palletProperties)
+            {
+                csv.AppendLine(
+                    $"Program:StackBuilder;Program:StackBuilder.PalletDimension.L;REAL;{palletProperties.Length.ToString("0,0.0", nfi)}");
+                csv.AppendLine(
+                    $"Program:StackBuilder;Program:StackBuilder.PalletDimension.P;REAL;{palletProperties.Width.ToString("0,0.0", nfi)}");
+                csv.AppendLine(
+                    $"Program:StackBuilder;Program:StackBuilder.PalletDimension.H;REAL;{palletProperties.Height.ToString("0,0.0", nfi)}");
+                csv.AppendLine(
+                    $"Program:StackBuilder;Program:StackBuilder.PalletDimension.W;REAL;{palletProperties.Weight.ToString("0,0.0", nfi)}");
+            }
+
             double maxPalletHeight = analysis.ConstraintSet.OptMaxHeight.Value;
             csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Pallet.MaxPalletHeight;REAL;{maxPalletHeight.ToString("0,0.0", nfi)}");
             bool layersMirrorX = false;
@@ -99,12 +105,6 @@ namespace treeDiM.StackBuilder.Exporters
             if (sol.ItemCount > 1)
                 layersMirrorY = sol.SolutionItems[0].SymetryY != sol.SolutionItems[1].SymetryY;
             csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.LayersMirrorYOnOff;BOOL;{Bool2string(layersMirrorY)}");
-            bool hasInterlayerBottom = sol.Layers.Count > 0 && (sol.Layers[0] is InterlayerPos);
-            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.InterLayerBottomOnOff;BOOL;{Bool2string(hasInterlayerBottom)}");
-            bool hasInterlayerMiddle = sol.Layers.Count > 2 && (sol.Layers[2] is InterlayerPos);
-            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.InterLayerIntermediateOnOff;BOOL;{Bool2string(hasInterlayerMiddle) }");
-            bool topInterlayer = (analysis is AnalysisCasePallet analysisCasePallet) &&  analysisCasePallet.HasPalletCap;
-            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.InterLayerTopOnOff;BOOL;{Bool2string(topInterlayer)}");
             csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.TotalWeight;REAL;{sol.Weight.ToString("0,0.0", nfi)}");
 
             var writer = new StreamWriter(stream);
@@ -121,7 +121,7 @@ namespace treeDiM.StackBuilder.Exporters
             ref Vector3D dimPallet, ref double weightPallet,
             ref double maxPalletHeight,
             ref bool layersMirrorX, ref bool layersMirrorY,
-            ref bool hasInterlayerBottom, ref bool hasInterlayerTop, ref bool hasInterlayerMiddle)
+            ref List<bool> interlayers)
         {
             using (TextFieldParser csvParser = new TextFieldParser(csvStream))
             {
@@ -188,6 +188,10 @@ namespace treeDiM.StackBuilder.Exporters
                             _log.Error(ex.ToString());
                         }
                     }
+                    else if (f1.Contains("Program:StackBuilder.InterlayerOnOff"))
+                    {
+                        interlayers.Add(string.Equals(fields[3], "TRUE", StringComparison.InvariantCultureIgnoreCase));
+                    }
                     else if (f1.Contains("Program:StackBuilder.BoxDimension.L"))
                     {
                         dimCase.X = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
@@ -215,24 +219,12 @@ namespace treeDiM.StackBuilder.Exporters
                     }
                     else if (f1.Contains("Program:StackBuilder.LayersMirrorXOnOff"))
                     {
-                        layersMirrorX = string.Equals(fields[3], "TRUE", StringComparison.InvariantCultureIgnoreCase);
+                        layersMirrorX = String2Bool(fields[3]);
                     }
                     else if (f1.Contains("Program:StackBuilder.LayersMirrorYOnOff"))
                     {
-                        layersMirrorY = string.Equals(fields[3], "TRUE", StringComparison.InvariantCultureIgnoreCase); 
+                        layersMirrorY = String2Bool(fields[3]);
                     }
-                    else if (f1.Contains("Program:StackBuilder.InterLayerBottomOnOff"))
-                    {
-                        hasInterlayerBottom = string.Equals(fields[3], "TRUE", StringComparison.InvariantCultureIgnoreCase);
-                    }
-                    else if (f1.Contains("Program:StackBuilder.InterLayerIntermediateOnOff"))
-                    {
-                        hasInterlayerMiddle = string.Equals(fields[3], "TRUE", StringComparison.InvariantCultureIgnoreCase);
-                    }
-                    else if (f1.Contains("Program:StackBuilder.InterLayerTopOnOff"))
-                    {
-                        hasInterlayerTop = string.Equals(fields[3], "TRUE", StringComparison.InvariantCultureIgnoreCase);
-                    }                    
                 }
             }
 
@@ -253,6 +245,8 @@ namespace treeDiM.StackBuilder.Exporters
 
         #region Helpers
         private static string Bool2string(bool b) => b ? "TRUE" : "FALSE";
+        private static bool String2Bool(string s) =>
+            string.Equals(s, "TRUE", StringComparison.CurrentCultureIgnoreCase);
         private static ILog _log = LogManager.GetLogger(typeof(ExporterCSV_TechBSA));
         #endregion
     }
