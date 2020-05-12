@@ -1,1 +1,0 @@
-"C:\Program Files (x86)\WiX Toolset v3.14\bin\heat.exe" dir "..\..\CustomProjects\treeDiM.StackBuilder.TechnologyBSA_ASPNET\Bin" -dr Bin -cg StackBuilderTechBSAGroup -gg -g1 -sf -srd -sreg -var "var.StackBuilderTechBSASourceDir" -o ".\GroupStackBuilderTechBSA.wxs"

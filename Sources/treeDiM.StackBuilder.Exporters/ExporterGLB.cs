@@ -281,7 +281,6 @@ namespace treeDiM.StackBuilder.Exporters
             {
                 MaterialBuilder materialColor = new MaterialBuilder()
                     .WithDoubleSide(true)
-                    .WithMetallicRoughnessShader()
                     .WithChannelParam(KnownChannel.BaseColor, ColorToVector4(colorFaces[i < 6 ? i : 5]));
                 /*
                 if (i == 1)
@@ -305,7 +304,7 @@ namespace treeDiM.StackBuilder.Exporters
                         );
                 else
                 */
-                    primFace.AddQuadrangle(vertices[qFace[i, 0]], vertices[qFace[i, 1]], vertices[qFace[i, 2]], vertices[qFace[i, 3]]);
+                primFace.AddQuadrangle(vertices[qFace[i, 0]], vertices[qFace[i, 1]], vertices[qFace[i, 2]], vertices[qFace[i, 3]]);
             }
             if (tapeWidth > 0.0f)
             { 
@@ -493,7 +492,7 @@ namespace treeDiM.StackBuilder.Exporters
                     $"{interlayer.Name}",
                     (float)interlayer.Length, (float)interlayer.Width, (float)interlayer.Thickness,
                     Enumerable.Repeat(interlayer.Color, 6).ToArray(),
-                    0.0f, interlayer.Color, 0.0f, Color.Black));
+                    0.0f, Color.Black, 0.0f, Color.Beige));
             }
             return lMesh;
         }

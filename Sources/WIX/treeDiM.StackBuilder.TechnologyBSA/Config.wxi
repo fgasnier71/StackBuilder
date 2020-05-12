@@ -3,7 +3,7 @@
   <!-- Product manufacturer -->
   <?define Manufacturer = "TechnologyBSA"?>
   <!-- Product version -->
-  <?define ProductVersion = "1.0.0.4"?>
+  <?define ProductVersion = "1.0.0.5"?>
   <!-- Company URL -->
   <?define CompanyURL = "http://www.treedim.com/" ?>
   <!-- Binaries-->

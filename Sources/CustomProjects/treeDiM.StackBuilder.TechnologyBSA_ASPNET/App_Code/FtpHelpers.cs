@@ -55,13 +55,13 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         {
             string names = string.Empty;
 
-            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(ftpUrl);
+            var request = (FtpWebRequest)WebRequest.Create(ftpUrl);
             request.Method = WebRequestMethods.Ftp.ListDirectory;
             request.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
 
             using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
             {
-                Stream responseStream = response.GetResponseStream();
+                var responseStream = response.GetResponseStream();
                 using (StreamReader reader = new StreamReader(responseStream))
                 {
                     names = reader.ReadToEnd();

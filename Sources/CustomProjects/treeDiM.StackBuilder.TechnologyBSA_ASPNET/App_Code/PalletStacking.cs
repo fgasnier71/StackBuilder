@@ -1,5 +1,4 @@
 ﻿#region Using directives
-
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,7 +10,6 @@ using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.Exporters;
 using treeDiM.StackBuilder.Graphics;
-
 #endregion
 
 namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
@@ -205,7 +203,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             layer2D.SetPositions(boxPositions);
             // analysis
             var analysis = new AnalysisCasePallet(boxProperties, palletProperties, constraintSet);
-            analysis.AddInterlayer(new InterlayerProperties(null, "interlayer", "", palletDim.X, palletDim.Y, 1.0, 0.0, Color.LightYellow));
+            analysis.AddInterlayer(new InterlayerProperties(null, "interlayer", "", palletDim.X, palletDim.Y, 1.0, 0.0, Color.White));
             analysis.AddSolution(layer2D, mirrorLength, mirrorWidth);
             // solution
             SolutionLayered sol = analysis.SolutionLay;
@@ -214,7 +212,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             for (int i = 0; i < iCount; ++i)
                 solutionItems[i].InterlayerIndex = ((i < interlayers.Count) && interlayers[i]) ? 0 : -1;
             if (iCount < interlayers.Count && interlayers[iCount])
-                analysis.PalletCapProperties = new PalletCapProperties(null, "palletcap", "", palletDim.X, palletDim.Y, 1, palletDim.X, palletDim.Y, 0.0, 0.0, Color.LightYellow);
+                analysis.PalletCapProperties = new PalletCapProperties(null, "palletcap", "", palletDim.X, palletDim.Y, 1, palletDim.X, palletDim.Y, 0.0, 0.0, Color.White);
             layerCount = analysis.SolutionLay.LayerCount;
             caseCount = analysis.Solution.ItemCount;
             weightLoad = analysis.Solution.LoadWeight;

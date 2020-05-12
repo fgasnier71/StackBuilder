@@ -1,14 +1,13 @@
 ﻿#region Using directives
-
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
-
 #endregion
 
 namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
@@ -24,6 +23,19 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 ChkbMirrorLength.Checked = LayersMirrorLength;
                 ChkbMirrorWidth.Checked = LayersMirrorWidth;
                 TBFileName.Text = FileName;
+
+                var interlayerArray = Interlayers.Select(p => p == '1' ? true : false).ToArray();
+                var listInterlayers = new List<InterlayerDetails>();
+                PalletStacking.InitializeInterlayers(DimCase, DimPallet, MaxPalletHeight, string.Empty, ref listInterlayers);
+                for (var i = 0; i < interlayerArray.Length; ++i)
+                {
+                    if (i < listInterlayers.Count)
+                        listInterlayers[i].Activated = interlayerArray[i];
+                }
+
+                listInterlayers.Reverse();
+                LVInterlayers.DataSource = listInterlayers;
+                LVInterlayers.DataBind();
             }
             ExecuteKeyPad();
             UpdateImage();
@@ -135,7 +147,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         private double Angle	{	get => (double)ViewState["Angle"];	set => ViewState["Angle"] = value;	}
         private string FileName => (string)Session[SessionVariables.FileName];
         private List<BoxPosition> BoxPositions => (List<BoxPosition>)Session[SessionVariables.BoxPositions];
-        private System.Drawing.Bitmap BitmapTexture => (System.Drawing.Bitmap)Session[SessionVariables.BitmapTexture];
+        private Bitmap BitmapTexture => (Bitmap)Session[SessionVariables.BitmapTexture];
+        private string Interlayers => (string)Session[SessionVariables.Interlayers];
         #endregion
 
     }

@@ -11,26 +11,40 @@
             color: lightblue;
         }
     </style>
-    <link type="text/css" href="css/jquery.keypad.css" rel="stylesheet" />
     <link type="text/css" href="css/default.css" rel="stylesheet" />
-    <script type="text/javascript" src="javascript/jquery1.11.0.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.plugin.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.keypad.js"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <link href="css/keyboard.css" rel="stylesheet" />
+    <script type="text/javascript" src="javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery.keyboard.js"></script>
+    <script type="text/javascript" src="javascript/jquery.keyboard.extension-typing.js"></script>
     <script type="text/javascript" src="javascript/three.min.js"></script>
     <script type="text/javascript" src="javascript/three-gltf-loader.min.js"></script>
     <script type="text/javascript" src="javascript/model-element.min.js"></script>
-
     <script type="text/javascript">
         function ActivateVirtualKeyboard() {
-            $('#TBCaseLength').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBCaseWidth').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBCaseHeight').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBCaseWeight').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBPalletLength').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBPalletWidth').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBPalletHeight').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBPalletWeight').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBMaxPalletHeight').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
+            $('#TBCaseLength').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBCaseWidth').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBCaseHeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBCaseWeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBPalletLength').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBPalletWidth').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBPalletHeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBPalletWeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBMaxPalletHeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            /* Code to get jQuery UI to work with jQuery 3.4+ ... */
+            $.isArray = function (a) {
+                return Object.prototype.toString.call(a) === '[object Array]';
+            }
+            $.isFunction = function (f) {
+                return typeof f === 'function';
+            }
+            $.isWindow = function (w) {
+                var toString = Object.prototype.toString.call(w);
+                return toString == '[object global]' ||
+                    toString == '[object Window]' ||
+                    toString == '[object DOMWindow]';
+            }
         }
         function ScrollTo() {
             if ($('.border').length > 0) {
@@ -79,7 +93,7 @@
                                     <asp:TextBox ID="TBCaseHeight" runat="server" Width="60px" CssClass="textbox" />
                                 </td>
                                 <td class="style65px">
-                                    <asp:Label ID="Label1" runat="server" Text="mm" CssClass="label" />
+                                    <asp:Label runat="server" Text="mm" CssClass="label" />
                                 </td>
                                 <td>
                                     <asp:Label ID="LBPalletDim" runat="server" Text="Pallet dimensions" CssClass="label" />
@@ -129,18 +143,24 @@
                                 <td />
                                 <td />
                                 <td>
-                                    <asp:Label ID="LBMaximumPalletHeight" runat="server" Text="Maximum Pallet Height" CssClass="label" />
-                                    <td>
-                                        <asp:TextBox ID="TBMaxPalletHeight" runat="server" Width="60px" CssClass="textbox" />
-                                    </td>
-                                    <td />
-                                    <td />
-                                    <td>
-                                        <asp:Label ID="LBMaxPalletHeightUnit" runat="server" Text="mm" CssClass="label" />
-                                    </td>
-                                    <td>
-                                        <asp:Button ID="BTRefresh" runat="server" Text="Refresh" OnClick="BTRefresh_Click" CssClass="buttonRefresh" />
-                                    </td>
+                                    <asp:Label ID="LBMaximumPalletHeight" runat="server" Text="Maximum Pallet Height" CssClass="label" /></td>
+                                <td>
+                                    <asp:TextBox ID="TBMaxPalletHeight" runat="server" Width="60px" CssClass="textbox" /></td>
+                                <td />
+                                <td />
+                                <td>
+                                    <asp:Label ID="LBMaxPalletHeightUnit" runat="server" Text="mm" CssClass="label" />
+                                </td>
+                                <td>
+                                    <asp:Button ID="BTRefresh" runat="server" Text="Refresh" OnClick="BTRefresh_Click" CssClass="buttonRefresh" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="11">
+                                    <asp:CompareValidator ID="cvCaseLength" runat="server" ControlToValidate="TBCaseLength" ErrorMessage="Length < 50 not allowed." ForeColor="Red" Operator="GreaterThanEqual" ValueToCompare="50.0" Type="Double" Height="8px"></asp:CompareValidator>
+                                    <asp:CompareValidator ID="cvCaseWidth" runat="server" ControlToValidate="TBCaseWidth" ErrorMessage="Width < 50 not allowed." ForeColor="Red" Operator="GreaterThanEqual" ValueToCompare="50.0" Type="Double" Height="8px"></asp:CompareValidator>
+                                    <asp:CompareValidator ID="cvCaseHeight" runat="server" ControlToValidate="TBCaseHeight" ErrorMessage="Height < 50 not allowed." ForeColor="Red" Operator="GreaterThanEqual" ValueToCompare="50.0" Type="Double" Height="8px"></asp:CompareValidator>
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -197,6 +217,7 @@
                                         <asp:BoundField DataField="ValueUnit" HeaderText="Value" ControlStyle-CssClass="stylefont" ItemStyle-Width="50%" />
                                     </Columns>
                                 </asp:GridView>
+
                             </td>
                         </tr>
                         <tr>

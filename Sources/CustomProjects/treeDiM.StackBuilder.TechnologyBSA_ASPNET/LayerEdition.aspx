@@ -59,10 +59,10 @@
                                 <td />
                                 <td />
                                 <td class="style50px">
-                                    <asp:ImageButton ID="ButtonInsert" runat="server" ImageUrl="~/Images/BtnInsert.png" OnClick="OnButtonInsert" CssClass="buttonInc" />
+                                    <asp:ImageButton ID="ButtonInsert" runat="server" ImageUrl="~/Images/BnInsert.png" OnClick="OnButtonInsert" CssClass="buttonInc" />
                                 </td>
                                 <td class="style50px">
-                                    <asp:ImageButton ID="ButtonRemove" runat="server" ImageUrl="~/Images/BtnRemove.png" OnClick="OnButtonRemove" CssClass="buttonInc" />
+                                    <asp:ImageButton ID="ButtonRemove" runat="server" ImageUrl="~/Images/BnRemove.png" OnClick="OnButtonRemove" CssClass="buttonInc" />
                                 </td>
                             </tr>
                             <tr>

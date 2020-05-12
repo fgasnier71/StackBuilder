@@ -5,11 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link type="text/css" href="css/jquery.keypad.css" rel="stylesheet" />
     <link type="text/css" href="css/default.css" rel="stylesheet" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.plugin.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.keypad.js"></script>
     <script type="text/javascript">
         function ActivateVirtualKeyboard() {
         }

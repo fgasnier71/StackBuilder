@@ -37,7 +37,7 @@
     <PublishUrl>ftp://plmpack.com/public/www/stackbuilder_excelAddin/ClickOnce/</PublishUrl>
     <InstallUrl>http://www.plmpack.com/stackbuilder_excelAddin/ClickOnce/</InstallUrl>
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.21</ApplicationVersion>
+    <ApplicationVersion>1.0.0.22</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
@@ -214,6 +214,9 @@
     <Compile Include="UCtrlPerSheetAnalysis.Designer.cs">
       <DependentUpon>UCtrlPerSheetAnalysis.cs</DependentUpon>
     </Compile>
+    <Content Include="ReportTemplates\ENU.xml" />
+    <Content Include="ReportTemplates\FRA.xml" />
+    <Content Include="ReportTemplates\ReportTemplateHtml.xsl" />
     <Content Include="treeDiM.ico" />
     <EmbeddedResource Include="FormSettingsPerRow.de.resx">
       <DependentUpon>FormSettingsPerRow.cs</DependentUpon>
@@ -484,6 +487,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ManifestTimestampUrl>http://timestamp.comodoca.com/authenticode</ManifestTimestampUrl>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

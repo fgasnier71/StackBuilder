@@ -123,7 +123,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ReportTemplatePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">D:\GitHub\StackBuilder\Sources\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml.xsl</Value>
+      <Value Profile="(Default)">C:\Program Files (x86)\treeDiM\StackBuilder\Bin\ReportTemplates\ReportTemplateHtml.xsl</Value>
     </Setting>
     <Setting Name="GenerateReports" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

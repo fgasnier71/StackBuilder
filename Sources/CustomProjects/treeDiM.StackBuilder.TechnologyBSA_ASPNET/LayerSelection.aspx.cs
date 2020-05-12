@@ -132,20 +132,20 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "VKeyPad", "ActivateVirtualKeyboard();", true);
         }
 
-        protected void UpdateImage()
+        private void UpdateImage()
         {
-            Vector3D caseDim = DimCaseCtrl;
-            double caseWeight = WeightCaseCtrl;
-            Vector3D palletDim = DimPalletCtrl;
-            double palletWeight = WeightPalletCtrl;
-            double maxPalletHeight = MaxPalletHeightCtrl;
+            var caseDim = DimCaseCtrl;
+            var caseWeight = WeightCaseCtrl;
+            var palletDim = DimPalletCtrl;
+            var palletWeight = WeightPalletCtrl;
+            var maxPalletHeight = MaxPalletHeightCtrl;
 
             byte[] imageBytes = null;
             int caseCount = 0;
             int layerCount = 0;
             double weightLoad = 0.0, weightTotal = 0.0;
-            Vector3D bbLoad = Vector3D.Zero;
-            Vector3D bbTotal = Vector3D.Zero;
+            var bbLoad = Vector3D.Zero;
+            var bbTotal = Vector3D.Zero;
 
             PalletStacking.GetSolution(
                 caseDim, caseWeight, BitmapTexture,

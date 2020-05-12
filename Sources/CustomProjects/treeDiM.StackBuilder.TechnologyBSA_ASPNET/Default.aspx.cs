@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Web.UI;
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
@@ -38,6 +39,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             WeightPallet = 23.0;
             MaxPalletHeight = 1700.0;
             LayersMirrorX = false; LayersMirrorY = false;
+            Interlayers = "";
             FileName = "Untitled.csv";
 
             if (ConfigSettings.WebGLMode)
@@ -49,9 +51,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         protected void OnOpenProject(object sender, EventArgs e)
         {
             // get selected file name
-            Vector3D dimCase = Vector3D.Zero;
+            var dimCase = Vector3D.Zero;
             double weightCase = 0.0;
-            Vector3D dimPallet = Vector3D.Zero;
+            var dimPallet = Vector3D.Zero;
             double weightPallet = 0.0;
             double maxPalletHeight = 0.0;
             bool MirrorX = false, MirrorY = false; ;
@@ -76,9 +78,10 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             LayersMirrorX = MirrorX;
             LayersMirrorY = MirrorY;
             FileName = filePath;
+            Interlayers = string.Concat(interlayers.Select(p => p ? "1" : "0").ToArray());
 
             if (ConfigSettings.WebGLMode)
-                Response.Redirect("ValidationWebGL.axpx");
+                Response.Redirect("ValidationWebGL.aspx");
             else
                 Response.Redirect("Validation.aspx");
         }
@@ -120,6 +123,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         { set => Session[SessionVariables.LayersMirrorWidth] = value; }
         private string FileName
         { set => Session[SessionVariables.FileName] = value; }
+        private string Interlayers
+        { set => Session[SessionVariables.Interlayers] = value; }
+
         #endregion
     }
 }

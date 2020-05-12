@@ -40,16 +40,31 @@
             text-align: right;
         }
     </style>
-    <script type="text/javascript" src="javascript/jquery1.11.0.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.plugin.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.keypad.js"></script>
+    <link type="text/css" href="css/default.css" rel="stylesheet" />
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <link href="css/keyboard.css" rel="stylesheet" />
+    <script type="text/javascript" src="javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery.keyboard.js"></script>
+    <script type="text/javascript" src="javascript/jquery.keyboard.extension-typing.js"></script>
     <script type="text/javascript">
         function ActivateVirtualKeyboard() {
-            $('#TBFileName').keypad({ keypadOnly: true, layout: $.keypad.qwertyLayout });
+            $('#TBFileName').keyboard({ layout: 'qwerty' }).addTyping();
+            /* Code to get jQuery UI to work with jQuery 3.4+ ... */
+            $.isArray = function (a) {
+                return Object.prototype.toString.call(a) === '[object Array]';
+            }
+            $.isFunction = function (f) {
+                return typeof f === 'function';
+            }
+            $.isWindow = function (w) {
+                var toString = Object.prototype.toString.call(w);
+                return toString == '[object global]' ||
+                    toString == '[object Window]' ||
+                    toString == '[object DOMWindow]';
+            }
         }
     </script>
-    <link type="text/css" href="css/jquery.keypad.css" rel="stylesheet" />
-    <link type="text/css" href="css/default.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">

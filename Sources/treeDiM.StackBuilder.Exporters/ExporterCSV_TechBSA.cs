@@ -43,15 +43,15 @@ namespace treeDiM.StackBuilder.Exporters
 
             // case counter
             uint iCaseCount = 0;
-            SolutionLayered sol = analysis.SolutionLay;
+            var sol = analysis.SolutionLay;
             var layers = sol.Layers;
-            foreach (ILayer layer in layers)
+            foreach (var layer in layers)
             {
                 if (layer is Layer3DBox layerBox)
                 {
                     foreach (var bPosition in layerBox)
                     {
-                        Vector3D pos = ConvertPosition(bPosition, analysis.ContentDimensions);
+                        var pos = ConvertPosition(bPosition, analysis.ContentDimensions);
                         int angle = 0;
                         switch (bPosition.DirectionLength)
                         {
@@ -75,6 +75,18 @@ namespace treeDiM.StackBuilder.Exporters
                 csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount}].Y;REAL;0");
                 csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount++}].Z;REAL;0");
             }
+
+            foreach (var solItem in sol.SolutionItems)
+            {
+                csv.AppendLine(
+                    $"Program:StackBuilder;Program:StackBuilder.InterlayerOnOff;BOOL;{Bool2string(solItem.HasInterlayer)}");
+            }
+
+            var hasPalletCap = false;
+            if (analysis is AnalysisCasePallet analysisCasePallet)
+                hasPalletCap = analysisCasePallet.HasPalletCap;
+            csv.AppendLine(
+                $"Program:StackBuilder;Program:StackBuilder.InterlayerOnOff;BOOL;{Bool2string(hasPalletCap)}");
 
             var dimensions = analysis.Content.OuterDimensions;
             double weight = analysis.Content.Weight;

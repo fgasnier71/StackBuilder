@@ -499,8 +499,8 @@ namespace treeDiM.StackBuilder.ExcelAddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D:\\GitHub\\StackBuilder\\Sources\\TreeDim.StackBuilder.Reporting\\ReportTemplates\\Rep" +
-            "ortTemplateHtml.xsl")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files (x86)\\treeDiM\\StackBuilder\\Bin\\ReportTemplates\\ReportTemplateHtm" +
+            "l.xsl")]
         public string ReportTemplatePath {
             get {
                 return ((string)(this["ReportTemplatePath"]));

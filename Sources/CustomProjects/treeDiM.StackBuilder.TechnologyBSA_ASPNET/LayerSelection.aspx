@@ -14,22 +14,36 @@
             height: 504px;
         }
     </style>
-    <link type="text/css" href="css/jquery.keypad.css" rel="stylesheet" />
     <link type="text/css" href="css/default.css" rel="stylesheet" />
-    <script type="text/javascript" src="javascript/jquery1.11.0.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.plugin.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.keypad.js"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <link href="css/keyboard.css" rel="stylesheet" />
+    <script type="text/javascript" src="javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery.keyboard.js"></script>
+    <script type="text/javascript" src="javascript/jquery.keyboard.extension-typing.js"></script>
     <script type="text/javascript">
         function ActivateVirtualKeyboard() {
-            $('#TBCaseLength').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBCaseWidth').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBCaseHeight').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBCaseWeight').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBPalletLength').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBPalletWidth').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBPalletHeight').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBPalletWeight').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
-            $('#TBMaxPalletHeight').keypad({ keypadOnly: true, layout: $.keypad.numericLayout, onClose: function (value, inst) { $('#BTRefresh').click(); } });
+            $('#TBCaseLength').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true }).addTyping();
+            $('#TBCaseWidth').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBCaseHeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBPalletLength').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBPalletWidth').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBPalletHeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBPalletWeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBMaxPalletWeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            /* Code to get jQuery UI to work with jQuery 3.4+ ... */
+            $.isArray = function (a) {
+                return Object.prototype.toString.call(a) === '[object Array]';
+            }
+            $.isFunction = function (f) {
+                return typeof f === 'function';
+            }
+            $.isWindow = function (w) {
+                var toString = Object.prototype.toString.call(w);
+                return toString == '[object global]' ||
+                    toString == '[object Window]' ||
+                    toString == '[object DOMWindow]';
+            }
         }
         function ScrollTo() {
             if ($('.border').length > 0) {

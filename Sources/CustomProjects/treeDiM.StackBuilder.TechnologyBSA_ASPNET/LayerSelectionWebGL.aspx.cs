@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web.UI;
@@ -48,7 +49,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
             if (dlLayers.SelectedIndex > -1) return;
-            ListViewDataItem item = dlLayers.Items[0];
+            if (dlLayers.Items.Count < 1) return;
+            var item = dlLayers.Items[0];
             if (DoSelectDataItem(item) == true)
             {
                 // Get 1st ImageButton
@@ -70,16 +72,17 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             Page.Validate();
             if (Page.IsValid)
             {
-                bool onlyBestLayers = false;
-
                 DimCase = DimCaseCtrl;
                 WeightCase = WeightCaseCtrl;
                 DimPallet = DimPalletCtrl;
                 WeightPallet = WeightPalletCtrl;
                 MaxPalletHeight = MaxPalletHeightCtrl;
 
+                if (DimCase.X < 50 || DimCase.Y < 50 || DimCase.Z < 50)
+                    return;
+
                 List<LayerDetails> listLayers = new List<LayerDetails>();
-                PalletStacking.GetLayers(DimCaseCtrl, WeightCaseCtrl, DimPalletCtrl, WeightPalletCtrl, MaxPalletHeightCtrl, onlyBestLayers, ref listLayers);
+                PalletStacking.GetLayers(DimCaseCtrl, WeightCaseCtrl, DimPalletCtrl, WeightPalletCtrl, MaxPalletHeightCtrl, false, ref listLayers);
 
                 dlLayers.DataSource = listLayers;
                 dlLayers.DataBind();
@@ -103,10 +106,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             BoxPositions = BoxPositionsLayer;
 
             Session[SessionVariables.LayerEdited] = false;
-            if (ConfigSettings.WebGLMode)
-                Response.Redirect("ValidationWebGL.aspx");
-            else
-                Response.Redirect("Validation.aspx");
+            Response.Redirect(ConfigSettings.WebGLMode ? "ValidationWebGL.aspx" : "Validation.aspx");
         }
 
         protected void OnLVLayersItemCommand(object sender, ListViewCommandEventArgs e)
@@ -223,9 +223,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             get => new Vector3D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text), double.Parse(TBPalletHeight.Text));
             set
             {
-                TBPalletLength.Text = value.X.ToString();
-                TBPalletWidth.Text = value.Y.ToString();
-                TBPalletHeight.Text = value.Z.ToString();
+                TBPalletLength.Text = value.X.ToString(CultureInfo.InvariantCulture);
+                TBPalletWidth.Text = value.Y.ToString(CultureInfo.InvariantCulture);
+                TBPalletHeight.Text = value.Z.ToString(CultureInfo.InvariantCulture);
             }
         }
         private double WeightPalletCtrl
