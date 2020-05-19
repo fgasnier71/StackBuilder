@@ -199,9 +199,11 @@
             <Component Id="cmp54399822F197E61A322210A374908FB5" Directory="Bin" Guid="8A49D540-5CF3-4D36-B930-FAAD6DFF0D4C">
                 <File Id="filE00FCE124A5DD2725645CB4596B7B471" KeyPath="yes" Source="$(var.StackBuilderDesktopSourceDir)\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll" />
             </Component>
+          <!--
             <Component Id="cmpB4B339791AD3AF3DA31F686320E185A1" Directory="Bin" Guid="45E64B12-BE2E-423B-9047-A498E3B6A2EB">
                 <File Id="filB95B3F1F24C588901A82B8AF338DE51C" KeyPath="yes" Source="$(var.StackBuilderDesktopSourceDir)\wkhtmltox0.dll" />
             </Component>
+          -->
             <Component Id="cmpE3F9AC1278086F7241583DF31CC8988B" Directory="Bin" Guid="85B09E09-9E41-424B-9636-45FF52BE2DB6">
                 <File Id="fil62B534534610968F79205117BD020C90" KeyPath="yes" Source="$(var.StackBuilderDesktopSourceDir)\WkHtmlToXSharp.dll" />
             </Component>
