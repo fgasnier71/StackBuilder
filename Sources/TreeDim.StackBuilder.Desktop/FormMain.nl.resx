@@ -708,7 +708,7 @@
     <value>Cilinder/Pallet</value>
   </data>
   <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
-    <value>Pallettruck /</value>
+    <value>Pallet/truck</value>
   </data>
   <data name="toolStripMIBestCase.Text" xml:space="preserve">
     <value>Beste geval vinden</value>

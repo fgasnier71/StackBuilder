@@ -133,4 +133,7 @@
   <data name="lbName.Text" xml:space="preserve">
     <value>Nom</value>
   </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value>toolStripStatusLabelDef</value>
+  </data>
 </root>

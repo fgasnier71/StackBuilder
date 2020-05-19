@@ -1015,4 +1015,7 @@
   <data name="cbColorTop.Items92" xml:space="preserve">
     <value>Couleur</value>
   </data>
+  <data name="cbColorWall.Items63" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
 </root>

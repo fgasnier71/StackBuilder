@@ -973,4 +973,7 @@
   <data name="tabPageStrappers.Text" xml:space="preserve">
     <value>Strappers</value>
   </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
 </root>

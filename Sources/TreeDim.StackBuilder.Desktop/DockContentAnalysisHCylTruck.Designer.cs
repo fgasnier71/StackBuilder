@@ -32,6 +32,8 @@
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripBBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripBReport = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonScreenshot = new System.Windows.Forms.ToolStripButton();
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.graphCtrlSolution = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
@@ -54,7 +56,9 @@
             // 
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripBBack,
-            this.toolStripBReport});
+            this.toolStripBReport,
+            this.toolStripSeparator1,
+            this.toolStripButtonScreenshot});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(784, 25);
@@ -80,6 +84,22 @@
             this.toolStripBReport.Size = new System.Drawing.Size(23, 22);
             this.toolStripBReport.Text = "Generate report...";
             this.toolStripBReport.Click += new System.EventHandler(this.OnGenerateReport);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonScreenshot
+            // 
+            this.toolStripButtonScreenshot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonScreenshot.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonScreenshot.Image")));
+            this.toolStripButtonScreenshot.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripButtonScreenshot.Name = "toolStripButtonScreenshot";
+            this.toolStripButtonScreenshot.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonScreenshot.Text = "Take a screenshot and add to clipboard";
+            this.toolStripButtonScreenshot.ToolTipText = "Take a screenshot and add to clipboard";
+            this.toolStripButtonScreenshot.Click += new System.EventHandler(this.OnScreenshot);
             // 
             // splitContainerHoriz
             // 
@@ -204,5 +224,7 @@
         private System.Windows.Forms.ToolStripButton toolStripBReport;
         private treeDiM.Basics.UCtrlOptDouble uCtrlMaxWeight;
         private treeDiM.Basics.UCtrlOptInt uCtrlMaxNumber;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonScreenshot;
     }
 }

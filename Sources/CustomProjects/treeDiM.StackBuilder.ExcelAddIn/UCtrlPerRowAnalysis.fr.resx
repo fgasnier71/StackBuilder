@@ -176,4 +176,10 @@
   <data name="gbOptions.Text" xml:space="preserve">
     <value>Options</value>
   </data>
+  <data name="bnFolderImages.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="bnFolderReports.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
 </root>

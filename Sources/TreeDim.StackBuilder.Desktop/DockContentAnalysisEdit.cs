@@ -64,9 +64,6 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnLoad(e);
             if (DesignMode) return;
 
-            toolStripSepExport3D.Visible = AllowExport3D;
-            toolStripButtonExport3D.Visible = AllowExport3D;
-
             // --- window caption
             if (null != Analysis)
                 Text = Analysis.Name + " - " + Analysis.ParentDocument.Name;
@@ -450,8 +447,8 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     if (null != layerEncap.LayerDesc)
                     {
-                        LayerSolver solver = new LayerSolver();
-                        ILayer2D layer = solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerEncap.LayerDesc, _analysis.ConstraintSet.MinimumSpace.Value);
+                        var solver = new LayerSolver();
+                        var layer = solver.BuildLayer(_analysis.Content, _analysis.ContainerDimensions, layerEncap.LayerDesc, _analysis.ConstraintSet.MinimumSpace.Value);
                         cbLayerType.Items.Add(layer);
                     }
                     else if (null != layerEncap.Layer2D)
@@ -470,7 +467,7 @@ namespace treeDiM.StackBuilder.Desktop
         private void FillInterlayerCombo()
         {
             // fill combo cbInterlayer
-            Document document = Document as Document;
+            var document = Document as Document;
             cbInterlayer.Initialize(document, this, null);
         }
 
@@ -484,7 +481,7 @@ namespace treeDiM.StackBuilder.Desktop
                 cbLayerType.Enabled = (index != -1);
                 chkbInterlayer.Enabled = (index != -1) && (cbInterlayer.Items.Count > 0);
 
-                gbLayer.Text = index != -1 ? string.Format("Selected layer : {0}", index) : "Double-click a layer";
+                gbLayer.Text = index != -1 ? $"Selected layer : {index}" : "Double-click a layer";
 
                 if (index != -1)
                 {
@@ -492,7 +489,7 @@ namespace treeDiM.StackBuilder.Desktop
                     gbLayer.Show();
 
                     // get selected solution item
-                    SolutionItem selItem = _solution.SelectedSolutionItem;
+                    var selItem = _solution.SelectedSolutionItem;
                     if (null != selItem)
                     {
                         // set current layer
@@ -503,10 +500,9 @@ namespace treeDiM.StackBuilder.Desktop
                     }
                     // select combo box
                     int selIndex = 0;
-                    foreach (object o in cbInterlayer.Items)
+                    foreach (var item in cbInterlayer.Items)
                     {
-                        InterlayerProperties interlayerProp = o as InterlayerProperties;
-                        if (interlayerProp == _solution.SelectedInterlayer)
+                        if (item is InterlayerProperties interlayerProp && interlayerProp == _solution.SelectedInterlayer)
                             break;
                         ++selIndex;
                     }
@@ -524,6 +520,10 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
+        private void OnScreenShot(object sender, EventArgs e)
+        {
+            graphCtrlSolution.ScreenShotToClipboard();
+        }
         #endregion
 
         #region Data members
@@ -539,8 +539,8 @@ namespace treeDiM.StackBuilder.Desktop
         /// logger
         /// </summary>
         protected static readonly ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisEdit));
-        #endregion
 
+        #endregion
 
     }
 }

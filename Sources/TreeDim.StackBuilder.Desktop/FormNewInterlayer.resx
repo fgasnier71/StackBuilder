@@ -537,4 +537,10 @@
   <data name="&gt;&gt;uCtrlWeight.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>Weight</value>
+  </data>
 </root>

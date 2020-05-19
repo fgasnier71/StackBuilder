@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-
+using System.Resources;
 using Sharp3D.Math.Core;
 
 using log4net;
@@ -172,6 +172,66 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public void EndInit()
         { 
+        }
+        #endregion
+
+        #region Helpers
+        public void ScreenShotToClipboard()
+        {
+            var graphics = new Graphics3DImage(this.Size);
+            try
+            {
+                double angleHorizRad = AngleHoriz * Math.PI / 180.0;
+                double angleVertRad = AngleVert * Math.PI / 180.0;
+                double cameraDistance = 100000.0;
+                graphics.CameraPosition = new Vector3D(
+                    cameraDistance * Math.Cos(angleHorizRad) * Math.Cos(angleVertRad)
+                    , cameraDistance * Math.Sin(angleHorizRad) * Math.Cos(angleVertRad)
+                    , cameraDistance * Math.Sin(angleVertRad));
+                // set camera target
+                graphics.Target = Vector3D.Zero;
+                // set viewport (not actually needed)
+                graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
+                // show images
+                graphics.ShowTextures = true;
+                graphics.ShowDimensions = ShowDimensions;
+                graphics.FontSizeRatio = 10.0f / (float)Size.Height;
+
+                if (null != DrawingContainer)
+                {
+                    try
+                    {
+                        DrawingContainer.Draw(this, graphics);
+                    }
+                    catch (Exception ex)
+                    {
+                        _log.Error(ex.ToString());
+                    }
+                }
+                else if (null != Viewer)
+                {
+                    try
+                    {
+                        Viewer.Draw(graphics, Transform3D.Identity);
+                    }
+                    catch (Exception ex)
+                    {
+                        graphics.Graphics.DrawString(ex.Message
+                            , new Font("Arial", 12)
+                            , new SolidBrush(Color.Red)
+                            , new Point(0, 0)
+                            , StringFormat.GenericDefault);
+                        _log.Error(ex.Message);
+                    }
+                }
+
+                graphics.Flush();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+            Clipboard.SetImage(BitmapHelpers.Crop(graphics.Bitmap));
         }
         #endregion
 

@@ -342,4 +342,52 @@
   <data name="cbColor.Items41" xml:space="preserve">
     <value>Couleur</value>
   </data>
+  <data name="cbTrayColor.Items" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbTrayColor.Items1" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbTrayColor.Items10" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbTrayColor.Items11" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbTrayColor.Items45" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbTrayColor.Items46" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbTrayColor.Items47" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbTrayColor.Items5" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbTrayColor.Items6" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="chkbTray.Text" xml:space="preserve">
+    <value>Plateau</value>
+  </data>
+  <data name="uCtrlTraySurfMass.Text" xml:space="preserve">
+    <value>Masse surfacique</value>
+  </data>
+  <data name="uCtrlTrayThickness.Text" xml:space="preserve">
+    <value>Epaisseur</value>
+  </data>
+  <data name="uCtrlTrayWalls.Text" xml:space="preserve">
+    <value>Nombre de murs</value>
+  </data>
+  <data name="uCtrlWrapperSurfMass.Text" xml:space="preserve">
+    <value>Masse surfacique</value>
+  </data>
+  <data name="uCtrlWrapperThickness.Text" xml:space="preserve">
+    <value>Epaisseur</value>
+  </data>
+  <data name="uCtrlWrapperWalls.Text" xml:space="preserve">
+    <value>Nombre de murs</value>
+  </data>
 </root>

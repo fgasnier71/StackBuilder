@@ -113,9 +113,9 @@ namespace treeDiM.StackBuilder.Graphics
             }
             // add wall thickness
             vPosition += new Vector3D(
-                _caseOptimConstraintSet.NoWalls[0] * _caseOptimConstraintSet.WallThickness * 0.5
-                , _caseOptimConstraintSet.NoWalls[1] * _caseOptimConstraintSet.WallThickness * 0.5
-                , _caseOptimConstraintSet.NoWalls[2] * _caseOptimConstraintSet.WallThickness * 0.5);
+                _caseOptimConstraintSet.NoWrapperWalls[0] * _caseOptimConstraintSet.WrapperThickness * 0.5
+                , _caseOptimConstraintSet.NoWrapperWalls[1] * _caseOptimConstraintSet.WrapperThickness * 0.5
+                , _caseOptimConstraintSet.NoWrapperWalls[2] * _caseOptimConstraintSet.WrapperThickness * 0.5);
 
             // apply global transformation using _dir0 / _dir1
             return BoxPosition.Transform(

@@ -20,14 +20,12 @@ namespace treeDiM.StackBuilder.Engine
             , PalletProperties palletProperties
             , ConstraintSetAbstract constraintSet
             , ParamSetPackOptim paramSetPackOptim
-            , Color packColor
             )
         {
             BoxProperties = packable;
             PalletProperties = palletProperties;
             ConstraintSet = constraintSet;
             ParamSetPackOpt = paramSetPackOptim;
-            _packColor = packColor;
         }
         public Layer2DBrickImp BuildBestLayer()
         {
@@ -42,10 +40,9 @@ namespace treeDiM.StackBuilder.Engine
         }
 
         #region Non-Public Members
-        private Color _packColor;
         private ParamSetPackOptim ParamSetPackOpt { get; set; }
-        private  PalletProperties PalletProperties { set; get; }
-        private PackableBrick BoxProperties { set; get; }
+        private  PalletProperties PalletProperties { get; set; }
+        private PackableBrick BoxProperties { get; set;  }
         private ConstraintSetAbstract ConstraintSet { get; set; }
 
         protected static readonly ILog _log = LogManager.GetLogger(typeof(PackOptimizer));
@@ -84,15 +81,15 @@ namespace treeDiM.StackBuilder.Engine
                 try
                 {
                     // build pack properties
-                    Vector3D outerDimensions = caseDefinition.OuterDimensions(BoxProperties, ParamSetPackOpt);
+                    var outerDimensions = caseDefinition.OuterDimensions(BoxProperties, ParamSetPackOpt);
                     var packProperties = new PackProperties(
                         null,
                         BoxProperties,
                         caseDefinition.Arrangement,
                         PackProperties.Orientation(caseDefinition.Dim0, caseDefinition.Dim1),
                         PackProperties.EnuRevSolidLayout.ALIGNED,
-                        BuildWrapper(),
-                        BuildTray()
+                        BuildWrapper(outerDimensions),
+                        BuildTray(outerDimensions)
                         );
                     packProperties.ForceOuterDimensions(outerDimensions);
 
@@ -110,24 +107,24 @@ namespace treeDiM.StackBuilder.Engine
             return analyses;
         }
 
-        private PackWrapper BuildWrapper()
+        private PackWrapper BuildWrapper(Vector3D dimensions)
         {
-            int[] noWalls = ParamSetPackOpt.NoWalls;
+            // no wrapper?
+            if (!ParamSetPackOpt.HasWrapper) return null;
+
+            int[] noWalls = ParamSetPackOpt.NoWrapperWalls;
             double length = 0.0, width = 0.0, height = 0.0;
-            double weight = ParamSetPackOpt.WallSurfaceMass * (noWalls[0] * width * height + noWalls[1] * length * height + noWalls[2] * length * width);
+            double weight = ParamSetPackOpt.WrapperSurfMass * (noWalls[0] * width * height + noWalls[1] * length * height + noWalls[2] * length * width);
 
             switch (ParamSetPackOpt.WrapperType)
             { 
                 case PackWrapper.WType.WT_POLYETHILENE:
-                    return new WrapperPolyethilene(
-                        ParamSetPackOpt.WallThickness, weight, _packColor);
+                    return new WrapperPolyethilene(ParamSetPackOpt.WrapperThickness, ParamSetPackOpt.WrapperWeight(dimensions), ParamSetPackOpt.WrapperColor);
                 case PackWrapper.WType.WT_PAPER:
-                    return new WrapperPaper(
-                        ParamSetPackOpt.WallThickness, weight, _packColor);
+                    return new WrapperPaper(ParamSetPackOpt.WrapperThickness, weight, ParamSetPackOpt.WrapperColor);
                 case PackWrapper.WType.WT_CARDBOARD:
                     {
-                        var wrapperCardboard = new WrapperCardboard(
-                            ParamSetPackOpt.WallThickness, weight, _packColor);
+                        var wrapperCardboard = new WrapperCardboard(ParamSetPackOpt.WrapperThickness, weight, ParamSetPackOpt.WrapperColor);
                         wrapperCardboard.SetNoWalls(noWalls);
                         return wrapperCardboard;
                     }
@@ -135,11 +132,11 @@ namespace treeDiM.StackBuilder.Engine
                     throw new InvalidEnumArgumentException(nameof(ParamSetPackOpt.WrapperType), (int)ParamSetPackOpt.WrapperType, typeof(PackWrapper.WType));
             }
         }
-        private PackTray BuildTray()
+        private PackTray BuildTray(Vector3D dims)
         {
-            double weight = 0.0;
-            var packTray = new PackTray(ParamSetPackOpt.TrayHeight, weight, _packColor);
-            packTray.SetNoWalls(ParamSetPackOpt.NoWalls);
+            if (!ParamSetPackOpt.HasTray) return null;
+            var packTray = new PackTray(ParamSetPackOpt.TrayHeight, ParamSetPackOpt.TrayWeight(dims), ParamSetPackOpt.TrayColor);
+            packTray.SetNoWalls(ParamSetPackOpt.NoWrapperWalls);
             return packTray;
         }
 

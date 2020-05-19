@@ -1494,4 +1494,7 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="cbColorWall.Items63" xml:space="preserve">
+    <value>Color</value>
+  </data>
 </root>

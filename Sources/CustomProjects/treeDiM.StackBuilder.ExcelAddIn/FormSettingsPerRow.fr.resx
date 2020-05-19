@@ -754,4 +754,7 @@
   <data name="label8.Text" xml:space="preserve">
     <value>Système d'unités</value>
   </data>
+  <data name="IDS_XLSHEETNAME" xml:space="preserve">
+    <value>Nom de feuille = {0}</value>
+  </data>
 </root>

@@ -134,10 +134,10 @@
     <Setting Name="NumberWallsHeight" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">4</Value>
     </Setting>
-    <Setting Name="WallThickness" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">4</Value>
+    <Setting Name="WrapperThickness" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.1</Value>
     </Setting>
-    <Setting Name="WallSurfaceMass" Type="System.Double" Scope="User">
+    <Setting Name="WrapperSurfMass" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0.1</Value>
     </Setting>
     <Setting Name="NumberBoxesPerCase" Type="System.Int32" Scope="User">
@@ -286,6 +286,18 @@
     </Setting>
     <Setting Name="HelpPageUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://www.plmpack.com/stackbuilder/Help/enu/Welcome.html</Value>
+    </Setting>
+    <Setting Name="TrayThickness" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="TraySurfMass" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.1</Value>
+    </Setting>
+    <Setting Name="OptHasWrapper" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="OptHasTray" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

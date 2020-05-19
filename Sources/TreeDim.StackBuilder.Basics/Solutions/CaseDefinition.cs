@@ -30,9 +30,9 @@ namespace treeDiM.StackBuilder.Basics
         public double Area(PackableBrick packable, ParamSetPackOptim constraintSet)
         {
             Vector3D outerDim = OuterDimensions(packable, constraintSet);
-            return (constraintSet.NoWalls[0] * outerDim.Y * outerDim.Z
-                + constraintSet.NoWalls[1] * outerDim.X * outerDim.Z
-                + constraintSet.NoWalls[2] * outerDim.X * outerDim.Y) * UnitsManager.FactorSquareLengthToArea;
+            return (constraintSet.NoWrapperWalls[0] * outerDim.Y * outerDim.Z
+                + constraintSet.NoWrapperWalls[1] * outerDim.X * outerDim.Z
+                + constraintSet.NoWrapperWalls[2] * outerDim.X * outerDim.Y) * UnitsManager.FactorSquareLengthToArea;
         }
         public double InnerVolume(PackableBrick packable)
         {
@@ -46,7 +46,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public double EmptyWeight(PackableBrick packable, ParamSetPackOptim constraintSet)
         {
-            return Area(packable, constraintSet) * constraintSet.WallSurfaceMass;
+            return Area(packable, constraintSet) * constraintSet.WrapperSurfMass;
         }
         public double InnerWeight(PackableBrick packable)
         {
@@ -78,22 +78,22 @@ namespace treeDiM.StackBuilder.Basics
         public Vector3D OuterDimensions(PackableBrick packBrick, ParamSetPackOptim paramSet)
         {
             return new Vector3D(
-                _arrangement.Length * packBrick.Dim(Dim0) + paramSet.WallThickness * paramSet.NoWalls[0]
-                , _arrangement.Width * packBrick.Dim(Dim1) + paramSet.WallThickness * paramSet.NoWalls[1]
-                , _arrangement.Height * packBrick.Dim(Dim2) + paramSet.WallThickness * paramSet.NoWalls[2]
+                _arrangement.Length * packBrick.Dim(Dim0) + paramSet.WrapperThickness * paramSet.NoWrapperWalls[0]
+                , _arrangement.Width * packBrick.Dim(Dim1) + paramSet.WrapperThickness * paramSet.NoWrapperWalls[1]
+                , _arrangement.Height * packBrick.Dim(Dim2) + paramSet.WrapperThickness * paramSet.NoWrapperWalls[2]
                 );
         }
         public Vector3D InnerOffset(ParamSetPackOptim paramSet)
         {
             return new Vector3D(
-                0.5 * paramSet.WallThickness * paramSet.NoWalls[0]
-                , 0.5 * paramSet.WallThickness * paramSet.NoWalls[1]
-                , 0.5 * paramSet.WallThickness * paramSet.NoWalls[2]);
+                0.5 * paramSet.WrapperThickness * paramSet.NoWrapperWalls[0]
+                , 0.5 * paramSet.WrapperThickness * paramSet.NoWrapperWalls[1]
+                , 0.5 * paramSet.WrapperThickness * paramSet.NoWrapperWalls[2]);
         }
 
         public double CaseEmptyWeight(PackableBrick boxProperties, ParamSetPackOptim paramSet)
         {
-            return paramSet.WallSurfaceMass * Area(boxProperties, paramSet);
+            return paramSet.WrapperSurfMass * Area(boxProperties, paramSet);
         }
 
         /// <summary>

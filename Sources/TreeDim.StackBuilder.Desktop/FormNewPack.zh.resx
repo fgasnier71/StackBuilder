@@ -228,9 +228,6 @@
   <data name="cbType.Items2" xml:space="preserve">
     <value>纸板</value>
   </data>
-  <data name="cbType.Items3" xml:space="preserve">
-    <value>托盘</value>
-  </data>
   <data name="chkbTransparent.Text" xml:space="preserve">
     <value>透明</value>
   </data>

@@ -224,7 +224,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                ConstraintSetPalletTruck constraintSet = _solution.Analysis.ConstraintSet as ConstraintSetPalletTruck;
+                var constraintSet = _solution.Analysis.ConstraintSet as ConstraintSetPalletTruck;
                 constraintSet.OptMaxNumber = uCtrlMaxNoPallets.Value;
                 _solution.RebuildSolutionItemList();
             }
@@ -235,6 +235,10 @@ namespace treeDiM.StackBuilder.Desktop
             // update drawing & grid
             graphCtrlSolution.Invalidate();
             UpdateGrid();
+        }
+        private void OnScreenshot(object sender, EventArgs e)
+        {
+            graphCtrlSolution.ScreenShotToClipboard();
         }
         #endregion
 
@@ -251,5 +255,6 @@ namespace treeDiM.StackBuilder.Desktop
             FormMain.GetInstance().GenerateReport(_analysis);
         }
         #endregion
+
     }
 }

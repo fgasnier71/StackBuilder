@@ -237,11 +237,17 @@ namespace treeDiM.StackBuilder.Desktop
             Close();
             Document.EditAnalysis(Analysis);
         }
+        private void OnScreenshot(object sender, EventArgs e)
+        {
+            graphCtrlSolution.ScreenShotToClipboard();
+        }
         #endregion
         #region Data members
         private AnalysisHCylTruck Analysis { get; set; }
         private SolutionHCyl Solution => Analysis.Solution as SolutionHCyl;
         protected static ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisHCylTruck));
         #endregion
+
+
     }
 }

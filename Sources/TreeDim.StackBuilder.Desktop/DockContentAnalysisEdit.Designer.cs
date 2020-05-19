@@ -48,7 +48,7 @@
             this.toolStripButtonExportXML = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonExportCSV = new System.Windows.Forms.ToolStripButton();
             this.toolStripSepExport3D = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonExport3D = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonScreenShot = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -172,7 +172,7 @@
             this.toolStripButtonExportXML,
             this.toolStripButtonExportCSV,
             this.toolStripSepExport3D,
-            this.toolStripButtonExport3D});
+            this.toolStripButtonScreenShot});
             resources.ApplyResources(this.toolStripAnalysis, "toolStripAnalysis");
             this.toolStripAnalysis.Name = "toolStripAnalysis";
             // 
@@ -219,12 +219,12 @@
             this.toolStripSepExport3D.Name = "toolStripSepExport3D";
             resources.ApplyResources(this.toolStripSepExport3D, "toolStripSepExport3D");
             // 
-            // toolStripButtonExport3D
+            // toolStripButtonScreenShot
             // 
-            this.toolStripButtonExport3D.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButtonExport3D, "toolStripButtonExport3D");
-            this.toolStripButtonExport3D.Name = "toolStripButtonExport3D";
-            this.toolStripButtonExport3D.Click += new System.EventHandler(this.OnExport3D);
+            this.toolStripButtonScreenShot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonScreenShot, "toolStripButtonScreenShot");
+            this.toolStripButtonScreenShot.Name = "toolStripButtonScreenShot";
+            this.toolStripButtonScreenShot.Click += new System.EventHandler(this.OnScreenShot);
             // 
             // DockContentAnalysisEdit
             // 
@@ -274,6 +274,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSepExport3D;
-        private System.Windows.Forms.ToolStripButton toolStripButtonExport3D;
+        private System.Windows.Forms.ToolStripButton toolStripButtonScreenShot;
     }
 }

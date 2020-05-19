@@ -1704,21 +1704,6 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
-        #region Load case optimisation
-        private void LoadOptimConstraintSet(XmlElement eltConstraintSet, out ParamSetPackOptim constraintSet)
-        {
-            string sNoWalls = eltConstraintSet.Attributes["NumberOfWalls"].Value;
-            int[] iNoWalls = ParseInt3(sNoWalls);
-            double wallThickness = UnitsManager.ConvertLengthFrom(
-                Convert.ToDouble(eltConstraintSet.Attributes["WallThickness"].Value, CultureInfo.InvariantCulture)
-                , UnitSystem);
-            double wallSurfaceMass = UnitsManager.ConvertSurfaceMassFrom(
-                Convert.ToDouble(eltConstraintSet.Attributes["WallSurfaceMass"].Value, CultureInfo.InvariantCulture)
-                , UnitSystem);
-            constraintSet = new ParamSetPackOptim(0, Vector3D.Zero, Vector3D.Zero, false, PackWrapper.WType.WT_CARDBOARD, iNoWalls, wallThickness, wallSurfaceMass, 0.0); 
-        }
-        #endregion
-
         #region Load analysis
         private void LoadAnalysis(XmlElement eltAnalysis)
         {
@@ -2481,7 +2466,6 @@ namespace treeDiM.StackBuilder.Basics
         }
         #endregion
 
- 
         #endregion // load methods
 
         #region Save methods
@@ -3742,19 +3726,19 @@ namespace treeDiM.StackBuilder.Basics
             XmlElement xmlCaseOptimConstraintSet = xmlDoc.CreateElement("OptimConstraintSet");
             xmlBoxProperties.AppendChild(xmlCaseOptimConstraintSet);
             // wall thickness
-            XmlAttribute xmlWallThickness = xmlDoc.CreateAttribute("WallThickness");
-            xmlWallThickness.Value = string.Format(CultureInfo.InvariantCulture, "{0}", caseOptimConstraintSet.WallThickness);
+            XmlAttribute xmlWallThickness = xmlDoc.CreateAttribute("WrapperThickness");
+            xmlWallThickness.Value = string.Format(CultureInfo.InvariantCulture, "{0}", caseOptimConstraintSet.WrapperThickness);
             xmlCaseOptimConstraintSet.Attributes.Append(xmlWallThickness);
             // wall surface mass
-            XmlAttribute xmlWallSurfaceMass = xmlDoc.CreateAttribute("WallSurfaceMass");
-            xmlWallSurfaceMass.Value = string.Format(CultureInfo.InvariantCulture, "{0}", caseOptimConstraintSet.WallSurfaceMass);
+            XmlAttribute xmlWallSurfaceMass = xmlDoc.CreateAttribute("WrapperSurfMass");
+            xmlWallSurfaceMass.Value = string.Format(CultureInfo.InvariantCulture, "{0}", caseOptimConstraintSet.WrapperSurfMass);
             xmlCaseOptimConstraintSet.Attributes.Append(xmlWallSurfaceMass);
             // no walls
             XmlAttribute xmlNumberOfWalls = xmlDoc.CreateAttribute("NumberOfWalls");
             xmlNumberOfWalls.Value = string.Format("{0} {1} {2}"
-                , caseOptimConstraintSet.NoWalls[0]
-                , caseOptimConstraintSet.NoWalls[1]
-                , caseOptimConstraintSet.NoWalls[2]);
+                , caseOptimConstraintSet.NoWrapperWalls[0]
+                , caseOptimConstraintSet.NoWrapperWalls[1]
+                , caseOptimConstraintSet.NoWrapperWalls[2]);
             xmlCaseOptimConstraintSet.Attributes.Append(xmlNumberOfWalls);
         }
         public void Save(Layer3DBox boxLayer, XmlElement layersElt, XmlDocument xmlDoc)

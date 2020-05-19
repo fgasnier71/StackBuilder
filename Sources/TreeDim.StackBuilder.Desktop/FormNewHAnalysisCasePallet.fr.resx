@@ -127,6 +127,6 @@
     <value>Débord</value>
   </data>
   <data name="uCtrlPalletHeight.Text" xml:space="preserve">
-    <value>Masse palette max.</value>
+    <value>Hauteur palette maxi.</value>
   </data>
 </root>

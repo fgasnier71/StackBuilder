@@ -753,4 +753,7 @@
   <data name="&gt;&gt;uCtrlWidth.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

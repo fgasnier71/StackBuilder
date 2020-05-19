@@ -151,7 +151,7 @@
     <value>graphCtrlSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
@@ -289,7 +289,7 @@
     <value>cbInterlayer</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
     <value>gbLayer</value>
@@ -316,7 +316,7 @@
     <value>cbLayerType</value>
   </data>
   <data name="&gt;&gt;cbLayerType.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer, treeDiM.StackBuilder.Graphics, Version=3.0.2.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer, treeDiM.StackBuilder.Graphics, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbLayerType.Parent" xml:space="preserve">
     <value>gbLayer</value>
@@ -582,26 +582,28 @@
   <data name="toolStripSepExport3D.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
   </data>
-  <data name="toolStripButtonExport3D.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="toolStripButtonScreenShot.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFmSURBVDhP3ZNNK8RRFMZvZCRK7HwDNshejQUbC0rNik/g
-        G3h/WVAWZLBAhvFWxMKWFPKShhU7Eo3lKCWRxc995l7MNH9l7dRT557zPOd///ecY4Ls8RkmjqFuCqrG
-        oX8P7p7Ap4Pt5R3il9AYg/weKB2EtlUH+YopJ464XmbM7g10bELJABRYUngOxo7g5B4SSQf5ijXMW04v
-        FFtu+wZIa3QI9UHnDuzf/oh+gzjiSiNtuoDpgkIbqJ+F0QM4fcgVntvYzBk0x6Go32m+C0RPIXbhrp/X
-        DWVDEFmDRRsTIusuplzY/sZCAqas5ruASP5JTNJ3oNZ2QF8RKn0nblM/vCX7mIEFMq1lGQR/zLI/FdDV
-        BX/Msv9WoCYK07bHqddsclABcTQP0qQLZI5yyI5p6wpsXcHbhxML8revXU4ccaVJj/KXfS1Tk1+m8mGo
-        GHGQr5hyOcsUZFrnsUOonnSQr5hPZ5gxnzf1Bl0oSBq0AAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEmSURBVDhPnZNBS4NgHIdfnVPYMVgE20IiyAUF7VJQHSNa
+        ENUlx7T1HRQ6RTt06zsodNxH8OLX6eAHEFF/+X8JUVJzEx6En+/zXFQWxzE8z8NqtVoLcshlT7qOobqH
+        /aNJxklLJtzRZzMwSZIwf/3Ay9vnWpBDLssuqIfHG0EuD0RRtBGVgTAM+Tg3DAiCAEEUYZhmvhfPkktb
+        PliWhZ3hCNuDAfqn52Bf35z+2QXfCNu26wNip5NLxFYWI4obnWkVIPF9ueQUI40BPvwT+HO+LkD0Rip6
+        u2ppawx0ZaV8uIKuotQHHMfB5d19JVcPj/zuum45IMsygiDIx98HpfddtZNDLjOzj+RA03B9M824bckU
+        2niM58UCLEkS+L5f+cs2QU6apvgBKfluEIDItYkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="toolStripButtonExport3D.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+  <data name="toolStripButtonScreenShot.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="toolStripButtonExport3D.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="toolStripButtonScreenShot.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
   </data>
-  <data name="toolStripButtonExport3D.Text" xml:space="preserve">
-    <value>Export 3D model...</value>
+  <data name="toolStripButtonScreenShot.Text" xml:space="preserve">
+    <value>Take a screenshot and add to clipboard</value>
+  </data>
+  <data name="toolStripButtonScreenShot.ToolTipText" xml:space="preserve">
+    <value>Take a screenshot and add to clipboard</value>
   </data>
   <data name="toolStripAnalysis.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -809,16 +811,16 @@
   <data name="&gt;&gt;toolStripSepExport3D.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonExport3D.Name" xml:space="preserve">
-    <value>toolStripButtonExport3D</value>
+  <data name="&gt;&gt;toolStripButtonScreenShot.Name" xml:space="preserve">
+    <value>toolStripButtonScreenShot</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonExport3D.Type" xml:space="preserve">
+  <data name="&gt;&gt;toolStripButtonScreenShot.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>DockContentAnalysisEdit</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.DockContentView, treeDiM.StackBuilder.Desktop, Version=3.0.2.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.DockContentView, treeDiM.StackBuilder.Desktop, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

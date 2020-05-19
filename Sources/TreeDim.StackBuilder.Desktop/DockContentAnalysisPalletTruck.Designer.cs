@@ -37,6 +37,8 @@
             this.toolStripAnalysis = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonScreenshot = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -102,7 +104,9 @@
             // 
             this.toolStripAnalysis.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonBack,
-            this.toolStripButtonReport});
+            this.toolStripButtonReport,
+            this.toolStripSeparator1,
+            this.toolStripButtonScreenshot});
             resources.ApplyResources(this.toolStripAnalysis, "toolStripAnalysis");
             this.toolStripAnalysis.Name = "toolStripAnalysis";
             // 
@@ -119,6 +123,18 @@
             resources.ApplyResources(this.toolStripButtonReport, "toolStripButtonReport");
             this.toolStripButtonReport.Name = "toolStripButtonReport";
             this.toolStripButtonReport.Click += new System.EventHandler(this.OnGenerateReport);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            // 
+            // toolStripButtonScreenshot
+            // 
+            this.toolStripButtonScreenshot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonScreenshot, "toolStripButtonScreenshot");
+            this.toolStripButtonScreenshot.Name = "toolStripButtonScreenshot";
+            this.toolStripButtonScreenshot.Click += new System.EventHandler(this.OnScreenshot);
             // 
             // DockContentAnalysisPalletTruck
             // 
@@ -154,5 +170,7 @@
         private Graphics.Graphics3DControl graphCtrlSolution;
         private SourceGrid.Grid gridSolution;
         private treeDiM.Basics.UCtrlOptInt uCtrlMaxNoPallets;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonScreenshot;
     }
 }

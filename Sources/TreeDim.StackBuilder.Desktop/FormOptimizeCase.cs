@@ -113,8 +113,8 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlNoWalls.NoX = Settings.Default.NumberWallsLength;
             uCtrlNoWalls.NoY = Settings.Default.NumberWallsWidth;
             uCtrlNoWalls.NoZ = Settings.Default.NumberWallsHeight;
-            uCtrlWallThickness.Value = Settings.Default.WallThickness;
-            uCtrlSurfacicMass.Value = Settings.Default.WallSurfaceMass;
+            WrapperThickness = Settings.Default.WrapperThickness;
+            uCtrlSurfacicMass.Value = Settings.Default.WrapperSurfMass;
             nudNumber.Value = Settings.Default.NumberBoxesPerCase;
             // set vertical orientation only
             ForceVerticalBoxOrientation = Settings.Default.ForceVerticalBoxOrientation;
@@ -142,9 +142,11 @@ namespace treeDiM.StackBuilder.Desktop
                 Settings.Default.NumberWallsWidth  = uCtrlNoWalls.NoY;
                 Settings.Default.NumberWallsHeight = uCtrlNoWalls.NoZ;
                 Settings.Default.PalletHeight = MaximumPalletHeight;
-                Settings.Default.WallThickness = uCtrlWallThickness.Value;
-                Settings.Default.WallSurfaceMass = uCtrlSurfacicMass.Value;
                 Settings.Default.NumberBoxesPerCase = (int)nudNumber.Value;
+
+                Settings.Default.WrapperThickness = WrapperThickness;
+                Settings.Default.WrapperSurfMass = WrapperSurfMass;
+
                 // window position
                 if (null == Settings.Default.FormOptimizeCasePosition)
                     Settings.Default.FormOptimizeCasePosition = new WindowSettings();
@@ -304,8 +306,17 @@ namespace treeDiM.StackBuilder.Desktop
                 return noWalls;
             }
         }
-        private double WallThickness { get { return uCtrlWallThickness.Value; } }
-        private double WallSurfaceMass { get { return uCtrlSurfacicMass.Value; } }
+        private double WrapperThickness
+        {
+            get => uCtrlWallThickness.Value;
+            set => uCtrlWallThickness.Value = value;
+        }
+
+        private double WrapperSurfMass
+        {
+            get => uCtrlSurfacicMass.Value;
+            set => uCtrlSurfacicMass.Value = value;
+        }
 
         private bool ForceVerticalBoxOrientation
         {
@@ -317,6 +328,9 @@ namespace treeDiM.StackBuilder.Desktop
             get { return uCtrlPalletHeight.Value; }
             set { uCtrlPalletHeight.Value = value; }
         }
+
+        private bool HasWrapper => true;
+        private bool HasTray => true;
         #endregion
 
         #region Grid
@@ -358,8 +372,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
-                BoxItem boxItem = cbBoxes.SelectedItem as BoxItem;
-                return null != boxItem ? boxItem.Item as BoxProperties : null;
+                var boxItem = cbBoxes.SelectedItem as BoxItem;
+                return boxItem?.Item as BoxProperties;
             }
         }
         private PalletProperties SelectedPallet
@@ -415,10 +429,8 @@ namespace treeDiM.StackBuilder.Desktop
                     , new Vector3D(MinLength, MinWidth, MinHeight)
                     , new Vector3D(MaxLength, MaxWidth, MaxHeight)
                     , ForceVerticalBoxOrientation
-                    , PackWrapper.WType.WT_POLYETHILENE
-                    , NoWalls
-                    , WallThickness, WallSurfaceMass
-                    , 0.0
+                    , HasWrapper, Color.Aqua, NoWalls, WrapperThickness, WrapperSurfMass, PackWrapper.WType.WT_POLYETHILENE
+                    , HasTray, Color.Chocolate, new int[] {0,0,0}, 0.0, 0.0, 0.0 
                     );
         }
         #endregion

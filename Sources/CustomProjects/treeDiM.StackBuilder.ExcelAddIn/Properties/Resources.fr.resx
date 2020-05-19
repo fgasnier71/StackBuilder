@@ -171,4 +171,10 @@
   <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
     <value>Masse totale palette</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Rapport</value>
+  </data>
+  <data name="ID_RESULT_LAYERCOUNT" xml:space="preserve">
+    <value>Couche x Nombre par couche</value>
+  </data>
 </root>

@@ -273,7 +273,7 @@
     <value>Couleur</value>
   </data>
   <data name="cbColor.Items45" xml:space="preserve">
-    <value>Kleur</value>
+    <value>Couleur</value>
   </data>
   <data name="cbColor.Items5" xml:space="preserve">
     <value>Couleur</value>
@@ -417,7 +417,7 @@
     <value>Hauteur palette maximale</value>
   </data>
   <data name="uCtrlSurfacicMass.Text" xml:space="preserve">
-    <value>Masse de traitements</value>
+    <value>Masse surfacique</value>
   </data>
   <data name="uCtrlTrayHeight.Text" xml:space="preserve">
     <value>Hauteur du bac</value>

@@ -317,4 +317,10 @@
   <data name="toolStripButtonExport3D.Text" xml:space="preserve">
     <value>Modèle 3D d’exportation...</value>
   </data>
+  <data name="toolStripButtonScreenShot.Text" xml:space="preserve">
+    <value>Prendre une capture d'écran et l'ajouter au presse-papiers</value>
+  </data>
+  <data name="toolStripButtonScreenShot.ToolTipText" xml:space="preserve">
+    <value>Prendre une capture d'écran et l'ajouter au presse-papiers</value>
+  </data>
 </root>

@@ -50,10 +50,10 @@
     <Setting Name="NumberWallsHeight" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">4</Value>
     </Setting>
-    <Setting Name="WallThickness" Type="System.Double" Scope="User">
+    <Setting Name="WrapperThickness" Type="System.Double" Scope="User">
       <Value Profile="(Default)">4</Value>
     </Setting>
-    <Setting Name="WallSurfaceMass" Type="System.Double" Scope="User">
+    <Setting Name="WrapperSurfMass" Type="System.Double" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="NumberBoxesPerCase" Type="System.Int32" Scope="User">

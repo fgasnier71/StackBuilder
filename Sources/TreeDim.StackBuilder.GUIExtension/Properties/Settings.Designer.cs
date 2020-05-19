@@ -220,10 +220,10 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         [global::System.Configuration.DefaultSettingValueAttribute("4")]
         public double WallThickness {
             get {
-                return ((double)(this["WallThickness"]));
+                return ((double)(this["WrapperThickness"]));
             }
             set {
-                this["WallThickness"] = value;
+                this["WrapperThickness"] = value;
             }
         }
         
@@ -232,10 +232,10 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public double WallSurfaceMass {
             get {
-                return ((double)(this["WallSurfaceMass"]));
+                return ((double)(this["WrapperSurfMass"]));
             }
             set {
-                this["WallSurfaceMass"] = value;
+                this["WrapperSurfMass"] = value;
             }
         }
         

@@ -307,7 +307,7 @@
     <value>Hauteur maximale de palette</value>
   </data>
   <data name="uCtrlSurfacicMass.Text" xml:space="preserve">
-    <value>Masse de traitements</value>
+    <value>Masse surfacique</value>
   </data>
   <data name="uCtrlTrayHeight.Text" xml:space="preserve">
     <value>Hauteur du bac</value>

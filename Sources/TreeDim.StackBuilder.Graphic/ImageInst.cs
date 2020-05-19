@@ -70,6 +70,11 @@ namespace treeDiM.StackBuilder.Graphics
         private AnalysisHomo Analysis { get; set; }
         private PackProperties PackProperties { get; set; }
         private InterlayerProperties InterlayerProperties { get; set; }
+
+        public override int GetHashCode()
+        {
+            throw new System.NotImplementedException();
+        }
     }
     #endregion
 
@@ -105,15 +110,6 @@ namespace treeDiM.StackBuilder.Graphics
 
     internal class ImageCached
     {
-        #region Data members
-        public HalfAxis.HAxis AxisLength { get; private set; }
-        public HalfAxis.HAxis AxisWidth { get; private set; }
-        private Bitmap Bitmap { get; set; }
-        private Point Offset { get; set; }
-        private Vector3D VTarget;
-        private Vector3D VCamera; 
-        #endregion
-
         #region Constructor
         public ImageCached(SubContent subContent, HalfAxis.HAxis axisLength, HalfAxis.HAxis axisWidth)
         {
@@ -133,7 +129,7 @@ namespace treeDiM.StackBuilder.Graphics
                 )
             {
                 // generate bitmap
-                Graphics3DImage graphics = new Graphics3DImage(s)
+                var graphics = new Graphics3DImage(s)
                 {
                     BackgroundColor = Color.Transparent,
                     CameraPosition = vCamera,
@@ -141,8 +137,7 @@ namespace treeDiM.StackBuilder.Graphics
                     MarginPercentage = 0.0,
                     ShowDimensions = false
                 };
-                if (null != Content)
-                    Content.Draw(graphics, RelativeTransf);                
+                Content?.Draw(graphics, RelativeTransf);
                 graphics.Flush();
 
                 // save bitmap
@@ -164,17 +159,22 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             { 
-                Vector3D v1 = HalfAxis.ToVector3D(AxisLength);
-                Vector3D v2 = HalfAxis.ToVector3D(AxisWidth);
-                Vector3D v3 = Vector3D.CrossProduct(v1, v2);
-                Vector3D v4 = Vector3D.Zero;
+                var v1 = HalfAxis.ToVector3D(AxisLength);
+                var v2 = HalfAxis.ToVector3D(AxisWidth);
+                var v3 = Vector3D.CrossProduct(v1, v2);
+                var v4 = Vector3D.Zero;
                 return new Transform3D(new Matrix4D(v1,v2,v3,v4));            
             }
         }
-        public bool Matches(ImageInst img)
-        {
-            return Content.Equals(img.Content) && AxisLength == img.AxisLength && AxisWidth == img.AxisWidth;
-        }
+        public bool Matches(ImageInst img) => Content.Equals(img.Content) && AxisLength == img.AxisLength && AxisWidth == img.AxisWidth;
+        #endregion
+        #region Data members
+        private HalfAxis.HAxis AxisLength { get; }
+        private HalfAxis.HAxis AxisWidth { get; }
+        private Bitmap Bitmap { get; set; }
+        private Point Offset { get; set; }
+        private Vector3D VTarget { get; set; }
+        private Vector3D VCamera { get; set; }
         #endregion
     }
 }

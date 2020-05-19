@@ -12,7 +12,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.5.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -540,25 +540,25 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
-        public double WallThickness {
+        [global::System.Configuration.DefaultSettingValueAttribute("0.1")]
+        public double WrapperThickness {
             get {
-                return ((double)(this["WallThickness"]));
+                return ((double)(this["WrapperThickness"]));
             }
             set {
-                this["WallThickness"] = value;
+                this["WrapperThickness"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0.1")]
-        public double WallSurfaceMass {
+        public double WrapperSurfMass {
             get {
-                return ((double)(this["WallSurfaceMass"]));
+                return ((double)(this["WrapperSurfMass"]));
             }
             set {
-                this["WallSurfaceMass"] = value;
+                this["WrapperSurfMass"] = value;
             }
         }
         
@@ -1124,6 +1124,54 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         public string HelpPageUrl {
             get {
                 return ((string)(this["HelpPageUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public double TrayThickness {
+            get {
+                return ((double)(this["TrayThickness"]));
+            }
+            set {
+                this["TrayThickness"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.1")]
+        public double TraySurfMass {
+            get {
+                return ((double)(this["TraySurfMass"]));
+            }
+            set {
+                this["TraySurfMass"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool OptHasWrapper {
+            get {
+                return ((bool)(this["OptHasWrapper"]));
+            }
+            set {
+                this["OptHasWrapper"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool OptHasTray {
+            get {
+                return ((bool)(this["OptHasTray"]));
+            }
+            set {
+                this["OptHasTray"] = value;
             }
         }
     }

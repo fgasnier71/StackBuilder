@@ -377,10 +377,10 @@ namespace treeDiM.StackBuilder.Graphics
             foreach (Triangle tr in Triangles)
                 Draw(tr, FaceDir.FRONT);
 
-            List<Box> boxesImage1 = new List<Box>();
-            foreach (ImageInst imageInst in ListImageInst)
+            var boxesImage1 = new List<Box>();
+            foreach (var imageInst in ListImageInst)
             {
-                Box b = imageInst.ToBox();
+                var b = imageInst.ToBox();
                 boxesImage1.Add(b);
             }
             // sort box list
@@ -389,7 +389,7 @@ namespace treeDiM.StackBuilder.Graphics
                 BoxelOrderer boxelOrderer = new BoxelOrderer(Boxes, ViewDirection);
                 Boxes = boxelOrderer.GetSortedList();
 
-                BoxelOrderer boxelOrderer2 = new BoxelOrderer(boxesImage1, ViewDirection);
+                var boxelOrderer2 = new BoxelOrderer(boxesImage1, ViewDirection);
                 boxesImage1 = boxelOrderer2.GetSortedList();
 
             }
@@ -402,31 +402,28 @@ namespace treeDiM.StackBuilder.Graphics
             if (Cylinders.Count > 0)
             {
                 // sort by Z
-                List<Drawable> drawableList = new List<Drawable>();
+                var drawableList = new List<Drawable>();
                 drawableList.AddRange(Boxes);
                 drawableList.AddRange(Cylinders);
                 drawableList.Sort(new DrawableComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
 
-                List<Box> boxes = new List<Box>();
-                List<Cyl> cylinders = new List<Cyl>();
-                bool processingBox = drawableList[0] is Box;
+                var boxes = new List<Box>();
+                var cylinders = new List<Cyl>();
+                var processingBox = drawableList[0] is Box;
                 foreach (Drawable drawable in drawableList)
                 {
-                    Box b = drawable as Box;
-                    Cyl c = drawable as Cyl;
-
-                    if ((null != b) && processingBox)
-                        boxes.Add(b);
-                    else if ((null == b) && !processingBox)
-                        cylinders.Add(c);
+                    if ((drawable is Box box) && processingBox)
+                        boxes.Add(box);
+                    else if (drawable is Cyl cyl && !processingBox)
+                        cylinders.Add(cyl);
                     else
                     {
                         if (boxes.Count > 0)
                         {
-                            BoxelOrderer boxelOrderer = new BoxelOrderer(boxes, ViewDirection);
+                            var boxelOrderer = new BoxelOrderer(boxes, ViewDirection);
                             boxes = boxelOrderer.GetSortedList();
                             // draw boxes
-                            foreach (Box bb in boxes)
+                            foreach (var bb in boxes)
                                 bb.Draw(this);
                             // clear
                             boxes.Clear();
@@ -440,12 +437,12 @@ namespace treeDiM.StackBuilder.Graphics
                             // clear
                             cylinders.Clear();
                         }
-                        if (null != b)
+                        if (drawable is Box b)
                         {
                             boxes.Add(b);
                             processingBox = true;
                         }
-                        else
+                        else if (drawable is Cyl c)
                         {
                             cylinders.Add(c);
                             processingBox = false;
@@ -454,17 +451,17 @@ namespace treeDiM.StackBuilder.Graphics
                 }
 
                 // remaining boxes
-                BoxelOrderer boxelOrdererRem = new BoxelOrderer(boxes, ViewDirection);
+                var boxelOrdererRem = new BoxelOrderer(boxes, ViewDirection);
                 boxes = boxelOrdererRem.GetSortedList();
                 // draw boxes
-                foreach (Box bb in boxes)
-                    bb.Draw(this);
+                foreach (var box in boxes)
+                    box.Draw(this);
 
                 // remaining cylinders
                 cylinders.Sort(new DrawableComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
                 // draw cylinders
-                foreach (var cc in cylinders)
-                    cc.Draw(this);
+                foreach (var cyl in cylinders)
+                    cyl.Draw(this);
                 // clear
                 boxes.Clear();
             }
@@ -504,7 +501,7 @@ namespace treeDiM.StackBuilder.Graphics
             // draw cotation cubes
             if (ShowDimensions)
             {
-                foreach (DimensionCube qc in Dimensions)
+                foreach (var qc in Dimensions)
                     qc.Draw(this);
             }
         }
@@ -539,8 +536,8 @@ namespace treeDiM.StackBuilder.Graphics
                         foreach (Vector3D pt in face.Points)
                             bbox.Extend( world2eye.transform(pt) );
                     // segments
-                    foreach (Segment seg in Segments)
-                        foreach (Vector3D pt in seg.Points)
+                    foreach (var seg in Segments)
+                        foreach (var pt in seg.Points)
                             bbox.Extend( world2eye.transform(pt) );
                     // cube dimensions
                     foreach (DimensionCube dimCube in Dimensions)
@@ -588,8 +585,8 @@ namespace treeDiM.StackBuilder.Graphics
             if (null == CurrentTransf)
             {
                 // get transformations
-                Transform3D world2eye = GetWorldToEyeTransformation();
-                Transform3D orthographicProj = GetOrthographicProjection(
+                var world2eye = GetWorldToEyeTransformation();
+                var orthographicProj = GetOrthographicProjection(
                     new Vector3D(_viewport[0], _viewport[1], -10000.0)
                     , new Vector3D(_viewport[2], _viewport[3], 10000.0));
 
@@ -747,34 +744,33 @@ namespace treeDiM.StackBuilder.Graphics
         {
             System.Drawing.Graphics g = Graphics;
 
-            // test if face can actuallt be seen
+            // test if face can actually be seen
             if ((Vector3D.DotProduct(face.Normal, ViewDirection) < 0.0 && dir == FaceDir.BACK)
                 || (Vector3D.DotProduct(face.Normal, ViewDirection) > 0.0 && dir == FaceDir.FRONT))
                 return;
 
             // compute face color
             double cosA = Math.Abs(Vector3D.DotProduct(face.Normal, VLight));
-            Color color = Color.FromArgb(
+            var color = Color.FromArgb(
                 transparent ? 64 : 255
                 , (int)(colorApply.R * cosA)
                 , (int)(colorApply.G * cosA)
                 , (int)(colorApply.B * cosA));
-            Point[] pt = TransformPoint(face.Points);
+            var pt = TransformPoint(face.Points);
 
             Brush brush = new SolidBrush(color);
             g.FillPolygon(brush, pt);
             // draw path
             float fThickness = transparent ? 2.0f : 1.0f;
             Brush brush0 = new SolidBrush(face.ColorPath);
-            int ptCount = pt.Length;
-            for (int i = 1; i < ptCount; ++i)
+            for (int i = 1; i < pt.Length; ++i)
             {
                 // there is a bug here!
                 // -> a polygon that result from first split will lose all edges
                 // when split a second time
                 g.DrawLine(new Pen(brush0, fThickness), pt[i - 1], pt[i]);
             }
-            g.DrawLine(new Pen(brush0, fThickness), pt[ptCount - 1], pt[0]);
+            g.DrawLine(new Pen(brush0, fThickness), pt[pt.Length - 1], pt[0]);
         }
 
         internal void Draw(ImageInst img)
@@ -804,7 +800,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         internal void GetCachedBitmap(ImageInst img, ref Bitmap bmp, ref Point offset)
         {
-            ImageCached imgCached = ListImageCached.Find(delegate(ImageCached imgc) { return imgc.Matches(img); });
+            var imgCached = ListImageCached.Find(delegate(ImageCached imgc) { return imgc.Matches(img); });
             if (null == imgCached)
             {
                 imgCached = new ImageCached(img.Content, img.AxisLength, img.AxisWidth);
@@ -813,9 +809,9 @@ namespace treeDiM.StackBuilder.Graphics
             // *** get size in pixels
             int xmin = int.MaxValue, ymin = int.MaxValue, xmax = int.MinValue, ymax=int.MinValue;
             BBox3D bbox = imgCached.Content.Bbox;
-            foreach (Vector3D vPt in bbox.Corners)
+            foreach (var vPt in bbox.Corners)
             {
-                Point pt = TransformPoint(GetCurrentTransformation() * imgCached.RelativeTransf, vPt);
+                var pt = TransformPoint(GetCurrentTransformation() * imgCached.RelativeTransf, vPt);
                 xmin = Math.Min(xmin, pt.X);
                 xmax = Math.Max(xmax, pt.X);
                 ymin = Math.Min(ymin, pt.Y);

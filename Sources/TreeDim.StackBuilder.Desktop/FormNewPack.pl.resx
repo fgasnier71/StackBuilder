@@ -279,9 +279,6 @@
   <data name="cbType.Items2" xml:space="preserve">
     <value>karton</value>
   </data>
-  <data name="cbType.Items3" xml:space="preserve">
-    <value>Zasobnik</value>
-  </data>
   <data name="cbType.Location" type="System.Drawing.Point, System.Drawing">
     <value>88, 13</value>
   </data>

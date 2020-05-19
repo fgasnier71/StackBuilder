@@ -311,4 +311,13 @@
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Poids</value>
   </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>Poids</value>
+  </data>
 </root>

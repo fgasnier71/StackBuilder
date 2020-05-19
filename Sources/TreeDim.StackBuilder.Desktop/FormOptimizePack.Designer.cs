@@ -31,16 +31,23 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOptimizePack));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.btClose = new System.Windows.Forms.Button();
-            this.gbWrapper = new System.Windows.Forms.GroupBox();
-            this.uCtrlTrayHeight = new treeDiM.Basics.UCtrlDouble();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageWrapper = new System.Windows.Forms.TabPage();
+            this.chkbWrapper = new System.Windows.Forms.CheckBox();
+            this.uCtrlWrapperWalls = new treeDiM.Basics.UCtrlTriInt();
+            this.cbWrapperColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.lbWrapperColor = new System.Windows.Forms.Label();
-            this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
+            this.uCtrlWrapperSurfMass = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlWrapperThickness = new treeDiM.Basics.UCtrlDouble();
             this.cbWrapperType = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.uCtrlSurfacicMass = new treeDiM.Basics.UCtrlDouble();
-            this.uCtrlWallThickness = new treeDiM.Basics.UCtrlDouble();
-            this.uCtrlNoWalls = new treeDiM.Basics.UCtrlTriInt();
+            this.tabPageTray = new System.Windows.Forms.TabPage();
+            this.uCtrlTraySurfMass = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlTrayWalls = new treeDiM.Basics.UCtrlTriInt();
+            this.uCtrlTrayThickness = new treeDiM.Basics.UCtrlDouble();
+            this.chkbTray = new System.Windows.Forms.CheckBox();
+            this.cbTrayColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
+            this.uCtrlTrayHeight = new treeDiM.Basics.UCtrlDouble();
+            this.btClose = new System.Windows.Forms.Button();
             this.gbPallet = new System.Windows.Forms.GroupBox();
             this.cbPallets = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             this.uCtrlOverhang = new treeDiM.Basics.UCtrlDualDouble();
@@ -74,7 +81,9 @@
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
-            this.gbWrapper.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPageWrapper.SuspendLayout();
+            this.tabPageTray.SuspendLayout();
             this.gbPallet.SuspendLayout();
             this.gbCase.SuspendLayout();
             this.groupBox.SuspendLayout();
@@ -91,8 +100,8 @@
             // 
             // splitContainer.Panel1
             // 
+            this.splitContainer.Panel1.Controls.Add(this.tabControl1);
             this.splitContainer.Panel1.Controls.Add(this.btClose);
-            this.splitContainer.Panel1.Controls.Add(this.gbWrapper);
             this.splitContainer.Panel1.Controls.Add(this.gbPallet);
             this.splitContainer.Panel1.Controls.Add(this.gridSolutions);
             this.splitContainer.Panel1.Controls.Add(this.gbCase);
@@ -108,99 +117,130 @@
             this.splitContainer.Panel2.Controls.Add(this.graphCtrlPack);
             this.splitContainer.Panel2.Controls.Add(this.bnCreateAnalysis);
             // 
-            // btClose
+            // tabControl1
             // 
-            resources.ApplyResources(this.btClose, "btClose");
-            this.btClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btClose.Name = "btClose";
-            this.btClose.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.Controls.Add(this.tabPageWrapper);
+            this.tabControl1.Controls.Add(this.tabPageTray);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
             // 
-            // gbWrapper
+            // tabPageWrapper
             // 
-            resources.ApplyResources(this.gbWrapper, "gbWrapper");
-            this.gbWrapper.Controls.Add(this.uCtrlTrayHeight);
-            this.gbWrapper.Controls.Add(this.lbWrapperColor);
-            this.gbWrapper.Controls.Add(this.cbColor);
-            this.gbWrapper.Controls.Add(this.cbWrapperType);
-            this.gbWrapper.Controls.Add(this.label1);
-            this.gbWrapper.Controls.Add(this.uCtrlSurfacicMass);
-            this.gbWrapper.Controls.Add(this.uCtrlWallThickness);
-            this.gbWrapper.Controls.Add(this.uCtrlNoWalls);
-            this.gbWrapper.Name = "gbWrapper";
-            this.gbWrapper.TabStop = false;
+            this.tabPageWrapper.Controls.Add(this.chkbWrapper);
+            this.tabPageWrapper.Controls.Add(this.uCtrlWrapperWalls);
+            this.tabPageWrapper.Controls.Add(this.cbWrapperColor);
+            this.tabPageWrapper.Controls.Add(this.lbWrapperColor);
+            this.tabPageWrapper.Controls.Add(this.uCtrlWrapperSurfMass);
+            this.tabPageWrapper.Controls.Add(this.uCtrlWrapperThickness);
+            this.tabPageWrapper.Controls.Add(this.cbWrapperType);
+            resources.ApplyResources(this.tabPageWrapper, "tabPageWrapper");
+            this.tabPageWrapper.Name = "tabPageWrapper";
+            this.tabPageWrapper.UseVisualStyleBackColor = true;
             // 
-            // uCtrlTrayHeight
+            // chkbWrapper
             // 
-            resources.ApplyResources(this.uCtrlTrayHeight, "uCtrlTrayHeight");
-            this.uCtrlTrayHeight.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.uCtrlTrayHeight.Name = "uCtrlTrayHeight";
-            this.uCtrlTrayHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlTrayHeight.Value = 0D;
-            this.uCtrlTrayHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
+            resources.ApplyResources(this.chkbWrapper, "chkbWrapper");
+            this.chkbWrapper.Name = "chkbWrapper";
+            this.chkbWrapper.UseVisualStyleBackColor = true;
+            this.chkbWrapper.CheckedChanged += new System.EventHandler(this.OnWrapperCheckChanged);
+            // 
+            // uCtrlWrapperWalls
+            // 
+            resources.ApplyResources(this.uCtrlWrapperWalls, "uCtrlWrapperWalls");
+            this.uCtrlWrapperWalls.Name = "uCtrlWrapperWalls";
+            this.uCtrlWrapperWalls.NoX = 1;
+            this.uCtrlWrapperWalls.NoY = 1;
+            this.uCtrlWrapperWalls.NoZ = 1;
+            this.uCtrlWrapperWalls.ValueChanged += new treeDiM.Basics.UCtrlTriInt.ValueChangedDelegate(this.OnDataChanged);
+            // 
+            // cbWrapperColor
+            // 
+            this.cbWrapperColor.Color = System.Drawing.Color.LightGray;
+            this.cbWrapperColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbWrapperColor.DropDownHeight = 1;
+            this.cbWrapperColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbWrapperColor.DropDownWidth = 1;
+            this.cbWrapperColor.FormattingEnabled = true;
+            resources.ApplyResources(this.cbWrapperColor, "cbWrapperColor");
+            this.cbWrapperColor.Items.AddRange(new object[] {
+            resources.GetString("cbWrapperColor.Items"),
+            resources.GetString("cbWrapperColor.Items1"),
+            resources.GetString("cbWrapperColor.Items2"),
+            resources.GetString("cbWrapperColor.Items3"),
+            resources.GetString("cbWrapperColor.Items4"),
+            resources.GetString("cbWrapperColor.Items5"),
+            resources.GetString("cbWrapperColor.Items6"),
+            resources.GetString("cbWrapperColor.Items7"),
+            resources.GetString("cbWrapperColor.Items8"),
+            resources.GetString("cbWrapperColor.Items9"),
+            resources.GetString("cbWrapperColor.Items10"),
+            resources.GetString("cbWrapperColor.Items11"),
+            resources.GetString("cbWrapperColor.Items12"),
+            resources.GetString("cbWrapperColor.Items13"),
+            resources.GetString("cbWrapperColor.Items14"),
+            resources.GetString("cbWrapperColor.Items15"),
+            resources.GetString("cbWrapperColor.Items16"),
+            resources.GetString("cbWrapperColor.Items17"),
+            resources.GetString("cbWrapperColor.Items18"),
+            resources.GetString("cbWrapperColor.Items19"),
+            resources.GetString("cbWrapperColor.Items20"),
+            resources.GetString("cbWrapperColor.Items21"),
+            resources.GetString("cbWrapperColor.Items22"),
+            resources.GetString("cbWrapperColor.Items23"),
+            resources.GetString("cbWrapperColor.Items24"),
+            resources.GetString("cbWrapperColor.Items25"),
+            resources.GetString("cbWrapperColor.Items26"),
+            resources.GetString("cbWrapperColor.Items27"),
+            resources.GetString("cbWrapperColor.Items28"),
+            resources.GetString("cbWrapperColor.Items29"),
+            resources.GetString("cbWrapperColor.Items30"),
+            resources.GetString("cbWrapperColor.Items31"),
+            resources.GetString("cbWrapperColor.Items32"),
+            resources.GetString("cbWrapperColor.Items33"),
+            resources.GetString("cbWrapperColor.Items34"),
+            resources.GetString("cbWrapperColor.Items35"),
+            resources.GetString("cbWrapperColor.Items36"),
+            resources.GetString("cbWrapperColor.Items37"),
+            resources.GetString("cbWrapperColor.Items38"),
+            resources.GetString("cbWrapperColor.Items39"),
+            resources.GetString("cbWrapperColor.Items40"),
+            resources.GetString("cbWrapperColor.Items41"),
+            resources.GetString("cbWrapperColor.Items42"),
+            resources.GetString("cbWrapperColor.Items43"),
+            resources.GetString("cbWrapperColor.Items44"),
+            resources.GetString("cbWrapperColor.Items45")});
+            this.cbWrapperColor.Name = "cbWrapperColor";
+            this.cbWrapperColor.SelectedColorChanged += new System.EventHandler(this.OnDataChanged);
             // 
             // lbWrapperColor
             // 
             resources.ApplyResources(this.lbWrapperColor, "lbWrapperColor");
             this.lbWrapperColor.Name = "lbWrapperColor";
             // 
-            // cbColor
+            // uCtrlWrapperSurfMass
             // 
-            this.cbColor.Color = System.Drawing.Color.LightGray;
-            this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbColor.DropDownHeight = 1;
-            this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbColor.DropDownWidth = 1;
-            this.cbColor.FormattingEnabled = true;
-            resources.ApplyResources(this.cbColor, "cbColor");
-            this.cbColor.Items.AddRange(new object[] {
-            resources.GetString("cbColor.Items"),
-            resources.GetString("cbColor.Items1"),
-            resources.GetString("cbColor.Items2"),
-            resources.GetString("cbColor.Items3"),
-            resources.GetString("cbColor.Items4"),
-            resources.GetString("cbColor.Items5"),
-            resources.GetString("cbColor.Items6"),
-            resources.GetString("cbColor.Items7"),
-            resources.GetString("cbColor.Items8"),
-            resources.GetString("cbColor.Items9"),
-            resources.GetString("cbColor.Items10"),
-            resources.GetString("cbColor.Items11"),
-            resources.GetString("cbColor.Items12"),
-            resources.GetString("cbColor.Items13"),
-            resources.GetString("cbColor.Items14"),
-            resources.GetString("cbColor.Items15"),
-            resources.GetString("cbColor.Items16"),
-            resources.GetString("cbColor.Items17"),
-            resources.GetString("cbColor.Items18"),
-            resources.GetString("cbColor.Items19"),
-            resources.GetString("cbColor.Items20"),
-            resources.GetString("cbColor.Items21"),
-            resources.GetString("cbColor.Items22"),
-            resources.GetString("cbColor.Items23"),
-            resources.GetString("cbColor.Items24"),
-            resources.GetString("cbColor.Items25"),
-            resources.GetString("cbColor.Items26"),
-            resources.GetString("cbColor.Items27"),
-            resources.GetString("cbColor.Items28"),
-            resources.GetString("cbColor.Items29"),
-            resources.GetString("cbColor.Items30"),
-            resources.GetString("cbColor.Items31"),
-            resources.GetString("cbColor.Items32"),
-            resources.GetString("cbColor.Items33"),
-            resources.GetString("cbColor.Items34"),
-            resources.GetString("cbColor.Items35"),
-            resources.GetString("cbColor.Items36"),
-            resources.GetString("cbColor.Items37"),
-            resources.GetString("cbColor.Items38"),
-            resources.GetString("cbColor.Items39"),
-            resources.GetString("cbColor.Items40"),
-            resources.GetString("cbColor.Items41")});
-            this.cbColor.Name = "cbColor";
-            this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnDataChanged);
+            resources.ApplyResources(this.uCtrlWrapperSurfMass, "uCtrlWrapperSurfMass");
+            this.uCtrlWrapperSurfMass.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlWrapperSurfMass.Name = "uCtrlWrapperSurfMass";
+            this.uCtrlWrapperSurfMass.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_SURFACEMASS;
+            this.uCtrlWrapperSurfMass.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
+            // 
+            // uCtrlWrapperThickness
+            // 
+            resources.ApplyResources(this.uCtrlWrapperThickness, "uCtrlWrapperThickness");
+            this.uCtrlWrapperThickness.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlWrapperThickness.Name = "uCtrlWrapperThickness";
+            this.uCtrlWrapperThickness.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlWrapperThickness.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // cbWrapperType
             // 
@@ -209,51 +249,137 @@
             this.cbWrapperType.Items.AddRange(new object[] {
             resources.GetString("cbWrapperType.Items"),
             resources.GetString("cbWrapperType.Items1"),
-            resources.GetString("cbWrapperType.Items2"),
-            resources.GetString("cbWrapperType.Items3")});
+            resources.GetString("cbWrapperType.Items2")});
             resources.ApplyResources(this.cbWrapperType, "cbWrapperType");
             this.cbWrapperType.Name = "cbWrapperType";
-            this.cbWrapperType.SelectedIndexChanged += new System.EventHandler(this.OnWrapperTypeChanged);
+            this.cbWrapperType.SelectedIndexChanged += new System.EventHandler(this.OnDataChanged);
             // 
-            // label1
+            // tabPageTray
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            this.tabPageTray.Controls.Add(this.uCtrlTraySurfMass);
+            this.tabPageTray.Controls.Add(this.uCtrlTrayWalls);
+            this.tabPageTray.Controls.Add(this.uCtrlTrayThickness);
+            this.tabPageTray.Controls.Add(this.chkbTray);
+            this.tabPageTray.Controls.Add(this.cbTrayColor);
+            this.tabPageTray.Controls.Add(this.uCtrlTrayHeight);
+            resources.ApplyResources(this.tabPageTray, "tabPageTray");
+            this.tabPageTray.Name = "tabPageTray";
+            this.tabPageTray.UseVisualStyleBackColor = true;
             // 
-            // uCtrlSurfacicMass
+            // uCtrlTraySurfMass
             // 
-            resources.ApplyResources(this.uCtrlSurfacicMass, "uCtrlSurfacicMass");
-            this.uCtrlSurfacicMass.Minimum = new decimal(new int[] {
-            10000,
+            resources.ApplyResources(this.uCtrlTraySurfMass, "uCtrlTraySurfMass");
+            this.uCtrlTraySurfMass.Minimum = new decimal(new int[] {
             0,
             0,
-            -2147483648});
-            this.uCtrlSurfacicMass.Name = "uCtrlSurfacicMass";
-            this.uCtrlSurfacicMass.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_SURFACEMASS;
-            this.uCtrlSurfacicMass.Value = 0D;
-            this.uCtrlSurfacicMass.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
+            0,
+            0});
+            this.uCtrlTraySurfMass.Name = "uCtrlTraySurfMass";
+            this.uCtrlTraySurfMass.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_SURFACEMASS;
             // 
-            // uCtrlWallThickness
+            // uCtrlTrayWalls
             // 
-            resources.ApplyResources(this.uCtrlWallThickness, "uCtrlWallThickness");
-            this.uCtrlWallThickness.Minimum = new decimal(new int[] {
-            10000,
+            resources.ApplyResources(this.uCtrlTrayWalls, "uCtrlTrayWalls");
+            this.uCtrlTrayWalls.Name = "uCtrlTrayWalls";
+            this.uCtrlTrayWalls.NoX = 1;
+            this.uCtrlTrayWalls.NoY = 1;
+            this.uCtrlTrayWalls.NoZ = 1;
+            // 
+            // uCtrlTrayThickness
+            // 
+            resources.ApplyResources(this.uCtrlTrayThickness, "uCtrlTrayThickness");
+            this.uCtrlTrayThickness.Minimum = new decimal(new int[] {
             0,
             0,
-            -2147483648});
-            this.uCtrlWallThickness.Name = "uCtrlWallThickness";
-            this.uCtrlWallThickness.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlWallThickness.Value = 0D;
-            this.uCtrlWallThickness.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
+            0,
+            0});
+            this.uCtrlTrayThickness.Name = "uCtrlTrayThickness";
+            this.uCtrlTrayThickness.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
             // 
-            // uCtrlNoWalls
+            // chkbTray
             // 
-            resources.ApplyResources(this.uCtrlNoWalls, "uCtrlNoWalls");
-            this.uCtrlNoWalls.Name = "uCtrlNoWalls";
-            this.uCtrlNoWalls.NoX = 1;
-            this.uCtrlNoWalls.NoY = 1;
-            this.uCtrlNoWalls.NoZ = 1;
-            this.uCtrlNoWalls.ValueChanged += new treeDiM.Basics.UCtrlTriInt.ValueChangedDelegate(this.OnDataChanged);
+            resources.ApplyResources(this.chkbTray, "chkbTray");
+            this.chkbTray.Name = "chkbTray";
+            this.chkbTray.UseVisualStyleBackColor = true;
+            this.chkbTray.CheckedChanged += new System.EventHandler(this.OnTrayCheckChanged);
+            // 
+            // cbTrayColor
+            // 
+            this.cbTrayColor.Color = System.Drawing.Color.LightGray;
+            this.cbTrayColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbTrayColor.DropDownHeight = 1;
+            this.cbTrayColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTrayColor.DropDownWidth = 1;
+            this.cbTrayColor.FormattingEnabled = true;
+            resources.ApplyResources(this.cbTrayColor, "cbTrayColor");
+            this.cbTrayColor.Items.AddRange(new object[] {
+            resources.GetString("cbTrayColor.Items"),
+            resources.GetString("cbTrayColor.Items1"),
+            resources.GetString("cbTrayColor.Items2"),
+            resources.GetString("cbTrayColor.Items3"),
+            resources.GetString("cbTrayColor.Items4"),
+            resources.GetString("cbTrayColor.Items5"),
+            resources.GetString("cbTrayColor.Items6"),
+            resources.GetString("cbTrayColor.Items7"),
+            resources.GetString("cbTrayColor.Items8"),
+            resources.GetString("cbTrayColor.Items9"),
+            resources.GetString("cbTrayColor.Items10"),
+            resources.GetString("cbTrayColor.Items11"),
+            resources.GetString("cbTrayColor.Items12"),
+            resources.GetString("cbTrayColor.Items13"),
+            resources.GetString("cbTrayColor.Items14"),
+            resources.GetString("cbTrayColor.Items15"),
+            resources.GetString("cbTrayColor.Items16"),
+            resources.GetString("cbTrayColor.Items17"),
+            resources.GetString("cbTrayColor.Items18"),
+            resources.GetString("cbTrayColor.Items19"),
+            resources.GetString("cbTrayColor.Items20"),
+            resources.GetString("cbTrayColor.Items21"),
+            resources.GetString("cbTrayColor.Items22"),
+            resources.GetString("cbTrayColor.Items23"),
+            resources.GetString("cbTrayColor.Items24"),
+            resources.GetString("cbTrayColor.Items25"),
+            resources.GetString("cbTrayColor.Items26"),
+            resources.GetString("cbTrayColor.Items27"),
+            resources.GetString("cbTrayColor.Items28"),
+            resources.GetString("cbTrayColor.Items29"),
+            resources.GetString("cbTrayColor.Items30"),
+            resources.GetString("cbTrayColor.Items31"),
+            resources.GetString("cbTrayColor.Items32"),
+            resources.GetString("cbTrayColor.Items33"),
+            resources.GetString("cbTrayColor.Items34"),
+            resources.GetString("cbTrayColor.Items35"),
+            resources.GetString("cbTrayColor.Items36"),
+            resources.GetString("cbTrayColor.Items37"),
+            resources.GetString("cbTrayColor.Items38"),
+            resources.GetString("cbTrayColor.Items39"),
+            resources.GetString("cbTrayColor.Items40"),
+            resources.GetString("cbTrayColor.Items41"),
+            resources.GetString("cbTrayColor.Items42"),
+            resources.GetString("cbTrayColor.Items43"),
+            resources.GetString("cbTrayColor.Items44"),
+            resources.GetString("cbTrayColor.Items45"),
+            resources.GetString("cbTrayColor.Items46"),
+            resources.GetString("cbTrayColor.Items47")});
+            this.cbTrayColor.Name = "cbTrayColor";
+            // 
+            // uCtrlTrayHeight
+            // 
+            resources.ApplyResources(this.uCtrlTrayHeight, "uCtrlTrayHeight");
+            this.uCtrlTrayHeight.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.uCtrlTrayHeight.Name = "uCtrlTrayHeight";
+            this.uCtrlTrayHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            // 
+            // btClose
+            // 
+            resources.ApplyResources(this.btClose, "btClose");
+            this.btClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btClose.Name = "btClose";
+            this.btClose.UseVisualStyleBackColor = true;
             // 
             // gbPallet
             // 
@@ -294,7 +420,6 @@
             0});
             this.uCtrlPalletHeight.Name = "uCtrlPalletHeight";
             this.uCtrlPalletHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlPalletHeight.Value = 0D;
             this.uCtrlPalletHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // lbPalletDimensions
@@ -508,8 +633,11 @@
             this.splitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
-            this.gbWrapper.ResumeLayout(false);
-            this.gbWrapper.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPageWrapper.ResumeLayout(false);
+            this.tabPageWrapper.PerformLayout();
+            this.tabPageTray.ResumeLayout(false);
+            this.tabPageTray.PerformLayout();
             this.gbPallet.ResumeLayout(false);
             this.gbPallet.PerformLayout();
             this.gbCase.ResumeLayout(false);
@@ -530,14 +658,6 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDef;
         private System.Windows.Forms.SplitContainer splitContainer;
-        private System.Windows.Forms.GroupBox gbWrapper;
-        private treeDiM.Basics.UCtrlDouble uCtrlTrayHeight;
-        private System.Windows.Forms.Label lbWrapperColor;
-        private System.Windows.Forms.ComboBox cbWrapperType;
-        private System.Windows.Forms.Label label1;
-        private treeDiM.Basics.UCtrlDouble uCtrlSurfacicMass;
-        private treeDiM.Basics.UCtrlDouble uCtrlWallThickness;
-        private treeDiM.Basics.UCtrlTriInt uCtrlNoWalls;
         private System.Windows.Forms.GroupBox gbPallet;
         private treeDiM.Basics.UCtrlDualDouble uCtrlOverhang;
         private treeDiM.Basics.UCtrlDouble uCtrlPalletHeight;
@@ -566,6 +686,21 @@
         private System.Windows.Forms.TextBox tbAnalysisDescription;
         private System.Windows.Forms.Label lbAnalysisDescription;
         private System.Windows.Forms.Timer _timer;
-        private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPageWrapper;
+        private System.Windows.Forms.TabPage tabPageTray;
+        private System.Windows.Forms.CheckBox chkbWrapper;
+        private treeDiM.Basics.UCtrlTriInt uCtrlWrapperWalls;
+        private OfficePickers.ColorPicker.ComboBoxColorPicker cbWrapperColor;
+        private System.Windows.Forms.Label lbWrapperColor;
+        private treeDiM.Basics.UCtrlDouble uCtrlWrapperSurfMass;
+        private treeDiM.Basics.UCtrlDouble uCtrlWrapperThickness;
+        private System.Windows.Forms.ComboBox cbWrapperType;
+        private treeDiM.Basics.UCtrlDouble uCtrlTraySurfMass;
+        private treeDiM.Basics.UCtrlTriInt uCtrlTrayWalls;
+        private treeDiM.Basics.UCtrlDouble uCtrlTrayThickness;
+        private System.Windows.Forms.CheckBox chkbTray;
+        private OfficePickers.ColorPicker.ComboBoxColorPicker cbTrayColor;
+        private treeDiM.Basics.UCtrlDouble uCtrlTrayHeight;
     }
 }

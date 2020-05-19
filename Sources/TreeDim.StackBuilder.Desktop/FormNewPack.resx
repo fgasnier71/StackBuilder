@@ -394,7 +394,7 @@
     <value>Top, Right</value>
   </data>
   <data name="uCtrlWrapperWalls.Location" type="System.Drawing.Point, System.Drawing">
-    <value>410, 10</value>
+    <value>410, 6</value>
   </data>
   <data name="uCtrlWrapperWalls.Size" type="System.Drawing.Size, System.Drawing">
     <value>264, 20</value>
@@ -427,7 +427,7 @@
     <value>Cardboard</value>
   </data>
   <data name="cbType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 10</value>
+    <value>88, 6</value>
   </data>
   <data name="cbType.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
@@ -448,7 +448,7 @@
     <value>6</value>
   </data>
   <data name="uCtrlWrapperWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 35</value>
+    <value>217, 31</value>
   </data>
   <data name="uCtrlWrapperWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -475,7 +475,7 @@
     <value>4</value>
   </data>
   <data name="uCtrlWrapperThickness.Location" type="System.Drawing.Point, System.Drawing">
-    <value>410, 35</value>
+    <value>410, 31</value>
   </data>
   <data name="uCtrlWrapperThickness.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -505,7 +505,7 @@
     <value>True</value>
   </data>
   <data name="lbWrapperColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 38</value>
+    <value>6, 34</value>
   </data>
   <data name="lbWrapperColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 13</value>
@@ -663,8 +663,11 @@
   <data name="cbWrapperColor.Items42" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbWrapperColor.Items43" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbWrapperColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 35</value>
+    <value>88, 31</value>
   </data>
   <data name="cbWrapperColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 22</value>
@@ -691,7 +694,7 @@
     <value>True</value>
   </data>
   <data name="chkbWrapper.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 12</value>
+    <value>6, 8</value>
   </data>
   <data name="chkbWrapper.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 17</value>
@@ -990,6 +993,9 @@
   <data name="cbTrayColor.Items44" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbTrayColor.Items45" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbTrayColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>120, 4</value>
   </data>
@@ -1211,5 +1217,20 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Color</value>
   </data>
 </root>

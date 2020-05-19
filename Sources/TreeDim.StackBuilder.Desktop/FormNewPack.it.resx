@@ -228,9 +228,6 @@
   <data name="cbType.Items2" xml:space="preserve">
     <value>Cartone</value>
   </data>
-  <data name="cbType.Items3" xml:space="preserve">
-    <value>Vassoio di</value>
-  </data>
   <data name="chkbTransparent.Text" xml:space="preserve">
     <value>Trasparente</value>
   </data>
