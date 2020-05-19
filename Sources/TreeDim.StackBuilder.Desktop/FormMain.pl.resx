@@ -429,10 +429,10 @@
     <value>Otwórz plik</value>
   </data>
   <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
-    <value>Wymiany Markup Language (*.xml) | * .xml</value>
+    <value>eXchange Markup Language (*.xml)|*.xml</value>
   </data>
   <data name="saveFileDialogSB.Filter" xml:space="preserve">
-    <value>StackBuilder plików (*.stb) | * .stb</value>
+    <value>StackBuilder (*.stb)|*.stb|All files (*.*)|*.*</value>
   </data>
   <data name="saveFileDialogSB.Title" xml:space="preserve">
     <value>Zapisz plik...</value>
@@ -441,7 +441,7 @@
     <value>427, 17</value>
   </data>
   <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
-    <value>Plik htlm * (.html) | * .html</value>
+    <value>HTML (*.html)|*.html|All files (*.*)|*.*)</value>
   </data>
   <data name="saveFileDialogWebGL.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>570, 17</value>
@@ -1984,7 +1984,7 @@
     <value>Sprawa BCT</value>
   </data>
   <data name="saveFileDialogExport.Filter" xml:space="preserve">
-    <value>EXchange Markup Język (*.xml)|*.xml</value>
+    <value>eXchange Markup Language (*.xml)|*.xml</value>
   </data>
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>Nowa butelka</value>

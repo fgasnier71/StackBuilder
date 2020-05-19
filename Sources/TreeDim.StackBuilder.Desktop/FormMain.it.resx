@@ -1928,7 +1928,7 @@
     <value>Caso BCT</value>
   </data>
   <data name="saveFileDialogExport.Filter" xml:space="preserve">
-    <value>Il linguaggio eXchange Markup Language (con estensione xml)</value>
+    <value>Il linguaggio eXchange Markup Language (*.xml)|*.xml</value>
   </data>
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>Nuova bottiglia</value>

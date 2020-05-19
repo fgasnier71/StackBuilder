@@ -139,7 +139,7 @@
     <value>Create new case/pallet analysis...</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.2.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="bnBestCombination.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -236,7 +236,7 @@
     <value>19</value>
   </data>
   <data name="&gt;&gt;cbCases.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbCases.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -257,7 +257,7 @@
     <value>20</value>
   </data>
   <data name="&gt;&gt;cbPallets.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbPallets.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -599,7 +599,7 @@
     <value>23</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseOrientation.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation, treeDiM.StackBuilder.Graphics, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.uCtrlCaseOrientation, treeDiM.StackBuilder.Graphics, Version=3.0.2.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlCaseOrientation.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -626,7 +626,7 @@
     <value>24</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerList.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.2.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerList.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -653,7 +653,7 @@
     <value>31</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerListEdited.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.2.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerListEdited.ZOrder" xml:space="preserve">
     <value>1</value>

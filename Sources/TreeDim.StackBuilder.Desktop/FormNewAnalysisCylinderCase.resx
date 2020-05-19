@@ -237,7 +237,7 @@
     <value>cbCylinders</value>
   </data>
   <data name="&gt;&gt;cbCylinders.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbCylinders.Parent" xml:space="preserve">
     <value>$this</value>
@@ -258,7 +258,7 @@
     <value>cbCases</value>
   </data>
   <data name="&gt;&gt;cbCases.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbCases.Parent" xml:space="preserve">
     <value>$this</value>
@@ -316,7 +316,7 @@
     <value>uCtrlLayerList</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerList.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.UCtrlLayerList, treeDiM.StackBuilder.Graphics, Version=3.0.2.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlLayerList.Parent" xml:space="preserve">
     <value>$this</value>
@@ -370,7 +370,7 @@
     <value>uCtrlPackable</value>
   </data>
   <data name="&gt;&gt;uCtrlPackable.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.UCtrlPackable, treeDiM.StackBuilder.Graphics, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.UCtrlPackable, treeDiM.StackBuilder.Graphics, Version=3.0.2.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlPackable.Parent" xml:space="preserve">
     <value>$this</value>
@@ -397,6 +397,6 @@
     <value>FormNewAnalysisCylinderCase</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.2.12, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.2.13, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

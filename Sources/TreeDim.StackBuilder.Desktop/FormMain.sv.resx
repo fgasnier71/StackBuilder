@@ -496,7 +496,7 @@
     <value>Fall BCT</value>
   </data>
   <data name="saveFileDialogExport.Filter" xml:space="preserve">
-    <value>eXchange Markup-språk (*.xml)|*.xml</value>
+    <value>eXchange Markup Language (*.xml)|*.xml</value>
   </data>
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>Ny flaska</value>

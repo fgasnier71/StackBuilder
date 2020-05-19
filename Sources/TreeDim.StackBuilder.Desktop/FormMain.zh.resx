@@ -172,7 +172,7 @@
     <value>打开文件</value>
   </data>
   <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
-    <value>交换标记语言 (*.xml)|*.xml</value>
+    <value>eXchange Markup Language (*.xml)|*.xml</value>
   </data>
   <data name="saveFileDialogSB.Filter" xml:space="preserve">
     <value>器文件 (* 机顶盒) | * 机顶盒</value>
@@ -490,7 +490,7 @@
     <value>案例 BCT</value>
   </data>
   <data name="saveFileDialogExport.Filter" xml:space="preserve">
-    <value>eX更改标记语言 （*.xml）*.xml</value>
+    <value>eXchange Markup Language (*.xml)|*.xml</value>
   </data>
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>新瓶</value>

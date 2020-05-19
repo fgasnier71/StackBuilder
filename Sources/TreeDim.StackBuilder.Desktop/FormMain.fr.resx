@@ -1647,6 +1647,6 @@
     <value>Nouvelle bouteille</value>
   </data>
   <data name="saveFileDialogExport.Filter" xml:space="preserve">
-    <value>eXchange Markup Language (*.xml)|*.xml|Tous les fichiers|*.*</value>
+    <value>eXchange Markup Language (*.xml)|*.xml|Tous les fichiers (*.*)|*.*</value>
   </data>
 </root>

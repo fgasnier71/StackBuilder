@@ -457,22 +457,22 @@
     <value>Caso BCT</value>
   </data>
   <data name="openFileDialogSB.Filter" xml:space="preserve">
-    <value>Arquivos StackBuilder (*.stb)|*.stb| Todos os arquivos (*.*)|**</value>
+    <value>Arquivos StackBuilder (*.stb)|*.stb|Todos os arquivos (*.*)|*.*</value>
   </data>
   <data name="openFileDialogSB.Title" xml:space="preserve">
     <value>Abrir arquivo...</value>
   </data>
   <data name="saveFileDialogSB.Filter" xml:space="preserve">
-    <value>Arquivos StackBuilder (*.stb)|*.stb| Todos os arquivos (*.*)|**</value>
+    <value>Arquivos StackBuilder (*.stb)|*.stb|Todos os arquivos (*.*)|*.*</value>
   </data>
   <data name="saveFileDialogSB.Title" xml:space="preserve">
     <value>Salvar arquivo...</value>
   </data>
   <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
-    <value>Arquivo Htlm (*.html)|*.html</value>
+    <value>Arquivo Html (*.html)|*.html|Todos os arquivos (*.*)|*.* </value>
   </data>
   <data name="saveFileDialogExport.Filter" xml:space="preserve">
-    <value>eXchange Markup Language (*.xml)|*.xml</value>
+    <value>eXchange Markup Language (*.xml)|*.xml|Todos os arquivos (*.*)|*.*</value>
   </data>
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>Nova garrafa</value>

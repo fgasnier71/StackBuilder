@@ -490,7 +490,7 @@
     <value>Дело BCT</value>
   </data>
   <data name="saveFileDialogExport.Filter" xml:space="preserve">
-    <value>eXchange Язык разметки (к.xml)</value>
+    <value>eXchange Markup Language (*.xml)|*.xml</value>
   </data>
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>Новая бутылка</value>

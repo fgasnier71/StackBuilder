@@ -655,7 +655,7 @@
     <value>Speichern unter…</value>
   </data>
   <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
-    <value>Austausch von Markup Language (*.XML) | * .xml</value>
+    <value>eXchange Markup Language (*.xml)|*.xml</value>
   </data>
   <data name="saveFileDialogSB.Filter" xml:space="preserve">
     <value>StackBuilder Dateien (*.stb)|*.stb</value>
@@ -1490,7 +1490,7 @@
     <value>Fall BCT</value>
   </data>
   <data name="saveFileDialogExport.Filter" xml:space="preserve">
-    <value>eXchange Markup Sprache (*.xml)|*.xml</value>
+    <value>eXchange Markup Language (*.xml)|*.xml</value>
   </data>
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>Neue Flasche</value>
