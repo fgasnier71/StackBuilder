@@ -2,60 +2,49 @@
 <?include $(sys.CURRENTDIR)\Config.wxi?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="*" Name="treeDiM.StackBuilder.WCFServiceInstaller"
+	<Product Id="*" Name="treeDiM.StackBuilder.WCFService.Test_MSI"
            Language="1033"
            Version="$(var.ProductVersion)"
            Manufacturer="$(var.Manufacturer)"
-           UpgradeCode="38aeffc2-061f-43e4-9291-93fa30efe5c8">
-    <Package Id="*"
+           UpgradeCode="91cc8149-55b8-42e8-92b3-86b6918f5855">
+		<Package Id="*"
              InstallerVersion="301"
              Compressed="yes"
              InstallScope="perMachine"
              ReadOnly="yes"
              ShortNames="no"
              />
-    <MediaTemplate EmbedCab="yes"/>
-    <!--Upgrade table-->
-    <MajorUpgrade
-      Schedule="afterInstallInitialize"
-      AllowDowngrades="no"
-      AllowSameVersionUpgrades="no"
+		<MediaTemplate EmbedCab="yes"/>
+
+		<!--Upgrade table-->
+		<MajorUpgrade
+			Schedule="afterInstallInitialize"
+			AllowDowngrades="no"
+			AllowSameVersionUpgrades="no"
       DowngradeErrorMessage="A newer version of [ProductName] is already installed."
       />
-    <Upgrade Id="{3EEDCF0F-0FDF-45C8-B556-0B09579B82D6}">
-      <UpgradeVersion Minimum="0.0.0.0"
-                      Maximum="99.0.0.0"
-                      Property="PREVIOUSVERSIONSINSTALLED"
-                      IncludeMinimum="yes"
-                      IncludeMaximum="no"
-                      IgnoreRemoveFailure="yes"
-                      />
+    <Upgrade Id="{24A521B6-A698-4DCE-B7FC-89190BE9C287}">
+			<UpgradeVersion Minimum="0.0.0.0"
+											Maximum="99.0.0.0"
+											Property="PREVIOUSVERSIONSINSTALLED"
+											IncludeMinimum="yes"
+											IncludeMaximum="no"
+											IgnoreRemoveFailure="yes"
+											/>
     </Upgrade>
-    
+
     <!--Features : begin -->
-    <Feature Id="ProductFeature"
-             Title="treeDiM.StackBuilder.WCFAppServ"
+		<Feature Id="ProductFeature"
+             Title="treeDiM.StackBuilder.WCFService.Test_MSI"
              Level="1">
-      <ComponentGroupRef Id="ServiceDefinition" />
-      <ComponentGroupRef Id="ServiceBinaries"/>
-      <ComponentGroupRef Id="WebIISConfiguration"/>
       <Feature Id="SampleClient"
-               Title="Sample Client"
+               Title="SampleClient"
                Level="1">
         <ComponentGroupRef Id="SampleClientBinaries"/>
         <ComponentGroupRef Id="SampleClientShortcut"/>
       </Feature>
-    </Feature>
-    <!--Features : end-->
-
-    <Property Id="VIRTUAL_DIR_VAL" Value="StackBuilderWebApp" />
-    <!-- check whether IIS is installed or not -->
-    <Property Id="IIS_MAJOR_VERSION">
-      <RegistrySearch Id="CheckIISVersion" Root="HKLM" Key="SOFTWARE\Microsoft\InetStp" Name="MajorVersion" Type="raw"/>
-    </Property>
-    <Condition Message="IIS must be installed">Installed OR IIS_MAJOR_VERSION</Condition>
-    <!-- check whether IIS is installed or not -->
-
+		</Feature>
+		<!--Features : end -->
     <!--Properties-->
     <Property Id="PROJECT_UPGRADE" Secure="yes"/>
     <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />

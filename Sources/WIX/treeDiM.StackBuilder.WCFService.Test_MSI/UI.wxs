@@ -6,5 +6,5 @@
       <UIRef Id="WixUI_Common"/>
       <UIRef Id="WixUI_FeatureTree"/>
     </UI>
-	</Fragment>
+  </Fragment>
 </Wix>

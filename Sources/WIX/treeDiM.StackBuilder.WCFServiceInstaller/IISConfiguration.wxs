@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
-     xmlns:util="http://wixtoolset.org/schemas/v4/wxs/UtilExtension"
-     xmlns:iis="http://wixtoolset.org/schemas/v4/wxs/iis"
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension"
      >
   <Fragment>
     <PropertyRef Id="VIRTUAL_DIR_VAL"/>
@@ -24,7 +24,7 @@
                      Directory="INSTALLFOLDER"
         >
           <iis:WebAddress Id="AllUnassigned" Port="80" />
-          <iis:WebVirtualDir Id="WebVirtualDir" Alias="[VIRTUAL_DIR_VAL]" Directory="INSTALLFOLDER" WebSite="StackBuilder_WebSite" >
+          <iis:WebVirtualDir Id="WebVirtualDir" Alias="[VIRTUAL_DIR_VAL]" Directory="INSTALLFOLDER" >
             <iis:WebDirProperties Id="WebDirProperties" AnonymousAccess="yes" BasicAuthentication="no" WindowsAuthentication="no" />
           </iis:WebVirtualDir>
         </iis:WebSite>

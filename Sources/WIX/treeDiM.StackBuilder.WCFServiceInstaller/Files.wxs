@@ -4,7 +4,7 @@
 <?define BinDir=..\..\treeDiM.StackBuilder.WCFAppServ\bin\release\?>
 
 
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
     <DirectoryRef Id="INSTALLFOLDER"/>
     <ComponentGroup Id="ServiceDefinition" Directory="INSTALLFOLDER">
@@ -40,13 +40,11 @@
         <File Source="$(var.BinDir)Microsoft.WindowsAzure.Diagnostics.dll"/>
         <File Source="$(var.BinDir)Microsoft.WindowsAzure.Storage.dll"/>
         <File Source="$(var.BinDir)MonAgentListener.dll"/>
-        <File Source="$(var.BinDir)netstandard.dll"/>
         <File Source="$(var.BinDir)System.Collections.Immutable.dll"/>
         <File Source="$(var.BinDir)Newtonsoft.Json.dll"/>
         <File Source="$(var.BinDir)System.Spatial.dll"/>
       </Component>
       <Component Id="treeDiM.StackBuilder" Guid="{C61D9742-6CF1-464F-9400-9DB6AF07E1D2}">
-        <File Source="$(var.BinDir)treeDiM.EdgeCrushTest.dll"/>
         <File Source="$(var.BinDir)treeDiM.StackBuilder.Basics.dll"/>
         <File Source="$(var.BinDir)treeDiM.StackBuilder.Engine.dll"/>
         <File Source="$(var.BinDir)treeDiM.StackBuilder.Graphics.dll"/>

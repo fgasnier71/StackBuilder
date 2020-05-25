@@ -2,7 +2,7 @@
 <?include $(sys.CURRENTDIR)\Config.wxi?>
 <?define TestAppBinDir=..\..\Test\treeDiM.StackBuilder.WCFService.Test\bin\Release\?>
 
-<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
     <Icon Id="ShortcutIcon.ico" SourceFile="$(var.TestAppBinDir)treeDiM.StackBuilder.WCFService.Test.exe" />
     <DirectoryRef Id="SAMPLECLIENT"/>
