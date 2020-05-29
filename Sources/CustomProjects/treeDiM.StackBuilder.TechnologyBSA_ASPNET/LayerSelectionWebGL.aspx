@@ -200,7 +200,7 @@
                                         <tr>
                                             <td/>
                                             <td>
-                                                <input class="property__input" id="rotateZ" type="range" min="0" max="359" value="45" oninput="updateStyles()">
+                                                <input class="custom-slider" id="rotateZ" type="range" min="0" max="359" value="45" oninput="updateStyles()">
                                             </td>
                                         </tr>
                                     </table>

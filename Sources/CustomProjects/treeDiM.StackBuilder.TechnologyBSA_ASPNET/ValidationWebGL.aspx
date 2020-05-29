@@ -157,13 +157,13 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input class="property__input" id="rotateZ" type="range" min="0" max="359" value="45" oninput="updateStyles()">
+                                            <input  class="custom-slider" id="rotateZ" type="range" min="0" max="359" value="45" oninput="updateStyles()">
                                         </td>
                                     </tr>
                                 </table>
                             </td>
                             <td colspan="2" class="auto-style3">
-                                <asp:Panel ID="PanelLayerOrientation" runat="server" GroupingText="Alternate layer orientation" Width="100%" BorderColor="LightGray" BackColor="Transparent">
+                                <asp:Panel ID="PanelLayerOrientation" runat="server" GroupingText="Alternate layer orientation" Width="100%" BorderColor="LightGray" BackColor="Transparent" CssClass="groupBox">
                                     <table class="style100pct">
                                         <tr>
                                             <td>
@@ -188,7 +188,7 @@
                                     </table>
                                 </asp:Panel>
                                 <br />
-                                <asp:Panel ID="PanelInterlayer" runat="server" GroupingText="Interlayers" Width="100%" BorderColor="LightGray" BackColor="Transparent">
+                                <asp:Panel ID="PanelInterlayer" runat="server" GroupingText="Interlayers" Width="100%" BorderColor="LightGray" BackColor="Transparent" CssClass="groupBox">
                                     <div style="height: 300px; overflow-x:hidden; overflow-y:visible">
                                         <asp:ListView ID="LVInterlayers" runat="server">
                                             <LayoutTemplate>
@@ -199,7 +199,7 @@
                                             <ItemTemplate>
                                                 <tr id="ITInterlayer" runat="server">
                                                     <td id="td1" runat="server">
-                                                        <asp:Label ID="LayerLabel" Text='<%#Eval("Name") %>' Width="100px" runat="server" />
+                                                        <asp:Label ID="LayerLabel" Text='<%#Eval("Name") %>' Width="100px" runat="server" CssClass="labelRight"/>
                                                     </td>
                                                     <td id="td2" runat="server">
                                                         <label class="switch">
@@ -238,9 +238,6 @@
                         </tr>
                     </table>
                 </ContentTemplate>
-            </asp:UpdatePanel>
-            <asp:UpdatePanel runat="server">
-
             </asp:UpdatePanel>
         </div>
     </form>
