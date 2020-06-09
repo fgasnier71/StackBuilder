@@ -102,7 +102,6 @@ namespace treeDiM.StackBuilder.Basics
 
         private List<ContentItem> _content = new List<ContentItem>();
         protected readonly List<ItemBase> _containers = new List<ItemBase>();
-        static readonly ILog _log = LogManager.GetLogger(typeof(AnalysisLayered));
         #endregion
     }
 

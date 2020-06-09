@@ -378,19 +378,23 @@ namespace treeDiM.StackBuilder.Desktop
             using (var form = new FormNewAnalysisCylinderCase(this, null))
                 if (DialogResult.OK == form.ShowDialog()) { }
         }
-        public AnalysisPalletTruck CreateNewAnalysisPalletTruckUI()
+        public void CreateNewAnalysisPalletTruckUI()
         {
-            if (!CanCreateAnalysisPalletTruck) return null;
+            if (!CanCreateAnalysisPalletTruck) return;
             using (var form = new FormNewAnalysisPalletTruck(this, null))
                 if (DialogResult.OK == form.ShowDialog()) { }
-            return null;
         }
-        public AnalysisCaseTruck CreateNewAnalysisCaseTruckUI()
+        public void CreateNewAnalysisHPalletTruckUI()
         {
-            if (!CanCreateAnalysisCaseTruck) return null;
+            if (!CanCreateAnalysisPalletTruck) return;
+            using (var form = new FormNewHAnalysisPalletTruck(this, null))
+                if (DialogResult.OK == form.ShowDialog()) { }
+        }
+        public void CreateNewAnalysisCaseTruckUI()
+        {
+            if (!CanCreateAnalysisCaseTruck) return;
             using (var form = new FormNewAnalysisCaseTruck(this, null))
                 if (DialogResult.OK == form.ShowDialog()) { }
-            return null;
         }
         public AnalysisCylinderTruck CreateNewAnalysisCylinderTruckUI()
         {

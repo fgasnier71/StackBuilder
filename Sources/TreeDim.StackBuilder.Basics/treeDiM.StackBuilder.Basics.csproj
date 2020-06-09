@@ -117,6 +117,7 @@
     <Compile Include="Analyses\AnalysisCaseTruck.cs" />
     <Compile Include="Analyses\AnalysisCylinderCase.cs" />
     <Compile Include="Analyses\AnalysisCylinderPallet.cs" />
+    <Compile Include="Analyses\AnalysisHPalletTruck.cs" />
     <Compile Include="Analyses\AnalysisPackableCase.cs" />
     <Compile Include="Analyses\AnalysisPackablePallet.cs" />
     <Compile Include="Analyses\AnalysisPackableTruck.cs" />

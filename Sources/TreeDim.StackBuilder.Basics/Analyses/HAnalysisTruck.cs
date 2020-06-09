@@ -17,7 +17,7 @@ namespace treeDiM.StackBuilder.Basics
         public TruckProperties Truck { set { _containers.Clear(); _containers.Add(value); } }
         #endregion
 
-        #region override HAnalysis
+        #region Override AnalysisHetero
         public override BBox3D AdditionalBoudingBox(int index)
         {
             return index < _containers.Count && _containers[index] is TruckProperties truckProperties
@@ -32,10 +32,7 @@ namespace treeDiM.StackBuilder.Basics
                 return Vector3D.Zero;
         }
         public override double WeightContainer(int index) => 0.0;
-        public override Vector3D Offset(int index)
-        {
-            return Vector3D.Zero;
-        }
+        public override Vector3D Offset(int index)=> Vector3D.Zero;
         #endregion
     }
 }

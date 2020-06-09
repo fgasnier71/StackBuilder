@@ -525,6 +525,12 @@
     <Compile Include="FormNewHAnalysisCaseTruck.Designer.cs">
       <DependentUpon>FormNewHAnalysisCaseTruck.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewHAnalysisPalletTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewHAnalysisPalletTruck.Designer.cs">
+      <DependentUpon>FormNewHAnalysisPalletTruck.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewInterlayer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2256,6 +2262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisCaseTruck.sl.resx">
       <DependentUpon>FormNewHAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisPalletTruck.resx">
+      <DependentUpon>FormNewHAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewInterlayer.de.resx">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>

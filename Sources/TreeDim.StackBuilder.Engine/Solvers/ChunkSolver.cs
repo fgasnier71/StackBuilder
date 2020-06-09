@@ -19,7 +19,7 @@ namespace treeDiM.StackBuilder.Engine
 
         public override string ToString()
         {
-            return $"LayerDesc={LayerDescriptor} - Dimensions = {Dimensions.ToString()} - BoxPositions = {BoxPositions.Count} - Remaining = {Remaining}";
+            return $"LayerDesc={LayerDescriptor} - Dimensions = {Dimensions} - BoxPositions = {BoxPositions.Count} - Remaining = {Remaining}";
         }
     }
 
@@ -42,7 +42,6 @@ namespace treeDiM.StackBuilder.Engine
 
             foreach (var pattern in LayerPatternBox.All)
             {
-                HalfAxis.HAxis[] axes = { HalfAxis.HAxis.AXIS_Z_N, HalfAxis.HAxis.AXIS_Z_P };
                 for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
                 {
                     bool swapped = (iSwapped == 1);

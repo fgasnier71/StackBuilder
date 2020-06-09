@@ -20,7 +20,6 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormNewAnalysisPalletTruck : FormNewAnalysis, IItemBaseFilter
     {
-
         #region Constructor
         public FormNewAnalysisPalletTruck(Document doc, AnalysisLayered analysis)
             : base(doc, analysis)
@@ -30,8 +29,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region FormNewBase override
-        public override string ItemDefaultName
-        { get { return Resources.ID_ANALYSIS; } }
+        public override string ItemDefaultName => Resources.ID_ANALYSIS;
         #endregion
 
         #region Public properties
