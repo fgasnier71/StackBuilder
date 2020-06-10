@@ -311,7 +311,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnGenerateReport(object sender, EventArgs e)
         {
-            FormMain.GetInstance().GenerateReport(Analysis);
+            FormMain.GenerateReport(Analysis);
         }
         private void OnGenerateExport(object sender, EventArgs e)
         {
@@ -324,7 +324,7 @@ namespace treeDiM.StackBuilder.Desktop
                 case "toolStripButtonExportDAE": extension = "dae"; break;
                 default: break;
             }
-            FormMain.GetInstance().GenerateExport(Analysis, extension);
+            FormMain.GenerateExport(Analysis, extension);
         }
         #endregion
 

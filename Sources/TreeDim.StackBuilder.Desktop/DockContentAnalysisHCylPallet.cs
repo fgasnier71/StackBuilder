@@ -239,7 +239,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnGenerateReport(object sender, EventArgs e)
         {
-            FormMain.GetInstance().GenerateReport(Analysis);
+            FormMain.GenerateReport(Analysis);
         }
         private void OnBack(object sender, EventArgs e)
         {

@@ -6,7 +6,7 @@ namespace treeDiM.StackBuilder.Basics
 {
     public abstract class PackableBrick : Packable
     {
-        public PackableBrick(Document doc)
+        protected PackableBrick(Document doc)
             : base(doc)
         {
         }

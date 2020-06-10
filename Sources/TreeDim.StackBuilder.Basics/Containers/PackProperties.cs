@@ -1,5 +1,5 @@
 ﻿using Sharp3D.Math.Core;
-
+using System;
 using treeDiM.Basics;
 
 namespace treeDiM.StackBuilder.Basics
@@ -188,15 +188,19 @@ namespace treeDiM.StackBuilder.Basics
             {
                 case EnuRevSolidLayout.ALIGNED:
                     length = arrangement.Length * revSolid.Diameter;
+                    width = arrangement.Width * revSolid.Diameter;
                     break;
                 case EnuRevSolidLayout.STAGGERED_REGULAR:
                     length = (arrangement.Length + 0.5) * revSolid.Diameter;
+                    width = ((arrangement.Width - 1) * 0.5 * Math.Sqrt(3.0) + 1) * revSolid.Diameter;
                     break;
                 case EnuRevSolidLayout.STAGGERED_MINUS1:
                     length = arrangement.Length * revSolid.Diameter;
+                    width = ((arrangement.Width - 1) * 0.5 * Math.Sqrt(3.0) + 1) * revSolid.Diameter;
                     break;
                 case EnuRevSolidLayout.STAGGERED_PLUS1:
                     length = (arrangement.Length + 1) * revSolid.Diameter;
+                    width = ((arrangement.Width - 1) * 0.5 * Math.Sqrt(3.0) + 1) * revSolid.Diameter;
                     break;
                 default:
                     length = 0.0; width = 0.0;

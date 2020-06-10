@@ -979,11 +979,11 @@ namespace treeDiM.StackBuilder.Basics
         public DateTime DateOfCreation { get; set; }
 
         public ReadOnlyCollection<ItemBase> TypeList =>new ReadOnlyCollection<ItemBase>(_typeList); 
-        public IEnumerable<BoxProperties> Bricks => _typeList.OfType<BoxProperties>();
+        public IEnumerable<PackableBrickNamed> Bricks => _typeList.OfType<PackableBrickNamed>();
         public IEnumerable<BoxProperties> Boxes => _typeList.OfType<BoxProperties>().Where(x => !x.HasInsideDimensions);
         public IEnumerable<BoxProperties> Cases => _typeList.OfType<BoxProperties>().Where(x => x.HasInsideDimensions);
         public IEnumerable<BundleProperties> Bundles => _typeList.OfType<BundleProperties>();
-        public IEnumerable<CylinderProperties> Cylinders => _typeList.OfType<CylinderProperties>();
+        public IEnumerable<RevSolidProperties> Cylinders => _typeList.OfType<RevSolidProperties>();
         public IEnumerable<PalletProperties> Pallets => _typeList.OfType<PalletProperties>();
         public IEnumerable<InterlayerProperties> Interlayers => _typeList.OfType<InterlayerProperties>();
         public IEnumerable<TruckProperties> Trucks => _typeList.OfType<TruckProperties>();

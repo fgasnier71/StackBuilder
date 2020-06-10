@@ -584,7 +584,7 @@ namespace treeDiM.StackBuilder.Desktop
             return true;
         }
 
-        public void GenerateReport(Analysis analysis)
+        public static void GenerateReport(Analysis analysis)
         {
             try
             {
@@ -596,7 +596,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString()); Program.SendCrashReport(ex);
             }
         }
-        public void GenerateExport(AnalysisLayered analysis, string formatName)
+        public static void GenerateExport(AnalysisLayered analysis, string formatName)
         {
             try
             {
@@ -608,7 +608,7 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-        public void GenerateExport(AnalysisHetero analysis, string formatName)
+        public static void GenerateExport(AnalysisHetero analysis, string formatName)
         {
             try
             {
@@ -718,9 +718,12 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripMenuItemNewAnalysisCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
             toolStripMIAnalysisCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
             toolStripMIAnalysisBundlePallet.Enabled = (null != doc) && doc.CanCreateAnalysisBundlePallet;
+            toolStripMIHAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
+
             // new cylinder/pallet analysis
             toolStripMenuItemNewAnalysisCylinderPallet.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
             toolStripMIAnalysisCylinderPallet.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
+            toolStripMIAnalysisHCylPallet.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
             // new box/case analysis
             toolStripMenuItemNewAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;
             toolStripMIAnalysisBoxCase.Enabled = (null != doc) && doc.CanCreateAnalysisBoxCase;

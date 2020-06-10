@@ -405,7 +405,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnGenerateReport(object sender, EventArgs e)
         {
-            FormMain.GetInstance().GenerateReport(_analysis);
+            FormMain.GenerateReport(_analysis);
         }
         private void OnGenerateExport(object sender, EventArgs e)
         {
@@ -418,7 +418,7 @@ namespace treeDiM.StackBuilder.Desktop
                 case "toolStripButtonExportDAE": formatName = Exporters.ExporterCollada.FormatName; break;
                 default: break;
             }
-            FormMain.GetInstance().GenerateExport(_analysis, formatName);
+            FormMain.GenerateExport(_analysis, formatName);
         }
         private void OnExport3D(object sender, EventArgs e)
         {

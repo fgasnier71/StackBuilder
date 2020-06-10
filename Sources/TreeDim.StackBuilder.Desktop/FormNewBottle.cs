@@ -276,12 +276,13 @@ namespace treeDiM.StackBuilder.Desktop
                 gridProfile[iRow, 2] = new SourceGrid.Cells.RowHeader($"{Resources.ID_DIAMETER} ({UnitsManager.LengthUnitString})") { View = captionHeader };
 
                 decimal inc = 0.0m;
+                int noDecimalPlaces = 0;
                 switch (UnitsManager.CurrentUnitSystem)
                 {
-                    case UnitsManager.UnitSystem.UNIT_METRIC1: inc = 1.0m; break;
-                    case UnitsManager.UnitSystem.UNIT_METRIC2: inc = 0.1m; break;
+                    case UnitsManager.UnitSystem.UNIT_METRIC1: inc = 1.0m; noDecimalPlaces = 0; break;
+                    case UnitsManager.UnitSystem.UNIT_METRIC2: inc = 0.1m; noDecimalPlaces = 1; break;
                     case UnitsManager.UnitSystem.UNIT_IMPERIAL:
-                    case UnitsManager.UnitSystem.UNIT_US: inc = 1.0m / 16.0m; break;
+                    case UnitsManager.UnitSystem.UNIT_US: inc = 1.0m / 16.0m; noDecimalPlaces = 2; break;
                     default: break;
                 }
                 foreach (var item in Profile)
@@ -298,6 +299,7 @@ namespace treeDiM.StackBuilder.Desktop
                             Minimum = 0.0m,
                             Maximum = 1000.0m,
                             Increment = inc,
+                            DecimalPlaces = noDecimalPlaces,
                             Value = dValue
                         };
                         usedControl.Enter += delegate (object sender, EventArgs e)
