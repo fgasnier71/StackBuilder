@@ -175,7 +175,7 @@
     <value>_documentTreeView</value>
   </data>
   <data name="&gt;&gt;_documentTreeView.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.AnalysisTreeView, treeDiM.StackBuilder.Desktop, Version=3.0.2.14, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.AnalysisTreeView, treeDiM.StackBuilder.Desktop, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_documentTreeView.Parent" xml:space="preserve">
     <value>$this</value>

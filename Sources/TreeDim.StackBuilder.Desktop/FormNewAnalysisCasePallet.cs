@@ -289,7 +289,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (!Program.IsSubscribed)
                 {
-                    MessageBox.Show(Properties.Resources.ID_WARNINGEDITLAYER, Application.ProductName, MessageBoxButtons.OK);
+                    MessageBox.Show(Resources.ID_WARNINGEDITLAYER, Application.ProductName, MessageBoxButtons.OK);
                 }
                 // get content
                 if (!(cbCases.SelectedType is Packable packable))
