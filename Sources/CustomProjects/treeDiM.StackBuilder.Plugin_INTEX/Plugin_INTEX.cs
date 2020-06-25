@@ -69,13 +69,15 @@ namespace treeDiM.StackBuilder.Plugin
             string dbPath = Properties.Settings.Default.DatabasePathINTEX;
             if (string.IsNullOrWhiteSpace(dbPath) || !File.Exists(dbPath))
             {
-                OpenFileDialog fd = new OpenFileDialog();
-                fd.DefaultExt = "xls";
-                fd.AddExtension = false;
-                fd.Filter = "Microsoft Excel File (*.xls)|*.xls|All files (*.*)|*.*";
-                fd.FilterIndex = 0;
-                fd.RestoreDirectory = true;
-                fd.CheckFileExists = true;
+                var fd = new OpenFileDialog
+                {
+                    DefaultExt = "xls",
+                    AddExtension = false,
+                    Filter = "Microsoft Excel File (*.xls)|*.xls|All files (*.*)|*.*",
+                    FilterIndex = 0,
+                    RestoreDirectory = true,
+                    CheckFileExists = true
+                };
                 if (DialogResult.OK != fd.ShowDialog())
                     return false;
 
@@ -202,12 +204,11 @@ namespace treeDiM.StackBuilder.Plugin
                     constraintSetBoxCase.AllowedOrientationsString = "1,1,1";
                     if (constraintSetBoxCase.Valid)
                     {
-                        SolverBoxCase solver = new SolverBoxCase(itemProperties, currentCase);
-                        Layer2DBrickImp layer = solver.BuildBestLayer(constraintSetBoxCase);
-                        List<LayerDesc> layerDescs = new List<LayerDesc>();
+                        SolverBoxCase solver = new SolverBoxCase(itemProperties, currentCase, constraintSetBoxCase);
+                        Layer2DBrickImp layer = solver.BuildBestLayer();
+                        var listLayerEncaps = new List<LayerEncap>();
                         if (null != layer)
-                            layerDescs.Add(layer.LayerDescriptor);
-
+                            listLayerEncaps.Add(new LayerEncap(layer.LayerDescriptor));
                         // create case analysis
                         AnalysisLayered analysis = document.CreateNewAnalysisBoxCase(
                             string.Format(Properties.Resources.ID_PACKING, item._ref)
@@ -216,7 +217,7 @@ namespace treeDiM.StackBuilder.Plugin
                             , currentCase
                             , null
                             , constraintSetBoxCase
-                            , layerDescs);
+                            , listLayerEncaps) as AnalysisLayered;
                     }
                 }
 
@@ -242,11 +243,11 @@ namespace treeDiM.StackBuilder.Plugin
                 constraintSet.SetAllowedOrientations(new bool[] { false, false, true } );
                 if (constraintSet.Valid)
                 {
-                    SolverCasePallet solver = new SolverCasePallet(form.UseIntermediatePacking ? currentCase : itemProperties, currentPallet);
-                    Layer2DBrickImp layer = solver.BuildBestLayer(constraintSet);
-                    List<LayerDesc> layerDescs = new List<LayerDesc>();
+                    SolverCasePallet solver = new SolverCasePallet(form.UseIntermediatePacking ? currentCase : itemProperties, currentPallet, constraintSet);
+                    Layer2DBrickImp layer = solver.BuildBestLayer();
+                    var listLayerEncaps = new List<LayerEncap>();
                     if (null != layer)
-                        layerDescs.Add(layer.LayerDescriptor);                          
+                        listLayerEncaps.Add(new LayerEncap(layer.LayerDescriptor));                          
 
                     // create analysis
                     AnalysisLayered palletAnalysis = document.CreateNewAnalysisCasePallet(
@@ -256,14 +257,13 @@ namespace treeDiM.StackBuilder.Plugin
                         null, null,
                         null, null,
                         constraintSet,
-                        layerDescs);
+                        listLayerEncaps) as AnalysisLayered;
                 }
                 // save document
                 fileName = form.FilePath;
                 document.Write(form.FilePath);
 
-                if (null != OpenFile)
-                    OpenFile(fileName);
+                OpenFile?.Invoke(fileName);
                 // return true to let application open
                 return File.Exists(fileName);
             }
