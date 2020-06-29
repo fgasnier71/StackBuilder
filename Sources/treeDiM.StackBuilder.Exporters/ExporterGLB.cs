@@ -6,10 +6,10 @@ using System.Drawing;
 using System.Numerics;
 
 using Sharp3D.Math.Core;
-using SharpGLTF.Scenes;
-using SharpGLTF.Geometry;
 using SharpGLTF.Materials;
+using SharpGLTF.Geometry;
 using SharpGLTF.Geometry.VertexTypes;
+using SharpGLTF.Scenes;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;

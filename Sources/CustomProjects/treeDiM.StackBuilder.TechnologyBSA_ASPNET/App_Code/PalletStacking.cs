@@ -262,7 +262,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             List<BoxPosition> boxPositions,
             bool mirrorLength, bool mirrorWidth,
             List<bool> interlayers,
-            ref byte[] fileBytes)
+            ref byte[] fileBytes,
+            System.Drawing.Imaging.ImageFormat imageFormat,
+            ref byte[] imageFileBytes)
         {
             SolutionLayered.SetSolver(new LayerSolver());
 
@@ -312,6 +314,26 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             // save stream to file
             using (var br = new BinaryReader(stream))
                 fileBytes = br.ReadBytes((int)stream.Length);
+
+            // image
+            var graphics = new Graphics3DImage(ConfigSettings.ExportImageSize)
+            {
+                CameraPosition = Graphics3D.Corner_0,
+                ShowDimensions = ConfigSettings.ExportShowDimensions
+            };
+            using (ViewerSolution sv = new ViewerSolution(analysis.SolutionLay))
+                sv.Draw(graphics, Transform3D.Identity);
+            graphics.Flush();
+
+            imageFileBytes = ImageToByteArray(graphics.Bitmap, imageFormat);
+        }
+        public static byte[] ImageToByteArray(Image img, System.Drawing.Imaging.ImageFormat imageFormat)
+        {
+            using (var stream = new MemoryStream())
+            {
+                img.Save(stream, imageFormat);
+                return stream.ToArray();
+            }
         }
     }
 }

@@ -2,10 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Reflection;
+
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
 #endregion
@@ -92,15 +95,19 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 fileName = Path.ChangeExtension(fileName, "csv");
 
                 byte[] fileBytes = null;
+                byte[] imageFileBytes = null;
                 PalletStacking.Export(
                     DimCase, WeightCase,
                     DimPallet, WeightPallet,
                     MaxPalletHeight, BoxPositions,
                     ChkbMirrorLength.Checked, ChkbMirrorWidth.Checked,
                     InterlayersBoolArray,
-                    ref fileBytes);
+                    ref fileBytes,
+                    ParseImageFormat(ConfigSettings.ExportImageFormat),
+                    ref imageFileBytes);
 
-                if (FtpHelpers.Upload(fileBytes, ConfigSettings.FtpDirectory, fileName, ConfigSettings.FtpUsername, ConfigSettings.FtpPassword))
+                if (FtpHelpers.Upload(fileBytes, ConfigSettings.FtpDirectory, fileName, ConfigSettings.FtpUsername, ConfigSettings.FtpPassword)
+                    && FtpHelpers.Upload(imageFileBytes, ConfigSettings.FtpDirectory + "Images/", Path.ChangeExtension(fileName, ConfigSettings.ExportImageFormat), ConfigSettings.FtpUsername, ConfigSettings.FtpPassword))
                 {
                     ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", $"alert('{fileName} was successfully exported!');", true);
                 }
@@ -123,6 +130,13 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         #endregion
 
         #region Private variables
+        public static ImageFormat ParseImageFormat(string str)
+        {
+            return (ImageFormat)typeof(ImageFormat)
+                    .GetProperty(str, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase)
+                    .GetValue(null);
+        }
+
         private List<bool> InterlayersBoolArray
         {
             get

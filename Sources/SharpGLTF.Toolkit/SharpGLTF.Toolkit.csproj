@@ -102,12 +102,6 @@
     <Compile Include="Schema2\SceneExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpGLTF.Core\SharpGLTF.Core.csproj">
-      <Project>{d32c0548-9214-48e5-b211-284f14e448a0}</Project>
-      <Name>SharpGLTF.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

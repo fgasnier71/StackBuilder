@@ -9,26 +9,21 @@
         .auto-style1 {
             width: 100%;
         }
-
         .auto-style2 {
             width: 550px;
             text-align: center;
         }
-
         .auto-style3 {
             width: 500px;
             text-align: left;
         }
-
         .auto-style4 {
             text-align: right;
         }
-
         .border {
             border: solid 8px;
             color: lightblue;
         }
-
         .auto-style5 {
             text-align: left;
         }
@@ -82,13 +77,15 @@
                                     <table class="style100pct">
                                         <tr>
                                             <td>
-                                                <asp:CheckBox ID="ChkbMirrorLength" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true" CssClass="checkbox" Width="25px"/>
+                                                <asp:CheckBox ID="ChkbMirrorLength" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true"/>
+                                                <span class="slider round" />
                                             </td>
                                             <td>
                                                 <asp:Image ID="IMGMirrorLength" runat="server" ImageUrl="Images/MirrorLength.png" />
                                             </td>
                                             <td>
-                                                <asp:CheckBox ID="ChkbMirrorWidth" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true" CssClass="checkbox" Width="25px"/>
+                                                <asp:CheckBox ID="ChkbMirrorWidth" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true"/>
+                                                <span class="custom-slider round" />
                                             </td>
                                             <td>
                                                 <asp:Image ID="IMGMirrorWidth" runat="server" ImageUrl="Images/MirrorWidth.png" />
@@ -108,7 +105,7 @@
                                             <ItemTemplate>
                                                 <tr id="ITInterlayer" runat="server">
                                                     <td id="td1" runat="server">
-                                                        <asp:Label ID="LayerLabel" Text='<%#Eval("Name") %>' runat="server"/>
+                                                        <asp:Label ID="LayerLabel" Text='<%#Eval("Name") %>' Width="100px" runat="server" CssClass="labelRight"/>
                                                     </td>
                                                     <td id="td2" runat="server">
                                                         <label class="switch">

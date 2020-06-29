@@ -16,6 +16,29 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
     /// </summary>
     public static class FtpHelpers
     {
+        public static bool CreateFolder(string ftpUrl, string ftpUsername, string ftpPassword)
+        {
+            try
+            {
+                FtpWebRequest requestDir = (FtpWebRequest)WebRequest.Create(new Uri(ftpUrl));
+                requestDir.Method = WebRequestMethods.Ftp.MakeDirectory;
+                requestDir.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
+                requestDir.UsePassive = true;
+                requestDir.UseBinary = true;
+                requestDir.KeepAlive = false;
+                FtpWebResponse response = (FtpWebResponse)requestDir.GetResponse();
+                Stream ftpStream = response.GetResponseStream();
+
+                ftpStream.Close();
+                response.Close();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public static bool Upload(byte[] fileContent, string ftpUrl, string fileName, string ftpUsername, string ftpPassword)
         {
             try

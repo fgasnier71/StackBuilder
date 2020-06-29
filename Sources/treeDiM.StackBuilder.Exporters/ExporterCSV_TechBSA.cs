@@ -68,19 +68,22 @@ namespace treeDiM.StackBuilder.Exporters
                     }
                 }
             }
-            while  (iCaseCount < 200)
+            while  (iCaseCount < 400)
             {
                 csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount}].C;INT;0");
                 csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount}].X;REAL;0");
                 csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount}].Y;REAL;0");
                 csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount++}].Z;REAL;0");
             }
-
+            int iLayerCount = 0;
             foreach (var solItem in sol.SolutionItems)
             {
                 csv.AppendLine(
-                    $"Program:StackBuilder;Program:StackBuilder.InterlayerOnOff;BOOL;{Bool2string(solItem.HasInterlayer)}");
+                    $"Program:StackBuilder;Program:StackBuilder.InterlayerOnOff[{iLayerCount++}];BOOL;{Bool2string(solItem.HasInterlayer)}");
             }
+            while (iLayerCount < 20)
+                csv.AppendLine(
+                    $"Program:StackBuilder;Program:StackBuilder.InterlayerOnOff[{iLayerCount++}];BOOL;{Bool2string(true)}");
 
             var hasPalletCap = false;
             if (analysis is AnalysisCasePallet analysisCasePallet)
