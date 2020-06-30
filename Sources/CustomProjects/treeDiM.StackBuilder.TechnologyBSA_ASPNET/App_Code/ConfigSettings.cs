@@ -59,7 +59,6 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 {
                     return false;
                 }
-
             }
         }
     }
