@@ -8,16 +8,24 @@
            Version="$(var.ProductVersion)"
            Manufacturer="$(var.Manufacturer)"
            UpgradeCode="7c46518b-a78e-4201-bbaa-0937ee994794">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+		<Package InstallerVersion="500"
+             Compressed="yes"
+             InstallScope="perMachine" />
     <MediaTemplate EmbedCab="yes"/>
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 
     <Property Id="VIRTUAL_DIR_VAL" Value="StackBuilderTechBSAWebApp" />
     <PropertyRef Id="NETFRAMEWORK45"/>
 
-    <Condition Message="This application requires .NET Framework 4.5. Please install the .NET Framework then run this installer again.">
+    <Condition Message="This application requires .NET Framework 4.8. Please install the .NET Framework then run this installer again.">
       <![CDATA[Installed OR NETFRAMEWORK45]]>
     </Condition>
+    
+    <!--Icon-->
+    <Icon Id="BSA.ico" SourceFile="BSA.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="BSA.ico" />
+    <Property Id="ARPHELPLINK" Value="$(var.CompanyURL)" />
+    <Property Id="ARPURLINFOABOUT" Value="$(var.CompanyURL)" />
 
     <ComponentGroup Id="CompGroup_WebSitePages">
       <Component Id="CompDefault" Directory="INSTALLFOLDER" Guid="{8A21DF4C-06D3-40B8-8B21-F3781CFDBE1F}">

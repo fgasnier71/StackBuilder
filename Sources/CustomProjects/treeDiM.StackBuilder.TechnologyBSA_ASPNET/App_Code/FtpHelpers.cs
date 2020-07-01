@@ -8,9 +8,6 @@ using System.Net;
 
 namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 {
-
-
-
     /// <summary>
     /// Summary description for FtpHelpers
     /// </summary>
@@ -92,7 +89,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 }
                 response.Close();
             }
-            return names.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            return names.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries)
+                        .Where(f => f.EndsWith(".csv"))
+                        .ToList();
         }
     }
 

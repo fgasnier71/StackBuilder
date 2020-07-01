@@ -3,9 +3,9 @@
   <!-- Product manufacturer -->
   <?define Manufacturer = "TechnologyBSA"?>
   <!-- Product version -->
-  <?define ProductVersion = "1.0.0.8"?>
+  <?define ProductVersion = "1.0.0.9"?>
   <!-- Company URL -->
-  <?define CompanyURL = "http://www.treedim.com/" ?>
+  <?define CompanyURL = "https://www.technologybsa.com/" ?>
   <!-- Binaries-->
   <?define StackBuilderTechBSABinSourceDir = "..\..\CustomProjects\treeDiM.StackBuilder.TechnologyBSA_ASPNET\Bin" ?>
   <?define StackBuilderTechBSASourceDir = "..\..\CustomProjects\treeDiM.StackBuilder.TechnologyBSA_ASPNET" ?>
