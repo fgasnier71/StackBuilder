@@ -121,8 +121,34 @@ namespace treeDiM.StackBuilder.Basics
                                 + bProperties.Height * Vector3D.CrossProduct(HalfAxis.ToVector3D(bPos.DirectionLength), HalfAxis.ToVector3D(bPos.DirectionWidth));
             return Math.Abs(diagonale.Z);
         }
+        public void Sort(Vector3D dimensions)
+        {
+            Sort(new ComparerBoxPosition(dimensions));
+        }
         #endregion
     }
+
+    #region BoxPosition comparer
+    internal class ComparerBoxPosition : IComparer<BoxPosition>
+    {
+        #region Constructor
+        public ComparerBoxPosition(Vector3D dimensions) { Dimensions = dimensions; }
+        private Vector3D Dimensions { get; }
+        #endregion
+        #region Implement IComparer<BoxPosition>
+        public int Compare(BoxPosition boxPos1, BoxPosition boxPos2)
+        {
+            Vector3D vCenter1 = boxPos1.Center(Dimensions);
+            Vector3D vCenter2 = boxPos2.Center(Dimensions);
+            int xdiff = vCenter1.X.CompareTo(vCenter2.X);
+            if (xdiff != 0)
+                return xdiff;
+            else
+                return vCenter1.Y.CompareTo(vCenter2.Y);
+        }
+        #endregion
+    }
+    #endregion
 
     /// <summary>
     /// A layer of cylinders

@@ -50,6 +50,7 @@ namespace treeDiM.StackBuilder.Exporters
             {
                 if (layer is Layer3DBox layerBox)
                 {
+                    layerBox.Sort(analysis.Content.OuterDimensions);
                     foreach (var bPosition in layerBox)
                     {
                         var pos = ConvertPosition(bPosition, analysis.ContentDimensions);
