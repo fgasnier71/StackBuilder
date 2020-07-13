@@ -52,8 +52,7 @@ namespace treeDiM.StackBuilder.Graphics
                     case HalfAxis.HAxis.AXIS_Z_P: lengthAxis = HalfAxis.HAxis.AXIS_X_P; widthAxis = HalfAxis.HAxis.AXIS_Y_P; break;
                     default: break;
                 }
-                box.HLengthAxis = lengthAxis;
-                box.HWidthAxis = widthAxis;
+                box.BoxPosition = new BoxPosition(Vector3D.Zero, lengthAxis, widthAxis);
                 // draw box
                 graphics.AddBox(box);
                 graphics.Flush();

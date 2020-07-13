@@ -10,6 +10,7 @@ namespace treeDiM.StackBuilder.Graphics
     public class Strapper : Drawable
     {
         public Strapper(Vector3D axis, double width, Color color, List<Vector3D> pts)
+            : base(0)
         {
             Axis = axis;
             HullPoints = pts;

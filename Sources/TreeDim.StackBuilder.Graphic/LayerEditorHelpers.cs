@@ -35,7 +35,7 @@ namespace treeDiM.StackBuilder.Graphics
                     b = new Pack(pickId++, pack, bp);
                 else
                     b = new Box(pickId++, content as PackableBrick, bp);
-                graphics.DrawBox(b);
+                b.Draw(graphics);
             }
             graphics.DrawRectangle(Vector2D.Zero, DimContainer, Color.OrangeRed);
 

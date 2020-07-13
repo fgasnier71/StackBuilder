@@ -15,18 +15,20 @@ namespace treeDiM.StackBuilder.Graphics
     {
         #region Constructor
         public Bottle(uint pickId, List<Vector2D> profile, Color color)
+            : base(pickId)
         {
-            PickId = pickId;
             Profile = profile;
             Color = color;
         }
         public Bottle(uint pickId, BottleProperties bottleProp)
+            : base(pickId)
         {
             PickId = pickId;
             Profile = bottleProp.Profile;
             Color = bottleProp.Color;
         }
         public Bottle(uint pickId, BottleProperties bottleProp, CylPosition position)
+            : base(pickId)
         {
             PickId = pickId;
             Profile = bottleProp.Profile;
@@ -45,8 +47,8 @@ namespace treeDiM.StackBuilder.Graphics
             Pen penPath = new Pen(brushPath, 1.7f);
  
             // bottom, top
-            Point[] ptsBottom = graphics.TransformPoint(GetBottomPoints());
-            Point[] ptsTop = graphics.TransformPoint(GetTopPoints());
+            Point[] ptsBottom = graphics.TransformPoint(BottomPoints);
+            Point[] ptsTop = graphics.TransformPoint(TopPoints);
 
             // outer wall
             Face[] facesWalls = GetFaceWalls();
@@ -75,20 +77,35 @@ namespace treeDiM.StackBuilder.Graphics
             else
                 g.FillPolygon(brushTop, ptsBottom);
         }
+        public override void Draw(Graphics2D graphics)
+        {
+            System.Drawing.Graphics g = graphics.Graphics;
+            // get points
+            Point[] ptOuter = graphics.TransformPoint(MaxRadiusPoints);
+            // max radius / top view
+            g.FillPolygon(new SolidBrush(Color), ptOuter);
+            // bottom (draw only path)
+            g.DrawPolygon(new Pen(new SolidBrush(ColorPath)), ptOuter);
+        }
         #endregion
-        #region Private properties
-        private List<Vector2D> Profile { get; set; } = new List<Vector2D>();
-        private Color Color;
-        private Color ColorPath => Color.Black;
+        #region Override Cyl
         public override double RadiusOuter { get => 0.5 * Profile.Max(p => p.Y); protected set { } }
         public override double Height { get => Profile.Max(p => p.X); protected set { } }
+        public override double RadiusBottom => 0.5 * Profile.First().Y;
+        public override double RadiusTop => 0.5 * Profile.Last().Y;
+        public override double MaxRadius => 0.5 * Profile.Max(p => p.Y);
+        public override double MaxRadiusHeight => Profile.First(p => 0.5 * p.Y == MaxRadius).X;
+        #endregion
+        #region Public properties
+        public Color Color;
+        public Color ColorPath => Color.Black;
         #endregion
         #region Helpers
         public override Vector3D[] Points
         {
             get
             {
-                int noSteps = Cyl.NoFaces;
+                int noSteps = NoFaces;
                 var pts = new Vector3D[noSteps * Profile.Count];
                 Transform3D t = Position.Transf;
                 for (int i = 0; i < Profile.Count; ++i)
@@ -101,34 +118,6 @@ namespace treeDiM.StackBuilder.Graphics
                 return pts;
             }
         }
-        public Vector3D[] GetTopPoints()
-        {
-            Transform3D t = Position.Transf;
-            Vector3D[] pts = new Vector3D[Cyl.NoFaces];
-            Vector2D pfPoint = Profile.LastOrDefault();
-            for (int i = 0; i < Cyl.NoFaces; ++i)
-            {
-                double angle = i * 2.0 * Math.PI / Cyl.NoFaces;
-                var vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
-                pts[i] = t.transform(0.5 * pfPoint.Y * vRadius + pfPoint.X * Vector3D.XAxis);
-            }
-            return pts;
-        }
-
-        public Vector3D[] GetBottomPoints()
-        {
-            Transform3D t = Position.Transf;
-            Vector3D[] pts = new Vector3D[NoFaces];
-            Vector2D pfPoint = Profile.FirstOrDefault();
-            for (int i = 0; i < NoFaces; ++i)
-            {
-                double angle = i * 2.0 * Math.PI / NoFaces;
-                var vRadius = new Vector3D(pfPoint.X, Math.Cos(angle), Math.Sin(angle));
-                pts[i] = t.transform(0.5 * pfPoint.Y * vRadius + pfPoint.X * Vector3D.XAxis);
-            }
-            return pts;
-        }
-
         public Face[] GetFaceWalls()
         {
             Transform3D t = Position.Transf;
@@ -153,6 +142,9 @@ namespace treeDiM.StackBuilder.Graphics
             }
             return faces;
         }
+        #endregion
+        #region Private properties
+        private List<Vector2D> Profile { get; set; } = new List<Vector2D>();
         #endregion
     }
 }

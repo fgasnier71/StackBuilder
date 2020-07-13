@@ -78,7 +78,7 @@ namespace treeDiM.StackBuilder.Graphics
                         b = new Pack(pickId++, pack, bp);
                     else
                         b = new Box(pickId++, Content as PackableBrick, bp);
-                    Graphics.DrawBox(b);
+                    b.Draw(Graphics);
                 }
                 Graphics.DrawRectangle(Vector2D.Zero, Layer.DimContainer, Color.OrangeRed);
 

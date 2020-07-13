@@ -14,58 +14,38 @@ namespace treeDiM.StackBuilder.Graphics
     public class Corner : Drawable
     {
         #region Data members
-        private uint _pickId = 0;
-        private Color _color;
         private Vector3D _position;
-        private HalfAxis.HAxis _lengthAxis = HalfAxis.HAxis.AXIS_X_P, _widthAxis = HalfAxis.HAxis.AXIS_Y_P;
-
-        private double _w = 0.0, _th = 0.0, _height = 0.0;
         #endregion
 
         #region Constructor
         public Corner(uint pickId, PalletCornerProperties cornerProperties)
+            : base(0)
         {
-            _pickId = pickId;
-            _w = cornerProperties.Width;
-            _th = cornerProperties.Thickness;
-            _height = cornerProperties.Length;
-            _color = cornerProperties._color;
+            PickId = pickId;
+            W = cornerProperties.Width;
+            Th = cornerProperties.Thickness;
+            Height = cornerProperties.Length;
+            Color = cornerProperties._color;
         }
         #endregion
 
         #region Public properties
-        public uint PickId
-        {
-            get { return _pickId; }
-        }
-        public double Height
-        {
-            get { return _height; }
-            set { _height = value; }
-        }
+        public double Height { get; set; } = 0.0;
         public Vector3D Position
         {
             get { return _position; }
             set { _position = value; }
         }
-        public HalfAxis.HAxis LengthAxis
-        {
-            get { return _lengthAxis; }
-            set { _lengthAxis = value; }
-        }
-        public HalfAxis.HAxis WidthAxis
-        {
-            get { return _widthAxis; }
-            set { _widthAxis = value; }
-        }
+        public HalfAxis.HAxis LengthAxis { get; set; } = HalfAxis.HAxis.AXIS_X_P;
+        public HalfAxis.HAxis WidthAxis { get; set; } = HalfAxis.HAxis.AXIS_Y_P;
         #endregion
 
         #region Points / Face
         public void SetPosition(Vector3D position, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
             _position = position;
-            _lengthAxis = lengthAxis;
-            _widthAxis = widthAxis;
+            LengthAxis = lengthAxis;
+            WidthAxis = widthAxis;
         }
 
         public override Vector3D[] Points
@@ -90,19 +70,19 @@ namespace treeDiM.StackBuilder.Graphics
                 //
                 Vector3D[] points = new Vector3D[12];
 
-                Vector3D LAxis = HalfAxis.ToVector3D(_lengthAxis);
-                Vector3D WAxis = HalfAxis.ToVector3D(_widthAxis);
+                Vector3D LAxis = HalfAxis.ToVector3D(LengthAxis);
+                Vector3D WAxis = HalfAxis.ToVector3D(WidthAxis);
                 Vector3D HAxis = Vector3D.CrossProduct(LAxis, WAxis);
                 // bottom
                 points[0] = _position;
-                points[1] = _position - _th * LAxis - _th * WAxis; 
-                points[2] = _position + (_w - _th) * LAxis;
-                points[3] = _position + (_w - _th) * LAxis - _th * WAxis;
-                points[4] = _position + (_w - _th) * WAxis;
-                points[5] = _position - _th * LAxis + (_w - _th) * WAxis;
+                points[1] = _position - Th * LAxis - Th * WAxis; 
+                points[2] = _position + (W - Th) * LAxis;
+                points[3] = _position + (W - Th) * LAxis - Th * WAxis;
+                points[4] = _position + (W - Th) * WAxis;
+                points[5] = _position - Th * LAxis + (W - Th) * WAxis;
                 // top
                 for (int i=0; i<6; ++i)
-                    points[i+6] = points[i] + _height * HAxis;
+                    points[i+6] = points[i] + Height * HAxis;
                 return points;
             }
         }
@@ -143,9 +123,9 @@ namespace treeDiM.StackBuilder.Graphics
                 Face[] faces = new Face[8];
                 Vector3D[] points = Points;
                 for (int i = 0; i < 8; ++i)
-                    faces[i] = new Face(_pickId,
+                    faces[i] = new Face(PickId,
                         new Vector3D[] { points[indexes[i, 0]], points[indexes[i, 1]], points[indexes[i, 2]], points[indexes[i, 3]] },
-                        _color, Color.Black, "CORNER", true);
+                        Color, Color.Black, "CORNER", true);
                 return faces;
             }
         }
@@ -171,6 +151,10 @@ namespace treeDiM.StackBuilder.Graphics
                 return norm;
             }
         }
+
+        public double W { get; set; } = 0.0;
+        public double Th { get; set; } = 0.0;
+        public Color Color { get; set; }
         #endregion
 
         #region Drawable override
@@ -182,7 +166,7 @@ namespace treeDiM.StackBuilder.Graphics
         public override void DrawBegin(Graphics3D graphics)
         {
             // sanity check
-            if (_height <= 1.0E-3) return;
+            if (Height <= 1.0E-3) return;
 
             Face[] faces = Faces;
             if (Vector3D.DotProduct(faces[0].Normal, graphics.ViewDirection) >= 0.0)
@@ -205,7 +189,7 @@ namespace treeDiM.StackBuilder.Graphics
         public override void DrawEnd(Graphics3D graphics)
         {
             // sanity check
-            if (_height <= 1.0E-3) return;
+            if (Height <= 1.0E-3) return;
 
             Face[] faces = Faces;
             if (Vector3D.DotProduct(faces[0].Normal, graphics.ViewDirection) <= 0.0)

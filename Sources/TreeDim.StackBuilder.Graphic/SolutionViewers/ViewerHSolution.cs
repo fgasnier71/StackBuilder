@@ -48,15 +48,7 @@ namespace treeDiM.StackBuilder.Graphics
             foreach (HSolElement solElt in solItem.ContainedElements)
             {
                 if (Analysis.ContentTypeByIndex(solElt.ContentType) is BoxProperties bProperties)
-                {
-                    Box b = new Box(pickId++, bProperties)
-                    {
-                        Position = solElt.Position.Position,
-                        HLengthAxis = solElt.Position.DirectionLength,
-                        HWidthAxis = solElt.Position.DirectionWidth
-                    };
-                    boxes.Add(b);
-                }
+                    boxes.Add(new Box(pickId++, bProperties, solElt.Position));
             }
             // draw boxes as triangles using BSPTree
             BSPTree bspTree = new BSPTree();

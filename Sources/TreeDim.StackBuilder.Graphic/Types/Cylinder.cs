@@ -12,9 +12,9 @@ namespace treeDiM.StackBuilder.Graphics
 {
     #region Cyl
     public abstract class Cyl : Drawable
-    { 
-        public uint PickId { get; protected set; } = 0;
-        public CylPosition Position  { get; set; } = new CylPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_Z_P);
+    {
+        public Cyl(uint pickId) : base(pickId) {}
+        public CylPosition Position { get; set; } = new CylPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_Z_P);
         public abstract double RadiusOuter { get; protected set; }
         public double DiameterOuter => 2.0 * RadiusOuter;
         public abstract double Height { get; protected set; }
@@ -24,6 +24,28 @@ namespace treeDiM.StackBuilder.Graphics
         public override Vector3D Center => Position.XYZ + 0.5 * Height * HalfAxis.ToVector3D(Position.Direction);
 
         public static int NoFaces => 36;
+
+        public abstract double MaxRadius { get; }
+        public abstract double MaxRadiusHeight { get; }
+        public abstract double RadiusTop { get; }
+        public abstract double RadiusBottom { get; }
+
+        public virtual Vector3D[] MaxRadiusPoints => CircPoints(MaxRadius, MaxRadiusHeight);
+        public virtual Vector3D[] BottomPoints => CircPoints(RadiusBottom, 0.0);
+        public virtual Vector3D[] TopPoints => CircPoints(RadiusTop, Height);
+
+        protected virtual Vector3D[] CircPoints(double radius, double height)
+        {
+            Transform3D t = Position.Transf;
+            Vector3D[] pts = new Vector3D[NoFaces];
+            for (int i = 0; i < NoFaces; ++i)
+            {
+                double angle = i * 2.0 * Math.PI / NoFaces;
+                Vector3D vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
+                pts[i] = t.transform(radius * vRadius + height * Vector3D.XAxis);
+            }
+            return pts;
+        }
     }
     #endregion
 
@@ -33,10 +55,13 @@ namespace treeDiM.StackBuilder.Graphics
         public override double RadiusOuter { get; protected set; }
         public override double Height { get; protected set; }
         public double RadiusInner { get; private set; }
+        public override double RadiusBottom => RadiusOuter;
+        public override double RadiusTop => RadiusOuter;
         #endregion
 
         #region Constructor
         public Cylinder(uint pickId, double radiusOuter, double radiusInner, double height, Color colorTop, Color colorWallOuter, Color colorWallInner)
+            : base(pickId)
         {
             PickId = pickId;
             RadiusOuter = radiusOuter;
@@ -47,6 +72,7 @@ namespace treeDiM.StackBuilder.Graphics
             ColorWallInner = colorWallInner;
         }
         public Cylinder(uint pickId, CylinderProperties cylProperties)
+            : base(pickId)
         {
             PickId = pickId;
             RadiusOuter = cylProperties.RadiusOuter;
@@ -57,6 +83,7 @@ namespace treeDiM.StackBuilder.Graphics
             ColorWallInner = cylProperties.ColorWallInner;
         }
         public Cylinder(uint pickId, CylinderProperties cylProperties, CylPosition cylPosition)
+            : base(pickId)
         {
             PickId = pickId;
             RadiusOuter = cylProperties.RadiusOuter;
@@ -154,36 +181,6 @@ namespace treeDiM.StackBuilder.Graphics
         public Color ColorTop { get; }
         public Color ColorPath => Color.Black; 
         public List<Texture> Textures { get; set; } = new List<Texture>();
-        public Vector3D[] BottomPoints
-        {
-            get
-            {
-                Transform3D t = Position.Transf;
-                Vector3D[] pts = new Vector3D[NoFaces];
-                for (int i = 0; i < NoFaces; ++i)
-                {
-                    double angle = i * 2.0 * Math.PI / NoFaces;
-                    Vector3D vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
-                    pts[i] = t.transform(RadiusOuter * vRadius);
-                }
-                return pts;
-            }
-        }
-        public Vector3D[] TopPoints
-        {
-            get
-            {
-                Transform3D t = Position.Transf;
-                Vector3D[] pts = new Vector3D[NoFaces];
-                for (int i = 0; i < NoFaces; ++i)
-                {
-                    double angle = i * 2.0 * Math.PI / NoFaces;
-                    Vector3D vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
-                    pts[i] = t.transform(RadiusOuter * vRadius + Height * Vector3D.XAxis);
-                }
-                return pts;
-            }
-        }
         public override Vector3D[] Points
         {
             get
@@ -203,21 +200,9 @@ namespace treeDiM.StackBuilder.Graphics
                 return pts;
             }
         }
-        public Vector3D[] TopPointsInner
-        { 
-           get
-            {
-                Transform3D t = Position.Transf;
-                Vector3D[] pts = new Vector3D[NoFaces];
-                for (int i = 0; i < NoFaces; ++i)
-                {
-                    double angle = i * 2.0 * Math.PI / NoFaces;
-                    Vector3D vRadius = new Vector3D(0.0, Math.Cos(angle), Math.Sin(angle));
-                    pts[i] = t.transform(RadiusInner * vRadius + Height * Vector3D.XAxis);
-                }
-                return pts;
-            }        
-        }
+        public Vector3D[] TopPointsInner => CircPoints(RadiusInner, Height);
+        public override double MaxRadius => RadiusOuter;
+        public override double MaxRadiusHeight => Height;
         #endregion
 
         #region Drawable overrides
@@ -295,12 +280,30 @@ namespace treeDiM.StackBuilder.Graphics
             else
                 g.DrawPolygon(penPathThick, ptsBottom);
         }
-        public override void DrawBegin(Graphics3D graphics)
-        {            
-        }
-        public override void DrawEnd(Graphics3D graphics)
+        public override void Draw(Graphics2D graphics)
         {
+            System.Drawing.Graphics g = graphics.Graphics; 
+
+            // get points
+            Point[] ptOuter = graphics.TransformPoint(TopPoints); ;
+            Point[] ptInner = graphics.TransformPoint(TopPointsInner); ;
+
+            // top color
+            Brush brushSolid = new SolidBrush(ColorTop);
+            g.FillPolygon(brushSolid, ptOuter);
+            if (null != ptInner)
+            {
+                // hole -> drawing polygon with background color
+                Brush brushBackground = new SolidBrush(graphics.ColorBackground);
+                g.FillPolygon(brushBackground, ptInner);
+            }
+            // bottom (draw only path)
+            Brush brushPath = new SolidBrush(ColorPath);
+            Pen penPath = new Pen(brushPath);
+            g.DrawPolygon(penPath, ptOuter);
         }
+        public override void DrawBegin(Graphics3D graphics) {}
+        public override void DrawEnd(Graphics3D graphics)  {}
         #endregion
     }
 }

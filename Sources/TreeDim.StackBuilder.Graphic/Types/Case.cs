@@ -23,6 +23,7 @@ namespace treeDiM.StackBuilder.Graphics
 
         #region Constructor
         public Case(BoxProperties boxProperties)
+            : base(0)
         {
             Length = boxProperties.Length;
             Width = boxProperties.Width;
@@ -34,6 +35,7 @@ namespace treeDiM.StackBuilder.Graphics
             ColorPath = Color.Black;
         }
         public Case(BoxProperties boxProperties, Transform3D transf)
+            : base(0)
         {
             Length = boxProperties.Length;
             Width = boxProperties.Width;
@@ -135,7 +137,6 @@ namespace treeDiM.StackBuilder.Graphics
         public double InsideWidth { get; }
         public double InsideHeight { get; }
 
-        public uint PickId { get; set; } = 0;
         public Color[] Colors { get; } = new Color[6];
         public Color ColorPath { get; } = Color.Black;
         #endregion

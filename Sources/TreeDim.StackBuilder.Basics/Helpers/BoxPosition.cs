@@ -76,6 +76,10 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Translate / Rotate
+        public BoxPosition Translate(Vector3D v)
+        {
+            return new BoxPosition(Position + v, DirectionLength, DirectionWidth);
+        }
         public BoxPosition Translate(HalfAxis.HAxis axis, double value)
         {
             Vector3D v = Position;

@@ -366,7 +366,7 @@ namespace treeDiM.StackBuilder.Exporters
 
             foreach (var b in pallet.BuildListOfBoxes())
             {
-                AddBox(primFaces, primEdges, (float)b.Length, (float)b.Width, (float)b.Height, 0.0f, b.BPosition);
+                AddBox(primFaces, primEdges, (float)b.Length, (float)b.Width, (float)b.Height, 0.0f, b.BoxPosition);
             }
             return mesh;
         }

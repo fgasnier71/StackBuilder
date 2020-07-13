@@ -61,7 +61,7 @@ namespace treeDiM.StackBuilder.Graphics
                 foreach (Vector2D pos in layer2DCyl)
                 {
                     Cylinder c = new Cylinder(pickId++, packable as CylinderProperties, new CylPosition(new Vector3D(pos.X, pos.Y, 0.0), HalfAxis.HAxis.AXIS_Z_P));
-                    graphics.DrawCylinder(c);
+                    c.Draw(graphics);
                 }
             }
             // draw axes

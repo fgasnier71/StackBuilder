@@ -7,6 +7,11 @@ namespace treeDiM.StackBuilder.Graphics
 {
     public abstract class Drawable
     {
+        // constructor
+        public Drawable(uint pickId)
+        {
+            PickId = pickId;
+        }
         // 3D
         public virtual void DrawBegin(Graphics3D graphics) { }
         public abstract void Draw(Graphics3D graphics);
@@ -24,5 +29,7 @@ namespace treeDiM.StackBuilder.Graphics
         public virtual Vector3D Center => Vector3D.Zero;
         // 2D
         public virtual void Draw(Graphics2D graphics) { }
+
+        public uint PickId { get; protected set; } = 0;
     }
 }

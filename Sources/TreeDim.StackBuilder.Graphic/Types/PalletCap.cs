@@ -15,7 +15,6 @@ namespace treeDiM.StackBuilder.Graphics
     public class PalletCap : Drawable
     {
         #region Data members
-        private uint _pickId = 0;
         private double[] _dim = new double[3];
         private BoxPosition _bPosition = new BoxPosition();
         private Color _color;
@@ -23,6 +22,7 @@ namespace treeDiM.StackBuilder.Graphics
 
         #region Constructor
         public PalletCap(uint pickId, PalletCapProperties capProperties, BoxPosition bPosition)
+            : base(0)
         {
             _dim[0] = capProperties.Length;
             _dim[1] = capProperties.Width;
@@ -35,8 +35,6 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public properties
-        public uint PickId
-        { get { return _pickId; } }
         public Vector3D Position
         {
             get { return _bPosition.Position; }
@@ -84,12 +82,12 @@ namespace treeDiM.StackBuilder.Graphics
                 Vector3D[] points = Points;
 
                 Face[] faces = new Face[6];
-                faces[0] = new Face(_pickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, _color, Color.Black, "PALLETCAP"); // AXIS_X_N
-                faces[1] = new Face(_pickId, new Vector3D[] { points[1], points[2], points[6], points[5] }, _color, Color.Black, "PALLETCAP"); // AXIS_X_P
-                faces[2] = new Face(_pickId, new Vector3D[] { points[0], points[1], points[5], points[4] }, _color, Color.Black, "PALLETCAP"); // AXIS_Y_N
-                faces[3] = new Face(_pickId, new Vector3D[] { points[2], points[3], points[7], points[6] }, _color, Color.Black, "PALLETCAP"); // AXIS_Y_P
-                faces[4] = new Face(_pickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, _color, Color.Black, "PALLETCAP"); // AXIS_Z_N
-                faces[5] = new Face(_pickId, new Vector3D[] { points[4], points[5], points[6], points[7] }, _color, Color.Black, "PALLETCAP"); // AXIS_Z_P
+                faces[0] = new Face(PickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, _color, Color.Black, "PALLETCAP"); // AXIS_X_N
+                faces[1] = new Face(PickId, new Vector3D[] { points[1], points[2], points[6], points[5] }, _color, Color.Black, "PALLETCAP"); // AXIS_X_P
+                faces[2] = new Face(PickId, new Vector3D[] { points[0], points[1], points[5], points[4] }, _color, Color.Black, "PALLETCAP"); // AXIS_Y_N
+                faces[3] = new Face(PickId, new Vector3D[] { points[2], points[3], points[7], points[6] }, _color, Color.Black, "PALLETCAP"); // AXIS_Y_P
+                faces[4] = new Face(PickId, new Vector3D[] { points[3], points[2], points[1], points[0] }, _color, Color.Black, "PALLETCAP"); // AXIS_Z_N
+                faces[5] = new Face(PickId, new Vector3D[] { points[4], points[5], points[6], points[7] }, _color, Color.Black, "PALLETCAP"); // AXIS_Z_P
 
                 return faces;
             }

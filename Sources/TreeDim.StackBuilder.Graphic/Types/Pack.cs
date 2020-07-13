@@ -50,10 +50,21 @@ namespace treeDiM.StackBuilder.Graphics
         #region Drawable implementation
         public override void Draw(Graphics2D graphics)
         {
-            var drawables = InnerDrawables;
-            foreach (var b in drawables)
+            PackTray packTray = _packProperties.Tray;
+            if (null != packTray)
             {
+                var b = new Box(0, _packProperties, BoxPosition);
                 b.Draw(graphics);
+            }
+            // draw inner boxes/cylinders
+            if (null == _packProperties.Wrap
+                || PackWrapper.WType.WT_POLYETHILENE == _packProperties.Wrap.Type)
+            {
+                var drawables = InnerDrawables;
+                foreach (var d in drawables)
+                {
+                    d.Draw(graphics);
+                }
             }
         }
         public override void Draw(Graphics3D graphics)
@@ -150,7 +161,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                double height = _dim[2];
+                double height = Dimensions.Z;
                 if (null != _packProperties.Tray) height = _packProperties.Tray.Height;
                 if (height <= 1.0)  height = 40.0;
                 Vector3D position = BoxPosition.Position;
@@ -159,14 +170,14 @@ namespace treeDiM.StackBuilder.Graphics
                 Vector3D heightAxis = Vector3D.CrossProduct(lengthAxis, widthAxis);
                 Vector3D[] points = new Vector3D[8];
                 points[0] = position;
-                points[1] = position + _dim[0] * lengthAxis;
-                points[2] = position + _dim[0] * lengthAxis + _dim[1] * widthAxis;
-                points[3] = position + _dim[1] * widthAxis;
+                points[1] = position + Dimensions.X * lengthAxis;
+                points[2] = position + Dimensions.X * lengthAxis + Dimensions.Y * widthAxis;
+                points[3] = position + Dimensions.Y * widthAxis;
 
                 points[4] = position + height * heightAxis;
-                points[5] = position + height * heightAxis + _dim[0] * lengthAxis;
-                points[6] = position + height * heightAxis + _dim[0] * lengthAxis + _dim[1] * widthAxis;
-                points[7] = position + height * heightAxis + _dim[1] * widthAxis;
+                points[5] = position + height * heightAxis + Dimensions.X * lengthAxis;
+                points[6] = position + height * heightAxis + Dimensions.X * lengthAxis  + Dimensions.Y * widthAxis;
+                points[7] = position + height * heightAxis                              + Dimensions.Y * widthAxis;
 
                 Face[] faces = new Face[5];
                 faces[0] = new Face(PickId, new Vector3D[] { points[3], points[0], points[4], points[7] }, "PACK", false); // AXIS_X_N

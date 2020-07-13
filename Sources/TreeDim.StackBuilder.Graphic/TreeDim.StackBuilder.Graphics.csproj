@@ -141,6 +141,8 @@
     <Compile Include="SolutionViewers\ViewerSolutionHCyl.cs" />
     <Compile Include="Triangle.cs" />
     <Compile Include="Types\Bottle.cs" />
+    <Compile Include="Types\BoxGeneric.cs" />
+    <Compile Include="Types\BoxRounded.cs" />
     <Compile Include="Types\Film.cs" />
     <Compile Include="Controls\Graphics3DControl.cs">
       <SubType>UserControl</SubType>

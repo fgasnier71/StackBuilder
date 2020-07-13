@@ -34,8 +34,7 @@ namespace treeDiM.StackBuilder.Graphics.Test
                 listTexture.Add(texture);
                 // instantiate box and draw
                 List<Box> boxList = new List<Box>();
-                Box box0 = new Box(0, 200.0, 160.0, 100.0);
-                box0.Position = Vector3D.Zero;
+                Box box0 = new Box(0, 200.0, 160.0, 100.0, BoxPosition.Zero);
                 box0.SetAllFacesColor(Color.Chocolate);
                 box0.SetFaceTextures(HalfAxis.HAxis.AXIS_X_P, listTexture);
                 box0.SetFaceTextures(HalfAxis.HAxis.AXIS_Y_P, listTexture);
@@ -44,19 +43,16 @@ namespace treeDiM.StackBuilder.Graphics.Test
                 box0.SetFaceTextures(HalfAxis.HAxis.AXIS_Y_N, listTexture);
                 box0.SetFaceTextures(HalfAxis.HAxis.AXIS_Z_N, listTexture);
                 boxList.Add(box0);
-                Box box1 = new Box(1, 200.0, 160.0, 100.0);
-                box1.Position = new Vector3D(210.0, 0.0, 0.0);
+                Box box1 = new Box(1, 200.0, 160.0, 100.0, new BoxPosition( new Vector3D(210.0, 0.0, 0.0)));
                 box1.SetAllFacesColor(Color.Chocolate);
                 box1.SetFaceTextures(HalfAxis.HAxis.AXIS_Y_P, listTexture);
                 boxList.Add(box1);
 
-                Box box2 = new Box(2, 200.0, 160.0, 100.0);
-                box2.Position = new Vector3D(0.0, 170.0, 0.0);
+                Box box2 = new Box(2, 200.0, 160.0, 100.0, new BoxPosition(new Vector3D(0.0, 170.0, 0.0)));
                 box2.SetAllFacesColor(Color.Chocolate);
                 boxList.Add(box2);
 
-                Box box3 = new Box(3, 200.0, 160.0, 100.0);
-                box3.Position = new Vector3D(0.0, 0.0, 110.0);
+                Box box3 = new Box(3, 200.0, 160.0, 100.0, new BoxPosition(new Vector3D(0.0, 0.0, 110.0)));
                 box3.SetAllFacesColor(Color.Chocolate);
                 boxList.Add(box3);
 

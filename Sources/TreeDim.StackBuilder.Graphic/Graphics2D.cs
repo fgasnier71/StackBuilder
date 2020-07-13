@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using Sharp3D.Math.Core;
+using treeDiM.StackBuilder.Basics;
 #endregion
 
 namespace treeDiM.StackBuilder.Graphics
@@ -60,36 +61,6 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
         #region Drawing methods
-        public void DrawBox(Box box)
-        {
-            System.Drawing.Graphics g = Graphics;
-
-            if (box is Pack pack)
-                pack.Draw(this);
-            else
-            {
-                Brush brushPath = new SolidBrush(box.TopFace.ColorPath);
-                Pen penPath = new Pen(brushPath);
-
-                // get points
-                Point[] pt = TransformPoint(box.TopFace.Points);
-
-                // draw solid face
-                Brush brushSolid = new SolidBrush(box.TopFace.ColorFill);
-                g.FillPolygon(brushSolid, pt);
-                g.DrawPolygon(penPath, pt);
-                // draw box tape
-                if (box.TapeWidth.Activated)
-                {
-                    // instantiate brush
-                    Brush brushTape = new SolidBrush(box.TapeColor);
-                    // fill polygon
-                    Point[] pts = TransformPoint(box.TapePoints);
-                    g.FillPolygon(brushTape, pts);
-                    g.DrawPolygon(penPath, pts);
-                }
-            }
-        }
         public void DrawBoxSelected(Box box)
         {
             Brush brushPath = new SolidBrush(Color.Red);
@@ -98,24 +69,6 @@ namespace treeDiM.StackBuilder.Graphics
             // get points
             Point[] pt = TransformPoint(box.TopFace.Points);
             Graphics.DrawPolygon(penPath, pt);
-        }
-        public void DrawCylinder(Cylinder cyl)
-        {
-            System.Drawing.Graphics g = Graphics;
-
-            // get points
-            Point[] ptOuter = TransformPoint(cyl.TopPoints);
-            Point[] ptInner = TransformPoint(cyl.TopPointsInner);
-            // top color
-            Brush brushSolid = new SolidBrush(cyl.ColorTop);
-            g.FillPolygon(brushSolid, ptOuter);
-            // hole -> drawing polygon with background color
-            Brush brushBackground = new SolidBrush(ColorBackground);
-            g.FillPolygon(brushBackground, ptInner);
-            // bottom (draw only path)
-            Brush brushPath = new SolidBrush(cyl.ColorPath);
-            Pen penPath = new Pen(brushPath);
-            g.DrawPolygon(penPath, ptOuter);
         }
         public void DrawRectangle(Vector2D vMin, Vector2D vMax, Color penColor)
         {
@@ -131,7 +84,6 @@ namespace treeDiM.StackBuilder.Graphics
             Pen pen = new Pen(penColor);
             g.DrawLines(pen, pt);
         }
-
         public void DrawArrow(Vector2D v, int iDir, int length, int baseDistance, int radius, Color color, out Rectangle rectButton)
         {
             Pen pen = new Pen(color, 5)
@@ -181,7 +133,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
         #region Public properties
         public uint NumberOfViews { get; set; } = 1;
-        public float[] Viewport { get; set; } = new float[4];
+        public float[] Viewport = new float[4];
         public uint IIndexView { get; set; } = 0;
         public Color ColorBackground { get; private set; } = Color.White;
         #endregion
@@ -191,7 +143,6 @@ namespace treeDiM.StackBuilder.Graphics
         private float MarginX => MarginRatio * (Viewport[2] - Viewport[0]);
         private float MarginY => MarginRatio * (Viewport[3] - Viewport[1]);
         public float MarginRatio { get; set; } = 0.1f;
-
         public Vector2D ReverseTransform(Point pt)
         {
             double VPSpanX = Viewport[2] - Viewport[0] + 2 * MarginX;
@@ -247,7 +198,7 @@ namespace treeDiM.StackBuilder.Graphics
             }
             return points;
         }
-        private Point[] TransformPoint(Vector3D[] points3d)
+        public Point[] TransformPoint(Vector3D[] points3d)
         {
             double VPSpanX = Viewport[2] - Viewport[0] + 2 * MarginX;
             double VPSpanY = Viewport[3] - Viewport[1] + 2 * MarginY;

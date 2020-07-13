@@ -156,6 +156,7 @@ namespace treeDiM.StackBuilder.Graphics
 
         #region Constructors
         public Film(Color color, bool transparency, bool hatching, double hatchSpacing, double hatchAngle)
+            : base(0)
         {
             _color = color;
             HasTransparency = transparency;
