@@ -14,6 +14,7 @@ using treeDiM.StackBuilder.Graphics;
 using ListBoxWithToolTip;
 
 using log4net;
+using Sharp3D.Math.Core;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -142,6 +143,8 @@ namespace treeDiM.StackBuilder.Desktop
                     _document.CreateNewCase(ToCase(dtCase));
                 if (_dt is DataBox dtBox)
                     _document.CreateNewBox(ToBox(dtBox));
+                if (_dt is DataBag dtBag)
+                    _document.CreateNewBag(ToBag(dtBag));
                 if (_dt is DataCylinder dtCylinder)
                     _document.CreateNewCylinder(ToCylinder(dtCylinder));
                 if (_dt is DataPallet dtPallet)
@@ -186,6 +189,16 @@ namespace treeDiM.StackBuilder.Desktop
             boxProperties.SetNetWeight( new OptDouble(dtBox.NetWeight > 0, dtBox.NetWeight) );
             boxProperties.TapeWidth = new OptDouble(false, 0.0);
             return boxProperties;
+        }
+        internal BagProperties ToBag(DataBag dtBag)
+        {
+            var bagProperties = new BagProperties(null
+                , dtBag.Name, dtBag.Description
+                , new Vector3D(dtBag.Dimensions[0], dtBag.Dimensions[1], dtBag.Dimensions[2])
+                , dtBag.RoundingRadius);
+            bagProperties.SetWeight(dtBag.Weight);
+            bagProperties.SetNetWeight(new OptDouble(dtBag.NetWeight > 0, dtBag.NetWeight));
+            return bagProperties;
         }
         internal PalletProperties ToPallet(DataPallet dtPallet)
         {

@@ -39,7 +39,7 @@ namespace treeDiM.StackBuilder.Graphics
         public List<Cyl> Cylinders { get; set; } = new List<Cyl>();
         public List<Segment> Segments { get; set; } = new List<Segment>();
         public List<Segment> SegmentsBackground { get; set; } = new List<Segment>();
-        public List<Box> Boxes { get; set; } = new List<Box>();
+        public List<BoxGeneric> Boxes { get; set; } = new List<BoxGeneric>();
         public List<Face> Faces { get; set; } = new List<Face>();
         public List<Triangle> Triangles { get; set; } = new List<Triangle>();
         /// <summary>
@@ -294,7 +294,7 @@ namespace treeDiM.StackBuilder.Graphics
         /// <param name="face">Face item</param>
         public void AddFace(Face face) => Faces.Add(face);
         public void AddTriangle(Triangle triangle) => Triangles.Add(triangle);
-        public void AddBox(Box box)
+        public void AddBox(BoxGeneric box)
         {
             if (!box.IsValid)
                 throw new GraphicsException("Box is invalid and cannot be drawn!");
@@ -377,7 +377,7 @@ namespace treeDiM.StackBuilder.Graphics
             foreach (Triangle tr in Triangles)
                 Draw(tr, FaceDir.FRONT);
 
-            var boxesImage1 = new List<Box>();
+            var boxesImage1 = new List<BoxGeneric>();
             foreach (var imageInst in ListImageInst)
             {
                 var b = imageInst.ToBox();
@@ -407,7 +407,7 @@ namespace treeDiM.StackBuilder.Graphics
                 drawableList.AddRange(Cylinders);
                 drawableList.Sort(new DrawableComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
 
-                var boxes = new List<Box>();
+                var boxes = new List<BoxGeneric>();
                 var cylinders = new List<Cyl>();
                 var processingBox = drawableList[0] is Box;
                 foreach (Drawable drawable in drawableList)
@@ -468,7 +468,7 @@ namespace treeDiM.StackBuilder.Graphics
             else
             {
                 // draw all boxes
-                foreach (Box box in Boxes)
+                foreach (var box in Boxes)
                     box.Draw(this);
                 // draw all triangles
                 foreach (Triangle tr in Triangles)

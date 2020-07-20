@@ -117,79 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ID_CONSUMERSALESUNITS" xml:space="preserve">
-    <value># CSU</value>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value>Envoyer vers Bdd</value>
   </data>
-  <data name="ID_INDEX" xml:space="preserve">
-    <value>#</value>
+  <data name="uCtrlRadius.Text" xml:space="preserve">
+    <value>Rayon</value>
   </data>
-  <data name="ID_INVALIDCONSTRAINTS_DIMENSIONS" xml:space="preserve">
-    <value>Invalid dimension constraints</value>
+  <data name="uCtrlOuterDimensions.Text" xml:space="preserve">
+    <value>Dimensions</value>
   </data>
-  <data name="ID_INVALIDCONSTRAINTS_WEIGHT" xml:space="preserve">
-    <value>Invalid weight constraints</value>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>Poids</value>
   </data>
-  <data name="ID_LAYER" xml:space="preserve">
-    <value>Layer : </value>
+  <data name="uCtrlNetWeight.Text" xml:space="preserve">
+    <value>Poids net</value>
   </data>
-  <data name="ID_LAYERPATTERN" xml:space="preserve">
-    <value>Layer pattern</value>
+  <data name="uCtrlWeight.Text" xml:space="preserve">
+    <value>Poids</value>
   </data>
-  <data name="ID_LAYERS" xml:space="preserve">
-    <value>Layers :  </value>
+  <data name="gbColor.Text" xml:space="preserve">
+    <value>Couleur</value>
   </data>
-  <data name="ID_LAYERSALL" xml:space="preserve">
-    <value>Layers = All</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
   </data>
-  <data name="ID_LAYERWEIGHT" xml:space="preserve">
-    <value>Layer weight</value>
-  </data>
-  <data name="ID_LOADEDCASE" xml:space="preserve">
-    <value>Loaded case</value>
-  </data>
-  <data name="ID_LOADEDPALLET" xml:space="preserve">
-    <value>Loaded pallet</value>
-  </data>
-  <data name="ID_MAXIMUMSPACE" xml:space="preserve">
-    <value>Maximum space</value>
-  </data>
-  <data name="ID_NAMEBAG" xml:space="preserve">
-    <value>Bag</value>
-  </data>
-  <data name="ID_NAMEBOTTLE" xml:space="preserve">
-    <value>Bottle</value>
-  </data>
-  <data name="ID_NAMEBOX" xml:space="preserve">
-    <value>Box</value>
-  </data>
-  <data name="ID_NAMEBUNDLE" xml:space="preserve">
-    <value>Bundle</value>
-  </data>
-  <data name="ID_NAMECASE" xml:space="preserve">
-    <value>Case</value>
-  </data>
-  <data name="ID_NAMECYLINDER" xml:space="preserve">
-    <value>Cylinder</value>
-  </data>
-  <data name="ID_NAMEPACK" xml:space="preserve">
-    <value>Pack</value>
-  </data>
-  <data name="ID_NAMEPALLET" xml:space="preserve">
-    <value>Pallet</value>
-  </data>
-  <data name="ID_NAMETRUCK" xml:space="preserve">
-    <value>Truck</value>
-  </data>
-  <data name="ID_PACKCOUNT" xml:space="preserve">
-    <value># Packs</value>
-  </data>
-  <data name="ID_PALLETHEIGHT" xml:space="preserve">
-    <value>Pallet height</value>
-  </data>
-  <data name="ID_PALLETWEIGHT" xml:space="preserve">
-    <value>Pallet weight</value>
-  </data>
-  <data name="ID_SELECTED" xml:space="preserve">
-    <value>Selected</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Couleur</value>
   </data>
 </root>

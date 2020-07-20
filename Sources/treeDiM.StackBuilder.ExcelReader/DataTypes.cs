@@ -119,31 +119,49 @@ namespace treeDiM.StackBuilder.ExcelReader
     #region DataBox
     public class DataBox : DataType
     {
-        public DataBox(int iRow, System.Data.DataRow dtRow)
+        public DataBox(int iRow, DataRow dtRow)
             : base(iRow, dtRow)
         {
-            dimensions[0] = (double)dtRow[2];
-            dimensions[1] = (double)dtRow[3];
-            dimensions[2] = (double)dtRow[4];
+            Dimensions[0] = (double)dtRow[2];
+            Dimensions[1] = (double)dtRow[3];
+            Dimensions[2] = (double)dtRow[4];
 
             if (DBNull.Value != dtRow[5]) Weight = (double)dtRow[5];
             if (DBNull.Value != dtRow[6]) NetWeight = (double)dtRow[6];
         }
-        public double[] Dimensions { get { return dimensions; } }
+        public double[] Dimensions { get; } = new double[3];
         public double Weight { get; set; }
         public double NetWeight { get; set; }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder(base.ToString());
-            sb.AppendLine(string.Format("Dimensions       = {0}*{1}*{2}", dimensions[0], dimensions[1], dimensions[2]));
+            sb.AppendLine(string.Format("Dimensions       = {0}*{1}*{2}", Dimensions[0], Dimensions[1], Dimensions[2]));
             sb.AppendLine(string.Format("Weight           = {0}", Weight));
             sb.AppendLine(string.Format("Net weight       = {0}", NetWeight));
             return sb.ToString();
         }
+    }
+    #endregion
+    #region DataBag
+    public class DataBag : DataBox
+    {
+        public DataBag(int iRow, DataRow dtRow)
+            : base(iRow, dtRow)
+        {
+            RoundingRadius = (double)dtRow[7];
+        }
+        public double RoundingRadius { get; set; }
 
-        // DATA MEMBERS
-        private double[] dimensions = new double[3];
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder(base.ToString());
+            sb.AppendLine($"Dimensions       = {Dimensions[0]}*{Dimensions[1]}*{Dimensions[2]}");
+            sb.AppendLine($"Radius           = {RoundingRadius}");
+            sb.AppendLine($"Weight           = {Weight}");
+            sb.AppendLine($"Net weight       = {NetWeight}");
+            return sb.ToString();
+        }
     }
     #endregion
     #region DataBundle

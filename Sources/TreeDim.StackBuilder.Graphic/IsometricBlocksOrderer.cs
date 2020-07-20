@@ -234,7 +234,7 @@ namespace treeDiM.StackBuilder.Graphics.IsometricBlocks
     #region IsometricBlocksOrderer
     public class IsometricBlocksOrderer : BoxOrderer
     {
-        public override List<Box> GetSortedList()
+        public override List<BoxGeneric> GetSortedList()
         {
             List<Block> blocks = new List<Block>();
             foreach (Box box in Boxes)
@@ -302,7 +302,7 @@ namespace treeDiM.StackBuilder.Graphics.IsometricBlocks
                 }
             }
             // convert to sorted box list
-            var boxesDrawn = new List<Box>();
+            var boxesDrawn = new List<BoxGeneric>();
             foreach (Block bdrawn in blocksDrawn)
                 boxesDrawn.Add(bdrawn.InternalBox);
             return boxesDrawn;

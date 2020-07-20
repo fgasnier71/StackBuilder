@@ -262,6 +262,9 @@
   <data name="ID_AUTOIMPORT" xml:space="preserve">
     <value>Import auto</value>
   </data>
+  <data name="ID_BAG" xml:space="preserve">
+    <value>Bag</value>
+  </data>
   <data name="ID_BOTTLE" xml:space="preserve">
     <value>Bottle</value>
   </data>
@@ -542,6 +545,9 @@ Continue?</value>
   </data>
   <data name="ID_INVALIDOUTERDIMENSION" xml:space="preserve">
     <value>Outer dimensions ought to exceed content dimensions...</value>
+  </data>
+  <data name="ID_INVALIDROUNDINGRADIUS" xml:space="preserve">
+    <value>Invalid rounding radius</value>
   </data>
   <data name="ID_INVALIDTHICKNESSWIDTHPAIR" xml:space="preserve">
     <value>Thickness should not exceed width</value>

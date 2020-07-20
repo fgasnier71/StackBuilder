@@ -147,6 +147,7 @@
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripButtonBag = new System.Windows.Forms.ToolStripButton();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -537,11 +538,12 @@
             this.toolStripSeparator4,
             this.toolStripButtonBox,
             this.toolStripButtonCase,
-            this.toolStripButtonPack,
+            this.toolStripButtonBag,
             this.toolStripButtonBundle,
             this.toolStripButtonCylinder,
             this.toolStripButtonBottle,
             this.toolStripButtonPallet,
+            this.toolStripButtonPack,
             this.toolStripButtonTruck,
             this.toolStripSeparator12,
             this.toolStripSBPalletDeco,
@@ -963,6 +965,13 @@
             this.saveFileDialogExport.DefaultExt = "xml";
             resources.ApplyResources(this.saveFileDialogExport, "saveFileDialogExport");
             // 
+            // toolStripButtonBag
+            // 
+            this.toolStripButtonBag.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonBag, "toolStripButtonBag");
+            this.toolStripButtonBag.Name = "toolStripButtonBag";
+            this.toolStripButtonBag.Click += new System.EventHandler(this.ToolAddNewBag);
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -1100,5 +1109,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisHCylTruck;
         private System.Windows.Forms.ToolStripButton toolStripButtonBottle;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNewBottle;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBag;
     }
 }

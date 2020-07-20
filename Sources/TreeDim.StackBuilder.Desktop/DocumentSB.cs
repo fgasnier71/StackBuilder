@@ -184,6 +184,21 @@ namespace treeDiM.StackBuilder.Desktop
                 }
             }
         }
+        public void CreateNewBagUI()
+        {
+            using (var form = new FormNewBag(this, null))
+            {
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    var bagProperties = CreateNewBag(
+                        form.ItemName, form.ItemDescription
+                        , form.OuterDimensions, form.RoundingRadius
+                        , form.Weight, form.NetWeight
+                        , form.ColorFill);
+                }
+            }
+        }
+
         /// <summary>
         /// Creates a new PackProperties object
         /// </summary>
@@ -193,7 +208,6 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (DialogResult.OK == form.ShowDialog())
                 {
-
                     PackProperties packProperties = CreateNewPack(
                         form.ItemName, form.ItemDescription
                         , form.SelectedPackable

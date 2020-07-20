@@ -68,18 +68,6 @@
             // 
             resources.ApplyResources(this.bnCancel, "bnCancel");
             // 
-            // lbName
-            // 
-            resources.ApplyResources(this.lbName, "lbName");
-            // 
-            // lbDescription
-            // 
-            resources.ApplyResources(this.lbDescription, "lbDescription");
-            // 
-            // tbName
-            // 
-            resources.ApplyResources(this.tbName, "tbName");
-            // 
             // tbDescription
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
@@ -91,16 +79,16 @@
             // 
             // gbDimensions
             // 
-            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Controls.Add(this.uCtrlDimensionsInner);
             this.gbDimensions.Controls.Add(this.uCtrlDimensionsOuter);
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
             // uCtrlDimensionsInner
             // 
-            resources.ApplyResources(this.uCtrlDimensionsInner, "uCtrlDimensionsInner");
             this.uCtrlDimensionsInner.Checked = false;
+            resources.ApplyResources(this.uCtrlDimensionsInner, "uCtrlDimensionsInner");
             this.uCtrlDimensionsInner.Minimum = new decimal(new int[] {
             0,
             0,
@@ -130,7 +118,6 @@
             // 
             // cbFace
             // 
-            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFace.FormattingEnabled = true;
             this.cbFace.Items.AddRange(new object[] {
@@ -140,17 +127,18 @@
             resources.GetString("cbFace.Items3"),
             resources.GetString("cbFace.Items4"),
             resources.GetString("cbFace.Items5")});
+            resources.ApplyResources(this.cbFace, "cbFace");
             this.cbFace.Name = "cbFace";
             this.cbFace.SelectedIndexChanged += new System.EventHandler(this.OnSelectedFaceChanged);
             // 
             // cbColor
             // 
-            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.Chocolate;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -280,18 +268,19 @@
             resources.GetString("cbColor.Items125"),
             resources.GetString("cbColor.Items126"),
             resources.GetString("cbColor.Items127"),
-            resources.GetString("cbColor.Items128")});
+            resources.GetString("cbColor.Items128"),
+            resources.GetString("cbColor.Items129")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
             // gbFaceColor
             // 
-            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Controls.Add(this.btBitmaps);
             this.gbFaceColor.Controls.Add(this.chkAllFaces);
             this.gbFaceColor.Controls.Add(this.cbColor);
             this.gbFaceColor.Controls.Add(this.cbFace);
             this.gbFaceColor.Controls.Add(this.lbFace);
+            resources.ApplyResources(this.gbFaceColor, "gbFaceColor");
             this.gbFaceColor.Name = "gbFaceColor";
             this.gbFaceColor.TabStop = false;
             // 
@@ -311,10 +300,10 @@
             // 
             // gbWeight
             // 
-            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Controls.Add(this.uCtrlMaxWeight);
             this.gbWeight.Controls.Add(this.vcWeight);
             this.gbWeight.Controls.Add(this.uCtrlNetWeight);
+            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
@@ -375,12 +364,12 @@
             // 
             // cbTapeColor
             // 
-            resources.ApplyResources(this.cbTapeColor, "cbTapeColor");
             this.cbTapeColor.Color = System.Drawing.Color.Chocolate;
             this.cbTapeColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbTapeColor.DropDownHeight = 1;
             this.cbTapeColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTapeColor.DropDownWidth = 1;
+            resources.ApplyResources(this.cbTapeColor, "cbTapeColor");
             this.cbTapeColor.Items.AddRange(new object[] {
             resources.GetString("cbTapeColor.Items"),
             resources.GetString("cbTapeColor.Items1"),
@@ -511,7 +500,8 @@
             resources.GetString("cbTapeColor.Items126"),
             resources.GetString("cbTapeColor.Items127"),
             resources.GetString("cbTapeColor.Items128"),
-            resources.GetString("cbTapeColor.Items129")});
+            resources.GetString("cbTapeColor.Items129"),
+            resources.GetString("cbTapeColor.Items130")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -529,25 +519,25 @@
             // 
             // tabCtrl
             // 
-            resources.ApplyResources(this.tabCtrl, "tabCtrl");
             this.tabCtrl.Controls.Add(this.tabPageTape);
             this.tabCtrl.Controls.Add(this.tabPageStrappers);
+            resources.ApplyResources(this.tabCtrl, "tabCtrl");
             this.tabCtrl.Name = "tabCtrl";
             this.tabCtrl.SelectedIndex = 0;
             // 
             // tabPageTape
             // 
-            resources.ApplyResources(this.tabPageTape, "tabPageTape");
             this.tabPageTape.Controls.Add(this.cbTapeColor);
             this.tabPageTape.Controls.Add(this.uCtrlTapeWidth);
             this.tabPageTape.Controls.Add(this.lbTapeColor);
+            resources.ApplyResources(this.tabPageTape, "tabPageTape");
             this.tabPageTape.Name = "tabPageTape";
             this.tabPageTape.UseVisualStyleBackColor = true;
             // 
             // tabPageStrappers
             // 
-            resources.ApplyResources(this.tabPageStrappers, "tabPageStrappers");
             this.tabPageStrappers.Controls.Add(this.ctrlStrapperSet);
+            resources.ApplyResources(this.tabPageStrappers, "tabPageStrappers");
             this.tabPageStrappers.Name = "tabPageStrappers";
             this.tabPageStrappers.UseVisualStyleBackColor = true;
             // 

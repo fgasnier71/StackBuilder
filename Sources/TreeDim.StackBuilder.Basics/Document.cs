@@ -236,6 +236,38 @@ namespace treeDiM.StackBuilder.Basics
             Modify();
             return boxPropClone;
         }
+        public BagProperties CreateNewBag(
+            string name, string description
+            , Vector3D outerDimensions, double roundingRadius
+            , double weight, OptDouble netWeight
+            , Color color
+            )
+        {
+            var bagProperties = new BagProperties(this
+                , name, description
+                , outerDimensions, roundingRadius);
+            bagProperties.SetWeight(weight);
+            bagProperties.SetNetWeight(netWeight);
+            bagProperties.SetColor(color);
+            _typeList.Add(bagProperties);
+            // Notify listeners
+            NotifyOnNewTypeCreated(bagProperties);
+            Modify();
+            return bagProperties;
+        }
+        public BagProperties CreateNewBag(BagProperties bagProperties)
+        {
+            var bagClone = new BagProperties(this, bagProperties.Name, bagProperties.Description
+                , bagProperties.OuterDimensions, bagProperties.Radius);
+            bagClone.SetWeight(bagProperties.Weight);
+            bagClone.SetNetWeight(bagProperties.NetWeight);
+            bagClone.SetColor(bagProperties.ColorFill);
+            _typeList.Add(bagClone);
+            // Notify listeners
+            NotifyOnNewTypeCreated(bagClone);
+            Modify();
+            return bagClone;
+        }
         /// <summary>
         /// Create a new pack
         /// </summary>
@@ -1203,7 +1235,7 @@ namespace treeDiM.StackBuilder.Basics
                     LoadStrapperSet(childElt, ref strapperSet);
             }
             // create new BoxProperties instance
-            BoxProperties boxProperties = null;
+            BoxProperties boxProperties;
             if (!string.IsNullOrEmpty(sInsideLength)) // case
                 boxProperties = CreateNewCase(
                 sname
@@ -1228,6 +1260,10 @@ namespace treeDiM.StackBuilder.Basics
             boxProperties.TapeWidth = new OptDouble(hasTape, UnitsManager.ConvertLengthFrom(tapeWidth, UnitSystem));
             boxProperties.SetNetWeight( optNetWeight );
             boxProperties.StrapperSet = strapperSet;
+        }
+
+        private void LoadBagProperties(XmlElement eltBagProperties)
+        { 
         }
 
         private void LoadPackProperties(XmlElement eltPackProperties)
@@ -2419,7 +2455,7 @@ namespace treeDiM.StackBuilder.Basics
                         else if (string.Equals(eltLayerDesc.Name, "LayerExpBoxes", StringComparison.CurrentCultureIgnoreCase))
                         {
                             string name = eltLayerDesc.Attributes["Name"].Value;
-                            Vector3D dimBox = Vector3D.Parse(eltLayerDesc.Attributes["DimBox"].Value);
+                            Vector3D dimBox = UnitsManagerEx.ConvertLengthFrom( Vector3D.Parse(eltLayerDesc.Attributes["DimBox"].Value), UnitSystem);
                             Vector2D dimContainer = Vector2D.Parse(eltLayerDesc.Attributes["DimContainer"].Value);
                             HalfAxis.HAxis axisOrtho = HalfAxis.Parse(eltLayerDesc.Attributes["AxisOrtho"].Value);
                             var layer2D = new Layer2DBrickExp(dimBox, dimContainer, name, axisOrtho);

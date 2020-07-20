@@ -465,6 +465,12 @@
     <Compile Include="FormNewAnalysisPalletTruck.Designer.cs">
       <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewBag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewBag.Designer.cs">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1912,6 +1918,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewAnalysisPalletTruck.zh.resx">
       <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.fr.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBase.pt.resx">
       <DependentUpon>FormNewBase.cs</DependentUpon>
@@ -3685,12 +3697,12 @@ if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
     <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
-    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.5.5.1\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.5.5.1\build\NuGet.Build.Tasks.Pack.targets'))" />
+    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.5.6.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.5.6.0\build\NuGet.Build.Tasks.Pack.targets'))" />
   </Target>
   <Import Project="..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets" Condition="Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" />
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\NuGet.Build.Tasks.Pack.5.5.1\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.5.5.1\build\NuGet.Build.Tasks.Pack.targets')" />
+  <Import Project="..\packages\NuGet.Build.Tasks.Pack.5.6.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.5.6.0\build\NuGet.Build.Tasks.Pack.targets')" />
 </Project>

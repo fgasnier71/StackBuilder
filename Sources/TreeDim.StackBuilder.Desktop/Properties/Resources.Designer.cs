@@ -511,6 +511,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bag.
+        /// </summary>
+        internal static string ID_BAG {
+            get {
+                return ResourceManager.GetString("ID_BAG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bottle.
         /// </summary>
         internal static string ID_BOTTLE {
@@ -1340,6 +1349,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_INVALIDOUTERDIMENSION {
             get {
                 return ResourceManager.GetString("ID_INVALIDOUTERDIMENSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid rounding radius.
+        /// </summary>
+        internal static string ID_INVALIDROUNDINGRADIUS {
+            get {
+                return ResourceManager.GetString("ID_INVALIDROUNDINGRADIUS", resourceCulture);
             }
         }
         

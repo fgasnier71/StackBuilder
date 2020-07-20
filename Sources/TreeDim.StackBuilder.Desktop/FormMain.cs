@@ -1141,6 +1141,11 @@ namespace treeDiM.StackBuilder.Desktop
             try { ActiveDocumentSB.CreateNewPackUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
+        private void ToolAddNewBag(object sender, EventArgs e)
+        {
+            try { ActiveDocumentSB.CreateNewBagUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
         private void ToolAddNewBundle(object sender, EventArgs e)
         {
             try { ActiveDocumentSB.CreateNewBundleUI(); }

@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Using directives
 using System.Drawing;
+#endregion
 
 namespace treeDiM.StackBuilder.Basics
 {
@@ -39,7 +39,6 @@ namespace treeDiM.StackBuilder.Basics
             : base(document, name, description)
         {
         }
-
         #endregion
     }
 }

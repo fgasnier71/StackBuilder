@@ -9,10 +9,10 @@ using treeDiM.Basics;
 namespace treeDiM.StackBuilder.Graphics
 {
     #region Helper classes
-    internal class BoxComparerZ : IComparer<Box>
+    internal class BoxComparerZ : IComparer<BoxGeneric>
     {
         #region IComparer<Box> implementation
-        public int Compare(Box b1, Box b2)
+        public int Compare(BoxGeneric b1, BoxGeneric b2)
         {
             double b1ZMin = b1.PtMin.Z;
             double b2ZMin = b2.PtMin.Z;
@@ -25,7 +25,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
     }
-    internal class BoxComparerXMin : IComparer<Box>
+    internal class BoxComparerXMin : IComparer<BoxGeneric>
     {
         #region Data members
         private Vector3D Direction { get; set; }
@@ -39,7 +39,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region IComparer<Box> implementation
-        public int Compare(Box b1, Box b2)
+        public int Compare(BoxGeneric b1, BoxGeneric b2)
         {
             Vector3D b1PtMin = b1.PtMin, b2PtMin = b2.PtMin;
             if (b1PtMin.X > b2PtMin.X)
@@ -71,7 +71,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
     }
-    internal class BoxComparerXMax : IComparer<Box>
+    internal class BoxComparerXMax : IComparer<BoxGeneric>
     {
         #region Data members
         private Vector3D Direction { get; set; }
@@ -83,7 +83,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
         #region IComparer<Box> implementation
-        public int Compare(Box b1, Box b2)
+        public int Compare(BoxGeneric b1, BoxGeneric b2)
         {
             Vector3D b1PtMax = b1.PtMax, b2PtMax = b2.PtMax;
 
@@ -122,18 +122,18 @@ namespace treeDiM.StackBuilder.Graphics
     public abstract class BoxOrderer
     {
         #region Data members
-        protected List<Box> Boxes { get; set; } = new List<Box>();
+        protected List<BoxGeneric> Boxes { get; set; } = new List<BoxGeneric>();
         #endregion
 
         #region Public methods
-        public void Add(Box b)
+        public void Add(BoxGeneric b)
         {
             Boxes.Add(b);
         }
         #endregion
 
         #region Public abstract methods
-        public abstract List<Box> GetSortedList();
+        public abstract List<BoxGeneric> GetSortedList();
         #endregion
     }
     #endregion
@@ -146,7 +146,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Constructor
-        public BoxelOrderer(List<Box> boxes, Vector3D direction)
+        public BoxelOrderer(List<BoxGeneric> boxes, Vector3D direction)
         {
             Boxes.AddRange(boxes);
             Direction = direction;
@@ -159,20 +159,20 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public methods
-        public override List<Box> GetSortedList()
+        public override List<BoxGeneric> GetSortedList()
         {
             // first sort by Z
             BoxComparerZ boxComparerZ = new BoxComparerZ();
             Boxes.Sort(boxComparerZ);
 
-            List<Box> sortedList = new List<Box>();
+            List<BoxGeneric> sortedList = new List<BoxGeneric>();
             if (Boxes.Count == 0)
                 return sortedList;
 
             // build same Z layers
             int index = 0;
             double zCurrent = Boxes[index].PtMin.Z;
-            List<Box> tempList = new List<Box>();
+            List<BoxGeneric> tempList = new List<BoxGeneric>();
             while (index < Boxes.Count)
             {
                 if (Math.Abs(zCurrent - Boxes[index].PtMin.Z) < _epsilon)
@@ -203,14 +203,14 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Private methods
-        private void SortLayer(ref List<Box> layerList)
+        private void SortLayer(ref List<BoxGeneric> layerList)
         {
-            foreach (Box b in layerList)
+            foreach (var b in layerList)
                 b.ApplyElong(-TuneParam);
 
             // build y list
             List<double> yList = new List<double>();
-            foreach (Box b in layerList)
+            foreach (BoxGeneric b in layerList)
             {
                 if (!yList.Contains(b.PtMin.Y)) yList.Add(b.PtMin.Y);
                 if (!yList.Contains(b.PtMax.Y)) yList.Add(b.PtMax.Y);
@@ -219,8 +219,8 @@ namespace treeDiM.StackBuilder.Graphics
             if (Direction.Y < 0)
                 yList.Reverse();
 
-            List<Box> treeList = new List<Box>();
-            List<Box> resList = new List<Box>();
+            List<BoxGeneric> treeList = new List<BoxGeneric>();
+            List<BoxGeneric> resList = new List<BoxGeneric>();
             // sweep stage
             foreach (double y in yList)
             {
@@ -229,9 +229,9 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     CleanByYMax(treeList, y);
                     // add new 
-                    List<Box> listYMin = GetByYMin(layerList, y);
+                    List<BoxGeneric> listYMin = GetByYMin(layerList, y);
 
-                    foreach (Box by in listYMin)
+                    foreach (var by in listYMin)
                     {
                         treeList.Add(by);
                         if (Direction.X > 0.0)
@@ -240,8 +240,8 @@ namespace treeDiM.StackBuilder.Graphics
                             treeList.Sort(new BoxComparerXMax(Direction));
 
                         // find successor of by
-                        int id = treeList.FindIndex(delegate(Box b) { return b.PickId == by.PickId; });
-                        Box successor = null;
+                        int id = treeList.FindIndex(delegate(BoxGeneric b) { return b.PickId == by.PickId; });
+                        BoxGeneric successor = null;
                         if (id < treeList.Count - 1)
                             successor = treeList[id + 1];
 
@@ -250,7 +250,7 @@ namespace treeDiM.StackBuilder.Graphics
                             resList.Add(by);
                         else
                         {
-                            int idBefore = resList.FindIndex(delegate(Box b) { return b.PickId == successor.PickId; });
+                            int idBefore = resList.FindIndex(delegate(BoxGeneric b) { return b.PickId == successor.PickId; });
                             resList.Insert(idBefore, by);
                         }
                     }
@@ -259,9 +259,9 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     CleanByYMin(treeList, y);
                     // add new 
-                    List<Box> listYMax = GetByYMax(layerList, y);
+                    List<BoxGeneric> listYMax = GetByYMax(layerList, y);
 
-                    foreach (Box by in listYMax)
+                    foreach (var by in listYMax)
                     {
                         treeList.Add(by);
                         if (Direction.X > 0.0)
@@ -270,8 +270,8 @@ namespace treeDiM.StackBuilder.Graphics
                             treeList.Sort(new BoxComparerXMax(Direction));
 
                         // find successor of by
-                        int id = treeList.FindIndex(delegate(Box b) { return b.PickId == by.PickId; });
-                        Box successor = null;
+                        int id = treeList.FindIndex(delegate(BoxGeneric b) { return b.PickId == by.PickId; });
+                        BoxGeneric successor = null;
                         if (id < treeList.Count - 1)
                             successor = treeList[id + 1];
 
@@ -280,7 +280,7 @@ namespace treeDiM.StackBuilder.Graphics
                             resList.Add(by);
                         else
                         {
-                            int idBefore = resList.FindIndex(delegate(Box b) { return b.PickId == successor.PickId; });
+                            int idBefore = resList.FindIndex(delegate(BoxGeneric b) { return b.PickId == successor.PickId; });
                             resList.Insert(idBefore, by);
                         }
                     }
@@ -291,29 +291,29 @@ namespace treeDiM.StackBuilder.Graphics
             resList.Reverse();
             layerList.AddRange(resList);
 
-            foreach (Box b in layerList)
+            foreach (var b in layerList)
                 b.ApplyElong(TuneParam);
         }
 
-        private List<Box> GetByYMin(List<Box> inList, double y)
+        private List<BoxGeneric> GetByYMin(List<BoxGeneric> inList, double y)
         {
-            List<Box> outList = new List<Box>();
-            foreach (Box b in inList)
+            List<BoxGeneric> outList = new List<BoxGeneric>();
+            foreach (var b in inList)
                 if (Math.Abs(b.PtMin.Y - y) < _epsilon)
                     outList.Add(b);
             return outList;
         }
 
-        private List<Box> GetByYMax(List<Box> inList, double y)
+        private List<BoxGeneric> GetByYMax(List<BoxGeneric> inList, double y)
         {
-            List<Box> outList = new List<Box>();
-            foreach (Box b in inList)
+            List<BoxGeneric> outList = new List<BoxGeneric>();
+            foreach (var b in inList)
                 if (Math.Abs(y - b.PtMax.Y) < _epsilon)
                     outList.Add(b);
             return outList;
         }
 
-        private void CleanByYMax(List<Box> lb, double y)
+        private void CleanByYMax(List<BoxGeneric> lb, double y)
         {
             bool found = true;
             while (found)
@@ -321,7 +321,7 @@ namespace treeDiM.StackBuilder.Graphics
                 found = false;
                 for (int i = 0; i < lb.Count; ++i)
                 {
-                    Box b = lb[i];
+                    var b = lb[i];
                     if (b.PtMax.Y <= y)
                     {
                         lb.Remove(b);
@@ -331,7 +331,7 @@ namespace treeDiM.StackBuilder.Graphics
                 }
             }
         }
-        private void CleanByYMin(List<Box> lb, double y)
+        private void CleanByYMin(List<BoxGeneric> lb, double y)
         {
             bool found = true;
             while (found)
@@ -339,7 +339,7 @@ namespace treeDiM.StackBuilder.Graphics
                 found = false;
                 for (int i = 0; i < lb.Count; ++i)
                 {
-                    Box b = lb[i];
+                    var b = lb[i];
                     if (b.PtMin.Y >= y)
                     {
                         lb.Remove(b);
