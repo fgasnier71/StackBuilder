@@ -39,7 +39,7 @@
             this.nudValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValue.DecimalPlaces = 2;
-            this.nudValue.Location = new System.Drawing.Point(240, 0);
+            this.nudValue.Location = new System.Drawing.Point(244, 0);
             this.nudValue.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -74,7 +74,7 @@
             this.chkbOpt.AutoEllipsis = true;
             this.chkbOpt.Location = new System.Drawing.Point(0, 2);
             this.chkbOpt.Name = "chkbOpt";
-            this.chkbOpt.Size = new System.Drawing.Size(234, 20);
+            this.chkbOpt.Size = new System.Drawing.Size(238, 20);
             this.chkbOpt.TabIndex = 3;
             this.chkbOpt.Text = "Optional value";
             this.chkbOpt.UseVisualStyleBackColor = true;

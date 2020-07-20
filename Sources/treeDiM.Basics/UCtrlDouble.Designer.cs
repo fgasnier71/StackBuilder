@@ -50,7 +50,7 @@
             this.nudValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nudValue.DecimalPlaces = 2;
-            this.nudValue.Location = new System.Drawing.Point(240, 0);
+            this.nudValue.Location = new System.Drawing.Point(244, 0);
             this.nudValue.Maximum = new decimal(new int[] {
             100000,
             0,
