@@ -64,30 +64,25 @@ namespace treeDiM.StackBuilder.Basics
     /// </summary>
     public class Layer3DBox : List<BoxPosition>, ILayer
     {
-        #region Data members
-        private double _zLower = 0.0;
-        private int _layerIndex;
-        private double _maxSpace = 0.0;
+        #region Enums
+        public enum SortType { XY, DIST, TOTAL };
         #endregion
 
         #region Constructor
         public Layer3DBox(double zLow, int layerIndex)
         {
-            _zLower = zLow;
-            _layerIndex = layerIndex;
+            ZLow = zLow;
+            LayerIndex = layerIndex;
         }
         #endregion
 
         #region Public properties
-        public double ZLow
-        {
-            get { return _zLower; }
-        }
+        public double ZLow { get; } = 0.0;
         public int BoxCount { get { return Count; } }
         public int InterlayerCount { get { return 0; } }
         public int CylinderCount { get { return 0; } }
-        public int LayerIndex { get { return _layerIndex; } }
-        public double MaximumSpace { get { return _maxSpace; } set { _maxSpace = value; } }
+        public int LayerIndex { get; }
+        public double MaximumSpace { get; set; } = 0.0;
         #endregion
 
         #region Public methods
@@ -121,18 +116,28 @@ namespace treeDiM.StackBuilder.Basics
                                 + bProperties.Height * Vector3D.CrossProduct(HalfAxis.ToVector3D(bPos.DirectionLength), HalfAxis.ToVector3D(bPos.DirectionWidth));
             return Math.Abs(diagonale.Z);
         }
-        public void Sort(Vector3D dimensions)
+        public void Sort(Packable packable, SortType sortType)
         {
-            Sort(new ComparerBoxPosition(dimensions));
+            Vector3D dimensions = packable.OuterDimensions;
+            Vector3D minPoint = BoundingBox(packable).PtMin;
+            switch (sortType)
+            {
+                case SortType.XY: Sort(new ComparerBoxPositionXY(dimensions)); break;
+                case SortType.DIST : Sort(new ComparerBoxPositionDist(dimensions, minPoint)); break;
+                default: break;
+            }
         }
+        #endregion
+
+        #region Data members
         #endregion
     }
 
-    #region BoxPosition comparer
-    internal class ComparerBoxPosition : IComparer<BoxPosition>
+    #region BoxPosition comparers
+    internal class ComparerBoxPositionXY : IComparer<BoxPosition>
     {
         #region Constructor
-        public ComparerBoxPosition(Vector3D dimensions) { Dimensions = dimensions; }
+        public ComparerBoxPositionXY(Vector3D dimensions) { Dimensions = dimensions; }
         private Vector3D Dimensions { get; }
         #endregion
         #region Implement IComparer<BoxPosition>
@@ -147,6 +152,28 @@ namespace treeDiM.StackBuilder.Basics
                 return vCenter1.Y.CompareTo(vCenter2.Y);
         }
         #endregion
+    }
+    internal class ComparerBoxPositionDist : IComparer<BoxPosition>
+    {
+        #region Constructor
+        public ComparerBoxPositionDist(Vector3D dimensions, Vector3D minPoint) { Dimensions = dimensions; MinPoint = minPoint; }
+        private Vector3D Dimensions { get; }
+        private Vector3D MinPoint { get; }
+        #endregion
+
+        public int Compare(BoxPosition boxPos1, BoxPosition boxPos2)
+        {
+            double dist1 = (boxPos1.Center(Dimensions) - MinPoint).GetLength();
+            double dist2 = (boxPos2.Center(Dimensions) - MinPoint).GetLength();
+
+            if (dist1 < dist2)
+                return -1;
+            else if (dist1 > dist2)
+                return 1;
+            else
+                return 0;
+            
+        }
     }
     #endregion
 

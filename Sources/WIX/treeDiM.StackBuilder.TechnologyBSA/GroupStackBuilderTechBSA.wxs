@@ -8,373 +8,349 @@
     </Fragment>
     <Fragment>
         <ComponentGroup Id="CompGroup_StackBuilderTechBSABin">
-            <Component Id="cmpB5F2771100F52D12860FA3E195E1F2BE" Directory="Bin" Guid="8C35D4A1-D552-441D-944D-7C18CFBD529A">
+            <Component Id="cmpB5F2771100F52D12860FA3E195E1F2BE" Directory="Bin" Guid="22535CB0-0305-4132-A777-6694BA0973B8">
                 <File Id="fil0777030352A360404A6D34865891981F" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\Cureos.Measures.dll" />
             </Component>
-            <Component Id="cmp223F7A40DFEA68AB8E5332C1C201B6DC" Directory="Bin" Guid="9D490F25-0277-453F-A48E-D0BF717E71F4">
+            <Component Id="cmp223F7A40DFEA68AB8E5332C1C201B6DC" Directory="Bin" Guid="33FF04CF-BBCE-4486-BED2-C4512CC3FAAD">
                 <File Id="fil53216D1158CAC2A725AF4E77F7DA2DDE" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\log4net.dll" />
             </Component>
-            <Component Id="cmp7FA903CEA9889BD654B2DAB4635610A4" Directory="Bin" Guid="C42C1739-E71B-4A93-ABEE-924F0EE2A7AC">
+            <Component Id="cmp7FA903CEA9889BD654B2DAB4635610A4" Directory="Bin" Guid="6B4CD8BC-4F41-4043-B88E-82A68723A6DD">
                 <File Id="filA0AE4734F4C6151F585D15E2DE650B8A" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\MIConvexHull.dll" />
             </Component>
-            <Component Id="cmpA753B91B4D11CF06686676307DA07D67" Directory="Bin" Guid="00A7DB39-DEE8-4C4F-871A-0D74E215FC96">
+            <Component Id="cmpA753B91B4D11CF06686676307DA07D67" Directory="Bin" Guid="B9BB9981-D53E-426E-B7C2-4B0E906F53FF">
                 <File Id="filE8CD01DA7945F10A4F7031F6B9E822F5" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\Microsoft.Bcl.AsyncInterfaces.dll" />
             </Component>
-            <Component Id="cmp3F271BA97BF79C9B5C8D2EA63BD48BA0" Directory="Bin" Guid="8A6D83EC-E47C-445D-BEF8-E2FAEC38A9EC">
-                <File Id="filC5A8ECC2914FAA1903480078B9BF5EBB" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\Microsoft.Bcl.AsyncInterfaces.dll.refresh" />
-            </Component>
-            <Component Id="cmpED5A4ACC7A7B82BE502528C52E0FBA62" Directory="Bin" Guid="3E6A3FC2-33E0-4F6F-93C2-7FD90D48C0EE">
+            <Component Id="cmpED5A4ACC7A7B82BE502528C52E0FBA62" Directory="Bin" Guid="87085701-0121-4CBA-88A6-3152D0B537EC">
                 <File Id="filB546C52BD322FE9C4A2A0F15C1B9ACCD" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
             </Component>
-            <Component Id="cmp88E7C499D2DB9B344B8B436D991C080C" Directory="Bin" Guid="D4C7DF20-4FE5-433D-87D9-15DF1CF18E2B">
-                <File Id="filED2FA1EEF6637F70F47157ECA5740304" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll.refresh" />
-            </Component>
-            <Component Id="cmpBD50004859623D4735EEA41FF983BE0D" Directory="Bin" Guid="4B3E4F65-0063-444F-AC5A-02B140D032C2">
+            <Component Id="cmpBD50004859623D4735EEA41FF983BE0D" Directory="Bin" Guid="CC097DE9-8EDA-4330-B037-265FEAD93964">
                 <File Id="filDAF5CFE0C5756300C2964835434FBCED" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\Newtonsoft.Json.dll" />
             </Component>
-            <Component Id="cmp93B8AAD5CCAAA98FFAD347A19E6C3475" Directory="Bin" Guid="6FEC115C-B22F-4D20-A581-BDB1E1E10341">
+            <Component Id="cmp93B8AAD5CCAAA98FFAD347A19E6C3475" Directory="Bin" Guid="41F9CAD6-822C-4535-9A2E-1DEA84E02699">
                 <File Id="fil2FE507B83B812AEF884414FEB99FA784" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\OfficePickers.dll" />
             </Component>
-            <Component Id="cmpF7DBB3DB90C231795A210FA29B9BDED6" Directory="Bin" Guid="98B44686-533C-4785-9B43-3C2CC7420547">
+            <Component Id="cmpF7DBB3DB90C231795A210FA29B9BDED6" Directory="Bin" Guid="3193EC81-BC0C-44B9-AA00-6545BD5429A1">
                 <File Id="filD41C721A8E2554B9F5A5C934F20CA9B0" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\Sharp3D.Boxologic.dll" />
             </Component>
-            <Component Id="cmp84BB5F6380BAC7A6AA707C764F5B9C97" Directory="Bin" Guid="E58C40D5-A743-4FFE-AB00-CFA321E86D7E">
+            <Component Id="cmp84BB5F6380BAC7A6AA707C764F5B9C97" Directory="Bin" Guid="24550C66-752F-4F30-BEEC-B66CF2EA4331">
                 <File Id="filD6F16025096C7EC5FA37321C27041CD2" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\Sharp3D.Math.dll" />
             </Component>
-            <Component Id="cmp8BF276CB484B0E1D3700226FB70DF47A" Directory="Bin" Guid="E850CC1E-2613-42F8-9186-62FED34437D0">
+            <Component Id="cmp8BF276CB484B0E1D3700226FB70DF47A" Directory="Bin" Guid="72E61BAE-4E92-483D-ABA5-2349FAA9843C">
                 <File Id="fil4B006E3FF9F9CDC5BC83A373A844FE22" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\Sharp3DBinPacking.dll" />
             </Component>
-            <Component Id="cmp59091B35C246031969F40956E53FFD0B" Directory="Bin" Guid="3DC43D73-55A9-43F7-A410-D4D74B8A2A10">
+            <Component Id="cmp59091B35C246031969F40956E53FFD0B" Directory="Bin" Guid="CC64DF39-B705-4A75-BD9D-FDA55EB3CF9B">
                 <File Id="filE93116E12CB21B1A38CE30C27BE97868" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\SharpGLTF.Core.dll" />
             </Component>
-            <Component Id="cmpC9C27193C22CDD7E3E75FB40CEC5DA20" Directory="Bin" Guid="C76EDA86-B1EA-491B-877F-E6D7D88E55FD">
-                <File Id="fil7372B50F7DF55B61AE6969CC8073A961" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\SharpGLTF.Core.dll.refresh" />
-            </Component>
-            <Component Id="cmp1296F5FB3DFCEB0D5B4D27F1E82B3918" Directory="Bin" Guid="5B88CE62-5229-44C9-A082-6E040D54632E">
+            <Component Id="cmp1296F5FB3DFCEB0D5B4D27F1E82B3918" Directory="Bin" Guid="99D6AB9C-4946-41F7-ACFB-7E1834E35B40">
                 <File Id="fil23F66EF18832E600A93F2F102C6CEFAD" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\SharpGLTF.Toolkit.dll" />
             </Component>
-            <Component Id="cmp676E60136552E09ED61E44D4B152363F" Directory="Bin" Guid="09E0D6CE-922A-4EE6-9B77-B0DCADD83340">
-                <File Id="fil9B5428C111355106D237D44A48EFECB5" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\SharpGLTF.Toolkit.dll.refresh" />
-            </Component>
-            <Component Id="cmpFA194DF41573A378B8180E4DCB0F2A45" Directory="Bin" Guid="8B28D02F-827C-4582-BD7A-4EDA72E81C6B">
+            <Component Id="cmpFA194DF41573A378B8180E4DCB0F2A45" Directory="Bin" Guid="BDACF8A2-A17B-4D58-8333-B69EABFCB372">
                 <File Id="fil23C1EFAAFFCD7415ECFA0785A1944094" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.Buffers.dll" />
             </Component>
-            <Component Id="cmp5B1324C9C051CA3E1B973FCB82A73E52" Directory="Bin" Guid="9B2FFEFF-6281-4704-AD81-77475ACAD6CF">
+            <Component Id="cmp5B1324C9C051CA3E1B973FCB82A73E52" Directory="Bin" Guid="515F222F-BAA3-43BE-85BB-31D63985E0ED">
                 <File Id="filABC17A98520B61E1C81C03E2874D19DA" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.Collections.Immutable.dll" />
             </Component>
-            <Component Id="cmp534C8E124A698D2600A92B4D46C851CD" Directory="Bin" Guid="CC3D02C8-5F06-48ED-A71D-A4B03BD4A437">
+            <Component Id="cmp534C8E124A698D2600A92B4D46C851CD" Directory="Bin" Guid="69A3CED7-D7D3-43E9-8736-21767CAA25DF">
                 <File Id="fil97BD56144F97C32BCC88C55229E82BE6" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.Memory.dll" />
             </Component>
-            <Component Id="cmpEDAFD68D648B033459CEAE920F07AB24" Directory="Bin" Guid="944393A5-2EBC-48B1-9B22-9E77055EBBEB">
-                <File Id="fil0CD3D2363A431DB33C08C469A97BAB67" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.Memory.dll.refresh" />
-            </Component>
-            <Component Id="cmp305B5867CCBC3CC60AABAAF05E527221" Directory="Bin" Guid="5078DDA2-094A-4A80-86BC-265E2C8D644D">
+            <Component Id="cmp305B5867CCBC3CC60AABAAF05E527221" Directory="Bin" Guid="34C5308A-ADB1-4347-8A34-1D328DE1499D">
                 <File Id="fil6CBC4BCBF41F99AED3D7AD5F5B2C73AE" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.Numerics.Vectors.dll" />
             </Component>
-            <Component Id="cmp794E46F27A08DBE41639C88DB2C6E32E" Directory="Bin" Guid="0E79B51A-B070-4DDE-9891-CAA5B1473D7B">
-                <File Id="fil57B50832A4F53A867B7BB3F1A2936A71" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.Numerics.Vectors.dll.refresh" />
-            </Component>
-            <Component Id="cmp3DE5167F7CFA41CB9D75724062EC54CE" Directory="Bin" Guid="D267E228-DE87-49EE-A781-0B703B2C11AA">
+            <Component Id="cmp3DE5167F7CFA41CB9D75724062EC54CE" Directory="Bin" Guid="18AF1969-58A7-41B9-8F91-905288E68CFF">
                 <File Id="fil09E0225ABC608E8904CCE1A9FB393B24" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.Runtime.CompilerServices.Unsafe.dll" />
             </Component>
-            <Component Id="cmp222AF91A4870EF274F9AA31B9A648199" Directory="Bin" Guid="DAC718F2-89EE-44A5-BFA4-1E00F5DC09A1">
+            <Component Id="cmp9D67EB723E001781ACC07269C6A1D4B2" Directory="Bin" Guid="C651DC4A-C9B1-4A16-B9F0-31D16F51A2E0">
+                <File Id="fil0DE3036FD24470EEFAC8818D5ABEBCB7" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.Runtime.dll" />
+            </Component>
+            <Component Id="cmp222AF91A4870EF274F9AA31B9A648199" Directory="Bin" Guid="D637ADA1-43C7-419D-802E-9BAF5E66B869">
                 <File Id="fil2B018499E391AF7DFF7AA773119F6F97" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.Text.Encodings.Web.dll" />
             </Component>
-            <Component Id="cmpD5FBB14F29E44F7F7ED62EB5BD221A58" Directory="Bin" Guid="695AA71F-6514-4C62-8D58-9328A99AD8A2">
-                <File Id="filBD19BBD7EB466190919BCB2F87A377DC" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.Text.Encodings.Web.dll.refresh" />
-            </Component>
-            <Component Id="cmp98C8D4470B057A78F4E179BFFCF0EC19" Directory="Bin" Guid="7A2A0CE2-0DF6-4B19-B85F-E31D56EF2ACC">
+            <Component Id="cmp98C8D4470B057A78F4E179BFFCF0EC19" Directory="Bin" Guid="99A83783-4B6A-4299-A0CE-9C1E9A750707">
                 <File Id="fil43DC48512BBA6393AD0F3C4F51C320FB" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.Text.Json.dll" />
             </Component>
-            <Component Id="cmp3B2C2726BEB07DEC8C45B45144CFCB39" Directory="Bin" Guid="D05D27BA-FB73-43BD-A41B-7FA1245EEAA0">
-                <File Id="fil6F009C8200EB71D20F83BAA763E8C191" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.Text.Json.dll.refresh" />
-            </Component>
-            <Component Id="cmpE72D58B22FE9090E61ACBCE128B51E2C" Directory="Bin" Guid="A82ADE7F-EFC3-48B0-A5E9-4FDCA9747C97">
+            <Component Id="cmpE72D58B22FE9090E61ACBCE128B51E2C" Directory="Bin" Guid="45D2506E-095B-4CA7-B3F7-5F67334C062E">
                 <File Id="filE4396342CFF3A9B0E2B42CF19CB366B2" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.Threading.Tasks.Extensions.dll" />
             </Component>
-            <Component Id="cmp6B05B521015D43EB62AE9C718EEE417B" Directory="Bin" Guid="74081CB0-A472-46E5-95DA-94DBE1AD28AD">
+            <Component Id="cmp6B05B521015D43EB62AE9C718EEE417B" Directory="Bin" Guid="8FD13F38-C9F4-4932-AACA-28868A9F5FCE">
                 <File Id="filD4C26C95C0DB77476B5EE445B914AB92" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.ValueTuple.dll" />
             </Component>
-            <Component Id="cmp80B77152C909D6C236807236F7C4E6B0" Directory="Bin" Guid="9C44C783-ED1B-4F25-B012-71EAFCCDE953">
-                <File Id="fil5BB78B65B001CCB932F8B6967576BCD2" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\System.ValueTuple.dll.refresh" />
-            </Component>
-            <Component Id="cmp56B5FD2AC91A9321D8364440DFB78D24" Directory="Bin" Guid="0568A275-9A91-4F86-81BB-3A6F1818BF52">
+            <Component Id="cmp56B5FD2AC91A9321D8364440DFB78D24" Directory="Bin" Guid="FE8E0A7C-57B5-4027-89C6-E64E9625964E">
                 <File Id="filCFDDDC5DF37CA791B05BDE3F8B29F2DE" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\treeDiM.Basics.dll" />
             </Component>
-            <Component Id="cmp7A726A41FE490FD1DB24ADB922A2F7F5" Directory="Bin" Guid="EF0A8154-9D4A-48F8-98D5-559B199CD5F9">
+            <Component Id="cmp7A726A41FE490FD1DB24ADB922A2F7F5" Directory="Bin" Guid="3FE10B98-7B0E-4FDE-B12E-918F8124AFA6">
                 <File Id="filB6BCFE6CF7E39F7254E8F2847BCBACE2" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\treeDiM.StackBuilder.Basics.dll" />
             </Component>
-            <Component Id="cmpB5748DB170CF33732C3F08AE87AB1FDE" Directory="Bin" Guid="A4274A36-595B-4B98-A715-66D3C4740DE5">
+            <Component Id="cmpB5748DB170CF33732C3F08AE87AB1FDE" Directory="Bin" Guid="7D5F5FB2-7D18-495D-85CC-44A7C1A1070B">
                 <File Id="fil12CDB3AEF441E1C73ABFEC95843F324B" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\treeDiM.StackBuilder.Engine.dll" />
             </Component>
-            <Component Id="cmpAB03CB15087A9BFB59753D5ADEF53708" Directory="Bin" Guid="B6C9C5C7-C159-4F82-8FC2-36F26054DF51">
+            <Component Id="cmpAB03CB15087A9BFB59753D5ADEF53708" Directory="Bin" Guid="AE5FE15E-6084-499F-B4E9-563D2C9253D8">
                 <File Id="fil09E3F698645D3A9C1B9464202316EF06" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\treeDiM.StackBuilder.Exporters.dll" />
             </Component>
-            <Component Id="cmpBFF4558AFE987E56C73FECF9CDBBD38B" Directory="Bin" Guid="CCEBA670-80B6-4F27-A9C0-204F397AB8F5">
+            <Component Id="cmpBFF4558AFE987E56C73FECF9CDBBD38B" Directory="Bin" Guid="8A519770-5D16-4B3D-9867-6953069673B3">
                 <File Id="fil9FD2C3909106DCF01889C88A03BFE266" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\treeDiM.StackBuilder.Graphics.dll" />
             </Component>
-            <Component Id="cmp5DE8510A0449039BF1102E2EE37A5B55" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="266C3200-D0A0-4D92-BD37-D39CEE015812">
+            <Component Id="cmp5DE8510A0449039BF1102E2EE37A5B55" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="15C8AB74-9C4C-4415-B991-F4411CCF3DD9">
                 <File Id="fil0232392E35D44F59CA4116435B9B7F96" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\csc.exe" />
             </Component>
-            <Component Id="cmp974B1286CC59DE47D210DB1CAF1D136C" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="7E0B341D-96C8-43E5-9ACF-E3CBAF36232C">
+            <Component Id="cmp974B1286CC59DE47D210DB1CAF1D136C" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="EC2A9AB2-5129-4CCE-B87A-10158D055645">
                 <File Id="filE1710DB55D108C464DF3F07DA7C29B97" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\csc.exe.config" />
             </Component>
-            <Component Id="cmp6D29A3D82A61D17842B77043D75B1681" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="84AE6AF9-EACE-4FDE-B155-9C96CE5813F0">
+            <Component Id="cmp6D29A3D82A61D17842B77043D75B1681" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="82459CF2-53E9-4765-8CD1-AEC57BF39635">
                 <File Id="filEE35424F5E5C411C3A869E1C5CCEA72E" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\csc.exe.refresh" />
             </Component>
-            <Component Id="cmp4F897AF041425F434D67BC3E5707FFA0" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="3307B1DB-40C0-479B-BFB2-0A216AD2E73E">
+            <Component Id="cmp4F897AF041425F434D67BC3E5707FFA0" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="ACF2A2FF-4350-4749-8806-A170E00B367C">
                 <File Id="fil4BF32E225F630CF43120B02315763478" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\csc.rsp" />
             </Component>
-            <Component Id="cmpE5150200C12FC6A295AFFC9BEAF370BB" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="246C32A5-3421-4539-A87F-2582B4124BF7">
+            <Component Id="cmpE5150200C12FC6A295AFFC9BEAF370BB" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="BD00FDD2-2D8D-44D5-980D-5AA420EF19A4">
                 <File Id="fil54EA8AA549B6E80D56705EDD995C7F0D" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\csi.exe" />
             </Component>
-            <Component Id="cmp0D259F9133EAD0883B55C0969F65ACDC" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="D46392F0-41B1-48D0-9F6D-B8859DE9A6E6">
+            <Component Id="cmp0D259F9133EAD0883B55C0969F65ACDC" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="4220622E-8F93-48DE-9B7D-DA906A015514">
                 <File Id="fil46FDB4FB08A9B7B2C7B80A5AC393F058" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\csi.exe.config" />
             </Component>
-            <Component Id="cmp0EA85618E7CC023725CAE9D140B804BD" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="8B0D6778-236A-456C-B3C2-555C90A36352">
+            <Component Id="cmp0EA85618E7CC023725CAE9D140B804BD" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="3C5F34A4-044A-4253-9E75-6B2BF4A66236">
                 <File Id="fil561C4193FE7984C350515ED479B7A219" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\csi.exe.refresh" />
             </Component>
-            <Component Id="cmp0D40D6ADFC7B2E03EA32E45A96A6FEF8" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="AD111F09-3A3F-4BAA-B5B8-658943AD4636">
+            <Component Id="cmp0D40D6ADFC7B2E03EA32E45A96A6FEF8" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="A300085D-42E7-4659-A200-514B28558E14">
                 <File Id="fil6222F8BE233586F60FD6FE6A2DBE7CB8" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\csi.rsp" />
             </Component>
-            <Component Id="cmp78D5053031F3F2360CB7668EC149CBC0" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="9C5244BD-56A2-4032-8FE6-E35D4F861893">
+            <Component Id="cmp78D5053031F3F2360CB7668EC149CBC0" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="360EFE8C-889D-4FAB-9F64-24CE7727163D">
                 <File Id="fil58F8D7EBC23953E39DF2DCA79AD3477D" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
             </Component>
-            <Component Id="cmp673B1406E427221788D6283217AB4A08" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="90D6EA05-45A3-41C4-92A1-A0F7F77C0766">
+            <Component Id="cmp673B1406E427221788D6283217AB4A08" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="192BC88F-DC4C-407B-BAC8-4CBADE10DCD0">
                 <File Id="fil5D9BFF1BA6D3BA7016F6D2EE9AA908A4" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll.refresh" />
             </Component>
-            <Component Id="cmpF9599F8ED4EC294A1412D5625644B6BC" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="9818BD01-E553-4B1A-9F24-3F809370B62A">
+            <Component Id="cmpF9599F8ED4EC294A1412D5625644B6BC" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="F578852B-103E-4DA5-B2C4-945D34FF1ACD">
                 <File Id="fil2D4D5C5EB1A3DD65E37576C0EC5B0E06" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
             </Component>
-            <Component Id="cmp7CE99DAA18401BEF33E7CF8EBC1F032F" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="4E0D1C3D-4202-4F0D-B571-0F603164F086">
+            <Component Id="cmp7CE99DAA18401BEF33E7CF8EBC1F032F" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="D2F3A026-58C5-422B-83C8-E5951325BA8D">
                 <File Id="filA3623E5D93D7A8CFBD264C58454AC4A7" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.CodeAnalysis.CSharp.dll.refresh" />
             </Component>
-            <Component Id="cmpC8EEE52C68839CA2156982D37BF178B5" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="C083B23C-803F-4247-950E-33C8B3A35C63">
+            <Component Id="cmpC8EEE52C68839CA2156982D37BF178B5" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="9BD14AE9-F84C-42DB-86B1-E11F88081576">
                 <File Id="fil0A457A99DD018965B59928B803BAF3D6" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
             </Component>
-            <Component Id="cmp78612588F8119789FCC1968779B0E16B" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="F38C39BF-5C31-4460-A78E-9B6DC88A3C78">
+            <Component Id="cmp78612588F8119789FCC1968779B0E16B" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="41CF7F73-BCAB-41BF-A2AD-FF15E220819A">
                 <File Id="fil699620C0C8B2C395505937301EE26847" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll.refresh" />
             </Component>
-            <Component Id="cmpD1FCFF80F256BECBA38909A6F7D01310" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="DCDF8D02-A400-46CB-A3C6-C20ACC41A658">
+            <Component Id="cmpD1FCFF80F256BECBA38909A6F7D01310" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="4674C066-E602-484C-AA16-DC2216DBAAC1">
                 <File Id="filB289616F0B4FE70B4A2B27B1A163CECE" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.CodeAnalysis.dll" />
             </Component>
-            <Component Id="cmp8DF4C1B2C70712DAF63D8FF1DB82C6E1" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="CA35847E-7C1D-4498-ABC9-FF64115431B1">
+            <Component Id="cmp8DF4C1B2C70712DAF63D8FF1DB82C6E1" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="E5D18E13-95C9-4B1B-B0B5-185FAFA53E62">
                 <File Id="fil65EDF632787B21B4AF8655ADFBBD3C70" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.CodeAnalysis.dll.refresh" />
             </Component>
-            <Component Id="cmpD22C1EC3E0D40A77DAAA2F3E4DC78A6C" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="48587089-B650-49D5-878B-FDC66AE055C5">
+            <Component Id="cmpD22C1EC3E0D40A77DAAA2F3E4DC78A6C" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="5C16EEB8-EA4E-4458-BE01-6EE8D7C97065">
                 <File Id="fil44AE2FBA339C549BD4D799D6A89559FB" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
             </Component>
-            <Component Id="cmpA4A243D856D4F70FCB32DCF3F9BE7E87" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="C000B3B5-1F8C-4D51-9AC0-3BFEC470FCC1">
+            <Component Id="cmpA4A243D856D4F70FCB32DCF3F9BE7E87" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="AA272D8A-6E0D-4F74-88B1-DDA205B5E70C">
                 <File Id="filBCBC89E2D3C03B2B1B6A503CAF1D1589" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.CodeAnalysis.Scripting.dll.refresh" />
             </Component>
-            <Component Id="cmp909CDFFCE9D245EEAC0841A18942B37F" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="4AAABC1E-B1F2-4F10-A9B6-F3CB8BF447FC">
+            <Component Id="cmp909CDFFCE9D245EEAC0841A18942B37F" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="883EAACD-D6AF-4D01-BE0B-0023CCFA225A">
                 <File Id="fil1E553F1A8E222379124DD62FA29952C8" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
             </Component>
-            <Component Id="cmpB6837A4ED4DBDF2162A497BD5BB412AA" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="A1D96ADF-7B68-4B8D-A045-63D747E1DB25">
+            <Component Id="cmpB6837A4ED4DBDF2162A497BD5BB412AA" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="68EAFC0F-1129-4CCE-95AE-CB2D375A7C73">
                 <File Id="filB9DB64746618D77A7B29DAF71DCDC7A2" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll.refresh" />
             </Component>
-            <Component Id="cmpC846C4FDF29F5FA46016B0B48BB808AA" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="5FF41C25-5738-43DF-88DD-947AFDD403FD">
+            <Component Id="cmpC846C4FDF29F5FA46016B0B48BB808AA" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="BA96DD84-53CD-4BF2-B874-6406F7AFB93F">
                 <File Id="fil019544DDF087C2ABB0E310D314D13D01" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.CSharp.Core.targets" />
             </Component>
-            <Component Id="cmpEE0052C5088149B445C4D2510188019B" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="B73E508D-BB45-4DE0-B407-ED03B587631F">
+            <Component Id="cmpEE0052C5088149B445C4D2510188019B" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="F304F673-E0CE-4B91-AE4D-FB27716F69F1">
                 <File Id="filC64136135CB962FC888C7874278E3E07" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
             </Component>
-            <Component Id="cmp3B657E299B5B242C6791287904ECF593" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="2EF79649-729B-495A-90F3-446C87FA6AB2">
+            <Component Id="cmp3B657E299B5B242C6791287904ECF593" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="28B5727C-8570-4832-A1E6-2F1C7E228D1B">
                 <File Id="filDFDDE638E35DD6809CF05E7F57426240" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.DiaSymReader.Native.amd64.dll.refresh" />
             </Component>
-            <Component Id="cmp81A659D4079FFEFF63B93A7CE4303996" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="858FDBFA-0634-4838-A99B-E11926336168">
+            <Component Id="cmp81A659D4079FFEFF63B93A7CE4303996" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="95529470-2107-4524-B79B-9AADE99A43D6">
                 <File Id="filA2CE113C4D66A717A2E7384A9860C199" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
             </Component>
-            <Component Id="cmpF14F7BC7FC4C858B098F50C418668F79" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="A0986A0C-30E7-4599-8069-10AFEE9A80A0">
+            <Component Id="cmpF14F7BC7FC4C858B098F50C418668F79" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="1F3A34AB-275C-43A9-99A8-1AC4757EF2B6">
                 <File Id="fil201F03F991BB6CDE22C22132FA105710" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.DiaSymReader.Native.x86.dll.refresh" />
             </Component>
-            <Component Id="cmp84795B9F704D78B0F3C9F63031267454" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="2F353FF1-3B25-4A2C-B480-C4EC24B64F42">
+            <Component Id="cmp84795B9F704D78B0F3C9F63031267454" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="C5F4BA9E-7A3F-4CCA-BCCF-EF9E3AC8DF55">
                 <File Id="fil6A6BE20236936F128003C3477F1B44DB" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.Managed.Core.targets" />
             </Component>
-            <Component Id="cmp46DCCACE0B1E5FA049E73C74CB45D5EE" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="C45DAF03-A2E9-4A9C-A7FF-F7EB23520750">
+            <Component Id="cmp46DCCACE0B1E5FA049E73C74CB45D5EE" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="0CB2AD78-64C5-46B7-8A77-09C06855EA7F">
                 <File Id="filE08720DBDF951DD49D9E31521FB441B3" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.VisualBasic.Core.targets" />
             </Component>
-            <Component Id="cmp7E123C355D8AE84142A284975D30190E" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="93BD3477-1C00-49B6-9AC8-3DA7B64F58EE">
+            <Component Id="cmp7E123C355D8AE84142A284975D30190E" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="71CDDE2C-ECC1-4BF1-B733-E6DFCC9996EF">
                 <File Id="filD99C2ADF8CE365255B69CF79B225F3D3" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.Win32.Primitives.dll" />
             </Component>
-            <Component Id="cmp32A60FC89142256429FB2DA7893E1FB9" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="D02339C2-E162-4DD2-B102-BF8F81A4755D">
+            <Component Id="cmp32A60FC89142256429FB2DA7893E1FB9" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="96FC40AD-6E69-4B46-A04E-1DD7F448F317">
                 <File Id="filCC4503CCCC6F94A47D789E240ABBD89E" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\Microsoft.Win32.Primitives.dll.refresh" />
             </Component>
-            <Component Id="cmp4E2EBE10493F8C7DA651457E4777DA4F" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="9591F802-9152-4096-849C-87459DAC006E">
+            <Component Id="cmp4E2EBE10493F8C7DA651457E4777DA4F" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="F0D601A5-5476-4836-AB1F-BB59492F0928">
                 <File Id="filE971670379F776619242AC66B4078412" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.AppContext.dll" />
             </Component>
-            <Component Id="cmpBF9060EF0D44B457B28A6F61A5AC8AF5" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="26EB1FDB-742F-4A1E-BF18-B26803B8DAEC">
+            <Component Id="cmpBF9060EF0D44B457B28A6F61A5AC8AF5" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="4B33FB3E-8C32-4E72-89DE-760E8339D7C0">
                 <File Id="fil3731756B66069533489E3187AD49F9C6" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.AppContext.dll.refresh" />
             </Component>
-            <Component Id="cmp56C5F86D788F36A1275887B9ADB7AEE5" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="50BBAB0A-265B-4376-9313-48CB57196157">
+            <Component Id="cmp56C5F86D788F36A1275887B9ADB7AEE5" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="03434B15-BB9F-432F-A91C-03DA39D5684A">
                 <File Id="filAD20091BA47ED98D3F51A7A1AC771DD5" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Collections.Immutable.dll" />
             </Component>
-            <Component Id="cmp67B5CC9168855289FD44D455649C75DD" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="F8194E6E-543B-4EAD-904D-A929A61F3BE7">
+            <Component Id="cmp67B5CC9168855289FD44D455649C75DD" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="709B424B-D279-4890-9E13-C567852B3F63">
                 <File Id="fil4A8E64FAA4764087C71CD99272FB5F04" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Collections.Immutable.dll.refresh" />
             </Component>
-            <Component Id="cmpE66194DB9FD684C83E39F04A239413D5" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="A88E348E-67FA-4040-A584-7648B967BCC1">
+            <Component Id="cmpE66194DB9FD684C83E39F04A239413D5" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="B5853496-EA29-434E-A4C5-F0B53003B311">
                 <File Id="fil53A304B53F83D28770C148FC0453A01C" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Console.dll" />
             </Component>
-            <Component Id="cmp17D89BF13B17BD392E039208F297FC42" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="DF38EB61-6FB8-426B-A262-640EBEF9EA75">
+            <Component Id="cmp17D89BF13B17BD392E039208F297FC42" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="845123EB-9B53-4D5D-820F-25443B1F017B">
                 <File Id="fil785523DDC761346244AF9378FA112ED2" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Console.dll.refresh" />
             </Component>
-            <Component Id="cmpDDE4592822ACB6DA0B8A081994B6943E" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="A0D8BB8B-D8AF-4968-8004-6BC46D923547">
+            <Component Id="cmpDDE4592822ACB6DA0B8A081994B6943E" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="C5E3A3AD-49B6-4528-B4F7-4A9A16159799">
                 <File Id="filFBD8F0C8CAA03D3E69088C73A501F2DC" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Diagnostics.DiagnosticSource.dll" />
             </Component>
-            <Component Id="cmpF6C2DDD6683C96520564DCCBB0D1D841" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="6B6AE1A1-1EC6-4E22-9C7F-CD3B6DB9479B">
+            <Component Id="cmpF6C2DDD6683C96520564DCCBB0D1D841" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="CBB9A2D4-26D1-40B0-8AC6-DD0D8ED2E892">
                 <File Id="filDDB2EB43DCDECF06A5F6F761CDAE50A6" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Diagnostics.DiagnosticSource.dll.refresh" />
             </Component>
-            <Component Id="cmp7FCA58F7D08C59D047FE70B6A74CAA40" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="B0F6F518-E758-4FD0-8F88-BD2B520E31EE">
+            <Component Id="cmp7FCA58F7D08C59D047FE70B6A74CAA40" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="4AE38BBB-D200-4EC8-AE04-6BAFE1009A90">
                 <File Id="fil61818B822FBBE68E99278D03A4633756" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Diagnostics.FileVersionInfo.dll" />
             </Component>
-            <Component Id="cmpF7B6A0ED2D657172706A8BA71EF17D08" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="E07DD64B-1586-4B04-8A71-035B3D910654">
+            <Component Id="cmpF7B6A0ED2D657172706A8BA71EF17D08" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="BDCDD468-EAB5-4E73-A023-70B2F05D7B6C">
                 <File Id="filE93094543667BD4114C4DC627EFE68ED" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Diagnostics.FileVersionInfo.dll.refresh" />
             </Component>
-            <Component Id="cmpECCFEE3A7DD0EC8B307F00E9ECD4F98A" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="FDE1FE6A-70A7-4A92-8669-6F8CE959BB94">
+            <Component Id="cmpECCFEE3A7DD0EC8B307F00E9ECD4F98A" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="4092F3B2-07A2-4F7A-B903-D99AD5C9A16F">
                 <File Id="filA50BAF6BE25167475CE28219D1B5919A" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Diagnostics.StackTrace.dll" />
             </Component>
-            <Component Id="cmpF376D703B0FFBD4CB1C30EA65A031D9B" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="F8B72D4A-0AD4-4E7D-8120-B2A2AB685429">
+            <Component Id="cmpF376D703B0FFBD4CB1C30EA65A031D9B" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="F4BFD8C0-CFAA-495E-8A93-8B824B59FAA7">
                 <File Id="fil3D2E75C49C8F03C72CD8413AD077C9FC" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Diagnostics.StackTrace.dll.refresh" />
             </Component>
-            <Component Id="cmp6704BCC3D497BE65B707E01463462E31" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="1D9068B1-C2D2-4C65-B4B7-D5E2EACF3736">
+            <Component Id="cmp6704BCC3D497BE65B707E01463462E31" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="8B30138A-AEBF-4982-9E61-9AAE79867496">
                 <File Id="fil4F6E1B8E04A09712BE65440278BD318E" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Globalization.Calendars.dll" />
             </Component>
-            <Component Id="cmpD246B9606C58C51C9400E8EF3B0D3C05" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="C3985B92-D60B-49C3-AB6D-C6A0964D4B1B">
+            <Component Id="cmpD246B9606C58C51C9400E8EF3B0D3C05" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="28686401-A4B7-4AB6-931C-1DFA8A47C4B4">
                 <File Id="filD771FC33DB652E6D8C7D68813E541EE9" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Globalization.Calendars.dll.refresh" />
             </Component>
-            <Component Id="cmpD2E85DB5F54C06280081A1989D26202D" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="20EFFE2B-E0B3-4959-A534-1F2D4AB54E51">
+            <Component Id="cmpD2E85DB5F54C06280081A1989D26202D" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="C2307739-27EC-45A9-95D3-53E3AAE9A0C5">
                 <File Id="fil780627B7AC64288091C87C90B1069165" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.IO.Compression.dll" />
             </Component>
-            <Component Id="cmpEFDE8407B044D1DDC6F9FC0AF47CC5CF" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="660965F4-FB4B-498B-B16D-AA5BCEEBF3E7">
+            <Component Id="cmpEFDE8407B044D1DDC6F9FC0AF47CC5CF" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="7DA83348-9AC7-4974-951B-AC5E95DBAAD5">
                 <File Id="fil7BE6AC9B4EC27E5003D21FAB1AF03EF9" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.IO.Compression.dll.refresh" />
             </Component>
-            <Component Id="cmp91F6C788A2710B08B1204CF15B132602" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="30219F4A-3941-4090-85D4-50F7F9B5E49E">
+            <Component Id="cmp91F6C788A2710B08B1204CF15B132602" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="971D323F-5F29-4D34-BFA4-D14C6EABCA9B">
                 <File Id="fil6F61CA4ACC5F23A7EDB61F040A2D4487" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.IO.Compression.ZipFile.dll" />
             </Component>
-            <Component Id="cmp744EDC8B02BA42BBCE84CA29654687AE" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="9C703407-5C2B-4C97-9EE6-F86B44456B9B">
+            <Component Id="cmp744EDC8B02BA42BBCE84CA29654687AE" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="E1E0B6AA-8F66-463A-9778-6D450B049C6F">
                 <File Id="filAAF54D41A195EA9FFC2CC9A8C006E679" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.IO.Compression.ZipFile.dll.refresh" />
             </Component>
-            <Component Id="cmp133AD8073E8416B933D11FD017E2D569" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="26A10AD9-7D05-4C90-BB91-A80B2B73DE27">
+            <Component Id="cmp133AD8073E8416B933D11FD017E2D569" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="BDD22EB5-B30B-4B9C-B8F9-F28731783F7A">
                 <File Id="filF40935E610C5ABF4896010C2BA1E4121" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.IO.FileSystem.dll" />
             </Component>
-            <Component Id="cmpF10B5B49BBA1AED8F327206034D4105E" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="DD23FEA4-672A-4B7E-8240-A32AA13A0308">
+            <Component Id="cmpF10B5B49BBA1AED8F327206034D4105E" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="99131FBF-369B-4DAF-B41D-3B70B421C6B4">
                 <File Id="filB93A45D114AD84F646C5945498E5FFF2" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.IO.FileSystem.dll.refresh" />
             </Component>
-            <Component Id="cmp56B65BBCF3639C1B599CB79A9112DC47" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="61BFA651-B170-4519-8A42-DB4076F8D985">
+            <Component Id="cmp56B65BBCF3639C1B599CB79A9112DC47" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="0B523906-CEBC-4F8D-980F-224F2B851837">
                 <File Id="fil49AF54D5088BE47E4FD201B6C07E86BB" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.IO.FileSystem.Primitives.dll" />
             </Component>
-            <Component Id="cmp6BA6E370FDEA3001CAFF80340B87E7DF" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="8D92922D-29B0-43FA-B3D4-B38F782409E4">
+            <Component Id="cmp6BA6E370FDEA3001CAFF80340B87E7DF" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="79F1B765-7C26-4F56-B3FA-68741FADB7FE">
                 <File Id="filD08A26E737DDAB8D4A817750C8BACB7E" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.IO.FileSystem.Primitives.dll.refresh" />
             </Component>
-            <Component Id="cmp48EFA6743C3FFD8A3BC28951EBF23ED0" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="3D3CC498-E9D2-4621-9853-CAB556BE474F">
+            <Component Id="cmp48EFA6743C3FFD8A3BC28951EBF23ED0" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="06C4DF49-C379-46CD-BEC0-48A8A66F68B3">
                 <File Id="fil7389B5C0FF5B270A6A02E026F3220B3E" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Net.Http.dll" />
             </Component>
-            <Component Id="cmp916EC98A5A6203E3ACBC4EEB49066740" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="48245B45-A927-4CC1-AA83-4772E6981F01">
+            <Component Id="cmp916EC98A5A6203E3ACBC4EEB49066740" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="57A189EF-EAEC-403C-A843-613A1F225331">
                 <File Id="filCFD56DFAF369CC6E1F58EA582CCB9783" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Net.Http.dll.refresh" />
             </Component>
-            <Component Id="cmpD1699F7FDFBA000CA04AB2008125E9A5" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="035C3673-F09C-43C7-9A25-DE8713080BDD">
+            <Component Id="cmpD1699F7FDFBA000CA04AB2008125E9A5" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="911C8B51-9800-48C7-911C-ED1A9563B0CD">
                 <File Id="fil9750298DF4B9820BCA45C7875A76A351" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Net.Sockets.dll" />
             </Component>
-            <Component Id="cmp1A261278EE5A4711F46893D2078E39DD" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="A81AD636-DB2B-4BAE-BBC8-2E44E75A8E86">
+            <Component Id="cmp1A261278EE5A4711F46893D2078E39DD" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="1A442831-DF59-48DF-BC95-806300241CE0">
                 <File Id="filE07872702EBDF596A2402379314DB1BF" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Net.Sockets.dll.refresh" />
             </Component>
-            <Component Id="cmp87FEE6FF33C2438454023AB1D68BC6C1" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="1F78F9D2-1793-423C-A153-11149EFAA076">
+            <Component Id="cmp87FEE6FF33C2438454023AB1D68BC6C1" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="7AC0B782-8D89-47EE-ACFB-F536B4DF1CBB">
                 <File Id="fil8B6672FFC5FC39FD4EE0EB9CF34B9405" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Reflection.Metadata.dll" />
             </Component>
-            <Component Id="cmpC039E0FBAE1D9A1BD51891C2C8F32789" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="8EC85E10-0392-4C1F-9999-7E0C64BF9E4B">
+            <Component Id="cmpC039E0FBAE1D9A1BD51891C2C8F32789" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="659F9A96-B670-4CF6-AFED-E23FB06E674E">
                 <File Id="filF3E990647B04448F9B195979DDE41F8A" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Reflection.Metadata.dll.refresh" />
             </Component>
-            <Component Id="cmp9D65DE2AE92377CBE511F47F5853749D" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="4DB3EF88-2491-4964-9D5B-7D440194F7C4">
+            <Component Id="cmp9D65DE2AE92377CBE511F47F5853749D" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="14E19A8A-C96B-420B-98C5-E02C1A1C8EF3">
                 <File Id="fil69D0D2C558920C747F6FD648B2FC8494" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll" />
             </Component>
-            <Component Id="cmp4F956F267F200383381D43ECC1483B07" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="02FFACC5-2285-444B-88C2-C25309F9D371">
+            <Component Id="cmp4F956F267F200383381D43ECC1483B07" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="D5327E06-559F-45A8-A303-71F89F30DE1F">
                 <File Id="filFA5316283DBDBB9F6FB5E39573BB2511" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll.refresh" />
             </Component>
-            <Component Id="cmpBC4806A496DA4937D6840B10AAB06589" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="8580FE99-7C1A-4F42-AE5A-AE5A96A3BCF1">
+            <Component Id="cmpBC4806A496DA4937D6840B10AAB06589" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="3A842589-4224-448B-846E-9BED6B9308C1">
                 <File Id="fil2CB1AFCB302C0AFF5EACB17BCC57684B" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Security.Cryptography.Algorithms.dll" />
             </Component>
-            <Component Id="cmp9E2F9E0D573403DCCE9979C1763BD82B" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="55DCB143-D8CF-4796-8655-87C16FBB4878">
+            <Component Id="cmp9E2F9E0D573403DCCE9979C1763BD82B" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="AF57A6E9-92B9-4B0D-9ADD-AD542847A771">
                 <File Id="fil030CE2C59E2FF571043152F22AD6B743" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Security.Cryptography.Algorithms.dll.refresh" />
             </Component>
-            <Component Id="cmpDBDDB8081BEBC551A973D4A69FAA57F4" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="B34AC6AB-2E0F-41ED-BAA0-4215ECEBE00B">
+            <Component Id="cmpDBDDB8081BEBC551A973D4A69FAA57F4" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="58CB4FEA-7EFA-4820-BB46-3AD985354FCD">
                 <File Id="fil5630542F4BF5BD18E59EE2F69061232A" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Security.Cryptography.Encoding.dll" />
             </Component>
-            <Component Id="cmpE785120BBC2E2194281D64023E1B2857" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="99CB9985-FFB1-45B4-AFA6-F1A94CDC5C8F">
+            <Component Id="cmpE785120BBC2E2194281D64023E1B2857" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="A4CF507E-591B-44AB-82D4-6499E395F381">
                 <File Id="fil95A949CE31284A824B15BFF65EE177A7" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Security.Cryptography.Encoding.dll.refresh" />
             </Component>
-            <Component Id="cmpBF51728349E10679C25920C54D65614C" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="9342B2F6-2A36-44AB-93E7-82F5B4D42AF0">
+            <Component Id="cmpBF51728349E10679C25920C54D65614C" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="7103B3CF-D1B6-48E9-AD48-29D3990AC2E6">
                 <File Id="filABD23E920EF8D316849252C3C6A56251" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Security.Cryptography.Primitives.dll" />
             </Component>
-            <Component Id="cmp98736137BC19AECB620C3169EA4BE457" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="9EDE0412-3999-4DD9-9E43-B919B271A82C">
+            <Component Id="cmp98736137BC19AECB620C3169EA4BE457" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="E9E35316-C798-42EC-8DF9-E172310342BF">
                 <File Id="filB09BA63AFDA24E8092C9EBE601DE78FE" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Security.Cryptography.Primitives.dll.refresh" />
             </Component>
-            <Component Id="cmpC1C1723C636B3C5E36EBB883631CC612" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="1D8F8889-7D51-4C6F-862A-5B18339C1691">
+            <Component Id="cmpC1C1723C636B3C5E36EBB883631CC612" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="9E261570-70C0-48F1-84BA-CCC343491968">
                 <File Id="fil3D404B54F8FADAC4A746B9F3762CC45A" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Security.Cryptography.X509Certificates.dll" />
             </Component>
-            <Component Id="cmpF4A737F13C60D2AED4E6A2910192246D" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="B01D0D42-2E22-49D3-B85F-1AEE97F33B1F">
+            <Component Id="cmpF4A737F13C60D2AED4E6A2910192246D" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="13822225-D43D-4AAA-AF3B-2BE9BC3255AE">
                 <File Id="fil0C984597877F33372A177EB55685986E" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Security.Cryptography.X509Certificates.dll.refresh" />
             </Component>
-            <Component Id="cmpD618F37BEE6B793BBCA541D2396B9F92" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="C4491107-3CA9-4625-AAFE-442178F4037B">
+            <Component Id="cmpD618F37BEE6B793BBCA541D2396B9F92" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="D09C50B0-C958-486A-B2C8-4D7AD1CB6FE1">
                 <File Id="filE039A23F88CD08D27D8038079B13929C" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Text.Encoding.CodePages.dll" />
             </Component>
-            <Component Id="cmp26BD22717A7EC76FCD7F74A3216DBB9F" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="6990BEC8-4A92-46F6-98CE-BF9484E89C1B">
+            <Component Id="cmp26BD22717A7EC76FCD7F74A3216DBB9F" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="43160AEF-F8A9-4C50-8B18-AE622DAD8996">
                 <File Id="filD5530C119CC4B704C7C0A5B6B2DFB2AB" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Text.Encoding.CodePages.dll.refresh" />
             </Component>
-            <Component Id="cmpE200A26C2B5E36F8203D577EC0F72C2D" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="F5A01AB3-0789-40DD-813D-889D6F6084D3">
+            <Component Id="cmpE200A26C2B5E36F8203D577EC0F72C2D" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="69EE1253-AD81-44A5-A352-2E1C00623283">
                 <File Id="filA4899110528A6F51C85A5A74615F66C8" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Threading.Tasks.Extensions.dll" />
             </Component>
-            <Component Id="cmpCDAF2D88C04DF746E7326D59B04AD6FC" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="7974959F-D878-4ADB-BA90-1CD0E311C9F3">
+            <Component Id="cmpCDAF2D88C04DF746E7326D59B04AD6FC" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="B02A9803-9580-4252-B313-5709D2970C1A">
                 <File Id="fil790971F8C2789DA51D6AB6412E8F6359" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Threading.Tasks.Extensions.dll.refresh" />
             </Component>
-            <Component Id="cmp7489BAE8BCF00FFE4FF5783B7468FCA4" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="9CD6661C-3DB9-4F15-8DDA-C8C763DE5829">
+            <Component Id="cmp7489BAE8BCF00FFE4FF5783B7468FCA4" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="0D59F36F-7A96-4AEF-905F-14CEDBA5D044">
                 <File Id="fil117B74AA0A002E1EBA81E2EDADB624EE" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.ValueTuple.dll" />
             </Component>
-            <Component Id="cmpED8F7B6F18C943B3879537105EBABC08" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="C4876DAE-4F42-4F10-9E01-581457817F26">
+            <Component Id="cmpED8F7B6F18C943B3879537105EBABC08" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="4E964E78-FEAC-4105-B423-F56FD9F85CBD">
                 <File Id="filF99A5E6F844D8F43165D3B48D17EB518" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.ValueTuple.dll.refresh" />
             </Component>
-            <Component Id="cmpD15948F77829D9CA903AA53AA8840D43" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="83DE97A5-E1F1-4AAC-A0D3-9A169558C194">
+            <Component Id="cmpD15948F77829D9CA903AA53AA8840D43" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="6E6AD5F0-CCA7-4EB8-B66F-F6556625C9AD">
                 <File Id="fil9BA61F368DCDF99DB1A36C6E642B6374" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Xml.ReaderWriter.dll" />
             </Component>
-            <Component Id="cmp731731C0B9E1A28C8573A0C97512DF88" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="B8C21834-7BA0-4D37-AD35-F3FDA950119B">
+            <Component Id="cmp731731C0B9E1A28C8573A0C97512DF88" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="11F40292-C3F1-4933-9B22-A54BC5672E68">
                 <File Id="fil9F2E3F08892DFB2EF479980B09EA2C34" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Xml.ReaderWriter.dll.refresh" />
             </Component>
-            <Component Id="cmpF2F6FC9DC55DA4BD1FEA4C96F061ECB2" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="C53B623B-7B07-45D5-B472-C217058C9D36">
+            <Component Id="cmpF2F6FC9DC55DA4BD1FEA4C96F061ECB2" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="41C4E854-D0F7-4E91-AC07-B2DC81D87FFD">
                 <File Id="fil28F75886D7BF75412C8F0CF13A74405F" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Xml.XmlDocument.dll" />
             </Component>
-            <Component Id="cmpE6F00EE54751780C4CF2788CB0D0E782" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="5C85AA7D-A62B-442B-AB92-BE68D36B62F0">
+            <Component Id="cmpE6F00EE54751780C4CF2788CB0D0E782" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="49B17084-3663-4363-8D81-4C5AFD45CC23">
                 <File Id="filF975A2FD9C2DA904AFFBCE2B752C922C" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Xml.XmlDocument.dll.refresh" />
             </Component>
-            <Component Id="cmp53BB9B6C6B5F9A9B8AAE61FCBAEA7CA1" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="93347EB8-E60B-4226-8200-058085A28D77">
+            <Component Id="cmp53BB9B6C6B5F9A9B8AAE61FCBAEA7CA1" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="3BF26510-44C6-4178-ABBE-F54B44695A7F">
                 <File Id="fil71CFA8C559368C3A3A5C707C79435163" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Xml.XPath.dll" />
             </Component>
-            <Component Id="cmp35B7B43960A7A3CD2B13811AD0DB97B0" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="9E5AF0F9-C279-4253-9D11-712606126496">
+            <Component Id="cmp35B7B43960A7A3CD2B13811AD0DB97B0" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="B42AC13B-B65C-4460-B748-C6087C36C1D8">
                 <File Id="fil70766D7A38F20D4D2FAD17A56646CF76" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Xml.XPath.dll.refresh" />
             </Component>
-            <Component Id="cmpC7D3389D6DF68C4EE92E5B5B14CB7CC7" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="0DA86F5C-600C-42F7-865A-4A2700A80D17">
+            <Component Id="cmpC7D3389D6DF68C4EE92E5B5B14CB7CC7" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="36E3B322-7410-4BA5-8053-549D973D9335">
                 <File Id="fil779E83283D2F7B198AEB8BFD552E8428" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Xml.XPath.XDocument.dll" />
             </Component>
-            <Component Id="cmpA6750030F3C5276EFABF97565BF8469A" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="C542D596-3AA1-4CC5-8ECD-AA52CF256472">
+            <Component Id="cmpA6750030F3C5276EFABF97565BF8469A" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="313446D6-E05B-4301-BEDD-2F7F3CA1E047">
                 <File Id="fil2D52E771254AAC3EDD6A72D3A0BB418B" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\System.Xml.XPath.XDocument.dll.refresh" />
             </Component>
-            <Component Id="cmp466005F94B002DEF0860379A5C44BE29" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="04EBB112-BDAF-437D-9208-3D3F1158DF7E">
+            <Component Id="cmp466005F94B002DEF0860379A5C44BE29" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="F8C83CD7-2535-47E0-9BFD-4DEB0BD8778A">
                 <File Id="fil41BA8EFE8226D51D6D4BBDDC656F16E3" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\vbc.exe" />
             </Component>
-            <Component Id="cmpFF1A8EFEBA4AB6D095C31D4CBC0EFC5C" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="9692E998-48F6-4735-AD07-1CD784A9D85A">
+            <Component Id="cmpFF1A8EFEBA4AB6D095C31D4CBC0EFC5C" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="8F30A68F-B827-46B3-8FD4-129BA7AE89B3">
                 <File Id="filC4D17E91D93A37A86A44B25E3418B793" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\vbc.exe.config" />
             </Component>
-            <Component Id="cmp3F06409F146712DA804EDC687B1D9037" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="6E2A3EB7-3D64-404E-B4BA-B4E736B4B772">
+            <Component Id="cmp3F06409F146712DA804EDC687B1D9037" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="602B1443-D2AA-4DCC-B9E3-1EECAE49F7D8">
                 <File Id="fil32B679C3F28D925DB1798C84018ED018" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\vbc.exe.refresh" />
             </Component>
-            <Component Id="cmp27852BD1D02D63360A211B0142DFD641" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="FE784BD9-4FBA-44A7-B317-54CA7BCB5FE5">
+            <Component Id="cmp27852BD1D02D63360A211B0142DFD641" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="BF8E2897-78B3-4204-A620-0FBFBD1AF69F">
                 <File Id="filFC629E85871D30BEC1954FB78891C002" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\vbc.rsp" />
             </Component>
-            <Component Id="cmp126C5E90DF81B578ED58EFFB7AF29FBE" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="61E45502-48D8-497D-B1B2-60BB32B1464B">
+            <Component Id="cmp126C5E90DF81B578ED58EFFB7AF29FBE" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="DC762F5A-CE34-49DC-A47D-28BC780C2B83">
                 <File Id="filA5E39D99CCE8BD28B7433E3D8DBF3145" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\VBCSCompiler.exe" />
             </Component>
-            <Component Id="cmpCF5D18C74D6778256F5DBD64E0B3B9E0" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="3733E1FE-1828-48B1-A89E-DF401C866875">
+            <Component Id="cmpCF5D18C74D6778256F5DBD64E0B3B9E0" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="9661E6F4-9CF9-4B6F-8326-EDC749459A75">
                 <File Id="fil48418CA83648A9DEC5C59390FB2C20E4" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\VBCSCompiler.exe.config" />
             </Component>
-            <Component Id="cmpA65A50BAB5FBF2A4B25DCECAA3C79648" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="7BF22743-3FBF-4DBB-8258-5911DEAE6645">
+            <Component Id="cmpA65A50BAB5FBF2A4B25DCECAA3C79648" Directory="dirB88FAB982AD78D8F2803403CCF64E1A6" Guid="1AC05A45-B6B6-415C-89BA-C555ABC15ED1">
                 <File Id="fil4E3F38433D6AE696F13205F15F452558" KeyPath="yes" Source="$(var.StackBuilderTechBSABinSourceDir)\roslyn\VBCSCompiler.exe.refresh" />
             </Component>
         </ComponentGroup>

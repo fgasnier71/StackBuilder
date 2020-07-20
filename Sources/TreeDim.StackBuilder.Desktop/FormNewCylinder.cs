@@ -19,9 +19,6 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class FormNewCylinder : FormNewBase, IDrawingContainer
     {
-        #region Data members
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewCylinder));
-        #endregion
 
         #region Constructors
         public FormNewCylinder(Document document, CylinderProperties cylinder)
@@ -187,6 +184,9 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
+        #endregion
+        #region Data members
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewCylinder));
         #endregion
     }
 }

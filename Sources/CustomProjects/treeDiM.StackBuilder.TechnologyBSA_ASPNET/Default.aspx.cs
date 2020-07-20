@@ -1,5 +1,4 @@
 ﻿#region Using directives
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +7,6 @@ using System.Web.UI;
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Exporters;
-
 #endregion
 
 namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
@@ -77,6 +75,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             BoxPositions = boxPositions;
             LayersMirrorX = MirrorX;
             LayersMirrorY = MirrorY;
+            LayerEdited = true;
             FileName = filePath;
             Interlayers = string.Concat(interlayers.Select(p => p ? "1" : "0").ToArray());
 
@@ -88,35 +87,17 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 
         #region Private properties
         private Vector3D DimCase
-        {
-            get => Vector3D.Parse((string)Session[SessionVariables.DimCase]);
-            set => Session[SessionVariables.DimCase] = value.ToString();
-        }
+        { set => Session[SessionVariables.DimCase] = value.ToString(); }
         private double WeightCase
-        {
-            get => (double)Session[SessionVariables.WeightCase];
-            set => Session[SessionVariables.WeightCase] = value;
-        }
+        { set => Session[SessionVariables.WeightCase] = value; }
         private Vector3D DimPallet
-        {
-            get => Vector3D.Parse((string)Session[SessionVariables.DimPallet]);
-            set => Session[SessionVariables.DimPallet] = value.ToString();
-        }
+        { set => Session[SessionVariables.DimPallet] = value.ToString(); }
         private double WeightPallet
-        {
-            get => (double)Session[SessionVariables.WeightPallet];
-            set => Session[SessionVariables.WeightPallet] = value;
-        }
+        { set => Session[SessionVariables.WeightPallet] = value; }
         private double MaxPalletHeight
-        {
-            get => (double)Session[SessionVariables.MaxPalletHeight];
-            set => Session[SessionVariables.MaxPalletHeight] = value;
-        }
+        { set => Session[SessionVariables.MaxPalletHeight] = value; }
         private List<BoxPosition> BoxPositions
-        {
-            get => Session[SessionVariables.BoxPositions] as List<BoxPosition>;
-            set => Session[SessionVariables.BoxPositions] = value;
-        }
+        { set => Session[SessionVariables.BoxPositions] = value; }
         private bool LayersMirrorX
         { set => Session[SessionVariables.LayersMirrorLength] = value; }
         private bool LayersMirrorY
@@ -125,7 +106,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         { set => Session[SessionVariables.FileName] = value; }
         private string Interlayers
         { set => Session[SessionVariables.Interlayers] = value; }
-
+        private bool LayerEdited
+        { set => Session[SessionVariables.LayerEdited] = value; }
         #endregion
     }
 }
