@@ -105,7 +105,7 @@ namespace Utilities
                     mruList.RemoveRange(maxNumberOfFiles - 1, mruList.Count - maxNumberOfFiles);
             }
 
-            get
+            get 
             {
                 return maxNumberOfFiles;
             }
@@ -286,29 +286,24 @@ namespace Utilities
         /// <param name="e"></param>
         private void OnOwnerClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            int i, n;
-
             try
             {
                 RegistryKey key = Registry.CurrentUser.CreateSubKey(registryPath);
 
                 if (key != null)
                 {
-                    n = mruList.Count;
-
-                    for (i = 0; i < maxNumberOfFiles; i++)
+                    int n = mruList.Count;
+                    for (int i = 0; i < maxNumberOfFiles; i++)
                     {
                         key.DeleteValue(regEntryName +
                             i.ToString(CultureInfo.InvariantCulture), false);
                     }
-
-                    for (i = 0; i < n; i++)
+                    for (int i = 0; i < n; i++)
                     {
                         key.SetValue(regEntryName +
                             i.ToString(CultureInfo.InvariantCulture), mruList[i]);
                     }
                 }
-
             }
             catch (ArgumentNullException ex) { HandleWriteError(ex); }
             catch (SecurityException ex) { HandleWriteError(ex); }
@@ -316,8 +311,6 @@ namespace Utilities
             catch (ObjectDisposedException ex) { HandleWriteError(ex); }
             catch (UnauthorizedAccessException ex) { HandleWriteError(ex); }
         }
-
-
         #endregion
 
         #region Private Functions

@@ -42,7 +42,7 @@ namespace ListBoxWithToolTip
             cursorPoint = PointToClient(cursorPoint);
             int itemIndex = IndexFromPoint(cursorPoint);
 
-            if (itemIndex == ListBox.NoMatches)
+            if (itemIndex == NoMatches)
             {
                 // Mouse is over empty space in the listbox so hide tooltip
                 _toolTip.Hide(this);
@@ -79,8 +79,7 @@ namespace ListBoxWithToolTip
             // Display tooltip text since the mouse has hovered over an item
             if (!_toolTipDisplayed && _currentItem != NoMatches && _currentItem < Items.Count)
             {
-                IToolTipDisplayer toolTipDisplayer = this.Items[_currentItem] as IToolTipDisplayer;
-                if (toolTipDisplayer != null)
+                if (Items[_currentItem] is IToolTipDisplayer toolTipDisplayer)
                 {
                     _toolTip.SetToolTip(this, toolTipDisplayer.GetToolTipText());
                     _toolTipDisplayed = true;
