@@ -49,11 +49,10 @@ namespace treeDiM.StackBuilder.Desktop
             string startupDir = Application.StartupPath;
             Assembly asm = Assembly.GetEntryAssembly();
 
-            CultureInfo neutralCulture = CultureInfo.InvariantCulture;
+            CultureInfo neutralCulture;
             if (asm != null)
             {
-                NeutralResourcesLanguageAttribute attr = Attribute.GetCustomAttribute(asm, typeof(NeutralResourcesLanguageAttribute)) as NeutralResourcesLanguageAttribute;
-                if (attr != null)
+                if (Attribute.GetCustomAttribute(asm, typeof(NeutralResourcesLanguageAttribute)) is NeutralResourcesLanguageAttribute attr)
                     neutralCulture = CultureInfo.GetCultureInfo(attr.CultureName);
             }
             // -- rather than neutral culture choose en-us
@@ -67,7 +66,7 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     // Check that the directory name is a valid culture
                     DirectoryInfo dirinfo = new DirectoryInfo(dir);
-                    CultureInfo tCulture = null;
+                    CultureInfo tCulture;
                     try
                     {
                         tCulture = CultureInfo.GetCultureInfo(dirinfo.Name);

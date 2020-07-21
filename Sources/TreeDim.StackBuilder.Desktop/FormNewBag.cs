@@ -42,11 +42,11 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 uCtrlOuterDimensions.ValueX = UnitsManager.ConvertLengthFrom(400.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                 uCtrlOuterDimensions.ValueY = UnitsManager.ConvertLengthFrom(300.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                uCtrlOuterDimensions.ValueZ = UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
-                uCtrlRadius.Value = UnitsManager.ConvertLengthFrom(100.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                uCtrlOuterDimensions.ValueZ = UnitsManager.ConvertLengthFrom(100.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                uCtrlRadius.Value = UnitsManager.ConvertLengthFrom(40.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                 uCtrlWeight.Value = UnitsManager.ConvertMassFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                 uCtrlNetWeight.Value = OptDouble.Zero;
-                cbColor.Color = Color.Gray;
+                cbColor.Color = Color.Beige;
             }
             // units
             UnitsManager.AdaptUnitLabels(this);
@@ -103,6 +103,8 @@ namespace treeDiM.StackBuilder.Desktop
             };
             var bag = new BoxRounded(0, bagProperties, BoxPosition.Zero);
             graphics.AddBox(bag);
+
+            graphics.AddDimensions(new DimensionCube(Vector3D.Zero, OuterDimensions.X, OuterDimensions.Y, OuterDimensions.Z, Color.Red, false));
         }
         #endregion
         #region Event handlers

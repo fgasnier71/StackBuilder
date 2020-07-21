@@ -54,18 +54,6 @@
             // 
             resources.ApplyResources(this.bnCancel, "bnCancel");
             // 
-            // lbName
-            // 
-            resources.ApplyResources(this.lbName, "lbName");
-            // 
-            // lbDescription
-            // 
-            resources.ApplyResources(this.lbDescription, "lbDescription");
-            // 
-            // tbName
-            // 
-            resources.ApplyResources(this.tbName, "tbName");
-            // 
             // tbDescription
             // 
             resources.ApplyResources(this.tbDescription, "tbDescription");
@@ -79,9 +67,9 @@
             // 
             // gbDimensions
             // 
-            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Controls.Add(this.uCtrlRadius);
             this.gbDimensions.Controls.Add(this.uCtrlOuterDimensions);
+            resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
             // 
@@ -95,6 +83,7 @@
             0});
             this.uCtrlRadius.Name = "uCtrlRadius";
             this.uCtrlRadius.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlRadius.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlOuterDimensions
             // 
@@ -113,9 +102,9 @@
             // 
             // gbWeight
             // 
-            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Controls.Add(this.uCtrlNetWeight);
             this.gbWeight.Controls.Add(this.uCtrlWeight);
+            resources.ApplyResources(this.gbWeight, "gbWeight");
             this.gbWeight.Name = "gbWeight";
             this.gbWeight.TabStop = false;
             // 
@@ -129,34 +118,35 @@
             0});
             this.uCtrlNetWeight.Name = "uCtrlNetWeight";
             this.uCtrlNetWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
+            this.uCtrlNetWeight.ValueChanged += new treeDiM.Basics.UCtrlOptDouble.ValueChangedDelegate(this.OnValueChanged);
             // 
             // uCtrlWeight
             // 
             resources.ApplyResources(this.uCtrlWeight, "uCtrlWeight");
             this.uCtrlWeight.Minimum = new decimal(new int[] {
-            10000,
             0,
             0,
-            -2147483648});
+            0,
+            0});
             this.uCtrlWeight.Name = "uCtrlWeight";
-            this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             // 
             // gbColor
             // 
-            resources.ApplyResources(this.gbColor, "gbColor");
             this.gbColor.Controls.Add(this.cbColor);
             this.gbColor.Controls.Add(this.label1);
+            resources.ApplyResources(this.gbColor, "gbColor");
             this.gbColor.Name = "gbColor";
             this.gbColor.TabStop = false;
             // 
             // cbColor
             // 
-            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Color = System.Drawing.Color.Gray;
             this.cbColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbColor.DropDownHeight = 1;
             this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.DropDownWidth = 1;
+            resources.ApplyResources(this.cbColor, "cbColor");
             this.cbColor.Items.AddRange(new object[] {
             resources.GetString("cbColor.Items"),
             resources.GetString("cbColor.Items1"),
@@ -256,8 +246,11 @@
             resources.GetString("cbColor.Items95"),
             resources.GetString("cbColor.Items96"),
             resources.GetString("cbColor.Items97"),
-            resources.GetString("cbColor.Items98")});
+            resources.GetString("cbColor.Items98"),
+            resources.GetString("cbColor.Items99"),
+            resources.GetString("cbColor.Items100")});
             this.cbColor.Name = "cbColor";
+            this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
             // label1
             // 

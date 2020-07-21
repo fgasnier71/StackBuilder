@@ -23,12 +23,12 @@ namespace treeDiM.StackBuilder.Graphics
         public BoxRounded(uint pickId, double length, double width, double height, double radius, BoxPosition position)
             : base(pickId, length, width, height, position)
         {
-            Create(5, new Vector3D(length, width, height), 2.0 * radius);
+            Create(5, 0.5 * new Vector3D(length, width, height) - new Vector3D(radius, radius, radius),  radius);
         }
         public BoxRounded(uint pickId, BagProperties bagProperties, BoxPosition position)
             : base(pickId, bagProperties.Length, bagProperties.Width, bagProperties.Height, position)
         {
-            Create(5, bagProperties.OuterDimensions, 2.0 * bagProperties.Radius);
+            Create(5, 0.5 * bagProperties.OuterDimensions - new Vector3D(bagProperties.Radius, bagProperties.Radius, bagProperties.Radius), bagProperties.Radius);
             ColorFill = bagProperties.ColorFill;
         }
         #endregion
@@ -43,6 +43,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             System.Drawing.Graphics g = graphics.Graphics;
             Vector3D viewDir = graphics.ViewDirection;
+            Vector3D offset = new Vector3D(0.5 * Length, 0.5 * Width, 0.5 * Height);
 
             // draw all triangles
             foreach (var tri in indices)
@@ -54,7 +55,7 @@ namespace treeDiM.StackBuilder.Graphics
                     for (int i = 0; i < 3; ++i)
                     {
                         normal += normals[tri[i]];
-                        pts[i] = 0.5 * vertices[tri[i]];
+                        pts[i] = offset + vertices[tri[i]];
                     }
                     normal /= 3;
 

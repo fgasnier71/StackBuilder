@@ -114,7 +114,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     s.Delete();
             }
             // initialize units
-            UnitsManager.CurrentUnitSystem = (UnitsManager.UnitSystem)Properties.Settings.Default.UnitSystem;
+            UnitsManager.CurrentUnitSystem = (UnitsManager.UnitSystem)Settings.Default.UnitSystem;
 
             // ###
             // build a case

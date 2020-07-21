@@ -117,523 +117,469 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 10</value>
+  </data>
+  <data name="&gt;&gt;bnOk.Name" xml:space="preserve">
+    <value>bnOk</value>
+  </data>
+  <data name="&gt;&gt;bnOk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;bnOk.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items58" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items67" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;uCtrlRadius.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="cbColor.Items32" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>505, 38</value>
-  </data>
-  <data name="uCtrlRadius.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 41</value>
-  </data>
-  <data name="cbColor.Items21" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="uCtrlWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items48" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items94" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items83" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbColor.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="cbColor.Items22" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="uCtrlRadius.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="uCtrlOuterDimensions.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="cbColor.Items47" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items11" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items60" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items89" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items4" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 227</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="uCtrlWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 15</value>
-  </data>
-  <data name="uCtrlOuterDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>340, 20</value>
-  </data>
-  <data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;uCtrlWeight.Parent" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-  <data name="cbColor.Items12" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items72" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items63" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOuterDimensions.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Define a new bag...</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
-    <value>tbDescription</value>
-  </data>
-  <data name="&gt;&gt;lbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="gbWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
   </data>
   <data name="&gt;&gt;bnOk.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="gbWeight.Text" xml:space="preserve">
-    <value>Weight</value>
+  <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 38</value>
   </data>
-  <data name="&gt;&gt;uCtrlNetWeight.Parent" xml:space="preserve">
-    <value>gbWeight</value>
+  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+    <value>bnCancel</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;lbName.Name" xml:space="preserve">
+    <value>lbName</value>
+  </data>
+  <data name="&gt;&gt;lbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbName.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;lbDescription.Name" xml:space="preserve">
+    <value>lbDescription</value>
+  </data>
+  <data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbDescription.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbDescription.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;tbName.Name" xml:space="preserve">
+    <value>tbName</value>
+  </data>
+  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="tbDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>384, 20</value>
   </data>
-  <data name="cbColor.Items71" xml:space="preserve">
-    <value>Color</value>
+  <data name="&gt;&gt;tbDescription.Name" xml:space="preserve">
+    <value>tbDescription</value>
   </data>
-  <data name="&gt;&gt;cbColor.Name" xml:space="preserve">
-    <value>cbColor</value>
+  <data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="cbColor.Items30" xml:space="preserve">
+  <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bnSendToDB.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="bnSendToDB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>440, 413</value>
+  </data>
+  <data name="bnSendToDB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bnSendToDB.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value>Save to database</value>
+  </data>
+  <data name="&gt;&gt;bnSendToDB.Name" xml:space="preserve">
+    <value>bnSendToDB</value>
+  </data>
+  <data name="&gt;&gt;bnSendToDB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bnSendToDB.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bnSendToDB.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="uCtrlRadius.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 41</value>
+  </data>
+  <data name="uCtrlRadius.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="uCtrlRadius.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 20</value>
+  </data>
+  <data name="uCtrlRadius.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="uCtrlRadius.Text" xml:space="preserve">
+    <value>Rounding radius</value>
+  </data>
+  <data name="&gt;&gt;uCtrlRadius.Name" xml:space="preserve">
+    <value>uCtrlRadius</value>
+  </data>
+  <data name="&gt;&gt;uCtrlRadius.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlRadius.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="&gt;&gt;uCtrlRadius.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="uCtrlOuterDimensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 16</value>
+  </data>
+  <data name="uCtrlOuterDimensions.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="uCtrlOuterDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 20</value>
+  </data>
+  <data name="uCtrlOuterDimensions.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="uCtrlOuterDimensions.Text" xml:space="preserve">
+    <value>Outer dimensions</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOuterDimensions.Name" xml:space="preserve">
+    <value>uCtrlOuterDimensions</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOuterDimensions.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOuterDimensions.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOuterDimensions.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gbDimensions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 64</value>
+  </data>
+  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>364, 68</value>
+  </data>
+  <data name="gbDimensions.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="gbDimensions.Text" xml:space="preserve">
+    <value>Dimensions</value>
+  </data>
+  <data name="&gt;&gt;gbDimensions.Name" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="&gt;&gt;gbDimensions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbDimensions.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbDimensions.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="uCtrlNetWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 41</value>
+  </data>
+  <data name="uCtrlNetWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="uCtrlNetWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 20</value>
+  </data>
+  <data name="uCtrlNetWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="uCtrlNetWeight.Text" xml:space="preserve">
+    <value>Net weight</value>
+  </data>
+  <data name="&gt;&gt;uCtrlNetWeight.Name" xml:space="preserve">
+    <value>uCtrlNetWeight</value>
+  </data>
+  <data name="&gt;&gt;uCtrlNetWeight.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlNetWeight.Parent" xml:space="preserve">
+    <value>gbWeight</value>
+  </data>
+  <data name="&gt;&gt;uCtrlNetWeight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="uCtrlWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 15</value>
+  </data>
+  <data name="uCtrlWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="uCtrlWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 20</value>
+  </data>
+  <data name="uCtrlWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="uCtrlWeight.Text" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="&gt;&gt;uCtrlWeight.Name" xml:space="preserve">
+    <value>uCtrlWeight</value>
+  </data>
+  <data name="&gt;&gt;uCtrlWeight.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlWeight.Parent" xml:space="preserve">
+    <value>gbWeight</value>
+  </data>
+  <data name="&gt;&gt;uCtrlWeight.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 139</value>
+  </data>
+  <data name="gbWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>364, 68</value>
+  </data>
+  <data name="gbWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="&gt;&gt;gbWeight.Name" xml:space="preserve">
+    <value>gbWeight</value>
+  </data>
+  <data name="&gt;&gt;gbWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbWeight.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbWeight.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cbColor.ItemHeight" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items1" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
-    <value>9</value>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>Color</value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>Color</value>
   </data>
-  <data name="&gt;&gt;uCtrlWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>Color</value>
   </data>
-  <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.14, Culture=neutral, PublicKeyToken=null</value>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Color</value>
   </data>
-  <data name="uCtrlNetWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Color</value>
   </data>
-  <data name="cbColor.Items61" xml:space="preserve">
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items9" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items20" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items97" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>600, 500</value>
-  </data>
-  <data name="cbColor.Items36" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items80" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;gbColor.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="cbColor.Items25" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;bnSendToDB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnSendToDB.Name" xml:space="preserve">
-    <value>bnSendToDB</value>
-  </data>
-  <data name="&gt;&gt;uCtrlRadius.Name" xml:space="preserve">
-    <value>uCtrlRadius</value>
-  </data>
   <data name="cbColor.Items10" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="&gt;&gt;bnOk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cbColor.Items35" xml:space="preserve">
+  <data name="cbColor.Items11" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items88" xml:space="preserve">
+  <data name="cbColor.Items12" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items87" xml:space="preserve">
+  <data name="cbColor.Items13" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 22</value>
-  </data>
-  <data name="&gt;&gt;gbDimensions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cbColor.Items26" xml:space="preserve">
+  <data name="cbColor.Items14" xml:space="preserve">
     <value>Color</value>
-  </data>
-  <data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 139</value>
-  </data>
-  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>370, 64</value>
   </data>
   <data name="cbColor.Items15" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="gbDimensions.Text" xml:space="preserve">
-    <value>Dimensions</value>
-  </data>
-  <data name="&gt;&gt;gbWeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cbColor.Items43" xml:space="preserve">
+  <data name="cbColor.Items16" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FormNewBag</value>
-  </data>
-  <data name="cbColor.Items84" xml:space="preserve">
+  <data name="cbColor.Items17" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="&gt;&gt;tbName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="gbColor.Text" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="graphCtrl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOuterDimensions.Name" xml:space="preserve">
-    <value>uCtrlOuterDimensions</value>
-  </data>
-  <data name="cbColor.Items42" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items54" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;lbDescription.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="cbColor.Items39" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="gbDimensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 64</value>
-  </data>
-  <data name="&gt;&gt;gbWeight.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>600, 500</value>
-  </data>
-  <data name="bnSendToDB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>440, 413</value>
-  </data>
-  <data name="cbColor.Items24" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items70" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items33" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;graphCtrl.Name" xml:space="preserve">
-    <value>graphCtrl</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOuterDimensions.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lbDescription.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="cbColor.Items29" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items75" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="uCtrlNetWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>340, 20</value>
-  </data>
-  <data name="cbColor.Items34" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="gbWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>364, 68</value>
-  </data>
-  <data name="cbColor.Items92" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items23" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
-    <value>gbColor</value>
-  </data>
-  <data name="&gt;&gt;gbWeight.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="uCtrlRadius.Text" xml:space="preserve">
-    <value>Rounding radius</value>
-  </data>
-  <data name="cbColor.Items76" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;lbName.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="cbColor.Items62" xml:space="preserve">
+  <data name="cbColor.Items18" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items19" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items91" xml:space="preserve">
+  <data name="cbColor.Items20" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="&gt;&gt;uCtrlNetWeight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="cbColor.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="cbColor.Items50" xml:space="preserve">
+  <data name="cbColor.Items21" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="&gt;&gt;uCtrlWeight.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cbColor.Items13" xml:space="preserve">
+  <data name="cbColor.Items22" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="&gt;&gt;uCtrlRadius.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="cbColor.Items66" xml:space="preserve">
+  <data name="cbColor.Items23" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="&gt;&gt;uCtrlNetWeight.Name" xml:space="preserve">
-    <value>uCtrlNetWeight</value>
-  </data>
-  <data name="&gt;&gt;tbDescription.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;lbDescription.Name" xml:space="preserve">
-    <value>lbDescription</value>
-  </data>
-  <data name="cbColor.Items55" xml:space="preserve">
+  <data name="cbColor.Items24" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="gbColor.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="uCtrlWeight.Text" xml:space="preserve">
-    <value>Weight</value>
-  </data>
-  <data name="cbColor.Items40" xml:space="preserve">
+  <data name="cbColor.Items25" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="bnSendToDB.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;uCtrlRadius.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="uCtrlOuterDimensions.Text" xml:space="preserve">
-    <value>Outer dimensions</value>
-  </data>
-  <data name="&gt;&gt;gbColor.Name" xml:space="preserve">
-    <value>gbColor</value>
-  </data>
-  <data name="&gt;&gt;uCtrlNetWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="cbColor.Items56" xml:space="preserve">
+  <data name="cbColor.Items26" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items79" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items45" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 461</value>
-  </data>
-  <data name="cbColor.Items38" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;gbColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="uCtrlOuterDimensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 16</value>
-  </data>
-  <data name="uCtrlNetWeight.Text" xml:space="preserve">
-    <value>Net weight</value>
-  </data>
-  <data name="cbColor.Items90" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="uCtrlRadius.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="cbColor.Items98" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items73" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items46" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items57" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;bnSendToDB.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>gbColor</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.2.14, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="uCtrlNetWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 41</value>
-  </data>
-  <data name="cbColor.Items3" xml:space="preserve">
+  <data name="cbColor.Items27" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items28" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items74" xml:space="preserve">
+  <data name="cbColor.Items29" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="&gt;&gt;gbDimensions.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="cbColor.Items30" xml:space="preserve">
+    <value>Color</value>
   </data>
-  <data name="&gt;&gt;uCtrlWeight.Name" xml:space="preserve">
-    <value>uCtrlWeight</value>
+  <data name="cbColor.Items31" xml:space="preserve">
+    <value>Color</value>
   </data>
-  <data name="uCtrlWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>340, 20</value>
+  <data name="cbColor.Items32" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items33" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items34" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items35" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value>Color</value>
   </data>
   <data name="cbColor.Items37" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="&gt;&gt;bnSendToDB.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="gbColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>364, 41</value>
-  </data>
-  <data name="&gt;&gt;lbName.Name" xml:space="preserve">
-    <value>lbName</value>
-  </data>
-  <data name="cbColor.Items69" xml:space="preserve">
+  <data name="cbColor.Items38" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="cbColor.Items39" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items42" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items43" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items44" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items45" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items46" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items47" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items48" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items49" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items50" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items51" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items52" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items53" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items54" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items55" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items56" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items57" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items58" xml:space="preserve">
+    <value>Color</value>
   </data>
   <data name="cbColor.Items59" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 13</value>
-  </data>
-  <data name="bnSendToDB.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="cbColor.Items2" xml:space="preserve">
+  <data name="cbColor.Items60" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items" xml:space="preserve">
+  <data name="cbColor.Items61" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items62" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items63" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items64" xml:space="preserve">
@@ -642,169 +588,229 @@
   <data name="cbColor.Items65" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="cbColor.Items8" xml:space="preserve">
+  <data name="cbColor.Items66" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="cbColor.Items81" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items27" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items18" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.14, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;tbName.Name" xml:space="preserve">
-    <value>tbName</value>
-  </data>
-  <data name="cbColor.Items51" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items49" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items95" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
-    <value>bnCancel</value>
-  </data>
-  <data name="gbColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 214</value>
-  </data>
-  <data name="uCtrlOuterDimensions.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="&gt;&gt;bnOk.Name" xml:space="preserve">
-    <value>bnOk</value>
-  </data>
-  <data name="cbColor.Items96" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items14" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="bnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>505, 10</value>
-  </data>
-  <data name="cbColor.Items17" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOuterDimensions.Parent" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>364, 68</value>
-  </data>
-  <data name="uCtrlNetWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="cbColor.Items41" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items85" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="cbColor.Items78" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items44" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="bnSendToDB.Text" xml:space="preserve">
-    <value>Save to database</value>
-  </data>
-  <data name="&gt;&gt;gbDimensions.Name" xml:space="preserve">
-    <value>gbDimensions</value>
-  </data>
-  <data name="cbColor.Items82" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items86" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;gbWeight.Name" xml:space="preserve">
-    <value>gbWeight</value>
-  </data>
-  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>109, 13</value>
-  </data>
-  <data name="&gt;&gt;lbDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cbColor.Items52" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="bnSendToDB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 23</value>
-  </data>
-  <data name="cbColor.Items16" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items93" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="uCtrlWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cbColor.Items77" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 16</value>
-  </data>
-  <data name="&gt;&gt;gbColor.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="cbColor.Items53" xml:space="preserve">
+  <data name="cbColor.Items67" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="cbColor.Items68" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items69" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items70" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items71" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items72" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items73" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items74" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items75" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items76" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items77" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items78" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items79" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items80" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items81" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items82" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items83" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items84" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items85" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items86" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items87" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items88" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items89" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items90" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items91" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items92" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items93" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items94" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items95" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items96" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items97" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items98" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items99" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Items100" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 13</value>
+  </data>
+  <data name="cbColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 22</value>
+  </data>
+  <data name="cbColor.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;cbColor.Name" xml:space="preserve">
+    <value>cbColor</value>
+  </data>
+  <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.14, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
+    <value>gbColor</value>
+  </data>
+  <data name="&gt;&gt;cbColor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="uCtrlRadius.Size" type="System.Drawing.Size, System.Drawing">
-    <value>340, 20</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 16</value>
   </data>
-  <data name="cbColor.Items31" xml:space="preserve">
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
     <value>Color</value>
   </data>
-  <data name="gbDimensions.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>gbColor</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gbColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 214</value>
+  </data>
+  <data name="gbColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>364, 41</value>
+  </data>
+  <data name="gbColor.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="gbColor.Text" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="&gt;&gt;gbColor.Name" xml:space="preserve">
+    <value>gbColor</value>
+  </data>
+  <data name="&gt;&gt;gbColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbColor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbColor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="graphCtrl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="graphCtrl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>370, 64</value>
+  </data>
+  <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 227</value>
+  </data>
+  <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;graphCtrl.Name" xml:space="preserve">
+    <value>graphCtrl</value>
+  </data>
+  <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.14, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;graphCtrl.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>584, 461</value>
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>600, 500</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>600, 500</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Define a new bag...</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormNewBag</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.2.14, Culture=neutral, PublicKeyToken=null</value>
+  </data>
 </root>
