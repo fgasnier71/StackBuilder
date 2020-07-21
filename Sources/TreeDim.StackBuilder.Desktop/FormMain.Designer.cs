@@ -99,11 +99,12 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonBox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCase = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonPack = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonBag = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonBundle = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCylinder = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonBottle = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPallet = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonPack = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonTruck = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSBPalletDeco = new System.Windows.Forms.ToolStripSplitButton();
@@ -147,7 +148,6 @@
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripButtonBag = new System.Windows.Forms.ToolStripButton();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -650,12 +650,12 @@
             this.toolStripButtonCase.Name = "toolStripButtonCase";
             this.toolStripButtonCase.Click += new System.EventHandler(this.ToolAddNewCase);
             // 
-            // toolStripButtonPack
+            // toolStripButtonBag
             // 
-            this.toolStripButtonPack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButtonPack, "toolStripButtonPack");
-            this.toolStripButtonPack.Name = "toolStripButtonPack";
-            this.toolStripButtonPack.Click += new System.EventHandler(this.ToolAddNewPack);
+            this.toolStripButtonBag.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonBag, "toolStripButtonBag");
+            this.toolStripButtonBag.Name = "toolStripButtonBag";
+            this.toolStripButtonBag.Click += new System.EventHandler(this.ToolAddNewBag);
             // 
             // toolStripButtonBundle
             // 
@@ -684,6 +684,13 @@
             resources.ApplyResources(this.toolStripButtonPallet, "toolStripButtonPallet");
             this.toolStripButtonPallet.Name = "toolStripButtonPallet";
             this.toolStripButtonPallet.Click += new System.EventHandler(this.ToolAddNewPallet);
+            // 
+            // toolStripButtonPack
+            // 
+            this.toolStripButtonPack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonPack, "toolStripButtonPack");
+            this.toolStripButtonPack.Name = "toolStripButtonPack";
+            this.toolStripButtonPack.Click += new System.EventHandler(this.ToolAddNewPack);
             // 
             // toolStripButtonTruck
             // 
@@ -964,13 +971,6 @@
             // 
             this.saveFileDialogExport.DefaultExt = "xml";
             resources.ApplyResources(this.saveFileDialogExport, "saveFileDialogExport");
-            // 
-            // toolStripButtonBag
-            // 
-            this.toolStripButtonBag.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButtonBag, "toolStripButtonBag");
-            this.toolStripButtonBag.Name = "toolStripButtonBag";
-            this.toolStripButtonBag.Click += new System.EventHandler(this.ToolAddNewBag);
             // 
             // FormMain
             // 
