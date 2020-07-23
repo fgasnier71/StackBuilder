@@ -52,7 +52,8 @@ namespace treeDiM.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisCylinderPallet);      // 19
                 ImageList.Images.Add(AnalysisHCylinderPallet);     // 20
                 ImageList.Images.Add(AnalysisPackPallet);          // 21
-                ImageList.Images.Add(Bottle);                      // 22 
+                ImageList.Images.Add(Bottle);                      // 22
+                ImageList.Images.Add(Bag);                         // 23 
                // instantiate context menu
                 ContextMenuStrip = new ContextMenuStrip();
                 // attach event handlers
@@ -74,7 +75,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 AnalysisCasePallet analysisCasePallet = item as AnalysisCasePallet;
                 Packable content = analysisCasePallet.Content;
-                if (content is BoxProperties || content is LoadedCase) return 14;
+                if (content is BoxProperties || content is BagProperties || content is LoadedCase) return 14;
                 else if (content is BundleProperties) return 15;
                 else if (content is PackProperties) return 21;
                 else return 0;
@@ -144,6 +145,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, Box, new EventHandler(OnCreateNewBox)) { ImageTransparentColor = Color.White } );
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, Case, new EventHandler(OnCreateNewCase)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBAG, Bag, new EventHandler(OnCreateNewBag)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, Cylinder, new EventHandler(OnCreateNewCylinder)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOTTLE, Bottle, new EventHandler(OnCreateNewCylinder)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, Pallet, new EventHandler(OnCreateNewPallet)) { ImageTransparentColor = Color.White });
@@ -279,6 +281,15 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 NodeTag tag = SelectedNode.Tag as NodeTag;
                 ((DocumentSB)tag.Document).CreateNewCaseUI();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }
+        }
+        private void OnCreateNewBag(object sender, EventArgs e)
+        {
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).CreateNewBagUI();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
@@ -437,6 +448,7 @@ namespace treeDiM.StackBuilder.Desktop
                     || (tag.Type == NodeTag.NodeType.NT_ECTANALYSIS)
                     || (tag.Type == NodeTag.NodeType.NT_BOX)
                     || (tag.Type == NodeTag.NodeType.NT_CASE)
+                    || (tag.Type == NodeTag.NodeType.NT_BAG)
                     || (tag.Type == NodeTag.NodeType.NT_PACK)
                     || (tag.Type == NodeTag.NodeType.NT_BUNDLE)
                     || (tag.Type == NodeTag.NodeType.NT_CYLINDER)
@@ -654,6 +666,12 @@ namespace treeDiM.StackBuilder.Desktop
                     parentNodeType = NodeTag.NodeType.NT_LISTBOX;
                 }
             }
+            else if (itemProperties.GetType() == typeof(BagProperties))
+            {
+                iconIndex = 23;
+                nodeType = NodeTag.NodeType.NT_BAG;
+                parentNodeType = NodeTag.NodeType.NT_LISTCASE;
+            }
             else if (itemProperties.GetType() == typeof(BundleProperties))
             {
                 iconIndex = 5;
@@ -806,6 +824,8 @@ namespace treeDiM.StackBuilder.Desktop
                 else
                     nodeType = NodeTag.NodeType.NT_BOX;
             }
+            else if (itemBase.GetType() == typeof(BagProperties))
+                nodeType = NodeTag.NodeType.NT_BAG;
             else if (itemBase.GetType() == typeof(BundleProperties))
                 nodeType = NodeTag.NodeType.NT_BUNDLE;
             else if (itemBase.GetType() == typeof(PackProperties))
@@ -946,6 +966,10 @@ namespace treeDiM.StackBuilder.Desktop
             /// case
             /// </summary>
             NT_CASE,
+            /// <summary>
+            /// bag / rounded box
+            /// </summary>
+            NT_BAG,
             /// <summary>
             /// pack
             /// </summary>

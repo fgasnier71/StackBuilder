@@ -44,11 +44,9 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region FormNewBase overrides
         public override string ItemDefaultName => Resources.ID_BOTTLE;
         #endregion
-
         #region Form override
         protected override void OnLoad(EventArgs e)
         {
@@ -65,11 +63,11 @@ namespace treeDiM.StackBuilder.Desktop
         }
         public override void UpdateStatus(string message)
         {
-            if (!Program.IsSubscribed) message = Resources.ID_PREMIUMFEATURE;
+            if (!Program.IsSubscribed)
+                message = Resources.ID_PREMIUMFEATURE;
             base.UpdateStatus(message);
         }
         #endregion
-
         #region Specific methods
         protected void Initialize(int index, bool showDialog = false)
         {
@@ -226,7 +224,6 @@ namespace treeDiM.StackBuilder.Desktop
             FillGrid();
         }
         #endregion
-
         #region Grid
         private void FillGrid()
         {
@@ -412,7 +409,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region Public properties
         public Color ColorBottle
         {
@@ -437,7 +433,6 @@ namespace treeDiM.StackBuilder.Desktop
         public double MaxHeight => Profile.Max(p => p.X);
         protected int GridFontSize => Settings.Default.GridFontSize;
         #endregion
-
         #region Draw bottle
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
@@ -450,13 +445,12 @@ namespace treeDiM.StackBuilder.Desktop
                 );
         }
         #endregion
-
         #region Send to database
         private void OnSendToDatabase(object sender, EventArgs e)
         {
             try
             {
-                FormSetItemName form = new FormSetItemName()
+                var form = new FormSetItemName()
                 {
                     ItemName = ItemName
                 };
@@ -473,7 +467,6 @@ namespace treeDiM.StackBuilder.Desktop
             }
         }
         #endregion
-
         #region Events
         private void OnInitialize(object sender, EventArgs e)
         {
@@ -520,7 +513,6 @@ namespace treeDiM.StackBuilder.Desktop
             graphCtrl.Invalidate();
         }
         #endregion
-
         #region Helpers
         private bool IsSorted
         {
@@ -541,12 +533,10 @@ namespace treeDiM.StackBuilder.Desktop
             Profile.Sort(SortVecXAscending.Comparer);
         }
         #endregion
-
         #region Data members
         private bool IsRechangingSelection { get; set; }
         protected static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBottle));
         #endregion
-
         #region Comparer
         internal class SortVecXAscending : IComparer<Vector2D>
         {

@@ -148,4 +148,5 @@
   <str name="Overhang">Débord</str>
   <str name="Load on lowest case">Chargement sur caisse inférieure</str>
   <str name="Product">Produit</str>
+  <str name="Bag">Sac</str>
 </strings>

@@ -740,9 +740,6 @@
       <DependentUpon>AnalysisTreeView.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="AnalysisTreeView.sl.resx">
-      <DependentUpon>AnalysisTreeView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CheckedListBoxWithImage.de.resx">
       <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
     </EmbeddedResource>
@@ -3564,6 +3561,7 @@
     <None Include="Resources\AnalysisStackingStrength.png" />
     <None Include="Resources\BoxCaseAnalysis.bmp" />
     <None Include="Resources\bottle.bmp" />
+    <None Include="Resources\Bag_16x16.bmp" />
     <Content Include="Resources\CaseAnalysis.bmp" />
     <None Include="Resources\Delete.bmp" />
     <None Include="Resources\Database.bmp" />

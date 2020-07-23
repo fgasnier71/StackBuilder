@@ -97,7 +97,6 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                     else if (analysis.Content is PackProperties packProperties)
                     {
-
                         foreach (BoxPosition bPosition in layerBox)
                         {
                             BoxPosition boxPositionModified = bPosition.Transform(transform * upTranslation);
@@ -106,12 +105,27 @@ namespace treeDiM.StackBuilder.Graphics
                             bbox.Extend(new BBox3D(boxPositionModified, packProperties.OuterDimensions));
                         }
                     }
+                    else if (analysis.Content is BagProperties bagProperties)
+                    {
+                        foreach (BoxPosition bPosition in layerBox)
+                        {
+                            BoxPosition boxPositionModified = bPosition.Transform(transform * upTranslation);
+                            graphics.AddImage(++pickId, new SubContent(bagProperties), bagProperties.OuterDimensions, boxPositionModified);
+                            // bbox used for picking
+                            bbox.Extend(new BBox3D(boxPositionModified, bagProperties.OuterDimensions));
+                        }                        
+                    }
                     else
                     {
                         foreach (BoxPosition bPosition in layerBox)
                         {
                             BoxPosition boxPositionModified = bPosition.Transform(transform * upTranslation);
-                            Box b = new Box(pickId++, analysis.Content as PackableBrick, boxPositionModified);
+                            BoxGeneric b;
+                            if (analysis.Content is BagProperties bagProp)
+
+                                b = new BoxRounded(pickId++, bagProp.Length, bagProp.Width, bagProp.Height, bagProp.Radius, boxPositionModified) { ColorFill = bagProp.ColorFill };
+                            else
+                                b = new Box(pickId++, analysis.Content as PackableBrick, boxPositionModified);
                             graphics.AddBox(b);
                             bbox.Extend(b.BBox);
                         }

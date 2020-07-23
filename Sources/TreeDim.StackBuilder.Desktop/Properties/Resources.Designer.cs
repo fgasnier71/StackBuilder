@@ -286,6 +286,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new bag....
+        /// </summary>
+        internal static string ID_ADDNEWBAG {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWBAG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new bottle....
         /// </summary>
         internal static string ID_ADDNEWBOTTLE {

@@ -20,6 +20,21 @@
     </xs:sequence>
   </xs:complexType>
   <!--BOX : END-->
+  <!--BAG : BEGIN -->
+  <xs:complexType name="bag">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="length" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="width" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="height" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="weight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="netWeight" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="admissibleLoadOnTop" minOccurs="0" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="imageThumbSize" minOccurs="0" maxOccurs="1" type="rpt:imageThumbSize"/>    
+    </xs:sequence>
+  </xs:complexType>
+  <!--BAG : END -->
   <!--CASE : BEG -->
   <xs:complexType name="case">
     <xs:sequence>

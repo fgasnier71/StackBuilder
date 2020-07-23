@@ -401,6 +401,23 @@ namespace treeDiM.StackBuilder.Desktop
                         box.EndUpdate();
                     }
                 }
+                else if (itemProp.GetType() == typeof(BagProperties))
+                {
+                    BagProperties bag = itemProp as BagProperties;
+                    var form = new FormNewBag(eventArg.Document, eventArg.ItemBase as BagProperties);
+                    if (DialogResult.OK == form.ShowDialog())
+                    {
+                        if (!UserAcknowledgeDependancies(bag)) return;
+                        bag.ID.SetNameDesc(form.ItemName, form.ItemDescription);
+                        bag.SetLength(form.OuterDimensions.X);
+                        bag.SetWidth(form.OuterDimensions.Y);
+                        bag.SetHeight(form.OuterDimensions.Z);
+                        bag.SetWeight(form.Weight);
+                        bag.SetNetWeight(form.NetWeight);
+                        bag.SetColor(form.ColorFill);
+                        bag.EndUpdate();
+                    }
+                }
                 else if (itemProp.GetType() == typeof(PackProperties))
                 {
                     PackProperties pack = itemProp as PackProperties;

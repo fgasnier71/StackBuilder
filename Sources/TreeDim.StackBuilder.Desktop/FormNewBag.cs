@@ -1,6 +1,7 @@
 ﻿#region Using directives
 using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 using log4net;
 
@@ -9,9 +10,7 @@ using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Desktop.Properties;
 
-
 using treeDiM.PLMPack.DBClient;
-using treeDiM.PLMPack.DBClient.PLMPackSR;
 using Sharp3D.Math.Core;
 using System.Linq;
 #endregion
@@ -97,19 +96,17 @@ namespace treeDiM.StackBuilder.Desktop
         #region IDrawingContrainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            var bagProperties = new BagProperties(null, ItemName, ItemDescription, OuterDimensions, RoundingRadius)
-            {
-                ColorFill = ColorFill
-            };
+            var bagProperties = new BagProperties(null, ItemName, ItemDescription, OuterDimensions, RoundingRadius) { ColorFill = ColorFill };
             var bag = new BoxRounded(0, bagProperties, BoxPosition.Zero);
             graphics.AddBox(bag);
-
             graphics.AddDimensions(new DimensionCube(Vector3D.Zero, OuterDimensions.X, OuterDimensions.Y, OuterDimensions.Z, Color.Red, false));
         }
         #endregion
         #region Event handlers
-        private void OnValueChanged(object sender, System.EventArgs args)
+        private void OnValueChanged(object sender, EventArgs args)
         {
+            // update maximum radius
+            uCtrlRadius.Maximum = (decimal)MinDimension;
             // update ok button status
             UpdateStatus(string.Empty);
             // update drawing
@@ -121,11 +118,29 @@ namespace treeDiM.StackBuilder.Desktop
                 message = Resources.ID_INVALIDROUNDINGRADIUS;
             else if (Weight < 1.0E-06)
                 message = Resources.ID_INVALIDMASS;
+            else if (!Program.IsSubscribed)
+                message = Resources.ID_PREMIUMFEATURE;
             base.UpdateStatus(message);
         }
-        private void OnSaveToDatabase(object sender, System.EventArgs e)
+        private void OnSendToDatabase(object sender, EventArgs e)
         {
-
+            try
+            {
+                var form = new FormSetItemName()
+                {
+                    ItemName = ItemName
+                };
+                if (DialogResult.OK == form.ShowDialog())
+                {
+                    using (WCFClient wcfClient = new WCFClient())
+                    { 
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
         }
         #endregion
         #region Data members

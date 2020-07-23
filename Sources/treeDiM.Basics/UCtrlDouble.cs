@@ -39,13 +39,19 @@ namespace treeDiM.Basics
         public double Value
         {
             get { return (double)nudValue.Value; }
-            set { try { nudValue.Value = (decimal)value; } catch (ArgumentOutOfRangeException) {} }
+            set { try { nudValue.Value = (decimal)value; } catch (ArgumentOutOfRangeException) { } }
         }
         [Browsable(true)]
         public decimal Minimum
         {
-            get { return nudValue.Minimum; }
-            set { nudValue.Minimum = value; }
+            get => nudValue.Minimum; 
+            set => nudValue.Minimum = value;
+        }
+        [Browsable(true)]
+        public decimal Maximum
+        {
+            get => nudValue.Maximum;
+            set => nudValue.Maximum = value;
         }
         [Browsable(true)]
         public UnitsManager.UnitType Unit

@@ -63,7 +63,7 @@
             resources.ApplyResources(this.bnSendToDB, "bnSendToDB");
             this.bnSendToDB.Name = "bnSendToDB";
             this.bnSendToDB.UseVisualStyleBackColor = true;
-            this.bnSendToDB.Click += new System.EventHandler(this.OnSaveToDatabase);
+            this.bnSendToDB.Click += new System.EventHandler(this.OnSendToDatabase);
             // 
             // gbDimensions
             // 

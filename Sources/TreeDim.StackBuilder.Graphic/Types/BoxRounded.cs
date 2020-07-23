@@ -45,6 +45,8 @@ namespace treeDiM.StackBuilder.Graphics
             Vector3D viewDir = graphics.ViewDirection;
             Vector3D offset = new Vector3D(0.5 * Length, 0.5 * Width, 0.5 * Height);
 
+            var transf = BoxPosition.Transformation;
+
             // draw all triangles
             foreach (var tri in indices)
             {
@@ -55,9 +57,11 @@ namespace treeDiM.StackBuilder.Graphics
                     for (int i = 0; i < 3; ++i)
                     {
                         normal += normals[tri[i]];
-                        pts[i] = offset + vertices[tri[i]];
+                        pts[i] = transf.transform(offset + vertices[tri[i]]);
                     }
                     normal /= 3;
+
+                    normal = transf.transformRot(normal);
 
                     // visible ?
                     if (Vector3D.DotProduct(viewDir, normal) > 0)

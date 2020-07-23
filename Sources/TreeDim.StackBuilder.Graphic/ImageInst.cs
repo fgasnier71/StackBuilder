@@ -20,6 +20,10 @@ namespace treeDiM.StackBuilder.Graphics
         {
             PackProperties = pack;
         }
+        public SubContent(BagProperties bag)
+        {
+            BagProperties = bag;
+        }
         public SubContent(InterlayerProperties interlayer)
         {
             InterlayerProperties = interlayer;
@@ -46,6 +50,11 @@ namespace treeDiM.StackBuilder.Graphics
                 Box box = new Box(0, InterlayerProperties, new BoxPosition(Vector3D.Zero).Transform(transf));
                 graphics.AddBox(box);
             }
+            else if (null != BagProperties)
+            {
+                BoxRounded bag = new BoxRounded(0, BagProperties, new BoxPosition(Vector3D.Zero).Transform(transf));
+                graphics.AddBox(bag);            
+            }
         }
         public BBox3D Bbox
         {
@@ -54,6 +63,7 @@ namespace treeDiM.StackBuilder.Graphics
                 if (null != Analysis) return Analysis.Solution.BBoxGlobal;
                 else if (null != PackProperties) return new BBox3D(Vector3D.Zero, PackProperties.OuterDimensions);
                 else if (null != InterlayerProperties) return new BBox3D(Vector3D.Zero, InterlayerProperties.Dimensions);
+                else if (null != BagProperties) return new BBox3D(Vector3D.Zero, BagProperties.OuterDimensions);
                 else return BBox3D.Initial;
             }
         }
@@ -62,13 +72,15 @@ namespace treeDiM.StackBuilder.Graphics
             if (obj is SubContent contentObj)
                 return contentObj.Analysis == Analysis
                     && contentObj.PackProperties == PackProperties
-                    && contentObj.InterlayerProperties == InterlayerProperties;
+                    && contentObj.InterlayerProperties == InterlayerProperties
+                    && contentObj.BagProperties == BagProperties;
             else
                 return false;
         }
 
         private AnalysisHomo Analysis { get; set; }
         private PackProperties PackProperties { get; set; }
+        private BagProperties BagProperties { get; set; }
         private InterlayerProperties InterlayerProperties { get; set; }
 
         public override int GetHashCode()

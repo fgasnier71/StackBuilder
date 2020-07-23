@@ -48,7 +48,7 @@ namespace treeDiM.StackBuilder.Reporting
     {
         #region Constructor
         public ReportExceptionUnexpectedItem(ItemBase item)
-            : base(string.Format("Unexpected item : {0}", item.Name))
+            : base($"Unexpected item : {item.Name}")
         {
         }
         #endregion
@@ -701,14 +701,15 @@ namespace treeDiM.StackBuilder.Reporting
 
         private void AppendContentElement(Packable packable, ReportNode rnContent, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
-            if (packable is BoxProperties)
+            if (packable is BoxProperties boxProperties)
             {
-                BoxProperties boxProperties = packable as BoxProperties;
                 if (boxProperties.HasInsideDimensions)
                     AppendCaseElement(boxProperties, rnContent, elemAnalysis, xmlDoc);
                 else
                     AppendBoxElement(boxProperties, rnContent, elemAnalysis, xmlDoc);
             }
+            else if (packable is BagProperties bagProperties)
+                AppendBagElement(bagProperties, rnContent, elemAnalysis, xmlDoc);
             else if (packable is BundleProperties)
                 AppendBundleElement(packable as BundleProperties, rnContent, elemAnalysis, xmlDoc);
             else if (packable is PackProperties)
@@ -1602,14 +1603,18 @@ namespace treeDiM.StackBuilder.Reporting
             if (rnPack.GetChildByName(Resources.ID_RN_IMAGE).Activated)
             {
                 // --- build image
-                Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
-                graphics.FontSizeRatio = FontSizeRatioDetail;
-                graphics.CameraPosition = Graphics3D.Corner_0;
-                graphics.Target = Vector3D.Zero;
-                Pack pack = new Pack(0, packProperties);
-                pack.ForceTransparency = true;
+                Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail))
+                {
+                    FontSizeRatio = FontSizeRatioDetail,
+                    CameraPosition = Graphics3D.Corner_0,
+                    Target = Vector3D.Zero
+                };
+                Pack pack = new Pack(0, packProperties)
+                {
+                    ForceTransparency = true
+                };
                 graphics.AddBox(pack);
-                if (Reporter.ShowDimensions)
+                if (ShowDimensions)
                     graphics.AddDimensions(new DimensionCube(pack.Length, pack.Width, pack.Height));
                 graphics.Flush();
                 // imageThumb
@@ -1636,18 +1641,69 @@ namespace treeDiM.StackBuilder.Reporting
             }
             // weight
             if (rnBox.GetChildByName(Resources.ID_RN_WEIGHT).Activated)
+            {
                 AppendElementValue(xmlDoc, elemBox, "weight", UnitsManager.UnitType.UT_MASS, boxProperties.Weight);
+                if (boxProperties.NetWeight.Activated)
+                    AppendElementValue(xmlDoc, elemBox, "netWeight", UnitsManager.UnitType.UT_MASS, boxProperties.NetWeight.Value);
+            }
             // image
             if (rnBox.GetChildByName(Resources.ID_RN_IMAGE).Activated)
             {
                 // --- build image
-                Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail));
-                graphics.FontSizeRatio = FontSizeRatioDetail;
-                graphics.CameraPosition = Graphics3D.Corner_0;
-                graphics.Target = Vector3D.Zero;
+                Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail))
+                {
+                    FontSizeRatio = FontSizeRatioDetail,
+                    CameraPosition = Graphics3D.Corner_0,
+                    Target = Vector3D.Zero
+                };
                 Box box = new Box(0, boxProperties);
                 graphics.AddBox(box);
-                if (Reporter.ShowDimensions)
+                if (ShowDimensions)
+                    graphics.AddDimensions(new DimensionCube(box.Length, box.Width, box.Height));
+                graphics.Flush();
+                // ---
+                // imageThumb
+                AppendThumbnailElement(xmlDoc, elemBox, graphics.Bitmap);
+            }
+        }
+
+        private void AppendBagElement(BagProperties bagProperties, ReportNode rnBag, XmlElement elemAnalysis, XmlDocument xmlDoc)
+        {
+           string ns = xmlDoc.DocumentElement.NamespaceURI;
+            // box element
+            XmlElement elemBox = CreateElement("bag", null, elemAnalysis, xmlDoc, ns);
+            // name
+            CreateElement("name", bagProperties.Name, elemBox, xmlDoc, ns);
+            // description
+            if (rnBag.GetChildByName(Resources.ID_RN_DESCRIPTION).Activated)
+                CreateElement("description", bagProperties.Description, elemBox, xmlDoc, ns);
+            // dimensions
+            if (rnBag.GetChildByName(Resources.ID_RN_DIMENSIONS).Activated)
+            {
+                AppendElementValue(xmlDoc, elemBox, "length", UnitsManager.UnitType.UT_LENGTH, bagProperties.Length);
+                AppendElementValue(xmlDoc, elemBox, "width", UnitsManager.UnitType.UT_LENGTH, bagProperties.Width);
+                AppendElementValue(xmlDoc, elemBox, "height", UnitsManager.UnitType.UT_LENGTH, bagProperties.Height);
+            }
+            // weight
+            if (rnBag.GetChildByName(Resources.ID_RN_WEIGHT).Activated)
+            {
+                AppendElementValue(xmlDoc, elemBox, "weight", UnitsManager.UnitType.UT_MASS, bagProperties.Weight);
+                if (bagProperties.NetWeight.Activated)
+                    AppendElementValue(xmlDoc, elemBox, "netWeight", UnitsManager.UnitType.UT_MASS, bagProperties.NetWeight.Value);
+            }
+            // image
+            if (rnBag.GetChildByName(Resources.ID_RN_IMAGE).Activated)
+            {
+                // --- build image
+                Graphics3DImage graphics = new Graphics3DImage(new Size(ImageSizeDetail, ImageSizeDetail))
+                {
+                    FontSizeRatio = FontSizeRatioDetail,
+                    CameraPosition = Graphics3D.Corner_0,
+                    Target = Vector3D.Zero
+                };
+                var box = new BoxRounded(0, bagProperties, BoxPosition.Zero);
+                graphics.AddBox(box);
+                if (ShowDimensions)
                     graphics.AddDimensions(new DimensionCube(box.Length, box.Width, box.Height));
                 graphics.Flush();
                 // ---
@@ -1657,8 +1713,8 @@ namespace treeDiM.StackBuilder.Reporting
         }
         #endregion
 
-        #region Helpers
-        private static XmlElement CreateElement(string eltName, string innerValue, XmlElement parentElt, XmlDocument xmlDoc, string ns)
+            #region Helpers
+            private static XmlElement CreateElement(string eltName, string innerValue, XmlElement parentElt, XmlDocument xmlDoc, string ns)
         {
             XmlElement elt = xmlDoc.CreateElement(eltName, ns);
             if (!string.IsNullOrEmpty(innerValue))

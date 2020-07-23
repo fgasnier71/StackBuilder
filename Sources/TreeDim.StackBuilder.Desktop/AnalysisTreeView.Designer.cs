@@ -10,8 +10,9 @@
 
 namespace treeDiM.StackBuilder.Desktop {
     using System;
-    
-    
+    using System.Runtime.Remoting.Messaging;
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -295,6 +296,14 @@ namespace treeDiM.StackBuilder.Desktop {
             get
             {
                 object obj = ResourceManager.GetObject("Bottle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap Bag
+        {
+            get
+            { 
+                object obj = ResourceManager.GetObject("Bag", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

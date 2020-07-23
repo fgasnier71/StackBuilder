@@ -249,6 +249,7 @@ namespace treeDiM.StackBuilder.Basics
             bagProperties.SetWeight(weight);
             bagProperties.SetNetWeight(netWeight);
             bagProperties.SetColor(color);
+            // insert in list
             _typeList.Add(bagProperties);
             // Notify listeners
             NotifyOnNewTypeCreated(bagProperties);
@@ -971,6 +972,7 @@ namespace treeDiM.StackBuilder.Basics
 
             // notify listeners / remove
             if (item.GetType() == typeof(BoxProperties)
+                || item.GetType() == typeof(BagProperties)
                 || item.GetType() == typeof(BundleProperties)
                 || item.GetType() == typeof(PackProperties)
                 || item.GetType() == typeof(PalletProperties)
@@ -999,7 +1001,7 @@ namespace treeDiM.StackBuilder.Basics
                     _log.Warn(string.Format("Failed to properly remove analysis {0}", item.ID.Name));
             }
             else
-                _log.Error(string.Format("Removing document {0} of unknown type {1}...", item.ID.Name, item.GetType()));
+                _log.Error($"Removing document {item.ID.Name} of unknown type {item.GetType()}...");
             Modify();
         }
         #endregion
@@ -1101,6 +1103,8 @@ namespace treeDiM.StackBuilder.Basics
                         {
                             if (string.Equals(itemPropertiesNode.Name, "BoxProperties", StringComparison.CurrentCultureIgnoreCase))
                                 LoadBoxProperties(itemPropertiesNode as XmlElement);
+                            else if (string.Equals(itemPropertiesNode.Name, "BagProperties", StringComparison.CurrentCultureIgnoreCase))
+                                LoadBagProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "CylinderProperties", StringComparison.CurrentCultureIgnoreCase))
                                 LoadCylinderProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "BottleProperties", StringComparison.CurrentCultureIgnoreCase))
@@ -1263,7 +1267,20 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         private void LoadBagProperties(XmlElement eltBagProperties)
-        { 
+        {
+            string sid = eltBagProperties.Attributes["Id"].Value;
+            string sname = eltBagProperties.Attributes["Name"].Value;
+            string sdescription = eltBagProperties.Attributes["Description"].Value;
+            double length = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltBagProperties.Attributes["Length"].Value, CultureInfo.InvariantCulture), UnitSystem);
+            double width = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltBagProperties.Attributes["Width"].Value, CultureInfo.InvariantCulture), UnitSystem);
+            double height = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltBagProperties.Attributes["Height"].Value, CultureInfo.InvariantCulture), UnitSystem);
+            double radius = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltBagProperties.Attributes["Height"].Value, CultureInfo.InvariantCulture), UnitSystem);
+            double weight = UnitsManager.ConvertMassFrom(Convert.ToDouble(eltBagProperties.Attributes["Weight"].Value, CultureInfo.InvariantCulture), UnitSystem);
+            OptDouble optNetWeight = LoadOptDouble(eltBagProperties, "NetWeight", UnitsManager.UnitType.UT_MASS);
+            Color colorFill = Color.Beige;
+
+            var bagProperties = CreateNewBag(sname, sdescription, new Vector3D(length, width, height), radius, weight, optNetWeight, colorFill);
+            bagProperties.ID.IGuid = new Guid(sid);
         }
 
         private void LoadPackProperties(XmlElement eltPackProperties)
@@ -2547,6 +2564,8 @@ namespace treeDiM.StackBuilder.Basics
                         Save(caseOfBoxesProperties, xmlItemPropertiesElt, xmlDoc);
                     else if (itemProperties is BoxProperties boxProperties && !(itemProperties is CaseOfBoxesProperties))
                         Save(boxProperties, xmlItemPropertiesElt, xmlDoc);
+                    else if (itemProperties is BagProperties bagProperties)
+                        Save(bagProperties, xmlItemPropertiesElt, xmlDoc);
                     else if (itemProperties is BundleProperties bundleProperties)
                         Save(bundleProperties, xmlItemPropertiesElt, xmlDoc);
                     else if (itemProperties is CylinderProperties cylinderProperties)
@@ -2673,6 +2692,48 @@ namespace treeDiM.StackBuilder.Basics
             // strappers
             SaveStrappers(boxProperties.StrapperSet, eltBoxProperties, xmlDoc);
         }
+        public void Save(BagProperties bagProperties, XmlElement parentElement, XmlDocument xmlDoc)
+        {
+            // create xmlBagProperties element
+            XmlElement eltBagProperties = xmlDoc.CreateElement("BagProperties");
+            parentElement.AppendChild(eltBagProperties);
+            // Id
+            XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
+            guidAttribute.Value = bagProperties.ID.IGuid.ToString();
+            eltBagProperties.Attributes.Append(guidAttribute);
+            // name
+            XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
+            nameAttribute.Value = bagProperties.ID.Name;
+            eltBagProperties.Attributes.Append(nameAttribute);
+            // description
+            XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
+            descAttribute.Value = bagProperties.ID.Description;
+            eltBagProperties.Attributes.Append(descAttribute);
+            // length
+            XmlAttribute lengthAttribute = xmlDoc.CreateAttribute("Length");
+            lengthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", bagProperties.Length);
+            eltBagProperties.Attributes.Append(lengthAttribute);
+            // width
+            XmlAttribute widthAttribute = xmlDoc.CreateAttribute("Width");
+            widthAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", bagProperties.Width);
+            eltBagProperties.Attributes.Append(widthAttribute);
+            // height
+            XmlAttribute heightAttribute = xmlDoc.CreateAttribute("Height");
+            heightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", bagProperties.Height);
+            eltBagProperties.Attributes.Append(heightAttribute);
+            // radius
+            XmlAttribute radiusAttribute = xmlDoc.CreateAttribute("Radius");
+            radiusAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", bagProperties.Radius);
+            eltBagProperties.Attributes.Append(radiusAttribute);
+            // weight
+            XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", bagProperties.Weight);
+            eltBagProperties.Attributes.Append(weightAttribute);
+            // net weight
+            XmlAttribute netWeightAttribute = xmlDoc.CreateAttribute("NetWeight");
+            netWeightAttribute.Value = bagProperties.NetWeight.ToString();
+            eltBagProperties.Attributes.Append(netWeightAttribute);
+        }
         public void Save(PackProperties packProperties, XmlElement parentElement, XmlDocument xmlDoc)
         {
             // create xmlPackProperties element
@@ -2718,7 +2779,7 @@ namespace treeDiM.StackBuilder.Basics
                 if (packWrapper is WrapperPolyethilene wrapperPoly)
                     SaveWrapper(wrapperPoly, wrapperElt, xmlDoc);
                 else if (packWrapper is WrapperPaper wrapperPaper)
-                    SaveWrapper(packWrapper as WrapperPaper, wrapperElt, xmlDoc);
+                    SaveWrapper(wrapperPaper, wrapperElt, xmlDoc);
                 else if (packWrapper is WrapperCardboard wrapperCardboat)
                    SaveWrapper(wrapperCardboat, wrapperElt, xmlDoc);
             }

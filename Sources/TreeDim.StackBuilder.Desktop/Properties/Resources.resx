@@ -187,6 +187,9 @@
   <data name="ID_ADDNEWANALYSIS" xml:space="preserve">
     <value>Add new analysis...</value>
   </data>
+  <data name="ID_ADDNEWBAG" xml:space="preserve">
+    <value>Add new bag...</value>
+  </data>
   <data name="ID_ADDNEWBOTTLE" xml:space="preserve">
     <value>Add new bottle...</value>
   </data>

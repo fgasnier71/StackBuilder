@@ -327,7 +327,7 @@ namespace treeDiM.StackBuilder.Desktop
                 Overhang = new Vector2D(uCtrlOverhang.ValueX, uCtrlOverhang.ValueY)
             };
             // orientations
-            if (SelectedPackable is PackProperties)
+            if (SelectedPackable is PackProperties || SelectedPackable is BagProperties)
                 constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
             else
                 constraintSet.SetAllowedOrientations(uCtrlCaseOrientation.AllowedOrientations);

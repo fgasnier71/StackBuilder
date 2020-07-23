@@ -25,6 +25,7 @@
               <xs:element name="name" type="xs:string"/>
               <xs:element name="description" type="xs:string"/>
               <xs:element name="box" minOccurs="0" maxOccurs="1" type="rpt:box"/>
+              <xs:element name="bag" minOccurs="0" maxOccurs="1" type="rpt:bag"/>
               <xs:element name="caseWithInnerDims" minOccurs="0" maxOccurs="unbounded" type="rpt:case"/>
               <xs:element name="bundle" minOccurs="0" maxOccurs="1" type="rpt:bundle"/>
               <xs:element name="pack" minOccurs="0" maxOccurs="1" type="rpt:pack"/>
