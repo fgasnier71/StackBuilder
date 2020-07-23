@@ -1274,12 +1274,13 @@ namespace treeDiM.StackBuilder.Basics
             double length = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltBagProperties.Attributes["Length"].Value, CultureInfo.InvariantCulture), UnitSystem);
             double width = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltBagProperties.Attributes["Width"].Value, CultureInfo.InvariantCulture), UnitSystem);
             double height = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltBagProperties.Attributes["Height"].Value, CultureInfo.InvariantCulture), UnitSystem);
-            double radius = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltBagProperties.Attributes["Height"].Value, CultureInfo.InvariantCulture), UnitSystem);
+            double radius = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltBagProperties.Attributes["Radius"].Value, CultureInfo.InvariantCulture), UnitSystem);
             double weight = UnitsManager.ConvertMassFrom(Convert.ToDouble(eltBagProperties.Attributes["Weight"].Value, CultureInfo.InvariantCulture), UnitSystem);
             OptDouble optNetWeight = LoadOptDouble(eltBagProperties, "NetWeight", UnitsManager.UnitType.UT_MASS);
-            Color colorFill = Color.Beige;
+            string sColor = eltBagProperties.Attributes["Color"].Value;
+            Color color = Color.FromArgb(Convert.ToInt32(sColor));
 
-            var bagProperties = CreateNewBag(sname, sdescription, new Vector3D(length, width, height), radius, weight, optNetWeight, colorFill);
+            var bagProperties = CreateNewBag(sname, sdescription, new Vector3D(length, width, height), radius, weight, optNetWeight, color);
             bagProperties.ID.IGuid = new Guid(sid);
         }
 
@@ -2473,7 +2474,7 @@ namespace treeDiM.StackBuilder.Basics
                         {
                             string name = eltLayerDesc.Attributes["Name"].Value;
                             Vector3D dimBox = UnitsManagerEx.ConvertLengthFrom( Vector3D.Parse(eltLayerDesc.Attributes["DimBox"].Value), UnitSystem);
-                            Vector2D dimContainer = Vector2D.Parse(eltLayerDesc.Attributes["DimContainer"].Value);
+                            Vector2D dimContainer = UnitsManagerEx.ConvertLengthFrom(Vector2D.Parse(eltLayerDesc.Attributes["DimContainer"].Value), UnitSystem);
                             HalfAxis.HAxis axisOrtho = HalfAxis.Parse(eltLayerDesc.Attributes["AxisOrtho"].Value);
                             var layer2D = new Layer2DBrickExp(dimBox, dimContainer, name, axisOrtho);
                             foreach (XmlNode nodeBP in eltLayerDesc.ChildNodes)
@@ -2733,6 +2734,10 @@ namespace treeDiM.StackBuilder.Basics
             XmlAttribute netWeightAttribute = xmlDoc.CreateAttribute("NetWeight");
             netWeightAttribute.Value = bagProperties.NetWeight.ToString();
             eltBagProperties.Attributes.Append(netWeightAttribute);
+            // color
+            XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
+            colorAttribute.Value = $"{bagProperties.ColorFill.ToArgb()}";
+            eltBagProperties.Attributes.Append(colorAttribute);
         }
         public void Save(PackProperties packProperties, XmlElement parentElement, XmlDocument xmlDoc)
         {

@@ -412,6 +412,7 @@ namespace treeDiM.StackBuilder.Desktop
                         bag.SetLength(form.OuterDimensions.X);
                         bag.SetWidth(form.OuterDimensions.Y);
                         bag.SetHeight(form.OuterDimensions.Z);
+                        bag.Radius = form.RoundingRadius;
                         bag.SetWeight(form.Weight);
                         bag.SetNetWeight(form.NetWeight);
                         bag.SetColor(form.ColorFill);

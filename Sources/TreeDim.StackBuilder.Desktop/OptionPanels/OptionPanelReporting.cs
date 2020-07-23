@@ -40,7 +40,7 @@ namespace treeDiM.StackBuilder.Desktop
             nudBottom.Value = (decimal)Settings.Default.MarginBottom;
             nudLeft.Value = (decimal)Settings.Default.MarginLeft;
             nudRight.Value = (decimal)Settings.Default.MarginRight;
-            nudSleepTime.Value = Settings.Default.SleepTimeBeforeImageDeletion;
+            uCtrlTimeBeforeDeletion.Value = new treeDiM.Basics.OptInt(Settings.Default.WordDeleteImage, Settings.Default.WordDeleteImageDelay);
 
             // events
             OptionsForm.OptionsSaving += new EventHandler(OptionsForm_OptionsSaving);
@@ -56,7 +56,8 @@ namespace treeDiM.StackBuilder.Desktop
             Settings.Default.MarginBottom = (float)nudBottom.Value;
             Settings.Default.MarginLeft = (float)nudLeft.Value;
             Settings.Default.MarginRight = (float)nudRight.Value;
-            Settings.Default.SleepTimeBeforeImageDeletion = (int)nudSleepTime.Value;
+            Settings.Default.WordDeleteImage = uCtrlTimeBeforeDeletion.Value.Activated;
+            Settings.Default.WordDeleteImageDelay = uCtrlTimeBeforeDeletion.Value.Value;
             Settings.Default.Save();
         }
         #endregion
