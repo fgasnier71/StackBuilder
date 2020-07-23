@@ -44,8 +44,11 @@
     <Setting Name="ShowDimensions" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="SleepTimeBeforeImageDeletion" Type="System.Int32" Scope="User">
+    <Setting Name="WordDeleteImageDelay" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="WordDeleteImage" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

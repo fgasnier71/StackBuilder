@@ -77,13 +77,16 @@ namespace treeDiM.StackBuilder.Reporting
             wordApp.ActiveWindow.ActivePane.View.Type = Microsoft.Office.Interop.Word.WdViewType.wdPrintView;
             wordDoc.SaveAs(absOutputFilePath, Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatDocumentDefault);
             _log.Info(string.Format("Saved doc report to {0}", outputFilePath));
-            // wait before deleting image
-            int timeBeforeDeletion = Properties.Settings.Default.SleepTimeBeforeImageDeletion;
-            System.Threading.Thread.Sleep(timeBeforeDeletion * 1000);
-            // delete image directory
-            DeleteImageDirectory();
-            // delete html report
-            File.Delete(htmlFilePath);
+            if (Properties.Settings.Default.WordDeleteImage)
+            {
+                // wait before deleting image
+                int timeBeforeDeletion = Properties.Settings.Default.WordDeleteImageDelay;
+                System.Threading.Thread.Sleep(timeBeforeDeletion * 1000);
+                // delete image directory
+                DeleteImageDirectory();
+                // delete html report
+                File.Delete(htmlFilePath);
+           }
         }
         #endregion
 

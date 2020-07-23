@@ -34,6 +34,8 @@
             this.fileSelectCompanyLogo = new treeDiM.UserControls.FileSelect();
             this.lbReportTemplate = new System.Windows.Forms.Label();
             this.gbMSWordMargins = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabMargins = new System.Windows.Forms.TabPage();
             this.lbCmRight = new System.Windows.Forms.Label();
             this.lbCmLeft = new System.Windows.Forms.Label();
             this.lbcmBottom = new System.Windows.Forms.Label();
@@ -46,14 +48,16 @@
             this.lbLeft = new System.Windows.Forms.Label();
             this.lbBottom = new System.Windows.Forms.Label();
             this.lbTop = new System.Windows.Forms.Label();
-            this.lbSleepTime = new System.Windows.Forms.Label();
-            this.nudSleepTime = new System.Windows.Forms.NumericUpDown();
+            this.tabImageDeletion = new System.Windows.Forms.TabPage();
+            this.uCtrlTimeBeforeDeletion = new treeDiM.Basics.UCtrlOptInt();
             this.gbMSWordMargins.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabMargins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSleepTime)).BeginInit();
+            this.tabImageDeletion.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileSelectCtrlReportTemplate
@@ -81,20 +85,35 @@
             // gbMSWordMargins
             // 
             resources.ApplyResources(this.gbMSWordMargins, "gbMSWordMargins");
-            this.gbMSWordMargins.Controls.Add(this.lbCmRight);
-            this.gbMSWordMargins.Controls.Add(this.lbCmLeft);
-            this.gbMSWordMargins.Controls.Add(this.lbcmBottom);
-            this.gbMSWordMargins.Controls.Add(this.lbcm);
-            this.gbMSWordMargins.Controls.Add(this.nudRight);
-            this.gbMSWordMargins.Controls.Add(this.nudBottom);
-            this.gbMSWordMargins.Controls.Add(this.nudLeft);
-            this.gbMSWordMargins.Controls.Add(this.nudTop);
-            this.gbMSWordMargins.Controls.Add(this.label2);
-            this.gbMSWordMargins.Controls.Add(this.lbLeft);
-            this.gbMSWordMargins.Controls.Add(this.lbBottom);
-            this.gbMSWordMargins.Controls.Add(this.lbTop);
+            this.gbMSWordMargins.Controls.Add(this.tabControl1);
             this.gbMSWordMargins.Name = "gbMSWordMargins";
             this.gbMSWordMargins.TabStop = false;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabMargins);
+            this.tabControl1.Controls.Add(this.tabImageDeletion);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            // 
+            // tabMargins
+            // 
+            this.tabMargins.Controls.Add(this.lbCmRight);
+            this.tabMargins.Controls.Add(this.lbCmLeft);
+            this.tabMargins.Controls.Add(this.lbcmBottom);
+            this.tabMargins.Controls.Add(this.lbcm);
+            this.tabMargins.Controls.Add(this.nudRight);
+            this.tabMargins.Controls.Add(this.nudBottom);
+            this.tabMargins.Controls.Add(this.nudLeft);
+            this.tabMargins.Controls.Add(this.nudTop);
+            this.tabMargins.Controls.Add(this.label2);
+            this.tabMargins.Controls.Add(this.lbLeft);
+            this.tabMargins.Controls.Add(this.lbBottom);
+            this.tabMargins.Controls.Add(this.lbTop);
+            resources.ApplyResources(this.tabMargins, "tabMargins");
+            this.tabMargins.Name = "tabMargins";
+            this.tabMargins.UseVisualStyleBackColor = true;
             // 
             // lbCmRight
             // 
@@ -170,28 +189,24 @@
             resources.ApplyResources(this.lbTop, "lbTop");
             this.lbTop.Name = "lbTop";
             // 
-            // lbSleepTime
+            // tabImageDeletion
             // 
-            resources.ApplyResources(this.lbSleepTime, "lbSleepTime");
-            this.lbSleepTime.Name = "lbSleepTime";
+            this.tabImageDeletion.Controls.Add(this.uCtrlTimeBeforeDeletion);
+            resources.ApplyResources(this.tabImageDeletion, "tabImageDeletion");
+            this.tabImageDeletion.Name = "tabImageDeletion";
+            this.tabImageDeletion.UseVisualStyleBackColor = true;
             // 
-            // nudSleepTime
+            // uCtrlTimeBeforeDeletion
             // 
-            resources.ApplyResources(this.nudSleepTime, "nudSleepTime");
-            this.nudSleepTime.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.nudSleepTime.Name = "nudSleepTime";
+            resources.ApplyResources(this.uCtrlTimeBeforeDeletion, "uCtrlTimeBeforeDeletion");
+            this.uCtrlTimeBeforeDeletion.Minimum = -10000;
+            this.uCtrlTimeBeforeDeletion.Name = "uCtrlTimeBeforeDeletion";
             // 
             // OptionPanelReporting
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CategoryPath = "Options\\\\Reports";
-            this.Controls.Add(this.nudSleepTime);
-            this.Controls.Add(this.lbSleepTime);
             this.Controls.Add(this.gbMSWordMargins);
             this.Controls.Add(this.lbReportTemplate);
             this.Controls.Add(this.fileSelectCompanyLogo);
@@ -200,12 +215,14 @@
             this.DisplayName = "Reports";
             this.Name = "OptionPanelReporting";
             this.gbMSWordMargins.ResumeLayout(false);
-            this.gbMSWordMargins.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabMargins.ResumeLayout(false);
+            this.tabMargins.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBottom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSleepTime)).EndInit();
+            this.tabImageDeletion.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,19 +234,21 @@
         private treeDiM.UserControls.FileSelect fileSelectCompanyLogo;
         private System.Windows.Forms.Label lbReportTemplate;
         private System.Windows.Forms.GroupBox gbMSWordMargins;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabMargins;
+        private System.Windows.Forms.Label lbCmRight;
+        private System.Windows.Forms.Label lbCmLeft;
+        private System.Windows.Forms.Label lbcmBottom;
+        private System.Windows.Forms.Label lbcm;
+        private System.Windows.Forms.NumericUpDown nudRight;
+        private System.Windows.Forms.NumericUpDown nudBottom;
+        private System.Windows.Forms.NumericUpDown nudLeft;
         private System.Windows.Forms.NumericUpDown nudTop;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbLeft;
         private System.Windows.Forms.Label lbBottom;
         private System.Windows.Forms.Label lbTop;
-        private System.Windows.Forms.NumericUpDown nudRight;
-        private System.Windows.Forms.NumericUpDown nudBottom;
-        private System.Windows.Forms.NumericUpDown nudLeft;
-        private System.Windows.Forms.Label lbCmRight;
-        private System.Windows.Forms.Label lbCmLeft;
-        private System.Windows.Forms.Label lbcmBottom;
-        private System.Windows.Forms.Label lbcm;
-        private System.Windows.Forms.Label lbSleepTime;
-        private System.Windows.Forms.NumericUpDown nudSleepTime;
+        private System.Windows.Forms.TabPage tabImageDeletion;
+        private treeDiM.Basics.UCtrlOptInt uCtrlTimeBeforeDeletion;
     }
 }
