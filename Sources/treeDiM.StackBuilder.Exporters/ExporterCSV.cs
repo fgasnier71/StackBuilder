@@ -38,6 +38,7 @@ namespace treeDiM.StackBuilder.Exporters
             {
                 if (layer is Layer3DBox layerBox)
                 {
+                    layerBox.Sort(analysis.Content, Layer3DBox.SortType.DIST);
                     foreach (BoxPosition bPosition in layerBox)
                     {
                         Vector3D pos = ConvertPosition(bPosition, analysis.ContentDimensions);
