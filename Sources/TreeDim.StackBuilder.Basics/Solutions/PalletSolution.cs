@@ -65,7 +65,7 @@ namespace treeDiM.StackBuilder.Basics
     public class Layer3DBox : List<BoxPosition>, ILayer
     {
         #region Enums
-        public enum SortType { XY, DIST, TOTAL };
+        public enum SortType { XY, DIST_BOXCENTER, DIST_MAXCORNER, TOTAL };
         #endregion
 
         #region Constructor
@@ -123,7 +123,8 @@ namespace treeDiM.StackBuilder.Basics
             switch (sortType)
             {
                 case SortType.XY: Sort(new ComparerBoxPositionXY(dimensions)); break;
-                case SortType.DIST : Sort(new ComparerBoxPositionDist(dimensions, minPoint)); break;
+                case SortType.DIST_BOXCENTER : Sort(new ComparerBoxPositionDist(dimensions, minPoint)); break;
+                case SortType.DIST_MAXCORNER : Sort(new ComparerBoxPositionDistMaxCorner(dimensions, minPoint)); break;
                 default: break;
             }
         }
@@ -160,7 +161,7 @@ namespace treeDiM.StackBuilder.Basics
         private Vector3D Dimensions { get; }
         private Vector3D MinPoint { get; }
         #endregion
-
+        #region Implement IComparer<BoxPosition>
         public int Compare(BoxPosition boxPos1, BoxPosition boxPos2)
         {
             double dist1 = (boxPos1.Center(Dimensions) - MinPoint).GetLength();
@@ -172,8 +173,30 @@ namespace treeDiM.StackBuilder.Basics
                 return 1;
             else
                 return 0;
-            
         }
+        #endregion
+    }
+    internal class ComparerBoxPositionDistMaxCorner : IComparer<BoxPosition>
+    {
+        #region Constructor
+        public ComparerBoxPositionDistMaxCorner(Vector3D dimensions, Vector3D minPoint) { Dimensions = dimensions; MinPoint = minPoint; }
+        private Vector3D Dimensions { get; }
+        private Vector3D MinPoint { get; }
+        #endregion
+        #region Implement IComparer<BoxPosition>
+        public int Compare(BoxPosition boxPos1, BoxPosition boxPos2)
+        {
+            double dist1 = boxPos1.MaxDistance(Dimensions, MinPoint);
+            double dist2 = boxPos2.MaxDistance(Dimensions, MinPoint);
+
+            if (dist1 < dist2)
+                return -1;
+            else if (dist1 > dist2)
+                return 1;
+            else
+                return 0;
+        }
+        #endregion
     }
     #endregion
 

@@ -107,8 +107,11 @@
     <Compile Include="DCSBBundle.cs" />
     <Compile Include="DCSBCase.cs" />
     <Compile Include="DCSBConstraintSet.cs" />
+    <Compile Include="DCSBContentItem.cs" />
     <Compile Include="DCSBCylinder.cs" />
     <Compile Include="DCSBDim3D.cs" />
+    <Compile Include="DCSBHConstraintSet.cs" />
+    <Compile Include="DCSBHSolution.cs" />
     <Compile Include="DCSBInterlayer.cs" />
     <Compile Include="DCSBItem.cs" />
     <Compile Include="DCSBPallet.cs" />

@@ -139,7 +139,7 @@ namespace treeDiM.StackBuilder.Exporters
             {
                 if (layer is Layer3DBox layerBox)
                 {
-                    layerBox.Sort(analysis.Content, Layer3DBox.SortType.DIST);
+                    layerBox.Sort(analysis.Content, Layer3DBox.SortType.DIST_MAXCORNER);
                     foreach (BoxPosition bPosition in layerBox)
                     {
                         Vector3D writtenPosition = ConvertPosition(bPosition, analysis.ContentDimensions);

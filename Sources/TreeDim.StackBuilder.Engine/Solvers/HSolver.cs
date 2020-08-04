@@ -105,7 +105,7 @@ namespace treeDiM.StackBuilder.Engine
                 HSolution sol = new HSolution($"Boxologic - Variant {solution.Variant}") { Analysis = analysis };
                 HSolItem hSolItem = sol.CreateSolItem();
 
-                Transform3D transform = Transform3D.Identity;
+                Transform3D transform;
                 switch (solution.Variant)
                 {
                     case 1: transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0); break;

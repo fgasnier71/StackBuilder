@@ -26,7 +26,18 @@ namespace treeDiM.StackBuilder.WCFAppServ
         [OperationContract]
         DCSBSolution SB_GetBoxCaseBestSolution(
             DCSBCase sbBox, DCSBCase sbCase, DCSBInterlayer sbInterlayer
-            , DCSBConstraintSet cSbConstraintSet
+            , DCSBConstraintSet sbConstraintSet
             , DCCompFormat expectedFormat, bool showCotations);
+        [OperationContract]
+        DCSBHSolutionList SB_GetHCasePalletSolution(DCSBContentItem[] sbConstentItems
+            , DCSBPallet sbPallet
+            , DCSBHConstraintSet sbConstraintSet 
+            );
+        [OperationContract]
+        DCSBHSolutionItem SB_GetSolutionItem(
+            DCSBContentItem[] sbContentItems, DCSBPallet sbPallet, DCSBHConstraintSet sbConstraintSet
+            , int solIndex, int binIndex
+            , DCCompFormat expectedFormat, bool showCotations
+            );
     }
 }

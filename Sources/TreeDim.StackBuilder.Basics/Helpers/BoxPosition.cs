@@ -46,19 +46,7 @@ namespace treeDiM.StackBuilder.Basics
         public BBox3D BBox(Vector3D dimensions)
         {
             BBox3D bbox = new BBox3D();
-            Vector3D vI = HalfAxis.ToVector3D(DirectionLength);
-            Vector3D vJ = HalfAxis.ToVector3D(DirectionWidth);
-            Vector3D vK = Vector3D.CrossProduct(vI, vJ);
-            Vector3D[] pts = new Vector3D[8];
-            pts[0] = Position;
-            pts[1] = Position + dimensions.X * vI;
-            pts[2] = Position + dimensions.Y * vJ;
-            pts[3] = Position + dimensions.X * vI + dimensions.Y * vJ;
-            pts[4] = Position + dimensions.Z * vK;
-            pts[5] = Position + dimensions.Y * vJ + dimensions.Z * vK;
-            pts[6] = Position + dimensions.Y * vJ;
-            pts[7] = Position + dimensions.X * vI + dimensions.Y * vJ;
-            foreach (Vector3D pt in pts)
+            foreach (Vector3D pt in Points(dimensions))
                 bbox.Extend(pt);
             return bbox;
         }
@@ -68,6 +56,17 @@ namespace treeDiM.StackBuilder.Basics
             Vector3D vJ = HalfAxis.ToVector3D(DirectionWidth);
             Vector3D vK = Vector3D.CrossProduct(vI, vJ);
             return Position + (0.5 * dimensions.X * vI) + (0.5 * dimensions.Y * vJ) + (0.5 * dimensions.Z * vK);
+        }
+
+        public double MaxDistance(Vector3D dimensions, Vector3D ptRef)
+        {
+            double maxDistance = double.MinValue;
+            foreach (Vector3D pt in Points(dimensions))
+            {
+                double dist = (pt - ptRef).GetLength();
+                maxDistance = Math.Max(maxDistance, dist);
+            }
+            return maxDistance;
         }
         #endregion
 

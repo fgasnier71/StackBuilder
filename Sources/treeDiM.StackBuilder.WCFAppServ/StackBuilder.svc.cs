@@ -156,7 +156,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
             else
                 boxProperties.SetAllColors(Enumerable.Repeat(Color.Chocolate, 6).ToArray());
 
-            PalletProperties palletProperties = null;
+            PalletProperties palletProperties;
             if (null != sbPallet.Dimensions)
                 palletProperties = new PalletProperties(null, sbPallet.PalletType,
                     sbPallet.Dimensions.M0, sbPallet.Dimensions.M1, sbPallet.Dimensions.M2)
@@ -661,11 +661,137 @@ namespace treeDiM.StackBuilder.WCFAppServ
             }
             return new DCSBSolution() { Errors = lErrors.ToArray() };
         }
+
+        #endregion
+
+        #region Heterogeneous Pallet Stacking
+        public DCSBHSolutionList SB_GetHCasePalletSolution(DCSBContentItem[] sbContentItems, DCSBPallet sbPallet, DCSBHConstraintSet sbConstraintSet)
+        {
+            var lErrors = new List<string>();
+            var sbSolutions = new List<DCSBHSolution>();
+
+            try
+            {
+                // list of content items
+                var contentItems = new List<ContentItem>();
+                foreach (var sbci in sbContentItems)
+                {
+                    contentItems.Add(
+                        new ContentItem(ConvertDCSBCase(sbci.Case), sbci.Number, sbci.Orientation.ToArray())
+                        );
+                }
+                // pallet
+                var palletProperties = ConvertDCSBPallet(sbPallet);
+                // constraint set
+                var constraintSet = new HConstraintSetPallet()
+                {
+                    Overhang = new Vector2D(sbConstraintSet.Overhang.M0, sbConstraintSet.Overhang.M1),
+                    MaximumHeight = sbConstraintSet.MaxHeight.Value_d
+                };
+                // solve
+                var solver = new HSolver();
+                var solutions = solver.BuildSolutions(
+                    new HAnalysisPallet(null)
+                    {
+                        Content = contentItems,
+                        Pallet = palletProperties,
+                        ConstraintSet = constraintSet
+                    }
+                    );
+                // analyse each solution
+                int solIndex = 0;
+                foreach (var sol in solutions)
+                {
+                    sbSolutions.Add(
+                        new DCSBHSolution()
+                        {
+                            SolIndex = solIndex,
+                            PalletCount = sol.SolItemCount,
+                            Algorithm = sol.Algorithm
+                        }
+                        );
+                }
+            }
+            catch (Exception ex)
+            {
+                lErrors.Add(ex.Message);
+                _log.Error(ex.ToString());
+            }
+            return new DCSBHSolutionList()
+            {
+                Solutions = sbSolutions.ToArray(),
+                Errors = lErrors.ToArray()
+            };
+        }
+
+        public DCSBHSolutionItem SB_GetSolutionItem(DCSBContentItem[] sbContentItems, DCSBPallet sbPallet, DCSBHConstraintSet sbConstraintSet, int solIndex, int binIndex, DCCompFormat expectedFormat, bool showCotations)
+        {
+            var lErrors = new List<string>();
+
+            try
+            {
+                // list of content items
+                var contentItems = new List<ContentItem>();
+                foreach (var sbci in sbContentItems)
+                {
+                    contentItems.Add(
+                        new ContentItem(ConvertDCSBCase(sbci.Case), sbci.Number, sbci.Orientation.ToArray())
+                        );
+                }
+                // pallet
+                var palletProperties = ConvertDCSBPallet(sbPallet);
+                // constraint set
+                var constraintSet = new HConstraintSetPallet()
+                {
+                    Overhang = new Vector2D(sbConstraintSet.Overhang.M0, sbConstraintSet.Overhang.M1),
+                    MaximumHeight = sbConstraintSet.MaxHeight.Value_d
+                };
+                // solve
+                var solver = new HSolver();
+                var solutions = solver.BuildSolutions(
+                    new HAnalysisPallet(null)
+                    {
+                        Content = contentItems,
+                        Pallet = palletProperties,
+                        ConstraintSet = constraintSet
+                    }
+                    );
+                // solution
+                var hSolution = solutions[solIndex];
+
+
+            }
+            catch (Exception ex)
+            {
+                lErrors.Add(ex.Message);
+                _log.Error(ex.ToString());
+            }
+
+            return new DCSBHSolutionItem()
+            {
+                Errors = lErrors.ToArray()
+            };
+        }
+
+        private BoxProperties ConvertDCSBCase(DCSBCase sbCase)
+        {
+            return new BoxProperties(null,
+                sbCase.DimensionsOuter.M0, sbCase.DimensionsOuter.M1, sbCase.DimensionsOuter.M2)
+            { 
+            };
+        }
+        private PalletProperties ConvertDCSBPallet(DCSBPallet sbPallet)
+        {
+            return new PalletProperties(null
+                , sbPallet.PalletType
+                , sbPallet.Dimensions.M0
+                , sbPallet.Dimensions.M1
+                , sbPallet.Dimensions.M2);
+        }
         #endregion
     }
 
     #region StackBuilderProcessor
-
     public static class StackBuilderProcessor
     {
         public static bool GetSolutionList(

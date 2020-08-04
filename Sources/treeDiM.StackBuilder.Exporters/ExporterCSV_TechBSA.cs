@@ -50,7 +50,7 @@ namespace treeDiM.StackBuilder.Exporters
             {
                 if (layer is Layer3DBox layerBox)
                 {
-                    layerBox.Sort(analysis.Content, Layer3DBox.SortType.DIST);
+                    layerBox.Sort(analysis.Content, Layer3DBox.SortType.DIST_MAXCORNER);
                     foreach (var bPosition in layerBox)
                     {
                         var pos = ConvertPosition(bPosition, analysis.ContentDimensions);

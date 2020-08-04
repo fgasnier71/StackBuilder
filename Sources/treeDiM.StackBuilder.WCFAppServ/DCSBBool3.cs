@@ -21,5 +21,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
         public bool Y { get; set; }
         [DataMember]
         public bool Z { get; set; }
+
+        public bool[] ToArray() => new bool[] { X, Y, Z };
     }
 }
