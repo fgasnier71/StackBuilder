@@ -117,7 +117,7 @@ namespace treeDiM.StackBuilder.Desktop
                         Border = DevAge.Drawing.RectangleBorder.NoBorder
                     },
                     ForeColor = Color.Black,
-                    Font = new Font("Arial", 10, FontStyle.Regular),
+                    Font = new Font("Arial", 10, FontStyle.Regular)
                 };
                 viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
                 // viewNormal

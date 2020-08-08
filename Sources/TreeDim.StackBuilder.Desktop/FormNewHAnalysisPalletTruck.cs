@@ -1,17 +1,9 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 using log4net;
-
-using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics.Controls;
 using treeDiM.StackBuilder.Desktop.Properties;
@@ -73,6 +65,45 @@ namespace treeDiM.StackBuilder.Desktop
             return false;
         }
         #endregion
+
+        #region FillGrid
+        private void FillGrid()
+        {
+            // remove existing rows
+            gridPallets.Rows.Clear();
+            // viewColumnHeader
+            var viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader()
+            {
+                Background = new DevAge.Drawing.VisualElements.ColumnHeader()
+                {
+                    BackColor = Color.LightGray,
+                    Border = DevAge.Drawing.RectangleBorder.NoBorder
+                },
+                ForeColor = Color.Black,
+                Font = new Font("Arial", 10, FontStyle.Regular)
+            };
+            viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
+            // viewNormal
+            var viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
+            // ***
+            // set first row
+            gridPallets.BorderStyle = BorderStyle.FixedSingle;
+            gridPallets.ColumnsCount = 3;
+            gridPallets.FixedRows = 1;
+
+            // header
+            int iCol = 0;
+            gridPallets.Rows.Insert(0);
+            gridPallets[0, iCol] = new SourceGrid.Cells.ColumnHeader(Resources.ID_NAME) { AutomaticSortEnabled = false, View = viewColumnHeader };
+            gridPallets[1, iCol] = new SourceGrid.Cells.ColumnHeader(Resources.ID_NUMBER) { AutomaticSortEnabled = false, View = viewColumnHeader };
+            gridPallets[2, iCol] = new SourceGrid.Cells.ColumnHeader(Resources.ID_MULTIPLELAYER) { AutomaticSortEnabled = false, View = viewColumnHeader };
+
+
+
+
+        }
+        #endregion
+
         #region Data members
         private static readonly ILog Log = LogManager.GetLogger(typeof(FormNewHAnalysisPalletTruck));
         #endregion

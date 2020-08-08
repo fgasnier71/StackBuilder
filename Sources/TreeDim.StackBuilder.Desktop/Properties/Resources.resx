@@ -618,6 +618,9 @@ Continue?</value>
   <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
     <value>Inconsistency:Maximum {0} is lower than minimum {1}.</value>
   </data>
+  <data name="ID_MULTIPLELAYER" xml:space="preserve">
+    <value>Multi-layer</value>
+  </data>
   <data name="ID_NAME" xml:space="preserve">
     <value>Name</value>
   </data>

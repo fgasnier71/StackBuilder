@@ -1569,6 +1569,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Multi-layer.
+        /// </summary>
+        internal static string ID_MULTIPLELAYER {
+            get {
+                return ResourceManager.GetString("ID_MULTIPLELAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         internal static string ID_NAME {
