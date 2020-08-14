@@ -1021,6 +1021,17 @@ namespace treeDiM.StackBuilder.Basics
         public IEnumerable<PalletProperties> Pallets => _typeList.OfType<PalletProperties>();
         public IEnumerable<InterlayerProperties> Interlayers => _typeList.OfType<InterlayerProperties>();
         public IEnumerable<TruckProperties> Trucks => _typeList.OfType<TruckProperties>();
+        public IEnumerable<Analysis> LoadedPallets
+        {
+            get
+            {
+                var listAnalyses = new List<Analysis>();
+                foreach (var analysis in Analyses)
+                    if (analysis is AnalysisCasePallet || analysis is AnalysisCylinderPallet)
+                        listAnalyses.Add(analysis);
+                return listAnalyses;
+            }
+        }
         public IEnumerable<ItemBase> GetByType(Type t) => _typeList.Where(item => item.GetType() == t);
         public List<Analysis> Analyses { get; } = new List<Analysis>();
         public List<AnalysisHetero> HAnalyses { get; } = new List<AnalysisHetero>();

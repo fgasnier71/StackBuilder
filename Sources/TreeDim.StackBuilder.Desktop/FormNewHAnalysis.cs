@@ -466,7 +466,6 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Data members
         protected Document _document;
-        protected List<ContentItem> _contentItems;
         protected List<BoxProperties> lBoxes = new List<BoxProperties>();
         protected int _selectedSolutionIndex = -1, _solItemIndex = 0;
         protected SourceGrid.Cells.Controllers.CustomEvents _checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();

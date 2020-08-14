@@ -145,6 +145,15 @@ namespace treeDiM.StackBuilder.Basics
         private static bool MostlyEqual(double val0, double val1) => Math.Abs(val1 - val0) < 1.0e-03;
         private bool[] _allowOrient = { true, true, true };
     }
+
+    public class LoadedPalletItem
+    {
+        public LoadedPalletItem(AnalysisPackablePallet analysis, uint n) { PalletAnalysis = analysis; Number = n; }
+        public AnalysisPackablePallet PalletAnalysis { get; private set; }
+        public uint Number { get; private set; }
+        public bool IsValid => null != PalletAnalysis && 0 != Number;
+        public Vector3D Dimensions => PalletAnalysis.Solution.BBoxGlobal.DimensionsVec;
+    }
     #endregion
 }
 

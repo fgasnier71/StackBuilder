@@ -35,7 +35,7 @@
             this.rbSinglePalletType = new System.Windows.Forms.RadioButton();
             this.rbMultiPalletType = new System.Windows.Forms.RadioButton();
             this.cbPallets = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
-            this.gridPallets = new SourceGrid.Grid();
+            this.gridContent = new SourceGrid.Grid();
             this.uCtrlMaxNoPallets = new treeDiM.Basics.UCtrlOptInt();
             this.chkbAllowMultipleLayers = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
@@ -128,15 +128,15 @@
             // 
             // gridPallets
             // 
-            this.gridPallets.EnableSort = true;
-            this.gridPallets.Location = new System.Drawing.Point(130, 89);
-            this.gridPallets.Name = "gridPallets";
-            this.gridPallets.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
-            this.gridPallets.SelectionMode = SourceGrid.GridSelectionMode.Row;
-            this.gridPallets.Size = new System.Drawing.Size(284, 125);
-            this.gridPallets.TabIndex = 26;
-            this.gridPallets.TabStop = true;
-            this.gridPallets.ToolTipText = "";
+            this.gridContent.EnableSort = true;
+            this.gridContent.Location = new System.Drawing.Point(130, 89);
+            this.gridContent.Name = "gridPallets";
+            this.gridContent.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridContent.SelectionMode = SourceGrid.GridSelectionMode.Row;
+            this.gridContent.Size = new System.Drawing.Size(284, 125);
+            this.gridContent.TabIndex = 26;
+            this.gridContent.TabStop = true;
+            this.gridContent.ToolTipText = "";
             // 
             // uCtrlMaxNoPallets
             // 
@@ -166,7 +166,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.uCtrlMaxNoPallets);
             this.Controls.Add(this.chkbAllowMultipleLayers);
-            this.Controls.Add(this.gridPallets);
+            this.Controls.Add(this.gridContent);
             this.Controls.Add(this.cbPallets);
             this.Controls.Add(this.rbMultiPalletType);
             this.Controls.Add(this.rbSinglePalletType);
@@ -187,7 +187,7 @@
             this.Controls.SetChildIndex(this.rbSinglePalletType, 0);
             this.Controls.SetChildIndex(this.rbMultiPalletType, 0);
             this.Controls.SetChildIndex(this.cbPallets, 0);
-            this.Controls.SetChildIndex(this.gridPallets, 0);
+            this.Controls.SetChildIndex(this.gridContent, 0);
             this.Controls.SetChildIndex(this.chkbAllowMultipleLayers, 0);
             this.Controls.SetChildIndex(this.uCtrlMaxNoPallets, 0);
             this.ResumeLayout(false);
@@ -204,7 +204,7 @@
         private System.Windows.Forms.RadioButton rbSinglePalletType;
         private System.Windows.Forms.RadioButton rbMultiPalletType;
         private Graphics.Controls.CCtrlComboFiltered cbPallets;
-        private SourceGrid.Grid gridPallets;
+        private SourceGrid.Grid gridContent;
         private treeDiM.Basics.UCtrlOptInt uCtrlMaxNoPallets;
         private System.Windows.Forms.CheckBox chkbAllowMultipleLayers;
     }
