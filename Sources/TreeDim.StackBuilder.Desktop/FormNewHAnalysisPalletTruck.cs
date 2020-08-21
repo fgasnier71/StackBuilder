@@ -9,6 +9,7 @@ using log4net;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics.Controls;
 using treeDiM.StackBuilder.Desktop.Properties;
+using System.Linq;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -52,14 +53,16 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlMinDistanceLoadRoof.Value = Settings.Default.MinDistancePalletTruckRoof;
 
                 PalletStackingRules = new List<PalletStackingRule>();
+                InitializeStackingRule();
             }
             else
             {
-                
+                    
             }
 
             FillContentGrid();
-
+            FillStackingRuleGrid();
+            FillResultGrid();
         }
         #endregion
 
@@ -74,6 +77,15 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Initializing
+        private void InitializeStackingRule()
+        { 
+        }
+        private void BuildPalletStacks()
+        { 
+        }
+        #endregion
+
         #region Fill grids
         private void FillContentGrid()
         {
@@ -81,6 +93,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 // remove existing rows
                 gridContent.Rows.Clear();
+                // *** views
                 // viewColumnHeader
                 var viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader()
                 {
@@ -105,7 +118,7 @@ namespace treeDiM.StackBuilder.Desktop
                 int iCol = 0;
                 gridContent.Rows.Insert(0);
                 gridContent[0, iCol] = new SourceGrid.Cells.ColumnHeader(Resources.ID_NAME) { AutomaticSortEnabled = false, View = viewColumnHeader };
-                gridContent[1, iCol] = new SourceGrid.Cells.ColumnHeader(Resources.ID_NUMBER) { AutomaticSortEnabled = false, View = viewColumnHeader };
+                gridContent[0, ++iCol] = new SourceGrid.Cells.ColumnHeader(Resources.ID_NUMBER) { AutomaticSortEnabled = false, View = viewColumnHeader };
 
                 // content
                 int iIndex = 0;
@@ -137,9 +150,49 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
+                // clear rows
+                gridRules.Rows.Clear();
+                // *** views
+                // viewColumnHeader
+                var viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader()
+                {
+                    Background = new DevAge.Drawing.VisualElements.ColumnHeader()
+                    {
+                        BackColor = Color.LightGray,
+                        Border = DevAge.Drawing.RectangleBorder.NoBorder
+                    },
+                    ForeColor = Color.Black,
+                    Font = new Font("Arial", 10, FontStyle.Regular)
+                };
+                viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
+                // viewNormal
+                var viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
+                // ***
+                // set first row
+                gridRules.BorderStyle = BorderStyle.FixedSingle;
+                gridRules.ColumnsCount = 5;
+                gridRules.FixedRows = 1;
+
+                // header
+                int iCol = 0;
+                gridRules.Rows.Insert(0);
+                gridRules[0, iCol] = new SourceGrid.Cells.ColumnHeader(Resources.ID_PALLET) { AutomaticSortEnabled = false, View = viewColumnHeader };
+                gridRules[0, ++iCol] = new SourceGrid.Cells.ColumnHeader(Resources.ID_PALLETSTACKON) { AutomaticSortEnabled = false, View = viewColumnHeader };
+                gridRules[0, ++iCol] = new SourceGrid.Cells.ColumnHeader(Resources.ID_MOVEUP) { AutomaticSortEnabled = false, View = viewColumnHeader };
+                gridRules[0, ++iCol] = new SourceGrid.Cells.ColumnHeader(Resources.ID_MOVEDOWN) { AutomaticSortEnabled = false, View = viewColumnHeader };
+                gridRules[0, ++iCol] = new SourceGrid.Cells.ColumnHeader(Resources.ID_DELETE) { AutomaticSortEnabled = false, View = viewColumnHeader };
+
+                // content
+                int iIndex = 0;
                 foreach (var psr in PalletStackingRules)
-                { 
+                {
+                    gridRules.Rows.Insert(++iIndex);
+                    iCol = 0;
                 }
+                gridRules.AutoSizeCells();
+                gridRules.Columns.StretchToFit();
+                gridRules.AutoStretchColumnsToFitWidth = true;
+                gridRules.Invalidate();
             }
             catch (Exception ex)
             {
@@ -158,24 +211,39 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Event handlers
+        private void OnSingleMultiplePalletTypeChanged(object sender, EventArgs e)
+        {
+            cbPallets.Enabled = HomogeneousLoad;
+            gridContent.Enabled = HeterogeneousLoad;
+        }
+        #endregion
+
         #region Helpers
         private List<LoadedPalletItem> LoadedPalletItems
         {
             get
             {
                 List<LoadedPalletItem> loadedPalletItems = new List<LoadedPalletItem>();
+                uint iCount = (uint)_document.LoadedPallets.Count();
                 foreach (var analysis in _document.LoadedPallets)
-                    loadedPalletItems.Add(new LoadedPalletItem(analysis as AnalysisPackablePallet, 0));
+                    loadedPalletItems.Add(new LoadedPalletItem(analysis as AnalysisPackablePallet, iCount));
                 return loadedPalletItems;
             }
         }
-
         private List<PalletStackingRule> PalletStackingRules { get; set; }
+
+        private bool HeterogeneousLoad
+        { get => rbMultiPalletType.Checked; set => rbMultiPalletType.Checked = value; }
+        private bool HomogeneousLoad
+        { get => rbSinglePalletType.Checked; set => rbSinglePalletType.Checked = value; }
         #endregion
 
         #region Data members
         protected SourceGrid.Cells.Controllers.CustomEvents _numUpDownEvent = new SourceGrid.Cells.Controllers.CustomEvents();
         private static readonly ILog _log = LogManager.GetLogger(typeof(FormNewHAnalysisPalletTruck));
         #endregion
+
+
     }
 }

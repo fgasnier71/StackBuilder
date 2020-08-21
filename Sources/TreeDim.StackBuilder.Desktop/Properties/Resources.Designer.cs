@@ -1569,6 +1569,24 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Move down.
+        /// </summary>
+        internal static string ID_MOVEDOWN {
+            get {
+                return ResourceManager.GetString("ID_MOVEDOWN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move up.
+        /// </summary>
+        internal static string ID_MOVEUP {
+            get {
+                return ResourceManager.GetString("ID_MOVEUP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Multi-layer.
         /// </summary>
         internal static string ID_MULTIPLELAYER {
@@ -2016,6 +2034,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_PALLETS {
             get {
                 return ResourceManager.GetString("ID_PALLETS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet stack on.
+        /// </summary>
+        internal static string ID_PALLETSTACKON {
+            get {
+                return ResourceManager.GetString("ID_PALLETSTACKON", resourceCulture);
             }
         }
         

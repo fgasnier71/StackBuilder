@@ -618,6 +618,12 @@ Continue?</value>
   <data name="ID_MAXLOWERTHANMIN" xml:space="preserve">
     <value>Inconsistency:Maximum {0} is lower than minimum {1}.</value>
   </data>
+  <data name="ID_MOVEDOWN" xml:space="preserve">
+    <value>Move down</value>
+  </data>
+  <data name="ID_MOVEUP" xml:space="preserve">
+    <value>Move up</value>
+  </data>
   <data name="ID_MULTIPLELAYER" xml:space="preserve">
     <value>Multi-layer</value>
   </data>
@@ -765,6 +771,9 @@ Continue?</value>
   </data>
   <data name="ID_PALLETS" xml:space="preserve">
     <value>Pallets</value>
+  </data>
+  <data name="ID_PALLETSTACKON" xml:space="preserve">
+    <value>Pallet stack on</value>
   </data>
   <data name="ID_PALLETWEIGHT" xml:space="preserve">
     <value>Pallet weight

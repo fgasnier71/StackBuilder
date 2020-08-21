@@ -1248,6 +1248,11 @@ namespace treeDiM.StackBuilder.Desktop
             try { ActiveDocumentSB?.CreateNewAnalysisPalletTruckUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
+        private void OnNewHAnalysisPalletTruck(object sender, EventArgs e)
+        {
+            try { ActiveDocumentSB?.CreateNewAnalysisHPalletTruckUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
         private void OnNewAnalysisCasePallet(object sender, EventArgs e)
         {
             try { ActiveDocumentSB?.CreateNewAnalysisCasePalletUI(); }
