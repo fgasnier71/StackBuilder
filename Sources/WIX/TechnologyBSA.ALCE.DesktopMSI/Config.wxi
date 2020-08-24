@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?define InstallLocation = INSTALLFOLDER?>
+<!-- Product manufacturer -->
+<?define ProductManufacturer = "TechnologyBSA"?>
+<!-- Product name -->
+<?define ProductName = "ALCE"?>
+<!-- Product version -->
+<?define ProductVersion = "1.0.0.0"?>
+<!-- Keywords -->
+<?define Keywords = "Layer Editor"?>
+<!-- Shortcut folder -->
+<?define ShortcutFolder="TechnologyBSA"?>
+<!-- Company URL -->
+<?define CompanyURL = "https://www.technologybsa.com/" ?>
+<!-- Upgrade code -->
+<?define UpgradeCode = "48a60de2-14fe-4d90-b404-bb14957de9bb"?>
+<!-- Package description -->
+<?define PackageDescription = "Automatic Layer Configurarion Editor"?>
+<Include>
+</Include>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
+    >
+  <Product Id="*"
+						Name="$(var.ProductName)"
+						Language="1033"
+						Version="$(var.ProductVersion)"
+						Manufacturer="$(var.ProductManufacturer)"
+						UpgradeCode="$(var.UpgradeCode)">
+
+    <Package	Id="*"
+              Description="$(var.PackageDescription)"
+              Comments="$(var.PackageDescription)"
+              Manufacturer="$(var.ProductManufacturer)"
+              Keywords="$(var.Keywords)"
+							InstallerVersion="500"
+							Compressed="yes"
+							InstallScope="perMachine"
+              ReadOnly="yes"
+              ShortNames="no"
+              SummaryCodepage="1252"
+        />
+    <MediaTemplate EmbedCab="yes"/>
+    
+    <Upgrade Id="$(var.UpgradeCode)">
+      <UpgradeVersion OnlyDetect="yes" Minimum="$(var.ProductVersion)" Property="NEWERVERSIONDETECTED" IncludeMinimum="no" />
+      <UpgradeVersion OnlyDetect="no" Maximum="$(var.ProductVersion)" Property="OLDERVERSIONBEINGUPGRADED" IncludeMaximum="no" />
+    </Upgrade>
+    
+    <!-- Install execute sequence -->
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallInitialize" />
+    </InstallExecuteSequence>
+
+    <!--Features-->
+		<Feature Id="ProductFeature" Title="TechnologyBSA.ALCE.DesktopMSI" Level="1" Absent="disallow"
+             Display="expand" ConfigurableDirectory="$(var.InstallLocation)">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+    <!--Properties-->
+    <Property Id="REINSTALLMODE" Value="amus" />
+    <Property Id="PROJECT_UPGRADE" Secure="yes"/>
+    <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
+    <Property Id="REBOOT">ReallySuppress</Property>
+    <Property Id="MSIRESTARTMANAGERCONTROL" Value="Disable" />
+    <!--Property references-->
+    <PropertyRef Id="NETFRAMEWORK40CLIENT" />
+    <PropertyRef Id="NETFRAMEWORK40FULL" />
+    <!--Installer icon-->
+    <Property Id="ARPPRODUCTICON" Value="ALCE.ico" />
+    <Property Id="ARPHELPLINK" Value="$(var.CompanyURL)" />
+    <Property Id="ARPURLINFOABOUT" Value="$(var.CompanyURL)" />  
+   <!-- UI -->
+    <UIRef Id="WixUI_InstallDir" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <WixVariable Id="WixUIBannerBmp" Value="WixUIBannerBmp.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="WixUIDialogBmp.bmp" />
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+    <UI>
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
+    </UI>
+	</Product>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+		</ComponentGroup>
+	</Fragment>
+</Wix>
