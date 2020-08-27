@@ -575,7 +575,8 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 Properties.Resources.ID_TRANSPARENCY,
                 string.Format(Properties.Resources.ID_HATCHINGSPACING, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
-                Properties.Resources.ID_HATCHINGANGLE
+                Properties.Resources.ID_HATCHINGANGLE, 
+                Properties.Resources.ID_LINEARMASS
             };
             GridInitialize(gridPalletFilms, captions);
             // handling checkbox event
@@ -597,6 +598,7 @@ namespace treeDiM.StackBuilder.Desktop
                 gridPalletFilms[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.UseTransparency);
                 gridPalletFilms[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.UseHatching ? string.Format("{0:0.#}", c.HatchingSpace) : "-");
                 gridPalletFilms[iIndex, iCol++] = new SourceGrid.Cells.Cell(c.UseHatching ? string.Format("{0:0.#}", c.HatchingAngle) : "-");
+                gridPalletFilms[iIndex, iCol++] = new SourceGrid.Cells.Cell(string.Format("{0:0.###}", c.LinearMass));
                 gridPalletFilms[iIndex, iCol] = new SourceGrid.Cells.CheckBox(null, c.AutoInsert);
                 gridPalletFilms[iIndex, iCol++].AddController(checkBoxEvent);
                 gridPalletFilms[iIndex, iCol] = new SourceGrid.Cells.Button("")
@@ -1155,6 +1157,7 @@ namespace treeDiM.StackBuilder.Desktop
                     PalletFilmProperties palletFilm = Document.CreateNewPalletFilm(name, dcsbPalletFilm.Description,
                         dcsbPalletFilm.UseTransparency, dcsbPalletFilm.UseHatching,
                         dcsbPalletFilm.HatchingSpace, dcsbPalletFilm.HatchingAngle,
+                        dcsbPalletFilm.LinearMass,
                         Color.FromArgb(dcsbPalletFilm.Color));
                 }
             }

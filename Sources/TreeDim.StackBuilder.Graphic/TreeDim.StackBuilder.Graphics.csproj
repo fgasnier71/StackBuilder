@@ -187,6 +187,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DimensionCube.cs" />
     <Compile Include="Types\PalletCap.cs" />
+    <Compile Include="Types\PalletLabel.cs" />
     <Compile Include="Types\Strapper.cs" />
     <Compile Include="Types\Truck.cs" />
   </ItemGroup>
@@ -272,35 +273,8 @@
     <EmbeddedResource Include="Controls\CCtrlComboLayer.tr.resx">
       <DependentUpon>CCtrlComboLayer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Graphics2DLayerEditor.fr.resx">
-      <DependentUpon>Graphics2DLayerEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Graphics2DLayerEditor.it.resx">
-      <DependentUpon>Graphics2DLayerEditor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\Graphics2DLayerEditor.resx">
       <DependentUpon>Graphics2DLayerEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Graphics2DLayerEditor.sl.resx">
-      <DependentUpon>Graphics2DLayerEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Graphics3DControl.fr.resx">
-      <DependentUpon>Graphics3DControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Graphics3DControl.it.resx">
-      <DependentUpon>Graphics3DControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Graphics3DControl.sl.resx">
-      <DependentUpon>Graphics3DControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlCaseOrientation.fr.resx">
-      <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlCaseOrientation.it.resx">
-      <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlCaseOrientation.pt.resx">
-      <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlCaseOrientation.resx">
       <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
@@ -311,67 +285,16 @@
       <LastGenOutput>Graphics3DControl1.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlCaseOrientation.sl.resx">
-      <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlCaseOrientation.tr.resx">
-      <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlCaseOrientationSimple.fr.resx">
-      <DependentUpon>UCtrlCaseOrientationSimple.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlCaseOrientationSimple.it.resx">
-      <DependentUpon>UCtrlCaseOrientationSimple.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlCaseOrientationSimple.pt.resx">
-      <DependentUpon>UCtrlCaseOrientationSimple.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlCaseOrientationSimple.resx">
       <DependentUpon>UCtrlCaseOrientationSimple.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlCaseOrientationSimple.sl.resx">
-      <DependentUpon>UCtrlCaseOrientationSimple.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlHCylLayoutList.fr.resx">
-      <DependentUpon>UCtrlHCylLayoutList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlHCylLayoutList.it.resx">
-      <DependentUpon>UCtrlHCylLayoutList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlHCylLayoutList.resx">
       <DependentUpon>UCtrlHCylLayoutList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlHCylLayoutList.sl.resx">
-      <DependentUpon>UCtrlHCylLayoutList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlLayerList.fr.resx">
-      <DependentUpon>UCtrlLayerList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlLayerList.it.resx">
-      <DependentUpon>UCtrlLayerList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlLayerList.resx">
       <DependentUpon>UCtrlLayerList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlLayerList.sl.resx">
-      <DependentUpon>UCtrlLayerList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlPackable.fr.resx">
-      <DependentUpon>UCtrlPackable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlPackable.it.resx">
-      <DependentUpon>UCtrlPackable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlPackable.pt.resx">
-      <DependentUpon>UCtrlPackable.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlPackable.resx">
-      <DependentUpon>UCtrlPackable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlPackable.sl.resx">
-      <DependentUpon>UCtrlPackable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UCtrlPackable.tr.resx">
       <DependentUpon>UCtrlPackable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx" />

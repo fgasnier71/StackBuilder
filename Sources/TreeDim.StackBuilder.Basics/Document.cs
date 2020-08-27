@@ -484,6 +484,7 @@ namespace treeDiM.StackBuilder.Basics
                 palletFilm.ID.Name, palletFilm.ID.Description,
                 palletFilm.UseTransparency, palletFilm.UseHatching,
                 palletFilm.HatchSpacing, palletFilm.HatchAngle,
+                palletFilm.LinearWeight,
                 palletFilm.Color);
             // insert in list
             _typeList.Add(palletFilmClone);
@@ -497,14 +498,16 @@ namespace treeDiM.StackBuilder.Basics
             string name, string description,
             bool useTransparency,
             bool useHatching, double hatchSpacing, double hatchAngle,
+            double linearWeight,
             Color color)
         {
             // instantiate and initialize
-            PalletFilmProperties palletFilm = new PalletFilmProperties(
+            var palletFilm = new PalletFilmProperties(
                 this,
                 name, description,
                 useTransparency,
                 useHatching, hatchSpacing, hatchAngle,
+                linearWeight,
                 color);
             // insert in list
             _typeList.Add(palletFilm);
@@ -513,6 +516,25 @@ namespace treeDiM.StackBuilder.Basics
             Modify();
             return palletFilm;
         }
+        public PalletLabelProperties CreateNewPalletLabel(
+            string name, string description,
+            Vector2D dimensions, 
+            Color color,
+            Bitmap bitmap)
+        {
+            // instantiate and initialize
+            var palletLabel = new PalletLabelProperties(
+                this,
+                name, description,
+                dimensions, color, bitmap);
+            // insert in list
+            _typeList.Add(palletLabel);
+            // notify
+            NotifyOnNewTypeCreated(palletLabel);
+            Modify();
+            return palletLabel;
+        }
+
         public InterlayerProperties CreateNewInterlayer(InterlayerProperties interlayerProp)
         {
             // instantiate and intialize
@@ -980,6 +1002,7 @@ namespace treeDiM.StackBuilder.Basics
                 || item.GetType() == typeof(PalletCornerProperties)
                 || item.GetType() == typeof(PalletCapProperties)
                 || item.GetType() == typeof(PalletFilmProperties)
+                || item.GetType() == typeof(PalletLabelProperties)
                 || item.GetType() == typeof(TruckProperties)
                 || item.GetType() == typeof(CylinderProperties)
                 || item.GetType() == typeof(BottleProperties))
@@ -1710,6 +1733,9 @@ namespace treeDiM.StackBuilder.Basics
             bool useHatching = bool.Parse(eltPalletFilmProperties.Attributes["Hatching"].Value);
             string sHatchSpacing = eltPalletFilmProperties.Attributes["HatchSpacing"].Value;
             string sHatchAngle = eltPalletFilmProperties.Attributes["HatchAngle"].Value;
+            string sLinearMass = string.Empty;
+            if (eltPalletFilmProperties.HasAttribute("LinearMass"))
+                sLinearMass = eltPalletFilmProperties.Attributes["LinearMass"].Value;
             string sColor = eltPalletFilmProperties.Attributes["Color"].Value;
 
             PalletFilmProperties palletFilmProperties = CreateNewPalletFilm(
@@ -1719,6 +1745,7 @@ namespace treeDiM.StackBuilder.Basics
                 useHatching,
                 UnitsManager.ConvertLengthFrom(Convert.ToDouble(sHatchSpacing, CultureInfo.InvariantCulture), UnitSystem),
                 Convert.ToDouble(sHatchAngle, CultureInfo.InvariantCulture),
+                string.IsNullOrEmpty(sLinearMass) ? 0.0 : UnitsManager.ConvertLinearMassFrom(Convert.ToDouble(sLinearMass, CultureInfo.InvariantCulture), UnitSystem),
                 Color.FromArgb(Convert.ToInt32(sColor))
                 );
             palletFilmProperties.ID.IGuid = new Guid(sid);
@@ -3125,7 +3152,11 @@ namespace treeDiM.StackBuilder.Basics
             // Color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
             colorAttribute.Value = string.Format("{0}", filmProperties.Color.ToArgb());
-            eltFilmProperties.Attributes.Append(colorAttribute); 
+            eltFilmProperties.Attributes.Append(colorAttribute);
+            // linear weight
+            XmlAttribute linearWeightAttribute = xmlDoc.CreateAttribute("LinearWeight");
+            linearWeightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", filmProperties.LinearWeight);
+            eltFilmProperties.Attributes.Append(linearWeightAttribute);
         }
 
         public void Save(BundleProperties bundleProperties, XmlElement parentElement, XmlDocument xmlDoc)

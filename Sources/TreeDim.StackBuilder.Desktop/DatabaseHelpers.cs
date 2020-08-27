@@ -224,7 +224,9 @@ namespace treeDiM.StackBuilder.Desktop
                             UnitsManager.UnitSystem us = (UnitsManager.UnitSystem)dcsbPalletFilm.UnitSystem;
                             docSB.CreateNewPalletFilm(dcsbPalletFilm.Name, dcsbPalletFilm.Description,
                                 dcsbPalletFilm.UseTransparency, dcsbPalletFilm.UseHatching,
-                                dcsbPalletFilm.HatchingSpace, dcsbPalletFilm.HatchingAngle,
+                                UnitsManager.ConvertLengthFrom(dcsbPalletFilm.HatchingSpace, us),
+                                dcsbPalletFilm.HatchingAngle,
+                                UnitsManager.ConvertLinearMassFrom(dcsbPalletFilm.LinearMass, us),
                                 Color.FromArgb(dcsbPalletFilm.Color));
                         }
                     }

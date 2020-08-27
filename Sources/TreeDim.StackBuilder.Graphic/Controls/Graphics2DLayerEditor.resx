@@ -127,15 +127,29 @@
   <data name="tsbAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAxSURBVDhPYxjcQGmjz38QhnJJByPNAJhiYjFUGwJgU4QP
-        Q7XhByQpxgZGDaALYGAAABgXXSkioDh5AAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJISURBVDhPjVNLaxNRFA7WP6JG0JnmAWmZOzfzaO7koURt
+        TEjQlYg/wKBgWtN2CqZUXbTiRkFdCoLuda1LVz7/QNWF0qqNFG3u3OM5k0loShAPfDCcxzf3fOec2H4z
+        3eIx0xZ3uS3eMdvrmnbul+l6H0zHu8ccLxGljTfuencQkBUeGCwPmWQBMolC+E0+iiHRgyh91Lide04J
+        YZLlgV0SaqbqBgTnhFDkG8SZ672MyvrGHW99ECSk4yWo+EzOb04G7Z960LhpyPSR0jBOwLYe9ovdQnpv
+        gJA6XILqDSb937rypabqa2aQOjRKQMi6eStmOmItm0NGG/98tBQWxw+W4XST9xa3kWBHU7MLpoxPnAJ6
+        BYFl+5qEejBbvGZmHqyCgLP47FrHkOWrXF58nJGtTwmY+5KAS88ysnyFS3pVrcN6zkmhDCMPOJX32EJu
+        cypVgJlKDtpfJ5W/q6ulrq7mPieg+TYFzTdpaG0kgXz+Hx0WtzUpztsyoxcBhf/RJ8BxhQRbOiwHx2Fp
+        R4OQAItDAnwJ+fxdDdpdLRDn3GBIELaAc7aKAmodDo3bJsy2LLjwZDpobUQtPJ1WZ65ZUL/Fob7C1WgL
+        OMJQEJwzCURqxydQxMv7RDyAIqLAhKGINMr/GWNjffwYuSPsaBf6KzwALVJ1mfWuf9PkwndN1lb/sUgD
+        Q7YXwyCtclEot+IGBFrrvauMB/YqKhu18AoxgfojYWk6U3hM9D04Ju6KR1H6eKNzxsT7dMJ4NFsEHPVH
+        KjQskYzSIovF/gJr0omFJVZ3JgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="tsbRemove.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAiSURBVDhPYxgFwwq8lVH5TwqGakMAbIrwYai2UTAcAAMD
-        AOhPNCE6mr/+AAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFuSURBVDhPjZNJSgNBFIYLQT2FrjTEuNIW7MGao7QoJBtv
+        IjjgeARBFDduRNQzuPEAKhjBla4VBzDBffl3p5rY6UL6wcdrXv1/Da+6SH/MCTEbcnUQcnkP2j7XnZDr
+        B3Doizq3MnckImD+hepTQnYHrKUXIZXXToODgOnbWm1lyFpLrlxAnadmzDaVFSOu+khqxXqmD6hkWF2d
+        UBQDXjejvGFGeBM5o/Hnu5mOJfjQdj3ykkRctmb4AgrSrIkJsymqZlVMmnXkHTEOKmbD1pKcIKD14Imo
+        fiYRld9VvmQ0Z+ZDEvMDXsGbgw5og5hTU+HLOI5o5yZ4x2CZCRbzE6jHZDsM29rGdvfFmNlCdrGHIyUk
+        R5iGBz146Wtit0nd5hXJN1HCo67InJRe7xrLkbtG+y8cZ8XSMH2RmrMImbpxCt3cxXE8bK29CKg6cohz
+        +EyfeZ43aC3F8MV8BCHehmzhgX0if4Gn9JhMSSuzQcgvM7xzomqqm8oAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

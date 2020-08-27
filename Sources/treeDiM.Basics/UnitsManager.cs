@@ -28,6 +28,7 @@ namespace treeDiM.Basics
             , UT_SURFACEMASS
             , UT_FORCE
             , UT_LINEARFORCE
+            , UT_LINEARMASS
             , UT_STIFFNESS
             , UT_NONE
         }
@@ -149,12 +150,26 @@ namespace treeDiM.Basics
                 {
                     case UnitSystem.UNIT_METRIC1: return "N/m";
                     case UnitSystem.UNIT_METRIC2: return "N/m";
-                    case UnitSystem.UNIT_IMPERIAL: return "lb/in";
-                    case UnitSystem.UNIT_US: return "lb/in";
+                    case UnitSystem.UNIT_IMPERIAL: return "N/in";
+                    case UnitSystem.UNIT_US: return "N/in";
                     default: throw new Exception("Invalid unit system!");
                 }
             }
         }
+        public static string LinearMassUnitString
+        {
+            get
+            {
+                switch (Instance._currentUnitSystem)
+                { 
+                    case UnitSystem.UNIT_METRIC1: return "kg/m";
+                    case UnitSystem.UNIT_METRIC2: return "kg/m";
+                    case UnitSystem.UNIT_IMPERIAL: return "lb/in";
+                    case UnitSystem.UNIT_US: return "lb/in";
+                    default: throw new Exception("Invalid unit system!");                }
+            }
+        }
+
         public static string StiffnessUnitString
         {
             get
@@ -249,6 +264,20 @@ namespace treeDiM.Basics
                 }
             }
         }
+        public static string LinearMassFormatString
+        {
+            get
+            {
+                switch (Instance._currentUnitSystem)
+                {
+                    case UnitSystem.UNIT_METRIC1: return "{0:0.###}";
+                    case UnitSystem.UNIT_METRIC2: return "{0:0.###}";
+                    case UnitSystem.UNIT_IMPERIAL: return "{0:0.###}";
+                    case UnitSystem.UNIT_US: return "{0:0.###}";
+                    default: throw new Exception("Invalid unit system!");
+                }
+            }
+        }
         public static string LinearForceFormatString
         {
             get
@@ -312,6 +341,7 @@ namespace treeDiM.Basics
         public static int SurfaceMassNoDecimals => 3;
         public static int ForceNoDecimals => 2;
         public static int LinearForceNoDecimals => 3;
+        public static int LinearMassNoDecimals => 3;
         public static int StiffnessNoDecimals => 3;
         public static int NoneNoDecimals => 0;
         #endregion
@@ -332,6 +362,7 @@ namespace treeDiM.Basics
                 case UnitType.UT_SURFACEMASS: return SurfaceMassUnitString;
                 case UnitType.UT_FORCE: return ForceUnitString;
                 case UnitType.UT_LINEARFORCE: return LinearForceUnitString;
+                case UnitType.UT_LINEARMASS: return LinearMassUnitString;
                 case UnitType.UT_STIFFNESS: return StiffnessUnitString;
                 default: return string.Empty;
             }
@@ -346,6 +377,7 @@ namespace treeDiM.Basics
                 case UnitType.UT_SURFACEMASS: return SurfaceMassFormatString;
                 case UnitType.UT_FORCE: return ForceFormatString;
                 case UnitType.UT_LINEARFORCE: return LinearForceFormatString;
+                case UnitType.UT_LINEARMASS: return LinearMassFormatString;
                 case UnitType.UT_STIFFNESS: return StiffnessFormatString;
                 default: return string.Empty;            
             }
@@ -360,6 +392,7 @@ namespace treeDiM.Basics
                 case UnitType.UT_SURFACEMASS: return SurfaceMassNoDecimals;
                 case UnitType.UT_FORCE: return ForceNoDecimals;
                 case UnitType.UT_LINEARFORCE: return LinearForceNoDecimals;
+                case UnitType.UT_LINEARMASS: return LinearMassNoDecimals;
                 case UnitType.UT_STIFFNESS: return StiffnessNoDecimals;
                 case UnitType.UT_NONE: return NoneNoDecimals;
                 default: return 3;
@@ -373,6 +406,7 @@ namespace treeDiM.Basics
             sText = sText.Replace("uVolume", VolumeUnitString);
             sText = sText.Replace("uSurfaceMass", SurfaceMassUnitString);
             sText = sText.Replace("uLinearForce", LinearForceUnitString);
+            sText = sText.Replace("uLinearMass", LinearMassUnitString);
             sText = sText.Replace("uStiffness", StiffnessUnitString);
             return sText;
         }
@@ -387,6 +421,7 @@ namespace treeDiM.Basics
                     else if (lb.Name.Contains("uVolume")) lb.Text = VolumeUnitString;
                     else if (lb.Name.Contains("uSurfaceMass")) lb.Text = SurfaceMassUnitString;
                     else if (lb.Name.Contains("uStiffness")) lb.Text = StiffnessUnitString;
+                    else if (lb.Name.Contains("uLinearMass")) lb.Text = LinearMassUnitString;
                 }
                 if (ctrl is GroupBox gb)
                 {
@@ -506,6 +541,17 @@ namespace treeDiM.Basics
             {
                 StandardMeasure<SurfaceDensity> measure = new StandardMeasure<SurfaceDensity>(value, SurfaceMassUnitFromUnitSystem(unitSystem));
                 return measure.GetAmount(SurfaceMassUnitFromUnitSystem(CurrentUnitSystem));
+            }
+        }
+        public static double ConvertLinearMassFrom(double value, UnitSystem unitSystem)
+        {
+            if (unitSystem == CurrentUnitSystem)
+                return value;
+            else
+            {
+                StandardMeasure<Mass> measure = new StandardMeasure<Mass>(value, MassUnitFromUnitSystem(CurrentUnitSystem));
+                StandardMeasure<Length> measureLength = new StandardMeasure<Length>(value, LengthUnitFromUnitSystem(CurrentUnitSystem));
+                return measure.GetAmount(MassUnitFromUnitSystem(unitSystem));
             }
         }
         #endregion

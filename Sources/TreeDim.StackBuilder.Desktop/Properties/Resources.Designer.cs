@@ -439,6 +439,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new pallet label....
+        /// </summary>
+        internal static string ID_ADDNEWPALLETLABEL {
+            get {
+                return ResourceManager.GetString("ID_ADDNEWPALLETLABEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new truck....
         /// </summary>
         internal static string ID_ADDNEWTRUCK {
@@ -1479,6 +1488,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Linear mass.
+        /// </summary>
+        internal static string ID_LINEARMASS {
+            get {
+                return ResourceManager.GetString("ID_LINEARMASS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load.
         /// </summary>
         internal static string ID_LOAD {
@@ -1704,29 +1722,11 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pallet caps.
+        ///   Looks up a localized string similar to Pallet accessories.
         /// </summary>
-        internal static string ID_NODE_PALLETCAPS {
+        internal static string ID_NODE_PALLETACCESSORIES {
             get {
-                return ResourceManager.GetString("ID_NODE_PALLETCAPS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pallet corners.
-        /// </summary>
-        internal static string ID_NODE_PALLETCORNERS {
-            get {
-                return ResourceManager.GetString("ID_NODE_PALLETCORNERS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pallet films.
-        /// </summary>
-        internal static string ID_NODE_PALLETFILMS {
-            get {
-                return ResourceManager.GetString("ID_NODE_PALLETFILMS", resourceCulture);
+                return ResourceManager.GetString("ID_NODE_PALLETACCESSORIES", resourceCulture);
             }
         }
         
@@ -1989,6 +1989,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_PALLETHEIGHT {
             get {
                 return ResourceManager.GetString("ID_PALLETHEIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet label.
+        /// </summary>
+        internal static string ID_PALLETLABEL {
+            get {
+                return ResourceManager.GetString("ID_PALLETLABEL", resourceCulture);
             }
         }
         
@@ -2389,6 +2398,16 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static System.Drawing.Bitmap Pallet {
             get {
                 object obj = ResourceManager.GetObject("Pallet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PalletLabelDefault {
+            get {
+                object obj = ResourceManager.GetObject("PalletLabelDefault", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

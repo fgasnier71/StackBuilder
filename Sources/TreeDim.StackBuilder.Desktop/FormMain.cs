@@ -713,6 +713,9 @@ namespace treeDiM.StackBuilder.Desktop
             // new bundle
             toolStripMenuItemBundle.Enabled = (null != doc);
             toolStripButtonBundle.Enabled = (null != doc);
+            // new bag
+            toolStripMenuItemBag.Enabled = (null != doc);
+            toolStripButtonBag.Enabled = (null != doc);
             // new cylinder
             toolStripMenuItemCylinder.Enabled = (null != doc);
             toolStripButtonCylinder.Enabled = (null != doc);
@@ -1213,6 +1216,11 @@ namespace treeDiM.StackBuilder.Desktop
         private void ToolAddNewPalletFilm(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewPalletFilmUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
+        private void ToolAddNewPalletLabel(object sender, EventArgs e)
+        {
+            try { ((DocumentSB)ActiveDocument).CreateNewPalletLabelUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         #endregion

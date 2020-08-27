@@ -42,11 +42,12 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Absctract properties
-        public abstract ItemBase Container              { get; }
-        public abstract Vector2D ContainerDimensions    { get; }
-        public abstract Vector3D Offset                 { get; }
-        public abstract double   ContainerWeight        { get; }
-        public abstract double   ContainerLoadingVolume { get; }
+        public abstract ItemBase Container { get; }
+        public abstract Vector2D ContainerDimensions { get; }
+        public abstract Vector3D Offset { get; }
+        public abstract double ContainerWeight { get; }
+        public abstract double ContainerLoadingVolume { get; }
+        public virtual double DecorationWeight { get; } = 0.0;
         public abstract BBox3D BBoxLoadWDeco(BBox3D loadBBox);
         public abstract BBox3D BBoxGlobal(BBox3D loadBBox);
         #endregion

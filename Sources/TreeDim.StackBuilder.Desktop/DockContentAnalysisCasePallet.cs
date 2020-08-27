@@ -51,19 +51,28 @@ namespace treeDiM.StackBuilder.Desktop
             ComboBoxHelpers.FillCombo(PalletCorners, cbPalletCorners, analysisCasePallet?.PalletCornerProperties);
             chkbPalletCorners.Enabled = (cbPalletCorners.Items.Count > 0);
             ComboBoxHelpers.FillCombo(PalletCorners, cbPalletCornersTop, analysisCasePallet?.PalletCornerTopProperties);
-            chkbPalletCornersTop.Enabled = (cbPalletCornersTop.Items.Count > 0);
+            chkbPalletCornersTopX.Enabled = (cbPalletCornersTop.Items.Count > 0);
             ComboBoxHelpers.FillCombo(PalletCaps, cbPalletCap, analysisCasePallet?.PalletCapProperties);
             chkbPalletCap.Enabled = (cbPalletCap.Items.Count > 0);
             ComboBoxHelpers.FillCombo(PalletFilms, cbPalletFilm, analysisCasePallet?.PalletFilmProperties);
             chkbPalletFilm.Enabled = (cbPalletFilm.Items.Count > 0);
+            ComboBoxHelpers.FillCombo(PalletLabels, cbPalletLabels, analysisCasePallet?.PalletLabels)
+
+            chkbPalletCornersTopX.Enabled = (cbPalletCornersTop.Items.Count > 0);
+            chkbPalletCornersTopY.Enabled = (cbPalletCornersTop.Items.Count > 0);
 
             if (null != analysisCasePallet)
             {
                 chkbPalletCorners.Checked = null != analysisCasePallet.PalletCornerProperties;
-                chkbPalletCornersTop.Checked = null != analysisCasePallet.PalletCornerTopProperties;
+                chkbPalletCornersTopX.Checked = null != analysisCasePallet.PalletCornerTopProperties && analysisCasePallet.PalletCornersTopX;
+                chkbPalletCornersTopY.Checked = null != analysisCasePallet.PalletCornerTopProperties && analysisCasePallet.PalletCornersTopY;
+
                 chkbPalletCap.Checked = null != analysisCasePallet.PalletCapProperties;
                 chkbPalletFilm.Checked = null != analysisCasePallet.PalletFilmProperties;
                 ctrlStrapperSet.StrapperSet = analysisCasePallet.StrapperSet;
+
+                PalletFilmLength = UnitsManager.ConvertLengthFrom(10000, UnitsManager.UnitSystem.UNIT_METRIC1);
+                PalletFilmTopCovering = UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             }
             // ---
             // --- initialize grid control
@@ -84,17 +93,25 @@ namespace treeDiM.StackBuilder.Desktop
             if (!_initialized)  return;
 
             cbPalletCorners.Enabled = chkbPalletCorners.Checked;
-            cbPalletCornersTop.Enabled = chkbPalletCornersTop.Checked;
+            cbPalletCornersTop.Enabled = cbPalletCornersTop.Items.Count > 0;
             cbPalletCap.Enabled = chkbPalletCap.Checked;
             cbPalletFilm.Enabled = chkbPalletFilm.Checked;
+            uCtrlPalletFilmLength.Enabled = chkbPalletFilm.Checked;
+            uCtrlPalletFilmCovering.Enabled = chkbPalletFilm.Checked;
 
             if (_solution.Analysis is AnalysisCasePallet analysisCasePallet)
             {
                 analysisCasePallet.PalletCornerProperties = SelectedPalletCorners;
                 analysisCasePallet.PalletCornerTopProperties = SelectedPalletCornersTop;
+                analysisCasePallet.PalletCornersTopX = PalletCornerTopX;
+                analysisCasePallet.PalletCornersTopY = PalletCornerTopY;
+
                 analysisCasePallet.PalletCapProperties = SelectedPalletCap;
                 analysisCasePallet.PalletFilmProperties = SelectedPalletFilm;
                 analysisCasePallet.StrapperSet = ctrlStrapperSet.StrapperSet;
+
+                analysisCasePallet.PalletFilmLength = PalletFilmLength;
+                analysisCasePallet.PalletFilmTopCovering = PalletFilmTopCovering;
             }
             graphCtrlSolution.Invalidate();
         }
@@ -122,7 +139,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
-                if (cbPalletCornersTop.Items.Count > 0 && chkbPalletCornersTop.Checked)
+                if (cbPalletCornersTop.Items.Count > 0)
                 {
                     if (cbPalletCornersTop.SelectedItem is ItemBaseCB item)
                         return item.Item as PalletCornerProperties;
@@ -153,6 +170,26 @@ namespace treeDiM.StackBuilder.Desktop
                 }
                 return null;
             }
+        }
+        private double PalletFilmLength
+        {
+            get => uCtrlPalletFilmLength.Value;
+            set => uCtrlPalletFilmLength.Value = value;
+        }
+        private double PalletFilmTopCovering
+        {
+            get => uCtrlPalletFilmCovering.Value;
+            set => uCtrlPalletFilmCovering.Value = value;
+        }
+        private bool PalletCornerTopX
+        {
+            get => chkbPalletCornersTopX.Checked;
+            set => chkbPalletCornersTopX.Checked = value;
+        }
+        private bool PalletCornerTopY
+        {
+            get => chkbPalletCornersTopY.Checked;
+            set => chkbPalletCornersTopY.Checked = value;
         }
         #endregion
 
@@ -199,6 +236,14 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 Document doc = Document as Document;
                 return doc.GetByType(typeof(PalletFilmProperties)).ToArray(); 
+            }
+        }
+        private ItemBase[] PalletLabels
+        {
+            get
+            {
+                Document doc = Document as Document;
+                return doc.GetByType(typeof(PalletLabelProperties)).ToArray();
             }
         }
         #endregion
@@ -440,6 +485,22 @@ namespace treeDiM.StackBuilder.Desktop
             UpdateGrid();
         }
         #endregion
+        #region Label
+        private void OnBnAddLabel(object sender, EventArgs e)
+        {
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+            FillGridLabel();
+        }
+        private void FillGridLabel()
+        { 
+        }
+        #endregion
 
         #region Toolbar event handlers
         private void OnBack(object sender, EventArgs e)
@@ -456,9 +517,6 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Data members
-        /// <summary>
-        /// logger
-        /// </summary>
         protected static readonly new ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCasePallet));
         private bool _initialized = false;
         #endregion

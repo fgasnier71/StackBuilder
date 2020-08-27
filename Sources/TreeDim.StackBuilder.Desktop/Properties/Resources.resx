@@ -238,6 +238,9 @@
   <data name="ID_ADDNEWPALLETFILM" xml:space="preserve">
     <value>Add new pallet film...</value>
   </data>
+  <data name="ID_ADDNEWPALLETLABEL" xml:space="preserve">
+    <value>Add new pallet label...</value>
+  </data>
   <data name="ID_ADDNEWTRUCK" xml:space="preserve">
     <value>Add new truck...</value>
   </data>
@@ -588,6 +591,9 @@ Continue?</value>
   <data name="ID_LENGTH_WU" xml:space="preserve">
     <value>Length ({0})</value>
   </data>
+  <data name="ID_LINEARMASS" xml:space="preserve">
+    <value>Linear mass</value>
+  </data>
   <data name="ID_LOAD" xml:space="preserve">
     <value>Load</value>
   </data>
@@ -663,14 +669,8 @@ Continue?</value>
   <data name="ID_NODE_PACKS" xml:space="preserve">
     <value>Packs</value>
   </data>
-  <data name="ID_NODE_PALLETCAPS" xml:space="preserve">
-    <value>Pallet caps</value>
-  </data>
-  <data name="ID_NODE_PALLETCORNERS" xml:space="preserve">
-    <value>Pallet corners</value>
-  </data>
-  <data name="ID_NODE_PALLETFILMS" xml:space="preserve">
-    <value>Pallet films</value>
+  <data name="ID_NODE_PALLETACCESSORIES" xml:space="preserve">
+    <value>Pallet accessories</value>
   </data>
   <data name="ID_NODE_PALLETS" xml:space="preserve">
     <value>Pallets</value>
@@ -756,6 +756,9 @@ Continue?</value>
   <data name="ID_PALLETHEIGHT" xml:space="preserve">
     <value>Pallet height
 ({0})</value>
+  </data>
+  <data name="ID_PALLETLABEL" xml:space="preserve">
+    <value>Pallet label</value>
   </data>
   <data name="ID_PALLETLIMIT" xml:space="preserve">
     <value>Limit reached</value>
@@ -892,6 +895,9 @@ Continue?</value>
   </data>
   <data name="Pallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pallet.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PalletLabelDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PalletLabel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

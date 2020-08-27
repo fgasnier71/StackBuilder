@@ -182,6 +182,7 @@
     <Compile Include="PalletDecoration\PalletCornerProperties.cs" />
     <Compile Include="PalletDecoration\PalletCapProperties.cs" />
     <Compile Include="PalletDecoration\PalletFilmProperties.cs" />
+    <Compile Include="PalletDecoration\PalletLabelProperties.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

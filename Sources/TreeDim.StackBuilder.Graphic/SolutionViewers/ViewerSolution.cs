@@ -231,7 +231,7 @@ namespace treeDiM.StackBuilder.Graphics
 
                 #region Top corners
                 Corner[] cornersTop = new Corner[4];
-                if (analysisCasePallet.HasPalletCornersTop)
+                if (analysisCasePallet.HasPalletCornersTopX || analysisCasePallet.HasPalletCornersTopY)
                 {
                     double cornerWidth = analysisCasePallet.PalletCornerTopProperties.Width;
                     double lengthInLDir = Math.Min(analysisCasePallet.PalletCornerTopProperties.Length, loadBBox.Length - 2.0 * cornerWidth);
@@ -246,8 +246,8 @@ namespace treeDiM.StackBuilder.Graphics
                     Vector3D[] cornerPositions =
                     {
                         new Vector3D(loadBBox.PtMin.X + offsetInLDir , loadBBox.PtMin.Y, loadBBox.PtMax.Z)
-                        , new Vector3D(loadBBox.PtMax.X, loadBBox.PtMin.Y + offsetInWdir, loadBBox.PtMax.Z)
                         , new Vector3D(loadBBox.PtMax.X - offsetInLDir, loadBBox.PtMax.Y, loadBBox.PtMax.Z)
+                        , new Vector3D(loadBBox.PtMax.X, loadBBox.PtMin.Y + offsetInWdir, loadBBox.PtMax.Z)
                         , new Vector3D(loadBBox.PtMin.X, loadBBox.PtMax.Y - offsetInWdir, loadBBox.PtMax.Z)
                     };
                     // length axes
@@ -262,22 +262,31 @@ namespace treeDiM.StackBuilder.Graphics
                     HalfAxis.HAxis[] wAxes =
                    {
                         HalfAxis.HAxis.AXIS_Y_P,
-                        HalfAxis.HAxis.AXIS_X_N,
                         HalfAxis.HAxis.AXIS_Y_N,
+                        HalfAxis.HAxis.AXIS_X_N,
                         HalfAxis.HAxis.AXIS_X_P
                     };
                     for (int i = 0; i < 4; ++i)
                     {
                         cornersTop[i] = new Corner(0, analysisCasePallet.PalletCornerTopProperties)
                         {
-                            Height = Math.Min(analysisCasePallet.PalletCornerTopProperties.Length, ((i % 2 == 0) ? loadBBox.Length : loadBBox.Width) - 2.0 * cornerWidth )
+                            Height = Math.Min(analysisCasePallet.PalletCornerTopProperties.Length, (i<2 ? loadBBox.Length : loadBBox.Width) - 2.0 * cornerWidth )
                         };
                         cornersTop[i].SetPosition(
                             transform.transform(upTranslation.transform( cornerPositions[i] ))
                             , HalfAxis.Transform(lAxes[i], transform), HalfAxis.Transform(wAxes[i], transform)
                             );
-                        // positions
-                        cornersTop[i].DrawBegin(graphics);
+                    }
+                    // drawing
+                    if (analysisCasePallet.HasPalletCornersTopX)
+                    {
+                        for (int i = 0; i < 2; ++i)
+                            cornersTop[i].DrawBegin(graphics);
+                    }
+                    if (analysisCasePallet.HasPalletCornersTopY)
+                    {
+                        for (int i = 2; i < 4; ++i)
+                            cornersTop[i].DrawBegin(graphics);
                     }
                 }
                 #endregion
@@ -296,20 +305,20 @@ namespace treeDiM.StackBuilder.Graphics
                         palletFilmProperties.HatchAngle);
                     film.AddRectangle(new FilmRectangle(transform.transform(loadBBoxWDeco.PtMin)
                         , HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_P, transform), HalfAxis.Transform(HalfAxis.HAxis.AXIS_Z_P, transform)
-                        , new Vector2D(loadBBoxWDeco.Length, loadBBoxWDeco.Height), 0.0));
+                        , new Vector2D(loadBBoxWDeco.Length, loadBBoxWDeco.Height), -1.0));
                     film.AddRectangle(new FilmRectangle(transform.transform(loadBBoxWDeco.PtMin + loadBBoxWDeco.Length * Vector3D.XAxis)
                         , HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P, transform), HalfAxis.Transform(HalfAxis.HAxis.AXIS_Z_P, transform)
-                        , new Vector2D(loadBBoxWDeco.Width, loadBBoxWDeco.Height), 0.0));
+                        , new Vector2D(loadBBoxWDeco.Width, loadBBoxWDeco.Height), -1.0));
                     film.AddRectangle(new FilmRectangle(transform.transform(loadBBoxWDeco.PtMin + loadBBoxWDeco.Length * Vector3D.XAxis + loadBBoxWDeco.Width * Vector3D.YAxis)
                         , HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_N, transform), HalfAxis.Transform(HalfAxis.HAxis.AXIS_Z_P, transform)
-                        , new Vector2D(loadBBoxWDeco.Length, loadBBoxWDeco.Height), 0.0));
+                        , new Vector2D(loadBBoxWDeco.Length, loadBBoxWDeco.Height), -1.0));
                     film.AddRectangle(new FilmRectangle(transform.transform(loadBBoxWDeco.PtMin + loadBBoxWDeco.Width * Vector3D.YAxis)
                         , HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_N, transform), HalfAxis.Transform(HalfAxis.HAxis.AXIS_Z_P, transform)
-                        , new Vector2D(loadBBoxWDeco.Width, loadBBoxWDeco.Height), 0.0));
+                        , new Vector2D(loadBBoxWDeco.Width, loadBBoxWDeco.Height), -1.0));
                     film.AddRectangle(new FilmRectangle(transform.transform(loadBBoxWDeco.PtMin + loadBBoxWDeco.Height * Vector3D.ZAxis)
                         , HalfAxis.Transform(HalfAxis.HAxis.AXIS_X_P, transform), HalfAxis.Transform(HalfAxis.HAxis.AXIS_Y_P, transform)
                         , new Vector2D(loadBBoxWDeco.Length, loadBBoxWDeco.Width)
-                        , UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1)));
+                        , analysisCasePallet.PalletFilmTopCovering));
                     film.DrawBegin(graphics);
                 }
                 #endregion
@@ -321,9 +330,14 @@ namespace treeDiM.StackBuilder.Graphics
                     for (int i = 0; i < 4; ++i)
                         corners[i].DrawEnd(graphics);
                 }
-                if (analysisCasePallet.HasPalletCornersTop)
+                if (analysisCasePallet.HasPalletCornersTopX)
                 {
-                    for (int i = 0; i < 4; ++i)
+                    for (int i = 0; i < 2; ++i)
+                        cornersTop[i].DrawEnd(graphics);
+                }
+                if (analysisCasePallet.HasPalletCornersTopY)
+                {
+                    for (int i = 2; i < 4; ++i)
                         cornersTop[i].DrawEnd(graphics);
                 }
                 #endregion
@@ -345,6 +359,24 @@ namespace treeDiM.StackBuilder.Graphics
                     Transform3D upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, -1 != Solution.SelectedLayerIndex ? DistanceAboveSelectedLayer : 0.0));
                     PalletCap cap = new PalletCap(0, capProperties, bPosition.Transform(upTranslation));
                     cap.DrawEnd(graphics);
+                }
+                #endregion
+
+                #region Pallet sleeves
+                if (analysisCasePallet.HasPalletSleeve)
+                {                    
+                }
+                #endregion
+
+                #region Pallet labels
+                if (null != analysisCasePallet)
+                {
+                    foreach (var palletLabelInst in analysisCasePallet.PalletLabels)
+                    {
+                        var bPosition = new BoxPosition();
+                        var pl = new PalletLabel(++pickId, palletLabelInst.PalletLabelProperties, bPosition);
+                        graphics.Draw(pl.Face, Graphics3D.FaceDir.FRONT);
+                    }
                 }
                 #endregion
 

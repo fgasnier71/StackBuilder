@@ -42,6 +42,7 @@ namespace treeDiM.StackBuilder.Graphics
         public List<BoxGeneric> Boxes { get; set; } = new List<BoxGeneric>();
         public List<Face> Faces { get; set; } = new List<Face>();
         public List<Triangle> Triangles { get; set; } = new List<Triangle>();
+        public List<PalletLabel> PalletLabels { get; set; } = new List<PalletLabel>();
         /// <summary>
         /// image inst
         /// </summary>
@@ -312,6 +313,10 @@ namespace treeDiM.StackBuilder.Graphics
         {
             Dimensions.Add(dimensionCube);
         }
+        public void AddLabel(PalletLabel palletLabel)
+        {
+            PalletLabels.Add(palletLabel);
+        }
         #endregion
 
         #region Abstract methods and properties
@@ -497,6 +502,9 @@ namespace treeDiM.StackBuilder.Graphics
             // draw segment list (e.g. hatching)
             foreach (Segment seg in Segments)
                 Draw(seg);
+
+            foreach (var label in PalletLabels)
+                Draw(label.Face, FaceDir.FRONT);
 
             // draw cotation cubes
             if (ShowDimensions)
@@ -727,6 +735,16 @@ namespace treeDiM.StackBuilder.Graphics
 
             Brush brush = new SolidBrush(color);
             g.FillPolygon(brush, pt);
+            // draw images
+            foreach (Texture texture in face.Textures)
+            {
+                Point[] ptsImage = TransformPoint(face.PointsImage(texture));
+                Point[] pts = new Point[3];
+                pts[0] = ptsImage[2];
+                pts[1] = ptsImage[3];
+                pts[2] = ptsImage[1];
+                g.DrawImage(texture.Bitmap, pts);
+            }
             // draw path
             Brush brush0 = new SolidBrush(face.ColorPath);
             int ptCount = pt.Length;

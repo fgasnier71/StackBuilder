@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+
 using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
@@ -189,6 +190,26 @@ namespace treeDiM.StackBuilder.Graphics
                 }
                 bmp.Save(filename);
             }
+        }
+
+        public Vector3D[] PointsImage(Texture texture)
+        {
+            double cosAngle = Math.Cos(texture.Angle * Math.PI / 180.0);
+            double sinAngle = Math.Sin(texture.Angle * Math.PI / 180.0);
+
+            Vector3D[] pts = new Vector3D[4];
+            Vector3D vecI = Points[0] - Points[1];
+            Vector3D vecJ = Points[2] - Points[1];
+            Vector3D vecO = Points[1];
+
+            vecI.Normalize(); vecJ.Normalize();
+
+            pts[0] = vecO + texture.Position.X * vecI + texture.Position.Y * vecJ;
+            pts[1] = vecO + (texture.Position.X + texture.Size.X * cosAngle) * vecI + (texture.Position.Y + texture.Size.X * sinAngle) * vecJ;
+            pts[2] = vecO + (texture.Position.X + texture.Size.X * cosAngle - texture.Size.Y * sinAngle) * vecI + (texture.Position.Y + texture.Size.X * sinAngle + texture.Size.Y * cosAngle) * vecJ;
+            pts[3] = vecO + (texture.Position.X - texture.Size.Y * sinAngle) * vecI + (texture.Position.Y + texture.Size.Y * cosAngle) * vecJ;
+
+            return pts;
         }
         #endregion
 

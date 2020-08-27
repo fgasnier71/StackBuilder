@@ -53,7 +53,8 @@ namespace treeDiM.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisHCylinderPallet);     // 20
                 ImageList.Images.Add(AnalysisPackPallet);          // 21
                 ImageList.Images.Add(Bottle);                      // 22
-                ImageList.Images.Add(Bag);                         // 23 
+                ImageList.Images.Add(Bag);                         // 23
+                ImageList.Images.Add(PalletLabel);                 // 24     
                // instantiate context menu
                 ContextMenuStrip = new ContextMenuStrip();
                 // attach event handlers
@@ -146,24 +147,21 @@ namespace treeDiM.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, Box, new EventHandler(OnCreateNewBox)) { ImageTransparentColor = Color.White } );
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASE, Case, new EventHandler(OnCreateNewCase)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBAG, Bag, new EventHandler(OnCreateNewBag)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, Bundle, new EventHandler(OnCreateNewBundle)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCYLINDER, Cylinder, new EventHandler(OnCreateNewCylinder)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOTTLE, Bottle, new EventHandler(OnCreateNewCylinder)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, Pallet, new EventHandler(OnCreateNewPallet)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, Interlayer, new EventHandler(OnCreateNewInterlayer)) { ImageTransparentColor = Color.White });
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, Bundle, new EventHandler(OnCreateNewBundle)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, PalletCorners, new EventHandler(OnCreateNewPalletCorners)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, PalletCap, new EventHandler(OnCreateNewPalletCap)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, PalletFilm, new EventHandler(OnCreateNewPalletFilm)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETLABEL, PalletLabel, new EventHandler(OnCreateNewPalletLabel)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, Truck, new EventHandler(OnCreateNewTruck)) { ImageTransparentColor = Color.White });
 
                 if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet || ((DocumentSB)nodeTag.Document).CanCreateOptiCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripSeparator());
                 if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet)
                     contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWANALYSIS, AnalysisCasePallet, new EventHandler(OnCreateNewAnalysisCasePallet)) { ImageTransparentColor = Color.White });
-                /*
-                if (((DocumentSB)nodeTag.Document).CanCreateOptiCasePallet)
-                    contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWCASEANALYSIS, AnalysisTreeView.AnalysisCase, new EventHandler(onCreateNewAnalysisCase)));
-                */
                 contextMenuStrip.Items.Add(new ToolStripSeparator());
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_CLOSE, null, new EventHandler(OnDocumentClose)));
             }
@@ -196,18 +194,18 @@ namespace treeDiM.StackBuilder.Desktop
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLET)
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLET, Pallet, new EventHandler(OnCreateNewPallet)) { ImageTransparentColor = Color.White });
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTINTERLAYER)
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, Interlayer, new EventHandler(OnCreateNewInterlayer)) { ImageTransparentColor = Color.White });
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTBUNDLE)
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBUNDLE, Bundle, new EventHandler(OnCreateNewBundle)) { ImageTransparentColor = Color.White });
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTTRUCK)
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, Truck, new EventHandler(OnCreateNewTruck)) { ImageTransparentColor = Color.White });
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETCORNERS)
+            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETACCESSORIES)
+            {
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWINTERLAYER, Interlayer, new EventHandler(OnCreateNewInterlayer)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, PalletCorners, new EventHandler(OnCreateNewPalletCorners)) { ImageTransparentColor = Color.White });
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETCAP)
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, PalletCap, new EventHandler(OnCreateNewPalletCap)) { ImageTransparentColor = Color.White });
-            else if (nodeTag.Type == NodeTag.NodeType.NT_LISTPALLETFILM)
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, PalletFilm, new EventHandler(OnCreateNewPalletFilm)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, PalletFilm, new EventHandler(OnCreateNewPalletLabel)) { ImageTransparentColor = Color.White });
+            }
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTANALYSIS)
             {
                 if (nodeTag.Document.CanCreateAnalysisCasePallet)
@@ -383,7 +381,15 @@ namespace treeDiM.StackBuilder.Desktop
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
-
+        private void OnCreateNewPalletLabel(object sender, EventArgs e)
+        { 
+            try
+            {
+                NodeTag tag = SelectedNode.Tag as NodeTag;
+                ((DocumentSB)tag.Document).CreateNewPalletLabelUI();
+            }
+            catch (Exception ex) { _log.Error(ex.ToString()); }       
+        }
         private void OnCreateNewAnalysisCasePallet(object sender, EventArgs e)
         {
             try
@@ -459,6 +465,7 @@ namespace treeDiM.StackBuilder.Desktop
                     || (tag.Type == NodeTag.NodeType.NT_PALLETCORNERS)
                     || (tag.Type == NodeTag.NodeType.NT_PALLETCAP)
                     || (tag.Type == NodeTag.NodeType.NT_PALLETFILM)
+                    || (tag.Type == NodeTag.NodeType.NT_PALLETLABEL)
                     || (tag.Type == NodeTag.NodeType.NT_TRUCK)
                     )
                 {
@@ -591,35 +598,17 @@ namespace treeDiM.StackBuilder.Desktop
             };
             nodeDoc.Nodes.Add(nodeCylinders);
             // add pallet list node
-            TreeNode nodeInterlayers = new TreeNode(Resources.ID_NODE_INTERLAYERS, 0, 1)
-            {
-                Tag = new NodeTag(NodeTag.NodeType.NT_LISTINTERLAYER, doc)
-            };
-            nodeDoc.Nodes.Add(nodeInterlayers);
-            // add pallet list node
             TreeNode nodePallets = new TreeNode(Resources.ID_NODE_PALLETS, 0, 1)
             {
                 Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLET, doc)
             };
             nodeDoc.Nodes.Add(nodePallets);
-            // add pallet corners list node
-            TreeNode nodePalletCorners = new TreeNode(Resources.ID_NODE_PALLETCORNERS, 0, 1)
+            // add pallet accessories list node
+            TreeNode nodePalletAccessories = new TreeNode(Resources.ID_NODE_PALLETACCESSORIES, 0, 1)
             {
-                Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLETCORNERS, doc)
+                Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLETACCESSORIES, doc)
             };
-            nodeDoc.Nodes.Add(nodePalletCorners);
-            // add pallet cap node
-            TreeNode nodePalletCaps = new TreeNode(Resources.ID_NODE_PALLETCAPS, 0, 1)
-            {
-                Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLETCAP, doc)
-            };
-            nodeDoc.Nodes.Add(nodePalletCaps);
-            // add pallet film node
-            TreeNode nodePalletFilms = new TreeNode(Resources.ID_NODE_PALLETFILMS, 0, 1)
-            {
-                Tag = new NodeTag(NodeTag.NodeType.NT_LISTPALLETFILM, doc)
-            };
-            nodeDoc.Nodes.Add(nodePalletFilms);
+            nodeDoc.Nodes.Add(nodePalletAccessories);
             // add truck list node
             TreeNode nodeTrucks = new TreeNode(Resources.ID_NODE_TRUCKS, 0, 1)
             {
@@ -700,7 +689,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 iconIndex = 8;
                 nodeType = NodeTag.NodeType.NT_INTERLAYER;
-                parentNodeType = NodeTag.NodeType.NT_LISTINTERLAYER;
+                parentNodeType = NodeTag.NodeType.NT_LISTPALLETACCESSORIES;
             }
             else if (itemProperties.GetType() == typeof(TruckProperties))
             {
@@ -712,19 +701,26 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 iconIndex = 10;
                 nodeType = NodeTag.NodeType.NT_PALLETCORNERS;
-                parentNodeType = NodeTag.NodeType.NT_LISTPALLETCORNERS;
+                parentNodeType = NodeTag.NodeType.NT_LISTPALLETACCESSORIES;
             }
             else if (itemProperties.GetType() == typeof(PalletCapProperties))
             {
                 iconIndex = 11;
                 nodeType = NodeTag.NodeType.NT_PALLETCAP;
-                parentNodeType = NodeTag.NodeType.NT_LISTPALLETCAP;
+                parentNodeType = NodeTag.NodeType.NT_LISTPALLETACCESSORIES;
             }
             else if (itemProperties.GetType() == typeof(PalletFilmProperties))
             {
                 iconIndex = 12;
                 nodeType = NodeTag.NodeType.NT_PALLETFILM;
-                parentNodeType = NodeTag.NodeType.NT_LISTPALLETFILM;
+                parentNodeType = NodeTag.NodeType.NT_LISTPALLETACCESSORIES;
+            }
+            else if (itemProperties.GetType() == typeof(PalletLabelProperties))
+            {
+                iconIndex = 24;
+                nodeType = NodeTag.NodeType.NT_PALLETLABEL;
+                parentNodeType = NodeTag.NodeType.NT_LISTPALLETACCESSORIES;
+
             }
             else if (itemProperties.GetType() == typeof(PackProperties))
             {
@@ -840,6 +836,8 @@ namespace treeDiM.StackBuilder.Desktop
                 nodeType = NodeTag.NodeType.NT_PALLETCAP;
             else if (itemBase.GetType() == typeof(PalletFilmProperties))
                 nodeType = NodeTag.NodeType.NT_PALLETFILM;
+            else if (itemBase.GetType() == typeof(PalletLabelProperties))
+                nodeType = NodeTag.NodeType.NT_PALLETLABEL;
             else if (itemBase.GetType() == typeof(PalletProperties))
                 nodeType = NodeTag.NodeType.NT_PALLET;
             else if (itemBase.GetType() == typeof(TruckProperties))
@@ -935,10 +933,6 @@ namespace treeDiM.StackBuilder.Desktop
             /// </summary>
             NT_LISTPALLET,
             /// <summary>
-            /// list of interlayers
-            /// </summary>
-            NT_LISTINTERLAYER,
-            /// <summary>
             /// list of trucks
             /// </summary>
             NT_LISTTRUCK,
@@ -947,17 +941,9 @@ namespace treeDiM.StackBuilder.Desktop
             /// </summary>
             NT_LISTANALYSIS,
             /// <summary>
-            /// list of pallet corners
+            /// list of pallet accessories
             /// </summary>
-            NT_LISTPALLETCORNERS,
-            /// <summary>
-            /// list of pallet cap
-            /// </summary>
-            NT_LISTPALLETCAP,
-            /// <summary>
-            /// list of pallet film
-            /// </summary>
-            NT_LISTPALLETFILM,
+            NT_LISTPALLETACCESSORIES,
             /// <summary>
             /// box
             /// </summary>
@@ -1014,6 +1000,10 @@ namespace treeDiM.StackBuilder.Desktop
             /// pallet film
             /// </summary>
             NT_PALLETFILM,
+            /// <summary>
+            /// pallet label
+            /// </summary>
+            NT_PALLETLABEL,
             /// <summary>
             /// analysis
             /// </summary>

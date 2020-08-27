@@ -79,6 +79,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.toolStripMain);
             this.Name = "Graphics2DLayerEditor";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OnKeyUp);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp);
             this.toolStripMain.ResumeLayout(false);

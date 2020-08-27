@@ -236,6 +236,7 @@ namespace treeDiM.StackBuilder.Desktop
             return new PalletFilmProperties(null, dtPalletFilm.Name, dtPalletFilm.Description
                 , dtPalletFilm.Transparency, dtPalletFilm.Hatching
                 , dtPalletFilm.Spacing, dtPalletFilm.Angle
+                , dtPalletFilm.LinearMass
                 , Color.LightSkyBlue);
         }
         internal bool HasType(Type tp)

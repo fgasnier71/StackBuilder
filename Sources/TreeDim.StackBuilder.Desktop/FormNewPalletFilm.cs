@@ -30,6 +30,7 @@ namespace treeDiM.StackBuilder.Desktop
                 HatchSpacing = UnitsManager.ConvertLengthFrom(item.HatchSpacing, UnitsManager.UnitSystem.UNIT_METRIC1);
                 HatchAngle = item.HatchAngle;
                 FilmColor = item.Color;
+                LinearWeight = 0.0;
             }
             else
             {
@@ -47,8 +48,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region FormNewBase overrides
-        public override string ItemDefaultName
-        {   get { return Resources.ID_PALLETFILM; } }
+        public override string ItemDefaultName => Resources.ID_PALLETFILM; 
         public override void UpdateStatus(string message)
         {
             if (!UseTransparency && !UseHatching)
@@ -58,7 +58,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region FormNew overrides
+        #region Form overrides
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -92,6 +92,11 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get { return (double)uCtrlAngle.Value; }
             set { uCtrlAngle.Value = value; }
+        }
+        public double LinearWeight
+        {
+            get { return (double)uCtrlLinearMass.Value; }
+            set { uCtrlLinearMass.Value = value; }
         }
         #endregion
 

@@ -40,14 +40,24 @@
             this.cbPalletCorners = new System.Windows.Forms.ComboBox();
             this.chkbPalletCorners = new System.Windows.Forms.CheckBox();
             this.tabPagePalletCornersTop = new System.Windows.Forms.TabPage();
+            this.chkbPalletCornersTopY = new System.Windows.Forms.CheckBox();
             this.cbPalletCornersTop = new System.Windows.Forms.ComboBox();
-            this.chkbPalletCornersTop = new System.Windows.Forms.CheckBox();
+            this.chkbPalletCornersTopX = new System.Windows.Forms.CheckBox();
             this.tabPagePalletCap = new System.Windows.Forms.TabPage();
             this.cbPalletCap = new System.Windows.Forms.ComboBox();
             this.chkbPalletCap = new System.Windows.Forms.CheckBox();
             this.tabPagePalletFilm = new System.Windows.Forms.TabPage();
+            this.uCtrlPalletFilmCovering = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlPalletFilmLength = new treeDiM.Basics.UCtrlDouble();
             this.cbPalletFilm = new System.Windows.Forms.ComboBox();
             this.chkbPalletFilm = new System.Windows.Forms.CheckBox();
+            this.tabPagePalletSleeve = new System.Windows.Forms.TabPage();
+            this.comboBoxColorPicker1 = new OfficePickers.ColorPicker.ComboBoxColorPicker();
+            this.chkbSleeve = new System.Windows.Forms.CheckBox();
+            this.tabPagePalletLabels = new System.Windows.Forms.TabPage();
+            this.cbPalletLabels = new System.Windows.Forms.ComboBox();
+            this.bnAdd = new System.Windows.Forms.Button();
+            this.gridLabels = new SourceGrid.Grid();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrlSolution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
@@ -64,6 +74,8 @@
             this.tabPagePalletCornersTop.SuspendLayout();
             this.tabPagePalletCap.SuspendLayout();
             this.tabPagePalletFilm.SuspendLayout();
+            this.tabPagePalletSleeve.SuspendLayout();
+            this.tabPagePalletLabels.SuspendLayout();
             this.SuspendLayout();
             // 
             // graphCtrlSolution
@@ -117,6 +129,11 @@
             // uCtrlMaxPalletHeight
             // 
             resources.ApplyResources(this.uCtrlMaxPalletHeight, "uCtrlMaxPalletHeight");
+            this.uCtrlMaxPalletHeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlMaxPalletHeight.Minimum = new decimal(new int[] {
             10000,
             0,
@@ -133,6 +150,8 @@
             this.tabCtrl.Controls.Add(this.tabPagePalletCornersTop);
             this.tabCtrl.Controls.Add(this.tabPagePalletCap);
             this.tabCtrl.Controls.Add(this.tabPagePalletFilm);
+            this.tabCtrl.Controls.Add(this.tabPagePalletLabels);
+            this.tabCtrl.Controls.Add(this.tabPagePalletSleeve);
             this.tabCtrl.Multiline = true;
             this.tabCtrl.Name = "tabCtrl";
             this.tabCtrl.SelectedIndex = 0;
@@ -177,11 +196,19 @@
             // 
             // tabPagePalletCornersTop
             // 
+            this.tabPagePalletCornersTop.Controls.Add(this.chkbPalletCornersTopY);
             this.tabPagePalletCornersTop.Controls.Add(this.cbPalletCornersTop);
-            this.tabPagePalletCornersTop.Controls.Add(this.chkbPalletCornersTop);
+            this.tabPagePalletCornersTop.Controls.Add(this.chkbPalletCornersTopX);
             resources.ApplyResources(this.tabPagePalletCornersTop, "tabPagePalletCornersTop");
             this.tabPagePalletCornersTop.Name = "tabPagePalletCornersTop";
             this.tabPagePalletCornersTop.UseVisualStyleBackColor = true;
+            // 
+            // chkbPalletCornersTopY
+            // 
+            resources.ApplyResources(this.chkbPalletCornersTopY, "chkbPalletCornersTopY");
+            this.chkbPalletCornersTopY.Name = "chkbPalletCornersTopY";
+            this.chkbPalletCornersTopY.UseVisualStyleBackColor = true;
+            this.chkbPalletCornersTopY.CheckedChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
             // cbPalletCornersTop
             // 
@@ -191,12 +218,12 @@
             this.cbPalletCornersTop.Name = "cbPalletCornersTop";
             this.cbPalletCornersTop.SelectedIndexChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
-            // chkbPalletCornersTop
+            // chkbPalletCornersTopX
             // 
-            resources.ApplyResources(this.chkbPalletCornersTop, "chkbPalletCornersTop");
-            this.chkbPalletCornersTop.Name = "chkbPalletCornersTop";
-            this.chkbPalletCornersTop.UseVisualStyleBackColor = true;
-            this.chkbPalletCornersTop.CheckedChanged += new System.EventHandler(this.OnPalletProtectionChanged);
+            resources.ApplyResources(this.chkbPalletCornersTopX, "chkbPalletCornersTopX");
+            this.chkbPalletCornersTopX.Name = "chkbPalletCornersTopX";
+            this.chkbPalletCornersTopX.UseVisualStyleBackColor = true;
+            this.chkbPalletCornersTopX.CheckedChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
             // tabPagePalletCap
             // 
@@ -223,11 +250,47 @@
             // 
             // tabPagePalletFilm
             // 
+            this.tabPagePalletFilm.Controls.Add(this.uCtrlPalletFilmCovering);
+            this.tabPagePalletFilm.Controls.Add(this.uCtrlPalletFilmLength);
             this.tabPagePalletFilm.Controls.Add(this.cbPalletFilm);
             this.tabPagePalletFilm.Controls.Add(this.chkbPalletFilm);
             resources.ApplyResources(this.tabPagePalletFilm, "tabPagePalletFilm");
             this.tabPagePalletFilm.Name = "tabPagePalletFilm";
             this.tabPagePalletFilm.UseVisualStyleBackColor = true;
+            // 
+            // uCtrlPalletFilmCovering
+            // 
+            resources.ApplyResources(this.uCtrlPalletFilmCovering, "uCtrlPalletFilmCovering");
+            this.uCtrlPalletFilmCovering.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.uCtrlPalletFilmCovering.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlPalletFilmCovering.Name = "uCtrlPalletFilmCovering";
+            this.uCtrlPalletFilmCovering.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlPalletFilmCovering.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPalletProtectionChanged);
+            // 
+            // uCtrlPalletFilmLength
+            // 
+            resources.ApplyResources(this.uCtrlPalletFilmLength, "uCtrlPalletFilmLength");
+            this.uCtrlPalletFilmLength.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.uCtrlPalletFilmLength.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.uCtrlPalletFilmLength.Name = "uCtrlPalletFilmLength";
+            this.uCtrlPalletFilmLength.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlPalletFilmLength.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnPalletProtectionChanged);
             // 
             // cbPalletFilm
             // 
@@ -243,6 +306,69 @@
             this.chkbPalletFilm.Name = "chkbPalletFilm";
             this.chkbPalletFilm.UseVisualStyleBackColor = true;
             this.chkbPalletFilm.CheckedChanged += new System.EventHandler(this.OnPalletProtectionChanged);
+            // 
+            // tabPagePalletSleeve
+            // 
+            this.tabPagePalletSleeve.Controls.Add(this.comboBoxColorPicker1);
+            this.tabPagePalletSleeve.Controls.Add(this.chkbSleeve);
+            resources.ApplyResources(this.tabPagePalletSleeve, "tabPagePalletSleeve");
+            this.tabPagePalletSleeve.Name = "tabPagePalletSleeve";
+            this.tabPagePalletSleeve.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxColorPicker1
+            // 
+            this.comboBoxColorPicker1.Color = System.Drawing.Color.Beige;
+            this.comboBoxColorPicker1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxColorPicker1.DropDownHeight = 1;
+            this.comboBoxColorPicker1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxColorPicker1.DropDownWidth = 1;
+            this.comboBoxColorPicker1.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBoxColorPicker1, "comboBoxColorPicker1");
+            this.comboBoxColorPicker1.Items.AddRange(new object[] {
+            resources.GetString("comboBoxColorPicker1.Items"),
+            resources.GetString("comboBoxColorPicker1.Items1"),
+            resources.GetString("comboBoxColorPicker1.Items2"),
+            resources.GetString("comboBoxColorPicker1.Items3")});
+            this.comboBoxColorPicker1.Name = "comboBoxColorPicker1";
+            // 
+            // chkbSleeve
+            // 
+            resources.ApplyResources(this.chkbSleeve, "chkbSleeve");
+            this.chkbSleeve.Name = "chkbSleeve";
+            this.chkbSleeve.UseVisualStyleBackColor = true;
+            // 
+            // tabPagePalletLabels
+            // 
+            this.tabPagePalletLabels.Controls.Add(this.cbPalletLabels);
+            this.tabPagePalletLabels.Controls.Add(this.bnAdd);
+            this.tabPagePalletLabels.Controls.Add(this.gridLabels);
+            resources.ApplyResources(this.tabPagePalletLabels, "tabPagePalletLabels");
+            this.tabPagePalletLabels.Name = "tabPagePalletLabels";
+            this.tabPagePalletLabels.UseVisualStyleBackColor = true;
+            // 
+            // cbPalletLabels
+            // 
+            resources.ApplyResources(this.cbPalletLabels, "cbPalletLabels");
+            this.cbPalletLabels.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPalletLabels.FormattingEnabled = true;
+            this.cbPalletLabels.Name = "cbPalletLabels";
+            // 
+            // bnAdd
+            // 
+            resources.ApplyResources(this.bnAdd, "bnAdd");
+            this.bnAdd.Name = "bnAdd";
+            this.bnAdd.UseVisualStyleBackColor = true;
+            this.bnAdd.Click += new System.EventHandler(this.OnBnAddLabel);
+            // 
+            // gridLabels
+            // 
+            resources.ApplyResources(this.gridLabels, "gridLabels");
+            this.gridLabels.EnableSort = true;
+            this.gridLabels.Name = "gridLabels";
+            this.gridLabels.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridLabels.SelectionMode = SourceGrid.GridSelectionMode.Cell;
+            this.gridLabels.TabStop = true;
+            this.gridLabels.ToolTipText = "";
             // 
             // DockContentAnalysisCasePallet
             // 
@@ -271,6 +397,9 @@
             this.tabPagePalletCap.PerformLayout();
             this.tabPagePalletFilm.ResumeLayout(false);
             this.tabPagePalletFilm.PerformLayout();
+            this.tabPagePalletSleeve.ResumeLayout(false);
+            this.tabPagePalletSleeve.PerformLayout();
+            this.tabPagePalletLabels.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,6 +424,16 @@
         private Basics.Controls.CtrlStrapperSet ctrlStrapperSet;
         private System.Windows.Forms.TabPage tabPagePalletCornersTop;
         private System.Windows.Forms.ComboBox cbPalletCornersTop;
-        private System.Windows.Forms.CheckBox chkbPalletCornersTop;
+        private System.Windows.Forms.CheckBox chkbPalletCornersTopX;
+        private System.Windows.Forms.CheckBox chkbPalletCornersTopY;
+        private System.Windows.Forms.TabPage tabPagePalletSleeve;
+        private System.Windows.Forms.CheckBox chkbSleeve;
+        private System.Windows.Forms.TabPage tabPagePalletLabels;
+        private OfficePickers.ColorPicker.ComboBoxColorPicker comboBoxColorPicker1;
+        private System.Windows.Forms.Button bnAdd;
+        private SourceGrid.Grid gridLabels;
+        private System.Windows.Forms.ComboBox cbPalletLabels;
+        private treeDiM.Basics.UCtrlDouble uCtrlPalletFilmCovering;
+        private treeDiM.Basics.UCtrlDouble uCtrlPalletFilmLength;
     }
 }

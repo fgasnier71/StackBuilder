@@ -1,6 +1,6 @@
 ﻿#region Using directives
 using System;
-
+using System.Collections.Generic;
 using Sharp3D.Math.Core;
 #endregion
 
@@ -55,6 +55,7 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
         public override double ContainerWeight => PalletProperties.Weight;
+
         public override bool HasEquivalentPackable => true;
         public override PackableLoaded EquivalentPackable => new LoadedPallet(this);
 
@@ -71,6 +72,10 @@ namespace treeDiM.StackBuilder.Basics
             // --- extend for pallet : end
             return bbox;
         }
+        #endregion
+
+        #region Specific
+        public List<PalletLabelInst> PalletLabels { get; set; } = new List<PalletLabelInst>();
         #endregion
 
         #region Non-Public Members

@@ -313,12 +313,14 @@ namespace treeDiM.StackBuilder.ExcelReader
             Hatching = (1.0 == (double)dtRow[3]);
             Spacing = (double)dtRow[4];
             Angle = (double)dtRow[5];
+            LinearMass = (double)dtRow[6];
         }
 
         public bool Transparency { get; set; }
         public bool Hatching { get; set; }
         public double Spacing { get; set; }
         public double Angle { get; set; }
+        public double LinearMass { get; set; }
 
         public override string ToString()
         {

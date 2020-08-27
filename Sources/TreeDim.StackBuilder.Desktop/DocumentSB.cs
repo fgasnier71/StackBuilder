@@ -312,13 +312,26 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public void CreateNewPalletFilmUI()
         {
-            using (FormNewPalletFilm form = new FormNewPalletFilm(this, null))
+            using (var form = new FormNewPalletFilm(this, null))
             {
                 if (DialogResult.OK == form.ShowDialog())
                     CreateNewPalletFilm(form.ItemName, form.ItemDescription,
                         form.UseTransparency,
                         form.UseHatching, form.HatchSpacing, form.HatchAngle,
+                        form.LinearWeight,
                         form.FilmColor);
+            }
+        }
+        public void CreateNewPalletLabelUI()
+        {
+            using (var form = new FormNewPalletLabel(this, null))
+            {
+                if (DialogResult.OK == form.ShowDialog())
+                    CreateNewPalletLabel(form.ItemName, form.ItemDescription,
+                        form.Dimensions,
+                        form.Color,
+                        form.Bitmap);
+
             }
         }
         /// <summary>

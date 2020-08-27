@@ -11,6 +11,7 @@ using log4net;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics.Properties;
+using System.Runtime.Remoting.Messaging;
 #endregion
 
 namespace treeDiM.StackBuilder.Graphics
@@ -24,11 +25,19 @@ namespace treeDiM.StackBuilder.Graphics
 
             // double buffering
             SetDoubleBuffered();
+
+            SetStyle(ControlStyles.Selectable, true);
+            TabStop = true;
+
         }
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             SelectionChanged += EnableDisableAddRemoveButtons;
+        }
+        protected override bool IsInputKey(Keys keyData)
+        {
+            return true;
         }
         #endregion
         #region Double buffering
@@ -118,8 +127,24 @@ namespace treeDiM.StackBuilder.Graphics
                 _log.Error(ex.ToString());
             }
         }
+        protected override void OnPaintBackground(PaintEventArgs e) {}
         #endregion
         #region Event handlers
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if ((!Moving) && (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right || e.KeyCode == Keys.Up || e.KeyCode == Keys.Down))
+            {
+                StartMove(dictKeyDirection[e.KeyCode]);
+                return;
+            }
+            if (e.KeyCode == Keys.R)
+                Rotate();
+        }
+        private void OnKeyUp(object sender, KeyEventArgs e)
+        {
+            EndMove();
+            Moving = false;
+        }
         private void OnMouseDown(object sender, MouseEventArgs e)
         {
             foreach (var item in ArrowButtons)
@@ -131,11 +156,7 @@ namespace treeDiM.StackBuilder.Graphics
                 }
             }
             if (null != _rotateRectangle && _rotateRectangle.Contains(e.Location))
-            {
-                BoxPosition pos = Layer.Positions[SelectedIndex].RotateZ90(Dimensions);
-                Layer.Positions[SelectedIndex] = pos;
-                Moving = true;
-            }
+                Rotate();
         }
         private void OnMouseUp(object sender, MouseEventArgs e)
         {
@@ -205,16 +226,32 @@ namespace treeDiM.StackBuilder.Graphics
 
         private void StartMove(int dir)
         {
-            CountMove = 0;
             if (dir < 0 || dir > 3) return;
-            MoveDir = Directions[dir];
+            StartMove( Directions[dir] );
+        }
+        private void StartMove(HalfAxis.HAxis moveDir)
+        { 
+            CountMove = 0;
+            MoveDir = moveDir;
             timerMove.Start();
             Moving = true;
+       
         }
         private void EndMove()
         {
             timerMove.Stop();
             EnableDisableAddRemoveButtons(); 
+        }
+        private void Rotate()
+        {
+            if (ArrowRotate)
+            {
+                BoxPosition pos = Layer.Positions[SelectedIndex].RotateZ90(Dimensions);
+                Layer.Positions[SelectedIndex] = pos;
+            }
+            UpdateArrows();
+            EnableDisableAddRemoveButtons();
+            Invalidate();
         }
         private double StepMove
         {
@@ -288,7 +325,14 @@ namespace treeDiM.StackBuilder.Graphics
 
         private int SelectedIndex { get; set; } = -1;
         private HalfAxis.HAxis MoveDir { get; set; }
-        private readonly HalfAxis.HAxis[] Directions = { HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N, HalfAxis.HAxis.AXIS_Y_N };
+        private static readonly HalfAxis.HAxis[] Directions = { HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N, HalfAxis.HAxis.AXIS_Y_N };
+        private static readonly Dictionary<Keys, HalfAxis.HAxis> dictKeyDirection = new Dictionary<Keys, HalfAxis.HAxis>
+        {
+            { Keys.Left, HalfAxis.HAxis.AXIS_X_N },
+            { Keys.Right, HalfAxis.HAxis.AXIS_X_P },
+            { Keys.Up, HalfAxis.HAxis.AXIS_Y_P },
+            { Keys.Down, HalfAxis.HAxis.AXIS_Y_N}
+        };
         private bool[] Arrows = { false, false, false, false};
         private bool ArrowRotate = false;
         private bool Moving { get; set; } = false;
@@ -297,5 +341,6 @@ namespace treeDiM.StackBuilder.Graphics
         private Rectangle _rotateRectangle;
         private static readonly ILog _log = LogManager.GetLogger(typeof(Graphics2DLayerEditor));
         #endregion
+
     }
 }

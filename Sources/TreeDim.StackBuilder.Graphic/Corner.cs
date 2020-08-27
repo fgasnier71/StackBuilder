@@ -25,7 +25,7 @@ namespace treeDiM.StackBuilder.Graphics
             W = cornerProperties.Width;
             Th = cornerProperties.Thickness;
             Height = cornerProperties.Length;
-            Color = cornerProperties._color;
+            Color = cornerProperties.Color;
         }
         #endregion
 

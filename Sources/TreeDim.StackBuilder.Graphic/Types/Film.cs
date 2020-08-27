@@ -1,12 +1,11 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
-using System.IO;
 
-using Sharp3D.Math;
 using Sharp3D.Math.Core;
+using Sharp3D.Math.Geometry2D;
+
 using treeDiM.StackBuilder.Basics;
 #endregion
 
@@ -14,17 +13,6 @@ namespace treeDiM.StackBuilder.Graphics
 {
     public class FilmRectangle
     {
-        #region Data members
-        private Vector2D _dimensions;
-        private Vector3D _origin;
-        private HalfAxis.HAxis _axis1, _axis2;
-        private double _dBorder;
-        // hatching segment cache
-        private double _hatchAngle, _hatchSpacing;
-        private Color _color;
-        private List<Segment> _segmentCache = new List<Segment>();
-        #endregion
-
         #region Constructors
         public FilmRectangle(
             Vector3D origin,
@@ -32,27 +20,27 @@ namespace treeDiM.StackBuilder.Graphics
             Vector2D dimensions,
             double dBorder)
         {
-            _origin = origin;
-            _axis1 = axis1;
-            _axis2 = axis2;
-            _dimensions = dimensions;
-            _dBorder = dBorder;
+            Origin = origin;
+            Axis1 = axis1;
+            Axis2 = axis2;
+            Dimensions = dimensions;
+            TopBorder = dBorder;
         }
         #endregion
 
         #region Public properties
         public Vector3D Normal
         {
-            get { return Vector3D.CrossProduct( HalfAxis.ToVector3D(_axis1), HalfAxis.ToVector3D(_axis2)); }
+            get { return Vector3D.CrossProduct( HalfAxis.ToVector3D(Axis1), HalfAxis.ToVector3D(Axis2)); }
         }
         public Transform3D Transformation
         {
             get
             {
-                Vector3D v1 = HalfAxis.ToVector3D(_axis1);
-                Vector3D v2 = HalfAxis.ToVector3D(_axis2);
+                Vector3D v1 = HalfAxis.ToVector3D(Axis1);
+                Vector3D v2 = HalfAxis.ToVector3D(Axis2);
                 Vector3D v3 = Normal;
-                Vector3D v4 = _origin;
+                Vector3D v4 = Origin;
                 return new Transform3D(new Matrix4D(v1, v2, v3, v4));
             }
         }
@@ -60,43 +48,45 @@ namespace treeDiM.StackBuilder.Graphics
         {
             get
             {
-                if (_segmentCache.Count == 0)
+                if (SegmentCache.Count == 0)
                 {
-                    Sharp3D.Math.Geometry2D.Hatching hatching;
-                    if (_dBorder <= 0.0)
-                        hatching = new Sharp3D.Math.Geometry2D.Hatching(
-                            new Sharp3D.Math.Geometry2D.Rectangle(Vector2D.Zero, _dimensions)
+                    Hatching hatching;
+                    if (TopBorder < 0.0
+                        || Dimensions.X - 2.0 * TopBorder <= 0.0
+                        || Dimensions.Y - 2.0 * TopBorder <= 0.0)
+                        hatching = new Hatching(
+                            new Sharp3D.Math.Geometry2D.Rectangle(Vector2D.Zero, Dimensions)
                             );
                     else
-                        hatching = new Sharp3D.Math.Geometry2D.Hatching(
-                            new Sharp3D.Math.Geometry2D.Rectangle(Vector2D.Zero, _dimensions),
-                            new Sharp3D.Math.Geometry2D.Rectangle(new Vector2D(_dBorder, _dBorder), new Vector2D(_dimensions.X - 2.0*_dBorder, _dimensions.Y - 2.0*_dBorder))
+                        hatching = new Hatching(
+                            new Sharp3D.Math.Geometry2D.Rectangle(Vector2D.Zero, Dimensions),
+                            new Sharp3D.Math.Geometry2D.Rectangle(new Vector2D(TopBorder, TopBorder), new Vector2D(Dimensions.X - 2.0*TopBorder, Dimensions.Y - 2.0*TopBorder))
                             );
-                    foreach (Sharp3D.Math.Geometry2D.Segment s in hatching.GetHatchingSegments(_hatchAngle, _hatchSpacing))
-                        _segmentCache.Add(
+                    foreach (Sharp3D.Math.Geometry2D.Segment s in hatching.GetHatchingSegments(HatchAngle, HatchSpacing))
+                        SegmentCache.Add(
                             new Segment(
                                 Transformation.transform(new Vector3D(s.P0.X, s.P0.Y, 0.0)),
                                 Transformation.transform(new Vector3D(s.P1.X, s.P1.Y, 0.0)),
-                                _color) );
+                                Color) );
                 }
-                return _segmentCache.ToArray();
+                return SegmentCache.ToArray();
             }
         }
         public Face[] Faces
         {
             get
             {
-                if (_dBorder <= 0)
+                if (TopBorder <= 0)
                 {
                     Vector3D[] points = new Vector3D[]
                     {
                         Transformation.transform(Vector3D.Zero)
-                        , Transformation.transform(new Vector3D(_dimensions.X, 0.0, 0.0))
-                        , Transformation.transform(new Vector3D(_dimensions.X, _dimensions.Y, 0.0))
-                        , Transformation.transform(new Vector3D(0.0, _dimensions.Y, 0.0))
+                        , Transformation.transform(new Vector3D(Dimensions.X, 0.0, 0.0))
+                        , Transformation.transform(new Vector3D(Dimensions.X, Dimensions.Y, 0.0))
+                        , Transformation.transform(new Vector3D(0.0, Dimensions.Y, 0.0))
                     };
                     Face[] faces = new Face[1];
-                    faces[0] = new Face(0, points, _color, _color, "PALLETFILM", false);
+                    faces[0] = new Face(0, points, Color, Color, "PALLETFILM", false);
                     return faces;
                 }
                 else
@@ -104,13 +94,13 @@ namespace treeDiM.StackBuilder.Graphics
                     Vector3D[] points = new Vector3D[]
                     {
                         Transformation.transform(Vector3D.Zero)
-                        , Transformation.transform(new Vector3D(_dimensions.X, 0.0, 0.0))
-                        , Transformation.transform(new Vector3D(_dimensions.X, _dimensions.Y, 0.0))
-                        , Transformation.transform(new Vector3D(0.0, _dimensions.Y, 0.0))
-                        , Transformation.transform(new Vector3D(_dBorder, _dBorder, 0.0))
-                        , Transformation.transform(new Vector3D(_dimensions.X - _dBorder, _dBorder, 0.0))
-                        , Transformation.transform(new Vector3D(_dimensions.X - _dBorder, _dimensions.Y - _dBorder, 0.0))
-                        , Transformation.transform(new Vector3D(_dBorder, _dimensions.Y - _dBorder, 0.0))
+                        , Transformation.transform(new Vector3D(Dimensions.X, 0.0, 0.0))
+                        , Transformation.transform(new Vector3D(Dimensions.X, Dimensions.Y, 0.0))
+                        , Transformation.transform(new Vector3D(0.0, Dimensions.Y, 0.0))
+                        , Transformation.transform(new Vector3D(TopBorder, TopBorder, 0.0))
+                        , Transformation.transform(new Vector3D(Dimensions.X - TopBorder, TopBorder, 0.0))
+                        , Transformation.transform(new Vector3D(Dimensions.X - TopBorder, Dimensions.Y - TopBorder, 0.0))
+                        , Transformation.transform(new Vector3D(TopBorder, Dimensions.Y - TopBorder, 0.0))
                     };
 
                     // 3 --------------------- 2
@@ -122,47 +112,37 @@ namespace treeDiM.StackBuilder.Graphics
 
 
                     Face[] faces = new Face[4];
-                    faces[0] = new Face(0, new Vector3D[] { points[0], points[1], points[5], points[4] }, _color, _color, "FILM", false);
-                    faces[1] = new Face(0, new Vector3D[] { points[1], points[2], points[6], points[5] }, _color, _color, "FILM", false);
-                    faces[2] = new Face(0, new Vector3D[] { points[2], points[3], points[7], points[6] }, _color, _color, "FILM", false);
-                    faces[3] = new Face(0, new Vector3D[] { points[3], points[0], points[4], points[7] }, _color, _color, "FILM", false);
+                    faces[0] = new Face(0, new Vector3D[] { points[0], points[1], points[5], points[4] }, Color, Color, "FILM", false);
+                    faces[1] = new Face(0, new Vector3D[] { points[1], points[2], points[6], points[5] }, Color, Color, "FILM", false);
+                    faces[2] = new Face(0, new Vector3D[] { points[2], points[3], points[7], points[6] }, Color, Color, "FILM", false);
+                    faces[3] = new Face(0, new Vector3D[] { points[3], points[0], points[4], points[7] }, Color, Color, "FILM", false);
                     return faces;
                 }
             }
         }
-        public double HatchAngle
-        {
-            set { _hatchAngle = value; }
-        }
-        public double HatchSpacing
-        {
-            set { _hatchSpacing = value; }
-        }
-        public Color Color
-        {
-            set { _color = value; }
-            get { return _color; }
-        }
+        public double HatchAngle { get; set; }
+        public double HatchSpacing { get; set; }
+        public Color Color { set; get; }
+        public Vector2D Dimensions { get; set; }
+        public Vector3D Origin { get; set; }
+        public HalfAxis.HAxis Axis1 { get; set; }
+        public HalfAxis.HAxis Axis2 { get; set; }
+        public double TopBorder { get; set; }
+        private List<Segment> SegmentCache { get; set; } = new List<Segment>();
         #endregion
     }
 
     public class Film : Drawable
     {
-        #region Data members
-        private double _hatchSpacing, _hatchAngle;
-        private Color _color;
-        private List<FilmRectangle> _rectangles = new List<FilmRectangle>();
-        #endregion
-
         #region Constructors
         public Film(Color color, bool transparency, bool hatching, double hatchSpacing, double hatchAngle)
             : base(0)
         {
-            _color = color;
+            Color = color;
             HasTransparency = transparency;
             HasHatching = hatching;
-            _hatchSpacing = hatchSpacing;
-            _hatchAngle = hatchAngle;
+            HatchSpacing = hatchSpacing;
+            HatchAngle = hatchAngle;
         }
         #endregion
 
@@ -172,15 +152,15 @@ namespace treeDiM.StackBuilder.Graphics
 
         public void AddRectangle(FilmRectangle rect)
         {
-            rect.Color = _color;
-            rect.HatchSpacing = _hatchSpacing;
-            rect.HatchAngle = _hatchAngle;
-            _rectangles.Add(rect);
+            rect.Color = Color;
+            rect.HatchSpacing = HatchSpacing;
+            rect.HatchAngle = HatchAngle;
+            Rectangles.Add(rect);
         }
         public override void DrawBegin(Graphics3D graph)
         {
 
-            foreach (FilmRectangle rectangle in _rectangles)
+            foreach (FilmRectangle rectangle in Rectangles)
                 if (Vector3D.DotProduct(rectangle.Normal, graph.ViewDirection) > 0)
                 {
                     // hatching
@@ -194,7 +174,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public override void DrawEnd(Graphics3D graph)
         {
-            foreach (FilmRectangle rectangle in _rectangles)
+            foreach (FilmRectangle rectangle in Rectangles)
             {
                 double cosA = Math.Abs(Vector3D.DotProduct(rectangle.Normal, graph.ViewDirection));
                 Color color = Color.FromArgb(
@@ -225,11 +205,15 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                 }
             }
+        }
+        public override void Draw(Graphics3D graphics) {}
+        #endregion
 
-        }
-        public override void Draw(Graphics3D graphics)
-        {
-        }
+        #region Data members
+        private double HatchSpacing { get; set; }
+        private double HatchAngle { get; set; }
+        private Color Color { get; set; }
+        private List<FilmRectangle> Rectangles { get; set; } = new List<FilmRectangle>();
         #endregion
     }
 }

@@ -222,8 +222,6 @@ namespace treeDiM.StackBuilder.Basics
             _textures.Add(new Pair<HalfAxis.HAxis, Texture>(axis, new Texture(bmp, position, size, angle)));
             Modify();
         }
-
-
         /// <summary>
         /// Get / set face/texture pairs
         /// </summary>

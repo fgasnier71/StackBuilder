@@ -1,5 +1,6 @@
 ﻿#region Using directives
 using Sharp3D.Math.Core;
+using System.Drawing;
 #endregion
 
 namespace treeDiM.StackBuilder.Basics
@@ -75,11 +76,18 @@ namespace treeDiM.StackBuilder.Basics
                     _palletFilmProperties?.AddDependancy(this);
             }
         }
+        public bool PalletCornersTopX { get; set; }
+        public bool PalletCornersTopY { get; set; }
+        public double PalletFilmLength { get; set; }
+        public double PalletFilmTopCovering { get; set; }
+        public Color PalletSleeveColor { get; set; } = Color.Black;
         public bool HasPalletCorners => null != _palletCornerProperties;
-        public bool HasPalletCornersTop => null != _palletCornerTopProperties;
+        public bool HasPalletCornersTopX => null != _palletCornerTopProperties && PalletCornersTopX;
+        public bool HasPalletCornersTopY => null != _palletCornerTopProperties && PalletCornersTopY;
         public bool HasPalletCap => null != _palletCapProperties;
         public bool HasPalletFilm => null != _palletFilmProperties;
         public bool HasStrappers => null != StrapperSet;
+        public bool HasPalletSleeve => PalletSleeveColor != Color.Black;
         #endregion
 
         #region Override AnalysisHomo
@@ -89,9 +97,9 @@ namespace treeDiM.StackBuilder.Basics
             // --- extend for pallet corners: begin
             double thickness = System.Math.Max(
                 (HasPalletCorners ? PalletCornerProperties.Thickness : 0.0),
-                (HasPalletCornersTop ? PalletCornerTopProperties.Thickness : 0.0)
+                (HasPalletCornersTopX||HasPalletCornersTopY ? PalletCornerTopProperties.Thickness : 0.0)
                 );
-            if (HasPalletCorners || HasPalletCornersTop)
+            if (HasPalletCorners || HasPalletCornersTopX || HasPalletCornersTopY)
             {
                 Vector3D ptMin = bbox.PtMin;
                 ptMin.X -= thickness;
@@ -102,7 +110,7 @@ namespace treeDiM.StackBuilder.Basics
                 bbox.Extend(ptMin);
                 bbox.Extend(ptMax);
             }
-            if (HasPalletCornersTop)
+            if (HasPalletCornersTopX || HasPalletCornersTopY)
             {
                 double thicknessTop = PalletCornerTopProperties.Thickness;
                 Vector3D ptMax = bbox.PtMax;
@@ -127,6 +135,18 @@ namespace treeDiM.StackBuilder.Basics
             }
             // --- extend for pallet cap : end 
             return bbox;
+        }
+
+        public override double DecorationWeight
+        {
+            get
+            {
+                return (HasPalletCap ? PalletCapProperties.Weight : 0.0)
+                    + (HasPalletCorners ? 4 * PalletCornerProperties.Weight : 0.0)
+                    + (HasPalletCornersTopX ? 2 * PalletCornerTopProperties.Weight : 0.0)
+                    + (HasPalletCornersTopY ? 2 * PalletCornerTopProperties.Weight : 0.0)
+                    + (HasPalletFilm ? PalletFilmProperties.LinearWeight * PalletFilmLength : 0.0);
+            }
         }
         #endregion
 

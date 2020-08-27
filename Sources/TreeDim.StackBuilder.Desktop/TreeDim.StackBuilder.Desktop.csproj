@@ -545,6 +545,12 @@
     <Compile Include="FormNewInterlayer.Designer.cs">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewPalletLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPalletLabel.Designer.cs">
+      <DependentUpon>FormNewPalletLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewPack.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2323,6 +2329,9 @@
     <EmbeddedResource Include="FormNewInterlayer.zh.resx">
       <DependentUpon>FormNewInterlayer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletLabel.resx">
+      <DependentUpon>FormNewPalletLabel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewPack.de.resx">
       <DependentUpon>FormNewPack.cs</DependentUpon>
     </EmbeddedResource>
@@ -3574,6 +3583,8 @@
     <None Include="Resources\PalletFilm.bmp" />
     <None Include="Resources\Pack.bmp" />
     <None Include="Resources\PackAnalysis.bmp" />
+    <None Include="Resources\PalletLabel.bmp" />
+    <None Include="Resources\PalletLabel.png" />
     <Content Include="Resources\StackBuilderAbout.bmp" />
     <None Include="Resources\TruckAnalysis.bmp" />
     <Content Include="Resources\AnalysisStackingStrength.bmp" />

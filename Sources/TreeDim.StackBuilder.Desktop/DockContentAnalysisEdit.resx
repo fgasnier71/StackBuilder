@@ -496,9 +496,12 @@
   <data name="toolStripButtonBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABYSURBVDhP3Y+xDcAwCASZk0FgZMaw9fHTpImxRBGfROG3
-        7hHSRkQMd3+G0T4pq+ows1rBW8abX9/8VAaQIFcGC6mfFcChvk7IEjSXTwCXlzCukSUYRh2ITINE0o5U
-        APEDAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEnSURBVDhPrVK7SgRBEFww1A8wEMTAP/A1e8z07fROIApG
+        G2kuJped6A+I/oCBgYGBgZmBgZ9h7g8Y+AQFE8+a3RJ2DxZv0YJimOrumqZ7kn9Fz/mQWt3mtRtSyZdS
+        0ZFx/ojS5FgTzWMxuRdCmK5TRGbiyfQmUuf3a8Wg/wTfm9SPeBqn9+jwdNXliyyPBnreNJiMmNc6LZLE
+        SH5QCx6jK2ts5saZ9nUL8aufXJNl87TAHKzfLUWnA0qtQNeXpYnTC0oVeqKHCAx5bcWKyFzVhX+l1A1F
+        UUxVBjqi1A3WhgV28EipG4zodTTASs8olYMxCGyavm60ES/uIOeW7X8ti8yyPH5l/8DAr4TJW1w1SytA
+        vIH4gjU+j7PURZ9QfIfzpPHy35Ak3+/+phuSFqsqAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="toolStripButtonBack.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">

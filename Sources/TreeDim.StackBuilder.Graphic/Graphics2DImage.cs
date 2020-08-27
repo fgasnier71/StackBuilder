@@ -46,6 +46,7 @@ namespace treeDiM.StackBuilder.Graphics
         {
             Ctrl = ctrl;
             Graph = g;
+            Graph.Clear(Color.White);
         }
         #endregion
 

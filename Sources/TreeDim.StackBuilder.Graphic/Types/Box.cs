@@ -556,10 +556,7 @@ namespace treeDiM.StackBuilder.Graphics
             else
                 return null;
         }
-
-
         #endregion
-
     }
     #endregion
 
