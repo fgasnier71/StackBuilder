@@ -15,7 +15,7 @@
     <!-- Forcibly overwriting preexisting files during installation -->
     <Property Id="ALLUSERS" Value="1" />
     <!--Shortcut icon-->
-    <Icon Id="ShortcutIcon.ico" SourceFile="..\..\treeDiM.StackBuilder.Desktop\bin\Release\treeDiM.StackBuilder.Desktop.exe" />
+    <Icon Id="ShortcutIcon.ico" SourceFile="..\..\TechnologyBSA.ALCE.Desktop\Bin\Release\TechnologyBSA.ALCE.Desktop.exe" />
     <!--********** Application files : BEGIN **********-->
     <DirectoryRef Id="Bin">
       <Component Id="BinPermissions" Guid="{88F40CA2-B308-4C73-9E92-70660FE0DB21}">

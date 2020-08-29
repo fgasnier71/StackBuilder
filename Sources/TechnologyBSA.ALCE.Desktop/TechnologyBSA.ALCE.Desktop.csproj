@@ -1,0 +1,1282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>treeDiM.StackBuilder.Desktop</RootNamespace>
+    <AssemblyName>TechnologyBSA.ALCE.Desktop</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <StartupObject>treeDiM.StackBuilder.Desktop.Program</StartupObject>
+    <ApplicationIcon>ALCE.ico</ApplicationIcon>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <LanguageVersion>8.0</LanguageVersion>
+    <PublishUrl>ftp://plmpack.com/public/www/stackbuilder/ClickOnce/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.plmpack.com/stackbuilder/ClickOnce/</InstallUrl>
+    <ProductName>StackBuilder</ProductName>
+    <PublisherName>treeDiM</PublisherName>
+    <SuiteName>PLMPack</SuiteName>
+    <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationVersion>3.0.2.15</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\TechnologyBSA.ALCE.Desktop.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\treeDiM.StackBuilder.Desktop.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E560907200F8CCA932E8CA665AA2916D0D74ED5A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>treedim2021.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestTimestampUrl>http://timestamp.comodoca.com/authenticode</ManifestTimestampUrl>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>Internet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup Condition="'$(BuildingInsideVisualStudio)' == 'true'">
+  </PropertyGroup>
+  <!-- Required Import to use MSBuild Community Tasks -->
+  <Target Name="BeforeCompile" Condition="'$(BuildingInsideVisualStudio)|$(Configuration)' == 'true|Release'">
+    <FormatVersion Version="$(ApplicationVersion)" Revision="$(ApplicationRevision)">
+      <Output TaskParameter="OutputVersion" PropertyName="AssemblyVersionToUse" />
+    </FormatVersion>
+    <AssemblyInfo CodeLanguage="CS" OutputFile="$(ProjectDir)..\SharedAssemblyInfo.cs" AssemblyVersion="$(AssemblyVersionToUse)" AssemblyFileVersion="$(AssemblyVersionToUse)" />
+  </Target>
+  <ItemGroup>
+    <Reference Include="AutoUpdater.NET, Version=1.6.0.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autoupdater.NET.Official.1.6.0\lib\net40\AutoUpdater.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="CrashReporter.NET, Version=1.5.8.0, Culture=neutral, PublicKeyToken=7828e0fd88cab698, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrashReporter.NET.Official.1.5.8\lib\net462\CrashReporter.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Cureos.Measures">
+      <HintPath>..\ThirdPartyAssemblies\Cureos.Measures.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.TextEditorEx, Version=1.0.0.6, Culture=neutral, PublicKeyToken=4d61825e8dd49f1a, processorArchitecture=MSIL">
+      <HintPath>..\packages\ICSharpCode.TextEditorEx.1.0.0.6\lib\net40\ICSharpCode.TextEditorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftOfficeCore.15.0.0\lib\net35\Office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PropertyGridEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyGridEx.1.0.0\lib\net20\PropertyGridEx.dll</HintPath>
+    </Reference>
+    <Reference Include="RichTextBoxAppender, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RichTextBoxAppender.1.0.1\lib\net45\RichTextBoxAppender.dll</HintPath>
+    </Reference>
+    <Reference Include="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sharp3D.Math.1.0.3\lib\net45\Sharp3D.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="SourceGrid, Version=4.40.4580.29115, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=MSIL">
+      <HintPath>..\packages\SourceGrid.4.4.0\lib\net35\SourceGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Syroot.KnownFolders, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syroot.Windows.IO.KnownFolders.1.2.3\lib\netstandard2.0\Syroot.KnownFolders.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.1\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=3.0.6.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <HintPath>..\packages\DockPanelSuite.3.0.6\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking.ThemeVS2015, Version=3.0.6.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <HintPath>..\packages\DockPanelSuite.ThemeVS2015.3.0.6\lib\net40\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnalysisTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AnalysisTreeView.Designer.cs">
+      <DependentUpon>AnalysisTreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CellBackColorAlternate.cs" />
+    <Compile Include="CheckedListBoxWithImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckedListBoxWithImage.Designer.cs">
+      <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComboBoxItems.cs" />
+    <Compile Include="DockContentAnalysisBoxCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisBoxCase.Designer.cs">
+      <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisCasePallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCasePallet.Designer.cs">
+      <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisCaseTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCaseTruck.Designer.cs">
+      <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderCase.Designer.cs">
+      <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderPallet.Designer.cs">
+      <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisCylinderTruck.Designer.cs">
+      <DependentUpon>DockContentAnalysisCylinderTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisEdit.Designer.cs">
+      <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisHCylPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisHCylPallet.Designer.cs">
+      <DependentUpon>DockContentAnalysisHCylPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisHCylTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisHCylTruck.Designer.cs">
+      <DependentUpon>DockContentAnalysisHCylTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentAnalysisPalletTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentAnalysisPalletTruck.Designer.cs">
+      <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentDocumentExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentDocumentExplorer.Designer.cs">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentHAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentHAnalysis.Designer.cs">
+      <DependentUpon>DockContentHAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentHAnalysisCasePallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentHAnalysisCasePallet.Designer.cs">
+      <DependentUpon>DockContentHAnalysisCasePallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentHAnalysisCaseTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentHAnalysisCaseTruck.Designer.cs">
+      <DependentUpon>DockContentHAnalysisCaseTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentLogConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentLogConsole.Designer.cs">
+      <DependentUpon>DockContentLogConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentStartPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentStartPage.Designer.cs">
+      <DependentUpon>DockContentStartPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentView.Designer.cs">
+      <DependentUpon>DockContentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentSB.cs" />
+    <Compile Include="FileAssociation.cs" />
+    <Compile Include="FormBottleInitialize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBottleInitialize.Designer.cs">
+      <DependentUpon>FormBottleInitialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDocDisambiguate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDocDisambiguate.Designer.cs">
+      <DependentUpon>FormDocDisambiguate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditBitmaps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditBitmaps.Designer.cs">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditLayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditLayer.Designer.cs">
+      <DependentUpon>FormEditLayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormExporter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExporter.Designer.cs">
+      <DependentUpon>FormExporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysis.Designer.cs">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCasePalletDM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCasePalletDM.Designer.cs">
+      <DependentUpon>FormNewAnalysisCasePalletDM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCaseTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCaseTruck.Designer.cs">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderCase.Designer.cs">
+      <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderPallet.Designer.cs">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisBoxCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisBoxCase.Designer.cs">
+      <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCasePallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCasePallet.Designer.cs">
+      <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisCylinderTruck.Designer.cs">
+      <DependentUpon>FormNewAnalysisCylinderTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisHCylPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisHCylPallet.Designer.cs">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisHCylTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisHCylTruck.Designer.cs">
+      <DependentUpon>FormNewAnalysisHCylTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewAnalysisPalletTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewAnalysisPalletTruck.Designer.cs">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewBag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewBag.Designer.cs">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewBase.Designer.cs">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewBottle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewBottle.Designer.cs">
+      <DependentUpon>FormNewBottle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewBox.Designer.cs">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewBundle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewBundle.Designer.cs">
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewCylinder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewCylinder.Designer.cs">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewDocument.Designer.cs">
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewHAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewHAnalysis.Designer.cs">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewHAnalysisBoxCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewHAnalysisBoxCase.Designer.cs">
+      <DependentUpon>FormNewHAnalysisBoxCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewHAnalysisCasePallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewHAnalysisCasePallet.Designer.cs">
+      <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewHAnalysisCaseTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewHAnalysisCaseTruck.Designer.cs">
+      <DependentUpon>FormNewHAnalysisCaseTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewHAnalysisPalletTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewHAnalysisPalletTruck.Designer.cs">
+      <DependentUpon>FormNewHAnalysisPalletTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewInterlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewInterlayer.Designer.cs">
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPalletLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPalletLabel.Designer.cs">
+      <DependentUpon>FormNewPalletLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPack.Designer.cs">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPallet.Designer.cs">
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPalletCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPalletCap.Designer.cs">
+      <DependentUpon>FormNewPalletCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPalletCorners.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPalletCorners.Designer.cs">
+      <DependentUpon>FormNewPalletCorners.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPalletFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPalletFilm.Designer.cs">
+      <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewTruck.Designer.cs">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOptimizeCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOptimizeCase.Designer.cs">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOptimizePack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOptimizePack.Designer.cs">
+      <DependentUpon>FormOptimizePack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormValidTypeName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormValidTypeName.Designer.cs">
+      <DependentUpon>FormValidTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IDocument.cs" />
+    <Compile Include="IDocumentFactory.cs" />
+    <Compile Include="IView.cs" />
+    <Compile Include="ListBoxImages.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListBoxImages.Designer.cs">
+      <DependentUpon>ListBoxImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MruManager.cs" />
+    <Compile Include="OptionPanels\OptionPanelDebugging.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelDebugging.Designer.cs">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelDimensions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelDimensions.Designer.cs">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelLayerListCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelLayerListCtrl.Designer.cs">
+      <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelPalletEdition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelPalletEdition.Designer.cs">
+      <DependentUpon>OptionPanelPalletEdition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelPlugins.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelPlugins.Designer.cs">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelReporting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelReporting.Designer.cs">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\FormOptionsSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\FormOptionsSettings.Designer.cs">
+      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelUnits.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OptionPanels\OptionPanelUnits.Designer.cs">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="ALCE.ico" />
+    <Content Include="AutoUpdater\AutoUpdater.xml" />
+    <Content Include="AutoUpdater\ChangeLog.html" />
+    <Content Include="ReportTemplates\NLD.xml" />
+    <Content Include="ReportTemplates\POL.xml" />
+    <EmbeddedResource Include="AboutBox.fr.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnalysisTreeView.resx">
+      <DependentUpon>AnalysisTreeView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckedListBoxWithImage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CheckedListBoxWithImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisBoxCase.resx">
+      <DependentUpon>DockContentAnalysisBoxCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCasePallet.resx">
+      <DependentUpon>DockContentAnalysisCasePallet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCaseTruck.resx">
+      <DependentUpon>DockContentAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderCase.resx">
+      <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisCylinderPallet.resx">
+      <DependentUpon>DockContentAnalysisCylinderPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisEdit.resx">
+      <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisHCylPallet.resx">
+      <DependentUpon>DockContentAnalysisHCylPallet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisHCylTruck.resx">
+      <DependentUpon>DockContentAnalysisHCylTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletTruck.resx">
+      <DependentUpon>DockContentAnalysisPalletTruck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentDocumentExplorer.resx">
+      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentHAnalysis.resx">
+      <DependentUpon>DockContentHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentLogConsole.resx">
+      <DependentUpon>DockContentLogConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentStartPage.resx">
+      <DependentUpon>DockContentStartPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentView.resx">
+      <DependentUpon>DockContentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBottleInitialize.resx">
+      <DependentUpon>FormBottleInitialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDocDisambiguate.resx">
+      <DependentUpon>FormDocDisambiguate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditBitmaps.resx">
+      <DependentUpon>FormEditBitmaps.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditLayer.resx">
+      <DependentUpon>FormEditLayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExporter.resx">
+      <DependentUpon>FormExporter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysis.resx">
+      <DependentUpon>FormNewAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCasePalletDM.resx">
+      <DependentUpon>FormNewAnalysisCasePalletDM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCaseTruck.resx">
+      <DependentUpon>FormNewAnalysisCaseTruck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderCase.resx">
+      <DependentUpon>FormNewAnalysisCylinderCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderPallet.resx">
+      <DependentUpon>FormNewAnalysisCylinderPallet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisBoxCase.resx">
+      <DependentUpon>FormNewAnalysisBoxCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCasePallet.resx">
+      <DependentUpon>FormNewAnalysisCasePallet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisCylinderTruck.resx">
+      <DependentUpon>FormNewAnalysisCylinderTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylPallet.resx">
+      <DependentUpon>FormNewAnalysisHCylPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisHCylTruck.resx">
+      <DependentUpon>FormNewAnalysisHCylTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewAnalysisPalletTruck.resx">
+      <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBase.resx">
+      <DependentUpon>FormNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBottle.resx">
+      <DependentUpon>FormNewBottle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBundle.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewBundle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewCylinder.resx">
+      <DependentUpon>FormNewCylinder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewDocument.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisBoxCase.resx">
+      <DependentUpon>FormNewHAnalysisBoxCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisCasePallet.resx">
+      <DependentUpon>FormNewHAnalysisCasePallet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisCaseTruck.resx">
+      <DependentUpon>FormNewHAnalysisCaseTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysisPalletTruck.resx">
+      <DependentUpon>FormNewHAnalysisPalletTruck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewInterlayer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewInterlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletLabel.resx">
+      <DependentUpon>FormNewPalletLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPack.resx">
+      <DependentUpon>FormNewPack.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPallet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormNewPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletCap.resx">
+      <DependentUpon>FormNewPalletCap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletCorners.resx">
+      <DependentUpon>FormNewPalletCorners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletFilm.resx">
+      <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewTruck.resx">
+      <DependentUpon>FormNewTruck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeCase.resx">
+      <DependentUpon>FormOptimizeCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizePack.resx">
+      <DependentUpon>FormOptimizePack.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValidTypeName.resx">
+      <DependentUpon>FormValidTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDebugging.resx">
+      <DependentUpon>OptionPanelDebugging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelDimensions.resx">
+      <DependentUpon>OptionPanelDimensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelLayerListCtrl.resx">
+      <DependentUpon>OptionPanelLayerListCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPalletEdition.resx">
+      <DependentUpon>OptionPanelPalletEdition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelPlugins.resx">
+      <DependentUpon>OptionPanelPlugins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelReporting.resx">
+      <DependentUpon>OptionPanelReporting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\FormOptionsSettings.resx">
+      <DependentUpon>FormOptionsSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionPanels\OptionPanelUnits.resx">
+      <DependentUpon>OptionPanelUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplashScreen.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportSchema.xsd">
+      <Link>ReportTemplates\ReportSchema.xsd</Link>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTypes.xsd">
+      <Link>ReportTemplates\ReportTypes.xsd</Link>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ResultsAnalysisCasePallet.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="FormSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSplashScreen.Designer.cs">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolTipListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToolTipListBox.Designer.cs">
+      <DependentUpon>ToolTipListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowSettings.cs" />
+    <None Include="treedim2021.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Box.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View0.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View90.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View180.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View270.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_Top.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OfficePickers\OfficePickers.csproj">
+      <Project>{cad56b75-481b-4c76-b090-4bc2ff5e5681}</Project>
+      <Name>OfficePickers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionsLib\OptionsLib.csproj">
+      <Project>{5035348F-344F-4822-823E-6CB4D79D80D7}</Project>
+      <Name>OptionsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.Basics\treeDiM.Basics.csproj">
+      <Project>{646ee507-e57d-43a7-93f3-365a687aec4b}</Project>
+      <Name>treeDiM.Basics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.EdgeCrushTest\treeDiM.EdgeCrushTest.csproj">
+      <Project>{e4240ee0-60b3-4435-bd09-f81d56c0899a}</Project>
+      <Name>treeDiM.EdgeCrushTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
+      <Project>{444c01d0-53fd-49a1-9d55-267b49161357}</Project>
+      <Name>treeDiM.StackBuilder.Basics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Engine\treeDiM.StackBuilder.Engine.csproj">
+      <Project>{2E646606-052D-4063-9218-1379430B070E}</Project>
+      <Name>treeDiM.StackBuilder.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.StackBuilder.ExcelExporter\treeDiM.StackBuilder.ExcelExporter.csproj">
+      <Project>{44b54d61-823c-423b-83d5-fb138a321544}</Project>
+      <Name>treeDiM.StackBuilder.ExcelExporter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.StackBuilder.Exporters\treeDiM.StackBuilder.Exporters.csproj">
+      <Project>{cad1dc6a-b121-4605-bef3-b38dae821401}</Project>
+      <Name>treeDiM.StackBuilder.Exporters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Graphic\treeDiM.StackBuilder.Graphics.csproj">
+      <Project>{2ad4c04c-5b8a-4e69-9b1c-402cb86860a7}</Project>
+      <Name>treeDiM.StackBuilder.Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.StackBuilder.Plugin\treeDiM.StackBuilder.Plugin.csproj">
+      <Project>{75769E19-2CCC-4DF0-88D9-CBAC14BB6329}</Project>
+      <Name>treeDiM.StackBuilder.Plugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeDim.StackBuilder.Reporting\treeDiM.StackBuilder.Reporting.csproj">
+      <Project>{1505A6E5-E6F9-4408-A5C8-968417081CBD}</Project>
+      <Name>treeDiM.StackBuilder.Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.ThreadCallback\treeDiM.ThreadCallback.csproj">
+      <Project>{d61900fb-fbf1-4075-bef4-6b828a840050}</Project>
+      <Name>treeDiM.ThreadCallback</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.UserControls\treeDiM.UserControls.csproj">
+      <Project>{d75634e3-34aa-4418-a6b6-3647bff90606}</Project>
+      <Name>treeDiM.UserControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OPENFOLD.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CLSDFOLD.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DOC.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileSaveAll.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileNew.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileOpen.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileSave.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unchecked.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckboxUnchecked.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckboxChecked.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Interlayer.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bundle.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\DEU.xml">
+      <Link>ReportTemplates\DEU.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ENU.xml">
+      <Link>ReportTemplates\ENU.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ESP.xml">
+      <Link>ReportTemplates\ESP.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\FRA.xml">
+      <Link>ReportTemplates\FRA.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ITA.xml">
+      <Link>ReportTemplates\ITA.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\JPN.xml">
+      <Link>ReportTemplates\JPN.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\SVE.xml">
+      <Link>ReportTemplates\SVE.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\RUS.xml">
+      <Link>ReportTemplates\RUS.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\CHS.xml">
+      <Link>ReportTemplates\CHS.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTemplateHtml.xsl">
+      <Link>ReportTemplates\ReportTemplateHtml.xsl</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\ReportTypes.xsl">
+      <Link>ReportTemplates\ReportTypes.xsl</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TreeDim.StackBuilder.Reporting\ReportTemplates\YourLogoHere.png">
+      <Link>ReportTemplates\YourLogoHere.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Analysis.bmp" />
+    <Content Include="Resources\AnalysisBundle.bmp" />
+    <None Include="Resources\AnalysisStackingStrength.png" />
+    <None Include="Resources\BoxCaseAnalysis.bmp" />
+    <None Include="Resources\Bag_16x16.bmp" />
+    <None Include="Resources\AnalysisCylinder.bmp" />
+    <None Include="Resources\bottle.bmp" />
+    <None Include="Resources\Case.bmp" />
+    <None Include="Resources\AnalysisHCylinder.bmp" />
+    <Content Include="Resources\CaseAnalysis.bmp" />
+    <None Include="Resources\Delete.bmp" />
+    <None Include="Resources\Database.bmp" />
+    <None Include="Resources\Help.bmp" />
+    <None Include="Resources\CaseOfBoxes.bmp" />
+    <None Include="Resources\IE-icon.png" />
+    <None Include="Resources\Chrome.bmp" />
+    <None Include="Resources\Cylinder.bmp" />
+    <Content Include="Resources\Image.bmp" />
+    <None Include="Resources\OptimalCase.bmp" />
+    <None Include="Resources\PDF.bmp" />
+    <None Include="Resources\Pack.bmp" />
+    <None Include="Resources\PackAnalysis.bmp" />
+    <None Include="Resources\PalletLabel.bmp" />
+    <None Include="Resources\PalletLabel.png" />
+    <None Include="Resources\Pallet.bmp" />
+    <None Include="Resources\PalletCorners.bmp" />
+    <None Include="Resources\PalletFilm.bmp" />
+    <None Include="Resources\PalletCap.bmp" />
+    <Content Include="Resources\StackBuilderAbout.bmp" />
+    <None Include="Resources\TruckAnalysis.bmp" />
+    <Content Include="Resources\AnalysisStackingStrength.bmp" />
+    <None Include="Resources\Truck.bmp" />
+    <Content Include="Resources\Word.bmp" />
+    <Content Include="treeDim.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(SolutionDir)TreeDim.StackBuilder.Reporting\ReportTemplates" "$(TargetDir)ReportTemplates\"
+if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"
+
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
+  </Target>
+  <ItemGroup>
+    <Content Include="$(SolutionDir)ReportTemplates\**\*">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="ReportTemplates\DEU.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\ENU.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\ESP.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\FRA.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\ITA.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\JPN.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\NLD.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ReportTemplates\POL.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
+    <Error Condition="!Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
+    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.5.7.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.5.7.0\build\NuGet.Build.Tasks.Pack.targets'))" />
+  </Target>
+  <Import Project="..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets" Condition="Exists('..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\NuGet.Build.Tasks.Pack.5.7.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.5.7.0\build\NuGet.Build.Tasks.Pack.targets')" />
+</Project>

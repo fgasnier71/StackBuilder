@@ -2,7 +2,6 @@
 <?include $(sys.CURRENTDIR)\Config.wxi?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
-     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
     >
   <Product Id="*"
 						Name="$(var.ProductName)"
@@ -10,7 +9,6 @@
 						Version="$(var.ProductVersion)"
 						Manufacturer="$(var.ProductManufacturer)"
 						UpgradeCode="$(var.UpgradeCode)">
-
     <Package	Id="*"
               Description="$(var.PackageDescription)"
               Comments="$(var.PackageDescription)"
@@ -24,7 +22,14 @@
               SummaryCodepage="1252"
         />
     <MediaTemplate EmbedCab="yes"/>
-    
+
+    <!--Shortcut icon-->
+    <Icon Id="ALCE.ico" SourceFile="ALCE.ico" />
+    <!--Installer icon-->
+    <Property Id="ARPPRODUCTICON" Value="ALCE.ico" />
+    <Property Id="ARPHELPLINK" Value="$(var.CompanyURL)" />
+    <Property Id="ARPURLINFOABOUT" Value="$(var.CompanyURL)" />
+
     <Upgrade Id="$(var.UpgradeCode)">
       <UpgradeVersion OnlyDetect="yes" Minimum="$(var.ProductVersion)" Property="NEWERVERSIONDETECTED" IncludeMinimum="no" />
       <UpgradeVersion OnlyDetect="no" Maximum="$(var.ProductVersion)" Property="OLDERVERSIONBEINGUPGRADED" IncludeMaximum="no" />
@@ -39,9 +44,13 @@
 		<Feature Id="ProductFeature" Title="TechnologyBSA.ALCE.DesktopMSI" Level="1" Absent="disallow"
              Display="expand" ConfigurableDirectory="$(var.InstallLocation)">
 			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="ALCEDesktopGroup"/>
+      <ComponentGroupRef Id="ReportTemplatesGroup"/>
+      <ComponentRef Id="BinPermissions"/>
+      <ComponentRef Id="ProgramMenuShortcutComp"/>
+      <ComponentRef Id="DesktopShortcutComp"/>
 		</Feature>
     <!--Properties-->
-    <Property Id="REINSTALLMODE" Value="amus" />
     <Property Id="PROJECT_UPGRADE" Secure="yes"/>
     <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
     <Property Id="REBOOT">ReallySuppress</Property>
@@ -49,10 +58,48 @@
     <!--Property references-->
     <PropertyRef Id="NETFRAMEWORK40CLIENT" />
     <PropertyRef Id="NETFRAMEWORK40FULL" />
-    <!--Installer icon-->
-    <Property Id="ARPPRODUCTICON" Value="ALCE.ico" />
-    <Property Id="ARPHELPLINK" Value="$(var.CompanyURL)" />
-    <Property Id="ARPURLINFOABOUT" Value="$(var.CompanyURL)" />  
+
+    <DirectoryRef Id="Bin">
+      <Component Id="BinPermissions" Guid="{88F40CA2-B308-4C73-9E92-70660FE0DB21}">
+        <CreateFolder>
+          <util:PermissionEx User="Users" GenericAll="yes"/>
+        </CreateFolder>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ProgramMenuShortcutComp" Guid="{7EEC4FCC-7CD9-453B-B149-C751DCFF1AD7}">
+        <Shortcut Id="PMenuShortcut"
+                  Name="ALCE"
+                  Description="Automatic Layer Configuration Editor"
+                  Target="[Bin]TechnologyBSA.ALCE.Desktop.exe"
+                  Icon="ALCE.ico"
+                  WorkingDirectory="Bin"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU"
+                       Key="Software/$(var.ProductManufacturer)/PMenuShortcut"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcutComp" Guid="{E75368FE-2CF8-47AF-8CC1-74F9716F8E3A}">
+        <Shortcut Id="DShortcut"
+                  Name="ALCE"
+                  Description="Automatic Layer Configuration Editor"
+                  Target="[Bin]TechnologyBSA.ALCE.Desktop.exe"
+                  Icon="ALCE.ico"
+                  WorkingDirectory="Bin" />
+        <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU"
+                       Key="Software/$(var.ProductManufacturer)/DShortcut"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
    <!-- UI -->
     <UIRef Id="WixUI_InstallDir" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
@@ -66,7 +113,6 @@
 	</Product>
 
 	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-		</ComponentGroup>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER"/>
 	</Fragment>
 </Wix>

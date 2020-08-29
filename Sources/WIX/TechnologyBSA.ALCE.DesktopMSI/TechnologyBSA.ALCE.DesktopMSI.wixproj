@@ -20,11 +20,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DirectoryTree.wxs" />
+    <Compile Include="GroupALCEDesktop.wxs" />
+    <Compile Include="GroupReportTemplates.wxs" />
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ALCE.ico" />
     <Content Include="Config.wxi" />
+    <Content Include="WixHarvestALCEDesktop.bat" />
+    <Content Include="WixHarvestReportTemplates.bat" />
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixNetFxExtension">

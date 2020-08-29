@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?include $(sys.CURRENTDIR)\Config.wxi?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="Bin">
+            <Directory Id="dirCAF6B5BF0CD9C7D84B4D4372E6488FE6" Name="pl" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ALCEDesktopGroup">
+            <Component Id="cmp80CB7C7237485A2293C7C19E170CA600" Directory="Bin" Guid="57FEDC5C-D131-49D1-8265-0E25FEFA466A">
+                <File Id="fil7C4E6116A9A43FC50DDF02544F8ACF0E" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\AutoUpdater.NET.dll" />
+            </Component>
+            <Component Id="cmp5D37549496D250FF6BC1BE06330C2F86" Directory="Bin" Guid="C56B1739-E214-4742-B3D3-F0CB1233FC52">
+                <File Id="fil016C99FC65C1F24E8D7A26A4476D694D" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\CrashReporter.NET.dll" />
+            </Component>
+            <Component Id="cmp2EBA0D93AD623E0C4D744716E2DDB8AC" Directory="Bin" Guid="F8AF43AE-0390-4DF1-8DCA-68809C833CEA">
+                <File Id="fil587F06A85A68130451A68705CC2B42F2" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\CrashReporter.NET.dll.config" />
+            </Component>
+            <Component Id="cmpB5F2771100F52D12860FA3E195E1F2BE" Directory="Bin" Guid="A7F6555F-484B-4660-B88D-68A6A265DC95">
+                <File Id="fil0777030352A360404A6D34865891981F" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\Cureos.Measures.dll" />
+            </Component>
+            <Component Id="cmpC1283E8E12295C57F1398DA6F0C65F2A" Directory="Bin" Guid="35B7C8E5-4D57-477B-8C6E-AA30C3C85CE7">
+                <File Id="fil9543FAA09415C3E09ED66DAA90DB3F45" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\ICSharpCode.TextEditorEx.dll" />
+            </Component>
+            <Component Id="cmp223F7A40DFEA68AB8E5332C1C201B6DC" Directory="Bin" Guid="6913C93F-A059-4325-94DA-6F9D56B9D0AA">
+                <File Id="fil53216D1158CAC2A725AF4E77F7DA2DDE" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\log4net.dll" />
+            </Component>
+            <Component Id="cmp7FA903CEA9889BD654B2DAB4635610A4" Directory="Bin" Guid="3C1C3D77-5D70-4D7E-9D1A-2427DFB96D31">
+                <File Id="filA0AE4734F4C6151F585D15E2DE650B8A" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\MIConvexHull.dll" />
+            </Component>
+            <Component Id="cmpA753B91B4D11CF06686676307DA07D67" Directory="Bin" Guid="27E9DCDE-4064-42A5-923F-B91093CF54C3">
+                <File Id="filE8CD01DA7945F10A4F7031F6B9E822F5" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\Microsoft.Bcl.AsyncInterfaces.dll" />
+            </Component>
+            <Component Id="cmpBD50004859623D4735EEA41FF983BE0D" Directory="Bin" Guid="BE4137A9-259C-4BAD-A310-74079998ED2F">
+                <File Id="filDAF5CFE0C5756300C2964835434FBCED" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\Newtonsoft.Json.dll" />
+            </Component>
+            <Component Id="cmp93B8AAD5CCAAA98FFAD347A19E6C3475" Directory="Bin" Guid="A7D7359C-636D-4845-9B06-70BEF61CB891">
+                <File Id="fil2FE507B83B812AEF884414FEB99FA784" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\OfficePickers.dll" />
+            </Component>
+            <Component Id="cmpBEA03C834B2E572B611A831063B2308C" Directory="Bin" Guid="81CFEFD2-3ED4-48C6-8698-292087BE8F0B">
+                <File Id="fil439E08A3D1C204D3DC7ADC18E93BC443" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\OptionsLib.dll" />
+            </Component>
+            <Component Id="cmp88E995DC324011D74D449A2B6F4F9C6A" Directory="Bin" Guid="E9681187-6E18-4F2A-937A-D63B90DF56E7">
+                <File Id="fil8E09F77159990E7FEC504B5B0B84B6DA" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\PropertyGridEx.dll" />
+            </Component>
+            <Component Id="cmp64874A6AA44AE8EA5EF21DE166ACA1D3" Directory="Bin" Guid="4584141F-8731-423E-B67A-11C16314E2B7">
+                <File Id="fil4CA2823E816DFAAF212EF70D25DFA665" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\RichTextBoxAppender.dll" />
+            </Component>
+            <Component Id="cmpF7DBB3DB90C231795A210FA29B9BDED6" Directory="Bin" Guid="7FE9CF79-BB5D-4082-B3C1-5372C2886488">
+                <File Id="filD41C721A8E2554B9F5A5C934F20CA9B0" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\Sharp3D.Boxologic.dll" />
+            </Component>
+            <Component Id="cmp84BB5F6380BAC7A6AA707C764F5B9C97" Directory="Bin" Guid="D8A70139-9A00-45CE-94F4-29CCB04E71CD">
+                <File Id="filD6F16025096C7EC5FA37321C27041CD2" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\Sharp3D.Math.dll" />
+            </Component>
+            <Component Id="cmp8BF276CB484B0E1D3700226FB70DF47A" Directory="Bin" Guid="34CF1D71-9912-4DF9-8FF6-254EB63A0266">
+                <File Id="fil4B006E3FF9F9CDC5BC83A373A844FE22" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\Sharp3DBinPacking.dll" />
+            </Component>
+            <Component Id="cmp59091B35C246031969F40956E53FFD0B" Directory="Bin" Guid="7938CC24-8743-4C23-8A0E-397A2AC2362B">
+                <File Id="filE93116E12CB21B1A38CE30C27BE97868" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\SharpGLTF.Core.dll" />
+            </Component>
+            <Component Id="cmp1296F5FB3DFCEB0D5B4D27F1E82B3918" Directory="Bin" Guid="A29D8366-C8CF-4D4D-BC9F-24DF789DC9DE">
+                <File Id="fil23F66EF18832E600A93F2F102C6CEFAD" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\SharpGLTF.Toolkit.dll" />
+            </Component>
+            <Component Id="cmpFA3F737CB13792E4A80AE73247CC1070" Directory="Bin" Guid="6B42D175-0F4F-42EB-81A5-F8AF15F53571">
+                <File Id="fil78601734F77601AB601C5337002EB694" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\SourceGrid.dll" />
+            </Component>
+            <Component Id="cmpCB77ECEE422A13C46E0776F162D93BD6" Directory="Bin" Guid="C9B2EB92-C9DD-4C0F-BD3E-28F32201E2FB">
+                <File Id="fil4DD7B1F72CC894E98010B15F8EA614FF" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\Syroot.KnownFolders.dll" />
+            </Component>
+            <Component Id="cmpFA194DF41573A378B8180E4DCB0F2A45" Directory="Bin" Guid="EA6927A8-BCC1-41F5-B400-C29EB60F0DF0">
+                <File Id="fil23C1EFAAFFCD7415ECFA0785A1944094" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Buffers.dll" />
+            </Component>
+            <Component Id="cmp5B1324C9C051CA3E1B973FCB82A73E52" Directory="Bin" Guid="BBE29163-E2AF-47A2-AFD5-CE9B8E2DAB1F">
+                <File Id="filABC17A98520B61E1C81C03E2874D19DA" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Collections.Immutable.dll" />
+            </Component>
+            <Component Id="cmpB15ACEEC811CED390A1D621548196462" Directory="Bin" Guid="ABB6AB22-2806-40B2-9F08-89FD83BFBFE6">
+                <File Id="fil46129BD0FE9D7D828FE52EB446C69052" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Data.Common.dll" />
+            </Component>
+            <Component Id="cmpFB2243E40DD7D7523AE042C7EC87B1AA" Directory="Bin" Guid="BBD0FFE3-24CC-4520-908E-65577B36A8EC">
+                <File Id="fil2127D45C8652FCB1A50CF8F3414EB32A" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Diagnostics.StackTrace.dll" />
+            </Component>
+            <Component Id="cmpE7188ED22FC01E38D0A36B7BD03BA3AC" Directory="Bin" Guid="A2212D06-7AA6-4002-868D-6620B5FD08B0">
+                <File Id="fil1924E9F2809D9F553A875A02CED283A7" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Diagnostics.Tracing.dll" />
+            </Component>
+            <Component Id="cmpE0ED8C875E2675821CCB97582F25CC71" Directory="Bin" Guid="A830BFA4-4BE0-4CE5-8792-560A82763EB3">
+                <File Id="fil43FCD64744E4FE0FC31D8088DDCFD20E" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Globalization.Extensions.dll" />
+            </Component>
+            <Component Id="cmp663E1968B0AB0EF7CB9E83946101723C" Directory="Bin" Guid="67A8CA9E-FBBC-4EB7-96C3-EA95989D7AF9">
+                <File Id="filD5284A2B21176EB4D235B76B656D7FB8" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.IO.Compression.dll" />
+            </Component>
+            <Component Id="cmp534C8E124A698D2600A92B4D46C851CD" Directory="Bin" Guid="DA31FFE3-694B-419D-9C2A-43C9011D53C7">
+                <File Id="fil97BD56144F97C32BCC88C55229E82BE6" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Memory.dll" />
+            </Component>
+            <Component Id="cmp74115A6D4BCF09F1987563150A9ED991" Directory="Bin" Guid="820B12BE-5DD5-4452-825D-458D8D3651C0">
+                <File Id="filD54E3EF126BD69932A436EDE0F147277" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Net.Http.dll" />
+            </Component>
+            <Component Id="cmp4454918C553CE1DC065D14049943A510" Directory="Bin" Guid="963A514F-74FE-4639-9C32-BDFA77BAB2E2">
+                <File Id="fil531A9B74D266268056763283C34F1D99" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Net.Sockets.dll" />
+            </Component>
+            <Component Id="cmp305B5867CCBC3CC60AABAAF05E527221" Directory="Bin" Guid="DEEDA9FC-3950-440F-A0AF-F37AA3DC79B3">
+                <File Id="fil6CBC4BCBF41F99AED3D7AD5F5B2C73AE" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Numerics.Vectors.dll" />
+            </Component>
+            <Component Id="cmp3DE5167F7CFA41CB9D75724062EC54CE" Directory="Bin" Guid="7CD68BDA-E50C-4BCC-B860-58EED7674ACE">
+                <File Id="fil09E0225ABC608E8904CCE1A9FB393B24" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Runtime.CompilerServices.Unsafe.dll" />
+            </Component>
+            <Component Id="cmpCCCA8C1BEBE1A08D72DDAF07525A283E" Directory="Bin" Guid="C6E89808-4352-4A40-B957-B21CB1BD5C41">
+                <File Id="filEFA9850208B3DF5920399DC45120BED0" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Runtime.Serialization.Primitives.dll" />
+            </Component>
+            <Component Id="cmpB1506F08D4D4FA0E5CE134627B877A5B" Directory="Bin" Guid="3777DFA1-715A-4491-A28B-E6689122B0E4">
+                <File Id="fil665A745CCB2C16F22E572C29E8102880" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Security.Cryptography.Algorithms.dll" />
+            </Component>
+            <Component Id="cmpC98E0C1FDF9B09D4772261BB0D7E8A0A" Directory="Bin" Guid="8C00E740-DA12-4ECA-B5A7-EE5864EB7001">
+                <File Id="fil78D9E3714C2A2D10CF5AC96942B27BDF" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Security.Principal.Windows.dll" />
+            </Component>
+            <Component Id="cmp49021F06664920DC8A4C4E3468F704C6" Directory="Bin" Guid="ECF87BE1-5665-42D3-83AB-3C80D463A656">
+                <File Id="fil2E3FEFE4D6D3A5C11095CB31D5344ACB" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Security.SecureString.dll" />
+            </Component>
+            <Component Id="cmp222AF91A4870EF274F9AA31B9A648199" Directory="Bin" Guid="942B6966-8DC2-4825-92E5-E542808375FA">
+                <File Id="fil2B018499E391AF7DFF7AA773119F6F97" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Text.Encodings.Web.dll" />
+            </Component>
+            <Component Id="cmp98C8D4470B057A78F4E179BFFCF0EC19" Directory="Bin" Guid="7161137F-D3C2-451D-BAA1-37E4AE258BFF">
+                <File Id="fil43DC48512BBA6393AD0F3C4F51C320FB" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Text.Json.dll" />
+            </Component>
+            <Component Id="cmp38DE2B1DBF38EC61A1ED2E30F1C107B6" Directory="Bin" Guid="266A5986-8CE2-4725-AE53-21E6C9EDE0D8">
+                <File Id="filD960895A304B58E9D5AD8F993C952CCA" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Threading.Overlapped.dll" />
+            </Component>
+            <Component Id="cmpE72D58B22FE9090E61ACBCE128B51E2C" Directory="Bin" Guid="E70A6875-8BE0-4DEF-9504-3A8A5FBDE599">
+                <File Id="filE4396342CFF3A9B0E2B42CF19CB366B2" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Threading.Tasks.Extensions.dll" />
+            </Component>
+            <Component Id="cmp6B05B521015D43EB62AE9C718EEE417B" Directory="Bin" Guid="A9D0B8DE-8D6A-41EA-97DD-E6332FD854BC">
+                <File Id="filD4C26C95C0DB77476B5EE445B914AB92" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.ValueTuple.dll" />
+            </Component>
+            <Component Id="cmp68B9CBE5ADA14C2286501ADBE97519A5" Directory="Bin" Guid="3ACE341F-FE20-4C00-9810-1C40E25AEBC0">
+                <File Id="filE959C49BD72ECA6908A876958B5BDFEE" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\System.Xml.XPath.XDocument.dll" />
+            </Component>
+            <Component Id="cmp2BE50D2C71E96BC71DB1971E88433D44" Directory="Bin" Guid="A99E8AD0-175B-4D9E-8A6D-E46E691431C3">
+                <File Id="filBA549793ADE3C43EBAD68D76C5DB0F12" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\TechnologyBSA.ALCE.Desktop.application" />
+            </Component>
+            <Component Id="cmp10D5ACA4D025E58CAB7F87045F1FBFE0" Directory="Bin" Guid="8BA41FB6-D307-4A52-91F0-D90AB1E0752F">
+                <File Id="filFAADD4094AB01F3C400745DA81AFB92E" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\TechnologyBSA.ALCE.Desktop.exe" />
+            </Component>
+            <Component Id="cmp1DECE881533E2666ECD482A6E2103FFB" Directory="Bin" Guid="638EF6DA-3300-4271-A9A5-5ADFCB7EEBFA">
+                <File Id="filC8B1622D4E72CD6EFEA00810DB69322A" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\TechnologyBSA.ALCE.Desktop.exe.config" />
+            </Component>
+            <Component Id="cmp37F4570E56B098C10EB5224D65D0B1AA" Directory="Bin" Guid="16E6D8FD-A0C1-45BB-8288-A04DB5195FC7">
+                <File Id="fil4488155D795ED5C1832681622EB5212D" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\TechnologyBSA.ALCE.Desktop.exe.manifest" />
+            </Component>
+            <Component Id="cmp56B5FD2AC91A9321D8364440DFB78D24" Directory="Bin" Guid="1CEC3524-A720-4307-9F9B-94C1F315F5C4">
+                <File Id="filCFDDDC5DF37CA791B05BDE3F8B29F2DE" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.Basics.dll" />
+            </Component>
+            <Component Id="cmp47F408C085BBFCDAF267D3D7E06AB8F3" Directory="Bin" Guid="0EF44FD9-783E-40E2-B082-23B66668CA18">
+                <File Id="fil5A524DC56CD4410FC61FC17C684CCD75" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.EdgeCrushTest.dll" />
+            </Component>
+            <Component Id="cmpFAC46841CA65F22174EF74E6AFD5ACD1" Directory="Bin" Guid="9B7128E8-61EA-4E7C-8FC4-2E9C5B335DFB">
+                <File Id="fil596C3D64E5F94AAE8CF6FBE93BD71F73" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.EdgeCrushTest.dll.config" />
+            </Component>
+            <Component Id="cmp2CC43E9454ECBD501835AF4DADCE11CD" Directory="Bin" Guid="8CEAF79D-BAF0-4F7E-99F1-B609AA0A5DC2">
+                <File Id="filAEBEEE6D2A57D903B7C47C927B675B23" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.PLMPack.DBClient.dll" />
+            </Component>
+            <Component Id="cmpD59779542C652592094DF2958FB0E1CB" Directory="Bin" Guid="AEE44C85-6171-44B4-86E0-55CE9FAC0F11">
+                <File Id="fil2A273FEC39063EDE3403A42B8A08D453" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.PLMPack.DBClient.dll.config" />
+            </Component>
+            <Component Id="cmp7A726A41FE490FD1DB24ADB922A2F7F5" Directory="Bin" Guid="F7642A93-923C-4BBC-BACF-60CCA82ECC19">
+                <File Id="filB6BCFE6CF7E39F7254E8F2847BCBACE2" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.StackBuilder.Basics.dll" />
+            </Component>
+            <Component Id="cmp534340705A19859678F4C77D8D8490F3" Directory="Bin" Guid="6484CFDC-E23A-4621-B739-CE6D4350E4F5">
+                <File Id="filD7AA502D7CC4C4592A8E6BD9CD2C31AE" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.StackBuilder.Basics.dll.config" />
+            </Component>
+            <Component Id="cmpB5748DB170CF33732C3F08AE87AB1FDE" Directory="Bin" Guid="176A49E8-00A8-4958-AFA3-46F145DAEC31">
+                <File Id="fil12CDB3AEF441E1C73ABFEC95843F324B" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.StackBuilder.Engine.dll" />
+            </Component>
+            <Component Id="cmpE41C38C58E02EBBE6E4A5004B9B2FE50" Directory="Bin" Guid="E3EF3A53-9093-4123-BDAE-C75ECDA910F6">
+                <File Id="fil89F4A324D46571E56DD3DCE64E0EBC33" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.StackBuilder.Engine.dll.config" />
+            </Component>
+            <Component Id="cmp8D7BB7F6933A85DBA9867F975EA50409" Directory="Bin" Guid="0AA59FEE-8EBC-4D5C-9813-17F467681EB8">
+                <File Id="fil9FB9552730F847CDE2C89E667AD45EB5" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.StackBuilder.ExcelExporter.dll" />
+            </Component>
+            <Component Id="cmpEA542CC4BA865A9EB1B20DC559D719DC" Directory="Bin" Guid="808B861F-B822-43D9-B6A1-C492B2A35DCA">
+                <File Id="filF5335BA6D5A1F619F3393123B99BE0DA" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.StackBuilder.ExcelExporter.dll.config" />
+            </Component>
+            <Component Id="cmpAB03CB15087A9BFB59753D5ADEF53708" Directory="Bin" Guid="57669812-4BFF-4860-A45F-C52E21E0B19D">
+                <File Id="fil09E3F698645D3A9C1B9464202316EF06" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.StackBuilder.Exporters.dll" />
+            </Component>
+            <Component Id="cmp2C124A1954343057036690854D623E85" Directory="Bin" Guid="D45F7C58-1CB2-48AF-9A55-13E19739ED4C">
+                <File Id="fil03479A5224C6AE6F9C1BB21972F559D5" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.StackBuilder.Exporters.dll.config" />
+            </Component>
+            <Component Id="cmpBFF4558AFE987E56C73FECF9CDBBD38B" Directory="Bin" Guid="3508DA49-3475-499B-A1CD-05984FAD6263">
+                <File Id="fil9FD2C3909106DCF01889C88A03BFE266" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.StackBuilder.Graphics.dll" />
+            </Component>
+            <Component Id="cmpCD7C6EED585709D6D6C3BC2D2E6EAABB" Directory="Bin" Guid="63061B01-347D-4355-8BCF-D3F56A706362">
+                <File Id="fil3734595A1F6349CCFE38BC907E4D9545" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.StackBuilder.Graphics.dll.config" />
+            </Component>
+            <Component Id="cmp34A126EB8129C80DA30CFD113BE15B25" Directory="Bin" Guid="945635DB-E5A8-4277-9C47-A7544DD8666C">
+                <File Id="fil6A31B8B44C75E62A4A8B54309DDE3918" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.StackBuilder.Plugin.dll" />
+            </Component>
+            <Component Id="cmp788DA1EB975A4D0BCBB7FF31BB8579CC" Directory="Bin" Guid="14706ED3-B0CD-4F5E-B523-AE91C2499F7C">
+                <File Id="fil77C3DB2B6EDA5DEB53EFDBD66F1C0C7A" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.StackBuilder.Reporting.dll" />
+            </Component>
+            <Component Id="cmp9A8519710BDB7B88BAA1879818CF9E3D" Directory="Bin" Guid="B02DDEBF-AA9B-4F3A-A3BB-8F35935BBD46">
+                <File Id="filF94926A68D70375E559B127FF61891B8" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.StackBuilder.Reporting.dll.config" />
+            </Component>
+            <Component Id="cmp1A951584AFA5C87018BDA8C22ED6301D" Directory="Bin" Guid="E50F5D02-EE0E-41E7-B1EE-DCEDBBE650F7">
+                <File Id="filDBA12CDF2F7470E1E5BA8CD52286B660" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.ThreadCallback.dll" />
+            </Component>
+            <Component Id="cmp9F6510A3916BEB17946C75D07D760B29" Directory="Bin" Guid="A854F85B-ED85-455C-ACF6-A94CCEA087F3">
+                <File Id="fil5E2BD6F94304B2E6036601556CDBA0D0" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\treeDiM.UserControls.dll" />
+            </Component>
+            <Component Id="cmpC84F6623B49D671A2535B33BDD33026B" Directory="Bin" Guid="80D1FC13-D18B-4D3E-A3D7-865B2ECD1E60">
+                <File Id="fil1287F0AF2D5F3C1F7FC2D2676331483F" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\WeifenLuo.WinFormsUI.Docking.dll" />
+            </Component>
+            <Component Id="cmp54399822F197E61A322210A374908FB5" Directory="Bin" Guid="F389AEB6-B887-4790-8E66-8684AF649035">
+                <File Id="filE00FCE124A5DD2725645CB4596B7B471" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll" />
+            </Component>
+            <Component Id="cmpE3F9AC1278086F7241583DF31CC8988B" Directory="Bin" Guid="C6EFB33C-3EF7-4631-BEB5-667F97B791FC">
+                <File Id="fil62B534534610968F79205117BD020C90" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\WkHtmlToXSharp.dll" />
+            </Component>
+            <Component Id="cmpF144BD63BE7032C01B30BAEE5A70F442" Directory="Bin" Guid="C52E16CD-E4DF-426D-9EB3-D4EDAC02751D">
+                <File Id="fil3FA9E7FCA81EC2DFA3D5F68AC1BD5CA8" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\WkHtmlToXSharp.Win32.dll" />
+            </Component>
+            <Component Id="cmp0BFEB3397B08109BFA50F3E16673DBAB" Directory="Bin" Guid="8260E7A5-6180-4C82-8487-9A0EC1B126A6">
+                <File Id="filBCF2B21E0788B232786FCD86C9F92E85" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\WkHtmlToXSharp.Win64.dll" />
+            </Component>
+            <Component Id="cmpEFC5D800861CF3C2D35746AA1C26D064" Directory="dirCAF6B5BF0CD9C7D84B4D4372E6488FE6" Guid="D4066E06-39BC-4FC2-A0B5-89876F115CFF">
+                <File Id="fil395F8B1D39BA1DCDBB657C81B3F02750" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\pl\OptionsLib.resources.dll" />
+            </Component>
+            <Component Id="cmpB1EF8188E349156982DD190761950A3B" Directory="dirCAF6B5BF0CD9C7D84B4D4372E6488FE6" Guid="3A4E2C7A-999D-4E65-BD76-8490E94FA347">
+                <File Id="fil1C75D7F87E2C73CCE0E0B511EFE6A68B" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\pl\treeDiM.EdgeCrushTest.resources.dll" />
+            </Component>
+            <Component Id="cmp8B1988D62241D2CA8811240ECD393166" Directory="dirCAF6B5BF0CD9C7D84B4D4372E6488FE6" Guid="35A0680D-D846-4351-ACF0-C2FFE4BCDDBA">
+                <File Id="fil6F32EAA763BC36E5FCBB329770F503FC" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\pl\treeDiM.PLMPack.DBClient.resources.dll" />
+            </Component>
+            <Component Id="cmpE2F525B69C4A18485CA2BD5882BE0C17" Directory="dirCAF6B5BF0CD9C7D84B4D4372E6488FE6" Guid="393FB49E-ECB9-4CB8-ACAD-65E64FD10C8B">
+                <File Id="filB471FD28C65E4C5AABAA0DEAFC1FC5E2" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\pl\treeDiM.StackBuilder.Basics.resources.dll" />
+            </Component>
+            <Component Id="cmp8CFDB9E0CC5ADB4AC00D2CB56D02D0C5" Directory="dirCAF6B5BF0CD9C7D84B4D4372E6488FE6" Guid="A840BED1-F485-4667-9827-DED623CA7393">
+                <File Id="fil58641B8A522BD05992C84FA85353833C" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\pl\treeDiM.StackBuilder.Graphics.resources.dll" />
+            </Component>
+            <Component Id="cmp4C102A2AF2C39D293BECF97890C1FB78" Directory="dirCAF6B5BF0CD9C7D84B4D4372E6488FE6" Guid="B64E4412-0536-4022-8D5D-38C76A2E3D6F">
+                <File Id="filF0D3C8961179D5A68C42B2362F738D50" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\pl\treeDiM.StackBuilder.Reporting.resources.dll" />
+            </Component>
+            <Component Id="cmp706FBB711FCEE3DD896E661A8232AE1D" Directory="dirCAF6B5BF0CD9C7D84B4D4372E6488FE6" Guid="17C54E2D-2240-4DEB-83CA-66BDA3D3EAF1">
+                <File Id="fil0E424B70F66BF17C18B71968166362BC" KeyPath="yes" Source="$(var.ALCEDesktopSourceDir)\pl\treeDiM.UserControls.resources.dll" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

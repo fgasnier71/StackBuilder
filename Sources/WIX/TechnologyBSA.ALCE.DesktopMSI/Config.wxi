@@ -16,5 +16,8 @@
 <?define UpgradeCode = "48a60de2-14fe-4d90-b404-bb14957de9bb"?>
 <!-- Package description -->
 <?define PackageDescription = "Automatic Layer Configurarion Editor"?>
+<!-- ALCEDesktopSourceDir -->
+<?define ALCEDesktopSourceDir = "..\..\TechnologyBSA.ALCE.Desktop\bin\Release"?>
+<?define ReportTemplatesSourceDir = "..\..\TreeDim.StackBuilder.Reporting\ReportTemplates" ?>
 <Include>
 </Include>
