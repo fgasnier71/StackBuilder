@@ -543,4 +543,61 @@
   <data name="gbWeight.Text" xml:space="preserve">
     <value>Weight</value>
   </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="gbColor.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="gbDimensions.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lblDescription.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbThickness.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitThickness.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitWeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lblName.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthThickness.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uMassWeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
 </root>

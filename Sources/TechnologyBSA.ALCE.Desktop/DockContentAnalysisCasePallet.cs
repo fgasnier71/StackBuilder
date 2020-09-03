@@ -56,7 +56,6 @@ namespace treeDiM.StackBuilder.Desktop
             chkbPalletCap.Enabled = (cbPalletCap.Items.Count > 0);
             ComboBoxHelpers.FillCombo(PalletFilms, cbPalletFilm, analysisCasePallet?.PalletFilmProperties);
             chkbPalletFilm.Enabled = (cbPalletFilm.Items.Count > 0);
-            ComboBoxHelpers.FillCombo(PalletLabels, cbPalletLabels, null);
 
             chkbPalletCornersTopX.Enabled = (cbPalletCornersTop.Items.Count > 0);
             chkbPalletCornersTopY.Enabled = (cbPalletCornersTop.Items.Count > 0);
@@ -71,7 +70,6 @@ namespace treeDiM.StackBuilder.Desktop
                 chkbPalletFilm.Checked = null != analysisCasePallet.PalletFilmProperties;
                 ctrlStrapperSet.StrapperSet = analysisCasePallet.StrapperSet;
 
-                PalletFilmLength = UnitsManager.ConvertLengthFrom(10000, UnitsManager.UnitSystem.UNIT_METRIC1);
                 PalletFilmTopCovering = UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             }
             // ---
@@ -110,7 +108,6 @@ namespace treeDiM.StackBuilder.Desktop
                 analysisCasePallet.PalletFilmProperties = SelectedPalletFilm;
                 analysisCasePallet.StrapperSet = ctrlStrapperSet.StrapperSet;
 
-                analysisCasePallet.PalletFilmLength = PalletFilmLength;
                 analysisCasePallet.PalletFilmTopCovering = PalletFilmTopCovering;
             }
             graphCtrlSolution.Invalidate();
@@ -170,11 +167,6 @@ namespace treeDiM.StackBuilder.Desktop
                 }
                 return null;
             }
-        }
-        private double PalletFilmLength
-        {
-            get => uCtrlPalletFilmLength.Value;
-            set => uCtrlPalletFilmLength.Value = value;
         }
         private double PalletFilmTopCovering
         {

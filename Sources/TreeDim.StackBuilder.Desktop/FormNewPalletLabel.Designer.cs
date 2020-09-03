@@ -34,6 +34,9 @@
             this.bnLoadImage = new System.Windows.Forms.Button();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.uCtrlWeight = new treeDiM.Basics.UCtrlDouble();
+            this.bnRemoveImage = new System.Windows.Forms.Button();
+            this.lbImage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,10 +54,10 @@
             // 
             // uCtrlDimensions
             // 
-            this.uCtrlDimensions.Location = new System.Drawing.Point(12, 88);
+            this.uCtrlDimensions.Location = new System.Drawing.Point(15, 88);
             this.uCtrlDimensions.MinValue = -10000D;
             this.uCtrlDimensions.Name = "uCtrlDimensions";
-            this.uCtrlDimensions.Size = new System.Drawing.Size(259, 20);
+            this.uCtrlDimensions.Size = new System.Drawing.Size(256, 20);
             this.uCtrlDimensions.TabIndex = 7;
             this.uCtrlDimensions.Text = "Dimensions";
             this.uCtrlDimensions.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
@@ -73,16 +76,18 @@
             this.cbColor.ItemHeight = 16;
             this.cbColor.Items.AddRange(new object[] {
             "Color",
+            "Color",
             "Color"});
-            this.cbColor.Location = new System.Drawing.Point(111, 114);
+            this.cbColor.Location = new System.Drawing.Point(111, 246);
             this.cbColor.Name = "cbColor";
             this.cbColor.Size = new System.Drawing.Size(62, 22);
             this.cbColor.TabIndex = 8;
+            this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnColorChanged);
             // 
             // lbColor
             // 
             this.lbColor.AutoSize = true;
-            this.lbColor.Location = new System.Drawing.Point(12, 117);
+            this.lbColor.Location = new System.Drawing.Point(15, 249);
             this.lbColor.Name = "lbColor";
             this.lbColor.Size = new System.Drawing.Size(31, 13);
             this.lbColor.TabIndex = 9;
@@ -90,11 +95,11 @@
             // 
             // bnLoadImage
             // 
-            this.bnLoadImage.Location = new System.Drawing.Point(111, 142);
+            this.bnLoadImage.Location = new System.Drawing.Point(111, 274);
             this.bnLoadImage.Name = "bnLoadImage";
-            this.bnLoadImage.Size = new System.Drawing.Size(93, 23);
+            this.bnLoadImage.Size = new System.Drawing.Size(79, 23);
             this.bnLoadImage.TabIndex = 10;
-            this.bnLoadImage.Text = "Load image...";
+            this.bnLoadImage.Text = "Load...";
             this.bnLoadImage.UseVisualStyleBackColor = true;
             this.bnLoadImage.Click += new System.EventHandler(this.OnLoadImage);
             // 
@@ -115,17 +120,59 @@
             this.openFileDialog.Filter = "Images (*.bmp;*jpg;*.png)|*.bmp;*.jpg;*.png|All files (*.*)|*.*";
             this.openFileDialog.FilterIndex = 0;
             // 
-            // FormNewLabel
+            // uCtrlWeight
+            // 
+            this.uCtrlWeight.Location = new System.Drawing.Point(15, 115);
+            this.uCtrlWeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.uCtrlWeight.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlWeight.MinimumSize = new System.Drawing.Size(100, 20);
+            this.uCtrlWeight.Name = "uCtrlWeight";
+            this.uCtrlWeight.Size = new System.Drawing.Size(256, 20);
+            this.uCtrlWeight.TabIndex = 12;
+            this.uCtrlWeight.Text = "Weight";
+            this.uCtrlWeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
+            // 
+            // bnRemoveImage
+            // 
+            this.bnRemoveImage.Location = new System.Drawing.Point(196, 274);
+            this.bnRemoveImage.Name = "bnRemoveImage";
+            this.bnRemoveImage.Size = new System.Drawing.Size(75, 23);
+            this.bnRemoveImage.TabIndex = 13;
+            this.bnRemoveImage.Text = "Remove";
+            this.bnRemoveImage.UseVisualStyleBackColor = true;
+            this.bnRemoveImage.Click += new System.EventHandler(this.OnRemoveImage);
+            // 
+            // lbImage
+            // 
+            this.lbImage.AutoSize = true;
+            this.lbImage.Location = new System.Drawing.Point(15, 279);
+            this.lbImage.Name = "lbImage";
+            this.lbImage.Size = new System.Drawing.Size(36, 13);
+            this.lbImage.TabIndex = 14;
+            this.lbImage.Text = "Image";
+            // 
+            // FormNewPalletLabel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 361);
+            this.Controls.Add(this.lbImage);
+            this.Controls.Add(this.bnRemoveImage);
+            this.Controls.Add(this.uCtrlWeight);
             this.Controls.Add(this.graphCtrl);
             this.Controls.Add(this.bnLoadImage);
             this.Controls.Add(this.lbColor);
             this.Controls.Add(this.cbColor);
             this.Controls.Add(this.uCtrlDimensions);
-            this.Name = "FormNewLabel";
+            this.Name = "FormNewPalletLabel";
             this.Text = "Create new label...";
             this.Controls.SetChildIndex(this.bnOk, 0);
             this.Controls.SetChildIndex(this.bnCancel, 0);
@@ -138,6 +185,9 @@
             this.Controls.SetChildIndex(this.lbColor, 0);
             this.Controls.SetChildIndex(this.bnLoadImage, 0);
             this.Controls.SetChildIndex(this.graphCtrl, 0);
+            this.Controls.SetChildIndex(this.uCtrlWeight, 0);
+            this.Controls.SetChildIndex(this.bnRemoveImage, 0);
+            this.Controls.SetChildIndex(this.lbImage, 0);
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -152,5 +202,8 @@
         private System.Windows.Forms.Button bnLoadImage;
         private Graphics.Graphics3DControl graphCtrl;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private treeDiM.Basics.UCtrlDouble uCtrlWeight;
+        private System.Windows.Forms.Button bnRemoveImage;
+        private System.Windows.Forms.Label lbImage;
     }
 }

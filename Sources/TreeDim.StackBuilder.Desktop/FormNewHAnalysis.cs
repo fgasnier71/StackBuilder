@@ -147,8 +147,8 @@ namespace treeDiM.StackBuilder.Desktop
                     // name
                     gridContent[iIndex, iCol] = new SourceGrid.Cells.Cell(ci.Pack.Name) { View = viewNormal, Tag = ci.Pack };
                     // number
-                    gridContent[iIndex, ++iCol] = new SourceGrid.Cells.Cell("NumericUpDown") { View = viewNormal };
-                    gridContent[iIndex, iCol] = new SourceGrid.Cells.Cell((int)ci.Number) { View = viewNormal };
+                    //gridContent[iIndex, ++iCol] = new SourceGrid.Cells.Cell("NumericUpDown") { View = viewNormal };
+                    gridContent[iIndex, ++iCol] = new SourceGrid.Cells.Cell((int)ci.Number) { View = viewNormal };
                     SourceGrid.Cells.Editors.NumericUpDown l_NumericUpDownEditor = new SourceGrid.Cells.Editors.NumericUpDown(typeof(int), 10000, 0, 1);
                     l_NumericUpDownEditor.SetEditValue((int)ci.Number);
                     gridContent[iIndex, iCol].Editor = l_NumericUpDownEditor;
@@ -193,7 +193,7 @@ namespace treeDiM.StackBuilder.Desktop
                         Border = DevAge.Drawing.RectangleBorder.NoBorder
                     },
                     ForeColor = Color.Black,
-                    Font = new Font("Arial", 10, FontStyle.Regular),
+                    Font = new Font("Arial", 8, FontStyle.Regular),
                 };
                 viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
                 // viewNormal

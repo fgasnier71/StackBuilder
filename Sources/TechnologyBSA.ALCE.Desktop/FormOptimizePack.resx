@@ -346,7 +346,7 @@
     <value>cbWrapperColor</value>
   </data>
   <data name="&gt;&gt;cbWrapperColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbWrapperColor.Parent" xml:space="preserve">
     <value>tabPageWrapper</value>
@@ -769,7 +769,7 @@
     <value>cbTrayColor</value>
   </data>
   <data name="&gt;&gt;cbTrayColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbTrayColor.Parent" xml:space="preserve">
     <value>tabPageTray</value>
@@ -898,7 +898,7 @@
     <value>cbPallets</value>
   </data>
   <data name="&gt;&gt;cbPallets.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbPallets.Parent" xml:space="preserve">
     <value>gbPallet</value>
@@ -1210,7 +1210,7 @@
     <value>cbBoxes</value>
   </data>
   <data name="&gt;&gt;cbBoxes.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbBoxes.Parent" xml:space="preserve">
     <value>groupBox</value>
@@ -1525,7 +1525,7 @@
     <value>graphCtrlSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
     <value>splitContainer.Panel2</value>
@@ -1549,7 +1549,7 @@
     <value>graphCtrlPack</value>
   </data>
   <data name="&gt;&gt;graphCtrlPack.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlPack.Parent" xml:space="preserve">
     <value>splitContainer.Panel2</value>
@@ -1700,5 +1700,134 @@
   </data>
   <data name="cbColor.Items9" xml:space="preserve">
     <value>Color</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items1" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items10" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items12" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items16" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items17" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items18" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items19" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items20" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items21" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items22" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items23" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items24" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items25" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items26" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items27" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items28" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items29" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items30" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items31" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items32" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items33" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items34" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items35" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items37" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items38" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbWrapperType.Items3" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="gbWrapper.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uCtrlNoWalls.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uCtrlSurfacicMass.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uCtrlWallThickness.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items39" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value></value>
   </data>
 </root>

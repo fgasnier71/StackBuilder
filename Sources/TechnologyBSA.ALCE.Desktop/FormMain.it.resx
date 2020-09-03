@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="newToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nuovo</value>
+  </data>
+  <data name="newToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Crea nuovo file</value>
+  </data>
+  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+    <value>Apri</value>
+  </data>
+  <data name="openToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Apri file</value>
+  </data>
+  <data name="toolStripMenuItemSave.Text" xml:space="preserve">
+    <value>Salva</value>
+  </data>
+  <data name="toolStripMenuItemSave.ToolTipText" xml:space="preserve">
+    <value>Salvare file</value>
+  </data>
+  <data name="toolStripMenuItemSaveAs.Text" xml:space="preserve">
+    <value>Salva come...</value>
+  </data>
+  <data name="toolStripMenuItemSaveAs.ToolTipText" xml:space="preserve">
+    <value>Salva come...</value>
+  </data>
+  <data name="toolStripMenuItemSaveAll.Text" xml:space="preserve">
+    <value>Salvare tutti i</value>
+  </data>
+  <data name="toolStripMenuItemClose.Text" xml:space="preserve">
+    <value>Chiudere</value>
+  </data>
+  <data name="toolStripMenuItemClose.ToolTipText" xml:space="preserve">
+    <value>Chiudi documento attivo</value>
+  </data>
+  <data name="disconnectToolStripMenuItem.Text" xml:space="preserve">
+    <value>Scollegare</value>
+  </data>
+  <data name="mnuFileMRU.Text" xml:space="preserve">
+    <value>File Recente...</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Esci</value>
+  </data>
+  <data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Esci dall'applicazione</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="toolStripMIExportAnalysesSummaryToExcel.Text" xml:space="preserve">
+    <value>Esporta riepilogo analisi in Excel...</value>
+  </data>
+  <data name="toolStripMIExportAnalysesSummaryToExcel.ToolTipText" xml:space="preserve">
+    <value>Esporta riepilogo analisi progetto in Excel...</value>
+  </data>
+  <data name="projectToolStripMenuItem.Text" xml:space="preserve">
+    <value>Progetto</value>
+  </data>
+  <data name="editPaletSolutionsDB.Text" xml:space="preserve">
+    <value>&amp;Modifica la soluzione pallet del database...</value>
+  </data>
+  <data name="browseEditMaterialListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Sfoglia/Modifica elenco materiali...</value>
+  </data>
+  <data name="toolStripMenuItemBox.Text" xml:space="preserve">
+    <value>Nuovo Astuccio</value>
+  </data>
+  <data name="toolStripMenuItemCase.Text" xml:space="preserve">
+    <value>Nuovo Cartone</value>
+  </data>
+  <data name="toolStripMenuItemPack.Text" xml:space="preserve">
+    <value>Nuovo Pack</value>
+  </data>
+  <data name="toolStripMenuItemBundle.Text" xml:space="preserve">
+    <value>Nuovo Fascicolo</value>
+  </data>
+  <data name="toolStripMenuItemCylinder.Text" xml:space="preserve">
+    <value>Nuova Bobina</value>
+  </data>
+  <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
+    <value>Nuova bottiglia</value>
+  </data>
+  <data name="toolStripMenuItemPallet.Text" xml:space="preserve">
+    <value>Nuovo Pallet</value>
+  </data>
+  <data name="toolStripMenuItemTruck.Text" xml:space="preserve">
+    <value>Nuovo camion</value>
+  </data>
+  <data name="toolStripMenuItemInterlayer.Text" xml:space="preserve">
+    <value>Nuovo divisore</value>
+  </data>
+  <data name="toolStripMenuItemPalletCorners.Text" xml:space="preserve">
+    <value>Nuovo Angolare</value>
+  </data>
+  <data name="toolStripMenuItemPalletCap.Text" xml:space="preserve">
+    <value>Nuovo Copripallet</value>
+  </data>
+  <data name="toolStripMenuItemPalletFilm.Text" xml:space="preserve">
+    <value>Nuovo Film per Pallet</value>
+  </data>
+  <data name="toolStripMenuItemNewAnalysisCasePallet.Text" xml:space="preserve">
+    <value>Nuova analisi cartone/pallet</value>
+  </data>
+  <data name="toolStripMenuItemNewAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>Nuova analisi bobina/Pallet</value>
+  </data>
+  <data name="toolStripMenuItemNewAnalysisBoxCase.Text" xml:space="preserve">
+    <value>Nuova analisi astuccio/cartone</value>
+  </data>
+  <data name="toolStripMenuItemNewAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>Nuova analisi bobina/cartone</value>
+  </data>
+  <data name="toolStripMenuItemAnalysisPalletTruck.Text" xml:space="preserve">
+    <value>Nuova analisi di camion di pallet</value>
+  </data>
+  <data name="toolStripMenuItemBestCase.Text" xml:space="preserve">
+    <value>Trovare il migliore dei casi</value>
+  </data>
+  <data name="toolStripMenuItemBestPack.Text" xml:space="preserve">
+    <value>Trovare il miglior pack</value>
+  </data>
+  <data name="toolStripMenuItemBestPack.ToolTipText" xml:space="preserve">
+    <value>Ricerca per caso ottimale</value>
+  </data>
+  <data name="toolStripMIPLMPackLib.Text" xml:space="preserve">
+    <value>Lancio PLMPackLib</value>
+  </data>
+  <data name="toolStripMIPremium.Text" xml:space="preserve">
+    <value>Diventa un utente premium</value>
+  </data>
+  <data name="toolStripMISettings.Text" xml:space="preserve">
+    <value>Impostazioni...</value>
+  </data>
+  <data name="toolStripMenuItemTools.Text" xml:space="preserve">
+    <value>Strumenti</value>
+  </data>
+  <data name="toolStripMenuItemHelpStartPage.Text" xml:space="preserve">
+    <value>Visualizza pagina iniziale</value>
+  </data>
+  <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
+    <value>Aiuto</value>
+  </data>
+  <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
+    <value>A proposito di StackBuilder...</value>
+  </data>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Aiuto</value>
+  </data>
+  <data name="menuStripMain.Text" xml:space="preserve">
+    <value>menuStripMain</value>
+  </data>
+  <data name="toolStripMIUserDisconnect.Text" xml:space="preserve">
+    <value>Scollegare</value>
+  </data>
+  <data name="toolStripSBUser.Text" xml:space="preserve">
+    <value>toolStripSplitButton1</value>
+  </data>
+  <data name="toolStripSBUser.ToolTipText" xml:space="preserve">
+    <value>Utente</value>
+  </data>
+  <data name="toolStripMenuNewFile.Text" xml:space="preserve">
+    <value>Nuovo...</value>
+  </data>
+  <data name="toolStripSplitButtonNew.Text" xml:space="preserve">
+    <value>Crea nuovo file...</value>
+  </data>
+  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+    <value>Apri file</value>
+  </data>
+  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+    <value>Apri file</value>
+  </data>
+  <data name="toolStripButtonSave.Text" xml:space="preserve">
+    <value>Salvare file</value>
+  </data>
+  <data name="toolStripButtonSaveAll.Text" xml:space="preserve">
+    <value>Salvare tutti i file</value>
+  </data>
+  <data name="toolStripMenuItemEditDB.ToolTipText" xml:space="preserve">
+    <value>Modificare il database delle soluzioni pallet</value>
+  </data>
+  <data name="toolStripButtonBox.Text" xml:space="preserve">
+    <value>Aggiungi nuovo astuccio</value>
+  </data>
+  <data name="toolStripButtonCase.Text" xml:space="preserve">
+    <value>Aggiungi nuovo cartone</value>
+  </data>
+  <data name="toolStripButtonBundle.Text" xml:space="preserve">
+    <value>Aggiungi nuovo fascicolo</value>
+  </data>
+  <data name="toolStripButtonCylinder.Text" xml:space="preserve">
+    <value>Aggiungi nuova bobina</value>
+  </data>
+  <data name="toolStripButtonBottle.Text" xml:space="preserve">
+    <value>Aggiungi nuova bottiglia...</value>
+  </data>
+  <data name="toolStripButtonPallet.Text" xml:space="preserve">
+    <value>Aggiungere nuovo Pallet</value>
+  </data>
+  <data name="toolStripButtonPallet.ToolTipText" xml:space="preserve">
+    <value>Aggiungere un nuovo pallet</value>
+  </data>
+  <data name="toolStripButtonPack.Text" xml:space="preserve">
+    <value>Aggiungi nuovo pack...</value>
+  </data>
+  <data name="toolStripButtonTruck.Text" xml:space="preserve">
+    <value>Aggiungere nuovo camion</value>
+  </data>
+  <data name="toolStripMIInterlayer.Text" xml:space="preserve">
+    <value>Divisorio</value>
+  </data>
+  <data name="toolStripMIInterlayer.ToolTipText" xml:space="preserve">
+    <value>Aggiungi nuovo divisorio</value>
+  </data>
+  <data name="toolStripMIPalletCorner.Text" xml:space="preserve">
+    <value>Angolo di pallet</value>
+  </data>
+  <data name="toolStripMIPalletCorner.ToolTipText" xml:space="preserve">
+    <value>Aggiungi nuovo angolo di pallet...</value>
+  </data>
+  <data name="toolStripMIPalletCap.Text" xml:space="preserve">
+    <value>Copripallet</value>
+  </data>
+  <data name="toolStripMIPalletCap.ToolTipText" xml:space="preserve">
+    <value>Aggiungi nuovo pallet cap...</value>
+  </data>
+  <data name="toolStripMIPalletFilm.Text" xml:space="preserve">
+    <value>Film per pallet</value>
+  </data>
+  <data name="toolStripMIPalletFilm.ToolTipText" xml:space="preserve">
+    <value>Aggiungere il nuovo film per pallet...</value>
+  </data>
+  <data name="toolStripSBPalletDeco.Text" xml:space="preserve">
+    <value>Creare nuovo divisorio…</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.Text" xml:space="preserve">
+    <value>Cartone/Pallet</value>
+  </data>
+  <data name="toolStripMIAnalysisCasePallet.ToolTipText" xml:space="preserve">
+    <value>Analisi Cartone/Pallet</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.Text" xml:space="preserve">
+    <value>Bobina/Pallet</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderPallet.ToolTipText" xml:space="preserve">
+    <value>Analisi cilindro/pallet</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylPallet.Text" xml:space="preserve">
+    <value>Cilindro orizzontale/Pallet</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.Text" xml:space="preserve">
+    <value>Fascicolo/Pallet</value>
+  </data>
+  <data name="toolStripMIAnalysisBundlePallet.ToolTipText" xml:space="preserve">
+    <value>Analisi del pacchetto/pallet</value>
+  </data>
+  <data name="toolStripMIHAnalysis.Text" xml:space="preserve">
+    <value>Carico eterogeneo dei pallet</value>
+  </data>
+  <data name="toolStripMIHAnalysis.ToolTipText" xml:space="preserve">
+    <value>Carico eterogeneo dei pallet</value>
+  </data>
+  <data name="toolStripSBAnalysisPallet.Text" xml:space="preserve">
+    <value>Analisi Pallet</value>
+  </data>
+  <data name="toolStripMIAnalysisBoxCase.Text" xml:space="preserve">
+    <value>Astuccio/Cartone</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderCase.Text" xml:space="preserve">
+    <value>Bobina/Cartone</value>
+  </data>
+  <data name="toolStripMIAnalysisBundleCase.Text" xml:space="preserve">
+    <value>Fascicolo/Cartone</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.Text" xml:space="preserve">
+    <value>Analisi Cartone</value>
+  </data>
+  <data name="toolStripSBAnalysesCase.ToolTipText" xml:space="preserve">
+    <value>Analisi Cartone</value>
+  </data>
+  <data name="toolStripMIAnalysisPalletTruck.Text" xml:space="preserve">
+    <value>Camion di pallet</value>
+  </data>
+  <data name="toolStripMIAnalysisCaseTruck.Text" xml:space="preserve">
+    <value>Cartone/Camion</value>
+  </data>
+  <data name="toolStripMIAnalysisCylinderTruck.Text" xml:space="preserve">
+    <value>Cilindro/Camion</value>
+  </data>
+  <data name="toolStripMIAnalysisHCylTruck.Text" xml:space="preserve">
+    <value>Cilindro orizzontale/camion</value>
+  </data>
+  <data name="toolStripMIHAnalysisCaseTruck.Text" xml:space="preserve">
+    <value>Custodia/Camion eterogeneo</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.Text" xml:space="preserve">
+    <value>Analisi Camion</value>
+  </data>
+  <data name="toolStripSBAnalysesTruck.ToolTipText" xml:space="preserve">
+    <value>Analisi Camion</value>
+  </data>
+  <data name="toolStripMIBestCase.Text" xml:space="preserve">
+    <value>Trovare il migliore dei casi</value>
+  </data>
+  <data name="toolStripMIBestCase.ToolTipText" xml:space="preserve">
+    <value>Aiuto la selezione di caso tra quelli disponibili nel database!</value>
+  </data>
+  <data name="toolStripMIBestPack.Text" xml:space="preserve">
+    <value>Trovare il miglior pack</value>
+  </data>
+  <data name="toolStripMIBestPack.ToolTipText" xml:space="preserve">
+    <value>Suggeriscono pack per palettizzazione ottimale</value>
+  </data>
+  <data name="toolStripSBOptimisations.Text" xml:space="preserve">
+    <value>Ottimizzazioni di imballaggio</value>
+  </data>
+  <data name="toolStripSBOptimisations.ToolTipText" xml:space="preserve">
+    <value>Ottimizzazioni di imballaggio</value>
+  </data>
+  <data name="palletisationBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Palletizzazione BCT</value>
+  </data>
+  <data name="caseBCTToolStripMenuItem.Text" xml:space="preserve">
+    <value>Caso BCT</value>
+  </data>
+  <data name="toolStripSB_BCT.Text" xml:space="preserve">
+    <value>Calcolo BCT</value>
+  </data>
+  <data name="toolStripButtonPremium.Text" xml:space="preserve">
+    <value>Diventa un utente premium</value>
+  </data>
+  <data name="toolStripButtonHelp.Text" xml:space="preserve">
+    <value>Aiuto</value>
+  </data>
+  <data name="toolStripButtonHelp.ToolTipText" xml:space="preserve">
+    <value>Aiuto</value>
+  </data>
+  <data name="toolStripButtonSettings.Text" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
+  <data name="toolStripStandard.Text" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="openFileDialogSB.Filter" xml:space="preserve">
+    <value>File di StackBuilder (*.stb)|*.stb|All files (*.*)|*.*</value>
+  </data>
+  <data name="openFileDialogSB.Title" xml:space="preserve">
+    <value>Apri file...</value>
+  </data>
+  <data name="saveFileDialogSB.Filter" xml:space="preserve">
+    <value>File di StackBuilder (*.stb)|*.stb</value>
+  </data>
+  <data name="saveFileDialogSB.Title" xml:space="preserve">
+    <value>Salva file...</value>
+  </data>
+  <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
+    <value>File Htlm (*.html)|*.html</value>
+  </data>
+  <data name="saveFileDialogExport.Filter" xml:space="preserve">
+    <value>Il linguaggio eXchange Markup Language (*.xml)|*.xml</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>StackBuilder</value>
+  </data>
+  <data name="caseOptimisationToolStripMenu.Text" xml:space="preserve">
+    <value>Ricerca ottimale per dimensioni astuccio</value>
+  </data>
+  <data name="caseOptimisationToolStripMenu.ToolTipText" xml:space="preserve">
+    <value>Ricerca ottimale astuccio</value>
+  </data>
+  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Chiudi documento attivo</value>
+  </data>
+  <data name="donateToolStripMenuItem.Text" xml:space="preserve">
+    <value>Fai una donazione!</value>
+  </data>
+  <data name="editPaletSolutionsDBToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Modifica la soluzione pallet del database</value>
+  </data>
+  <data name="newAnalysisBundleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nuova Analisi Fascicolo/Pallet</value>
+  </data>
+  <data name="newAnalysisToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nuova Analisi Astuccio/Pallet</value>
+  </data>
+  <data name="newBoxToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nuovo Cartone</value>
+  </data>
+  <data name="newBundleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nuovo Fascicolo</value>
+  </data>
+  <data name="newCaseToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nuovo Astuccio</value>
+  </data>
+  <data name="newInterlayerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nuovo Divisore</value>
+  </data>
+  <data name="newPalletToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nuovo Pallet</value>
+  </data>
+  <data name="newTruckToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nuovo Camion</value>
+  </data>
+  <data name="openLibraryToolStripMenuItem.Text" xml:space="preserve">
+    <value>Libreria di foglio Excel aperto...</value>
+  </data>
+  <data name="openLibraryToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Libreria aperta (foglio Excel)</value>
+  </data>
+  <data name="saveAllToolStripMenuItem.Text" xml:space="preserve">
+    <value>Salva tutto</value>
+  </data>
+  <data name="saveAsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Salva come...</value>
+  </data>
+  <data name="saveAsToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Salva come...</value>
+  </data>
+  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
+    <value>Salva</value>
+  </data>
+  <data name="saveToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Sava file</value>
+  </data>
+  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Impostazioni…</value>
+  </data>
+  <data name="toolStripButtonAddNewBox.Text" xml:space="preserve">
+    <value>Aggiungi nuovo cartone</value>
+  </data>
+  <data name="toolStripButtonAddNewCase.Text" xml:space="preserve">
+    <value>Aggiungi nuovo astuccio...</value>
+  </data>
+  <data name="toolStripButtonAddNewPallet.Text" xml:space="preserve">
+    <value>Aggiungi nuovo pallet</value>
+  </data>
+  <data name="toolStripButtonAddNewPallet.ToolTipText" xml:space="preserve">
+    <value>Aggiungi a nuovo pallet</value>
+  </data>
+  <data name="toolStripButtonAddNewTruck.Text" xml:space="preserve">
+    <value>Aggiungi nuovo camion</value>
+  </data>
+  <data name="toolStripButtonCreateNewAnalysis.Text" xml:space="preserve">
+    <value>Crea nuova analisi astuccio/pallet</value>
+  </data>
+  <data name="toolStripButtonCreateNewAnalysis.ToolTipText" xml:space="preserve">
+    <value>Aggiungi nuova analisi pallet</value>
+  </data>
+  <data name="toolStripButtonCreateNewBundle.Text" xml:space="preserve">
+    <value>Aggiungi nuovo fascicolo</value>
+  </data>
+  <data name="toolStripButtonCreateNewBundleAnalysis.Text" xml:space="preserve">
+    <value>Crea nuova analisi fascicolo/pallet</value>
+  </data>
+  <data name="toolStripButtonCreateNewBundleAnalysis.ToolTipText" xml:space="preserve">
+    <value>Aggiungi nuona analisi fascicolo</value>
+  </data>
+  <data name="toolStripButtonCreateNewInterlayer.Text" xml:space="preserve">
+    <value>Aggiungi nuovo interstrato</value>
+  </data>
+  <data name="toolStripButtonCreateNewInterlayer.ToolTipText" xml:space="preserve">
+    <value>Aggiungi nuovo interstrato</value>
+  </data>
+  <data name="toolStripButtonFileSave.Text" xml:space="preserve">
+    <value>Sava file</value>
+  </data>
+  <data name="toolStripButtonFileSaveAll.Text" xml:space="preserve">
+    <value>Salva tutti i file</value>
+  </data>
+  <data name="toolStripButtonOptimiseCase.Text" xml:space="preserve">
+    <value>Ricerca ottimale astuccio</value>
+  </data>
+  <data name="toolStripMIBestCasePallet.Text" xml:space="preserve">
+    <value>Trovare il miglior caso/pallettizzazione</value>
+  </data>
+  <data name="toolStripMIBestCasePallet.ToolTipText" xml:space="preserve">
+    <value>Dato un box, aiuta a selezionare caso/pallettizzazione tra quelli disponibili nel database.</value>
+  </data>
+  <data name="tutorialToolStripMenuItem.Text" xml:space="preserve">
+    <value>Tutorial</value>
+  </data>
+  <data name="ToolStripMenuNewFileINTEX.Text" xml:space="preserve">
+    <value>Nuovo (INTEX Corp)...</value>
+  </data>
+  <data name="newBoxCaseAnalysisToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nuova Analisi Cartone/Astuccio</value>
+  </data>
+  <data name="newBoxCasePalletOptimizationToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nuova ottimizzazione Cartone/Astuccio/Pallet</value>
+  </data>
+  <data name="newCylinderToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nuova bobina</value>
+  </data>
+  <data name="newToolStripMenuItemCylinderPalletAnalysis.Text" xml:space="preserve">
+    <value>Nuova Analisi bobina/pallet</value>
+  </data>
+  <data name="toolStripButtonAddNewCylinder.Text" xml:space="preserve">
+    <value>Aggiungi nuova bobina</value>
+  </data>
+  <data name="toolStripButtonCreateNewBoxCaseAnalysis.Text" xml:space="preserve">
+    <value>Crea nuova analisi cartone/astuccio...</value>
+  </data>
+  <data name="toolStripButtonCreateNewBoxCaseAnalysis.ToolTipText" xml:space="preserve">
+    <value>Aggiungi nuova analisi cartone/astuccio...</value>
+  </data>
+  <data name="toolStripButtonCreateNewBoxCasePalletOptimization.Text" xml:space="preserve">
+    <value>Crea nuova ottimizzazione cartone/astuccio/pallet</value>
+  </data>
+  <data name="toolStripButtonCreateNewCylinderPalletAnalysis.Text" xml:space="preserve">
+    <value>Crea nuova analisi bobina/pallet</value>
+  </data>
+  <data name="toolStripButtonCreateNewCylinderPalletAnalysis.ToolTipText" xml:space="preserve">
+    <value>Aggiungi nuova analisi bobina/pallet</value>
+  </data>
+  <data name="toolStripButtonCreateNewHCylinderPalletAnalysis.Text" xml:space="preserve">
+    <value>Crea nuova analisi bobina/pallet</value>
+  </data>
+  <data name="toolStripButtonCreateNewHCylinderPalletAnalysis.ToolTipText" xml:space="preserve">
+    <value>Aggiungi nuova analisi bobina/pallet</value>
+  </data>
+</root>

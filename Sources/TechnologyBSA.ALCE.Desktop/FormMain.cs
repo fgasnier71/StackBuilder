@@ -521,6 +521,7 @@ namespace treeDiM.StackBuilder.Desktop
                         corner.Width = form.CornerWidth;
                         corner.Thickness = form.CornerThickness;
                         corner.Color = form.CornerColor;
+                        corner.Weight = form.CornerWeight;
                         corner.EndUpdate();
                     }
                 }
@@ -539,6 +540,7 @@ namespace treeDiM.StackBuilder.Desktop
                         cap.InsideLength = form.CapInnerLength;
                         cap.InsideWidth = form.CapInnerWidth;
                         cap.InsideHeight = form.CapInnerHeight;
+                        cap.Weight = form.CapWeight;
                         cap.EndUpdate();
                     }
                 }
@@ -554,6 +556,7 @@ namespace treeDiM.StackBuilder.Desktop
                         film.HatchSpacing = form.HatchSpacing;
                         film.HatchAngle = form.HatchAngle;
                         film.Color = form.FilmColor;
+                        film.Weight = form.Weight;
                         film.EndUpdate();
                     }
                 }
@@ -1119,11 +1122,6 @@ namespace treeDiM.StackBuilder.Desktop
         private void ToolAddNewPalletFilm(object sender, EventArgs e)
         {
             try { ((DocumentSB)ActiveDocument).CreateNewPalletFilmUI(); }
-            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
-        }
-        private void ToolAddNewPalletLabel(object sender, EventArgs e)
-        {
-            try { ((DocumentSB)ActiveDocument).CreateNewPalletLabelUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
         #endregion

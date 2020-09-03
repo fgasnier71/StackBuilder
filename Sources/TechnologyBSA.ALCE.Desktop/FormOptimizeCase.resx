@@ -1288,4 +1288,40 @@
   <data name="&gt;&gt;uCtrlWallThickness.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbMaxCaseDimensions.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbMinCaseDimensions.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbWalls.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbWallThickness.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uCtrlOverhangLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uCtrlOverhangWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthWallThickness.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbSurfaceMass.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uSurfaceMassCase.Text" xml:space="preserve">
+    <value></value>
+  </data>
 </root>

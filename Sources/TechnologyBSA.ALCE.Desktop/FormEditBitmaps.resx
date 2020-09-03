@@ -591,4 +591,28 @@
   <data name="&gt;&gt;uCtrlSize.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="lbUnitOriginX.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitOriginY.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitSizeX.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitSizeY.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthOriginX.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthOriginY.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthSizeX.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthSizeY.Text" xml:space="preserve">
+    <value></value>
+  </data>
 </root>

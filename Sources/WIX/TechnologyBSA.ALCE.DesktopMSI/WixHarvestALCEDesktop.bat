@@ -1,14 +1,14 @@
 del "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\*.pdb"
 del "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\*.xml"
+del "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\*dll.config"
 rmdir "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\ReportTemplates" /s /q
 rmdir "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\app.publish" /s /q
 rmdir "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\de" /s /q
 rmdir "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\es" /s /q
-rmdir "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\fr" /s /q
-rmdir "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\it" /s /q
 rmdir "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\ja" /s /q
 rmdir "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\nl" /s /q
 rmdir "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\pt" /s /q
+rmdir "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\pl" /s /q
 rmdir "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\ru" /s /q
 rmdir "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\sl" /s /q
 rmdir "..\..\TechnologyBSA.ALCE.Desktop\bin\Release\sv" /s /q

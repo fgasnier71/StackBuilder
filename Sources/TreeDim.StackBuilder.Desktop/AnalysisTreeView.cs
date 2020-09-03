@@ -178,6 +178,7 @@ namespace treeDiM.StackBuilder.Desktop
                 || nodeTag.Type == NodeTag.NodeType.NT_PALLETCORNERS
                 || nodeTag.Type == NodeTag.NodeType.NT_PALLETCAP
                 || nodeTag.Type == NodeTag.NodeType.NT_PALLETFILM
+                || nodeTag.Type == NodeTag.NodeType.NT_PALLETLABEL
                 )
             {
                 string message = string.Format(Resources.ID_DELETEITEM, nodeTag.ItemProperties.Name);

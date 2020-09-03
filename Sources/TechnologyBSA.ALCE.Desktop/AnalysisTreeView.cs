@@ -174,7 +174,6 @@ namespace treeDiM.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, PalletCorners, new EventHandler(OnCreateNewPalletCorners)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, PalletCap, new EventHandler(OnCreateNewPalletCap)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, PalletFilm, new EventHandler(OnCreateNewPalletFilm)) { ImageTransparentColor = Color.White });
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETLABEL, PalletLabel, new EventHandler(OnCreateNewPalletLabel)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWTRUCK, Truck, new EventHandler(OnCreateNewTruck)) { ImageTransparentColor = Color.White });
 
                 if (((DocumentSB)nodeTag.Document).CanCreateAnalysisCasePallet || ((DocumentSB)nodeTag.Document).CanCreateOptiCasePallet)
@@ -223,7 +222,6 @@ namespace treeDiM.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, PalletCorners, new EventHandler(OnCreateNewPalletCorners)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, PalletCap, new EventHandler(OnCreateNewPalletCap)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, PalletFilm, new EventHandler(OnCreateNewPalletFilm)) { ImageTransparentColor = Color.White });
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, PalletFilm, new EventHandler(OnCreateNewPalletLabel)) { ImageTransparentColor = Color.White });
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTANALYSIS)
             {
@@ -399,15 +397,6 @@ namespace treeDiM.StackBuilder.Desktop
                 ((DocumentSB)tag.Document).CreateNewPalletFilmUI();
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
-        }
-        private void OnCreateNewPalletLabel(object sender, EventArgs e)
-        { 
-            try
-            {
-                NodeTag tag = SelectedNode.Tag as NodeTag;
-                ((DocumentSB)tag.Document).CreateNewPalletLabelUI();
-            }
-            catch (Exception ex) { _log.Error(ex.ToString()); }       
         }
         private void OnCreateNewAnalysisCasePallet(object sender, EventArgs e)
         {

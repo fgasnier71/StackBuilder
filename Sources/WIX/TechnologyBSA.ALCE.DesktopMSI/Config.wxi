@@ -5,7 +5,7 @@
 <!-- Product name -->
 <?define ProductName = "ALCE"?>
 <!-- Product version -->
-<?define ProductVersion = "1.0.0.0"?>
+<?define ProductVersion = "1.0.1.0"?>
 <!-- Keywords -->
 <?define Keywords = "Layer Editor"?>
 <!-- Shortcut folder -->

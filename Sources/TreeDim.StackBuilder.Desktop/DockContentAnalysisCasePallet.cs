@@ -3,6 +3,10 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Drawing;
+using System.Collections.Generic;
+// Sharp3D
+using Sharp3D.Math.Core;
 // log4net
 using log4net;
 // treeDiM
@@ -46,6 +50,13 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlOptMaximumWeight.ValueChanged += new UCtrlOptDouble.ValueChangedDelegate(OnCriterionChanged);
             uCtrlOptMaxNumber.ValueChanged += new UCtrlOptInt.ValueChangedDelegate(OnCriterionChanged);
 
+            chkbPalletCap.CheckedChanged += new EventHandler(OnCriterionChanged);
+            chkbPalletFilm.CheckedChanged += new EventHandler(OnCriterionChanged);
+            chkbPalletSleeve.CheckedChanged += new EventHandler(OnCriterionChanged);
+            chkbPalletCornersTopX.CheckedChanged += new EventHandler(OnCriterionChanged);
+            chkbPalletCornersTopY.CheckedChanged += new EventHandler(OnCriterionChanged);
+            chkbPalletSleeve.CheckedChanged += new EventHandler(OnCriterionChanged);
+
             AnalysisCasePallet analysisCasePallet = _analysis as AnalysisCasePallet;
 
             ComboBoxHelpers.FillCombo(PalletCorners, cbPalletCorners, analysisCasePallet?.PalletCornerProperties);
@@ -57,6 +68,7 @@ namespace treeDiM.StackBuilder.Desktop
             ComboBoxHelpers.FillCombo(PalletFilms, cbPalletFilm, analysisCasePallet?.PalletFilmProperties);
             chkbPalletFilm.Enabled = (cbPalletFilm.Items.Count > 0);
             ComboBoxHelpers.FillCombo(PalletLabels, cbPalletLabels, null);
+            bnAdd.Enabled = (cbPalletLabels.Items.Count > 0);
 
             chkbPalletCornersTopX.Enabled = (cbPalletCornersTop.Items.Count > 0);
             chkbPalletCornersTopY.Enabled = (cbPalletCornersTop.Items.Count > 0);
@@ -71,49 +83,23 @@ namespace treeDiM.StackBuilder.Desktop
                 chkbPalletFilm.Checked = null != analysisCasePallet.PalletFilmProperties;
                 ctrlStrapperSet.StrapperSet = analysisCasePallet.StrapperSet;
 
-                PalletFilmLength = UnitsManager.ConvertLengthFrom(10000, UnitsManager.UnitSystem.UNIT_METRIC1);
                 PalletFilmTopCovering = UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
             }
             // ---
             // --- initialize grid control
             FillGrid();
             UpdateGrid();
+            FillGridLabel();
             // ---
 
+            // handling row change in label grids
+            _gripLabelsControllerEvent.ValueChanged += new EventHandler(OnPalletProtectionChanged);
             _initialized = true;
         }
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
             Document.RemoveView(this);
-        }
-
-        private void OnPalletProtectionChanged(object sender, EventArgs e)
-        {
-            if (!_initialized)  return;
-
-            cbPalletCorners.Enabled = chkbPalletCorners.Checked;
-            cbPalletCornersTop.Enabled = cbPalletCornersTop.Items.Count > 0;
-            cbPalletCap.Enabled = chkbPalletCap.Checked;
-            cbPalletFilm.Enabled = chkbPalletFilm.Checked;
-            uCtrlPalletFilmLength.Enabled = chkbPalletFilm.Checked;
-            uCtrlPalletFilmCovering.Enabled = chkbPalletFilm.Checked;
-
-            if (_solution.Analysis is AnalysisCasePallet analysisCasePallet)
-            {
-                analysisCasePallet.PalletCornerProperties = SelectedPalletCorners;
-                analysisCasePallet.PalletCornerTopProperties = SelectedPalletCornersTop;
-                analysisCasePallet.PalletCornersTopX = PalletCornerTopX;
-                analysisCasePallet.PalletCornersTopY = PalletCornerTopY;
-
-                analysisCasePallet.PalletCapProperties = SelectedPalletCap;
-                analysisCasePallet.PalletFilmProperties = SelectedPalletFilm;
-                analysisCasePallet.StrapperSet = ctrlStrapperSet.StrapperSet;
-
-                analysisCasePallet.PalletFilmLength = PalletFilmLength;
-                analysisCasePallet.PalletFilmTopCovering = PalletFilmTopCovering;
-            }
-            graphCtrlSolution.Invalidate();
         }
         #endregion
 
@@ -139,7 +125,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get
             {
-                if (cbPalletCornersTop.Items.Count > 0)
+                if (cbPalletCornersTop.Items.Count > 0
+                    && (chkbPalletCornersTopX.Checked || chkbPalletCornersTopY.Checked) )
                 {
                     if (cbPalletCornersTop.SelectedItem is ItemBaseCB item)
                         return item.Item as PalletCornerProperties;
@@ -171,11 +158,19 @@ namespace treeDiM.StackBuilder.Desktop
                 return null;
             }
         }
-        private double PalletFilmLength
+        private PalletLabelProperties SelectedPalletLabel
         {
-            get => uCtrlPalletFilmLength.Value;
-            set => uCtrlPalletFilmLength.Value = value;
+            get
+            {
+                if (cbPalletLabels.Items.Count > 0)
+                {
+                    if (cbPalletLabels.SelectedItem is ItemBaseCB item)
+                        return item.Item as PalletLabelProperties;
+                }
+                return null;
+            }
         }
+
         private double PalletFilmTopCovering
         {
             get => uCtrlPalletFilmCovering.Value;
@@ -190,6 +185,16 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get => chkbPalletCornersTopY.Checked;
             set => chkbPalletCornersTopY.Checked = value;
+        }
+        private bool HasPalletSleeve
+        {
+            get => chkbPalletSleeve.Checked;
+            set => chkbPalletSleeve.Checked = value;
+        }
+        private Color PalletSleeveColor
+        {
+            get => cbPalletSleeveColor.Color;
+            set => cbPalletSleeveColor.Color = value;
         }
         #endregion
 
@@ -208,9 +213,6 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region IDrawingContainer
-        #endregion
-
-        #region Public properties
         #endregion
 
         #region Private properties / Helpers
@@ -466,6 +468,36 @@ namespace treeDiM.StackBuilder.Desktop
             if (splitDistance > 0)
                 splitContainerHoriz.SplitterDistance = splitDistance;
         }
+        private void OnPalletProtectionChanged(object sender, EventArgs e)
+        {
+            if (!_initialized)  return;
+
+            cbPalletCorners.Enabled = chkbPalletCorners.Checked;
+            cbPalletCornersTop.Enabled = cbPalletCornersTop.Items.Count > 0;
+            cbPalletCap.Enabled = chkbPalletCap.Checked;
+            cbPalletFilm.Enabled = chkbPalletFilm.Checked;
+            uCtrlPalletFilmCovering.Enabled = chkbPalletFilm.Checked;
+
+            if (_solution.Analysis is AnalysisCasePallet analysisCasePallet)
+            {
+                analysisCasePallet.PalletCornerProperties = SelectedPalletCorners;
+                analysisCasePallet.PalletCornerTopProperties = SelectedPalletCornersTop;
+                analysisCasePallet.PalletCornersTopX = PalletCornerTopX;
+                analysisCasePallet.PalletCornersTopY = PalletCornerTopY;
+
+                analysisCasePallet.PalletCapProperties = SelectedPalletCap;
+                analysisCasePallet.PalletFilmProperties = SelectedPalletFilm;
+                analysisCasePallet.StrapperSet = ctrlStrapperSet.StrapperSet;
+
+                analysisCasePallet.PalletFilmTopCovering = PalletFilmTopCovering;
+
+                analysisCasePallet.HasPalletSleeve = HasPalletSleeve;
+                analysisCasePallet.PalletSleeveColor = PalletSleeveColor;
+
+                analysisCasePallet.PalletLabels = LoadPalletLabelInst();
+            }
+            OnCriterionChanged(sender, e);
+        }
         private void OnCriterionChanged(object sender, EventArgs args)
         {
             try
@@ -480,25 +512,171 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 _log.Error(ex.ToString());
             }
+
             // update drawing & grid
             graphCtrlSolution.Invalidate();
             UpdateGrid();
         }
         #endregion
-        #region Label
+
+        #region Labels
         private void OnBnAddLabel(object sender, EventArgs e)
         {
             try
             {
+                var selectedPalletLabel = SelectedPalletLabel;
+
+                if (_solution.Analysis is AnalysisCasePallet analysisCasePallet)
+                {
+                    analysisCasePallet.PalletLabels.Add(
+                        new PalletLabelInst(selectedPalletLabel, new Vector2D(500.0, 500.0), HalfAxis.HAxis.AXIS_Y_P));
+                }
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
             }
             FillGridLabel();
+            OnPalletProtectionChanged(sender, e);
         }
         private void FillGridLabel()
-        { 
+        {
+            try
+            {
+                // remove all existing rows
+                gridLabels.Rows.Clear();
+
+                // *** IViews
+                // viewColumnHeader
+                SourceGrid.Cells.Views.ColumnHeader viewColumnHeader = new SourceGrid.Cells.Views.ColumnHeader()
+                {
+                    Background = new DevAge.Drawing.VisualElements.ColumnHeader()
+                    {
+                        BackColor = Color.LightGray,
+                        Border = DevAge.Drawing.RectangleBorder.NoBorder
+                    },
+                    ForeColor = Color.Black,
+                    Font = new Font("Arial", 8, FontStyle.Regular),
+                };
+                viewColumnHeader.ElementSort.SortStyle = DevAge.Drawing.HeaderSortStyle.None;
+                // initialize
+                gridLabels.BorderStyle = BorderStyle.FixedSingle;
+                gridLabels.ColumnsCount = 5;
+                gridLabels.FixedRows = 1;
+                // viewNormal
+                CellBackColorAlternate viewNormal = new CellBackColorAlternate(Color.LightBlue, Color.White);
+                // ***
+                int iRow = -1;
+
+                // header
+                int iCol = 0;
+                gridLabels.Rows.Insert(++iRow);
+                gridLabels[iRow, iCol] = new SourceGrid.Cells.RowHeader(Resources.ID_LABEL) { View = viewColumnHeader };
+                gridLabels[iRow, ++iCol] = new SourceGrid.Cells.RowHeader(Resources.ID_PALLETSIDE) { View = viewColumnHeader };
+                gridLabels[iRow, ++iCol] = new SourceGrid.Cells.RowHeader(Resources.ID_POSX) { View = viewColumnHeader };
+                gridLabels[iRow, ++iCol] = new SourceGrid.Cells.RowHeader(Resources.ID_POSY) { View = viewColumnHeader };
+                gridLabels[iRow, ++iCol] = new SourceGrid.Cells.RowHeader(Resources.ID_DELETE) { View = viewColumnHeader };
+
+                if (_solution.Analysis is AnalysisCasePallet analysisCasePallet)
+                {
+                    // handling delete event
+                    SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
+                    buttonDelete.Click += new EventHandler(OnDeleteLabel);
+
+                    
+
+                    foreach (var pli in analysisCasePallet.PalletLabels)
+                    {
+                        gridLabels.Rows.Insert(++iRow);
+                        iCol = 0;
+                        // name                        
+                        gridLabels[iRow, iCol] = new SourceGrid.Cells.Cell(pli.PalletLabelProperties.Name);
+                        gridLabels[iRow, iCol].Tag = pli.PalletLabelProperties;
+                        // pallet side
+                        SourceGrid.Cells.Editors.ComboBox cbPalletSide = new SourceGrid.Cells.Editors.ComboBox(typeof(string), new string[] { "X+", "X-", "Y+", "Y-" }, false);
+                        cbPalletSide.EditableMode = SourceGrid.EditableMode.Focus | SourceGrid.EditableMode.SingleClick | SourceGrid.EditableMode.AnyKey;
+                        cbPalletSide.SetEditValue(HalfAxis.ToAbbrev(pli.Side));
+                        gridLabels[iRow, ++iCol] = new SourceGrid.Cells.Cell(HalfAxis.ToAbbrev(pli.Side), cbPalletSide) { View = viewNormal };
+                        gridLabels[iRow, iCol].Editor = cbPalletSide;
+                        gridLabels[iRow, iCol].AddController(_gripLabelsControllerEvent);
+                        // position.X 
+                        gridLabels[iRow, ++iCol] = new SourceGrid.Cells.Cell((decimal)pli.Position.X) { View = viewNormal };
+                        SourceGrid.Cells.Editors.NumericUpDown l_NumericUpDownEditorX = new SourceGrid.Cells.Editors.NumericUpDown(typeof(int), 10000, 0, 1);
+                        l_NumericUpDownEditorX.SetEditValue((decimal)pli.Position.X);
+                        gridLabels[iRow, iCol].Editor = l_NumericUpDownEditorX;
+                        gridLabels[iRow, iCol].AddController(_gripLabelsControllerEvent);
+                        // position.Y
+                        gridLabels[iRow, ++iCol] = new SourceGrid.Cells.Cell((decimal)pli.Position.Y) { View = viewNormal };
+                        SourceGrid.Cells.Editors.NumericUpDown l_NumericUpDownEditorY = new SourceGrid.Cells.Editors.NumericUpDown(typeof(int), 10000, 0, 1);
+                        l_NumericUpDownEditorY.SetEditValue((decimal)pli.Position.Y);
+                        gridLabels[iRow, iCol].Editor = l_NumericUpDownEditorY;
+                        gridLabels[iRow, iCol].AddController(_gripLabelsControllerEvent);
+                        // delete button
+                        gridLabels[iRow, ++iCol] = new SourceGrid.Cells.Button("") { Image = Resources.Delete };
+                        gridLabels[iRow, iCol].AddController(buttonDelete);
+                    }
+
+                    gridLabels.AutoSizeCells();
+                    gridLabels.Columns.StretchToFit();
+                    gridLabels.AutoStretchColumnsToFitWidth = true;
+                    gridLabels.Invalidate();
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
+
+        private List<PalletLabelInst> LoadPalletLabelInst()
+        {
+            List<PalletLabelInst> palletLabelInst = new List<PalletLabelInst>();
+
+            for (int iRow = 1; iRow < gridLabels.RowsCount; ++iRow)
+            {
+                try
+                {
+                    // PalletLabelProperties from tag
+                    PalletLabelProperties pl = gridLabels[iRow, 0].Tag as PalletLabelProperties;
+                    // pallet side
+                    SourceGrid.Cells.Editors.ComboBox cbSide = gridLabels[iRow, 1].Editor as SourceGrid.Cells.Editors.ComboBox;
+                    string sSide = (string)cbSide.GetEditedValue();
+                    if (string.IsNullOrEmpty(sSide))
+                        continue;
+                    // position
+                    Vector2D position = new Vector2D();
+                    SourceGrid.Cells.Editors.NumericUpDown upDownEditorX = gridLabels[iRow, 2].Editor as SourceGrid.Cells.Editors.NumericUpDown;
+                    position.X = (int)upDownEditorX.GetEditedValue();
+                    SourceGrid.Cells.Editors.NumericUpDown upDownEditorY = gridLabels[iRow, 3].Editor as SourceGrid.Cells.Editors.NumericUpDown;
+                    position.Y = (int)upDownEditorY.GetEditedValue();
+                    // add pallet label instance
+                    palletLabelInst.Add(new PalletLabelInst(pl, position, HalfAxis.ParseAbbrev(sSide)));
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.ToString());
+                }
+            }
+            return palletLabelInst;
+        }
+
+        protected int GridFontSize => Settings.Default.GridFontSize;
+
+        private void OnDeleteLabel(object sender, EventArgs e)
+        {
+            SourceGrid.CellContext context = (SourceGrid.CellContext)sender;
+            int iSel = context.Position.Row - 1;
+            try
+            {
+                if ((_solution.Analysis is AnalysisCasePallet analysisCasePallet) && (iSel < analysisCasePallet.PalletLabels.Count))
+                    analysisCasePallet.PalletLabels.RemoveAt(iSel);
+             }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+            FillGridLabel();
+            OnPalletProtectionChanged(sender, e);
         }
         #endregion
 
@@ -519,6 +697,8 @@ namespace treeDiM.StackBuilder.Desktop
         #region Data members
         protected static readonly new ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCasePallet));
         private bool _initialized = false;
+        protected SourceGrid.Cells.Controllers.CustomEvents _gripLabelsControllerEvent = new SourceGrid.Cells.Controllers.CustomEvents();
+        protected SourceGrid.Cells.Controllers.CustomEvents _deleteLabelEvent = new SourceGrid.Cells.Controllers.CustomEvents();
         #endregion
     }
 }

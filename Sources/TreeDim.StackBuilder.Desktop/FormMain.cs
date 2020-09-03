@@ -551,6 +551,7 @@ namespace treeDiM.StackBuilder.Desktop
                         corner.Length = form.CornerLength;
                         corner.Width = form.CornerWidth;
                         corner.Thickness = form.CornerThickness;
+                        corner.Weight = form.CornerWeight;
                         corner.Color = form.CornerColor;
                         corner.EndUpdate();
                     }
@@ -570,6 +571,7 @@ namespace treeDiM.StackBuilder.Desktop
                         cap.InsideLength = form.CapInnerLength;
                         cap.InsideWidth = form.CapInnerWidth;
                         cap.InsideHeight = form.CapInnerHeight;
+                        cap.Weight = form.CapWeight;
                         cap.EndUpdate();
                     }
                 }
@@ -585,8 +587,23 @@ namespace treeDiM.StackBuilder.Desktop
                         film.HatchSpacing = form.HatchSpacing;
                         film.HatchAngle = form.HatchAngle;
                         film.Color = form.FilmColor;
+                        film.Weight = form.Weight;
                         film.EndUpdate();
                     }
+                }
+                else if (itemProp.GetType() == typeof(PalletLabelProperties))
+                {
+                    PalletLabelProperties label = itemProp as PalletLabelProperties;
+                    FormNewPalletLabel form = new FormNewPalletLabel(eventArg.Document, label);
+                    if (DialogResult.OK == form.ShowDialog())
+                    {
+                        label.ID.SetNameDesc(form.ItemName, form.ItemDescription);
+                        label.Dimensions = form.Dimensions;
+                        label.Weight = form.Weight;
+                        label.Color = form.Color;
+                        label.Bitmap = form.Bitmap;
+                        label.EndUpdate();
+                    }                
                 }
                 else
                     Debug.Assert(false);

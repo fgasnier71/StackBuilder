@@ -16,10 +16,10 @@ namespace treeDiM.StackBuilder.Basics
             string name, string description,
             bool useTransparency,
             bool useHatching, double hatchSpacing, double hatchAngle,
-            double linearWeight, Color color)
+            double weight, Color color)
             : base(doc, name, description)
         {
-            LinearWeight = linearWeight;
+            Weight = weight;
             UseTransparency = useTransparency;
             UseHatching = useHatching;
             HatchSpacing = hatchSpacing;
@@ -29,7 +29,7 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Public properties
-        public double LinearWeight { get; set; } = 0.0;
+        public double Weight { get; set; } = 0.0;
         public bool UseTransparency { get; set; } = true;
         public bool UseHatching { get; set; } = true;
         public double HatchSpacing { get; set; } = 100.0;

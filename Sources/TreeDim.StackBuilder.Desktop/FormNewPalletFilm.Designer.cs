@@ -33,7 +33,7 @@
             this.chkbTransparency = new System.Windows.Forms.CheckBox();
             this.chkbHatching = new System.Windows.Forms.CheckBox();
             this.bnSendToDB = new System.Windows.Forms.Button();
-            this.uCtrlLinearMass = new treeDiM.Basics.UCtrlDouble();
+            this.uCtrlMass = new treeDiM.Basics.UCtrlDouble();
             this.uCtrlAngle = new treeDiM.Basics.UCtrlDouble();
             this.uCtrlSpacing = new treeDiM.Basics.UCtrlDouble();
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
@@ -84,21 +84,21 @@
             this.bnSendToDB.UseVisualStyleBackColor = true;
             this.bnSendToDB.Click += new System.EventHandler(this.OnSendToDatabase);
             // 
-            // uCtrlLinearMass
+            // uCtrlMass
             // 
-            resources.ApplyResources(this.uCtrlLinearMass, "uCtrlLinearMass");
-            this.uCtrlLinearMass.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.uCtrlLinearMass.Minimum = new decimal(new int[] {
+            resources.ApplyResources(this.uCtrlMass, "uCtrlMass");
+            this.uCtrlMass.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
-            -2147483648});
-            this.uCtrlLinearMass.Name = "uCtrlLinearMass";
-            this.uCtrlLinearMass.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LINEARMASS;
+            0});
+            this.uCtrlMass.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlMass.Name = "uCtrlMass";
+            this.uCtrlMass.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_MASS;
             // 
             // uCtrlAngle
             // 
@@ -159,13 +159,14 @@
             resources.GetString("cbColor.Items15"),
             resources.GetString("cbColor.Items16"),
             resources.GetString("cbColor.Items17"),
-            resources.GetString("cbColor.Items18")});
+            resources.GetString("cbColor.Items18"),
+            resources.GetString("cbColor.Items19")});
             this.cbColor.Name = "cbColor";
             // 
             // FormNewPalletFilm
             // 
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.uCtrlLinearMass);
+            this.Controls.Add(this.uCtrlMass);
             this.Controls.Add(this.uCtrlAngle);
             this.Controls.Add(this.uCtrlSpacing);
             this.Controls.Add(this.bnSendToDB);
@@ -187,7 +188,7 @@
             this.Controls.SetChildIndex(this.bnSendToDB, 0);
             this.Controls.SetChildIndex(this.uCtrlSpacing, 0);
             this.Controls.SetChildIndex(this.uCtrlAngle, 0);
-            this.Controls.SetChildIndex(this.uCtrlLinearMass, 0);
+            this.Controls.SetChildIndex(this.uCtrlMass, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,6 +203,6 @@
         private System.Windows.Forms.Button bnSendToDB;
         private treeDiM.Basics.UCtrlDouble uCtrlSpacing;
         private treeDiM.Basics.UCtrlDouble uCtrlAngle;
-        private treeDiM.Basics.UCtrlDouble uCtrlLinearMass;
+        private treeDiM.Basics.UCtrlDouble uCtrlMass;
     }
 }

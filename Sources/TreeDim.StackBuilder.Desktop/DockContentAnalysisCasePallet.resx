@@ -125,7 +125,7 @@
     <value>graphCtrlSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
@@ -217,7 +217,7 @@
     <value>ctrlStrapperSet</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.Parent" xml:space="preserve">
     <value>tabPageStrappers</value>
@@ -249,6 +249,15 @@
   <data name="&gt;&gt;tabPageStrappers.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="cbPalletCorners.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 5</value>
+  </data>
+  <data name="cbPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 21</value>
+  </data>
+  <data name="cbPalletCorners.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
   <data name="&gt;&gt;cbPalletCorners.Name" xml:space="preserve">
     <value>cbPalletCorners</value>
   </data>
@@ -260,6 +269,21 @@
   </data>
   <data name="&gt;&gt;cbPalletCorners.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="chkbPalletCorners.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbPalletCorners.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="chkbPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 17</value>
+  </data>
+  <data name="chkbPalletCorners.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="chkbPalletCorners.Text" xml:space="preserve">
+    <value>Pallet corners</value>
   </data>
   <data name="&gt;&gt;chkbPalletCorners.Name" xml:space="preserve">
     <value>chkbPalletCorners</value>
@@ -300,6 +324,24 @@
   <data name="&gt;&gt;tabPagePalletCorners.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="chkbPalletCornersTopY.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbPalletCornersTopY.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkbPalletCornersTopY.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 30</value>
+  </data>
+  <data name="chkbPalletCornersTopY.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 17</value>
+  </data>
+  <data name="chkbPalletCornersTopY.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="chkbPalletCornersTopY.Text" xml:space="preserve">
+    <value>Pallet corners (width)</value>
+  </data>
   <data name="&gt;&gt;chkbPalletCornersTopY.Name" xml:space="preserve">
     <value>chkbPalletCornersTopY</value>
   </data>
@@ -312,6 +354,15 @@
   <data name="&gt;&gt;chkbPalletCornersTopY.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="cbPalletCornersTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 5</value>
+  </data>
+  <data name="cbPalletCornersTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 21</value>
+  </data>
+  <data name="cbPalletCornersTop.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="&gt;&gt;cbPalletCornersTop.Name" xml:space="preserve">
     <value>cbPalletCornersTop</value>
   </data>
@@ -323,6 +374,24 @@
   </data>
   <data name="&gt;&gt;cbPalletCornersTop.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="chkbPalletCornersTopX.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbPalletCornersTopX.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkbPalletCornersTopX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="chkbPalletCornersTopX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 17</value>
+  </data>
+  <data name="chkbPalletCornersTopX.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="chkbPalletCornersTopX.Text" xml:space="preserve">
+    <value>Pallet corners (length)</value>
   </data>
   <data name="&gt;&gt;chkbPalletCornersTopX.Name" xml:space="preserve">
     <value>chkbPalletCornersTopX</value>
@@ -360,6 +429,15 @@
   <data name="&gt;&gt;tabPagePalletCornersTop.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="cbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 7</value>
+  </data>
+  <data name="cbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 21</value>
+  </data>
+  <data name="cbPalletCap.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="&gt;&gt;cbPalletCap.Name" xml:space="preserve">
     <value>cbPalletCap</value>
   </data>
@@ -371,6 +449,21 @@
   </data>
   <data name="&gt;&gt;cbPalletCap.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="chkbPalletCap.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="chkbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 17</value>
+  </data>
+  <data name="chkbPalletCap.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="chkbPalletCap.Text" xml:space="preserve">
+    <value>Pallet cap</value>
   </data>
   <data name="&gt;&gt;chkbPalletCap.Name" xml:space="preserve">
     <value>chkbPalletCap</value>
@@ -423,18 +516,6 @@
   <data name="&gt;&gt;uCtrlPalletFilmCovering.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;uCtrlPalletFilmLength.Name" xml:space="preserve">
-    <value>uCtrlPalletFilmLength</value>
-  </data>
-  <data name="&gt;&gt;uCtrlPalletFilmLength.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlPalletFilmLength.Parent" xml:space="preserve">
-    <value>tabPagePalletFilm</value>
-  </data>
-  <data name="&gt;&gt;uCtrlPalletFilmLength.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;cbPalletFilm.Name" xml:space="preserve">
     <value>cbPalletFilm</value>
   </data>
@@ -445,7 +526,7 @@
     <value>tabPagePalletFilm</value>
   </data>
   <data name="&gt;&gt;cbPalletFilm.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;chkbPalletFilm.Name" xml:space="preserve">
     <value>chkbPalletFilm</value>
@@ -457,7 +538,7 @@
     <value>tabPagePalletFilm</value>
   </data>
   <data name="&gt;&gt;chkbPalletFilm.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="tabPagePalletFilm.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -546,28 +627,28 @@
   <data name="&gt;&gt;tabPagePalletLabels.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;comboBoxColorPicker1.Name" xml:space="preserve">
-    <value>comboBoxColorPicker1</value>
+  <data name="&gt;&gt;cbPalletSleeveColor.Name" xml:space="preserve">
+    <value>cbPalletSleeveColor</value>
   </data>
-  <data name="&gt;&gt;comboBoxColorPicker1.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;cbPalletSleeveColor.Type" xml:space="preserve">
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;comboBoxColorPicker1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;cbPalletSleeveColor.Parent" xml:space="preserve">
     <value>tabPagePalletSleeve</value>
   </data>
-  <data name="&gt;&gt;comboBoxColorPicker1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cbPalletSleeveColor.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;chkbSleeve.Name" xml:space="preserve">
-    <value>chkbSleeve</value>
+  <data name="&gt;&gt;chkbPalletSleeve.Name" xml:space="preserve">
+    <value>chkbPalletSleeve</value>
   </data>
-  <data name="&gt;&gt;chkbSleeve.Type" xml:space="preserve">
+  <data name="&gt;&gt;chkbPalletSleeve.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;chkbSleeve.Parent" xml:space="preserve">
+  <data name="&gt;&gt;chkbPalletSleeve.Parent" xml:space="preserve">
     <value>tabPagePalletSleeve</value>
   </data>
-  <data name="&gt;&gt;chkbSleeve.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;chkbPalletSleeve.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="tabPagePalletSleeve.Location" type="System.Drawing.Point, System.Drawing">
@@ -694,7 +775,7 @@
     <value>cbInterlayer</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
     <value>gbLayer</value>
@@ -814,190 +895,13 @@
     <value>ctrlStrapperSet</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.Parent" xml:space="preserve">
     <value>tabPageStrappers</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="cbPalletCorners.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 5</value>
-  </data>
-  <data name="cbPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 21</value>
-  </data>
-  <data name="cbPalletCorners.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCorners.Name" xml:space="preserve">
-    <value>cbPalletCorners</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCorners.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCorners.Parent" xml:space="preserve">
-    <value>tabPagePalletCorners</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCorners.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="chkbPalletCorners.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkbPalletCorners.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
-  </data>
-  <data name="chkbPalletCorners.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 17</value>
-  </data>
-  <data name="chkbPalletCorners.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="chkbPalletCorners.Text" xml:space="preserve">
-    <value>Pallet corners</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCorners.Name" xml:space="preserve">
-    <value>chkbPalletCorners</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCorners.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCorners.Parent" xml:space="preserve">
-    <value>tabPagePalletCorners</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCorners.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="chkbPalletCornersTopY.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkbPalletCornersTopY.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="chkbPalletCornersTopY.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 30</value>
-  </data>
-  <data name="chkbPalletCornersTopY.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 17</value>
-  </data>
-  <data name="chkbPalletCornersTopY.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="chkbPalletCornersTopY.Text" xml:space="preserve">
-    <value>Pallet corners (width)</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCornersTopY.Name" xml:space="preserve">
-    <value>chkbPalletCornersTopY</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCornersTopY.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCornersTopY.Parent" xml:space="preserve">
-    <value>tabPagePalletCornersTop</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCornersTopY.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="cbPalletCornersTop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 5</value>
-  </data>
-  <data name="cbPalletCornersTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 21</value>
-  </data>
-  <data name="cbPalletCornersTop.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCornersTop.Name" xml:space="preserve">
-    <value>cbPalletCornersTop</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCornersTop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCornersTop.Parent" xml:space="preserve">
-    <value>tabPagePalletCornersTop</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCornersTop.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="chkbPalletCornersTopX.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkbPalletCornersTopX.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="chkbPalletCornersTopX.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
-  </data>
-  <data name="chkbPalletCornersTopX.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 17</value>
-  </data>
-  <data name="chkbPalletCornersTopX.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="chkbPalletCornersTopX.Text" xml:space="preserve">
-    <value>Pallet corners (length)</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCornersTopX.Name" xml:space="preserve">
-    <value>chkbPalletCornersTopX</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCornersTopX.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCornersTopX.Parent" xml:space="preserve">
-    <value>tabPagePalletCornersTop</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCornersTopX.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="cbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 7</value>
-  </data>
-  <data name="cbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 21</value>
-  </data>
-  <data name="cbPalletCap.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCap.Name" xml:space="preserve">
-    <value>cbPalletCap</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCap.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCap.Parent" xml:space="preserve">
-    <value>tabPagePalletCap</value>
-  </data>
-  <data name="&gt;&gt;cbPalletCap.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="chkbPalletCap.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
-  </data>
-  <data name="chkbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 17</value>
-  </data>
-  <data name="chkbPalletCap.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="chkbPalletCap.Text" xml:space="preserve">
-    <value>Pallet cap</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCap.Name" xml:space="preserve">
-    <value>chkbPalletCap</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCap.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCap.Parent" xml:space="preserve">
-    <value>tabPagePalletCap</value>
-  </data>
-  <data name="&gt;&gt;chkbPalletCap.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="uCtrlPalletFilmCovering.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 59</value>
@@ -1012,7 +916,7 @@
     <value>5</value>
   </data>
   <data name="uCtrlPalletFilmCovering.Text" xml:space="preserve">
-    <value>Film covering</value>
+    <value>Film top covering</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletFilmCovering.Name" xml:space="preserve">
     <value>uCtrlPalletFilmCovering</value>
@@ -1025,33 +929,6 @@
   </data>
   <data name="&gt;&gt;uCtrlPalletFilmCovering.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="uCtrlPalletFilmLength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 32</value>
-  </data>
-  <data name="uCtrlPalletFilmLength.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="uCtrlPalletFilmLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>273, 20</value>
-  </data>
-  <data name="uCtrlPalletFilmLength.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="uCtrlPalletFilmLength.Text" xml:space="preserve">
-    <value>Film length</value>
-  </data>
-  <data name="&gt;&gt;uCtrlPalletFilmLength.Name" xml:space="preserve">
-    <value>uCtrlPalletFilmLength</value>
-  </data>
-  <data name="&gt;&gt;uCtrlPalletFilmLength.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlPalletFilmLength.Parent" xml:space="preserve">
-    <value>tabPagePalletFilm</value>
-  </data>
-  <data name="&gt;&gt;uCtrlPalletFilmLength.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="cbPalletFilm.Location" type="System.Drawing.Point, System.Drawing">
     <value>130, 7</value>
@@ -1072,7 +949,7 @@
     <value>tabPagePalletFilm</value>
   </data>
   <data name="&gt;&gt;cbPalletFilm.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="chkbPalletFilm.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1099,76 +976,7 @@
     <value>tabPagePalletFilm</value>
   </data>
   <data name="&gt;&gt;chkbPalletFilm.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="comboBoxColorPicker1.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="comboBoxColorPicker1.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="comboBoxColorPicker1.Items" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="comboBoxColorPicker1.Items1" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="comboBoxColorPicker1.Items2" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="comboBoxColorPicker1.Items3" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="comboBoxColorPicker1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 5</value>
-  </data>
-  <data name="comboBoxColorPicker1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 22</value>
-  </data>
-  <data name="comboBoxColorPicker1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;comboBoxColorPicker1.Name" xml:space="preserve">
-    <value>comboBoxColorPicker1</value>
-  </data>
-  <data name="&gt;&gt;comboBoxColorPicker1.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;comboBoxColorPicker1.Parent" xml:space="preserve">
-    <value>tabPagePalletSleeve</value>
-  </data>
-  <data name="&gt;&gt;comboBoxColorPicker1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="chkbSleeve.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkbSleeve.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
-  </data>
-  <data name="chkbSleeve.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 17</value>
-  </data>
-  <data name="chkbSleeve.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="chkbSleeve.Text" xml:space="preserve">
-    <value>Sleeve</value>
-  </data>
-  <data name="&gt;&gt;chkbSleeve.Name" xml:space="preserve">
-    <value>chkbSleeve</value>
-  </data>
-  <data name="&gt;&gt;chkbSleeve.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbSleeve.Parent" xml:space="preserve">
-    <value>tabPagePalletSleeve</value>
-  </data>
-  <data name="&gt;&gt;chkbSleeve.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cbPalletLabels.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
   </data>
   <data name="cbPalletLabels.Location" type="System.Drawing.Point, System.Drawing">
     <value>352, 32</value>
@@ -1190,6 +998,9 @@
   </data>
   <data name="&gt;&gt;cbPalletLabels.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="bnAdd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="bnAdd.Location" type="System.Drawing.Point, System.Drawing">
     <value>352, 3</value>
@@ -1216,7 +1027,7 @@
     <value>1</value>
   </data>
   <data name="gridLabels.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+    <value>Top, Bottom, Left</value>
   </data>
   <data name="gridLabels.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -1238,6 +1049,96 @@
   </data>
   <data name="&gt;&gt;gridLabels.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="cbPalletSleeveColor.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cbPalletSleeveColor.ItemHeight" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items1" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items2" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items3" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items4" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items5" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items6" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items7" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items8" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items9" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items10" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items11" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbPalletSleeveColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 5</value>
+  </data>
+  <data name="cbPalletSleeveColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 22</value>
+  </data>
+  <data name="cbPalletSleeveColor.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;cbPalletSleeveColor.Name" xml:space="preserve">
+    <value>cbPalletSleeveColor</value>
+  </data>
+  <data name="&gt;&gt;cbPalletSleeveColor.Type" xml:space="preserve">
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cbPalletSleeveColor.Parent" xml:space="preserve">
+    <value>tabPagePalletSleeve</value>
+  </data>
+  <data name="&gt;&gt;cbPalletSleeveColor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chkbPalletSleeve.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbPalletSleeve.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="chkbPalletSleeve.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 17</value>
+  </data>
+  <data name="chkbPalletSleeve.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="chkbPalletSleeve.Text" xml:space="preserve">
+    <value>Sleeve</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletSleeve.Name" xml:space="preserve">
+    <value>chkbPalletSleeve</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletSleeve.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletSleeve.Parent" xml:space="preserve">
+    <value>tabPagePalletSleeve</value>
+  </data>
+  <data name="&gt;&gt;chkbPalletSleeve.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1386,6 +1287,6 @@
     <value>DockContentAnalysisCasePallet</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.DockContentAnalysisEdit, treeDiM.StackBuilder.Desktop, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.DockContentAnalysisEdit, treeDiM.StackBuilder.Desktop, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

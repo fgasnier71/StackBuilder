@@ -30,7 +30,7 @@ namespace treeDiM.StackBuilder.Desktop
                 HatchSpacing = UnitsManager.ConvertLengthFrom(item.HatchSpacing, UnitsManager.UnitSystem.UNIT_METRIC1);
                 HatchAngle = item.HatchAngle;
                 FilmColor = item.Color;
-                LinearWeight = 0.0;
+                Weight = item.Weight;
             }
             else
             {
@@ -93,10 +93,10 @@ namespace treeDiM.StackBuilder.Desktop
             get { return (double)uCtrlAngle.Value; }
             set { uCtrlAngle.Value = value; }
         }
-        public double LinearWeight
+        public double Weight
         {
-            get { return (double)uCtrlLinearMass.Value; }
-            set { uCtrlLinearMass.Value = value; }
+            get { return (double)uCtrlMass.Value; }
+            set { uCtrlMass.Value = value; }
         }
         #endregion
 

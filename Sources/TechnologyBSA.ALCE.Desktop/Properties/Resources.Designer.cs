@@ -1398,6 +1398,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ID_LABEL {
+            get {
+                return ResourceManager.GetString("ID_LABEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Layer.
         /// </summary>
         internal static string ID_LAYER {
@@ -1731,6 +1740,33 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ID_NODE_PALLETCAPS {
+            get {
+                return ResourceManager.GetString("ID_NODE_PALLETCAPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ID_NODE_PALLETCORNERS {
+            get {
+                return ResourceManager.GetString("ID_NODE_PALLETCORNERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ID_NODE_PALLETFILMS {
+            get {
+                return ResourceManager.GetString("ID_NODE_PALLETFILMS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pallets.
         /// </summary>
         internal static string ID_NODE_PALLETS {
@@ -2047,6 +2083,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ID_PALLETSIDE {
+            get {
+                return ResourceManager.GetString("ID_PALLETSIDE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pallet stack on.
         /// </summary>
         internal static string ID_PALLETSTACKON {
@@ -2071,6 +2116,24 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_PALLETWEIGHT_WU {
             get {
                 return ResourceManager.GetString("ID_PALLETWEIGHT_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ID_POSX {
+            get {
+                return ResourceManager.GetString("ID_POSX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ID_POSY {
+            get {
+                return ResourceManager.GetString("ID_POSY", resourceCulture);
             }
         }
         

@@ -484,7 +484,7 @@ namespace treeDiM.StackBuilder.Basics
                 palletFilm.ID.Name, palletFilm.ID.Description,
                 palletFilm.UseTransparency, palletFilm.UseHatching,
                 palletFilm.HatchSpacing, palletFilm.HatchAngle,
-                palletFilm.LinearWeight,
+                palletFilm.Weight,
                 palletFilm.Color);
             // insert in list
             _typeList.Add(palletFilmClone);
@@ -498,7 +498,7 @@ namespace treeDiM.StackBuilder.Basics
             string name, string description,
             bool useTransparency,
             bool useHatching, double hatchSpacing, double hatchAngle,
-            double linearWeight,
+            double weight,
             Color color)
         {
             // instantiate and initialize
@@ -507,7 +507,7 @@ namespace treeDiM.StackBuilder.Basics
                 name, description,
                 useTransparency,
                 useHatching, hatchSpacing, hatchAngle,
-                linearWeight,
+                weight,
                 color);
             // insert in list
             _typeList.Add(palletFilm);
@@ -519,6 +519,7 @@ namespace treeDiM.StackBuilder.Basics
         public PalletLabelProperties CreateNewPalletLabel(
             string name, string description,
             Vector2D dimensions, 
+            double weight,
             Color color,
             Bitmap bitmap)
         {
@@ -526,7 +527,9 @@ namespace treeDiM.StackBuilder.Basics
             var palletLabel = new PalletLabelProperties(
                 this,
                 name, description,
-                dimensions, color, bitmap);
+                dimensions,
+                weight,
+                color, bitmap);
             // insert in list
             _typeList.Add(palletLabel);
             // notify
@@ -738,7 +741,7 @@ namespace treeDiM.StackBuilder.Basics
         }
         public Analysis CreateNewAnalysisCylinderPallet(
             string name, string description
-            , CylinderProperties cylinder, PalletProperties palletProperties
+            , RevSolidProperties cylinder, PalletProperties palletProperties
             , List<InterlayerProperties> interlayers
             , ConstraintSetPackablePallet constraintSet
             , List<LayerEncap> layerDescs
@@ -1153,6 +1156,8 @@ namespace treeDiM.StackBuilder.Basics
                                 LoadPalletCapProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "PalletFilmProperties", StringComparison.CurrentCultureIgnoreCase))
                                 LoadPalletFilmProperties(itemPropertiesNode as XmlElement);
+                            else if (string.Equals(itemPropertiesNode.Name, "PalletLabelProperties", StringComparison.CurrentCultureIgnoreCase))
+                                LoadPalletLabelProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "BundleProperties", StringComparison.CurrentCultureIgnoreCase))
                                 LoadBundleProperties(itemPropertiesNode as XmlElement);
                             else if (string.Equals(itemPropertiesNode.Name, "TruckProperties", StringComparison.CurrentCultureIgnoreCase))
@@ -1618,6 +1623,33 @@ namespace treeDiM.StackBuilder.Basics
             }
             return true;
         }
+
+        private bool LoadPalletLabelInstances(XmlElement eltPalletLabels, ref List<PalletLabelInst> palletLabelInstances)
+        {
+            try
+            {
+                foreach (XmlNode node in eltPalletLabels)
+                {
+                    if (string.Equals(node.Name, "PalletLabelInst", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        XmlElement eltPalletLabelInst = node as XmlElement;
+                        string sId = eltPalletLabelInst.Attributes["Id"].Value;
+                        string sPosition = eltPalletLabelInst.Attributes["Position"].Value;
+                        string sAxis = eltPalletLabelInst.Attributes["Side"].Value;
+                        PalletLabelProperties palletLabelProperties = GetTypeByGuid(sId) as PalletLabelProperties;
+                        Vector2D position = UnitsManagerEx.ConvertLengthFrom(Vector2D.Parse(sPosition), UnitSystem);
+                        HalfAxis.HAxis axis = HalfAxis.Parse(sAxis);
+                        palletLabelInstances.Add(new PalletLabelInst(palletLabelProperties, position, axis));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+                return false;
+            }
+            return true;
+        }
         private void LoadPalletProperties(XmlElement eltPalletProperties)
         {
             string sid = eltPalletProperties.Attributes["Id"].Value;
@@ -1750,6 +1782,27 @@ namespace treeDiM.StackBuilder.Basics
                 );
             palletFilmProperties.ID.IGuid = new Guid(sid);
         }
+        private void LoadPalletLabelProperties(XmlElement eltPalletLabelProperties)
+        {
+            string sid = eltPalletLabelProperties.Attributes["Id"].Value;
+            string sname = eltPalletLabelProperties.Attributes["Name"].Value;
+            string sdescription = eltPalletLabelProperties.Attributes["Description"].Value;
+            string sdimensions = eltPalletLabelProperties.Attributes["Dimensions"].Value;
+            string sweight = eltPalletLabelProperties.Attributes["Weight"].Value;
+            Vector2D dimensions = UnitsManagerEx.ConvertLengthFrom(Vector2D.Parse(sdimensions), UnitSystem);
+            double weight = double.Parse(sweight, CultureInfo.InvariantCulture);
+            Color color = Color.FromArgb(Int32.Parse(eltPalletLabelProperties.Attributes["Color"].Value));
+            Bitmap bitmap =StringToBitmap(eltPalletLabelProperties.Attributes["Bitmap"].Value);
+
+            PalletLabelProperties palletLabelProperties = CreateNewPalletLabel(
+                sname
+                , sdescription
+                , dimensions
+                , UnitsManager.ConvertMassFrom(weight, UnitSystem)
+                , color
+                , bitmap);
+            palletLabelProperties.ID.IGuid = new Guid(sid);
+        }
         private void LoadBundleProperties(XmlElement eltBundleProperties)
         {
             string sid = eltBundleProperties.Attributes["Id"].Value;
@@ -1838,6 +1891,7 @@ namespace treeDiM.StackBuilder.Basics
                 PalletCapProperties palletCap = GetTypeByGuid(sPalletCapId) as PalletCapProperties;
                 PalletFilmProperties palletFilm = GetTypeByGuid(sPalletFilmId) as PalletFilmProperties;
                 StrapperSet strapperSet = new StrapperSet();
+                List<PalletLabelInst> palletLabelInstances = new List<PalletLabelInst>();
 
                 ConstraintSetAbstract constraintSet = null;
                 foreach (XmlNode node in eltAnalysis.ChildNodes)
@@ -1850,6 +1904,8 @@ namespace treeDiM.StackBuilder.Basics
                         interlayers = LoadInterlayers(node as XmlElement);
                     else if (string.Equals(node.Name, "StrapperSet", StringComparison.CurrentCultureIgnoreCase))
                         LoadStrapperSet(node as XmlElement, ref strapperSet);
+                    else if (string.Equals(node.Name, "PalletLabelInstances", StringComparison.CurrentCultureIgnoreCase))
+                        LoadPalletLabelInstances(node as XmlElement, ref palletLabelInstances);
                 }
 
                 var analysis = CreateNewAnalysisCasePallet(
@@ -1862,6 +1918,7 @@ namespace treeDiM.StackBuilder.Basics
                 AnalysisCasePallet analysisCasePallet = analysis as AnalysisCasePallet;
                 analysisCasePallet.PalletCornerTopProperties = palletCornersTop;
                 analysisCasePallet.StrapperSet = strapperSet;
+                analysisCasePallet.PalletLabels = palletLabelInstances;
 
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
@@ -2621,6 +2678,8 @@ namespace treeDiM.StackBuilder.Basics
                         Save(capProperties, xmlItemPropertiesElt, xmlDoc);
                     else if (itemProperties is PalletFilmProperties filmProperties)
                         Save(filmProperties, xmlItemPropertiesElt, xmlDoc);
+                    else if (itemProperties is PalletLabelProperties labelProperties)
+                        Save(labelProperties, xmlItemPropertiesElt, xmlDoc);
                     else if (itemProperties is TruckProperties truckProperties)
                         Save(truckProperties, xmlItemPropertiesElt, xmlDoc);
                     else if (itemProperties is PackProperties packProperties)
@@ -3153,12 +3212,46 @@ namespace treeDiM.StackBuilder.Basics
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
             colorAttribute.Value = string.Format("{0}", filmProperties.Color.ToArgb());
             eltFilmProperties.Attributes.Append(colorAttribute);
-            // linear weight
-            XmlAttribute linearWeightAttribute = xmlDoc.CreateAttribute("LinearWeight");
-            linearWeightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", filmProperties.LinearWeight);
-            eltFilmProperties.Attributes.Append(linearWeightAttribute);
+            // Weight
+            XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", filmProperties.Weight);
+            eltFilmProperties.Attributes.Append(weightAttribute);
         }
 
+        public void Save(PalletLabelProperties palletLabelProperties, XmlElement parentElement, XmlDocument xmlDoc)
+        {
+            // create element
+            XmlElement eltPalletLabelProperties = xmlDoc.CreateElement("PalletLabelProperties");
+            parentElement.AppendChild(eltPalletLabelProperties);
+            // Id
+            XmlAttribute guidAttribute = xmlDoc.CreateAttribute("Id");
+            guidAttribute.Value = palletLabelProperties.ID.IGuid.ToString();
+            eltPalletLabelProperties.Attributes.Append(guidAttribute);
+            // name
+            XmlAttribute nameAttribute = xmlDoc.CreateAttribute("Name");
+            nameAttribute.Value = palletLabelProperties.ID.Name;
+            eltPalletLabelProperties.Attributes.Append(nameAttribute);
+            // description
+            XmlAttribute descAttribute = xmlDoc.CreateAttribute("Description");
+            descAttribute.Value = palletLabelProperties.ID.Description;
+            eltPalletLabelProperties.Attributes.Append(descAttribute);
+            // dimensions
+            XmlAttribute dimAttribute = xmlDoc.CreateAttribute("Dimensions");
+            dimAttribute.Value = palletLabelProperties.Dimensions.ToString();
+            eltPalletLabelProperties.Attributes.Append(dimAttribute);
+            // weight
+            XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
+            weightAttribute.Value = palletLabelProperties.Weight.ToString();
+            eltPalletLabelProperties.Attributes.Append(weightAttribute);
+            // color
+            XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
+            colorAttribute.Value = $"{palletLabelProperties.Color.ToArgb()}";
+            eltPalletLabelProperties.Attributes.Append(colorAttribute);
+            // bitmap
+            XmlAttribute bitmapAttribute = xmlDoc.CreateAttribute("Bitmap");
+            bitmapAttribute.Value = BitmapToString(palletLabelProperties.Bitmap);
+            eltPalletLabelProperties.Attributes.Append(bitmapAttribute);
+        }
         public void Save(BundleProperties bundleProperties, XmlElement parentElement, XmlDocument xmlDoc)
         {
             // create xmlPalletProperties element
@@ -3354,6 +3447,29 @@ namespace treeDiM.StackBuilder.Basics
                 }
             }
         }
+        private void SavePalletLabelInstances(List<PalletLabelInst> palletLabelInstances, XmlElement eltParent, XmlDocument xmlDoc)
+        {
+            // PalletLabelInst
+            XmlElement eltPalletLabelInstances = xmlDoc.CreateElement("PalletLabelInstances");
+            eltParent.AppendChild(eltPalletLabelInstances);
+            foreach (var pli in palletLabelInstances)
+            {
+                XmlElement eltPli = xmlDoc.CreateElement("PalletLabelInst");
+                eltPalletLabelInstances.AppendChild(eltPli);
+                // Id
+                XmlAttribute attId = xmlDoc.CreateAttribute("Id");
+                attId.Value = pli.PalletLabelProperties.ID.IGuid.ToString();
+                eltPli.Attributes.Append(attId);
+                // position
+                XmlAttribute attPosition = xmlDoc.CreateAttribute("Position");
+                attPosition.Value = pli.Position.ToString();
+                eltPli.Attributes.Append(attPosition);
+                // side
+                XmlAttribute attAxis = xmlDoc.CreateAttribute("Side");
+                attAxis.Value = HalfAxis.ToString(pli.Side);
+                eltPli.Attributes.Append(attAxis);
+            }
+        }
         #endregion
 
         #region Save Wrappers
@@ -3511,6 +3627,8 @@ namespace treeDiM.StackBuilder.Basics
                 }
                 // StrapperSet
                 SaveStrappers(analysisCasePallet1.StrapperSet, xmlAnalysisElt, xmlDoc);
+                // labels
+                SavePalletLabelInstances(analysisCasePallet1.PalletLabels, xmlAnalysisElt, xmlDoc);
             }
 
             // constraint set

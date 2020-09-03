@@ -348,7 +348,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -628,7 +628,7 @@
     <value>graphCtrl</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -656,5 +656,62 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>treeDiM.StackBuilder.Desktop.FormNewBase, TechnologyBSA.ALCE.Desktop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value>Save to database...</value>
+  </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lblDescription.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lblName.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbThickness.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitThickness.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitWeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthThickness.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uMassWeight.Text" xml:space="preserve">
+    <value></value>
   </data>
 </root>

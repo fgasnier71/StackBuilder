@@ -304,7 +304,8 @@ namespace treeDiM.StackBuilder.Desktop
                     CreateNewPalletCap(form.ItemName, form.ItemDescription,
                         form.CapLength, form.CapWidth, form.CapHeight,
                         form.CapInnerLength, form.CapInnerWidth, form.CapInnerHeight,
-                        form.CapWeight, form.CapColor);
+                        form.CapWeight,
+                        form.CapColor);
             }
         }
         /// <summary>
@@ -318,7 +319,7 @@ namespace treeDiM.StackBuilder.Desktop
                     CreateNewPalletFilm(form.ItemName, form.ItemDescription,
                         form.UseTransparency,
                         form.UseHatching, form.HatchSpacing, form.HatchAngle,
-                        form.LinearWeight,
+                        form.Weight,
                         form.FilmColor);
             }
         }
@@ -329,6 +330,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (DialogResult.OK == form.ShowDialog())
                     CreateNewPalletLabel(form.ItemName, form.ItemDescription,
                         form.Dimensions,
+                        form.Weight,
                         form.Color,
                         form.Bitmap);
 

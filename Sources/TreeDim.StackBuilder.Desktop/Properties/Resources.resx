@@ -561,6 +561,9 @@ Continue?</value>
   <data name="ID_ITEMS" xml:space="preserve">
     <value>Items</value>
   </data>
+  <data name="ID_LABEL" xml:space="preserve">
+    <value>Label</value>
+  </data>
   <data name="ID_LAYER" xml:space="preserve">
     <value>Layer</value>
   </data>
@@ -775,6 +778,9 @@ Continue?</value>
   <data name="ID_PALLETS" xml:space="preserve">
     <value>Pallets</value>
   </data>
+  <data name="ID_PALLETSIDE" xml:space="preserve">
+    <value>Pallet side</value>
+  </data>
   <data name="ID_PALLETSTACKON" xml:space="preserve">
     <value>Pallet stack on</value>
   </data>
@@ -787,6 +793,12 @@ Continue?</value>
   </data>
   <data name="ID_PALLET_NUMBER" xml:space="preserve">
     <value>Pallet #{0}</value>
+  </data>
+  <data name="ID_POSX" xml:space="preserve">
+    <value>Horiz. position</value>
+  </data>
+  <data name="ID_POSY" xml:space="preserve">
+    <value>Vert. position</value>
   </data>
   <data name="ID_PREMIUMFEATURE" xml:space="preserve">
     <value>This feature is only accessible to Premium accounts.</value>

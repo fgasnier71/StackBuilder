@@ -44,6 +44,7 @@ namespace treeDiM.StackBuilder.Desktop
                 PalletLabelProperties palletLabel = Item as PalletLabelProperties;
                 Color = palletLabel.Color;
                 Dimensions = palletLabel.Dimensions;
+                Weight = palletLabel.Weight;
                 Bitmap = palletLabel.Bitmap;
             }
             else
@@ -52,12 +53,18 @@ namespace treeDiM.StackBuilder.Desktop
                 Dimensions = new Vector2D(
                     UnitsManager.ConvertLengthFrom(210, UnitsManager.UnitSystem.UNIT_METRIC1),
                     UnitsManager.ConvertLengthFrom(297, UnitsManager.UnitSystem.UNIT_METRIC1));
+                Weight = 0.0;
                 Bitmap = Resources.PalletLabelDefault;
             }
         }
         #endregion
 
         #region Public properties
+        public double Weight
+        {
+            get => uCtrlWeight.Value;
+            set => uCtrlWeight.Value = value;
+        }
         public Bitmap Bitmap { get; set; }
         public Vector2D Dimensions
         {
@@ -80,11 +87,17 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     Bitmap = new Bitmap(openFileDialog.FileName);
                 }
+                graphCtrl.Invalidate();
             }
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
             }
+        }
+        private void OnRemoveImage(object sender, EventArgs e)
+        {
+            Bitmap = null;
+            graphCtrl.Invalidate();
         }
         #endregion
 
@@ -95,7 +108,8 @@ namespace treeDiM.StackBuilder.Desktop
             var labelProperties = new PalletLabelProperties(
                 null,
                 ItemName, ItemDescription,
-                Dimensions, Color, Bitmap
+                Dimensions, Weight,
+                Color, Bitmap
                 );
             PalletLabel label = new PalletLabel(0, labelProperties, new BoxPosition(Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Z_P));
             graphics.AddLabel(label);
@@ -106,6 +120,10 @@ namespace treeDiM.StackBuilder.Desktop
                     Color.Red, false)
                 );
         }
+        private void OnColorChanged(object sender, EventArgs e)
+        {
+            graphCtrl.Invalidate();
+        }
         #endregion
 
         #region Send to database
@@ -113,7 +131,9 @@ namespace treeDiM.StackBuilder.Desktop
 
         #region Data members
         protected static ILog _log = LogManager.GetLogger(typeof(FormNewPalletLabel));
+
         #endregion
+
 
     }
 }

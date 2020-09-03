@@ -44,15 +44,42 @@
             this.gbStopCriterions.SuspendLayout();
             this.SuspendLayout();
             // 
+            // graphCtrlSolution
+            // 
+            resources.ApplyResources(this.graphCtrlSolution, "graphCtrlSolution");
+            // 
             // splitContainerHoriz
             // 
+            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
+            // 
+            // splitContainerHoriz.Panel1
+            // 
+            resources.ApplyResources(this.splitContainerHoriz.Panel1, "splitContainerHoriz.Panel1");
             // 
             // splitContainerHoriz.Panel2
             // 
+            resources.ApplyResources(this.splitContainerHoriz.Panel2, "splitContainerHoriz.Panel2");
             this.splitContainerHoriz.Panel2.Controls.Add(this.gbStopCriterions);
             // 
             // splitContainerVert
             // 
+            resources.ApplyResources(this.splitContainerVert, "splitContainerVert");
+            // 
+            // splitContainerVert.Panel1
+            // 
+            resources.ApplyResources(this.splitContainerVert.Panel1, "splitContainerVert.Panel1");
+            // 
+            // splitContainerVert.Panel2
+            // 
+            resources.ApplyResources(this.splitContainerVert.Panel2, "splitContainerVert.Panel2");
+            // 
+            // cbInterlayer
+            // 
+            resources.ApplyResources(this.cbInterlayer, "cbInterlayer");
+            // 
+            // gridSolution
+            // 
+            resources.ApplyResources(this.gridSolution, "gridSolution");
             // 
             // gbStopCriterions
             // 

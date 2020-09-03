@@ -15,7 +15,8 @@ namespace treeDiM.StackBuilder.Basics
         public double LoadVolume => ItemCount * Analysis.Content.Volume;
         public bool HasNetWeight => Analysis.Content.NetWeight.Activated;
         public double LoadWeight => ItemCount * Analysis.ContentWeight;
-        public virtual double Weight => LoadWeight + Analysis.ContainerWeight + Analysis.DecorationWeight;
+        public virtual double InterlayersWeight => 0.0;
+        public virtual double Weight => LoadWeight + InterlayersWeight + Analysis.ContainerWeight + Analysis.DecorationWeight;
         public OptDouble NetWeight => ItemCount * Analysis.Content.NetWeight;
         public double VolumeEfficiency => 100.0 * (ItemCount * Analysis.ContentVolume) / Analysis.ContainerLoadingVolume;
         public OptDouble WeightEfficiency

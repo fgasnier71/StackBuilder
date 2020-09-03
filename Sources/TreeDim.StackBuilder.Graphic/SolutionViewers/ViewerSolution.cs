@@ -342,6 +342,15 @@ namespace treeDiM.StackBuilder.Graphics
                 }
                 #endregion
 
+                #region Pallet sleeves
+                // ### pallet sleeve
+                if (analysisCasePallet.HasPalletSleeve)
+                {
+                    var ps = new PalletSleeve(0, loadBBox, analysisCasePallet.PalletSleeveColor);
+                    ps.DrawEnd(graphics);
+                }
+                #endregion
+
                 #region Pallet Cap
                 // ### pallet cap
                 if (analysisCasePallet.HasPalletCap)
@@ -362,20 +371,14 @@ namespace treeDiM.StackBuilder.Graphics
                 }
                 #endregion
 
-                #region Pallet sleeves
-                if (analysisCasePallet.HasPalletSleeve)
-                {                    
-                }
-                #endregion
-
                 #region Pallet labels
+                // ### pallet labels
                 if (null != analysisCasePallet)
                 {
-                    foreach (var palletLabelInst in analysisCasePallet.PalletLabels)
+                    foreach (var pli in analysisCasePallet.PalletLabels)
                     {
-                        var bPosition = new BoxPosition();
-                        var pl = new PalletLabel(++pickId, palletLabelInst.PalletLabelProperties, bPosition);
-                        graphics.Draw(pl.Face, Graphics3D.FaceDir.FRONT);
+                        var pl = new PalletLabel(++pickId, pli.PalletLabelProperties, pli.ToBoxPosition(loadBBox));
+                        pl.DrawEnd(graphics);
                     }
                 }
                 #endregion

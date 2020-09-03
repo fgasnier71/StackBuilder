@@ -403,7 +403,7 @@
     <value>graphCtrl</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -667,10 +667,10 @@
     <value>Color</value>
   </data>
   <data name="cbColorWallInner.Items83" xml:space="preserve">
-    <value>Color</value>
+    <value>Farbe</value>
   </data>
   <data name="cbColorWallInner.Items84" xml:space="preserve">
-    <value>Farbe</value>
+    <value>Color</value>
   </data>
   <data name="cbColorWallInner.Items85" xml:space="preserve">
     <value>Color</value>
@@ -688,7 +688,7 @@
     <value>Color</value>
   </data>
   <data name="cbColorWallInner.Items90" xml:space="preserve">
-    <value>Color</value>
+    <value>Farbe</value>
   </data>
   <data name="cbColorWallInner.Items91" xml:space="preserve">
     <value>Farbe</value>
@@ -718,7 +718,7 @@
     <value>cbColorWallInner</value>
   </data>
   <data name="&gt;&gt;cbColorWallInner.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColorWallInner.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -1060,7 +1060,7 @@
     <value>cbColorWallOuter</value>
   </data>
   <data name="&gt;&gt;cbColorWallOuter.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColorWallOuter.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -1396,7 +1396,7 @@
     <value>cbColorTop</value>
   </data>
   <data name="&gt;&gt;cbColorTop.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColorTop.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -1475,5 +1475,65 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>treeDiM.StackBuilder.Desktop.FormNewBase, TechnologyBSA.ALCE.Desktop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value>Send to database</value>
+  </data>
+  <data name="cbColorWall.Items63" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lblDescription.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lblName.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthDiameterInner.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthDiameterOuter.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uMassWeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColorWall.Items68" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColorWall.Items69" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColorWall.Items70" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColorWall.Items77" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbColorWall.Items72" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbRadiusInner.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbRadiusOuter.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthRadiusInner.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthRadiusOuter.Text" xml:space="preserve">
+    <value></value>
   </data>
 </root>

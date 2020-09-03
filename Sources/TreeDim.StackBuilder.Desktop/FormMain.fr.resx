@@ -1649,4 +1649,10 @@
   <data name="saveFileDialogExport.Filter" xml:space="preserve">
     <value>eXchange Markup Language (*.xml)|*.xml|Tous les fichiers (*.*)|*.*</value>
   </data>
+  <data name="toolStripMIPalletLabel.Text" xml:space="preserve">
+    <value>Etiquette de palette</value>
+  </data>
+  <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
+    <value>Ajouter une nouvelle étiquette de palette</value>
+  </data>
 </root>

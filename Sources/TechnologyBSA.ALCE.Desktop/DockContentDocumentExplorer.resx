@@ -175,7 +175,7 @@
     <value>_documentTreeView</value>
   </data>
   <data name="&gt;&gt;_documentTreeView.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.AnalysisTreeView, treeDiM.StackBuilder.Desktop, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.AnalysisTreeView, treeDiM.StackBuilder.Desktop, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_documentTreeView.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2926,5 +2926,11 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>WeifenLuo.WinFormsUI.Docking.DockContent, WeifenLuo.WinFormsUI.Docking, Version=3.0.6.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481</value>
+  </data>
+  <data name="FloatingToolStripMenuItem.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="TabbedDocumentToolStripMenuItem.Text" xml:space="preserve">
+    <value></value>
   </data>
 </root>

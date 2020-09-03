@@ -493,6 +493,6 @@
     <value>FormNewAnalysisBoxCase</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewAnalysis, treeDiM.StackBuilder.Desktop, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

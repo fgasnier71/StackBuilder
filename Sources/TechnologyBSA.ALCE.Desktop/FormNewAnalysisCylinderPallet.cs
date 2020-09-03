@@ -118,7 +118,7 @@ namespace treeDiM.StackBuilder.Desktop
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
             if (ctrl == cbCylinders)
-                return itemBase is CylinderProperties;
+                return itemBase is RevSolidProperties;
             else if (ctrl == cbPallets)
                 return itemBase is PalletProperties;
             else
@@ -144,7 +144,7 @@ namespace treeDiM.StackBuilder.Desktop
             try
             {
                 // get cylinder / case
-                if (cbCylinders.SelectedType is CylinderProperties cylinder
+                if (cbCylinders.SelectedType is RevSolidProperties cylinder
                     && cbPallets.SelectedType is PalletProperties palletProperties)
                 {
                     // compute
@@ -177,7 +177,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Private properties
-        private CylinderProperties SelectedCylinderProperties=> cbCylinders.SelectedType as CylinderProperties;
+        private RevSolidProperties SelectedCylinderProperties=> cbCylinders.SelectedType as RevSolidProperties;
         private PalletProperties SelectedPallet => cbPallets.SelectedType as PalletProperties;
         private AnalysisCylinderPallet AnalysisCast => _item as AnalysisCylinderPallet;
         #endregion

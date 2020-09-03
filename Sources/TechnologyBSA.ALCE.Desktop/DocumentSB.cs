@@ -318,20 +318,8 @@ namespace treeDiM.StackBuilder.Desktop
                     CreateNewPalletFilm(form.ItemName, form.ItemDescription,
                         form.UseTransparency,
                         form.UseHatching, form.HatchSpacing, form.HatchAngle,
-                        form.LinearWeight,
+                        form.Weight,
                         form.FilmColor);
-            }
-        }
-        public void CreateNewPalletLabelUI()
-        {
-            using (var form = new FormNewPalletLabel(this, null))
-            {
-                if (DialogResult.OK == form.ShowDialog())
-                    CreateNewPalletLabel(form.ItemName, form.ItemDescription,
-                        form.Dimensions,
-                        form.Color,
-                        form.Bitmap);
-
             }
         }
         /// <summary>

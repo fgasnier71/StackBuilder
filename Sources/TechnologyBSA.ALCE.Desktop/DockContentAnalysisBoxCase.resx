@@ -117,14 +117,194 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="&gt;&gt;splitContainerVert.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
+    <value>Maximum number</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaxNumber.Name" xml:space="preserve">
+    <value>uCtrlOptMaxNumber</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel2.Name" xml:space="preserve">
+    <value>splitContainerHoriz.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel1.Name" xml:space="preserve">
+    <value>splitContainerHoriz.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbInterlayer.Name" xml:space="preserve">
+    <value>cbInterlayer</value>
+  </data>
+  <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Parent" xml:space="preserve">
+    <value>splitContainerHoriz.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel1.Parent" xml:space="preserve">
+    <value>splitContainerHoriz</value>
+  </data>
+  <data name="&gt;&gt;gridSolution.Parent" xml:space="preserve">
+    <value>splitContainerVert.Panel2</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="gbStopCriterions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>326, 113</value>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
+  </data>
+  <data name="gbStopCriterions.Text" xml:space="preserve">
+    <value>Stop criterions</value>
+  </data>
+  <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;graphCtrlSolution.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaxNumber.Parent" xml:space="preserve">
+    <value>gbStopCriterions</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Panel1.Parent" xml:space="preserve">
+    <value>splitContainerVert</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Name" xml:space="preserve">
+    <value>splitContainerVert</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Panel2.Parent" xml:space="preserve">
+    <value>splitContainerVert</value>
+  </data>
+  <data name="&gt;&gt;gbStopCriterions.Name" xml:space="preserve">
+    <value>gbStopCriterions</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumWeight.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
+    <value>Maximum weight</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="uCtrlOptMaxNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
+    <value>gbLayer</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 20</value>
+  </data>
+  <data name="&gt;&gt;gbStopCriterions.Parent" xml:space="preserve">
+    <value>splitContainerHoriz.Panel2</value>
+  </data>
+  <data name="&gt;&gt;graphCtrlSolution.Name" xml:space="preserve">
+    <value>graphCtrlSolution</value>
+  </data>
+  <data name="&gt;&gt;gbStopCriterions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Panel2.Name" xml:space="preserve">
+    <value>splitContainerVert.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Name" xml:space="preserve">
+    <value>splitContainerHoriz</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumWeight.Name" xml:space="preserve">
+    <value>uCtrlOptMaximumWeight</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gbStopCriterions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 12</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Panel1.Name" xml:space="preserve">
+    <value>splitContainerVert.Panel1</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Desktop.DockContentAnalysisEdit, TechnologyBSA.ALCE.Desktop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.Panel2.Parent" xml:space="preserve">
+    <value>splitContainerHoriz</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="&gt;&gt;splitContainerHoriz.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gbStopCriterions.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Box/case analysis...</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumWeight.Parent" xml:space="preserve">
+    <value>gbStopCriterions</value>
+  </data>
+  <data name="&gt;&gt;gridSolution.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gridSolution.Name" xml:space="preserve">
+    <value>gridSolution</value>
+  </data>
+  <data name="gbStopCriterions.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaxNumber.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="uCtrlOptMaximumWeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 20</value>
+  </data>
+  <data name="gbStopCriterions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>254, 5</value>
+  </data>
+  <data name="&gt;&gt;splitContainerVert.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gridSolution.Type" xml:space="preserve">
+    <value>SourceGrid.Grid, SourceGrid, Version=4.40.4580.29115, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaximumWeight.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
+    <value>splitContainerVert.Panel1</value>
+  </data>
+  <data name="uCtrlOptMaxNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 38</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptMaxNumber.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlOptInt, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>784, 561</value>
@@ -132,199 +312,22 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>DockContentAnalysisBoxCase</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Box/case analysis...</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.DockContentAnalysisEdit, treeDiM.StackBuilder.Desktop, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;cbInterlayer.Name" xml:space="preserve">
-    <value>cbInterlayer</value>
-  </data>
-  <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
-    <value>gbLayer</value>
-  </data>
-  <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;cbInterlayer.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="gbStopCriterions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="gbStopCriterions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>254, 5</value>
-  </data>
-  <data name="&gt;&gt;gbStopCriterions.Name" xml:space="preserve">
-    <value>gbStopCriterions</value>
-  </data>
-  <data name="&gt;&gt;gbStopCriterions.Parent" xml:space="preserve">
-    <value>splitContainerHoriz.Panel2</value>
-  </data>
-  <data name="gbStopCriterions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>326, 113</value>
-  </data>
-  <data name="gbStopCriterions.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="gbStopCriterions.Text" xml:space="preserve">
-    <value>Stop criterions</value>
-  </data>
-  <data name="&gt;&gt;gbStopCriterions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbStopCriterions.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;graphCtrlSolution.Name" xml:space="preserve">
-    <value>graphCtrlSolution</value>
-  </data>
-  <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
-    <value>splitContainerVert.Panel1</value>
-  </data>
-  <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;graphCtrlSolution.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;gridSolutions.Name" xml:space="preserve">
-    <value>gridSolutions</value>
-  </data>
-  <data name="&gt;&gt;gridSolutions.Parent" xml:space="preserve">
-    <value>splitContainerVert.Panel2</value>
-  </data>
-  <data name="&gt;&gt;gridSolutions.Type" xml:space="preserve">
-    <value>SourceGrid.Grid, SourceGrid, Version=4.40.4580.29115, Culture=neutral, PublicKeyToken=df6f5e538749e85d</value>
-  </data>
-  <data name="&gt;&gt;gridSolutions.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Name" xml:space="preserve">
-    <value>splitContainerHoriz</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel1.Name" xml:space="preserve">
-    <value>splitContainerHoriz.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel1.Parent" xml:space="preserve">
-    <value>splitContainerHoriz</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel2.Name" xml:space="preserve">
-    <value>splitContainerHoriz.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel2.Parent" xml:space="preserve">
-    <value>splitContainerHoriz</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;splitContainerHoriz.Panel2.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainerHoriz.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Name" xml:space="preserve">
-    <value>splitContainerVert</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel1.Name" xml:space="preserve">
-    <value>splitContainerVert.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel1.Parent" xml:space="preserve">
-    <value>splitContainerVert</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel2.Name" xml:space="preserve">
-    <value>splitContainerVert.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel2.Parent" xml:space="preserve">
-    <value>splitContainerVert</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Parent" xml:space="preserve">
-    <value>splitContainerHoriz.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainerVert.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 12</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaximumWeight.Name" xml:space="preserve">
-    <value>uCtrlOptMaximumWeight</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaximumWeight.Parent" xml:space="preserve">
-    <value>gbStopCriterions</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 20</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="uCtrlOptMaximumWeight.Text" xml:space="preserve">
-    <value>Maximum weight</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaximumWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaximumWeight.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="uCtrlOptMaxNumber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 38</value>
   </data>
   <data name="uCtrlOptMaxNumber.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
   </data>
-  <data name="&gt;&gt;uCtrlOptMaxNumber.Name" xml:space="preserve">
-    <value>uCtrlOptMaxNumber</value>
+  <data name="uCtrlOptMaximumWeight.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;uCtrlOptMaxNumber.Parent" xml:space="preserve">
-    <value>gbStopCriterions</value>
+  <data name="&gt;&gt;cbInterlayer.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="uCtrlOptMaxNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 20</value>
-  </data>
-  <data name="uCtrlOptMaxNumber.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="uCtrlOptMaxNumber.Text" xml:space="preserve">
-    <value>Maximum number</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaxNumber.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptInt, treeDiM.Basics, Version=3.0.0.98, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;uCtrlOptMaxNumber.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>it</value>
+  </metadata>
 </root>

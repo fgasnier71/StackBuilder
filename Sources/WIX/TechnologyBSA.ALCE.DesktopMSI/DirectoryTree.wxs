@@ -8,6 +8,8 @@
         <Directory Id="CompanyName" Name="$(var.ProductManufacturer)">
           <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)">
             <Directory Id="Bin" Name="Bin">
+              <Directory Id="fr" Name="fr"/>
+              <Directory Id="it" Name="it"/>
               <Directory Id="ReportTemplates" Name="ReportTemplates"/>
             </Directory>
             <Directory Id="Data" Name="Data"/>

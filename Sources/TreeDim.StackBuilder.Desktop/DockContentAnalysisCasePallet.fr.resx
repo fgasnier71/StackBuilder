@@ -304,4 +304,16 @@
   <data name="tabPagePalletCornersTop.Text" xml:space="preserve">
     <value>Pallet coins Top</value>
   </data>
+  <data name="chkbPalletCornersTopY.Text" xml:space="preserve">
+    <value>Cornière palette (largeur)</value>
+  </data>
+  <data name="bnAdd.Text" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="chkbPalletCornersTopX.Text" xml:space="preserve">
+    <value>Cornière palette (longueur)</value>
+  </data>
+  <data name="uCtrlPalletFilmCovering.Text" xml:space="preserve">
+    <value>Couverture film de palette</value>
+  </data>
 </root>

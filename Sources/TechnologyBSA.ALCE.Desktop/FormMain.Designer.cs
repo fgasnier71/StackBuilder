@@ -39,8 +39,6 @@
             this.toolStripMenuItemSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSaveAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemClose = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
-            this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuFileMRU = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -142,8 +140,6 @@
             this.toolStripMenuItemSaveAs,
             this.toolStripMenuItemSaveAll,
             this.toolStripMenuItemClose,
-            this.toolStripSeparator14,
-            this.disconnectToolStripMenuItem,
             this.toolStripSeparator1,
             this.mnuFileMRU,
             this.toolStripSeparator2,
@@ -186,16 +182,6 @@
             resources.ApplyResources(this.toolStripMenuItemClose, "toolStripMenuItemClose");
             this.toolStripMenuItemClose.Name = "toolStripMenuItemClose";
             this.toolStripMenuItemClose.Click += new System.EventHandler(this.FileClose);
-            // 
-            // toolStripSeparator14
-            // 
-            this.toolStripSeparator14.Name = "toolStripSeparator14";
-            resources.ApplyResources(this.toolStripSeparator14, "toolStripSeparator14");
-            // 
-            // disconnectToolStripMenuItem
-            // 
-            this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-            resources.ApplyResources(this.disconnectToolStripMenuItem, "disconnectToolStripMenuItem");
             // 
             // toolStripSeparator1
             // 
@@ -364,8 +350,8 @@
             // 
             // toolStripMISettings
             // 
-            this.toolStripMISettings.Name = "toolStripMISettings";
             resources.ApplyResources(this.toolStripMISettings, "toolStripMISettings");
+            this.toolStripMISettings.Name = "toolStripMISettings";
             this.toolStripMISettings.Click += new System.EventHandler(this.OnShowSettings);
             // 
             // helpToolStripMenuItem
@@ -781,8 +767,6 @@
         private System.Windows.Forms.ToolStripSplitButton toolStripSBAnalysesCase;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisBoxCase;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIAnalysisCylinderCase;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
-        private System.Windows.Forms.ToolStripMenuItem disconnectToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButtonSettings;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAnalysisPalletTruck;
         private System.Windows.Forms.ToolStripSplitButton toolStripSBAnalysesTruck;

@@ -7,6 +7,7 @@ using System.Drawing;
 using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
+using System.Runtime.Remoting.Messaging;
 #endregion
 
 namespace treeDiM.StackBuilder.Graphics
@@ -371,10 +372,14 @@ namespace treeDiM.StackBuilder.Graphics
         /// <returns>integer "f1>f2 => 1", "f1<f2 => -1", "f1==f2 => 0"  </returns>
         public int Compare(Face f1, Face f2)
         {
-            if (f1.PartName == "STRAPPER" && f2.PartName != "STRAPPER")
-                return 1;
-            else if (f1.PartName != "STRAPPER" && f2.PartName == "STRAPPER")
-                return -1;
+            string[] endParts = { "SLEEVE", "LABEL", "FILM", "STRAPPER"};
+            int indexPart1 = Array.IndexOf(endParts, f1.PartName);
+            int indexPart2 = Array.IndexOf(endParts, f2.PartName);
+
+            if (indexPart1 != indexPart2)
+            {
+                return indexPart1 < indexPart2 ? -1 : 1;
+            }
             int mode = 0;
             if (0 == mode) // use barycenter.Z in global coordinate then in distance
             {

@@ -942,6 +942,16 @@ namespace treeDiM.StackBuilder.Basics
         {
             return _layerTypes[LayerTypeIndex].MaximumSpace;
         }
+        public override double InterlayersWeight
+        {
+            get
+            {
+                double interlayerWeight = 0;
+                foreach (SolutionItem solItem in _solutionItems)
+                {   interlayerWeight += solItem.HasInterlayer ? Interlayers[solItem.InterlayerIndex].Weight : 0.0; }
+                return interlayerWeight;
+            }
+        }
         #endregion
 
         #region Helpers

@@ -36,7 +36,7 @@ namespace treeDiM.StackBuilder.Graphics
             get
             {
                 var points = Points;
-                var face = new Face(PickId, new Vector3D[] { points[1], points[0], points[3], points[2] }) { ColorFill = Color, ColorPath = Color.Black  };
+                var face = new Face(PickId, new Vector3D[] { points[0], points[1], points[2], points[3] }, Color, Color.Black, "LABEL", true);
                 if (null != Bitmap)
                     face.Textures = new List<Texture>() { new Texture(Bitmap, Vector2D.Zero, Dimensions, 0.0) };
                 return face;
@@ -44,7 +44,11 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public override void Draw(Graphics3D graphics)
         {
-            graphics.Draw(Face, Graphics3D.FaceDir.FRONT);
+            graphics.Draw(Face, Graphics3D.FaceDir.BACK);
+        }
+        public override void DrawEnd(Graphics3D graphics)
+        {
+            graphics.AddFace(Face);
         }
 
         private Vector2D Dimensions { get; set; }

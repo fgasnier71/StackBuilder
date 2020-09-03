@@ -184,7 +184,7 @@
     <value>cbFontSizeDetail</value>
   </data>
   <data name="&gt;&gt;cbFontSizeDetail.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Reporting.ComboFontSize, treeDiM.StackBuilder.Reporting, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Reporting.ComboFontSize, treeDiM.StackBuilder.Reporting, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbFontSizeDetail.Parent" xml:space="preserve">
     <value>tabPageDetail</value>
@@ -232,7 +232,7 @@
     <value>cbHTMLSizeDetail</value>
   </data>
   <data name="&gt;&gt;cbHTMLSizeDetail.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Reporting.ComboImgSize, treeDiM.StackBuilder.Reporting, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Reporting.ComboImgSize, treeDiM.StackBuilder.Reporting, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbHTMLSizeDetail.Parent" xml:space="preserve">
     <value>tabPageDetail</value>
@@ -280,7 +280,7 @@
     <value>cbDefinitionDetail</value>
   </data>
   <data name="&gt;&gt;cbDefinitionDetail.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Reporting.ComboImageDefinition, treeDiM.StackBuilder.Reporting, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Reporting.ComboImageDefinition, treeDiM.StackBuilder.Reporting, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbDefinitionDetail.Parent" xml:space="preserve">
     <value>tabPageDetail</value>
@@ -355,7 +355,7 @@
     <value>cbFontSizeLarge</value>
   </data>
   <data name="&gt;&gt;cbFontSizeLarge.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Reporting.ComboFontSize, treeDiM.StackBuilder.Reporting, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Reporting.ComboFontSize, treeDiM.StackBuilder.Reporting, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbFontSizeLarge.Parent" xml:space="preserve">
     <value>tabPageLargeImg</value>
@@ -376,7 +376,7 @@
     <value>cbHTMLSizeLarge</value>
   </data>
   <data name="&gt;&gt;cbHTMLSizeLarge.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Reporting.ComboImgSize, treeDiM.StackBuilder.Reporting, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Reporting.ComboImgSize, treeDiM.StackBuilder.Reporting, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbHTMLSizeLarge.Parent" xml:space="preserve">
     <value>tabPageLargeImg</value>
@@ -397,7 +397,7 @@
     <value>cbDefinitionLarge</value>
   </data>
   <data name="&gt;&gt;cbDefinitionLarge.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Reporting.ComboImageDefinition, treeDiM.StackBuilder.Reporting, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Reporting.ComboImageDefinition, treeDiM.StackBuilder.Reporting, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbDefinitionLarge.Parent" xml:space="preserve">
     <value>tabPageLargeImg</value>

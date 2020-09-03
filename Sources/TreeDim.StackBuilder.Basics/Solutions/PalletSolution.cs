@@ -36,9 +36,9 @@ namespace treeDiM.StackBuilder.Basics
 
         #region ILayer implementation
         public double ZLow { get; } = 0.0;
-        public int BoxCount { get { return 0; } }
-        public int InterlayerCount {  get { return 1; } }
-        public int CylinderCount {  get { return 0; } }
+        public int BoxCount => 0;
+        public int InterlayerCount => 1;
+        public int CylinderCount => 0;
         public BBox3D BoundingBox(Packable packable)
         {
             BBox3D bbox = new BBox3D();

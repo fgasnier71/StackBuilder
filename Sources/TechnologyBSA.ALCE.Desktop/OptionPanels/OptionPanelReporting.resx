@@ -693,4 +693,16 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>GLib.Options.OptionsPanel, OptionsLib, Version=3.0.2.14, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="lbSleepTime.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbImageSizes.Items" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="cbImageSizes.Items1" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbImageSizes.Text" xml:space="preserve">
+    <value></value>
+  </data>
 </root>

@@ -750,7 +750,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -955,7 +955,7 @@
     <value>graphCtrl</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1405,7 +1405,7 @@
     <value>cbTapeColor</value>
   </data>
   <data name="&gt;&gt;cbTapeColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbTapeColor.Parent" xml:space="preserve">
     <value>tabPageTape</value>
@@ -1480,7 +1480,7 @@
     <value>ctrlStrapperSet</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.Parent" xml:space="preserve">
     <value>tabPageStrappers</value>
@@ -1559,5 +1559,104 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>treeDiM.StackBuilder.Desktop.FormNewBase, TechnologyBSA.ALCE.Desktop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="bnSaveToDB.Text" xml:space="preserve">
+    <value>Save to database</value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="gbTape.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lblDescription.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lblName.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="checkBoxTape.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbInsideHeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbInsideLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbInsideWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbTapeWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitHeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitHeightInside.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitLengthInside.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitWeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitWeightOnTop.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbUnitWidthInside.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbWeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbWeightOnTop.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthHeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthHeightInside.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthLengthInside.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthTapeWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthWidthInside.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uMassWeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value></value>
   </data>
 </root>

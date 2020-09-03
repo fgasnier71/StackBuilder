@@ -385,7 +385,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>$this</value>
@@ -439,7 +439,7 @@
     <value>graphCtrl</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.15, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -515,5 +515,68 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>treeDiM.StackBuilder.Desktop.FormNewBase, TechnologyBSA.ALCE.Desktop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="bnCancel.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbDescription.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbHeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="radioButtonTruck1.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="radioButtonTruck2.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbName.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="statusStripDef.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="toolStripStatusLabelDef.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthHeight.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthLength.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uLengthWidth.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="uMassAdmissibleLoad.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbKg.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbMm1.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbMm2.Text" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="lbMm3.Text" xml:space="preserve">
+    <value></value>
   </data>
 </root>

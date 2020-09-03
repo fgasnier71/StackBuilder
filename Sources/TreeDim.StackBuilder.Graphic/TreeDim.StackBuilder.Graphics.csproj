@@ -188,6 +188,7 @@
     <Compile Include="DimensionCube.cs" />
     <Compile Include="Types\PalletCap.cs" />
     <Compile Include="Types\PalletLabel.cs" />
+    <Compile Include="Types\PalletSleeve.cs" />
     <Compile Include="Types\Strapper.cs" />
     <Compile Include="Types\Truck.cs" />
   </ItemGroup>

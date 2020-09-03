@@ -92,6 +92,19 @@ namespace treeDiM.StackBuilder.Basics
                 default: return "ZP";
             }
         }
+        public static string ToAbbrev(HAxis axis)
+        { 
+            switch (axis)
+            {
+                case HAxis.AXIS_X_N: return "X-";
+                case HAxis.AXIS_X_P: return "X+";
+                case HAxis.AXIS_Y_N: return "Y-";
+                case HAxis.AXIS_Y_P: return "Y+";
+                case HAxis.AXIS_Z_N: return "Z-";
+                case HAxis.AXIS_Z_P: return "Z+";
+                default: return "Z+";
+            }
+        }
         public static HAxis Parse(string sAxis)
         {
             if (string.Equals(sAxis, "XN", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_X_N;
@@ -100,6 +113,16 @@ namespace treeDiM.StackBuilder.Basics
             else if (string.Equals(sAxis, "YP", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_Y_P;
             else if (string.Equals(sAxis, "ZN", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_Z_N;
             else if (string.Equals(sAxis, "ZP", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_Z_P;
+            throw new Exception(string.Format("Invalid HalfAxis value {0}", sAxis));
+        }
+        public static HAxis ParseAbbrev(string sAxis)
+        {
+            if (string.Equals(sAxis, "X-", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_X_N;
+            else if (string.Equals(sAxis, "X+", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_X_P;
+            else if (string.Equals(sAxis, "Y-", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_Y_N;
+            else if (string.Equals(sAxis, "Y+", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_Y_P;
+            else if (string.Equals(sAxis, "Z-", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_Z_N;
+            else if (string.Equals(sAxis, "Z+", StringComparison.CurrentCultureIgnoreCase)) return HAxis.AXIS_Z_P;
             throw new Exception(string.Format("Invalid HalfAxis value {0}", sAxis));
         }
         public static HAxis[] Positives
