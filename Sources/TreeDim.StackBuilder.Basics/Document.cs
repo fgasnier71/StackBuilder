@@ -1765,10 +1765,10 @@ namespace treeDiM.StackBuilder.Basics
             bool useHatching = bool.Parse(eltPalletFilmProperties.Attributes["Hatching"].Value);
             string sHatchSpacing = eltPalletFilmProperties.Attributes["HatchSpacing"].Value;
             string sHatchAngle = eltPalletFilmProperties.Attributes["HatchAngle"].Value;
-            string sLinearMass = string.Empty;
-            if (eltPalletFilmProperties.HasAttribute("LinearMass"))
-                sLinearMass = eltPalletFilmProperties.Attributes["LinearMass"].Value;
             string sColor = eltPalletFilmProperties.Attributes["Color"].Value;
+            string sWeight = string.Empty;
+            if (eltPalletFilmProperties.HasAttribute("Weight"))
+                sWeight = eltPalletFilmProperties.Attributes["Weight"].Value;
 
             PalletFilmProperties palletFilmProperties = CreateNewPalletFilm(
                 sname,
@@ -1777,7 +1777,7 @@ namespace treeDiM.StackBuilder.Basics
                 useHatching,
                 UnitsManager.ConvertLengthFrom(Convert.ToDouble(sHatchSpacing, CultureInfo.InvariantCulture), UnitSystem),
                 Convert.ToDouble(sHatchAngle, CultureInfo.InvariantCulture),
-                string.IsNullOrEmpty(sLinearMass) ? 0.0 : UnitsManager.ConvertLinearMassFrom(Convert.ToDouble(sLinearMass, CultureInfo.InvariantCulture), UnitSystem),
+                string.IsNullOrEmpty(sWeight) ? 0.0 : UnitsManager.ConvertMassFrom(Convert.ToDouble(sWeight, CultureInfo.InvariantCulture), UnitSystem),
                 Color.FromArgb(Convert.ToInt32(sColor))
                 );
             palletFilmProperties.ID.IGuid = new Guid(sid);

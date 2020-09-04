@@ -87,7 +87,7 @@ namespace treeDiM.StackBuilder.Graphics
         protected bool ShowDimensions { get; set; } = true;
         private bool Dragging { get; set; } = false;
         public bool ShowToolBar { get; private set; } = false;
-        private double AngleHoriz { get; set; } = 45.0;
+        public double AngleHoriz { get; set; } = 45.0;
         private double AngleVert { get; set; } = 45.0;
         #endregion
 
@@ -267,7 +267,7 @@ namespace treeDiM.StackBuilder.Graphics
             else
                 g.DrawImage(Properties.Resources.CotationShow, new Point(offsetIcon += _toolbarButtonOffset, 1));
         }
-        void OnButtonPressed(int iIndex)
+        private void OnButtonPressed(int iIndex)
         {
             Graphics3D.Reset();
             switch (iIndex)

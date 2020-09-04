@@ -38,6 +38,7 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnLoad(e);
             // Graphics3DControl
             graphCtrl.DrawingContainer = this;
+            graphCtrl.AngleHoriz = 270.0;
 
             if (null != Item)
             {

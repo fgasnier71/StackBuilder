@@ -147,7 +147,6 @@ namespace treeDiM.StackBuilder.Desktop
                     // name
                     gridContent[iIndex, iCol] = new SourceGrid.Cells.Cell(ci.Pack.Name) { View = viewNormal, Tag = ci.Pack };
                     // number
-                    //gridContent[iIndex, ++iCol] = new SourceGrid.Cells.Cell("NumericUpDown") { View = viewNormal };
                     gridContent[iIndex, ++iCol] = new SourceGrid.Cells.Cell((int)ci.Number) { View = viewNormal };
                     SourceGrid.Cells.Editors.NumericUpDown l_NumericUpDownEditor = new SourceGrid.Cells.Editors.NumericUpDown(typeof(int), 10000, 0, 1);
                     l_NumericUpDownEditor.SetEditValue((int)ci.Number);
@@ -416,7 +415,7 @@ namespace treeDiM.StackBuilder.Desktop
             get
             {
                 List<ContentItem> contentItems = new List<ContentItem>();
-                foreach (BoxProperties boxProperties in _document.Bricks)
+                foreach (var boxProperties in _document.Bricks)
                 {
                     bool[] orientations = new bool[] { true, true, true };
                     contentItems.Add(new ContentItem(boxProperties, GetNoItems(boxProperties), orientations));
