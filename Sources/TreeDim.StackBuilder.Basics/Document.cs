@@ -3241,7 +3241,7 @@ namespace treeDiM.StackBuilder.Basics
             eltPalletLabelProperties.Attributes.Append(dimAttribute);
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
-            weightAttribute.Value = palletLabelProperties.Weight.ToString();
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, palletLabelProperties.Weight.ToString());
             eltPalletLabelProperties.Attributes.Append(weightAttribute);
             // color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
