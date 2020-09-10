@@ -77,7 +77,7 @@ namespace treeDiM.StackBuilder.Basics
             HasInsideDimensions = true;
         }
 
-        public override bool IsCase => HasInsideDimensions;
+        public override bool IsCase => HasInsideDimensions || TapeWidth.Activated;
 
         // Dimensions
         public override double Height => _height;
@@ -88,7 +88,7 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         // InsideDimensions
-        public bool HasInsideDimensions { get; }
+        public bool HasInsideDimensions { get; set; }
         public double InsideLength
         {
             get => HasInsideDimensions ? _insideLength : _length;

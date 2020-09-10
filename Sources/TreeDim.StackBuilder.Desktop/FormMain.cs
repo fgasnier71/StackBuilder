@@ -376,11 +376,12 @@ namespace treeDiM.StackBuilder.Desktop
                 CreateOrActivateViewHAnalysis(eventArg.HAnalysis);
             else if (null != eventArg.ItemBase)
             {
+                Document doc = eventArg.Document;
                 ItemBase itemProp = eventArg.ItemBase;
                 if (itemProp.GetType() == typeof(BoxProperties))
                 {
                     BoxProperties box = itemProp as BoxProperties;
-                    FormNewBox form = new FormNewBox(eventArg.Document, eventArg.ItemBase as BoxProperties);
+                    var form = new FormNewBox(doc, eventArg.ItemBase as BoxProperties);
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(box)) return;
@@ -390,6 +391,7 @@ namespace treeDiM.StackBuilder.Desktop
                         box.SetHeight(form.BoxHeight);
                         box.SetWeight(form.Weight);
                         box.SetNetWeight(form.NetWeight);
+                        box.HasInsideDimensions = form.HasInsideDimensions;
                         box.InsideLength = form.InsideLength;
                         box.InsideWidth = form.InsideWidth;
                         box.InsideHeight = form.InsideHeight;
@@ -399,12 +401,13 @@ namespace treeDiM.StackBuilder.Desktop
                         box.TapeColor = form.TapeColor;
                         box.StrapperSet = form.StrapperSet;
                         box.EndUpdate();
+                        doc.Modify();
                     }
                 }
                 else if (itemProp.GetType() == typeof(BagProperties))
                 {
                     BagProperties bag = itemProp as BagProperties;
-                    var form = new FormNewBag(eventArg.Document, eventArg.ItemBase as BagProperties);
+                    var form = new FormNewBag(doc, eventArg.ItemBase as BagProperties);
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(bag)) return;
@@ -417,14 +420,15 @@ namespace treeDiM.StackBuilder.Desktop
                         bag.SetNetWeight(form.NetWeight);
                         bag.SetColor(form.ColorFill);
                         bag.EndUpdate();
+                        doc.Modify();
                     }
                 }
                 else if (itemProp.GetType() == typeof(PackProperties))
                 {
                     PackProperties pack = itemProp as PackProperties;
-                    FormNewPack form = new FormNewPack(eventArg.Document, eventArg.ItemBase as PackProperties)
+                    var form = new FormNewPack(doc, eventArg.ItemBase as PackProperties)
                     {
-                        Boxes = eventArg.Document.Boxes.ToList()
+                        Boxes = doc.Boxes.ToList()
                     };
                     if (DialogResult.OK == form.ShowDialog())
                     {
@@ -440,12 +444,13 @@ namespace treeDiM.StackBuilder.Desktop
                             pack.ForceOuterDimensions(form.OuterDimensions);
                         pack.StrapperSet = form.StrapperSet;
                         pack.EndUpdate();
+                        doc.Modify();
                     }
                 }
                 else if (itemProp.GetType() == typeof(CylinderProperties))
                 {
                     CylinderProperties cylinderProperties = itemProp as CylinderProperties;
-                    FormNewCylinder form = new FormNewCylinder(eventArg.Document, cylinderProperties);
+                    var form = new FormNewCylinder(doc, cylinderProperties);
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         if (!UserAcknowledgeDependancies(cylinderProperties)) return;
@@ -459,12 +464,13 @@ namespace treeDiM.StackBuilder.Desktop
                         cylinderProperties.ColorWallOuter = form.ColorWallOuter;
                         cylinderProperties.ColorWallInner = form.ColorWallInner;
                         cylinderProperties.EndUpdate();
+                        doc.Modify();
                     }
                 }
                 else if (itemProp.GetType() == typeof(BottleProperties))
                 {
                     var bottleProperties = itemProp as BottleProperties;
-                    FormNewBottle form = new FormNewBottle(eventArg.Document, bottleProperties);
+                    var form = new FormNewBottle(doc, bottleProperties);
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         if (!UserAcknowledgeDependancies(bottleProperties)) return;
@@ -473,12 +479,13 @@ namespace treeDiM.StackBuilder.Desktop
                         bottleProperties.SetWeight(form.Weight);
                         bottleProperties.SetNetWeight(form.NetWeight);
                         bottleProperties.EndUpdate();
+                        doc.Modify();
                     }
                 }
                 else if (itemProp.GetType() == typeof(BundleProperties))
                 {
                     BundleProperties bundle = itemProp as BundleProperties;
-                    FormNewBundle form = new FormNewBundle(eventArg.Document, bundle);
+                    var form = new FormNewBundle(doc, bundle);
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(bundle)) return;
@@ -489,12 +496,13 @@ namespace treeDiM.StackBuilder.Desktop
                         bundle.UnitWeight = form.UnitWeight;
                         bundle.NoFlats = form.NoFlats;
                         bundle.EndUpdate();
+                        doc.Modify();
                     }
                 }
                 else if (itemProp.GetType() == typeof(InterlayerProperties))
                 {
                     InterlayerProperties interlayer = itemProp as InterlayerProperties;
-                    FormNewInterlayer form = new FormNewInterlayer(eventArg.Document, interlayer);
+                    var form = new FormNewInterlayer(doc, interlayer);
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(interlayer)) return;
@@ -505,12 +513,13 @@ namespace treeDiM.StackBuilder.Desktop
                         interlayer.Weight = form.Weight;
                         interlayer.Color = form.Color;
                         interlayer.EndUpdate();
+                        doc.Modify();
                     }
                 }
                 else if (itemProp.GetType() == typeof(PalletProperties))
                 {
                     PalletProperties pallet = itemProp as PalletProperties;
-                    FormNewPallet form = new FormNewPallet(eventArg.Document, pallet);
+                    var form = new FormNewPallet(doc, pallet);
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(pallet)) return;
@@ -522,12 +531,13 @@ namespace treeDiM.StackBuilder.Desktop
                         pallet.TypeName = form.PalletTypeName;
                         pallet.Color = form.PalletColor;
                         pallet.EndUpdate();
+                        doc.Modify();
                     }
                 }
                 else if (itemProp.GetType() == typeof(TruckProperties))
                 {
                     TruckProperties truck = itemProp as TruckProperties;
-                    FormNewTruck form = new FormNewTruck(eventArg.Document, truck);
+                    var form = new FormNewTruck(doc, truck);
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(truck)) return;
@@ -538,12 +548,13 @@ namespace treeDiM.StackBuilder.Desktop
                         truck.AdmissibleLoadWeight = form.TruckAdmissibleLoadWeight;
                         truck.Color = form.TruckColor;
                         truck.EndUpdate();
+                        doc.Modify();
                     }
                 }
                 else if (itemProp.GetType() == typeof(PalletCornerProperties))
                 {
                     PalletCornerProperties corner = itemProp as PalletCornerProperties;
-                    FormNewPalletCorners form = new FormNewPalletCorners(eventArg.Document, corner);
+                    var form = new FormNewPalletCorners(doc, corner);
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(corner)) return;
@@ -554,12 +565,13 @@ namespace treeDiM.StackBuilder.Desktop
                         corner.Weight = form.CornerWeight;
                         corner.Color = form.CornerColor;
                         corner.EndUpdate();
+                        doc.Modify();
                     }
                 }
                 else if (itemProp.GetType() == typeof(PalletCapProperties))
                 {
                     PalletCapProperties cap = itemProp as PalletCapProperties;
-                    FormNewPalletCap form = new FormNewPalletCap(eventArg.Document, cap);
+                    var form = new FormNewPalletCap(doc, cap);
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         if (!UserAcknowledgeDependancies(cap)) return;
@@ -573,12 +585,13 @@ namespace treeDiM.StackBuilder.Desktop
                         cap.InsideHeight = form.CapInnerHeight;
                         cap.Weight = form.CapWeight;
                         cap.EndUpdate();
+                        doc.Modify();
                     }
                 }
                 else if (itemProp.GetType() == typeof(PalletFilmProperties))
                 {
                     PalletFilmProperties film = itemProp as PalletFilmProperties;
-                    FormNewPalletFilm form = new FormNewPalletFilm(eventArg.Document, film);
+                    var form = new FormNewPalletFilm(doc, film);
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         film.ID.SetNameDesc(form.ItemName, form.ItemDescription);
@@ -589,12 +602,13 @@ namespace treeDiM.StackBuilder.Desktop
                         film.Color = form.FilmColor;
                         film.Weight = form.Weight;
                         film.EndUpdate();
+                        doc.Modify();
                     }
                 }
                 else if (itemProp.GetType() == typeof(PalletLabelProperties))
                 {
                     PalletLabelProperties label = itemProp as PalletLabelProperties;
-                    FormNewPalletLabel form = new FormNewPalletLabel(eventArg.Document, label);
+                    var form = new FormNewPalletLabel(doc, label);
                     if (DialogResult.OK == form.ShowDialog())
                     {
                         label.ID.SetNameDesc(form.ItemName, form.ItemDescription);
@@ -603,6 +617,7 @@ namespace treeDiM.StackBuilder.Desktop
                         label.Color = form.Color;
                         label.Bitmap = form.Bitmap;
                         label.EndUpdate();
+                        doc.Modify();
                     }                
                 }
                 else

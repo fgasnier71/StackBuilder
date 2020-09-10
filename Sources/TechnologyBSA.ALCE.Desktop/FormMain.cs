@@ -362,6 +362,7 @@ namespace treeDiM.StackBuilder.Desktop
                         box.InsideLength = form.InsideLength;
                         box.InsideWidth = form.InsideWidth;
                         box.InsideHeight = form.InsideHeight;
+                        box.HasInsideDimensions = form.HasInsideDimensions;
                         box.SetAllColors(form.Colors);
                         box.TextureList = form.TextureList;
                         box.TapeWidth = form.TapeWidth;

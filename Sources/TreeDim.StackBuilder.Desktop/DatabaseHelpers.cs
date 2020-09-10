@@ -68,6 +68,7 @@ namespace treeDiM.StackBuilder.Desktop
                                 UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsInner.M0, us),
                                 UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsInner.M1, us),
                                 UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsInner.M2, us),
+                                dcsbCase.DimensionsInner.M0 > 0.0 && dcsbCase.DimensionsInner.M1 > 0.0 && dcsbCase.DimensionsInner.M2 > 0.0,
                                 UnitsManager.ConvertMassFrom(dcsbCase.Weight, us),
                                 colors);
                             else

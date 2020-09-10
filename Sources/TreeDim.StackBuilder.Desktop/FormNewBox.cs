@@ -124,14 +124,14 @@ namespace treeDiM.StackBuilder.Desktop
                 // set unit labels
                 UnitsManager.AdaptUnitLabels(this);
                 // save document reference
-                _mode = boxProperties.HasInsideDimensions ? Mode.CASE : Mode.BOX;
+                _mode = boxProperties.IsCase ? Mode.CASE : Mode.BOX;
                 // set colors
                 for (int i = 0; i < 6; ++i)
                     _faceColors[i] = boxProperties.Colors[i];
                 // set textures
                 _textures = boxProperties.TextureListCopy;
                 // set caption text
-                Text = string.Format(Properties.Resources.ID_EDIT, boxProperties.Name);
+                Text = string.Format(Resources.ID_EDIT, boxProperties.Name);
                 // initialize value
                 uCtrlDimensionsOuter.ValueX = boxProperties.Length;
                 uCtrlDimensionsOuter.ValueY = boxProperties.Width;

@@ -100,7 +100,7 @@ namespace treeDiM.StackBuilder.Desktop
                 if (!(itemBase is PackableBrick packable))
                     return false;
                 if (packable is BoxProperties bProperties)
-                    return !bProperties.HasInsideDimensions;
+                    return !bProperties.IsCase;
                 return true;
             }
             return false;

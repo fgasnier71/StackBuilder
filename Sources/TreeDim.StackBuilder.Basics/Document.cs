@@ -179,12 +179,13 @@ namespace treeDiM.StackBuilder.Basics
         public BoxProperties CreateNewCase(
             string name, string description
             , double length, double width, double height
-            , double insideLength, double insideWidth, double insideHeight
+            , double insideLength, double insideWidth, double insideHeight, bool hasInsideDimensions
             , double weight
             , Color[] colors)
         {
             // instantiate and initialize
             BoxProperties boxProperties = new BoxProperties(this, length, width, height, insideLength, insideWidth, insideHeight);
+            boxProperties.HasInsideDimensions = hasInsideDimensions;
             boxProperties.SetWeight( weight );
             boxProperties.ID.SetNameDesc( name, description);
             boxProperties.SetAllColors(colors);
@@ -1245,18 +1246,16 @@ namespace treeDiM.StackBuilder.Basics
             double width = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltBoxProperties.Attributes["Width"].Value, CultureInfo.InvariantCulture), UnitSystem);
             double height = UnitsManager.ConvertLengthFrom(Convert.ToDouble(eltBoxProperties.Attributes["Height"].Value, CultureInfo.InvariantCulture), UnitSystem);
             string sInsideLength = string.Empty, sInsideWidth = string.Empty, sInsideHeight = string.Empty;
+            bool hasInsideDimensions = false;
             if (eltBoxProperties.HasAttribute("InsideLength"))
             {
+                hasInsideDimensions = true;
                 sInsideLength = eltBoxProperties.Attributes["InsideLength"].Value;
                 sInsideWidth = eltBoxProperties.Attributes["InsideWidth"].Value;
                 sInsideHeight = eltBoxProperties.Attributes["InsideHeight"].Value;
             }
             string sweight = eltBoxProperties.Attributes["Weight"].Value;
             OptDouble optNetWeight = LoadOptDouble(eltBoxProperties, "NetWeight", UnitsManager.UnitType.UT_MASS);
-
-            bool hasInsideDimensions = eltBoxProperties.HasAttribute("InsideLength");
-            if (hasInsideDimensions)
-            { }
 
             Color[] colors = new Color[6];
             List<Pair<HalfAxis.HAxis, Texture>> listTexture = new List<Pair<HalfAxis.HAxis,Texture>>();
@@ -1277,32 +1276,45 @@ namespace treeDiM.StackBuilder.Basics
                 else if (string.Equals(node.Name, "StrapperSet", StringComparison.CurrentCultureIgnoreCase))
                     LoadStrapperSet(childElt, ref strapperSet);
             }
+
             // create new BoxProperties instance
             BoxProperties boxProperties;
-            if (!string.IsNullOrEmpty(sInsideLength)) // case
+            if (hasInsideDimensions || hasTape) // case
+            {
+                double insideLength = 0.0, insideWidth = 0.0, insideHeight = 0.0;
+                if (!string.IsNullOrEmpty(sInsideLength)) insideLength = Convert.ToDouble(sInsideLength, CultureInfo.InvariantCulture);
+                if (!string.IsNullOrEmpty(sInsideWidth)) insideWidth = Convert.ToDouble(sInsideWidth, CultureInfo.InvariantCulture);
+                if (!string.IsNullOrEmpty(sInsideHeight)) insideHeight = Convert.ToDouble(sInsideHeight, CultureInfo.InvariantCulture);
                 boxProperties = CreateNewCase(
-                sname
-                , sdescription
-                , length, width, height
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sInsideLength, CultureInfo.InvariantCulture), UnitSystem)
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sInsideWidth, CultureInfo.InvariantCulture), UnitSystem)
-                , UnitsManager.ConvertLengthFrom(Convert.ToDouble(sInsideHeight, CultureInfo.InvariantCulture), UnitSystem)
-                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), UnitSystem)
-                , colors);
+                    sname
+                    , sdescription
+                    , length, width, height
+                    , UnitsManager.ConvertLengthFrom(insideLength, UnitSystem)
+                    , UnitsManager.ConvertLengthFrom(insideWidth, UnitSystem)
+                    , UnitsManager.ConvertLengthFrom(insideHeight, UnitSystem)
+                    , true
+                    , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), UnitSystem)
+                    , colors);
+            }
             else
                 boxProperties = CreateNewBox(
-                sname
-                , sdescription
-                , length, width, height
-                , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), UnitSystem)
-                , colors);
+                    sname
+                    , sdescription
+                    , length, width, height
+                    , UnitsManager.ConvertMassFrom(Convert.ToDouble(sweight, CultureInfo.InvariantCulture), UnitSystem)
+                    , colors);
+            // guid
             boxProperties.ID.IGuid = new Guid(sid);
+            // textures
             boxProperties.TextureList = listTexture;
             // tape
             boxProperties.TapeColor = tapeColor;
             boxProperties.TapeWidth = new OptDouble(hasTape, UnitsManager.ConvertLengthFrom(tapeWidth, UnitSystem));
+            // net weight
             boxProperties.SetNetWeight( optNetWeight );
             boxProperties.StrapperSet = strapperSet;
+            // inside dimensions
+            boxProperties.HasInsideDimensions = hasInsideDimensions;
         }
 
         private void LoadBagProperties(XmlElement eltBagProperties)
@@ -3241,7 +3253,7 @@ namespace treeDiM.StackBuilder.Basics
             eltPalletLabelProperties.Attributes.Append(dimAttribute);
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
-            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, palletLabelProperties.Weight.ToString());
+            weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", palletLabelProperties.Weight);
             eltPalletLabelProperties.Attributes.Append(weightAttribute);
             // color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");

@@ -205,7 +205,7 @@ namespace treeDiM.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCORNERS, PalletCorners, new EventHandler(OnCreateNewPalletCorners)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETCAP, PalletCap, new EventHandler(OnCreateNewPalletCap)) { ImageTransparentColor = Color.White });
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, PalletFilm, new EventHandler(OnCreateNewPalletFilm)) { ImageTransparentColor = Color.White });
-                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETFILM, PalletFilm, new EventHandler(OnCreateNewPalletLabel)) { ImageTransparentColor = Color.White });
+                contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWPALLETLABEL, PalletFilm, new EventHandler(OnCreateNewPalletLabel)) { ImageTransparentColor = Color.White });
             }
             else if (nodeTag.Type == NodeTag.NodeType.NT_LISTANALYSIS)
             {
@@ -643,7 +643,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (itemProperties.GetType() == typeof(BoxProperties))
             {
                 BoxProperties boxProperties = itemProperties as BoxProperties;
-                if (boxProperties.HasInsideDimensions)
+                if (boxProperties.IsCase)
                 {
                     iconIndex = 4;
                     nodeType = NodeTag.NodeType.NT_CASE;
@@ -816,7 +816,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (itemBase.GetType() == typeof(BoxProperties))
             {
                 BoxProperties box = itemBase as BoxProperties;
-                if (box.HasInsideDimensions)
+                if (box.IsCase)
                     nodeType = NodeTag.NodeType.NT_CASE;
                 else
                     nodeType = NodeTag.NodeType.NT_BOX;

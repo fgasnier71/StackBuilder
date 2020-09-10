@@ -163,7 +163,7 @@ namespace treeDiM.StackBuilder.Desktop
                     };
                     gridSolution[iRow, 0] = rowHeader;
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
-                        string.Format(CultureInfo.InvariantCulture, "{0:0.#}", solution.NetWeight));
+                        string.Format(CultureInfo.InvariantCulture, "{0:0.#}", solution.NetWeight.Value));
                 }
                 // load weight
                 gridSolution.Rows.Insert(++iRow);

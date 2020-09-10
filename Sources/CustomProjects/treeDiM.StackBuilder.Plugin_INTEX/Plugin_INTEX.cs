@@ -184,6 +184,7 @@ namespace treeDiM.StackBuilder.Plugin
                             , UnitsManager.ConvertLengthFrom(lengthInt, UnitsManager.UnitSystem.UNIT_METRIC2)
                             , UnitsManager.ConvertLengthFrom(widthInt, UnitsManager.UnitSystem.UNIT_METRIC2)
                             , UnitsManager.ConvertLengthFrom(heightInt, UnitsManager.UnitSystem.UNIT_METRIC2)
+                            , false
                             , UnitsManager.ConvertMassFrom(dataCase._weight, UnitsManager.UnitSystem.UNIT_METRIC2)
                             , colorsCase);
                         intercaseProperties.TapeColor = Color.Beige;

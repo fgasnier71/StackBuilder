@@ -160,6 +160,7 @@ namespace treeDiM.StackBuilder.Desktop
                     BoxProperties boxProperties = CreateNewBox(form.BoxName, form.Description
                         , form.BoxLength, form.BoxWidth, form.BoxHeight
                         , form.Weight, form.Colors);
+                    boxProperties.SetNetWeight(form.NetWeight);
                     boxProperties.TextureList = form.TextureList;
                 }
             }
@@ -175,8 +176,9 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     BoxProperties boxProperties = CreateNewCase(form.BoxName, form.Description
                         , form.BoxLength, form.BoxWidth, form.BoxHeight
-                        , form.InsideLength, form.InsideWidth, form.InsideHeight
+                        , form.InsideLength, form.InsideWidth, form.InsideHeight, form.HasInsideDimensions
                         , form.Weight, form.Colors);
+                    boxProperties.SetNetWeight(form.NetWeight);
                     boxProperties.TapeColor = form.TapeColor;
                     boxProperties.TapeWidth = form.TapeWidth;
                     boxProperties.TextureList = form.TextureList;
@@ -584,7 +586,10 @@ namespace treeDiM.StackBuilder.Desktop
                 MessageBox.Show("Unexepected analysis type!");
                 return;
             }
-            if (DialogResult.OK == form.ShowDialog()) { }
+            if (DialogResult.OK == form.ShowDialog())
+            {
+                Modify();
+            }
         }
         public void EditAnalysis(AnalysisHetero analysis)
         {
@@ -604,7 +609,10 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error($"Unexpected analysis type = {analysis.GetType().ToString()}");
                 return;
             }
-            if (DialogResult.OK == form.ShowDialog()) { }
+            if (DialogResult.OK == form.ShowDialog())
+            {
+                Modify();
+            }
         }
         #endregion
 
