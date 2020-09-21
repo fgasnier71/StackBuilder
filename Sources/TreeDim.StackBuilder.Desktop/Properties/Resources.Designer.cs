@@ -710,7 +710,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cases.
+        ///   Looks up a localized string similar to Boxes+Cases.
         /// </summary>
         internal static string ID_CASES {
             get {
@@ -1695,7 +1695,7 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cases.
+        ///   Looks up a localized string similar to Boxes+Cases.
         /// </summary>
         internal static string ID_NODE_CASES {
             get {

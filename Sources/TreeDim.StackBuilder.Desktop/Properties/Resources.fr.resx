@@ -117,7 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ID_A1" xml:space="preserve">
     <value>A1</value>
   </data>
@@ -134,7 +133,7 @@
     <value>Créer une nouvelle analyse...</value>
   </data>
   <data name="ID_ADDNEWBOX" xml:space="preserve">
-    <value>Créer un nouvel étui...</value>
+    <value>Créer une nouvelle boîte...</value>
   </data>
   <data name="ID_ADDNEWBOXCASEANALYSIS" xml:space="preserve">
     <value>Ajouter une nouvelle analyse Etui/Caisse…</value>
@@ -570,7 +569,7 @@ Souhaitez-vous continuer?</value>
     <value>Liasses</value>
   </data>
   <data name="ID_NODE_CASES" xml:space="preserve">
-    <value>Caisses</value>
+    <value>Etuis + caisses</value>
   </data>
   <data name="ID_NODE_CYLINDERS" xml:space="preserve">
     <value>Cylindres</value>
@@ -788,6 +787,7 @@ Souhaitez-vous continuer?</value>
   <data name="ID_WIDTH_WU" xml:space="preserve">
     <value>Largeur ({0})</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="treeDim" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\treeDim.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

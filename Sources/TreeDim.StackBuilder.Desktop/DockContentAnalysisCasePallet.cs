@@ -83,7 +83,10 @@ namespace treeDiM.StackBuilder.Desktop
                 chkbPalletFilm.Checked = null != analysisCasePallet.PalletFilmProperties;
                 ctrlStrapperSet.StrapperSet = analysisCasePallet.StrapperSet;
 
-                PalletFilmTopCovering = UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                PalletFilmTopCovering = analysisCasePallet.PalletFilmTopCovering;
+
+                HasPalletSleeve = analysisCasePallet.HasPalletSleeve;
+                PalletSleeveColor = analysisCasePallet.PalletSleeveColor;
             }
             // ---
             // --- initialize grid control
@@ -695,10 +698,12 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Data members
-        protected static readonly new ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCasePallet));
         private bool _initialized = false;
+        // grids
         protected SourceGrid.Cells.Controllers.CustomEvents _gripLabelsControllerEvent = new SourceGrid.Cells.Controllers.CustomEvents();
         protected SourceGrid.Cells.Controllers.CustomEvents _deleteLabelEvent = new SourceGrid.Cells.Controllers.CustomEvents();
+        // logging
+        protected static readonly new ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisCasePallet));
         #endregion
     }
 }

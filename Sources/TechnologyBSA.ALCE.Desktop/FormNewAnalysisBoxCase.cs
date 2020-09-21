@@ -175,8 +175,8 @@ namespace treeDiM.StackBuilder.Desktop
             else if (ctrl == cbCases)
             {
                 return itemBase is Packable packable
-                    && packable.IsCase
-                    && (packable is BoxProperties)
+                    && (packable is BoxProperties boxProp)
+                    && (boxProp.HasInsideDimensions)
                     && (packable != SelectedBoxProperties);
             }
             return false;

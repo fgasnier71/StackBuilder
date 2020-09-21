@@ -79,7 +79,7 @@ namespace treeDiM.StackBuilder.Desktop
                                     UnitsManager.ConvertLengthFrom(dcsbCase.DimensionsOuter.M2, us),
                                     UnitsManager.ConvertMassFrom(dcsbCase.Weight, us),
                                     colors);
-                            bProperties.TapeWidth = new OptDouble(dcsbCase.IsCase && dcsbCase.ShowTape, UnitsManager.ConvertLengthFrom(dcsbCase.TapeWidth, us));
+                            bProperties.TapeWidth = new OptDouble(dcsbCase.ShowTape, UnitsManager.ConvertLengthFrom(dcsbCase.TapeWidth, us));
                             bProperties.TapeColor = Color.FromArgb(dcsbCase.TapeColor);
                             bProperties.SetNetWeight(
                                 new OptDouble(!dcsbCase.HasInnerDims && dcsbCase.NetWeight.HasValue

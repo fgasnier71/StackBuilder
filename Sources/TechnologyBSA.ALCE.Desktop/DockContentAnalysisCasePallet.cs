@@ -70,7 +70,7 @@ namespace treeDiM.StackBuilder.Desktop
                 chkbPalletFilm.Checked = null != analysisCasePallet.PalletFilmProperties;
                 ctrlStrapperSet.StrapperSet = analysisCasePallet.StrapperSet;
 
-                PalletFilmTopCovering = UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                PalletFilmTopCovering = analysisCasePallet.PalletFilmTopCovering;
             }
             // ---
             // --- initialize grid control

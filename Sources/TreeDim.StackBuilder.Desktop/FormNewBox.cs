@@ -22,16 +22,12 @@ namespace treeDiM.StackBuilder.Desktop
     public partial class FormNewBox : FormNewBase, IDrawingContainer
     {
         #region Mode enum
-        public enum Mode
-        { 
-            BOX
-            , CASE
-        }
+        public enum Mode { BOX, CASE }
+        private Mode ModeInit { get; set; }
         #endregion
 
         #region Data members
         public Color[] _faceColors = new Color[6];
-        public Mode _mode;
         public List<Pair<HalfAxis.HAxis, Texture>> _textures;
         public StrapperSet StrapperSet { get; } = new StrapperSet();
         private double _thicknessLength = 0.0, _thicknessWidth = 0.0, _thicknessHeight = 0.0;
@@ -54,10 +50,8 @@ namespace treeDiM.StackBuilder.Desktop
                 UnitsManager.AdaptUnitLabels(this);
                 // save document reference
                 _document = document;
-                // mode
-                _mode = mode;
 
-                switch (_mode)
+                switch (mode)
                 {
                     case Mode.CASE:
                         tbName.Text = _document.GetValidNewTypeName(Resources.ID_CASE);
@@ -86,6 +80,7 @@ namespace treeDiM.StackBuilder.Desktop
                     default:
                         break;
                 }
+                ModeInit = mode;
                 // description (same as name)
                 tbDescription.Text = tbName.Text;
                 // color : all faces set together / face by face
@@ -93,7 +88,7 @@ namespace treeDiM.StackBuilder.Desktop
                 OnAllFacesColorCheckedChanged(this, null);
                 // set colors
                 for (int i = 0; i < 6; ++i)
-                    _faceColors[i] = _mode == Mode.BOX ? Color.Turquoise : Color.Chocolate;
+                    _faceColors[i] = mode == Mode.BOX ? Color.Turquoise : Color.Chocolate;
                 // set textures
                 _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
                 // set default face
@@ -123,8 +118,6 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 // set unit labels
                 UnitsManager.AdaptUnitLabels(this);
-                // save document reference
-                _mode = boxProperties.IsCase ? Mode.CASE : Mode.BOX;
                 // set colors
                 for (int i = 0; i < 6; ++i)
                     _faceColors[i] = boxProperties.Colors[i];
@@ -168,16 +161,16 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public string BoxName
         {
-            get { return tbName.Text; }
-            set { tbName.Text = value; }
+            get => tbName.Text;
+            set => tbName.Text = value; 
         }
         /// <summary>
         /// Description
         /// </summary>
         public string Description
         {
-            get { return tbDescription.Text; }
-            set { tbDescription.Text = value; }
+            get => tbDescription.Text; 
+            set => tbDescription.Text = value;
         }
         /// <summary>
         /// Length
@@ -280,7 +273,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region FormNewBase override
-        public override string ItemDefaultName => Resources.ID_CASE;
+        public override string ItemDefaultName => ModeInit == Mode.CASE ? Resources.ID_CASE : Resources.ID_BOX;
         #endregion
 
         #region Form override
@@ -289,16 +282,8 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnLoad(e);
 
             graphCtrl.DrawingContainer = this;
-
-            // show hide inside dimensions controls
-            uCtrlDimensionsInner.Visible = _mode == Mode.CASE;
-            uCtrlMaxWeight.Visible = _mode == Mode.CASE;
-
-            lbTapeColor.Visible = _mode == Mode.CASE;
-            cbTapeColor.Visible = _mode == Mode.CASE;
-            uCtrlTapeWidth.Visible = _mode == Mode.CASE;
             // caption
-            this.Text = Mode.CASE == _mode ? Resources.ID_ADDNEWCASE : Resources.ID_ADDNEWBOX;
+            Text = Resources.ID_ADDNEWBOX;
             // update thicknesses
             UpdateThicknesses();
             // update tape definition controls
@@ -393,13 +378,13 @@ namespace treeDiM.StackBuilder.Desktop
         public override void UpdateStatus(string message)
         {
             // case length consistency
-            if (_mode == Mode.CASE && InsideLength > BoxLength)
+            if (HasInsideDimensions && InsideLength > BoxLength)
                 message = string.Format(Resources.ID_INVALIDINSIDELENGTH, InsideLength, BoxLength);
             // case width consistency
-            else if (_mode == Mode.CASE && InsideWidth > BoxWidth)
+            else if (HasInsideDimensions && InsideWidth > BoxWidth)
                 message = string.Format(Resources.ID_INVALIDINSIDEWIDTH, InsideWidth, BoxWidth);
             // case height consistency
-            else if (_mode == Mode.CASE && InsideHeight > BoxHeight)
+            else if (HasInsideDimensions && InsideHeight > BoxHeight)
                 message = string.Format(Resources.ID_INVALIDINSIDEHEIGHT, InsideHeight, BoxHeight);
             // box/case net weight consistency
             else if (NetWeight.Activated && NetWeight > Weight)
@@ -510,24 +495,25 @@ namespace treeDiM.StackBuilder.Desktop
                         int[] colors = (from fc in _faceColors select fc.ToArgb()).ToArray();
 
                         var client = wcfClient.Client;
-                        client?.CreateNewCase(new DCSBCase()
-                        {
-                            Name = form.ItemName,
-                            Description = Description,
-                            UnitSystem = (int)UnitsManager.CurrentUnitSystem,
-                            IsCase = (_mode == Mode.CASE),
-                            DimensionsOuter = new DCSBDim3D() { M0 = uCtrlDimensionsOuter.ValueX, M1 = uCtrlDimensionsOuter.ValueY, M2 = uCtrlDimensionsOuter.ValueZ },
-                            HasInnerDims = HasInsideDimensions,
-                            DimensionsInner = new DCSBDim3D() { M0 = uCtrlDimensionsInner.X, M1 = uCtrlDimensionsInner.Y, M2 = uCtrlDimensionsInner.Z },
-                            ShowTape = TapeWidth.Activated,
-                            TapeWidth = TapeWidth.Value,
-                            TapeColor = TapeColor.ToArgb(),
-                            Weight = Weight,
-                            NetWeight = !HasInsideDimensions && NetWeight.Activated ? NetWeight.Value : new double?(),
-                            MaxWeight = HasInsideDimensions && MaxWeight.Activated ? MaxWeight.Value : new double?(),
-                            Colors = colors,
-                            AutoInsert = false
-                        }
+                        client?.CreateNewCase(
+                            new DCSBCase()
+                            {
+                                Name = form.ItemName,
+                                Description = Description,
+                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                                DimensionsOuter = new DCSBDim3D() { M0 = uCtrlDimensionsOuter.ValueX, M1 = uCtrlDimensionsOuter.ValueY, M2 = uCtrlDimensionsOuter.ValueZ },
+                                IsCase = HasInsideDimensions,
+                                HasInnerDims = HasInsideDimensions,
+                                DimensionsInner = new DCSBDim3D() { M0 = uCtrlDimensionsInner.X, M1 = uCtrlDimensionsInner.Y, M2 = uCtrlDimensionsInner.Z },
+                                ShowTape = TapeWidth.Activated,
+                                TapeWidth = TapeWidth.Value,
+                                TapeColor = TapeColor.ToArgb(),
+                                Weight = Weight,
+                                NetWeight = !HasInsideDimensions && NetWeight.Activated ? NetWeight.Value : new double?(),
+                                MaxWeight = HasInsideDimensions && MaxWeight.Activated ? MaxWeight.Value : new double?(),
+                                Colors = colors,
+                                AutoInsert = false
+                            }
                             );
                     }
                 }

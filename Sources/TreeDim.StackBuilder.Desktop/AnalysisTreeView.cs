@@ -568,12 +568,14 @@ namespace treeDiM.StackBuilder.Desktop
                 Tag = new NodeTag(NodeTag.NodeType.NT_DOCUMENT, doc)
             };
             Nodes.Add(nodeDoc);
+/*
             // add box list node
             TreeNode nodeBoxes = new TreeNode(Resources.ID_NODE_BOXES, 0, 1)
             {
                 Tag = new NodeTag(NodeTag.NodeType.NT_LISTBOX, doc)
             };
             nodeDoc.Nodes.Add(nodeBoxes);
+*/
             // add case list node
             TreeNode nodeCases = new TreeNode(Resources.ID_NODE_CASES, 0, 1)
             {
@@ -642,19 +644,9 @@ namespace treeDiM.StackBuilder.Desktop
             }
             else if (itemProperties.GetType() == typeof(BoxProperties))
             {
-                BoxProperties boxProperties = itemProperties as BoxProperties;
-                if (boxProperties.IsCase)
-                {
-                    iconIndex = 4;
-                    nodeType = NodeTag.NodeType.NT_CASE;
-                    parentNodeType = NodeTag.NodeType.NT_LISTCASE;
-                }
-                else
-                {
-                    iconIndex = 3;
-                    nodeType = NodeTag.NodeType.NT_BOX;
-                    parentNodeType = NodeTag.NodeType.NT_LISTBOX;
-                }
+                iconIndex = 4;
+                nodeType = NodeTag.NodeType.NT_CASE;
+                parentNodeType = NodeTag.NodeType.NT_LISTCASE;
             }
             else if (itemProperties.GetType() == typeof(BagProperties))
             {

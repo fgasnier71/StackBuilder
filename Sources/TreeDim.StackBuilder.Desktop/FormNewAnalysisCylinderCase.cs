@@ -102,10 +102,9 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 return itemBase is RevSolidProperties;
             }
-            else if (ctrl == cbCases)
+            else if (ctrl == cbCases && itemBase is BoxProperties boxProp)
             {
-                PackableBrick packable = itemBase as PackableBrick;
-                return (null != packable) && (packable.IsCase);
+                return boxProp.HasInsideDimensions;
             }
             return false;
         }

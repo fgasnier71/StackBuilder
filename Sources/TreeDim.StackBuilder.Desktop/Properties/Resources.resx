@@ -330,7 +330,7 @@
     <value>Case/pallet</value>
   </data>
   <data name="ID_CASES" xml:space="preserve">
-    <value>Cases</value>
+    <value>Boxes+Cases</value>
   </data>
   <data name="ID_CASESLAYER" xml:space="preserve">
     <value>Cases/Layer</value>
@@ -661,7 +661,7 @@ Continue?</value>
     <value>Bundles</value>
   </data>
   <data name="ID_NODE_CASES" xml:space="preserve">
-    <value>Cases</value>
+    <value>Boxes+Cases</value>
   </data>
   <data name="ID_NODE_CYLINDERS" xml:space="preserve">
     <value>Cylinders</value>

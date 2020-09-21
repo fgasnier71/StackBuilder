@@ -1041,8 +1041,8 @@ namespace treeDiM.StackBuilder.Basics
 
         public ReadOnlyCollection<ItemBase> TypeList =>new ReadOnlyCollection<ItemBase>(_typeList); 
         public IEnumerable<PackableBrickNamed> Bricks => _typeList.OfType<PackableBrickNamed>();
-        public IEnumerable<BoxProperties> Boxes => _typeList.OfType<BoxProperties>().Where(x => !x.HasInsideDimensions);
-        public IEnumerable<BoxProperties> Cases => _typeList.OfType<BoxProperties>().Where(x => x.HasInsideDimensions);
+        public IEnumerable<BoxProperties> Boxes => _typeList.OfType<BoxProperties>();
+        public IEnumerable<BoxProperties> CasesWInsideDims => _typeList.OfType<BoxProperties>();
         public IEnumerable<BundleProperties> Bundles => _typeList.OfType<BundleProperties>();
         public IEnumerable<RevSolidProperties> Cylinders => _typeList.OfType<RevSolidProperties>();
         public IEnumerable<PalletProperties> Pallets => _typeList.OfType<PalletProperties>();
@@ -1069,16 +1069,16 @@ namespace treeDiM.StackBuilder.Basics
         public bool CanCreatePack => Boxes.Any() || Cylinders.Any();
         public bool CanCreateAnalysisCasePallet => Bricks.Any() && Pallets.Any();
         public bool CanCreateAnalysisBundlePallet => Bundles.Any() && Pallets.Any();
-        public bool CanCreateAnalysisBoxCase =>(Boxes.Any() || Cases.Any()) && Cases.Any();
-        public bool CanCreateAnalysisBundleCase => Bundles.Any() && Cases.Any();
+        public bool CanCreateAnalysisBoxCase => Boxes.Any() && CasesWInsideDims.Any();
+        public bool CanCreateAnalysisBundleCase => Bundles.Any() && CasesWInsideDims.Any();
         public bool CanCreateAnalysisCylinderPallet => Cylinders.Any() && Pallets.Any();
-        public bool CanCreateAnalysisCylinderCase => Cylinders.Any() && Cases.Any();
+        public bool CanCreateAnalysisCylinderCase => Cylinders.Any() && CasesWInsideDims.Any();
         public bool CanCreateAnalysisPalletTruck => Trucks.Any() && Pallets.Any();
-        public bool CanCreateAnalysisCaseTruck => Trucks.Any() && Cases.Any();
+        public bool CanCreateAnalysisCaseTruck => Boxes.Any() && Trucks.Any();
         public bool CanCreateAnalysisCylinderTruck => Trucks.Any() && Cylinders.Any();
         public bool CanCreateOptiCasePallet => Boxes.Any() && Pallets.Any();
         public bool CanCreateOptiPack => Boxes.Any() && Pallets.Any();
-        public bool CanCreateOptiMulticase => Bundles.Any() || Boxes.Any() || Cases.Any();
+        public bool CanCreateOptiMulticase => Bundles.Any() || Boxes.Any() && CasesWInsideDims.Any();
         #endregion
 
         #region Load methods
@@ -1902,6 +1902,20 @@ namespace treeDiM.StackBuilder.Basics
                 PalletCornerProperties palletCornersTop = GetTypeByGuid(sPalletCornerTopId) as PalletCornerProperties;
                 PalletCapProperties palletCap = GetTypeByGuid(sPalletCapId) as PalletCapProperties;
                 PalletFilmProperties palletFilm = GetTypeByGuid(sPalletFilmId) as PalletFilmProperties;
+                double palletFilmTopCovering = 0.0;
+                if (null != palletFilm)
+                {
+                    if (eltAnalysis.HasAttribute("PalletFilmTopCovering"))
+                        palletFilmTopCovering = LoadDouble(eltAnalysis, "PalletFilmTopCovering", UnitsManager.UnitType.UT_LENGTH);
+                }
+                bool hasPalletSleeve = false;
+                Color palletSleeveColor = Color.Beige;
+                if (eltAnalysis.HasAttribute("PalletSleeveColor"))
+                {
+                    hasPalletSleeve = true;
+                    palletSleeveColor = Color.FromArgb(Convert.ToInt32(eltAnalysis.Attributes["PalletSleeveColor"].Value));
+                }
+
                 StrapperSet strapperSet = new StrapperSet();
                 List<PalletLabelInst> palletLabelInstances = new List<PalletLabelInst>();
 
@@ -1931,6 +1945,9 @@ namespace treeDiM.StackBuilder.Basics
                 analysisCasePallet.PalletCornerTopProperties = palletCornersTop;
                 analysisCasePallet.StrapperSet = strapperSet;
                 analysisCasePallet.PalletLabels = palletLabelInstances;
+                analysisCasePallet.PalletFilmTopCovering = palletFilmTopCovering;
+                analysisCasePallet.HasPalletSleeve = hasPalletSleeve;
+                analysisCasePallet.PalletSleeveColor = palletSleeveColor;
 
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
@@ -2796,7 +2813,7 @@ namespace treeDiM.StackBuilder.Basics
                 tapeElt.Attributes.Append(tapeWidthAttribute);
 
                 XmlAttribute tapeColorAttribute = xmlDoc.CreateAttribute("TapeColor");
-                tapeColorAttribute.Value = string.Format("{0}", boxProperties.TapeColor.ToArgb());
+                tapeColorAttribute.Value = $"{boxProperties.TapeColor.ToArgb()}";
                 tapeElt.Attributes.Append(tapeColorAttribute);
             }
             // strappers
@@ -2954,15 +2971,15 @@ namespace treeDiM.StackBuilder.Basics
             eltCylProperties.Attributes.Append(netWeightAttribute);
             // colorTop
             XmlAttribute topAttribute = xmlDoc.CreateAttribute("ColorTop");
-            topAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorTop.ToArgb());
+            topAttribute.Value = $"{cylinderProperties.ColorTop.ToArgb()}";
             eltCylProperties.Attributes.Append(topAttribute);
             // colorWall
             XmlAttribute outerWallAttribute = xmlDoc.CreateAttribute("ColorWallOuter");
-            outerWallAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorWallOuter.ToArgb());
+            outerWallAttribute.Value = $"{cylinderProperties.ColorWallOuter.ToArgb()}";
             eltCylProperties.Attributes.Append(outerWallAttribute);
             // color inner wall
             XmlAttribute innerWallAttribute = xmlDoc.CreateAttribute("ColorWallInner");
-            innerWallAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", cylinderProperties.ColorWallInner.ToArgb());
+            innerWallAttribute.Value =$"{cylinderProperties.ColorWallInner.ToArgb()}";
             eltCylProperties.Attributes.Append(innerWallAttribute);
         }
         public void Save(BottleProperties bottleProperties, XmlElement parentElement, XmlDocument xmlDoc)
@@ -3051,11 +3068,11 @@ namespace treeDiM.StackBuilder.Basics
             eltPalletProperties.Attributes.Append(admLoadHeightAttribute);
             // type
             XmlAttribute typeAttribute = xmlDoc.CreateAttribute("Type");
-            typeAttribute.Value = string.Format("{0}", palletProperties.TypeName);
+            typeAttribute.Value = $"{palletProperties.TypeName}";
             eltPalletProperties.Attributes.Append(typeAttribute);
             // color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
-            colorAttribute.Value = string.Format("{0}", palletProperties.Color.ToArgb());
+            colorAttribute.Value = $"{palletProperties.Color.ToArgb()}";
             eltPalletProperties.Attributes.Append(colorAttribute);
         }
         public void Save(InterlayerProperties interlayerProperties, XmlElement parentElement, XmlDocument xmlDoc)
@@ -3093,7 +3110,7 @@ namespace treeDiM.StackBuilder.Basics
             eltInterlayerProperties.Attributes.Append(weightAttribute);
             // color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
-            colorAttribute.Value = string.Format("{0}", interlayerProperties.Color.ToArgb());
+            colorAttribute.Value = $"{interlayerProperties.Color.ToArgb()}";
             eltInterlayerProperties.Attributes.Append(colorAttribute);
         }
 
@@ -3132,7 +3149,7 @@ namespace treeDiM.StackBuilder.Basics
             eltCornerProperties.Attributes.Append(weightAttribute);
             // color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
-            colorAttribute.Value = string.Format("{0}", cornerProperties.Color.ToArgb());
+            colorAttribute.Value =$"{cornerProperties.Color.ToArgb()}";
             eltCornerProperties.Attributes.Append(colorAttribute);
         }
 
@@ -3183,7 +3200,7 @@ namespace treeDiM.StackBuilder.Basics
             eltCapProperties.Attributes.Append(weightAttribute);
             // color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
-            colorAttribute.Value = string.Format("{0}", capProperties.Color.ToArgb());
+            colorAttribute.Value = $"{capProperties.Color.ToArgb()}";
             eltCapProperties.Attributes.Append(colorAttribute); 
         }
 
@@ -3222,7 +3239,7 @@ namespace treeDiM.StackBuilder.Basics
             eltFilmProperties.Attributes.Append(hatchAngleAttribute);
             // Color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
-            colorAttribute.Value = string.Format("{0}", filmProperties.Color.ToArgb());
+            colorAttribute.Value = $"{filmProperties.Color.ToArgb()}";
             eltFilmProperties.Attributes.Append(colorAttribute);
             // Weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
@@ -3299,7 +3316,7 @@ namespace treeDiM.StackBuilder.Basics
             eltBundleProperties.Attributes.Append(weightAttribute);
             // color
             XmlAttribute colorAttribute = xmlDoc.CreateAttribute("Color");
-            colorAttribute.Value = string.Format("{0}", bundleProperties.Color.ToArgb());
+            colorAttribute.Value = $"{bundleProperties.Color.ToArgb()}";
             eltBundleProperties.Attributes.Append(colorAttribute);
             // numberFlats
             XmlAttribute numberFlatsAttribute = xmlDoc.CreateAttribute("NumberFlats");
@@ -3413,7 +3430,7 @@ namespace treeDiM.StackBuilder.Basics
                 xmlFaceColor.Attributes.Append(xmlFaceIndex);
                 // color
                 XmlAttribute xmlColor = xmlDoc.CreateAttribute("Color");
-                xmlColor.Value = string.Format("{0}", color.ToArgb());
+                xmlColor.Value = $"{color.ToArgb()}";
                 xmlFaceColor.Attributes.Append(xmlColor);
                 ++i;
             }
@@ -3432,7 +3449,7 @@ namespace treeDiM.StackBuilder.Basics
             eltStrapperSet.Attributes.Append(xmlWidth);
             // strapperColor
             XmlAttribute xmlColor = xmlDoc.CreateAttribute("Color");
-            xmlColor.Value = string.Format("{0}", strapperSet.Color.ToArgb());
+            xmlColor.Value = $"{strapperSet.Color.ToArgb()}";
             eltStrapperSet.Attributes.Append(xmlColor);
             // evenly spaced strappers in directions 0/1/2
             for (int i = 0; i < 3; ++i)
@@ -3494,7 +3511,7 @@ namespace treeDiM.StackBuilder.Basics
             wrapperElt.Attributes.Append(typeAttrib);
             // color
             XmlAttribute colorAttrib = xmlDoc.CreateAttribute("Color");
-            colorAttrib.Value = string.Format("{0}", wrapper.Color.ToArgb());
+            colorAttrib.Value =$"{wrapper.Color.ToArgb()}";
             wrapperElt.Attributes.Append(colorAttrib);
             // weight
             XmlAttribute weightAttrib = xmlDoc.CreateAttribute("Weight");
@@ -3533,7 +3550,7 @@ namespace treeDiM.StackBuilder.Basics
             if (null == tray) return;
             // color
             XmlAttribute colorAttrib = xmlDoc.CreateAttribute("Color");
-            colorAttrib.Value = string.Format("{0}", tray.Color.ToArgb());
+            colorAttrib.Value = $"{tray.Color.ToArgb()}";
             trayElt.Attributes.Append(colorAttrib);
             // height
             XmlAttribute heightAttrib = xmlDoc.CreateAttribute("Height");
@@ -3636,6 +3653,17 @@ namespace treeDiM.StackBuilder.Basics
                     XmlAttribute palletFilmIdAttribute = xmlDoc.CreateAttribute("PalletFilmId");
                     palletFilmIdAttribute.Value = string.Format("{0}", analysisCasePallet1.PalletFilmProperties.ID.IGuid);
                     xmlAnalysisElt.Attributes.Append(palletFilmIdAttribute);
+
+                    XmlAttribute attPalletFilmTopCovering = xmlDoc.CreateAttribute("PalletFilmTopCovering");
+                    attPalletFilmTopCovering.Value = analysisCasePallet1.PalletFilmTopCovering.ToString();
+                    xmlAnalysisElt.Attributes.Append(attPalletFilmTopCovering);
+                }
+                // Pallet sleeve
+                if (analysisCasePallet1.HasPalletSleeve)
+                {
+                    XmlAttribute attPalletSleeveColor = xmlDoc.CreateAttribute("PalletSleeveColor");
+                    attPalletSleeveColor.Value = $"{analysisCasePallet1.PalletSleeveColor.ToArgb()}";
+                    xmlAnalysisElt.Attributes.Append(attPalletSleeveColor);
                 }
                 // StrapperSet
                 SaveStrappers(analysisCasePallet1.StrapperSet, xmlAnalysisElt, xmlDoc);
@@ -3679,6 +3707,7 @@ namespace treeDiM.StackBuilder.Basics
                     XmlAttribute attPalletFilmTurns = xmlDoc.CreateAttribute("PalletFilmTurns");
                     attPalletFilmTurns.Value = constraintSetCasePallet.PalletFilmTurns.ToString();
                     eltContraintSet.Attributes.Append(attPalletFilmTurns);
+
                 }
             }
             else if (analysis is AnalysisPalletTruck analysisPalletTruck)

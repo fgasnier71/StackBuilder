@@ -96,13 +96,7 @@ namespace treeDiM.StackBuilder.Desktop
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
             if (ctrl == cbBoxes)
-            {
-                if (!(itemBase is PackableBrick packable))
-                    return false;
-                if (packable is BoxProperties bProperties)
-                    return !bProperties.IsCase;
-                return true;
-            }
+                return itemBase is PackableBrick;
             return false;
         }
         #endregion
