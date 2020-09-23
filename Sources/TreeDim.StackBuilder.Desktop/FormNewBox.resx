@@ -227,6 +227,36 @@
   <data name="&gt;&gt;lbFace.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="lbWarningBoxCaseAnalysis.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbWarningBoxCaseAnalysis.Location" type="System.Drawing.Point, System.Drawing">
+    <value>61, 68</value>
+  </data>
+  <data name="lbWarningBoxCaseAnalysis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>288, 13</value>
+  </data>
+  <data name="lbWarningBoxCaseAnalysis.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lbWarningBoxCaseAnalysis.Text" xml:space="preserve">
+    <value>(please, define if to be used as a case in box/case analysis)</value>
+  </data>
+  <data name="lbWarningBoxCaseAnalysis.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopRight</value>
+  </data>
+  <data name="&gt;&gt;lbWarningBoxCaseAnalysis.Name" xml:space="preserve">
+    <value>lbWarningBoxCaseAnalysis</value>
+  </data>
+  <data name="&gt;&gt;lbWarningBoxCaseAnalysis.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbWarningBoxCaseAnalysis.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="&gt;&gt;lbWarningBoxCaseAnalysis.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="uCtrlDimensionsInner.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 47</value>
   </data>
@@ -249,7 +279,7 @@
     <value>gbDimensions</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsInner.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="uCtrlDimensionsOuter.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 20</value>
@@ -273,13 +303,13 @@
     <value>gbDimensions</value>
   </data>
   <data name="&gt;&gt;uCtrlDimensionsOuter.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="gbDimensions.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 60</value>
   </data>
   <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 74</value>
+    <value>354, 93</value>
   </data>
   <data name="gbDimensions.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -734,6 +764,9 @@
   <data name="cbColor.Items129" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items130" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>188, 37</value>
   </data>
@@ -747,7 +780,7 @@
     <value>cbColor</value>
   </data>
   <data name="&gt;&gt;cbColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.14, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.21, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbColor.Parent" xml:space="preserve">
     <value>gbFaceColor</value>
@@ -807,7 +840,7 @@
     <value>1</value>
   </data>
   <data name="gbFaceColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 229</value>
+    <value>6, 252</value>
   </data>
   <data name="gbFaceColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>354, 67</value>
@@ -912,7 +945,7 @@
     <value>2</value>
   </data>
   <data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 136</value>
+    <value>6, 159</value>
   </data>
   <data name="gbWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>354, 92</value>
@@ -943,7 +976,7 @@
     <value>366, 69</value>
   </data>
   <data name="graphCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 227</value>
+    <value>210, 247</value>
   </data>
   <data name="graphCtrl.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -952,7 +985,7 @@
     <value>graphCtrl</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.14, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.21, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1386,6 +1419,9 @@
   <data name="cbTapeColor.Items130" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbTapeColor.Items131" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>271, 5</value>
   </data>
@@ -1399,7 +1435,7 @@
     <value>cbTapeColor</value>
   </data>
   <data name="&gt;&gt;cbTapeColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.14, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.21, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbTapeColor.Parent" xml:space="preserve">
     <value>tabPageTape</value>
@@ -1438,7 +1474,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="bnSaveToDB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>440, 414</value>
+    <value>440, 434</value>
   </data>
   <data name="bnSaveToDB.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 23</value>
@@ -1501,7 +1537,7 @@
     <value>ctrlStrapperSet</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.2.14, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.2.21, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.Parent" xml:space="preserve">
     <value>tabPageStrappers</value>
@@ -1537,7 +1573,7 @@
     <value>1</value>
   </data>
   <data name="tabCtrl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 302</value>
+    <value>6, 322</value>
   </data>
   <data name="tabCtrl.Size" type="System.Drawing.Size, System.Drawing">
     <value>578, 110</value>
@@ -1564,13 +1600,13 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 461</value>
+    <value>584, 481</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>600, 500</value>
+    <value>600, 520</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>600, 500</value>
+    <value>600, 520</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Define a new box/case...</value>
@@ -1579,6 +1615,6 @@
     <value>FormNewBox</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.2.14, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.2.21, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

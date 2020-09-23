@@ -51,6 +51,7 @@
             this.tabPageTape = new System.Windows.Forms.TabPage();
             this.tabPageStrappers = new System.Windows.Forms.TabPage();
             this.ctrlStrapperSet = new treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet();
+            this.lbWarningBoxCaseAnalysis = new System.Windows.Forms.Label();
             this.gbDimensions.SuspendLayout();
             this.gbFaceColor.SuspendLayout();
             this.gbWeight.SuspendLayout();
@@ -79,6 +80,7 @@
             // 
             // gbDimensions
             // 
+            this.gbDimensions.Controls.Add(this.lbWarningBoxCaseAnalysis);
             this.gbDimensions.Controls.Add(this.uCtrlDimensionsInner);
             this.gbDimensions.Controls.Add(this.uCtrlDimensionsOuter);
             resources.ApplyResources(this.gbDimensions, "gbDimensions");
@@ -269,7 +271,8 @@
             resources.GetString("cbColor.Items126"),
             resources.GetString("cbColor.Items127"),
             resources.GetString("cbColor.Items128"),
-            resources.GetString("cbColor.Items129")});
+            resources.GetString("cbColor.Items129"),
+            resources.GetString("cbColor.Items130")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -322,6 +325,11 @@
             // vcWeight
             // 
             resources.ApplyResources(this.vcWeight, "vcWeight");
+            this.vcWeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.vcWeight.Minimum = new decimal(new int[] {
             10000,
             0,
@@ -346,6 +354,7 @@
             // graphCtrl
             // 
             resources.ApplyResources(this.graphCtrl, "graphCtrl");
+            this.graphCtrl.AngleHoriz = 45D;
             this.graphCtrl.Name = "graphCtrl";
             this.graphCtrl.TabStop = false;
             this.graphCtrl.Viewer = null;
@@ -501,7 +510,8 @@
             resources.GetString("cbTapeColor.Items127"),
             resources.GetString("cbTapeColor.Items128"),
             resources.GetString("cbTapeColor.Items129"),
-            resources.GetString("cbTapeColor.Items130")});
+            resources.GetString("cbTapeColor.Items130"),
+            resources.GetString("cbTapeColor.Items131")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -549,6 +559,11 @@
             this.ctrlStrapperSet.StrapperSet = null;
             this.ctrlStrapperSet.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet.OnValueChanged(this.OnBoxPropertyChanged);
             // 
+            // lbWarningBoxCaseAnalysis
+            // 
+            resources.ApplyResources(this.lbWarningBoxCaseAnalysis, "lbWarningBoxCaseAnalysis");
+            this.lbWarningBoxCaseAnalysis.Name = "lbWarningBoxCaseAnalysis";
+            // 
             // FormNewBox
             // 
             resources.ApplyResources(this, "$this");
@@ -574,6 +589,7 @@
             this.Controls.SetChildIndex(this.tbDescription, 0);
             this.Controls.SetChildIndex(this.tabCtrl, 0);
             this.gbDimensions.ResumeLayout(false);
+            this.gbDimensions.PerformLayout();
             this.gbFaceColor.ResumeLayout(false);
             this.gbFaceColor.PerformLayout();
             this.gbWeight.ResumeLayout(false);
@@ -610,5 +626,6 @@
         private System.Windows.Forms.TabPage tabPageTape;
         private System.Windows.Forms.TabPage tabPageStrappers;
         private Basics.Controls.CtrlStrapperSet ctrlStrapperSet;
+        private System.Windows.Forms.Label lbWarningBoxCaseAnalysis;
     }
 }

@@ -145,8 +145,8 @@
     <AssemblyInfo CodeLanguage="CS" OutputFile="$(ProjectDir)..\SharedAssemblyInfo.cs" AssemblyVersion="$(AssemblyVersionToUse)" AssemblyFileVersion="$(AssemblyVersionToUse)" />
   </Target>
   <ItemGroup>
-    <Reference Include="AutoUpdater.NET, Version=1.6.0.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autoupdater.NET.Official.1.6.0\lib\net40\AutoUpdater.NET.dll</HintPath>
+    <Reference Include="AutoUpdater.NET, Version=1.6.3.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autoupdater.NET.Official.1.6.3\lib\net45\AutoUpdater.NET.dll</HintPath>
     </Reference>
     <Reference Include="CrashReporter.NET, Version=1.5.8.0, Culture=neutral, PublicKeyToken=7828e0fd88cab698, processorArchitecture=MSIL">
       <HintPath>..\packages\CrashReporter.NET.Official.1.5.8\lib\net462\CrashReporter.NET.dll</HintPath>
@@ -163,9 +163,8 @@
     <Reference Include="ICSharpCode.TextEditorEx, Version=1.0.0.6, Culture=neutral, PublicKeyToken=4d61825e8dd49f1a, processorArchitecture=MSIL">
       <HintPath>..\packages\ICSharpCode.TextEditorEx.1.0.0.6\lib\net40\ICSharpCode.TextEditorEx.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="log4net, Version=2.0.9.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.10\lib\net45\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
@@ -210,7 +209,9 @@
       <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="treeDiM.PLMPack.DBClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -3347,7 +3348,6 @@
       <DependentUpon>ToolTipListBox.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowSettings.cs" />
-    <None Include="treedim2021.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Pallet.bmp" />
@@ -3592,7 +3592,9 @@
     <Content Include="Resources\Word.bmp" />
     <Content Include="treeDim.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <PropertyGroup>
     <PostBuildEvent>copy /Y "$(SolutionDir)TreeDim.StackBuilder.Reporting\ReportTemplates" "$(TargetDir)ReportTemplates\"
 if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"
@@ -3618,82 +3620,82 @@ if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"
   <ItemGroup>
     <PublishFile Include="ReportTemplates\DEU.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\ENU.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\ESP.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\FRA.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\ITA.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\JPN.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\NLD.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\POL.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

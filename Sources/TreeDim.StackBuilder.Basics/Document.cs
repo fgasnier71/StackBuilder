@@ -1042,7 +1042,7 @@ namespace treeDiM.StackBuilder.Basics
         public ReadOnlyCollection<ItemBase> TypeList =>new ReadOnlyCollection<ItemBase>(_typeList); 
         public IEnumerable<PackableBrickNamed> Bricks => _typeList.OfType<PackableBrickNamed>();
         public IEnumerable<BoxProperties> Boxes => _typeList.OfType<BoxProperties>();
-        public IEnumerable<BoxProperties> CasesWInsideDims => _typeList.OfType<BoxProperties>();
+        public IEnumerable<BoxProperties> CasesWInsideDims => _typeList.OfType<BoxProperties>().Where(b => b.HasInsideDimensions);
         public IEnumerable<BundleProperties> Bundles => _typeList.OfType<BundleProperties>();
         public IEnumerable<RevSolidProperties> Cylinders => _typeList.OfType<RevSolidProperties>();
         public IEnumerable<PalletProperties> Pallets => _typeList.OfType<PalletProperties>();

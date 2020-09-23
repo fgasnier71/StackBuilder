@@ -36,9 +36,6 @@
     <StartupObject>treeDiM.StackBuilder.Graphics.TestBSPTree.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -59,7 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
@@ -70,6 +66,11 @@
       <Project>{2ad4c04c-5b8a-4e69-9b1c-402cb86860a7}</Project>
       <Name>treeDiM.StackBuilder.Graphics</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="log4net">
+      <Version>2.0.11</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

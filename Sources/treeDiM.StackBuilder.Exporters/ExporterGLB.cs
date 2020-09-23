@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Numerics;
 
 using Sharp3D.Math.Core;
-using SharpGLTF.Materials;
 using SharpGLTF.Geometry;
 using SharpGLTF.Geometry.VertexTypes;
+using SharpGLTF.Materials;
 using SharpGLTF.Scenes;
-
+using SharpGLTF.Schema2;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 #endregion

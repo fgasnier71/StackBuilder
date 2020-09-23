@@ -51,15 +51,6 @@
     <ManifestKeyFile>treedim2021.pfx</ManifestKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrashReporter.NET, Version=1.5.8.0, Culture=neutral, PublicKeyToken=7828e0fd88cab698, processorArchitecture=MSIL">
-      <HintPath>..\packages\CrashReporter.NET.Official.1.5.8\lib\net462\CrashReporter.NET.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="RichTextBoxAppender, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RichTextBoxAppender.1.0.1\lib\net45\RichTextBoxAppender.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -71,9 +62,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=3.0.6.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
-      <HintPath>..\packages\DockPanelSuite.3.0.6\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SharedAssemblyInfo.cs">
@@ -175,7 +163,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.sl.resx" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -201,6 +188,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PLMPackStress.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CrashReporter.NET.Official">
+      <Version>1.5.8</Version>
+    </PackageReference>
+    <PackageReference Include="DockPanelSuite">
+      <Version>3.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="log4net">
+      <Version>2.0.11</Version>
+    </PackageReference>
+    <PackageReference Include="RichTextBoxAppender">
+      <Version>1.0.1</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

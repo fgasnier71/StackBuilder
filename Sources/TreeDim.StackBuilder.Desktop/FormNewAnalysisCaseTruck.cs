@@ -141,18 +141,12 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (ctrl == cbCases)
             {
-                Packable packable = itemBase as Packable;
-                return null != packable
-                    && (
-                    (packable is BProperties) ||
-                    (packable is PackProperties) ||
-                    (packable is LoadedCase)
-                    );
+                return (itemBase is Packable packable)
+                    && ( (packable is BProperties) || (packable is PackProperties) || (packable is LoadedCase));
             }
             else if (ctrl == cbTrucks)
             {
-                TruckProperties truckProperties = itemBase as TruckProperties;
-                return null != truckProperties;
+                return itemBase is TruckProperties;
             }
             return false;
         }
