@@ -805,7 +805,7 @@
     <value>600, 500</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Define a new bag...</value>
+    <value>Create a new bag...</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormNewBag</value>

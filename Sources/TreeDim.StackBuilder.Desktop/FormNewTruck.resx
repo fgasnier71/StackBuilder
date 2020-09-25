@@ -540,4 +540,7 @@
   <data name="&gt;&gt;uCtrlMaxLoadWeight.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

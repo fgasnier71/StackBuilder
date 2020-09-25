@@ -604,4 +604,7 @@
   <data name="&gt;&gt;uCtrlWeight.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="bnAccept.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

@@ -242,4 +242,7 @@
   <data name="cbColor.Items28" xml:space="preserve">
     <value>Couleur</value>
   </data>
+  <data name="bnAccept.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

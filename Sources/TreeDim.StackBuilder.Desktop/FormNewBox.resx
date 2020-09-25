@@ -1617,4 +1617,7 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.2.21, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

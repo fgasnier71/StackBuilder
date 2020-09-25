@@ -976,4 +976,7 @@
   <data name="bnCancel.Text" xml:space="preserve">
     <value>Annuler</value>
   </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>
