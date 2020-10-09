@@ -67,6 +67,8 @@
             0,
             0});
             this.nudX.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
+            this.nudX.Enter += new System.EventHandler(this.OnEnter);
+            this.nudX.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // nudY
             // 
@@ -86,6 +88,8 @@
             0,
             0});
             this.nudY.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
+            this.nudY.Enter += new System.EventHandler(this.OnEnter);
+            this.nudY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // nudZ
             // 
@@ -105,6 +109,8 @@
             0,
             0});
             this.nudZ.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
+            this.nudZ.Enter += new System.EventHandler(this.OnEnter);
+            this.nudZ.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // UCtrlTriInt
             // 

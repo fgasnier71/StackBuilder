@@ -67,6 +67,8 @@
             this.nudX.Size = new System.Drawing.Size(60, 20);
             this.nudX.TabIndex = 1;
             this.nudX.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
+            this.nudX.Enter += new System.EventHandler(this.OnEnter);
+            this.nudX.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // nudY
             // 
@@ -83,6 +85,8 @@
             this.nudY.Size = new System.Drawing.Size(60, 20);
             this.nudY.TabIndex = 2;
             this.nudY.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
+            this.nudY.Enter += new System.EventHandler(this.OnEnter);
+            this.nudY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // nudZ
             // 
@@ -99,6 +103,8 @@
             this.nudZ.Size = new System.Drawing.Size(60, 20);
             this.nudZ.TabIndex = 3;
             this.nudZ.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
+            this.nudZ.Enter += new System.EventHandler(this.OnEnter);
+            this.nudZ.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // lbUnit
             // 

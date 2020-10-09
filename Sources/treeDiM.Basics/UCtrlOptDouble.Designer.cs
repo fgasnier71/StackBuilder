@@ -54,6 +54,8 @@
             this.nudValue.Size = new System.Drawing.Size(60, 20);
             this.nudValue.TabIndex = 0;
             this.nudValue.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
+            this.nudValue.Enter += new System.EventHandler(this.OnEnter);
+            this.nudValue.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // lbUnit
             // 

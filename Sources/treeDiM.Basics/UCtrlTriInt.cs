@@ -61,8 +61,6 @@ namespace treeDiM.Basics
 
         #region Event handlers
         private void OnValueChangedLocal(object sender, EventArgs e) => ValueChanged?.Invoke(this, e);
-        #endregion
-
         private void OnSizeChanged(object sender, EventArgs e)
         {
             // set nud location
@@ -70,5 +68,27 @@ namespace treeDiM.Basics
             nudY.Location = new Point(Width - 2 * UCtrlDouble.stNudLength, 0);
             nudZ.Location = new Point(Width - 1 * UCtrlDouble.stNudLength, 0);
         }
+        private void OnEnter(object sender, EventArgs e)
+        {
+            if (sender is NumericUpDown nud)
+            {
+                nud.Select(0, nud.Text.Length);
+                if (MouseButtons == MouseButtons.Left)
+                    selectByMouse = true;
+            }
+        }
+        private void OnMouseDown(object sender, MouseEventArgs e)
+        {
+            if (selectByMouse && sender is NumericUpDown nud)
+            {
+                nud.Select(0, nud.Text.Length);
+                selectByMouse = false;
+            }
+        }
+        #endregion
+
+        #region Data members
+        private bool selectByMouse = false;
+        #endregion
     }
 }

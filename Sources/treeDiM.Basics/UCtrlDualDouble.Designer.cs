@@ -79,6 +79,8 @@
             this.nudValueY.Size = new System.Drawing.Size(60, 20);
             this.nudValueY.TabIndex = 5;
             this.nudValueY.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
+            this.nudValueY.Enter += new System.EventHandler(this.OnEnter);
+            this.nudValueY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // nudValueX
             // 
@@ -100,6 +102,8 @@
             this.nudValueX.Size = new System.Drawing.Size(60, 20);
             this.nudValueX.TabIndex = 7;
             this.nudValueX.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
+            this.nudValueX.Enter += new System.EventHandler(this.OnEnter);
+            this.nudValueX.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // UCtrlDualDouble
             // 

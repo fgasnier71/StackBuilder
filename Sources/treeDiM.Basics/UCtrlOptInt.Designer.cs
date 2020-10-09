@@ -66,6 +66,8 @@
             this.nudInt.Size = new System.Drawing.Size(60, 20);
             this.nudInt.TabIndex = 1;
             this.nudInt.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
+            this.nudInt.Enter += new System.EventHandler(this.OnEnter);
+            this.nudInt.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // UCtrlOptInt
             // 

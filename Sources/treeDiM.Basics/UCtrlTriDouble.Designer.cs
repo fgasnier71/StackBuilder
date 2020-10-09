@@ -53,6 +53,8 @@
             this.nudValueX.Size = new System.Drawing.Size(60, 20);
             this.nudValueX.TabIndex = 0;
             this.nudValueX.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
+            this.nudValueX.Enter += new System.EventHandler(this.OnEnter);
+            this.nudValueX.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // nudValueY
             // 
@@ -69,6 +71,8 @@
             this.nudValueY.Size = new System.Drawing.Size(60, 20);
             this.nudValueY.TabIndex = 1;
             this.nudValueY.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
+            this.nudValueY.Enter += new System.EventHandler(this.OnEnter);
+            this.nudValueY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // nudValueZ
             // 
@@ -85,6 +89,8 @@
             this.nudValueZ.Size = new System.Drawing.Size(60, 20);
             this.nudValueZ.TabIndex = 2;
             this.nudValueZ.ValueChanged += new System.EventHandler(this.OnValueChangedLocal);
+            this.nudValueZ.Enter += new System.EventHandler(this.OnEnter);
+            this.nudValueZ.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // lbName
             // 
