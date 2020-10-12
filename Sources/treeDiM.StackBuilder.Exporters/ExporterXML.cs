@@ -86,10 +86,10 @@ namespace treeDiM.StackBuilder.Exporters
         }
         private loadSpace BuildLoadSpace(AnalysisLayered analysis)
         {
-            if (analysis is AnalysisCasePallet analysisCasePallet)
+            if (analysis is AnalysisPackablePallet analysisPackablePallet)
             {
-                PalletProperties palletProperties = analysisCasePallet.PalletProperties;
-                ConstraintSetCasePallet constraintSet = analysisCasePallet.ConstraintSet as ConstraintSetCasePallet;
+                PalletProperties palletProperties = analysisPackablePallet.PalletProperties;
+                ConstraintSetPackablePallet constraintSet = analysisPackablePallet.ConstraintSet as ConstraintSetPackablePallet;
                 return new loadSpace()
                 {
                     id = 1,
@@ -104,13 +104,14 @@ namespace treeDiM.StackBuilder.Exporters
                 };
             }
             else
-                throw new Exception(string.Format("Unexpected analysis type : {0}", analysis.GetType()));
+                throw new Exception($"Unexpected analysis type : {analysis.GetType()}");
         }
         private item BuildItem(AnalysisLayered analysis)
         {
+            Packable packable = analysis.Content;
+
             if (analysis is AnalysisCasePallet analysisCasePallet)
             {
-                Packable packable = analysisCasePallet.Content;
                 ConstraintSetCasePallet constraintSet = analysisCasePallet.ConstraintSet as ConstraintSetCasePallet;
                 bool[] orient = constraintSet.AllowedOrientations;
                 StringBuilder sbOrient = new StringBuilder();
@@ -128,8 +129,21 @@ namespace treeDiM.StackBuilder.Exporters
                     permittedOrientations = sbOrient.ToString()
                 };
             }
+            else if (analysis is AnalysisCylinderPallet analysisCylinderPallet)
+            {
+                return new item()
+                {
+                    id = 1,
+                    name = packable.Name,
+                    length = packable.OuterDimensions.X,
+                    width = packable.OuterDimensions.Y,
+                    height = packable.OuterDimensions.Z,
+                    maxWeightOnTop = 0.0,
+                    permittedOrientations = "001"
+                };
+            }
             else
-                throw new Exception(string.Format("Unexpected analysis type : {0}", analysis.GetType()));
+                throw new Exception($"Unexpected analysis type : {analysis.GetType()}");
         }
         private placement[] BuildPlacementArray(SolutionLayered sol, AnalysisLayered analysis)
         {
@@ -152,6 +166,20 @@ namespace treeDiM.StackBuilder.Exporters
                                 z = writtenPosition.Z,
                                 L = ToAxis(bPosition.DirectionLength),
                                 W = ToAxis(bPosition.DirectionWidth)
+                            }
+                            );
+                    }
+                }
+                else if (layer is Layer3DCyl layerCyl)
+                {
+                    layerCyl.Sort(analysis.Content, Layer3DCyl.SortType.DIST_CENTER);
+                    foreach (Vector3D vPos in layerCyl)
+                    {
+                        lPlacements.Add(
+                            new placement()
+                            {
+                                itemId = 1,
+                                x = vPos.X, y = vPos.Y, z = vPos.Z
                             }
                             );
                     }

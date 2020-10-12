@@ -51,6 +51,19 @@ namespace treeDiM.StackBuilder.Exporters
                             $"{bPosition.DirectionWidth}");
                     }
                 }
+                else if (layer is Layer3DCyl layerCyl)
+                {
+                    layerCyl.Sort(analysis.Content, Layer3DCyl.SortType.DIST_CENTER);
+                    foreach (Vector3D vPos in layerCyl)
+                    {
+                        csv.AppendLine(
+                            $"1;" +
+                            $"{vPos.X.ToString("0,0.0", nfi)};" +
+                            $"{vPos.Y.ToString("0,0.0", nfi)};" +
+                            $"{vPos.Z.ToString("0,0.0", nfi)};"
+                            );                    
+                    }
+                }
             }
             var writer = new StreamWriter(stream);
             writer.Write(csv.ToString());
