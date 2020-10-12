@@ -26,13 +26,7 @@ namespace treeDiM.StackBuilder.Desktop
         private Mode ModeInit { get; set; }
         #endregion
 
-        #region Data members
-        public Color[] _faceColors = new Color[6];
-        public List<Pair<HalfAxis.HAxis, Texture>> _textures;
-        public StrapperSet StrapperSet { get; } = new StrapperSet();
-        private double _thicknessLength = 0.0, _thicknessWidth = 0.0, _thicknessHeight = 0.0;
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBox));
-        #endregion
+
 
         #region Constructor
         /// <summary>
@@ -58,13 +52,12 @@ namespace treeDiM.StackBuilder.Desktop
                         uCtrlDimensionsOuter.ValueX = UnitsManager.ConvertLengthFrom(400.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                         uCtrlDimensionsOuter.ValueY = UnitsManager.ConvertLengthFrom(300.0, UnitsManager.UnitSystem.UNIT_METRIC1);
                         uCtrlDimensionsOuter.ValueZ = UnitsManager.ConvertLengthFrom(200.0, UnitsManager.UnitSystem.UNIT_METRIC1);
+                        uCtrlDimensionsInner.Checked = true;
                         uCtrlDimensionsInner.Value = new Vector3D(
                             uCtrlDimensionsOuter.ValueX - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
                             uCtrlDimensionsOuter.ValueY - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
                             uCtrlDimensionsOuter.ValueZ - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1));
-                        uCtrlDimensionsInner.Checked = false;
                         uCtrlTapeWidth.Value = new OptDouble(true, UnitsManager.ConvertLengthFrom(50, UnitsManager.UnitSystem.UNIT_METRIC1));
-                        cbTapeColor.Color = Color.Beige;
                         break;
                     case Mode.BOX:
                         tbName.Text = _document.GetValidNewTypeName(Resources.ID_BOX);
@@ -76,10 +69,12 @@ namespace treeDiM.StackBuilder.Desktop
                             uCtrlDimensionsOuter.ValueY - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1),
                             uCtrlDimensionsOuter.ValueZ - UnitsManager.ConvertLengthFrom(6.0, UnitsManager.UnitSystem.UNIT_METRIC1));
                         uCtrlDimensionsInner.Checked = false;
+                        uCtrlTapeWidth.Value = new OptDouble(false, UnitsManager.ConvertLengthFrom(10, UnitsManager.UnitSystem.UNIT_METRIC1));
                         break;
                     default:
                         break;
                 }
+                cbTapeColor.Color = Color.Beige;
                 ModeInit = mode;
                 // description (same as name)
                 tbDescription.Text = tbName.Text;
@@ -177,68 +172,72 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public double BoxLength
         {
-            get { return uCtrlDimensionsOuter.ValueX; }
-            set { uCtrlDimensionsOuter.ValueX = value; }
+            get => uCtrlDimensionsOuter.ValueX; 
+            set => uCtrlDimensionsOuter.ValueX = value; 
         }
         /// <summary>
         /// Width
         /// </summary>
         public double BoxWidth
         {
-            get { return uCtrlDimensionsOuter.ValueY; }
-            set { uCtrlDimensionsOuter.ValueY = value; }
+            get => uCtrlDimensionsOuter.ValueY; 
+            set => uCtrlDimensionsOuter.ValueY = value; 
         }
         /// <summary>
         /// Height
         /// </summary>
         public double BoxHeight
         {
-            get { return uCtrlDimensionsOuter.ValueZ; }
-            set { uCtrlDimensionsOuter.ValueZ = value; }
+            get => uCtrlDimensionsOuter.ValueZ; 
+            set => uCtrlDimensionsOuter.ValueZ = value; 
+        }
+        /// <summary>
+        /// Has inside dimensions ?
+        /// </summary>
+        public bool HasInsideDimensions
+        {
+            get => uCtrlDimensionsInner.Checked; 
+            set => uCtrlDimensionsInner.Checked = value;
         }
         /// <summary>
         /// Inside length
         /// </summary>
         public double InsideLength
         {
-            get { return uCtrlDimensionsInner.X; }
-            set { uCtrlDimensionsInner.X = value; }
+            get => uCtrlDimensionsInner.X;
+            set => uCtrlDimensionsInner.X = value; 
         }
-        public bool HasInsideDimensions
-        {
-            get { return uCtrlDimensionsInner.Checked; }
-            set { uCtrlDimensionsInner.Checked = false; }
-        }
+
         /// <summary>
         /// Inside width
         /// </summary>
         public double InsideWidth
         {
-            get { return uCtrlDimensionsInner.Y; }
-            set { uCtrlDimensionsInner.Y = value; }
+            get => uCtrlDimensionsInner.Y; 
+            set => uCtrlDimensionsInner.Y = value; 
         }
         /// <summary>
         /// Inside height
         /// </summary>
         public double InsideHeight
         {
-            get { return uCtrlDimensionsInner.Z; }
-            set { uCtrlDimensionsInner.Z = value; }
+            get => uCtrlDimensionsInner.Z; 
+            set => uCtrlDimensionsInner.Z = value; 
         }
         /// <summary>
         /// Weight
         /// </summary>
         public double Weight
         {
-            get { return vcWeight.Value; }
-            set { vcWeight.Value = value; }
+            get => vcWeight.Value; 
+            set => vcWeight.Value = value; 
         }
         /// <summary>
         /// Colors
         /// </summary>
         public Color[] Colors
         {
-            get { return _faceColors; }
+            get => _faceColors; 
             set { }
         }
         /// <summary>
@@ -246,7 +245,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public List<Pair<HalfAxis.HAxis, Texture>> TextureList
         {
-            get {   return _textures;   }
+            get => _textures; 
             set
             {
                 _textures.Clear();
@@ -258,16 +257,16 @@ namespace treeDiM.StackBuilder.Desktop
         /// </summary>
         public OptDouble TapeWidth
         {
-            get { return uCtrlTapeWidth.Value; }
-            set { uCtrlTapeWidth.Value = value; }
+            get => uCtrlTapeWidth.Value;
+            set => uCtrlTapeWidth.Value = value; 
         }
         /// <summary>
         /// Tape color
         /// </summary>
         public Color TapeColor
         {
-            get { return cbTapeColor.Color;}
-            set { cbTapeColor.Color = value; }
+            get => cbTapeColor.Color;
+            set => cbTapeColor.Color = value; 
         }
 
         #endregion
@@ -523,6 +522,14 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
+        #endregion
+
+        #region Data members
+        public Color[] _faceColors = new Color[6];
+        public List<Pair<HalfAxis.HAxis, Texture>> _textures;
+        public StrapperSet StrapperSet { get; } = new StrapperSet();
+        private double _thicknessLength = 0.0, _thicknessWidth = 0.0, _thicknessHeight = 0.0;
+        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewBox));
         #endregion
     }
 }

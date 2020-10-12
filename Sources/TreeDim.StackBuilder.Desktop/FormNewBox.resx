@@ -767,6 +767,9 @@
   <data name="cbColor.Items130" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items131" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>188, 37</value>
   </data>
@@ -1422,6 +1425,9 @@
   <data name="cbTapeColor.Items131" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbTapeColor.Items132" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>271, 5</value>
   </data>
@@ -1616,8 +1622,5 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>treeDiM.StackBuilder.Desktop.FormNewBase, treeDiM.StackBuilder.Desktop, Version=3.0.2.21, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="bnOK.Text" xml:space="preserve">
-    <value>OK</value>
   </data>
 </root>

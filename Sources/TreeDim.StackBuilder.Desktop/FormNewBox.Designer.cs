@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewBox));
             this.lbFace = new System.Windows.Forms.Label();
             this.gbDimensions = new System.Windows.Forms.GroupBox();
+            this.lbWarningBoxCaseAnalysis = new System.Windows.Forms.Label();
             this.uCtrlDimensionsInner = new treeDiM.Basics.UCtrlOptTriDouble();
             this.uCtrlDimensionsOuter = new treeDiM.Basics.UCtrlTriDouble();
             this.cbFace = new System.Windows.Forms.ComboBox();
@@ -51,7 +52,6 @@
             this.tabPageTape = new System.Windows.Forms.TabPage();
             this.tabPageStrappers = new System.Windows.Forms.TabPage();
             this.ctrlStrapperSet = new treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet();
-            this.lbWarningBoxCaseAnalysis = new System.Windows.Forms.Label();
             this.gbDimensions.SuspendLayout();
             this.gbFaceColor.SuspendLayout();
             this.gbWeight.SuspendLayout();
@@ -86,6 +86,11 @@
             resources.ApplyResources(this.gbDimensions, "gbDimensions");
             this.gbDimensions.Name = "gbDimensions";
             this.gbDimensions.TabStop = false;
+            // 
+            // lbWarningBoxCaseAnalysis
+            // 
+            resources.ApplyResources(this.lbWarningBoxCaseAnalysis, "lbWarningBoxCaseAnalysis");
+            this.lbWarningBoxCaseAnalysis.Name = "lbWarningBoxCaseAnalysis";
             // 
             // uCtrlDimensionsInner
             // 
@@ -272,7 +277,8 @@
             resources.GetString("cbColor.Items127"),
             resources.GetString("cbColor.Items128"),
             resources.GetString("cbColor.Items129"),
-            resources.GetString("cbColor.Items130")});
+            resources.GetString("cbColor.Items130"),
+            resources.GetString("cbColor.Items131")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -511,7 +517,8 @@
             resources.GetString("cbTapeColor.Items128"),
             resources.GetString("cbTapeColor.Items129"),
             resources.GetString("cbTapeColor.Items130"),
-            resources.GetString("cbTapeColor.Items131")});
+            resources.GetString("cbTapeColor.Items131"),
+            resources.GetString("cbTapeColor.Items132")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -558,11 +565,6 @@
             this.ctrlStrapperSet.Number = 0;
             this.ctrlStrapperSet.StrapperSet = null;
             this.ctrlStrapperSet.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet.OnValueChanged(this.OnBoxPropertyChanged);
-            // 
-            // lbWarningBoxCaseAnalysis
-            // 
-            resources.ApplyResources(this.lbWarningBoxCaseAnalysis, "lbWarningBoxCaseAnalysis");
-            this.lbWarningBoxCaseAnalysis.Name = "lbWarningBoxCaseAnalysis";
             // 
             // FormNewBox
             // 
