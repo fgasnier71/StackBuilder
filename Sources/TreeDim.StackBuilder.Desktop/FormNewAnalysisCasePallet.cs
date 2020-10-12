@@ -73,6 +73,8 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlOptSpace.Value = constraintSet.MinimumSpace;
             }
             checkBoxBestLayersOnly.Checked = Settings.Default.KeepBestSolutions;
+
+            OnLayerSelected(this, null);
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -208,6 +210,9 @@ namespace treeDiM.StackBuilder.Desktop
                 ILayer2D[] layersEditable = uCtrlLayerListEdited.Selected;
                 ILayer2D[] layers = uCtrlLayerList.Selected;
                 bnEditLayer.Enabled = (layers.Length == 1);
+
+                bnEditLayerRight.Visible = (layersEditable.Length == 1);
+
                 UpdateStatus(string.Empty);
             }
             catch (Exception ex)
@@ -245,7 +250,7 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlLayerListEdited.ContainerHeight = uCtrlMaximumHeight.Value - palletProperties.Height;
             uCtrlLayerListEdited.FirstLayerSelected = true;
             uCtrlLayerListEdited.Packable = packable;
-            uCtrlLayerListEdited.LayerList = _layersEditable.Cast<ILayer2D>().ToList();
+            uCtrlLayerListEdited.LayerList = _layersEdited.Cast<ILayer2D>().ToList();
         }
 
         private void OnBestCombinationClicked(object sender, EventArgs e)
@@ -306,8 +311,39 @@ namespace treeDiM.StackBuilder.Desktop
                     form.TopMost = true;
                     if (DialogResult.OK == form.ShowDialog())
                     {
-                        _layersEditable.Add( form.Layer );
+                        _layersEdited.Add( form.Layer );
                         FillEditedLayerList();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
+
+        private void OnEditLayerRight(object sender, EventArgs e)
+        {
+            try
+            {
+                // get content
+                if (!(cbCases.SelectedType is Packable packable))
+                    return;
+                // get container
+                var constraintSet = BuildConstraintSet();
+                Vector2D layerDim = new Vector2D(SelectedPallet.Length, SelectedPallet.Width) + 2 * constraintSet.Overhang;
+                // get selected layer
+                ILayer2D[] layers = uCtrlLayerListEdited.Selected;
+                if (layers.Length != 1) return;
+                Layer2DBrickExp layer = layers[0] as Layer2DBrickExp;
+                using (var form = new FormEditLayer(layer, packable))
+                {
+                    form.TopMost = true;
+                    if (DialogResult.OK == form.ShowDialog())
+                    {
+                        _layersEdited.Remove(layer);
+                        _layersEdited.Add(form.Layer);
+                        FillEditedLayerList();                    
                     }
                 }
             }
@@ -340,8 +376,9 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Data members
-        private List<Layer2DBrickExp> _layersEditable = new List<Layer2DBrickExp>(); 
+        private List<Layer2DBrickExp> _layersEdited = new List<Layer2DBrickExp>(); 
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCasePallet));
         #endregion
+
     }
 }
