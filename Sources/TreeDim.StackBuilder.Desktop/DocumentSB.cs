@@ -583,7 +583,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (analysis is AnalysisHCylTruck analysisHCylTruck) form = new FormNewAnalysisHCylTruck(this, analysisHCylTruck);
             else
             {
-                MessageBox.Show("Unexepected analysis type!");
+               _log.Error($"Unexepected analysis type = {analysis.GetType()}");
                 return;
             }
             if (DialogResult.OK == form.ShowDialog())
@@ -606,7 +606,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (analysis is HAnalysisTruck) form = new FormNewHAnalysisCaseTruck(this, analysis);
             else
             {
-                _log.Error($"Unexpected analysis type = {analysis.GetType().ToString()}");
+                _log.Error($"Unexpected analysis type = {analysis.GetType()}");
                 return;
             }
             if (DialogResult.OK == form.ShowDialog())

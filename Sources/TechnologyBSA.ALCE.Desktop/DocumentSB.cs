@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 
 using Sharp3D.Math.Core;
+using log4net;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
@@ -53,13 +54,13 @@ namespace treeDiM.StackBuilder.Desktop
         #region IDocument implementation
         public bool IsDirty { get { return _dirty; } }
         public bool IsNew { get { return string.IsNullOrEmpty(_filePath); } }
-        public bool HasValidPath  {   get { return System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(_filePath)); } }
+        public bool HasValidPath  {   get { return Directory.Exists(Path.GetDirectoryName(_filePath)); } }
         public void Save()
         {
             if (IsNew) return;
             if (!HasValidPath)
                 throw new System.IO.DirectoryNotFoundException(
-                    string.Format("Directory {0} could not be found!", System.IO.Path.GetDirectoryName(_filePath))
+                    string.Format("Directory {0} could not be found!", Path.GetDirectoryName(_filePath))
                     );
             Write(_filePath);
             _dirty = false;
@@ -126,7 +127,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (analysis is AnalysisHCylTruck) form = new DockContentAnalysisHCylTruck(this, analysis as AnalysisHCylTruck);
             else
             {
-                _log.Error(string.Format("Analysis ({0}) type not handled", analysis.Name));
+                _log.Error($"Analysis ({analysis.Name}) type not handled");
                 return null;
             }
             AddView(form);
@@ -139,7 +140,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (analysis is HAnalysisTruck) form = new DockContentHAnalysisCaseTruck(this, analysis);
             else
             {
-                _log.Error(string.Format("Analysis ({0}) type not handled", analysis.Name));
+                _log.Error($"Analysis ({analysis.Name}) type not handled");
                 return null;
             }
             AddView(form);

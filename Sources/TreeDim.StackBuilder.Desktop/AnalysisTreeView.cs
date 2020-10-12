@@ -94,7 +94,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (item is HAnalysisTruck) return 16;
             else
             {
-                _log.Error($"Unexpected analysis type = {item.GetType().ToString()}");
+                _log.Error($"Unexpected analysis type = {item.GetType()}");
                 return 0;
             }
         }

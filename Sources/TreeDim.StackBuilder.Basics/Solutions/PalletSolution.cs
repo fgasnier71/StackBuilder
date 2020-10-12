@@ -205,22 +205,19 @@ namespace treeDiM.StackBuilder.Basics
     /// </summary>
     public class Layer3DCyl : List<Vector3D>, ILayer
     {
-        #region Data members
-        double _zLower;
+        #region Enum
+        public enum SortType { DIST_CENTER }
         #endregion
 
         #region Constructor
         public Layer3DCyl(double zLow)
         {
-            _zLower = zLow;
+            ZLow = zLow;
         }
         #endregion
 
         #region Public properties
-        public double ZLow
-        {
-            get { return _zLower; }
-        }
+        public double ZLow { get; }
         public int BoxCount { get { return 0; } }
         public int InterlayerCount { get { return 0; } }
         public int CylinderCount { get { return Count; } }
@@ -262,31 +259,53 @@ namespace treeDiM.StackBuilder.Basics
             if (Count == 0) return 0.0;
             return cylProperties.Height;
         }
+        public void Sort(Packable packable, SortType sortType)
+        {
+            switch (sortType)
+            {
+                case SortType.DIST_CENTER: Sort(new ComparerCylPositionDist()); break;
+                default: break;
+            }
+        }
         #endregion
+    }
+    #endregion
+
+    #region ComparerCylPositionDist
+    public class ComparerCylPositionDist : IComparer<Vector3D>
+    {
+        public int Compare(Vector3D vPos1, Vector3D vPos2)
+        {
+            double dist1 = vPos1.GetLengthSquared();
+            double dist2 = vPos2.GetLengthSquared();
+
+            if (dist1 < dist2)
+                return -1;
+            else if (dist1 > dist2)
+                return 1;
+            else
+                return 0;
+        }
     }
     #endregion
 
     #region Layer descriptor
     public class LayerDescriptor
     {
-        #region Data members
-        private bool _swapped = false;
-        private bool _hasInterlayer = true;
-        #endregion
-
         #region Constructors
         public LayerDescriptor()
         { 
         }
         public LayerDescriptor(bool swapped, bool hasInterlayer)
         {
-            _swapped = swapped; _hasInterlayer = hasInterlayer;
+            Swapped = swapped;
+            HasInterlayer = hasInterlayer;
         }
         #endregion
 
         #region Public properties
-        public bool Swapped { get { return _swapped; } set { _swapped = value; } }
-        public bool HasInterlayer { get { return _hasInterlayer; } set { _hasInterlayer = value; } }
+        public bool Swapped { get; set; } = false;
+        public bool HasInterlayer { get; set; } = true;
         #endregion
     }
     #endregion
