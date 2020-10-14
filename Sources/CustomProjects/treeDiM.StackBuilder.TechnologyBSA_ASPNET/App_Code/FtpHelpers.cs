@@ -79,15 +79,21 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             request.Method = WebRequestMethods.Ftp.ListDirectory;
             request.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
 
-            using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+            try
             {
-                var responseStream = response.GetResponseStream();
-                using (StreamReader reader = new StreamReader(responseStream))
+                using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
                 {
-                    names = reader.ReadToEnd();
-                    reader.Close();
+                    var responseStream = response.GetResponseStream();
+                    using (StreamReader reader = new StreamReader(responseStream))
+                    {
+                        names = reader.ReadToEnd();
+                        reader.Close();
+                    }
+                    response.Close();
                 }
-                response.Close();
+            }
+            catch (Exception)
+            { 
             }
             return names.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries)
                         .Where(f => f.EndsWith(".csv"))

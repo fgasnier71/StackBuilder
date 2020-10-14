@@ -431,7 +431,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog())
             {
                 var exporter = new Exporters.ExporterGLB();
-                exporter.Export(_analysis as AnalysisLayered, form.FileName);
+                exporter.Export(_analysis, form.FileName);
             }
         }
         #endregion

@@ -6,7 +6,7 @@ using System.Diagnostics;
 using log4net;
 using log4net.Config;
 
-using treeDiM.StackBuilder.Basics;
+using treeDiM.Basics;
 #endregion
 
 namespace treeDiM.StackBuilder.ExcelListEvaluator

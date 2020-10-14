@@ -47,6 +47,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonExportXML = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonExportCSV = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonExportGLB = new System.Windows.Forms.ToolStripButton();
             this.toolStripSepExport3D = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonScreenShot = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
@@ -92,6 +93,7 @@
             // 
             // graphCtrlSolution
             // 
+            this.graphCtrlSolution.AngleHoriz = 45D;
             resources.ApplyResources(this.graphCtrlSolution, "graphCtrlSolution");
             this.graphCtrlSolution.Name = "graphCtrlSolution";
             this.graphCtrlSolution.Viewer = null;
@@ -171,6 +173,7 @@
             this.toolStripSeparator1,
             this.toolStripButtonExportXML,
             this.toolStripButtonExportCSV,
+            this.toolStripButtonExportGLB,
             this.toolStripSepExport3D,
             this.toolStripButtonScreenShot});
             resources.ApplyResources(this.toolStripAnalysis, "toolStripAnalysis");
@@ -213,6 +216,13 @@
             resources.ApplyResources(this.toolStripButtonExportCSV, "toolStripButtonExportCSV");
             this.toolStripButtonExportCSV.Name = "toolStripButtonExportCSV";
             this.toolStripButtonExportCSV.Click += new System.EventHandler(this.OnGenerateExport);
+            // 
+            // toolStripButtonExportGLB
+            // 
+            this.toolStripButtonExportGLB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonExportGLB, "toolStripButtonExportGLB");
+            this.toolStripButtonExportGLB.Name = "toolStripButtonExportGLB";
+            this.toolStripButtonExportGLB.Click += new System.EventHandler(this.OnExport3D);
             // 
             // toolStripSepExport3D
             // 
@@ -275,5 +285,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSepExport3D;
         private System.Windows.Forms.ToolStripButton toolStripButtonScreenShot;
+        private System.Windows.Forms.ToolStripButton toolStripButtonExportGLB;
     }
 }

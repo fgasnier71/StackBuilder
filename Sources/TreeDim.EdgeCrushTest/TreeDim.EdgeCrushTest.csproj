@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>treeDiM.EdgeCrushTest</RootNamespace>
     <AssemblyName>treeDiM.EdgeCrushTest</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -67,9 +67,6 @@
   <ItemGroup>
     <Reference Include="Cureos.Measures">
       <HintPath>..\ThirdPartyAssemblies\Cureos.Measures.dll</HintPath>
-    </Reference>
-    <Reference Include="Sharp3D.Math">
-      <HintPath>..\packages\Sharp3D.Math.1.0.3\lib\net45\Sharp3D.Math.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

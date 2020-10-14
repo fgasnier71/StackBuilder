@@ -116,7 +116,7 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "treeDiM.StackBuilder.Techno
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "treeDiM.StackBuilder.TechnologyBSA_ASPNET", "CustomProjects\treeDiM.StackBuilder.TechnologyBSA_ASPNET\", "{22673792-BB1D-4A7D-A121-FFCA0E3F1C19}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.1"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
 		ProjectReferences = "{2ad4c04c-5b8a-4e69-9b1c-402cb86860a7}|treeDiM.StackBuilder.Graphics.dll;{646EE507-E57D-43A7-93F3-365A687AEC4B}|treeDiM.Basics.dll;{444C01D0-53FD-49A1-9D55-267B49161357}|treeDiM.StackBuilder.Basics.dll;{CAD56B75-481B-4C76-B090-4BC2FF5E5681}|OfficePickers.dll;{2e646606-052d-4063-9218-1379430b070e}|treeDiM.StackBuilder.Engine.dll;{3B7A1F44-6B16-4559-ACF8-578B5AE88689}|Sharp3D.Boxologic.dll;{cad1dc6a-b121-4605-bef3-b38dae821401}|treeDiM.StackBuilder.Exporters.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_58681"
 		Debug.AspNetCompiler.PhysicalPath = "CustomProjects\treeDiM.StackBuilder.TechnologyBSA_ASPNET\"
@@ -154,6 +154,28 @@ EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "TechnologyBSA.ALCE.DesktopMSI", "WIX\TechnologyBSA.ALCE.DesktopMSI\TechnologyBSA.ALCE.DesktopMSI.wixproj", "{F025A776-08FB-487B-BD29-C5FBF75C1DBC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnologyBSA.ALCE.Desktop", "TechnologyBSA.ALCE.Desktop\TechnologyBSA.ALCE.Desktop.csproj", "{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "treeDiM.StackBuilder.LayerCanvas", "treeDiM.StackBuilder.LayerCanvas\", "{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_57660"
+		Debug.AspNetCompiler.PhysicalPath = "treeDiM.StackBuilder.LayerCanvas\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57660\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_57660"
+		Release.AspNetCompiler.PhysicalPath = "treeDiM.StackBuilder.LayerCanvas\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57660\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "57660"
+		SlnRelativePath = "treeDiM.StackBuilder.LayerCanvas\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -941,6 +963,22 @@ Global
 		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Release|x64.Build.0 = Release|x64
 		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Release|x86.ActiveCfg = Release|Any CPU
 		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Release|x86.Build.0 = Release|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Debug|x64.Build.0 = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Debug|x86.Build.0 = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Release|x64.ActiveCfg = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Release|x64.Build.0 = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Release|x86.ActiveCfg = Debug|Any CPU
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -986,13 +1024,14 @@ Global
 		{4CD1F740-17DC-48C8-A320-31729D128DEB} = {7C541C76-20F1-40D8-A683-29062638D9B9}
 		{47BAF1D9-7CBE-4965-BA0A-3F7A5B6295CD} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{F025A776-08FB-487B-BD29-C5FBF75C1DBC} = {7C541C76-20F1-40D8-A683-29062638D9B9}
+		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_PrefixTranslations = False
-		RESX_AutoCreateNewLanguageFiles = True
-		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
-		RESX_ConfirmAddLanguageFile = False
-		RESX_ExcelExportMode = SingleSheet
 		RESX_NeutralResourcesLanguage = en-001
+		RESX_ExcelExportMode = SingleSheet
+		RESX_ConfirmAddLanguageFile = False
+		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
+		RESX_AutoCreateNewLanguageFiles = True
+		RESX_PrefixTranslations = False
 	EndGlobalSection
 EndGlobal

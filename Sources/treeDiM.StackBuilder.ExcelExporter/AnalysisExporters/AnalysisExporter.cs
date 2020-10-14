@@ -17,7 +17,7 @@ namespace treeDiM.StackBuilder.ExcelExporter
     {
         protected void CreateSheet(Workbook xlWorkBook)
         {
-            WSheet = xlWorkBook.Worksheets.Add();
+            WSheet = (Worksheet)xlWorkBook.Worksheets.Add();
             // change sheet name
             WSheet.Name = SheetName;
             // create header
@@ -68,7 +68,7 @@ namespace treeDiM.StackBuilder.ExcelExporter
             imageCell.ColumnWidth = 24;
             WSheet.Shapes.AddPicture(stackImagePath,
                 LinkToFile: MsoTriState.msoFalse, SaveWithDocument: MsoTriState.msoCTrue,
-                Left: imageCell.Left + 1, Top: imageCell.Top + 1, Width: imageCell.Width - 2, Height: imageCell.Height - 2);
+                Left: (int)imageCell.Left + 1, Top: (int)imageCell.Top + 1, Width: (int)imageCell.Width - 2, Height: (int)imageCell.Height - 2);
         }
     }
 }

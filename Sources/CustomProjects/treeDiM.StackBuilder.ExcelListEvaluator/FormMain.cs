@@ -12,6 +12,7 @@ using Microsoft.Office.Core;
 using log4net;
 using Sharp3D.Math.Core;
 
+using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Engine;
@@ -391,8 +392,8 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
                 constraintSet.SetAllowedOrientations(new bool[] { !AllowOnlyZOrientation, !AllowOnlyZOrientation, true });
                 constraintSet.SetMaxHeight(new OptDouble(true, PalletMaximumHeight));
 
-                SolverCasePallet solver = new SolverCasePallet(bProperties, PalletProperties);
-                List<AnalysisLayered> analyses = solver.BuildAnalyses(constraintSet, false);
+                SolverCasePallet solver = new SolverCasePallet(bProperties, PalletProperties, constraintSet);
+                List<AnalysisLayered> analyses = solver.BuildAnalyses(false);
                 if (analyses.Count > 0)
                 {
                     AnalysisLayered analysis = analyses[0];
@@ -404,7 +405,7 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
                     {
                         if (GenerateImage || GenerateImageInFolder)
                         {
-                            ViewerSolution sv = new ViewerSolution(analysis.Solution);
+                            ViewerSolution sv = new ViewerSolution(analysis.Solution as SolutionLayered);
                             sv.Draw(graphics, Transform3D.Identity);
                             graphics.Flush();
                         }
@@ -415,7 +416,7 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
 
                             ReportNode rnRoot = null;
                             Margins margins = new Margins();
-                            Reporting.Reporter reporter = new ReporterMSWord(inputData, ref rnRoot, Reporter.TemplatePath, outputFilePath, margins);
+                            Reporter reporter = new ReporterMSWord(inputData, ref rnRoot, Reporter.TemplatePath, outputFilePath, margins);
                         }
                     }
                 }
@@ -429,8 +430,8 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
                 ConstraintSetBoxCase constraintSet = new ConstraintSetBoxCase(container);
                 constraintSet.SetAllowedOrientations(new bool[] { !AllowOnlyZOrientation, !AllowOnlyZOrientation, true });
 
-                SolverBoxCase solver = new SolverBoxCase(bProperties, container);
-                List<AnalysisLayered> analyses = solver.BuildAnalyses(constraintSet, false);
+                SolverBoxCase solver = new SolverBoxCase(bProperties, container, constraintSet);
+                List<AnalysisLayered> analyses = solver.BuildAnalyses(false);
                 if (analyses.Count > 0)
                 {
                     AnalysisLayered analysis = analyses[0];
@@ -439,7 +440,7 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
 
                     if ((GenerateImage || GenerateImageInFolder) && stackCount <= StackCountMax)
                     {
-                        ViewerSolution sv = new ViewerSolution(analysis.Solution);
+                        ViewerSolution sv = new ViewerSolution(analysis.Solution as SolutionLayered);
                         sv.Draw(graphics, Transform3D.Identity);
                         graphics.Flush();
                     }
@@ -510,7 +511,7 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
                 };
                 Workbooks xlWorkBooks = xlApp.Workbooks;
                 Workbook xlWorkBook = xlWorkBooks.Open(filePath, Type.Missing, false );
-                Worksheet xlWorkSheet = xlWorkBook.Worksheets.get_Item("Sheet1");
+                Worksheet xlWorkSheet = (Worksheet)xlWorkBook.Worksheets.get_Item("Sheet1");
                 Range range = xlWorkSheet.UsedRange;
                 int rowCount = range.Rows.Count;
                 // modify header
@@ -543,11 +544,11 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
                         // get name
                         string name = (xlWorkSheet.get_Range("a" + iRow, "a" + iRow).Value).ToString();
                         // get length
-                        double length = (xlWorkSheet.get_Range("c" + iRow, "c" + iRow).Value);
+                        double length = (double)xlWorkSheet.get_Range("c" + iRow, "c" + iRow).Value;
                         // get width
-                        double width = (xlWorkSheet.get_Range("d" + iRow, "d" + iRow).Value);
+                        double width = (double)xlWorkSheet.get_Range("d" + iRow, "d" + iRow).Value;
                         // get height
-                        double height = (xlWorkSheet.get_Range("e" + iRow, "e" + iRow).Value);
+                        double height = (double)xlWorkSheet.get_Range("e" + iRow, "e" + iRow).Value;
                         // get weight
                         double? weight = null; // (xlWorkSheet.get_Range("j" + iRow, "j" + iRow).Value);
                         double maxDimension = Math.Max(Math.Max(length, width), height);
@@ -568,7 +569,7 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
                         {
                             Range imageCell = xlWorkSheet.get_Range("i" + iRow, "i" + iRow);
                             xlWorkSheet.Shapes.AddPicture(stackImagePath, MsoTriState.msoFalse, MsoTriState.msoCTrue,
-                                imageCell.Left + 1, imageCell.Top + 1, imageCell.Width - 2, imageCell.Height - 2);
+                                (int)imageCell.Left + 1, (int)imageCell.Top + 1, (int)imageCell.Width - 2, (int)imageCell.Height - 2);
                         }
                     }
                     catch (OutOfMemoryException ex)

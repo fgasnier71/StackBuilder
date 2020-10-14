@@ -1,5 +1,4 @@
 ﻿#region Using directives
-
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,7 +10,6 @@ using System.Web.UI.WebControls;
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Engine;
-
 #endregion
 
 namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET

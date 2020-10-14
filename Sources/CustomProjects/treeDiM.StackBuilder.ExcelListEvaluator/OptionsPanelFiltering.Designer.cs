@@ -101,7 +101,7 @@
 
         #endregion
 
-        private Basics.UCtrlDouble uCtrlLargestDimMin;
+        private treeDiM.Basics.UCtrlDouble uCtrlLargestDimMin;
         private System.Windows.Forms.NumericUpDown nudStackCountMax;
         private System.Windows.Forms.Label lbDrawing;
     }
