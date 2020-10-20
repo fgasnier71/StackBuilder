@@ -464,7 +464,7 @@ namespace treeDiM.StackBuilder.Desktop
             };
             Workbooks xlWorkBooks = xlApp.Workbooks;
             Workbook xlWorkBook = xlWorkBooks.Add(Type.Missing);
-            Worksheet xlWorkSheetCasePallet = xlWorkBook.Worksheets.get_Item(1);
+            Worksheet xlWorkSheetCasePallet = xlWorkBook.Worksheets.get_Item(1)as Worksheet;
 
             // create header
             xlWorkSheetCasePallet.Cells[1, 1] = "Analysis name";
@@ -533,7 +533,7 @@ namespace treeDiM.StackBuilder.Desktop
                         imageCell.ColumnWidth = 24;
                         xlWorkSheetCasePallet.Shapes.AddPicture(stackImagePath,
                             LinkToFile: MsoTriState.msoFalse, SaveWithDocument: MsoTriState.msoCTrue,
-                            Left: imageCell.Left + 1, Top: imageCell.Top + 1, Width: imageCell.Width - 2, Height: imageCell.Height - 2);
+                            Left: (int)imageCell.Left + 1, Top: (int)imageCell.Top + 1, Width: (int)imageCell.Width - 2, Height: (int)imageCell.Height - 2);
 
                         ++iRowCasePallet;
                     }

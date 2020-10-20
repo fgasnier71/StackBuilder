@@ -471,7 +471,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                 };
                 Workbooks xlWorkBooks = xlApp.Workbooks;
                 Workbook xlWorkBook = xlWorkBooks.Open(filePath, Type.Missing, false );
-                Worksheet xlWorkSheet = xlWorkBook.Worksheets.get_Item("Sheet1");
+                Worksheet xlWorkSheet = xlWorkBook.Worksheets.get_Item("Sheet1") as Worksheet;
                 Range range = xlWorkSheet.UsedRange;
                 int rowCount = range.Rows.Count;
                 // modify header
@@ -502,17 +502,17 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     try
                     {
                         // get name
-                        string articleNumber = (xlWorkSheet.get_Range("a" + iRow, "a" + iRow).Value);
+                        string articleNumber = (string)(xlWorkSheet.get_Range("a" + iRow, "a" + iRow).Value);
                         if (null == articleNumber)
                             continue;
                         // get length
-                        double length = (xlWorkSheet.get_Range("f" + iRow, "f" + iRow).Value);
+                        double length = (double)(xlWorkSheet.get_Range("f" + iRow, "f" + iRow).Value);
                         // get width
-                        double width = (xlWorkSheet.get_Range("g" + iRow, "g" + iRow).Value);
+                        double width = (double)(xlWorkSheet.get_Range("g" + iRow, "g" + iRow).Value);
                         // get height
-                        double height = (xlWorkSheet.get_Range("h" + iRow, "h" + iRow).Value);
+                        double height = (double)(xlWorkSheet.get_Range("h" + iRow, "h" + iRow).Value);
                         // get weight
-                        double? weight = (xlWorkSheet.get_Range("j" + iRow, "j" + iRow).Value);
+                        double? weight = (double)(xlWorkSheet.get_Range("j" + iRow, "j" + iRow).Value);
                         double maxDimension = Math.Max(length, width);
                         if (maxDimension < largestDimensionMinimum) continue;
                         // compute stacking
@@ -532,7 +532,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                             Range imageCell = xlWorkSheet.get_Range("o" + iRow, "o" + iRow);
                             xlWorkSheet.Shapes.AddPicture(stackImagePath,
                                 LinkToFile: MsoTriState.msoFalse, SaveWithDocument: MsoTriState.msoCTrue,
-                                Left: imageCell.Left + 1, Top: imageCell.Top + 1, Width: imageCell.Width - 2, Height: imageCell.Height - 2);
+                                Left: (int)imageCell.Left + 1, Top: (int)imageCell.Top + 1, Width: (int)imageCell.Width - 2, Height: (int)imageCell.Height - 2);
                         }
                     }
                     catch (OutOfMemoryException ex)

@@ -394,5 +394,29 @@ namespace treeDiM.StackBuilder.GUIExtension.Properties {
                 this["GridFontSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.5")]
+        public double WallThickness {
+            get {
+                return ((double)(this["WallThickness"]));
+            }
+            set {
+                this["WallThickness"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.1")]
+        public double WallSurfaceMass {
+            get {
+                return ((double)(this["WallSurfaceMass"]));
+            }
+            set {
+                this["WallSurfaceMass"] = value;
+            }
+        }
     }
 }

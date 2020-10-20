@@ -1,6 +1,7 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
+using System.Xml;
 using Sharp3D.Math.Core;
 #endregion
 
@@ -321,6 +322,70 @@ namespace treeDiM.StackBuilder.Basics
             sOrientation = sOrientation.TrimEnd(')');
             string[] vOrientation = sOrientation.Split(',');
             return new BoxPosition(v, HalfAxis.Parse(vOrientation[0]), HalfAxis.Parse(vOrientation[1]));
+        }
+        #endregion
+
+        #region BoxPosition list
+        public static bool SaveListToXMLFile(List<BoxPosition> boxPositions, string filename)
+        {
+            try
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Save(filename);
+
+                var listElt = xmlDoc.CreateElement("BoxPositions");
+                xmlDoc.AppendChild(listElt);
+
+                foreach (var bPos in boxPositions)
+                {
+                    // BoxPosition
+                    XmlElement boxPositionElt = xmlDoc.CreateElement("BoxPosition");
+                    listElt.AppendChild(boxPositionElt);
+                    // Position
+                    XmlAttribute positionAttribute = xmlDoc.CreateAttribute("Position");
+                    positionAttribute.Value = bPos.Position.ToString();
+                    boxPositionElt.Attributes.Append(positionAttribute);
+                    // AxisLength
+                    XmlAttribute axisLengthAttribute = xmlDoc.CreateAttribute("AxisLength");
+                    axisLengthAttribute.Value = HalfAxis.ToString(bPos.DirectionLength);
+                    boxPositionElt.Attributes.Append(axisLengthAttribute);
+                    // AxisWidth
+                    XmlAttribute axisWidthAttribute = xmlDoc.CreateAttribute("AxisWidth");
+                    axisWidthAttribute.Value = HalfAxis.ToString(bPos.DirectionWidth);
+                    boxPositionElt.Attributes.Append(axisWidthAttribute);
+                }
+            }
+            catch (Exception /*ex*/)
+            {
+                return false;
+            }
+            return true;
+        }
+        public static bool LoadListFromXMLFile(out List<BoxPosition> boxPositions, string filename)
+        {
+            boxPositions = new List<BoxPosition>();
+            try
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(filename);
+
+                XmlElement eltBoxPositions = xmlDoc.DocumentElement;
+                foreach (XmlNode nodeBP in eltBoxPositions.ChildNodes)
+                {
+                    if (nodeBP is XmlElement eltBoxPosition)
+                    {
+                        string sPosition = eltBoxPosition.Attributes["Position"].Value;
+                        string sAxisLength = eltBoxPosition.Attributes["AxisLength"].Value;
+                        string sAxisWidth = eltBoxPosition.Attributes["AxisWidth"].Value;
+                        boxPositions.Add(new BoxPosition(Vector3D.Parse(sPosition), HalfAxis.Parse(sAxisLength), HalfAxis.Parse(sAxisWidth)));
+                    }
+                }
+            }
+            catch (Exception /*ex*/)
+            {
+                return false;
+            }
+            return true;
         }
         #endregion
 

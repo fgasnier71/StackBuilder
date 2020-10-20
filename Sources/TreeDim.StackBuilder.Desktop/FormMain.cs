@@ -762,6 +762,7 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripMenuItemInterlayer.Enabled = (null != doc);
             toolStripMenuItemPalletCap.Enabled = (null != doc);
             toolStripMenuItemPalletFilm.Enabled = (null != doc);
+            toolStripMenuItemPalletLabel.Enabled = (null != doc);
             toolStripMenuItemPalletCorners.Enabled = (null != doc);
             toolStripMIInterlayer.Enabled = (null != doc);
             toolStripMIPalletCap.Enabled = (null != doc);
@@ -775,7 +776,6 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripMIAnalysisCasePallet.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
             toolStripMIAnalysisBundlePallet.Enabled = (null != doc) && doc.CanCreateAnalysisBundlePallet;
             toolStripMIHAnalysis.Enabled = (null != doc) && doc.CanCreateAnalysisCasePallet;
-
             // new cylinder/pallet analysis
             toolStripMenuItemNewAnalysisCylinderPallet.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
             toolStripMIAnalysisCylinderPallet.Enabled = (null != doc) && doc.CanCreateAnalysisCylinderPallet;
@@ -1106,6 +1106,7 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripSB_BCT.Enabled = WCFClient.IsConnected;
             toolStripButtonPremium.Visible = !Program.IsSubscribed;
             toolStripMIPremium.Visible = !Program.IsSubscribed;
+            toolStripMIPremiumSep.Visible = !Program.IsSubscribed;
 
             // create basic layout
             CreateBasicLayout();

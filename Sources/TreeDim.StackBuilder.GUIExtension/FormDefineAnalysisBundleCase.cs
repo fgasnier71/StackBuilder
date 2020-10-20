@@ -180,7 +180,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                 BoxProperties caseProperties = doc.CreateNewCase(
                     CaseName, CaseName
                     , CaseInsideLength, CaseInsideWidth, CaseInsideHeight
-                    , CaseInsideLength, CaseInsideWidth, CaseInsideHeight
+                    , CaseInsideLength, CaseInsideWidth, CaseInsideHeight, true
                     , CaseWeight
                     , new Color[] {Color.Chocolate, Color.Chocolate, Color.Chocolate, Color.Chocolate, Color.Chocolate, Color.Chocolate }
                     );

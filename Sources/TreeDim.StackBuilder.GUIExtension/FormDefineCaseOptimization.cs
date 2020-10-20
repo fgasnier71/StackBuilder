@@ -204,9 +204,10 @@ namespace treeDiM.StackBuilder.GUIExtension
                     return;
                 // recompute optimisation
                 PackOptimizer packOptimizer = new PackOptimizer(
-                    SelectedBox, SelectedPallet, BuildConstraintSet(),
-                    BuildParamSetPackOptim(),
-                    cbColor.Color
+                    SelectedBox,
+                    SelectedPallet,
+                    BuildConstraintSet(),
+                    BuildParamSetPackOptim()
                     );
                 _analyses = packOptimizer.BuildAnalyses(true);
                 // refill solution grid
@@ -321,13 +322,10 @@ namespace treeDiM.StackBuilder.GUIExtension
         {
             return new ParamSetPackOptim(
                 BoxPerCase,
-                DimensionsMin,
-                DimensionsMax,
+                DimensionsMin, DimensionsMax,
                 ForceVerticalBoxOrientation,
-                (PackWrapper.WType)cbWrapperType.SelectedIndex,
-                NoWalls, WallThickness,
-                WallSurfaceMass,
-                uCtrlTrayHeight.Value);
+                true, Color.LightBlue, NoWalls, WallThickness, WallSurfaceMass, (PackWrapper.WType)cbWrapperType.SelectedIndex,
+                false, Color.LightGray, NoWalls, WallThickness, WallSurfaceMass, uCtrlTrayHeight.Value);
         }
         private ConstraintSetCasePallet BuildConstraintSet()
         {
