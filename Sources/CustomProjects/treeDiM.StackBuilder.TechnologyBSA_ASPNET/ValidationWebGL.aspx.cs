@@ -164,7 +164,6 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         private Bitmap BitmapTexture => (Bitmap)Session[SessionVariables.BitmapTexture];
         private string Output => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Output");
         private string Interlayers => (string) Session[SessionVariables.Interlayers];
-
         #endregion
 
     }

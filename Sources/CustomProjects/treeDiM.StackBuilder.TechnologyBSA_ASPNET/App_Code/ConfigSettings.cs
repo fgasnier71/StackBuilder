@@ -18,6 +18,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         public static string FtpPassword => ConfigurationManager.AppSettings["FtpPassword"];
         public static float FontSizeRatio => float.Parse(ConfigurationManager.AppSettings["FontSizeRatio"]);
         public static bool WebGLMode => (null != ConfigurationManager.AppSettings["WebGLMode"]) && bool.Parse(ConfigurationManager.AppSettings["WebGLMode"]);
+        public static bool UseSessionState => (null != ConfigurationManager.AppSettings["UseSessionState"]) && bool.Parse(ConfigurationManager.AppSettings["UseSessionState"]);
         public static string ExportImageFormat
         {
             get

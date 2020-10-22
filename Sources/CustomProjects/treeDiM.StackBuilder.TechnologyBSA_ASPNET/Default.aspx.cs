@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web.UI;
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
@@ -31,19 +32,48 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 
         protected void OnNewProject(object sender, EventArgs e)
         {
-            DimCase = new Vector3D(300.0, 280.0, 275.0);
-            WeightCase = 1.0;
-            DimPallet = new Vector3D(1200.0, 1000.0, 155.0);
-            WeightPallet = 23.0;
-            MaxPalletHeight = 1700.0;
-            LayersMirrorX = false; LayersMirrorY = false;
-            Interlayers = "";
-            FileName = "Untitled.csv";
+            string queryString = string.Empty;
+
+            if (ConfigSettings.UseSessionState)
+            {
+                DimCase = new Vector3D(300.0, 280.0, 275.0);
+                WeightCase = 1.0;
+                DimPallet = new Vector3D(1200.0, 1000.0, 155.0);
+                WeightPallet = 23.0;
+                MaxPalletHeight = 1700.0;
+                LayersMirrorX = false; LayersMirrorY = false;
+                Interlayers = "";
+                FileName = "Untitled.csv";
+            }
+            else
+            {
+                Vector3D dimCase = new Vector3D(300.0, 280.0, 275.0);
+                double weightCase = 1.0;
+                Vector3D dimPallet = new Vector3D(1200.0, 1000.0, 155.0);
+                double weightPallet = 23.0;
+                double maxPalletHeight = 1700.0;
+                bool mirrorX = false, mirrorY = false;
+                string filePath = "untitled.csv";
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append(" ? ");
+                sb.Append($"DimCase={dimCase}");
+                sb.Append($"WeightCase={weightCase}");
+                sb.Append($"&DimPallet={dimPallet}");
+                sb.Append($"&WeightPallet={weightPallet}");
+                sb.Append($"&MaxPalletWeight={maxPalletHeight}");
+                sb.Append($"&LayerMirrorX={mirrorX}");
+                sb.Append($"&LayerMirrorY={mirrorY}");
+                sb.Append($"LayerEdited={true}");
+                sb.Append($"FileName={filePath}");
+
+                queryString = sb.ToString();
+            }
 
             if (ConfigSettings.WebGLMode)
-                Response.Redirect("LayerSelectionWebGL.aspx");
+                Response.Redirect("LayerSelectionWebGL.aspx"+ queryString);
             else
-                Response.Redirect("LayerSelection.aspx");
+                Response.Redirect("LayerSelection.aspx"+ queryString);
         }
 
         protected void OnOpenProject(object sender, EventArgs e)
@@ -69,20 +99,46 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 ref MirrorX, ref MirrorY,
                 ref interlayers);
 
-            DimCase = dimCase; WeightCase = weightCase;
-            DimPallet = dimPallet; WeightPallet = weightPallet;
-            MaxPalletHeight = maxPalletHeight;
-            BoxPositions = boxPositions;
-            LayersMirrorX = MirrorX;
-            LayersMirrorY = MirrorY;
-            LayerEdited = true;
-            FileName = filePath;
-            Interlayers = string.Concat(interlayers.Select(p => p ? "1" : "0").ToArray());
+            string queryString = string.Empty;
+
+            if (ConfigSettings.UseSessionState)
+            {
+                DimCase = dimCase; WeightCase = weightCase;
+                DimPallet = dimPallet; WeightPallet = weightPallet;
+                MaxPalletHeight = maxPalletHeight;
+                BoxPositions = boxPositions;
+                LayersMirrorX = MirrorX;
+                LayersMirrorY = MirrorY;
+                LayerEdited = true;
+                FileName = filePath;
+                Interlayers = string.Concat(interlayers.Select(p => p ? "1" : "0").ToArray()); ;
+            }
+            else
+            {
+                string interlayerArray = string.Concat(interlayers.Select(p => p ? "1" : "0").ToArray());
+                string fileBoxPositions = string.Empty;
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append(" ? ");
+                sb.Append($"DimCase={dimCase}");
+                sb.Append($"WeightCase={weightCase}");
+                sb.Append($"&DimPallet={dimPallet}");
+                sb.Append($"&WeightPallet={weightPallet}");
+                sb.Append($"&MaxPalletWeight={maxPalletHeight}");
+                sb.Append($"&BoxPositionsFile={fileBoxPositions}");
+                sb.Append($"&LayerMirrorX={MirrorX}");
+                sb.Append($"&LayerMirrorY={MirrorY}");
+                sb.Append($"LayerEdited={true}");
+                sb.Append($"FileName={filePath}");
+                sb.Append($"Interlayers={interlayerArray}");
+
+                queryString = sb.ToString();
+            }
 
             if (ConfigSettings.WebGLMode)
-                Response.Redirect("ValidationWebGL.aspx");
+                Response.Redirect("ValidationWebGL.aspx" + queryString);
             else
-                Response.Redirect("Validation.aspx");
+                Response.Redirect("Validation.aspx" + queryString);
         }
 
         #region Private properties
