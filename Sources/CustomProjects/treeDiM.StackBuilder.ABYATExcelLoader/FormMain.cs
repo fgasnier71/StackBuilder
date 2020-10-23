@@ -502,7 +502,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                     try
                     {
                         // get name
-                        string articleNumber = (string)(xlWorkSheet.get_Range("a" + iRow, "a" + iRow).Value);
+                        string articleNumber = (xlWorkSheet.get_Range("a" + iRow, "a" + iRow).Value).ToString();
                         if (null == articleNumber)
                             continue;
                         // get length
@@ -532,7 +532,7 @@ namespace treeDiM.StackBuilder.ABYATExcelLoader
                             Range imageCell = xlWorkSheet.get_Range("o" + iRow, "o" + iRow);
                             xlWorkSheet.Shapes.AddPicture(stackImagePath,
                                 LinkToFile: MsoTriState.msoFalse, SaveWithDocument: MsoTriState.msoCTrue,
-                                Left: (int)imageCell.Left + 1, Top: (int)imageCell.Top + 1, Width: (int)imageCell.Width - 2, Height: (int)imageCell.Height - 2);
+                                Left: Convert.ToInt32(imageCell.Left) + 1, Top: Convert.ToInt32(imageCell.Top) + 1, Width: Convert.ToInt32(imageCell.Width) - 2, Height: Convert.ToInt32(imageCell.Height) - 2);
                         }
                     }
                     catch (OutOfMemoryException ex)
