@@ -1024,14 +1024,15 @@ Global
 		{4CD1F740-17DC-48C8-A320-31729D128DEB} = {7C541C76-20F1-40D8-A683-29062638D9B9}
 		{47BAF1D9-7CBE-4965-BA0A-3F7A5B6295CD} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{F025A776-08FB-487B-BD29-C5FBF75C1DBC} = {7C541C76-20F1-40D8-A683-29062638D9B9}
+		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5} = {6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}
 		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_NeutralResourcesLanguage = en-001
-		RESX_ExcelExportMode = SingleSheet
-		RESX_ConfirmAddLanguageFile = False
-		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
-		RESX_AutoCreateNewLanguageFiles = True
 		RESX_PrefixTranslations = False
+		RESX_AutoCreateNewLanguageFiles = True
+		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
+		RESX_ConfirmAddLanguageFile = False
+		RESX_ExcelExportMode = SingleSheet
+		RESX_NeutralResourcesLanguage = en-001
 	EndGlobalSection
 EndGlobal

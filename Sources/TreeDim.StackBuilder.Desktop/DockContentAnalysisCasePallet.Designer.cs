@@ -83,12 +83,12 @@
             // 
             // splitContainerHoriz
             // 
+            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
             // 
             // splitContainerHoriz.Panel2
             // 
             this.splitContainerHoriz.Panel2.Controls.Add(this.gbStopCriterions);
             this.splitContainerHoriz.Panel2.Controls.Add(this.tabCtrl);
-            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
             // 
             // splitContainerVert
             // 
@@ -350,7 +350,9 @@
             resources.GetString("cbPalletSleeveColor.Items8"),
             resources.GetString("cbPalletSleeveColor.Items9"),
             resources.GetString("cbPalletSleeveColor.Items10"),
-            resources.GetString("cbPalletSleeveColor.Items11")});
+            resources.GetString("cbPalletSleeveColor.Items11"),
+            resources.GetString("cbPalletSleeveColor.Items12"),
+            resources.GetString("cbPalletSleeveColor.Items13")});
             this.cbPalletSleeveColor.Name = "cbPalletSleeveColor";
             this.cbPalletSleeveColor.SelectedIndexChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 

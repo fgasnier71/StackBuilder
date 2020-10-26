@@ -44,15 +44,25 @@
             this.gbStopCriterions.SuspendLayout();
             this.SuspendLayout();
             // 
+            // graphCtrlSolution
+            // 
+            resources.ApplyResources(this.graphCtrlSolution, "graphCtrlSolution");
+            // 
             // splitContainerHoriz
             // 
             // 
             // splitContainerHoriz.Panel2
             // 
             this.splitContainerHoriz.Panel2.Controls.Add(this.gbStopCriterions);
+            resources.ApplyResources(this.splitContainerHoriz, "splitContainerHoriz");
             // 
             // splitContainerVert
             // 
+            resources.ApplyResources(this.splitContainerVert, "splitContainerVert");
+            // 
+            // gridSolution
+            // 
+            resources.ApplyResources(this.gridSolution, "gridSolution");
             // 
             // gbStopCriterions
             // 

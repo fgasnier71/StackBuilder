@@ -122,25 +122,19 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="DockableToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>128, 22</value>
   </data>
   <data name="DockableToolStripMenuItem.Text" xml:space="preserve">
     <value>Dock</value>
   </data>
   <data name="AutoHideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>128, 22</value>
   </data>
   <data name="AutoHideToolStripMenuItem.Text" xml:space="preserve">
     <value>Auto Hide</value>
   </data>
-  <data name="HideToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="HideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Hide</value>
-  </data>
   <data name="ContextMenuDock.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 92</value>
+    <value>129, 48</value>
   </data>
   <data name="ContextMenuDock.Text" xml:space="preserve">
     <value>Window Position</value>
@@ -166,7 +160,7 @@
     <value>0</value>
   </data>
   <data name="_documentTreeView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 549</value>
+    <value>184, 361</value>
   </data>
   <data name="_documentTreeView.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -175,7 +169,7 @@
     <value>_documentTreeView</value>
   </data>
   <data name="&gt;&gt;_documentTreeView.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.AnalysisTreeView, treeDiM.StackBuilder.Desktop, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.AnalysisTreeView, treeDiM.StackBuilder.Desktop, Version=3.0.2.22, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_documentTreeView.Parent" xml:space="preserve">
     <value>$this</value>
@@ -190,7 +184,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>284, 549</value>
+    <value>184, 361</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
@@ -2913,12 +2907,6 @@
     <value>AutoHideToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;AutoHideToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;HideToolStripMenuItem.Name" xml:space="preserve">
-    <value>HideToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;HideToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

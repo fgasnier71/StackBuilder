@@ -141,7 +141,7 @@
     <value>0, 0</value>
   </data>
   <data name="graphCtrlSolution.Size" type="System.Drawing.Size, System.Drawing">
-    <value>537, 411</value>
+    <value>537, 211</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="graphCtrlSolution.TabIndex" type="System.Int32, mscorlib">
@@ -178,7 +178,7 @@
     <value>0, 0</value>
   </data>
   <data name="gridSolution.Size" type="System.Drawing.Size, System.Drawing">
-    <value>243, 411</value>
+    <value>243, 211</value>
   </data>
   <data name="gridSolution.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -208,7 +208,7 @@
     <value>1</value>
   </data>
   <data name="splitContainerVert.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 411</value>
+    <value>784, 211</value>
   </data>
   <data name="splitContainerVert.SplitterDistance" type="System.Int32, mscorlib">
     <value>537</value>
@@ -470,10 +470,10 @@
     <value>1</value>
   </data>
   <data name="splitContainerHoriz.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 536</value>
+    <value>784, 336</value>
   </data>
   <data name="splitContainerHoriz.SplitterDistance" type="System.Int32, mscorlib">
-    <value>411</value>
+    <value>211</value>
   </data>
   <data name="splitContainerHoriz.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -496,12 +496,12 @@
   <data name="toolStripButtonBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEtSURBVDhPrVKxSsRAEF2w1A+wEOQK/0DN7d7NzmYnW4iC
-        VSqvP66xU/QHRH/AwsLCwsLOwsLPsPcHLNRTULjGczYZITkIXtAHj2Xf7HsZJqP+FT3rgwHak2s7GMzW
-        DdJUW38i0vzoImXRLByFEBarRMSleMrzOoz1hxUz002YH3XSZzwToEcN/jyx2ZrYOQDosh4wH3leWxKh
-        lMbsqFI85a5AQ2pnaRztcv3m561O01WJ4DmAHxaipX2RGsFdXxchQFcileghHXPhQK6N2ERcKbtwbyK1
-        Q57nC2UATUVqB4DQkQ6eRWoHjXQbA3huFyLFfSDNhR3taLuJBv2Al+5e2v/aQFwWe1xl9ySFX5kgvcdf
-        LdYSnHxn+m6c9Ol1loWO9MLmB+7yrPblv0Gpb6JWpd5zNrX7AAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEsSURBVDhPrVK7SgRBEBww1A8wEMTAP9A9Z5aevp3eDUTB
+        aCPNxcRM0R8Q/QEDAwMDAzMDAz/D3B8w8HEHCiaePbcl7B4s3qIFxTDVU7VNb5t/RepD4Ui2ce0Gx/mK
+        YxlZH04gTY81ljyawb2iKGbrZOa5eOJ5E86Hw5pZyZ/K9yblI54JyaOlcN7z+TLsGkBy2QyYjjqvdUQY
+        Yzk/qhVPtSuylPlJur5saf3m563NskVE6Bwo7I5FL/uQWqFdX49DSK4gVUhZjrVwgGsrEuaFqgseQOqG
+        sixnqgAZQeoGomIJHTxD6gbLchsDdG4XkOI+iNXCpu3LRhsdhx1dunu0/7XKPA97XGV+QuFXJizD+Kth
+        raDJdy7lt14qr5OMuppe1PygXZ41vvw3GPMNhYylyd20okwAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="toolStripButtonBack.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -660,7 +660,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>784, 561</value>
+    <value>784, 361</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

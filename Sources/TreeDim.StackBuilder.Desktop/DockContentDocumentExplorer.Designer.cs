@@ -41,8 +41,7 @@
             // 
             this.ContextMenuDock.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DockableToolStripMenuItem,
-            this.AutoHideToolStripMenuItem
-            });
+            this.AutoHideToolStripMenuItem});
             this.ContextMenuDock.Name = "ContextMenuStrip";
             resources.ApplyResources(this.ContextMenuDock, "ContextMenuDock");
             // 
