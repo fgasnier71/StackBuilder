@@ -67,7 +67,7 @@
   <str name="Pallet analysis">Analyse palette</str>
   <str name="Cylinder analysis">Analyse cylindres</str>
   <str name="Truck analysis">Analyse camion</str>
-  <str name="Box Compression Test analysis">Analyse </str>
+  <str name="Box Compression Test analysis">Analyse de compression</str>
   <str name="Case type">Type de caisse</str>
   <str name="Printed surface">Surface imprimée</str>
   <str name="Formule de Mc Kee">Formule de Mc Kee</str>
@@ -109,7 +109,7 @@
   <str name="Pallet cap">Coiffe</str>
   <str name="Pallet film">Film</str>
   <str name="NumberOfTurns">Nombre de tours</str>
-  <str name="Pack">Fardeau</str>
+  <str name="Pack">Paquet</str>
   <str name="Truck">Camion</str>
   <str name="Arrangement">Disposition</str>
   <str name="Dimensions">Dimensions</str>
@@ -123,7 +123,7 @@
   <str name="Load weight">Masse chargement</str>
   <str name="Overhang length">Débord (longueur)</str>
   <str name="Overhang width">Débord (largeur)</str>
-  <str name="Pack/CSU count"># Fardeaux/UC</str>
+  <str name="Pack/CSU count"># Paquet/UC</str>
   <str name="Weight/Netweight">Poids/Poids net</str>
   <str name="Max space">Espace max.</str>
   <str name="Layer indexes">Indices</str>
@@ -137,7 +137,7 @@
   <str name="Layers">Couches</str>
   <str name="Part">Partie</str>
   <str name="Count">Nombre</str>
-  <str name="Items">Items</str>
+  <str name="Items">Elements</str>
   <str name="Material">Matière</str>
   <str name="Profile">Profile</str>
   <str name="Static BCT">RCV statique</str>
