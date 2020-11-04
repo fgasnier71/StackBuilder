@@ -1,6 +1,6 @@
 StackBuilder
 ============
-![StackBuilder](https://github.com/treeDiM/StackBuilder/blob/master/Help/StackBuilder_3.png)
+![StackBuilder](Sources/Tutorial/StackBuilder.png)
 
 StackBuilder is a simple palettization software (homogeneous case stacking).
 
