@@ -15,7 +15,7 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 {
-    public partial class Validation : Page
+    public partial class ValidationWebGL : Page
     {
         #region Page_Load 
         protected void Page_Load(object sender, EventArgs e)

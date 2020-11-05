@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Engine;
@@ -14,7 +15,7 @@ using treeDiM.StackBuilder.Engine;
 
 namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 {
-    public partial class _Default : Page
+    public partial class LayerSelectionWebGL : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

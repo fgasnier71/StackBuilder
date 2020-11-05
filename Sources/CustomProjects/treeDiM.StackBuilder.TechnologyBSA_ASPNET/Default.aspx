@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="treeDiM.StackBuilder.TechnologyBSA_ASPNET._Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="treeDiM.StackBuilder.TechnologyBSA_ASPNET.Default" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Default</title>
     <link type="text/css" href="css/default.css" rel="stylesheet" />
     <script type="text/javascript">
         function ActivateVirtualKeyboard() {
@@ -19,7 +19,12 @@
                     <td class="style250px">
                         <asp:Button ID="bnNew" CssClass ="buttonIntro" runat="server" Text="New project" OnClick="OnNewProject" Style="background-image:url('Images/Create.png'); background-repeat:no-repeat"/>
                     </td>
-                    <td/>
+                    <td>
+                        <asp:DropDownList ID="DropDownLayerDesignMode" CssClass="select" runat="server" Width="160px" Height="60px" >
+                            <asp:ListItem>Default</asp:ListItem>
+                            <asp:ListItem>User designed layer</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
                 </tr>
                 <tr>
                     <td class="style250px">

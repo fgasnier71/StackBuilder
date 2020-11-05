@@ -12,7 +12,7 @@ using treeDiM.StackBuilder.Exporters;
 
 namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 {
-    public partial class _Default : Page
+    public partial class Default : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -70,10 +70,10 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 queryString = sb.ToString();
             }
 
-            if (ConfigSettings.WebGLMode)
-                Response.Redirect("LayerSelectionWebGL.aspx"+ queryString);
+            if (LayerDesignMode == 1)
+                Response.Redirect("LayerDesignIntro.aspx");
             else
-                Response.Redirect("LayerSelection.aspx"+ queryString);
+                Response.Redirect("LayerSelectionWebGL.aspx" + queryString);
         }
 
         protected void OnOpenProject(object sender, EventArgs e)
@@ -164,6 +164,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         { set => Session[SessionVariables.Interlayers] = value; }
         private bool LayerEdited
         { set => Session[SessionVariables.LayerEdited] = value; }
+        private int LayerDesignMode => DropDownLayerDesignMode.SelectedIndex;
         #endregion
     }
 }
