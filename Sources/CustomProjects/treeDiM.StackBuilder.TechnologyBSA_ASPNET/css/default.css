@@ -22,7 +22,6 @@ div.div980x780 {
     width: 160px;
     height: 50px;
 }
-
 .buttonNext {
     background-color: #F2F4F4;
     color: dimgray;
@@ -36,7 +35,6 @@ div.div980x780 {
     width: 160px;
     height: 50px;
 }
-
 .buttonPrev {
     background-color: #F2F4F4;
     color: dimgray;
@@ -48,6 +46,84 @@ div.div980x780 {
     font-size: 16px;
     border-radius: 5px;
     width: 160px;
+    height: 50px;
+}
+input[type=button] {
+    background-color: #F2F4F4;
+    color: dimgray;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 160px;
+    height: 50px;
+}
+input[type=buttonadd1] {
+    background: #F2F4F4 url("/Images/Add1.png") no-repeat center;
+    color: transparent;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+}
+input[type=buttonadd2] {
+    background: #F2F4F4 url("/Images/Add2.png") no-repeat center;
+    color: dimgray;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+}
+input[type=buttonadd3] {
+    background: #F2F4F4 url("/Images/Add3.png") no-repeat center;
+    color: dimgray;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+}
+input[type=buttonadd4] {
+    background: #F2F4F4 url("/Images/Add4.png") no-repeat center;
+    color: dimgray;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+}
+input[type=buttonremove] {
+    background: #F2F4F4 url("/Images/BnRemoveCross.png") no-repeat center;
+    color: dimgray;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 50px;
     height: 50px;
 }
 

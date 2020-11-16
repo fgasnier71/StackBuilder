@@ -1410,10 +1410,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autoupdater.NET.Official">
-      <Version>1.6.3</Version>
+      <Version>1.6.4</Version>
     </PackageReference>
     <PackageReference Include="log4net">
-      <Version>2.0.11</Version>
+      <Version>2.0.12</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup>

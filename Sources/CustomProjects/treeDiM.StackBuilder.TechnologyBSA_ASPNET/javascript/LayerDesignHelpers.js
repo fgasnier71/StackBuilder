@@ -1,6 +1,6 @@
 ﻿function insertCase(canvas, n, leftImg, topImg, angle) {
 
-    var images = ['./Images/case1.png', './Images/case2.png', './Images/case3.png', './Images/case4.png'];
+    var images = ['./Output/case1.png', './Output/case2.png', './Output/case3.png', './Output/case4.png'];
     if (n < 1 || n > 4) return;
 
     fabric.Image.fromURL(images[n-1], function (img) {
@@ -12,8 +12,10 @@
             originX: 'left',
             originY: 'top',
             hasRotatingPoint: false,
+            hasControls: false,
             angle: angle,
         });
+        img.perPixelTargetFind = true;
         canvas.add(img);
     });
 
@@ -230,7 +232,6 @@ function Move(canvas, target) {
             }
         }
     });
-
     target.setCoords();
 
     // If objects still overlap
@@ -243,7 +244,6 @@ function Move(canvas, target) {
         if (obj === target) return;
 
         if (target.isContainedWithinObject(obj)
-            //|| target.intersectsWithObject(obj)
             || obj.isContainedWithinObject(target)) {
 
             var intersectLeft = null,

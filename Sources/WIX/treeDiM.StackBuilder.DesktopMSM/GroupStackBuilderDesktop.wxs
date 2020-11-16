@@ -14,8 +14,6 @@
             <Directory Id="dir4E0D8F33BCE029AC60ECF953B16FF093" Name="ru" />
             <Directory Id="dir84C8A788551B0E152E3B315FA38A9074" Name="sv" />
             <Directory Id="dir6882BECEB897DD8DB8AA872AF840D7AB" Name="tr" />
-            <Directory Id="dirAE1C6F65D2C4D2F53041F2CF2D9D86FC" Name="x64" />
-            <Directory Id="dirE59404C5207F63168BB5AE9A44B16FE9" Name="x86" />
             <Directory Id="dir1B5911377ED2778D0E4A974030CF8220" Name="zh" />
         </DirectoryRef>
     </Fragment>
@@ -521,12 +519,6 @@
             </Component>
             <Component Id="cmp63C0EFDC11687EFCE525A1133078EEAD" Directory="dir6882BECEB897DD8DB8AA872AF840D7AB" Guid="73BD6A88-39CF-4181-8A1E-055F39AB653E">
                 <File Id="fil5C015D3BE5ED4460AABA3FA68BDD8D0A" KeyPath="yes" Source="$(var.StackBuilderDesktopSourceDir)\tr\treeDiM.UserControls.resources.dll" />
-            </Component>
-            <Component Id="cmpDC65F268DE31F595D5FD1F28B2939923" Directory="dirAE1C6F65D2C4D2F53041F2CF2D9D86FC" Guid="52607903-EE01-4138-9985-2BA3E1E67454">
-                <File Id="filF6A0EB5CA40690C02F5043A8805B74B4" KeyPath="yes" Source="$(var.StackBuilderDesktopSourceDir)\x64\WebView2Loader.dll" />
-            </Component>
-            <Component Id="cmp42C26FD7C3764D26594FA91F443411E7" Directory="dirE59404C5207F63168BB5AE9A44B16FE9" Guid="88379992-6237-4F11-B056-7A7D0CA42BB9">
-                <File Id="fil86D36286FD8274460A89EF2BD4EC2909" KeyPath="yes" Source="$(var.StackBuilderDesktopSourceDir)\x86\WebView2Loader.dll" />
             </Component>
             <Component Id="cmpDF3B864BF4A9980DFE13A4E0D6C58718" Directory="dir1B5911377ED2778D0E4A974030CF8220" Guid="50A433D8-E1DD-41D7-B5EB-A8C1D9A82B3B">
                 <File Id="fil032635B7C24CD05A75279095D5F53DC2" KeyPath="yes" Source="$(var.StackBuilderDesktopSourceDir)\zh\AutoUpdater.NET.resources.dll" />

@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Layer design page</title>
     <link type="text/css" href="css/default.css" rel="stylesheet" />
     <link href="css/jquery-ui.css" rel="stylesheet" />
     <link href="css/keyboard.css" rel="stylesheet" />
@@ -21,8 +21,10 @@
         var rectTop = 0;
         var canvasWidth = 0;
         var canvasHeight = 0;
-        var caseWidth = 100;
-        var caseHeight = 80;
+        var caseWidth = <%= this.javaSerial.Serialize(this._casePixelWidth)%>;
+        var caseHeight = <%= this.javaSerial.Serialize(this._casePixelHeight)%>;
+        var boxPositions = <%= this.javaSerial.Serialize(this._boxPositions)%>;
+        var palletDimensions = <%= this.javaSerial.Serialize(this._palletDims)%>
 
         $(window).load(function () {
             var canvas = new fabric.Canvas('canvas', {
@@ -31,21 +33,22 @@
                 canvasHeight: document.getElementById('canvas').height,
                 rectLeft: 0,
                 rectTop: 0,
+                perPixelTargetFind: true,
+                targetFindTolerance: 1,
+                selection: true,
             });
-            canvas.selection = false;
-            canvas.perPixelTargetFind = true;
+
+            document.getElementById('canvas').fabric = canvas;
+
             canvasWidth = canvas.width;
             canvasHeight = canvas.height;
 
-            insertCase(canvas, 1, 0, 0, 0);
-            insertCase(canvas, 1, 100, 0, 0);
-            insertCase(canvas, 1, 200, 0, 0);
-
-            insertCase(canvas, 1, 0, 80, 0);
-            insertCase(canvas, 1, 100, 80, 0);
-            insertCase(canvas, 1, 200, 80, 0);
-
-
+            var len = boxPositions.length;
+            for (var i = 0; i < len; ++i)
+            {
+                insertCase(canvas, boxPositions[i].NumberCase, boxPositions[i].X, boxPositions[i].Y, boxPositions[i].Angle);
+            }
+            
             fabric.util.addListener(canvas.upperCanvasEl, 'dblclick', function (e) {
                 var target = canvas.findTarget(e);
                 target.setCoords();
@@ -53,14 +56,58 @@
                 target.setCoords();
                 canvas.renderAll();
             });
-
             canvas.on('object:moving', function (options) {
-                // Sets corner position coordinates based on current angle, width and height
                 options.target.setCoords();
                 Move(canvas, options.target);
                 options.target.setCoords();
             });
         });
+        function insertCases(number) {
+            var canvas = document.getElementById('canvas').fabric;
+            insertCase(canvas, number, canvasWidth-100, 0, 0);
+            canvas.renderAll();
+        }
+        function remove() {
+            var canvas = document.getElementById('canvas').fabric;
+            canvas.getActiveObjects().forEach((obj) => {
+                canvas.remove(obj)
+            });
+            canvas.discardActiveObject().renderAll();
+        }
+        function Save() {
+            $(document).ready(function () {
+
+                var canvas = document.getElementById('canvas').fabric;
+                let boxPositions = [];
+                var counter = 0;
+                canvas.forEachObject(function (obj) {
+                    boxPositions.push(
+                        {
+                            Index: counter,
+                            X: obj.left,
+                            Y: obj.top,
+                            Angle: obj.get('angle'),
+                            NumberCase: 1,
+                        }
+                    );
+                    ++counter;
+                });
+
+                $.ajax({
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    type: 'POST',
+                    url: 'LayerDesign.aspx/SaveCasePositions',
+                    data: JSON.stringify({ 'list': boxPositions }),
+                    success: function () {
+                        alert("success");
+                    },
+                    error: function (response) {
+                        alert(JSON.stringify(response));
+                    }
+                });
+            });
+        }
 
     </script>
 </head>
@@ -69,9 +116,45 @@
     <form id="form1" runat="server">
         <div class="div980x780">
             <asp:ScriptManager ID="pageUpdates" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
-            <div class="canvas-container" style="width: 500px; height: 500px; position: relative; user-select: none;">
-                <canvas id="canvas" width="800" height="500" style="border: 1px solid #ccc" runat="server"></canvas>
+<table>
+                    <tr>
+                        <td colspan="4">
+            <div class="canvas-container" style="width: 950px; height: 500px; position: relative; user-select: none;">
+                
+                            <canvas id="canvas" width="950" height="500" style="border: 1px solid #ccc" runat="server"></canvas>
             </div>
+                        </td>
+                        <td colspan="1">
+                            <table class="style100pct">
+                                <tr>
+                                    <td>
+                                        <input id="ButtonAdd1" type="buttonadd1" onclick="JavaScript: insertCases(1);" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input id="ButtonAdd2" type="buttonadd2" onclick="JavaScript: insertCases(2);" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input id="ButtonAdd3" type="buttonadd3" onclick="JavaScript: insertCases(3);" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input id="ButtonAdd4" type="buttonadd4"  onclick="JavaScript: insertCases(4);" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input id="Remove" type="buttonremove" onclick="JavaScript: remove();" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
             <div>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                     <ContentTemplate>
@@ -86,7 +169,7 @@
                                 <td class="style100pct" />
                                 <asp:Button ID="bnPrev" runat="server" CssClass="buttonPrev" OnClick="OnPrevious" Text="&lt; Previous" />
                                 <td class="style100pct" />
-                                <asp:Button ID="bnNext" runat="server" CssClass="buttonNext" OnClick="OnNext" Text="Next &gt;" />
+                                <input id="ButtonSave" type="button" value="Next &gt;" onclick="JavaScript: Save();" />
                             </tr>
                         </table>
                     </ContentTemplate>

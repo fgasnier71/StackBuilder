@@ -164,7 +164,6 @@ namespace treeDiM.StackBuilder.Graphics
                     );
             }
         }
-
         private Point[] TransformPoint(Vector2D[] points2d)
         {
             double VPSpanX = Viewport[2] - Viewport[0] + 2 * MarginX;

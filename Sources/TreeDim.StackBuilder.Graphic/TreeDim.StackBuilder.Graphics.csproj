@@ -127,6 +127,7 @@
     <Compile Include="DrawableComparerSimplifiedPainterAlgo.cs" />
     <Compile Include="HCylLayoutToImage.cs" />
     <Compile Include="LayerEditorHelpers.cs" />
+    <Compile Include="MultiCaseImageGenerator.cs" />
     <Compile Include="SolutionViewers\Viewer.cs" />
     <Compile Include="SolutionViewers\ViewerHCylLayout.cs" />
     <Compile Include="SolutionViewers\ViewerHSolution.cs" />
@@ -352,13 +353,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="log4net">
-      <Version>2.0.11</Version>
+      <Version>2.0.12</Version>
     </PackageReference>
     <PackageReference Include="MIConvexHull">
       <Version>1.1.19.1019</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
-      <Version>5.7.0</Version>
+      <Version>5.8.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

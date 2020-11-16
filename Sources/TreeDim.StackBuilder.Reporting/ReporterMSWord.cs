@@ -1,4 +1,5 @@
 ﻿#region Using directives
+using Microsoft.Office.Interop.Word;
 using System;
 using System.IO;
 #endregion
@@ -33,13 +34,13 @@ namespace treeDiM.StackBuilder.Reporting
             , string templatePath, string outputFilePath, Margins margins)
         {
             // absolute output file path
-            string absOutputFilePath = string.Empty;
+            string absOutputFilePath;
             if (Path.IsPathRooted(outputFilePath))
                 absOutputFilePath = outputFilePath;
             else
                 absOutputFilePath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), outputFilePath));
             // absolute template path
-            string absTemplatePath = string.Empty;
+            string absTemplatePath;
             if (Path.IsPathRooted(templatePath))
                 absTemplatePath = templatePath;
             else
@@ -59,14 +60,20 @@ namespace treeDiM.StackBuilder.Reporting
             string htmlFilePath = Path.ChangeExtension(absOutputFilePath, "html");
             BuildAnalysisReport(inputData, ref rnRoot, absTemplatePath, htmlFilePath);
             // opens word
-            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+            Application wordApp = new Application();
             wordApp.Visible = true;
-            Microsoft.Office.Interop.Word.Document wordDoc = wordApp.Documents.Open(htmlFilePath, false, true, NoEncodingDialog: true);
+            Document wordDoc = wordApp.Documents.Open(htmlFilePath, false, true, NoEncodingDialog: true);
             // embed pictures (unlinking images)
             for (int i = 1; i <= wordDoc.InlineShapes.Count; ++i)
             {
                 if (null != wordDoc.InlineShapes[i].LinkFormat && !wordDoc.InlineShapes[i].LinkFormat.SavePictureWithDocument)
                     wordDoc.InlineShapes[i].LinkFormat.SavePictureWithDocument = true;
+            }
+            for (int i = 1; i <= wordDoc.Fields.Count; ++i)
+            {
+                var field = wordDoc.Fields[i];
+                if (null != field && field.Type == WdFieldType.wdFieldIncludePicture)
+                    field.LinkFormat.SavePictureWithDocument = true;
             }
             // set margins (unit?)
             wordDoc.PageSetup.TopMargin = wordApp.CentimetersToPoints(margins.Top);
@@ -74,8 +81,8 @@ namespace treeDiM.StackBuilder.Reporting
             wordDoc.PageSetup.RightMargin = wordApp.CentimetersToPoints(margins.Right);
             wordDoc.PageSetup.LeftMargin = wordApp.CentimetersToPoints(margins.Left);
             // set print view 
-            wordApp.ActiveWindow.ActivePane.View.Type = Microsoft.Office.Interop.Word.WdViewType.wdPrintView;
-            wordDoc.SaveAs(absOutputFilePath, Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatDocumentDefault);
+            wordApp.ActiveWindow.ActivePane.View.Type = WdViewType.wdPrintView;
+            wordDoc.SaveAs(absOutputFilePath, WdSaveFormat.wdFormatDocumentDefault);
             _log.Info(string.Format("Saved doc report to {0}", outputFilePath));
             if (Properties.Settings.Default.WordDeleteImage)
             {

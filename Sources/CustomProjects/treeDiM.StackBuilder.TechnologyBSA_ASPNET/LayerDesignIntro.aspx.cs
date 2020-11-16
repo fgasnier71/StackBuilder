@@ -34,6 +34,13 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             Response.Redirect("LayerDesign.aspx");
         }
 
+        protected void OnRefresh(object sender, EventArgs e)
+        {
+            DimCase = DimCaseCtrl;
+
+            CaseSetsConfiguration.Update();
+        }
+
         private Vector3D DimCaseCtrl
         {
             get => new Vector3D(double.Parse(TBCaseLength.Text), double.Parse(TBCaseWidth.Text), double.Parse(TBCaseHeight.Text));

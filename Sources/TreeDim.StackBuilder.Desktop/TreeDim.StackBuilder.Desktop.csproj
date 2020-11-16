@@ -40,8 +40,8 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>22</ApplicationRevision>
-    <ApplicationVersion>3.0.2.22</ApplicationVersion>
+    <ApplicationRevision>23</ApplicationRevision>
+    <ApplicationVersion>3.0.2.23</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -974,6 +974,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisEdit.resx">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisEdit.ru.resx">
       <DependentUpon>DockContentAnalysisEdit.cs</DependentUpon>
@@ -2477,6 +2478,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletFilm.resx">
       <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletFilm.ru.resx">
       <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
@@ -3650,7 +3652,7 @@ if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autoupdater.NET.Official">
-      <Version>1.6.3</Version>
+      <Version>1.6.4</Version>
     </PackageReference>
     <PackageReference Include="CrashReporter.NET.Official">
       <Version>1.5.8</Version>
@@ -3665,7 +3667,7 @@ if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"
       <Version>1.0.0.6</Version>
     </PackageReference>
     <PackageReference Include="log4net">
-      <Version>2.0.11</Version>
+      <Version>2.0.12</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Office.Interop.Excel">
       <Version>15.0.4795.1000</Version>
@@ -3679,7 +3681,7 @@ if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
-      <Version>5.7.0</Version>
+      <Version>5.8.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

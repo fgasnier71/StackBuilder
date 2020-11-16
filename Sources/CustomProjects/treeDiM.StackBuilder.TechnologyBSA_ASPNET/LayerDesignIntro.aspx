@@ -115,13 +115,13 @@
                                     <asp:label ID="LBCaseDim" runat="server" Text="Case dimensions" CssClass="label" />
                                 </td>
                                 <td class="style65px">
-                                    <asp:TextBox ID="TBCaseLength" runat="server" Width="60px" CssClass="textbox"/>
+                                    <asp:TextBox ID="TBCaseLength" runat="server" Width="60px" CssClass="textbox" OnTextChanged="OnRefresh"/>
                                 </td>
                                 <td class="style65px">
-                                    <asp:TextBox ID="TBCaseWidth" runat="server" Width="60px" CssClass="textbox"/>
+                                    <asp:TextBox ID="TBCaseWidth" runat="server" Width="60px" CssClass="textbox" OnTextChanged="OnRefresh"/>
                                 </td>
                                 <td class="style65px">
-                                    <asp:TextBox ID="TBCaseHeight" runat="server" Width="60px" CssClass="textbox"/>
+                                    <asp:TextBox ID="TBCaseHeight" runat="server" Width="60px" CssClass="textbox" OnTextChanged="OnRefresh"/>
                                 </td>
                                 <td class="style65px">
                                     <asp:Label ID="LBCaseHeightUnit" runat="server" Text="mm" CssClass="label"/>
@@ -130,13 +130,13 @@
                                     <asp:label ID="LBPalletDim" runat="server" Text="Pallet dimensions" CssClass="label" />
                                 </td>
                                 <td class="style65px">
-                                    <asp:TextBox ID="TBPalletLength" runat="server" Width="60px" CssClass="textbox"/>
+                                    <asp:TextBox ID="TBPalletLength" runat="server" Width="60px" CssClass="textbox" OnTextChanged="OnRefresh"/>
                                 </td>
                                 <td class="style65px">
-                                    <asp:TextBox ID="TBPalletWidth" runat="server" Width="60px" CssClass="textbox"/>
+                                    <asp:TextBox ID="TBPalletWidth" runat="server" Width="60px" CssClass="textbox" OnTextChanged="OnRefresh"/>
                                 </td>
                                 <td class="style65px">
-                                    <asp:TextBox ID="TBPalletHeight" runat="server" Width="60px" CssClass="textbox"/>
+                                    <asp:TextBox ID="TBPalletHeight" runat="server" Width="60px" CssClass="textbox" OnTextChanged="OnRefresh"/>
                                 </td>
                                 <td>
                                     <asp:Label ID="LBPalletDimUnit" runat="server" Text="mm" CssClass="label" />
@@ -197,7 +197,7 @@
                             <asp:Label ID="LbMaxNumberGrabbed" runat="server" Text="Maximum number of cases grabbed" CssClass="label"></asp:Label>
                             </td>
                                <td> 
-                            <asp:DropDownList ID="DropDownMaxNumberGrabbed" CssClass="select" runat="server" Width="160px" Height="60px">
+                            <asp:DropDownList ID="DropDownMaxNumberGrabbed" CssClass="select" runat="server" Width="160px" Height="60px" OnSelectedIndexChanged="OnRefresh">
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
                                 <asp:ListItem>3</asp:ListItem>
@@ -219,17 +219,17 @@
                             <td/>
                         </tr>
                         <tr>
-                            <td class="auto-style7">
-                               <asp:Image ID="ImageCase1" runat="server" Height="150px" Width="150px" alt="Dynamic Image" />
+                            <td>
+                               <asp:Image ID="ImageCase1" runat="server" Height="150px" Width="150px" alt="Dynamic Image" ImageUrl="~/HandlerCaseSet.ashx?number=1"/>
                             </td>
                             <td>
-                               <asp:Image ID="ImageCase2" runat="server" Height="150px" Width="150px" alt="Dynamic Image" />
+                               <asp:Image ID="ImageCase2" runat="server" Height="150px" Width="150px" alt="Dynamic Image" ImageUrl="~/HandlerCaseSet.ashx?number=2"/>
                              </td>
                             <td>
-                               <asp:Image ID="ImageCase3" runat="server" Height="150px" Width="150px" alt="Dynamic Image" />
+                               <asp:Image ID="ImageCase3" runat="server" Height="150px" Width="150px" alt="Dynamic Image" ImageUrl="~/HandlerCaseSet.ashx?number=3"/>
                             </td>
                             <td>
-                               <asp:Image ID="ImageCase4" runat="server" Height="150px" Width="150px" Alt="Dynamic Image" />
+                               <asp:Image ID="ImageCase4" runat="server" Height="150px" Width="150px" Alt="Dynamic Image" ImageUrl="~/HandlerCaseSet.ashx?number=4"/>
                             </td>
                         </tr>
                         <tr>

@@ -20,7 +20,7 @@
                         <asp:Button ID="bnNew" CssClass ="buttonIntro" runat="server" Text="New project" OnClick="OnNewProject" Style="background-image:url('Images/Create.png'); background-repeat:no-repeat"/>
                     </td>
                     <td>
-                        <asp:DropDownList ID="DropDownLayerDesignMode" CssClass="select" runat="server" Width="160px" Height="60px" >
+                        <asp:DropDownList ID="DropDownLayerDesignMode" CssClass="select" runat="server" Width="180px" Height="60px" >
                             <asp:ListItem>Default</asp:ListItem>
                             <asp:ListItem>User designed layer</asp:ListItem>
                         </asp:DropDownList>
@@ -31,7 +31,7 @@
                         <asp:Button ID="bnOpen" CssClass ="buttonIntro" runat="server" Text="Open project" OnClick="OnOpenProject" Style="background-image:url('Images/open.png'); background-repeat:no-repeat"/>
                     </td>
                     <td>
-                        <asp:DropDownList ID="DropDownListFiles" CssClass="select" runat="server" Width="160px" Height="60px"/>
+                        <asp:DropDownList ID="DropDownListFiles" CssClass="select" runat="server" Width="180px" Height="60px"/>
                     </td>
                 </tr>
             </table>

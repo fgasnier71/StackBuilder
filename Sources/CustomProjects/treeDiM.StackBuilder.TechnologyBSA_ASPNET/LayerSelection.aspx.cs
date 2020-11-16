@@ -1,5 +1,4 @@
 ﻿#region Using directives
-
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -122,7 +121,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 dlLayers.SelectedIndex = e.Item.DisplayIndex;
 
                 UpdateImage();
-                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "scroll", "ScrollTo();", true);
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "scroll", "ScrollTo();", true);
                 ExecuteKeyPad();
             }
         }
@@ -130,7 +129,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         private void ExecuteKeyPad()
         {
             if (ConfigSettings.ShowVirtualKeyboard)
-                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "VKeyPad", "ActivateVirtualKeyboard();", true);
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "VKeyPad", "ActivateVirtualKeyboard();", true);
         }
 
         private void UpdateImage()
