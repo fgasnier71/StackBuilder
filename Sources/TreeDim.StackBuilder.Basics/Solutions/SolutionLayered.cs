@@ -546,8 +546,22 @@ namespace treeDiM.StackBuilder.Basics
                 }
                 return boxLayer;
             }
-
-            if (currentLayer is Layer2DCylImp)
+            else if (currentLayer is Layer2DBrickExpIndexed layer2Dindexed)
+            {
+                Layer3DBox boxLayer = new Layer3DBox(0.0, layerIndex);
+                foreach (var layerPos in layer2Dindexed.Positions)
+                { 
+                    BoxPositionIndexed layerPosTemp = AdjustLayerPosition(layerPos, symX, symY);
+                    boxLayer.Add(
+                        new BoxPosition(
+                            layerPosTemp.BPos.Position + Analysis.Offset,
+                            layerPosTemp.BPos.DirectionLength, layerPosTemp.BPos.DirectionWidth
+                            )
+                        );
+                }
+                return boxLayer;
+            }
+            else if (currentLayer is Layer2DCylImp)
             {
                 Layer2DCylImp layer2DCyl = currentLayer as Layer2DCylImp;
                 Layer3DCyl cylLayer = new Layer3DCyl(0.0);
@@ -559,7 +573,8 @@ namespace treeDiM.StackBuilder.Basics
                 }
                 return cylLayer;
             }
-            return null;
+            else
+                return null;
         }
         public List<ILayer> Layers
         {
@@ -572,6 +587,7 @@ namespace treeDiM.StackBuilder.Basics
                 bool stop = false;
 
                 // build layers
+                int indexLastLayer = 0;
                 foreach (SolutionItem solItem in _solutionItems)
                 {
                     if (solItem.HasInterlayer && AnalysisCast.Interlayers.Count > 0)
@@ -587,8 +603,8 @@ namespace treeDiM.StackBuilder.Basics
 
                     if (currentLayer is Layer2DBrick layer2DBox)
                     {
-                        Layer3DBox boxLayer = new Layer3DBox(zLayer, solItem.IndexLayer);
-                        foreach (BoxPosition layerPos in layer2DBox.Positions)
+                        var boxLayer = new Layer3DBox(zLayer, solItem.IndexLayer);
+                        foreach (var layerPos in layer2DBox.Positions)
                         {
                             if (!ConstraintSet.CritNumberReached(iBoxCount + 1)
                                 && !ConstraintSet.CritWeightReached(weight + Analysis.ContentWeight))
@@ -609,9 +625,38 @@ namespace treeDiM.StackBuilder.Basics
                         if (boxLayer.Count > 0)
                             llayers.Add(boxLayer);
                     }
-                    if (currentLayer is Layer2DCylImp layer2DCyl)
+                    else if (currentLayer is Layer2DBrickIndexed layer2DBoxIndexed)
                     {
-                        Layer3DCyl cylLayer = new Layer3DCyl(zLayer);
+                        var boxLayer = new Layer3DBoxIndexed(zLayer, solItem.IndexLayer);
+                        foreach (var layerPos in layer2DBoxIndexed.Positions)
+                        {
+                            if (!ConstraintSet.CritNumberReached(iBoxCount + 1)
+                                && !ConstraintSet.CritWeightReached(weight + Analysis.ContentWeight))
+                            {
+                                var layerPosTemp = AdjustLayerPosition(layerPos, solItem.SymetryX, solItem.SymetryY);
+                                boxLayer.Add(new BoxPositionIndexed(
+                                    layerPosTemp.BPos.Position + Analysis.Offset + zLayer * Vector3D.ZAxis
+                                    , layerPosTemp.BPos.DirectionLength
+                                    , layerPosTemp.BPos.DirectionWidth
+                                    , layerPosTemp.Index + indexLastLayer
+                                    ));
+
+                                ++iBoxCount;
+                                weight += Analysis.ContentWeight;
+                            }
+                            else
+                                stop = true;
+
+                        }
+                        if (boxLayer.Count > 0)
+                        {
+                            llayers.Add(boxLayer);
+                            indexLastLayer = boxLayer.Last().Index;
+                        }
+                    }
+                    else if (currentLayer is Layer2DCylImp layer2DCyl)
+                    {
+                        var cylLayer = new Layer3DCyl(zLayer);
                         foreach (Vector2D vPos in layer2DCyl)
                         {
                             if (!ConstraintSet.CritNumberReached(iBoxCount + 1)
@@ -993,6 +1038,41 @@ namespace treeDiM.StackBuilder.Basics
             return layerPosTemp.Adjusted(dimensions);
         }
 
+        private BoxPositionIndexed AdjustLayerPosition(BoxPositionIndexed layerPos, bool reflectionX, bool reflectionY)
+        {
+            Vector3D dimensions = Analysis.ContentDimensions;
+            Vector2D containerDims = Analysis.ContainerDimensions;
+
+            // implement change
+            var layerPosTemp = new BoxPositionIndexed(layerPos);
+
+            // apply symetry in X
+            if (reflectionX)
+            {
+                Matrix4D matRot = new Matrix4D(
+                  1.0, 0.0, 0.0, 0.0
+                  , 0.0, -1.0, 0.0, 0.0
+                  , 0.0, 0.0, 1.0, 0.0
+                  , 0.0, 0.0, 0.0, 1.0
+                  );
+                Vector3D vTranslation = new Vector3D(0.0, containerDims.Y, 0.0);
+                layerPosTemp = ApplyReflection(layerPosTemp, matRot, vTranslation);
+            }
+            // apply symetry in Y
+            if (reflectionY)
+            {
+                Matrix4D matRot = new Matrix4D(
+                    -1.0, 0.0, 0.0, 0.0
+                    , 0.0, 1.0, 0.0, 0.0
+                    , 0.0, 0.0, 1.0, 0.0
+                    , 0.0, 0.0, 0.0, 1.0
+                    );
+                Vector3D vTranslation = new Vector3D(containerDims.X, 0.0, 0.0);
+                layerPosTemp = ApplyReflection(layerPosTemp, matRot, vTranslation);
+            }
+            return layerPosTemp.Adjusted(dimensions);
+        }
+
         private Vector3D AdjustPosition(Vector3D v, bool reflectionX, bool reflectionY)
         {
             Vector2D containerDims = Analysis.ContainerDimensions;
@@ -1041,6 +1121,25 @@ namespace treeDiM.StackBuilder.Basics
                     - dimensions.Z * Vector3D.CrossProduct(HalfAxis.ToVector3D(axisLength), HalfAxis.ToVector3D(axisWidth))
                 , axisLength
                 , axisWidth);
+        }
+        private BoxPositionIndexed ApplyReflection(BoxPositionIndexed layerPos, Matrix4D matRot, Vector3D vTranslation)
+        {
+            Vector3D dimensions = Analysis.ContentDimensions;
+            Transform3D transfRot = new Transform3D(matRot);
+            HalfAxis.HAxis axisLength = HalfAxis.ToHalfAxis(transfRot.transform(HalfAxis.ToVector3D(layerPos.BPos.DirectionLength)));
+            HalfAxis.HAxis axisWidth = HalfAxis.ToHalfAxis(transfRot.transform(HalfAxis.ToVector3D(layerPos.BPos.DirectionWidth)));
+            matRot.M14 = vTranslation[0];
+            matRot.M24 = vTranslation[1];
+            matRot.M34 = vTranslation[2];
+            Transform3D transfRotTranslation = new Transform3D(matRot);
+
+            Vector3D transPos = transfRotTranslation.transform(new Vector3D(layerPos.BPos.Position.X, layerPos.BPos.Position.Y, layerPos.BPos.Position.Z));
+            return new BoxPositionIndexed(
+                new Vector3D(transPos.X, transPos.Y, transPos.Z)
+                    - dimensions.Z * Vector3D.CrossProduct(HalfAxis.ToVector3D(axisLength), HalfAxis.ToVector3D(axisWidth))
+                , axisLength
+                , axisWidth
+                , layerPos.Index);
         }
 
         private Vector3D ApplyReflection(Vector3D vPos, Matrix4D matRot, Vector3D vTranslation)

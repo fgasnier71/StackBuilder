@@ -160,7 +160,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         private bool LayerEdited => (bool)Session[SessionVariables.LayerEdited];
         private double Angle	{	get => (double)ViewState["Angle"];	set => ViewState["Angle"] = value;	}
         private string FileName => (string)Session[SessionVariables.FileName];
-        private List<BoxPosition> BoxPositions => (List<BoxPosition>)Session[SessionVariables.BoxPositions];
+        private List<BoxPositionIndexed> BoxPositions => (List<BoxPositionIndexed>)Session[SessionVariables.BoxPositions];
         private Bitmap BitmapTexture => (Bitmap)Session[SessionVariables.BitmapTexture];
         private string Interlayers => (string)Session[SessionVariables.Interlayers];
         #endregion

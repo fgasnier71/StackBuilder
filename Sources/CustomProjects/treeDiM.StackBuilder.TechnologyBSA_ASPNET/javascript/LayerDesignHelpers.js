@@ -2,13 +2,15 @@
 
     var images = ['./Output/case1.png', './Output/case2.png', './Output/case3.png', './Output/case4.png'];
     if (n < 1 || n > 4) return;
+    var currentId = counter;
 
-    fabric.Image.fromURL(images[n-1], function (img) {
-
+    var caseName = `case_${n}_${currentId}`;
+    
+    fabric.Image.fromURL(images[n - 1], function (img) {
         img.set({
-            name: 'case' + counter,
-            top: topImg,
-            left: leftImg,
+            //name: caseName,
+            top: 0,//topImg,
+            left: 0, //leftImg,
             originX: 'left',
             originY: 'top',
             hasRotatingPoint: false,
@@ -16,9 +18,22 @@
             angle: angle,
         });
         img.perPixelTargetFind = true;
-        canvas.add(img);
-    });
 
+        var text = new fabric.Text("#" + currentId, {
+            fontFamily: 'Arial',
+            fontSize: 25
+        });
+        var bound = img.getBoundingRect();
+        text.set('top', (bound.height / 2) - (text.height / 2));
+        text.set('left', (bound.width / 2) - (text.width / 2));
+
+        var group = new fabric.Group([img, text], {
+            name: caseName,
+            left: leftImg,
+            top: topImg,
+        });
+        canvas.add(group);
+    });
     counter++;
 }
 function remove(canvas, activeObject) {
@@ -43,7 +58,7 @@ function startsWith(str, word) {
 
 function intersectingCheck(activeObject) {
     activeObject.setCoords();
-    if (typeof activeObject.refreshLast != 'boolean') {
+    if (typeof activeObject.refreshLast !== 'boolean') {
         activeObject.refreshLast = true
     };
 
@@ -56,7 +71,7 @@ function intersectingCheck(activeObject) {
             || activeObject.isContainedWithinObject(targ)
             || targ.isContainedWithinObject(activeObject)) {
             //objects are intersecting - deny saving last non-intersection position and break loop
-            if (typeof activeObject.lastLeft == 'number') {
+            if (typeof activeObject.lastLeft === 'number') {
                 activeObject.left = activeObject.lastLeft;
                 activeObject.top = activeObject.lastTop;
                 activeObject.refreshLast = false;
@@ -159,6 +174,7 @@ function Move(canvas, target) {
     // Loop through objects
     canvas.forEachObject(function (obj) {
         if (obj === target) return;
+        if (obj.get('type') === "line") return;
 
         // If objects intersect
         if (target.isContainedWithinObject(obj) || target.intersectsWithObject(obj) || obj.isContainedWithinObject(target)) {
@@ -242,6 +258,7 @@ function Move(canvas, target) {
 
     canvas.forEachObject(function (obj) {
         if (obj === target) return;
+        if (obj.get('type') === "line") return;
 
         if (target.isContainedWithinObject(obj)
             || obj.isContainedWithinObject(target)) {

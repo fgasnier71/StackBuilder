@@ -78,7 +78,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             Vector3D caseDim, double caseWeight, Bitmap bmpTexture,
             Vector3D palletDim, double palletWeight,
             double maxPalletHeight,
-            List<BoxPosition> boxPositions,
+            List<BoxPositionIndexed> boxPositions,
             bool mirrorLength, bool mirrorWidth,
             List<bool> interlayers,
             double angle,
@@ -119,7 +119,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
             constraintSet.SetMaxHeight(new OptDouble(true, maxPalletHeight));
             // layer 2D
-            var layer2D = new Layer2DBrickExp(caseDim, new Vector2D(), "", HalfAxis.HAxis.AXIS_Z_P);
+            var layer2D = new Layer2DBrickExpIndexed(caseDim, new Vector2D(), "", HalfAxis.HAxis.AXIS_Z_P);
             layer2D.SetPositions(boxPositions);
             // analysis
             var analysis = new AnalysisCasePallet(boxProperties, palletProperties, constraintSet);
@@ -160,7 +160,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         public static void GenerateExport(Vector3D caseDim, double caseWeight, Bitmap bmpTexture,
             Vector3D palletDim, double palletWeight,
             double maxPalletHeight,
-            List<BoxPosition> boxPositions,
+            List<BoxPositionIndexed> boxPositions,
             bool mirrorLength, bool mirrorWidth,
             List<bool> interlayers,
             string filePath,
@@ -199,7 +199,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
             constraintSet.SetMaxHeight(new OptDouble(true, maxPalletHeight));
             // layer 2D
-            var layer2D = new Layer2DBrickExp(caseDim, new Vector2D(), "", HalfAxis.HAxis.AXIS_Z_P);
+            var layer2D = new Layer2DBrickExpIndexed(caseDim, new Vector2D(), "", HalfAxis.HAxis.AXIS_Z_P);
             layer2D.SetPositions(boxPositions);
             // analysis
             var analysis = new AnalysisCasePallet(boxProperties, palletProperties, constraintSet);
@@ -259,7 +259,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             Vector3D caseDim, double caseWeight,
             Vector3D palletDim, double palletWeight,
             double maxPalletHeight,
-            List<BoxPosition> boxPositions,
+            List<BoxPositionIndexed> listBoxPositionIndexed,
             bool mirrorLength, bool mirrorWidth,
             List<bool> interlayers,
             ref byte[] fileBytes,
@@ -286,6 +286,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             var constraintSet = new ConstraintSetCasePallet();
             constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
             constraintSet.SetMaxHeight(new OptDouble(true, maxPalletHeight));
+
+            var boxPositions = listBoxPositionIndexed.ConvertAll<BoxPosition>(bi => bi.BPos);
+
             // layer
             var layer2D = new Layer2DBrickExp(caseDim, new Vector2D(palletDim.X, palletDim.Y), "", HalfAxis.HAxis.AXIS_Z_P);
             layer2D.SetPositions(boxPositions);
@@ -310,7 +313,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             var exporter = ExporterFactory.GetExporterByName("csv (TechnologyBSA)");
             exporter.PositionCoordinateMode = Exporter.CoordinateMode.CM_COG;
             Stream stream = new MemoryStream();
-            exporter.Export(analysis, ref stream);
+            exporter.ExportIndexed(analysis, listBoxPositionIndexed, ref stream);
             // save stream to file
             using (var br = new BinaryReader(stream))
                 fileBytes = br.ReadBytes((int)stream.Length);

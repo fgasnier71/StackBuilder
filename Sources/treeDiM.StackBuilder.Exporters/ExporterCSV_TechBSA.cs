@@ -136,6 +136,120 @@ namespace treeDiM.StackBuilder.Exporters
             writer.Flush();
             stream.Position = 0;
         }
+        public override void ExportIndexed(AnalysisLayered analysis, List<BoxPositionIndexed> listBoxPositions, ref Stream stream)
+        {
+            if (analysis.SolutionLay.ItemCount > MaximumNumberOfCases)
+                throw new ExceptionTooManyItems(Name, analysis.Solution.ItemCount, MaximumNumberOfCases);
+
+            // number formatting
+            NumberFormatInfo nfi = new NumberFormatInfo
+            {
+                NumberDecimalSeparator = ".",
+                NumberGroupSeparator = "",
+                NumberDecimalDigits = 1
+            };
+
+            // initialize csv file
+            var csv = new StringBuilder();
+            csv.AppendLine("Parameter; Field; DataType; Value");
+            csv.AppendLine("Program:StackBuilder;$Type; STRING; PvParameter");
+
+            // ### CASES ###
+            // case counter
+            uint iCaseCount = 0;
+            var sol = analysis.SolutionLay;
+            var layers = sol.Layers;
+            foreach (var layer in layers)
+            {
+                if (layer is Layer3DBoxIndexed layerBox)
+                {
+                    foreach (var bpi in layerBox)
+                    {
+                        var bPosition = bpi.BPos;
+                        var pos = ConvertPosition(bPosition, analysis.ContentDimensions);
+                        int angle = 0;
+                        switch (bPosition.DirectionLength)
+                        {
+                            case HalfAxis.HAxis.AXIS_X_P: angle = 0; break;
+                            case HalfAxis.HAxis.AXIS_Y_P: angle = 90; break;
+                            case HalfAxis.HAxis.AXIS_X_N: angle = 180; break;
+                            case HalfAxis.HAxis.AXIS_Y_N: angle = 270; break;
+                            default: break;
+                        }
+                        if (iCaseCount < MaximumNumberOfCases)
+                        {
+                            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount}].C;INT;{angle}");
+                            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount}].X;REAL;{pos.X.ToString("0,0.0", nfi)}");
+                            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount}].Y;REAL;{pos.Y.ToString("0,0.0", nfi)}");
+                            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount}].Z;REAL;{pos.Z.ToString("0,0.0", nfi)}");
+                            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount++}].I;INT;{bpi.Index}");
+                        }
+                    }
+                }
+            }
+            // up to MaximumNumberOfCases
+            while (iCaseCount < MaximumNumberOfCases)
+            {
+                csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount}].C;INT;0");
+                csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount}].X;REAL;0");
+                csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount}].Y;REAL;0");
+                csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Box[{iCaseCount++}].Z;REAL;0");
+            }
+            // ### INTERLAYERS ###
+            int iLayerCount = 0;
+            foreach (var solItem in sol.SolutionItems)
+            {
+                if (iLayerCount < MaximumNumberOfInterlayers)
+                    csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.InterlayerOnOff[{iLayerCount++}];BOOL;{Bool2string(solItem.HasInterlayer)}");
+            }
+            // pallet cap
+            var hasPalletCap = false;
+            if (analysis is AnalysisCasePallet analysisCasePallet)
+                hasPalletCap = analysisCasePallet.HasPalletCap;
+            if (iLayerCount < MaximumNumberOfInterlayers)
+                csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.InterlayerOnOff[{iLayerCount++}];BOOL;{Bool2string(hasPalletCap)}");
+            // up to MaximumNumberOfInterlayers
+            while (iLayerCount < MaximumNumberOfInterlayers)
+                csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.InterlayerOnOff[{iLayerCount++}];BOOL;{Bool2string(false)}");
+
+
+            // ### BOX OUTER DIMENSIONS
+            var dimensions = analysis.Content.OuterDimensions;
+            double weight = analysis.Content.Weight;
+
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.BoxDimension.L;REAL;{dimensions.X.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.BoxDimension.P;REAL;{dimensions.Y.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.BoxDimension.H;REAL;{dimensions.Z.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.BoxDimension.W;REAL;{weight.ToString("0,0.0", nfi)}");
+            if (analysis.Container is PalletProperties palletProperties)
+            {
+                csv.AppendLine(
+                    $"Program:StackBuilder;Program:StackBuilder.PalletDimension.L;REAL;{palletProperties.Length.ToString("0,0.0", nfi)}");
+                csv.AppendLine(
+                    $"Program:StackBuilder;Program:StackBuilder.PalletDimension.P;REAL;{palletProperties.Width.ToString("0,0.0", nfi)}");
+                csv.AppendLine(
+                    $"Program:StackBuilder;Program:StackBuilder.PalletDimension.H;REAL;{palletProperties.Height.ToString("0,0.0", nfi)}");
+                csv.AppendLine(
+                    $"Program:StackBuilder;Program:StackBuilder.PalletDimension.W;REAL;{palletProperties.Weight.ToString("0,0.0", nfi)}");
+            }
+
+            double maxPalletHeight = analysis.ConstraintSet.OptMaxHeight.Value;
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Pallet.MaxPalletHeight;REAL;{maxPalletHeight.ToString("0,0.0", nfi)}");
+            bool layersMirrorX = false;
+            if (sol.ItemCount > 1)
+                layersMirrorX = sol.SolutionItems[0].SymetryX != sol.SolutionItems[1].SymetryX;
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.LayersMirrorXOnOff;BOOL;{Bool2string(layersMirrorX)}");
+            bool layersMirrorY = false;
+            if (sol.ItemCount > 1)
+                layersMirrorY = sol.SolutionItems[0].SymetryY != sol.SolutionItems[1].SymetryY;
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.LayersMirrorYOnOff;BOOL;{Bool2string(layersMirrorY)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.TotalWeight;REAL;{sol.Weight.ToString("0,0.0", nfi)}");
+
+            var writer = new StreamWriter(stream);
+            writer.Write(csv.ToString());
+            writer.Flush();
+            stream.Position = 0;
+        }
         #endregion
 
         #region Import methods

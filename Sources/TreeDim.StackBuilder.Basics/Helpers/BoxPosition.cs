@@ -270,7 +270,25 @@ namespace treeDiM.StackBuilder.Basics
                 return false;
             return true;
         }
-
+        public static BoxPosition FromPosDimOrient(Vector3D pos, Vector3D dimensions, int orientation)
+        {
+            // 1 -> L W H
+            // 2 -> W L H
+            // 3 -> W H L
+            // 4 -> H W L
+            // 5 -> L H W
+            // 6 -> H L W
+            switch (orientation)
+            {
+                case 1: return new BoxPosition(pos, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                case 2: return new BoxPosition(pos + dimensions.Y * Vector3D.XAxis, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
+                case 3: return new BoxPosition(pos, HalfAxis.HAxis.AXIS_Z_P, HalfAxis.HAxis.AXIS_X_P);
+                case 4: return new BoxPosition(pos + dimensions.Y * Vector3D.YAxis, HalfAxis.HAxis.AXIS_Z_P, HalfAxis.HAxis.AXIS_Y_N);
+                case 5: return new BoxPosition(pos + dimensions.Z * Vector3D.YAxis, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Z_P);
+                case 6: return new BoxPosition(pos, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_Z_P);
+                default: throw new Exception($"FromPosDimOrient : cannot have orientation = {orientation}");
+            }
+        }
         /// <summary>
         /// This method will be used to build 
         /// </summary>
@@ -280,36 +298,34 @@ namespace treeDiM.StackBuilder.Basics
         /// <returns></returns>
         public static BoxPosition FromPositionDimension(Vector3D pos, Vector3D dimOriented, Vector3D dimOriginal)
         {
-            BoxPositionIndexed bpi = BoxPositionIndexed.Zero;
-            // search for length (dimOriginal[0])
             if (MostlyEqual(dimOriented[0], dimOriginal[0])) 
             {
                 // L W H
                 if (MostlyEqual(dimOriented[1], dimOriginal[1]))
-                    bpi = new BoxPositionIndexed(pos, 1);
+                    return FromPosDimOrient(pos, dimOriginal, 1);
                 // L H W
                 else if (MostlyEqual(dimOriented[1], dimOriginal[2]))
-                    bpi = new BoxPositionIndexed(pos, 5);
+                    return FromPosDimOrient(pos, dimOriginal, 5);
             }
             else if (MostlyEqual(dimOriented[0], dimOriginal[1]))
             {
                 // W L H
                 if (MostlyEqual(dimOriented[1], dimOriginal[0]))
-                    bpi = new BoxPositionIndexed(pos, 2);
+                   return FromPosDimOrient(pos, dimOriginal, 2);
                 // W H L
                 else if (MostlyEqual(dimOriented[1], dimOriginal[2]))
-                    bpi = new BoxPositionIndexed(pos, 3);
+                    return FromPosDimOrient(pos, dimOriginal, 3);
             }
             else if (MostlyEqual(dimOriented[0], dimOriginal[2]))
             {
                 // H L W
                 if (MostlyEqual(dimOriented[1], dimOriginal[0]))
-                    bpi = new BoxPositionIndexed(pos, 6);
+                    return FromPosDimOrient(pos, dimOriginal, 6);
                 // H W L
                 else if (MostlyEqual(dimOriented[1], dimOriginal[1]))
-                    bpi = new BoxPositionIndexed(pos, 4);
+                   return FromPosDimOrient(pos, dimOriginal, 4);
             }
-            return bpi.ToBoxPosition(dimOriginal);
+            return Zero;
         }
         private static bool MostlyEqual(double val0, double val1) => Math.Abs(val1 - val0) < 1.0e-03;
         public static BoxPosition Parse(string s)
@@ -406,52 +422,11 @@ namespace treeDiM.StackBuilder.Basics
         public static bool operator ==(BoxPosition left, BoxPosition right) { return left.Equals(right); }
         public static bool operator !=(BoxPosition left, BoxPosition right) { return !(left == right); }
         #endregion
-    }
 
-    public struct BoxPositionIndexed
-    {
-        #region Constructor
-        public BoxPositionIndexed(Vector3D vPosition, int orientation)
-        {
-            if (orientation < 1 || orientation > 6)
-                throw new Exception($"BoxPositionIndexed : cannot have orientation = {orientation}");
+        #region FromPositionOrientation
 
-            Position = vPosition;
-            Orientation = orientation;
-        }
         #endregion
 
-        #region Public properties
-        public Vector3D Position { get; set; }
-        public int Orientation { get; set; }
-        public BoxPosition ToBoxPosition(Vector3D dimensions)
-        {
-            // 1 -> L W H
-            // 2 -> W L H
-            // 3 -> W H L
-            // 4 -> H W L
-            // 5 -> L H W
-            // 6 -> H L W
-            switch (Orientation)
-            {
-                case 1: return new BoxPosition(Position, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
-                case 2: return new BoxPosition(Position + dimensions.Y * Vector3D.XAxis, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
-                case 3: return new BoxPosition(Position, HalfAxis.HAxis.AXIS_Z_P, HalfAxis.HAxis.AXIS_X_P);
-                case 4: return new BoxPosition(Position + dimensions.Y * Vector3D.YAxis, HalfAxis.HAxis.AXIS_Z_P, HalfAxis.HAxis.AXIS_Y_N);
-                case 5: return new BoxPosition(Position + dimensions.Z * Vector3D.YAxis, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Z_P);
-                case 6: return new BoxPosition(Position, HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_Z_P);
-                default: throw new Exception("BoxPositionIndexed : Invalid orientation!");
-            }
-        }
-        #endregion
-
-        #region Static members
-        public static BoxPositionIndexed Zero = new BoxPositionIndexed(Vector3D.Zero, 1);
-        #endregion
-
-        #region Object method override
-        public override string ToString() => $"{Position} | {Orientation}";
-        #endregion
     }
 
     public class BoxInteraction

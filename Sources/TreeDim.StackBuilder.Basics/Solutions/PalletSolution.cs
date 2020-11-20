@@ -78,9 +78,9 @@ namespace treeDiM.StackBuilder.Basics
 
         #region Public properties
         public double ZLow { get; } = 0.0;
-        public int BoxCount { get { return Count; } }
-        public int InterlayerCount { get { return 0; } }
-        public int CylinderCount { get { return 0; } }
+        public int BoxCount => Count;
+        public int InterlayerCount => 0;
+        public int CylinderCount => 0;
         public int LayerIndex { get; }
         public double MaximumSpace { get; set; } = 0.0;
         #endregion
@@ -123,17 +123,67 @@ namespace treeDiM.StackBuilder.Basics
             switch (sortType)
             {
                 case SortType.XY: Sort(new ComparerBoxPositionXY(dimensions)); break;
-                case SortType.DIST_BOXCENTER : Sort(new ComparerBoxPositionDist(dimensions, minPoint)); break;
-                case SortType.DIST_MAXCORNER : Sort(new ComparerBoxPositionDistMaxCorner(dimensions, minPoint)); break;
+                case SortType.DIST_BOXCENTER: Sort(new ComparerBoxPositionDist(dimensions, minPoint)); break;
+                case SortType.DIST_MAXCORNER: Sort(new ComparerBoxPositionDistMaxCorner(dimensions, minPoint)); break;
                 default: break;
             }
         }
         #endregion
-
-        #region Data members
-        #endregion
     }
 
+    public class Layer3DBoxIndexed : List<BoxPositionIndexed>, ILayer
+    {
+        #region Constructor
+        public Layer3DBoxIndexed(double zLow, int layerIndex)
+        {
+            ZLow = zLow;
+            LayerIndex = layerIndex;
+        }
+        #endregion
+
+        #region ILayer implementation
+        public double ZLow { get; } = 0.0;
+        public int BoxCount => Count;
+        public int CylinderCount => 0;
+        public int InterlayerCount => 0;
+        public BBox3D BoundingBox(Packable packable)
+        {
+            BBox3D bbox = new BBox3D();
+            if (packable is PackableBrick packableBrick)
+            {
+                Vector3D dimensions = packableBrick.OuterDimensions;
+                foreach (var bpos in this)
+                    bbox.Extend(bpos.BPos.BBox(dimensions));
+            }
+            return bbox;
+        }
+        #endregion
+        #region Public methods
+        /// <summary>
+        /// adds a case position
+        /// </summary>
+        /// <param name="vPosition">Box 'origin' position (origin: lower left corner)</param>
+        /// <param name="dirLength">Length axis direction</param>
+        /// <param name="dirWidth">Width axis direction</param>
+        public void AddPosition(Vector3D vPosition, HalfAxis.HAxis dirLength, HalfAxis.HAxis dirWidth, int index)
+        {
+            Add(new BoxPositionIndexed(vPosition, dirLength, dirWidth, index));
+        }
+        public double Thickness(BProperties bProperties)
+        {
+            if (Count == 0) return 0.0;
+            BoxPosition bPos = this[0].BPos;
+            Vector3D diagonale = bProperties.Length * HalfAxis.ToVector3D(bPos.DirectionLength)
+                                + bProperties.Width * HalfAxis.ToVector3D(bPos.DirectionWidth)
+                                + bProperties.Height * Vector3D.CrossProduct(HalfAxis.ToVector3D(bPos.DirectionLength), HalfAxis.ToVector3D(bPos.DirectionWidth));
+            return Math.Abs(diagonale.Z);
+        }
+        #endregion
+        #region Public properties
+        public int LayerIndex { get; }
+        public double MaximumSpace { get; set; } = 0.0;
+        #endregion
+    }
     #region BoxPosition comparers
     internal class ComparerBoxPositionXY : IComparer<BoxPosition>
     {

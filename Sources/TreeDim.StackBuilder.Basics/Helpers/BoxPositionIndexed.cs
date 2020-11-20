@@ -1,10 +1,9 @@
 ﻿#region Using directives
 using System.Collections.Generic;
-
 using Sharp3D.Math.Core;
 #endregion
 
-namespace treeDiM.StackBuilder.Basics.Helpers
+namespace treeDiM.StackBuilder.Basics
 {
     public class BoxPositionIndexed
     {
@@ -13,12 +12,57 @@ namespace treeDiM.StackBuilder.Basics.Helpers
             BPos = boxPosition;
             Index = index;
         }
+        public BoxPositionIndexed(BoxPositionIndexed boxPosition)
+        {
+            BPos = boxPosition.BPos;
+            Index = boxPosition.Index;
 
+        }
         public BoxPositionIndexed(Vector3D vPos, HalfAxis.HAxis axisLength, HalfAxis.HAxis axisWidth, int index)
         {
             BPos = new BoxPosition(vPos, axisLength, axisWidth);
             Index = index;
         }
+        public BoxPositionIndexed Adjusted(Vector3D dimensions)
+        {
+            var boxPosTemp = new BoxPositionIndexed(BPos.Position, BPos.DirectionLength, BPos.DirectionWidth, Index);
+            // reverse if oriented to Z- (AXIS_Z_N)
+            if (BPos.DirectionHeight == HalfAxis.HAxis.AXIS_Z_N)
+            {
+                if (BPos.DirectionLength == HalfAxis.HAxis.AXIS_X_P)
+                    boxPosTemp.BPos = new BoxPosition(BPos.Position + new Vector3D(0.0, -dimensions.Y, -dimensions.Z), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                else if (BPos.DirectionLength == HalfAxis.HAxis.AXIS_Y_P)
+                    boxPosTemp.BPos = new BoxPosition(BPos.Position + new Vector3D(dimensions.Y, 0.0, -dimensions.Z), HalfAxis.HAxis.AXIS_Y_P, HalfAxis.HAxis.AXIS_X_N);
+                else if (BPos.DirectionLength == HalfAxis.HAxis.AXIS_X_N)
+                    boxPosTemp.BPos = new BoxPosition(BPos.Position + new Vector3D(-dimensions.X, 0.0, -dimensions.Z), HalfAxis.HAxis.AXIS_X_P, BPos.DirectionWidth);
+                else if (BPos.DirectionLength == HalfAxis.HAxis.AXIS_Y_N)
+                    boxPosTemp.BPos = new BoxPosition(BPos.Position + new Vector3D(-dimensions.Y, 0.0, -dimensions.Z), HalfAxis.HAxis.AXIS_Y_N, HalfAxis.HAxis.AXIS_X_P);
+            }
+            return boxPosTemp;
+        }
+        public override string ToString() => $"{BPos.Position} | ({HalfAxis.ToString(BPos.DirectionLength)},{HalfAxis.ToString(BPos.DirectionWidth)}) | {Index}";
+        public static BoxPositionIndexed Parse(string s)
+        {
+            string[] sArray = s.Split('|');
+            var v = Vector3D.Parse(sArray[0]);
+            string sOrientation = sArray[1];
+            sOrientation = sOrientation.Trim();
+            sOrientation = sOrientation.TrimStart('(');
+            sOrientation = sOrientation.TrimEnd(')');
+            string[] vOrientation = sOrientation.Split(',');
+            var index = int.Parse(sArray[2]);
+            return new BoxPositionIndexed(v, HalfAxis.Parse(vOrientation[0]), HalfAxis.Parse(vOrientation[1]), index);
+        }
+        public static List<BoxPositionIndexed> FromListBoxPosition(List<BoxPosition> boxPositions)
+        {
+            var listBoxPositionIndexed = new List<BoxPositionIndexed>();
+            int counter = 0;
+            foreach (var bp in boxPositions)
+                listBoxPositionIndexed.Add(new BoxPositionIndexed(bp, ++counter));
+            return listBoxPositionIndexed;
+        }
+        public static List<BoxPosition> ToListBoxPosition(List<BoxPositionIndexed> listboxPositionIndexed) => listboxPositionIndexed.ConvertAll(bpi => bpi.BPos);
+
         public BoxPosition BPos { get; set; }
         public int Index { get; set; }
     }

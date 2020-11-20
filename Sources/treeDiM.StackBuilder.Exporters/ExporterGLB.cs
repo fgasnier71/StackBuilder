@@ -64,8 +64,13 @@ namespace treeDiM.StackBuilder.Exporters
                 {
                     if (layer is Layer3DBox layerBox)
                     {
-                        foreach (BoxPosition bPosition in layerBox)
+                        foreach (var bPosition in layerBox)
                             scene.AddRigidMesh(meshCase, BoxPositionToMatrix4x4(bPosition));
+                    }
+                    else if (layer is Layer3DBoxIndexed layerBoxi)
+                    {
+                        foreach (var bposi in layerBoxi)
+                            scene.AddRigidMesh(meshCase, BoxPositionToMatrix4x4(bposi.BPos));
                     }
                     else if (layer is InterlayerPos interlayerPos)
                     {

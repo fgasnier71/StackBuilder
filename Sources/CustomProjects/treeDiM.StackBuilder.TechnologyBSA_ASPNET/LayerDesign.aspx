@@ -43,6 +43,41 @@
             canvasWidth = canvas.width;
             canvasHeight = canvas.height;
 
+            // pallet rectangle
+            var line1 = new fabric.Line(
+                [palletDimensions.X1, palletDimensions.Y1, palletDimensions.X1, palletDimensions.Y2], {
+                stroke: 'red',
+                strokewidth: 1,
+                selectable: false,
+                name: 'pallet1',
+            });
+            canvas.add(line1);
+            var line2 = new fabric.Line(
+                [palletDimensions.X1, palletDimensions.Y2, palletDimensions.X2, palletDimensions.Y2], {
+                stroke: 'red',
+                strokewidth: 1,
+                selectable: false,
+                name: 'pallet2',
+            });
+            canvas.add(line2);
+            var line3 = new fabric.Line(
+                [palletDimensions.X2, palletDimensions.Y2, palletDimensions.X2, palletDimensions.Y1], {
+                stroke: 'red',
+                strokewidth: 1,
+                selectable: false,
+                name: 'pallet3',
+            });
+            canvas.add(line3);
+            var line4 = new fabric.Line(
+                [palletDimensions.X2, palletDimensions.Y1, palletDimensions.X1, palletDimensions.Y1], {
+                stroke: 'red',
+                strokewidth: 1,
+                selectable: false,
+                name: 'pallet4',
+            });
+            canvas.add(line4);
+
+            counter = 0;
             var len = boxPositions.length;
             for (var i = 0; i < len; ++i)
             {
@@ -53,6 +88,12 @@
                 var target = canvas.findTarget(e);
                 target.setCoords();
                 target.rotate(mod(target.get('angle') + 90, 360));
+                if (target.type === 'group')
+                {
+                    var text = target.item(1);
+                    if (text.type === 'text')
+                        text.rotate(text.get('angle') - 90);
+                }
                 target.setCoords();
                 canvas.renderAll();
             });
@@ -64,7 +105,7 @@
         });
         function insertCases(number) {
             var canvas = document.getElementById('canvas').fabric;
-            insertCase(canvas, number, canvasWidth-100, 0, 0);
+            insertCase(canvas, number, canvasWidth - (caseWidth + 10), 0, 0);
             canvas.renderAll();
         }
         function remove() {
@@ -80,32 +121,25 @@
                 var canvas = document.getElementById('canvas').fabric;
                 let boxPositions = [];
                 var counter = 0;
+
                 canvas.forEachObject(function (obj) {
+                    var name = obj.name;
+                    var splitName = name.split("_");
+                    var indexCase = splitName[2];
+                    var numberCase = splitName[1];
+
                     boxPositions.push(
                         {
-                            Index: counter,
+                            Index: indexCase,
                             X: obj.left,
                             Y: obj.top,
                             Angle: obj.get('angle'),
-                            NumberCase: 1,
+                            NumberCase: numberCase
                         }
                     );
                     ++counter;
                 });
-
-                $.ajax({
-                    contentType: 'application/json; charset=utf-8',
-                    dataType: 'json',
-                    type: 'POST',
-                    url: 'LayerDesign.aspx/SaveCasePositions',
-                    data: JSON.stringify({ 'list': boxPositions }),
-                    success: function () {
-                        alert("success");
-                    },
-                    error: function (response) {
-                        alert(JSON.stringify(response));
-                    }
-                });
+                $("#HFBoxArray").val(JSON.stringify(boxPositions));
             });
         }
 
@@ -169,7 +203,9 @@
                                 <td class="style100pct" />
                                 <asp:Button ID="bnPrev" runat="server" CssClass="buttonPrev" OnClick="OnPrevious" Text="&lt; Previous" />
                                 <td class="style100pct" />
-                                <input id="ButtonSave" type="button" value="Next &gt;" onclick="JavaScript: Save();" />
+                                <asp:Button ID="bnNext" runat="server" CssClass="buttonNext" OnClientClick="javascript:Save()" OnClick="OnNext" Text="Next &gt;" />
+                                <asp:HiddenField ID="HFBoxArray" ClientIDMode="Static" runat="server" />
+                                <!--input id="ButtonSave" type="button" value="Next &gt;" onclick="JavaScript: Save();" /-->
                             </tr>
                         </table>
                     </ContentTemplate>

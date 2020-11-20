@@ -14,7 +14,7 @@
         .auto-style7 {
             width: 283px;
         }
-                .switch {
+        .switch {
             position: relative;
             display: inline-block;
             width: 50px;
@@ -73,7 +73,7 @@
     <script type="text/javascript" src="javascript/jquery.keyboard.extension-typing.js"></script>
     <script type="text/javascript">
         function ActivateVirtualKeyboard() {
-            $('#TBCaseLength').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true }).addTyping();
+            $('#TBCaseLength').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             $('#TBCaseWidth').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             $('#TBCaseHeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             $('#TBPalletLength').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
@@ -165,7 +165,9 @@
                                 <td>
                                     <asp:Label Id="LBPalletWeightUnit" runat="server" Text="kg" CssClass="label" />
                                 </td>
-                                <td/>
+                                <td>
+                                    <asp:Button ID="BTRefresh" runat="server" Text="Refresh" OnClick="OnRefresh" CssClass="buttonRefresh" />
+                                </td>
                             </tr>
                             <tr>
                                 <td />

@@ -263,7 +263,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             set => Session[SessionVariables.MaxPalletHeight] = value;
         }
         private Vector2D DimContainer => new Vector2D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text));
-        private List<BoxPosition> BoxPositions
+        private List<BoxPositionIndexed> BoxPositions
         {
             set => Session[SessionVariables.BoxPositions] = value;
         }
@@ -271,14 +271,18 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         {
             set => Session[SessionVariables.SelectedIndex] = value;
         }
-        private List<BoxPosition> BoxPositionsLayer
+        private List<BoxPositionIndexed> BoxPositionsLayer
         {
             get
             {
                 var layerDesc = LayerDescBox.Parse(ViewState["LayerDescriptor"].ToString()) as LayerDescBox;
                 LayerSolver solver = new LayerSolver();
                 var layer = solver.BuildLayer(DimCaseCtrl, DimContainer, layerDesc, 0.0);
-                return layer.Positions;
+                var listPositions = new List<BoxPositionIndexed>();
+                int counter = 0;
+                foreach (var pos in layer.Positions)
+                    listPositions.Add(new BoxPositionIndexed(pos, ++counter));
+                return listPositions;
             }
         }
         private Bitmap BitmapTexture

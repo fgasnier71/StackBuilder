@@ -75,9 +75,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 ref weightLoad, ref weightTotal,
                 ref bbLoad, ref bbTotal
             );
-
             XModelDiv.InnerHtml = $"<x-model class=\"x-model\" src=\"./Output/{fileGuid}\"/>";
-
             loadedPallet.Update();
         }
         #endregion
@@ -136,7 +134,6 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                     .GetProperty(str, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase)
                     .GetValue(null);
         }
-
         private List<bool> InterlayersBoolArray
         {
             get
@@ -160,7 +157,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         private bool LayersMirrorWidth => (bool)Session[SessionVariables.LayersMirrorWidth];
         private bool LayerEdited => (bool)Session[SessionVariables.LayerEdited];
         private string FileName => (string)Session[SessionVariables.FileName];
-        private List<BoxPosition> BoxPositions => (List<BoxPosition>)Session[SessionVariables.BoxPositions];
+        private List<BoxPositionIndexed> BoxPositions => (List<BoxPositionIndexed>)Session[SessionVariables.BoxPositions];
         private Bitmap BitmapTexture => (Bitmap)Session[SessionVariables.BitmapTexture];
         private string Output => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Output");
         private string Interlayers => (string) Session[SessionVariables.Interlayers];

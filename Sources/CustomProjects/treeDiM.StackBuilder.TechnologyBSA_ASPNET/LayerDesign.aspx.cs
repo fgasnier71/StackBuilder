@@ -3,9 +3,10 @@ using System;
 using System.Web.UI;
 using System.Collections.Generic;
 using System.Web.Script.Serialization;
-using System.Web.Services;
 using System.Drawing;
 using System.IO;
+
+using Newtonsoft.Json;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
@@ -20,11 +21,19 @@ public partial class LayerDesign : Page
     {
         if (!Page.IsPostBack)
         {
-            double scaleFactor = 500.0 / (DimPallet.Y + 2 * DimCase.X);
+            CanvasCoordConverter canvasCoord = new CanvasCoordConverter(950, 500, PtMin, PtMax);
+
+            // pallet dimensions
+            var palletTopLeft = canvasCoord.PtWorldToCanvas(new Vector2D(0.0, DimPallet.Y));
+            var palletBottomRight = canvasCoord.PtWorldToCanvas(new Vector2D(DimPallet.X, 0.0));
+            _palletDims.X1 = palletTopLeft.X;
+            _palletDims.Y1 = palletTopLeft.Y;
+            _palletDims.X2 = palletBottomRight.X;
+            _palletDims.Y2 = palletBottomRight.Y;
 
             // generate images
-            _casePixelWidth = (int)( DimCase.X *  scaleFactor);
-            _casePixelHeight = (int)(DimCase.Y * scaleFactor);
+            _casePixelWidth = (int)(canvasCoord.LengthWorldToCanvas(DimCase.X));
+            _casePixelHeight = (int)(canvasCoord.LengthWorldToCanvas(DimCase.Y));
 
             // generate box position from 
             MultiCaseImageGenerator.GenerateDefaultCaseImage(DimCase, new Size(_casePixelWidth, _casePixelHeight), 1, MultiCaseImageGenerator.CaseAlignement.SHARING_LENGTH, Path.Combine(Output, "case1.png"));
@@ -32,7 +41,8 @@ public partial class LayerDesign : Page
             MultiCaseImageGenerator.GenerateDefaultCaseImage(DimCase, new Size(_casePixelWidth, _casePixelHeight), 3, MultiCaseImageGenerator.CaseAlignement.SHARING_LENGTH, Path.Combine(Output, "case3.png"));
             MultiCaseImageGenerator.GenerateDefaultCaseImage(DimCase, new Size(_casePixelWidth, _casePixelHeight), 4, MultiCaseImageGenerator.CaseAlignement.SHARING_LENGTH, Path.Combine(Output, "case4.png"));
 
-            _boxPositions.Add(new BoxPositionJS() { Index = 0, NumberCase = 1, X = 0, Y = 0, Angle = 0 });
+            foreach (var bp in BoxPositions)
+                _boxPositions.Add(canvasCoord.BPosWorldToCanvas(bp, 1, DimCase));
         }
     }
     #endregion
@@ -41,28 +51,35 @@ public partial class LayerDesign : Page
     {
         Response.Redirect("LayerDesignIntro.aspx");
     }
-    #endregion
-
-    #region Back from javascript
-    [WebMethod]
-    public static void SaveCasePositions(BoxPositionJS[] list)
+    protected void OnNext(object sender, EventArgs e)
     {
-        foreach (var bpjs in list)
+        var canvasCoord = new CanvasCoordConverter(950, 500, PtMin, PtMax);
+
+        string sValue = HFBoxArray.Value;
+        var bposJS = JsonConvert.DeserializeObject<IList<BoxPositionJS>>(sValue);
+        if (null != bposJS)
         {
-            Console.WriteLine($"BP -> Index: {bpjs.Index} , X: {bpjs.X}, Y: {bpjs.Y}, Angle: {bpjs.Angle}");
+            var listBoxPositions = new List<BoxPositionIndexed>();
+            foreach (var bpjs in bposJS)
+            {
+                var listIndex = canvasCoord.ToBoxPositionIndexed(bpjs, DimCase);
+                listBoxPositions.AddRange(listIndex);                
+            }
+            BoxPositions = listBoxPositions;
+            Response.Redirect("ValidationWebGL.aspx");
         }
-        LayerDesignStaticReference.Response.Redirect("ValidationWebGL.aspx");
     }
     #endregion
 
 
     private Vector3D DimCase => Vector3D.Parse((string)Session[SessionVariables.DimCase]);
     private Vector3D DimPallet => Vector3D.Parse((string)Session[SessionVariables.DimPallet]);
-    private List<BoxPosition> BoxPositions
+    private List<BoxPositionIndexed> BoxPositions
     {
-        get => (List<BoxPosition>)Session[SessionVariables.BoxPositions];
+        get => (List<BoxPositionIndexed>)Session[SessionVariables.BoxPositions];
         set => Session[SessionVariables.BoxPositions] = value;
     }
+
 
 
     #region Data members
@@ -71,8 +88,9 @@ public partial class LayerDesign : Page
     public int _casePixelWidth;
     public int _casePixelHeight;
     public JavaScriptSerializer javaSerial = new JavaScriptSerializer();
-    private static LayerDesign LayerDesignStaticReference { get; set; }
     private string Output => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Output");
+    private Vector2D PtMin => new Vector2D(-DimCase.X, -DimCase.X);
+    private Vector2D PtMax => new Vector2D((DimPallet.Y + DimCase.X) * 950.0 / 500.0, DimPallet.Y + DimCase.X);
     #endregion
 
 }

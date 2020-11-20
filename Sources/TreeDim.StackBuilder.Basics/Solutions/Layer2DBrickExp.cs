@@ -25,4 +25,24 @@ namespace treeDiM.StackBuilder.Basics
         public override string ToString() => $"{Name}";
         #endregion
     }
+
+    public class Layer2DBrickExpIndexed : Layer2DBrickIndexed
+    {
+        #region Constructor
+        public Layer2DBrickExpIndexed(Vector3D dimBox, Vector2D dimContainer, string name, HalfAxis.HAxis axisOrtho)
+            : base(dimBox, dimContainer, name, axisOrtho)
+        {
+        }
+        #endregion
+        #region Add/Remove methods
+        public void AddPosition(BoxPositionIndexed position) => Add(position);
+        public void RemovePosition(int index) => Positions.RemoveAt(index);
+        public void SetPositions(List<BoxPositionIndexed> positions) => AddRange(positions);
+        #endregion
+        #region Layer2DBrick override
+        public override string PatternName => string.Empty;
+        public override string Tooltip(double height) => $"{Count} * {NoLayers(height)} = {CountInHeight(height)} | {HalfAxis.ToString(AxisOrtho)} | {Name}";
+        public override string ToString() => $"{Name}";
+        #endregion
+    }
 }

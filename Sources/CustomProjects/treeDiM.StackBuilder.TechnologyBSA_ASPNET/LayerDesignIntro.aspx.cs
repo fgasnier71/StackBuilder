@@ -2,8 +2,11 @@
 using System;
 using System.Web.UI;
 using System.Globalization;
+using System.Collections.Generic;
 
 using Sharp3D.Math.Core;
+
+using treeDiM.StackBuilder.Basics;
 #endregion
 
 
@@ -21,6 +24,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 WeightPalletCtrl = WeightPallet;
                 MaxPalletHeightCtrl = MaxPalletHeight;
             }
+            OnRefresh(this, null);
+
+            ExecuteKeyPad();
         }
         protected void OnNext(object sender, EventArgs e)
         {
@@ -30,15 +36,19 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             WeightPallet = WeightPalletCtrl;
             MaxPalletHeight = MaxPalletHeightCtrl;
 
+            var listBoxPositions = new List<BoxPositionIndexed>();
+            listBoxPositions.Add(new BoxPositionIndexed(Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P, 1));
+            listBoxPositions.Add(new BoxPositionIndexed(new Vector3D(DimCase.X, 0.0, 0.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P, 2));
+            BoxPositions = listBoxPositions;
+
             Session[SessionVariables.LayerEdited] = true;
             Response.Redirect("LayerDesign.aspx");
         }
 
-        protected void OnRefresh(object sender, EventArgs e)
+        private void ExecuteKeyPad()
         {
-            DimCase = DimCaseCtrl;
-
-            CaseSetsConfiguration.Update();
+            if (ConfigSettings.ShowVirtualKeyboard)
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "VKeyPad", "ActivateVirtualKeyboard();", true);
         }
 
         private Vector3D DimCaseCtrl
@@ -100,6 +110,24 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         {
             get => (double)Session[SessionVariables.MaxPalletHeight];
             set => Session[SessionVariables.MaxPalletHeight] = value;
+        }
+        private List<BoxPositionIndexed> BoxPositions
+        {
+            get => (List<BoxPositionIndexed>)Session[SessionVariables.BoxPositions];
+            set => Session[SessionVariables.BoxPositions] = value;
+        }
+
+        protected void OnRefresh(object sender, EventArgs e)
+        {
+            Page.Validate();
+
+            DimCase = DimCaseCtrl;
+            CaseSetsConfiguration.Update();
+
+            ImageCase1.ImageUrl = "~/HandlerCaseSet.ashx?number=1&Date=" + DateTime.Now.ToString();
+            ImageCase2.ImageUrl = "~/HandlerCaseSet.ashx?number=2&Date=" + DateTime.Now.ToString();
+            ImageCase3.ImageUrl = "~/HandlerCaseSet.ashx?number=3&Date=" + DateTime.Now.ToString();
+            ImageCase4.ImageUrl = "~/HandlerCaseSet.ashx?number=4&Date=" + DateTime.Now.ToString();
         }
     }
 }
