@@ -548,14 +548,15 @@ namespace treeDiM.StackBuilder.Basics
             }
             else if (currentLayer is Layer2DBrickExpIndexed layer2Dindexed)
             {
-                Layer3DBox boxLayer = new Layer3DBox(0.0, layerIndex);
+                Layer3DBoxIndexed boxLayer = new Layer3DBoxIndexed(0.0, layerIndex);
                 foreach (var layerPos in layer2Dindexed.Positions)
                 { 
                     BoxPositionIndexed layerPosTemp = AdjustLayerPosition(layerPos, symX, symY);
                     boxLayer.Add(
-                        new BoxPosition(
+                        new BoxPositionIndexed(
                             layerPosTemp.BPos.Position + Analysis.Offset,
-                            layerPosTemp.BPos.DirectionLength, layerPosTemp.BPos.DirectionWidth
+                            layerPosTemp.BPos.DirectionLength, layerPosTemp.BPos.DirectionWidth,
+                            layerPosTemp.Index
                             )
                         );
                 }
@@ -651,7 +652,7 @@ namespace treeDiM.StackBuilder.Basics
                         if (boxLayer.Count > 0)
                         {
                             llayers.Add(boxLayer);
-                            indexLastLayer = boxLayer.Last().Index;
+                            indexLastLayer = boxLayer.Last().Index + 1;
                         }
                     }
                     else if (currentLayer is Layer2DCylImp layer2DCyl)
@@ -691,7 +692,7 @@ namespace treeDiM.StackBuilder.Basics
                     bool firstLayer = true;
                     foreach (ILayer layer in Layers)
                     {
-                        if (layer is Layer3DBox || layer is Layer3DCyl)
+                        if (layer is Layer3DBox || layer is Layer3DBoxIndexed || layer is Layer3DCyl)
                             _bbox.Extend(layer.BoundingBox(Analysis.Content));
                         else if (layer is InterlayerPos && !firstLayer)
                         {
@@ -777,13 +778,20 @@ namespace treeDiM.StackBuilder.Basics
                     ++layerCount;
                     itemCount += blayer.BoxCount;
                 }
-                if (layer is Layer3DCyl clayer)
+                else if (layer is Layer3DBoxIndexed bilayer)
+                {
+                    ++layerCount;
+                    itemCount += bilayer.BoxCount;
+                }
+                else if (layer is Layer3DCyl clayer)
                 {
                     ++layerCount;
                     itemCount += clayer.CylinderCount;
                 }
-                if (layer is InterlayerPos iLayer)
+                else if (layer is InterlayerPos iLayer)
+                {
                     ++interlayerCount;
+                }
             }
         }
         public double LoadOnLowestCase

@@ -3,7 +3,7 @@
   <!-- Product manufacturer -->
   <?define Manufacturer = "TechnologyBSA"?>
   <!-- Product version -->
-  <?define ProductVersion = "1.0.0.15"?>
+  <?define ProductVersion = "1.0.1.0"?>
   <!-- Company URL -->
   <?define CompanyURL = "https://www.technologybsa.com/" ?>
   <!-- Binaries-->

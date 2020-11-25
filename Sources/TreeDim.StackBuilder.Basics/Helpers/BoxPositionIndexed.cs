@@ -62,9 +62,37 @@ namespace treeDiM.StackBuilder.Basics
             return listBoxPositionIndexed;
         }
         public static List<BoxPosition> ToListBoxPosition(List<BoxPositionIndexed> listboxPositionIndexed) => listboxPositionIndexed.ConvertAll(bpi => bpi.BPos);
+        public static void Sort(ref List<BoxPositionIndexed> list)
+        {
+            list.Sort(
+                delegate (BoxPositionIndexed bp1, BoxPositionIndexed bp2)
+                {
+                    if (bp1.Index > bp2.Index) return 1;
+                    else if (bp1.Index == bp2.Index) return 0;
+                    else return -1;
+                });
+        }
+        public static void ReduceListBoxPositionIndexed(List<BoxPositionIndexed> listBPI, out List<BoxPositionIndexed> listBPIReduced, out Dictionary<int, int> dictIndexNumber)
+        {
+            listBPIReduced = new List<BoxPositionIndexed>();
+            dictIndexNumber = new Dictionary<int, int>();
 
+            foreach (var bpi in listBPI)
+            {
+                if (dictIndexNumber.ContainsKey(bpi.Index))
+                    dictIndexNumber[bpi.Index] += 1;
+                else
+                {
+                    listBPIReduced.Add(bpi);
+                    dictIndexNumber.Add(bpi.Index, 1);
+                }
+            }
+            Sort(ref listBPIReduced);
+        }
+        #region Data members
         public BoxPosition BPos { get; set; }
         public int Index { get; set; }
+        #endregion
     }
 
     public class BPosIndexedComparer : IComparer<BoxPositionIndexed>

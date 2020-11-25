@@ -136,7 +136,7 @@ namespace treeDiM.StackBuilder.Exporters
             writer.Flush();
             stream.Position = 0;
         }
-        public override void ExportIndexed(AnalysisLayered analysis, List<BoxPositionIndexed> listBoxPositions, ref Stream stream)
+        public override void ExportIndexed(AnalysisLayered analysis, ref Stream stream)
         {
             if (analysis.SolutionLay.ItemCount > MaximumNumberOfCases)
                 throw new ExceptionTooManyItems(Name, analysis.Solution.ItemCount, MaximumNumberOfCases);
@@ -254,7 +254,7 @@ namespace treeDiM.StackBuilder.Exporters
 
         #region Import methods
         public static void Import(Stream csvStream,
-            ref List<BoxPosition> boxPositions,
+            ref List<BoxPositionIndexed> boxPositions,
             ref Vector3D dimCase, ref double weightCase,
             ref Vector3D dimPallet, ref double weightPallet,
             ref double maxPalletHeight,
@@ -291,7 +291,9 @@ namespace treeDiM.StackBuilder.Exporters
                             double y = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
                             fields = csvParser.ReadFields();
                             double z = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
-                            if (angle == 0 && x == 0 && y == 0 && z == 0)
+                            fields = csvParser.ReadFields();
+                            int index = int.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+                            if (angle == 0 && x == 0 && y == 0 && z == 0 && index == 0)
                                 continue;
                             if (z < zMin) zMin = z;
 
@@ -319,7 +321,7 @@ namespace treeDiM.StackBuilder.Exporters
                                     break;
                             }
                             if (Math.Abs(z - zMin) < 1.0E-06)
-                                boxPositions.Add(new BoxPosition(new Vector3D(x, y, z), axisL, axisW));
+                                boxPositions.Add(new BoxPositionIndexed(new Vector3D(x, y, z), axisL, axisW, index));
                         }
                         catch (Exception ex)
                         {
@@ -370,13 +372,14 @@ namespace treeDiM.StackBuilder.Exporters
             for (int i = 0; i < boxPositions.Count; ++i)
             {
                 var bpos = boxPositions[i];
-                HalfAxis.HAxis axisLength = bpos.DirectionLength;
-                HalfAxis.HAxis axisWidth = bpos.DirectionWidth;
+                HalfAxis.HAxis axisLength = bpos.BPos.DirectionLength;
+                HalfAxis.HAxis axisWidth = bpos.BPos.DirectionWidth;
                 Vector3D vI = HalfAxis.ToVector3D(axisLength);
                 Vector3D vJ = HalfAxis.ToVector3D(axisWidth);
                 Vector3D vK = Vector3D.CrossProduct(vI, vJ);
-                var v = bpos.Position - 0.5 * dimCase.X * vI - 0.5 * dimCase.Y * vJ - 0.5 * dimCase.Z * vK - dimPallet.Z * Vector3D.ZAxis;
-                boxPositions[i] = new BoxPosition(v, axisLength, axisWidth);
+                var v = bpos.BPos.Position - 0.5 * dimCase.X * vI - 0.5 * dimCase.Y * vJ - 0.5 * dimCase.Z * vK - dimPallet.Z * Vector3D.ZAxis;
+                int index = bpos.Index;
+                boxPositions[i] = new BoxPositionIndexed(v, axisLength, axisWidth, index);
             }
         }
         #endregion

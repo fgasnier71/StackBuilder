@@ -21,16 +21,19 @@ namespace treeDiM.StackBuilder.Basics
             Position = vPosition;
             DirectionLength = dirLength;
             DirectionWidth = dirWidth;
+            Index = null;
         }
         public BoxPosition(BoxPosition bpos)
         {
             Position = bpos.Position;
             DirectionLength = bpos.DirectionLength;
             DirectionWidth = bpos.DirectionWidth;
+            Index = bpos.Index;
         }
         #endregion
 
         #region Public properties
+        public int? Index { get; set; }
         public Vector3D Position { get; set; }
         public HalfAxis.HAxis DirectionLength { get; set; }
         public HalfAxis.HAxis DirectionWidth { get; set; }

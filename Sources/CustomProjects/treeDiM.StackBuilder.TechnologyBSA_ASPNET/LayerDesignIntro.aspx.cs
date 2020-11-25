@@ -35,11 +35,10 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             DimPallet = DimPalletCtrl;
             WeightPallet = WeightPalletCtrl;
             MaxPalletHeight = MaxPalletHeightCtrl;
-
-            var listBoxPositions = new List<BoxPositionIndexed>();
-            listBoxPositions.Add(new BoxPositionIndexed(Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P, 1));
-            listBoxPositions.Add(new BoxPositionIndexed(new Vector3D(DimCase.X, 0.0, 0.0), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P, 2));
-            BoxPositions = listBoxPositions;
+            BoxPositions = new List<BoxPositionIndexed>
+            {
+                new BoxPositionIndexed(Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P, 1)
+            };
 
             Session[SessionVariables.LayerEdited] = true;
             Response.Redirect("LayerDesign.aspx");

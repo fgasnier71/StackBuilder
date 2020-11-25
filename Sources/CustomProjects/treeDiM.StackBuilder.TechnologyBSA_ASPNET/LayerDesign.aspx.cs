@@ -41,8 +41,10 @@ public partial class LayerDesign : Page
             MultiCaseImageGenerator.GenerateDefaultCaseImage(DimCase, new Size(_casePixelWidth, _casePixelHeight), 3, MultiCaseImageGenerator.CaseAlignement.SHARING_LENGTH, Path.Combine(Output, "case3.png"));
             MultiCaseImageGenerator.GenerateDefaultCaseImage(DimCase, new Size(_casePixelWidth, _casePixelHeight), 4, MultiCaseImageGenerator.CaseAlignement.SHARING_LENGTH, Path.Combine(Output, "case4.png"));
 
-            foreach (var bp in BoxPositions)
-                _boxPositions.Add(canvasCoord.BPosWorldToCanvas(bp, 1, DimCase));
+            // build reduced list of unique box positions indexed
+            BoxPositionIndexed.ReduceListBoxPositionIndexed(BoxPositions, out List<BoxPositionIndexed> listBPIReduced, out Dictionary<int, int> dictIndexNumber);
+            foreach (var bp in listBPIReduced)
+                _boxPositionsJS.Add(canvasCoord.BPosWorldToCanvas(bp, dictIndexNumber[bp.Index], DimCase));
         }
     }
     #endregion
@@ -53,10 +55,12 @@ public partial class LayerDesign : Page
     }
     protected void OnNext(object sender, EventArgs e)
     {
+        // instantiate canvasCoord
         var canvasCoord = new CanvasCoordConverter(950, 500, PtMin, PtMax);
-
+        // read box positions serialized as Json in field HFBoxArray
         string sValue = HFBoxArray.Value;
         var bposJS = JsonConvert.DeserializeObject<IList<BoxPositionJS>>(sValue);
+        // convert array of BoxPositionJS to BoxPositionIndexed array
         if (null != bposJS)
         {
             var listBoxPositions = new List<BoxPositionIndexed>();
@@ -65,12 +69,15 @@ public partial class LayerDesign : Page
                 var listIndex = canvasCoord.ToBoxPositionIndexed(bpjs, DimCase);
                 listBoxPositions.AddRange(listIndex);                
             }
+            // sort according to index
+            BoxPositionIndexed.Sort(ref listBoxPositions);
+            // save session wide
             BoxPositions = listBoxPositions;
+            // to validation page
             Response.Redirect("ValidationWebGL.aspx");
         }
     }
     #endregion
-
 
     private Vector3D DimCase => Vector3D.Parse((string)Session[SessionVariables.DimCase]);
     private Vector3D DimPallet => Vector3D.Parse((string)Session[SessionVariables.DimPallet]);
@@ -79,12 +86,9 @@ public partial class LayerDesign : Page
         get => (List<BoxPositionIndexed>)Session[SessionVariables.BoxPositions];
         set => Session[SessionVariables.BoxPositions] = value;
     }
-
-
-
     #region Data members
     public PalletDimsJS _palletDims = new PalletDimsJS(); 
-    public List<BoxPositionJS> _boxPositions = new List<BoxPositionJS>();
+    public List<BoxPositionJS> _boxPositionsJS = new List<BoxPositionJS>();
     public int _casePixelWidth;
     public int _casePixelHeight;
     public JavaScriptSerializer javaSerial = new JavaScriptSerializer();

@@ -85,7 +85,7 @@
                                             </td>
                                             <td>
                                                 <asp:CheckBox ID="ChkbMirrorWidth" runat="server" OnCheckedChanged="OnInputChanged" AutoPostBack="true"/>
-                                                <span class="custom-slider round" />
+                                                <span class="slider round" />
                                             </td>
                                             <td>
                                                 <asp:Image ID="IMGMirrorWidth" runat="server" ImageUrl="Images/MirrorWidth.png" />

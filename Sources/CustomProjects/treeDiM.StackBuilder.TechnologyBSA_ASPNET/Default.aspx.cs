@@ -26,7 +26,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 DimPallet = new Vector3D(1200.0, 1000.0, 155.0);
                 WeightPallet = 23.0;
                 MaxPalletHeight = 1700.0;
-                BoxPositions = new List<BoxPosition>();
+                BoxPositions = new List<BoxPositionIndexed>();
             }
         }
 
@@ -85,7 +85,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             double weightPallet = 0.0;
             double maxPalletHeight = 0.0;
             bool MirrorX = false, MirrorY = false; ;
-            List<BoxPosition> boxPositions = new List<BoxPosition>();
+            List<BoxPositionIndexed> boxPositions = new List<BoxPositionIndexed>();
             List<bool> interlayers = new List<bool>();
 
             string filePath = DropDownListFiles.SelectedValue;
@@ -152,7 +152,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         { set => Session[SessionVariables.WeightPallet] = value; }
         private double MaxPalletHeight
         { set => Session[SessionVariables.MaxPalletHeight] = value; }
-        private List<BoxPosition> BoxPositions
+        private List<BoxPositionIndexed> BoxPositions
         { set => Session[SessionVariables.BoxPositions] = value; }
         private bool LayersMirrorX
         { set => Session[SessionVariables.LayersMirrorLength] = value; }

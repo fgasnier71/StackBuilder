@@ -53,7 +53,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             if (DoSelectDataItem(item) == true)
             {
                 // Get 1st ImageButton
-                ImageButton imgBtn = (ImageButton)dlLayers.Items[0].FindControl("Image1") as ImageButton;
+                ImageButton imgBtn = dlLayers.Items[0].FindControl("Image1") as ImageButton;
                 // Instantiate new DataListCommandEventArgs
                 ListViewCommandEventArgs ev = new ListViewCommandEventArgs(dlLayers.Items[0], imgBtn, new CommandEventArgs(imgBtn.CommandName, imgBtn.CommandArgument));
                 // Call ItemCommand handler

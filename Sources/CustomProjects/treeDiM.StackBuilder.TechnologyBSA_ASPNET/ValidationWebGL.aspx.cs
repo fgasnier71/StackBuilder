@@ -121,7 +121,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             DirectoryHelpers.ClearDirectory(Output);
 
             if (LayerEdited)
-                Response.Redirect("LayerEdition.aspx");
+                Response.Redirect("LayerDesign.aspx");
             else
                 Response.Redirect("LayerSelectionWebGL.aspx");
         }

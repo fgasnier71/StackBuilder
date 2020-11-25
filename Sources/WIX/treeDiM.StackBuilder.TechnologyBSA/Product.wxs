@@ -41,21 +41,27 @@
         <File Id="Validation.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\Validation.aspx.cs"/>
         <File Id="ValidationWebGL.aspx" Source="$(var.StackBuilderTechBSASourceDir)\ValidationWebGL.aspx"/>
         <File Id="ValidationWebGL.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\ValidationWebGL.aspx.cs"/>
+        <File Id="LayerDesign.aspx" Source="$(var.StackBuilderTechBSASourceDir)\LayerDesign.aspx"/>
+        <File Id="LayerDesign.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\LayerDesign.aspx.cs"/>
+        <File Id="LayerDesignIntro.aspx" Source="$(var.StackBuilderTechBSASourceDir)\LayerDesignIntro.aspx"/>
+        <File Id="LayerDesignIntro.aspx.cs" Source="$(var.StackBuilderTechBSASourceDir)\LayerDesignIntro.aspx.cs"/>
         <File Id="Global.asax" Source="$(var.StackBuilderTechBSASourceDir)\Global.asax"/>
         <File Id="Handler.ashx" Source="$(var.StackBuilderTechBSASourceDir)\Handler.ashx"/>
         <File Id="HandlerLayerEditor.ashx" Source="$(var.StackBuilderTechBSASourceDir)\HandlerLayerEditor.ashx"/>
         <File Id="HandlerLayerThumb.ashx" Source="$(var.StackBuilderTechBSASourceDir)\HandlerLayerThumb.ashx"/>
+        <File Id="HandlerCaseSet.ashx" Source="$(var.StackBuilderTechBSASourceDir)\HandlerCaseSet.ashx"/>
         <File Id="Web.config" Source="$(var.StackBuilderTechBSASourceDir)\Web.config"/>
       </Component>
       <Component Id="AppCode" Directory="App_Code" Guid="{AA67DF40-522C-4513-B85A-8BDB40C462FF}">
-          <File Id="ConfigSettings.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\ConfigSettings.cs" KeyPath="yes"/>
-          <File Id="Extensions.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\Extensions.cs"/>
-          <File Id="FtpHelpers.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\FtpHelpers.cs"/>
-          <File Id="InterlayerDetails" Source="$(var.StackBuilderTechBSASourceDir)\App_code\InterlayerDetails.cs"/>
-          <File Id="LayerDetails.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\LayerDetails.cs"/>
-          <File Id="PalletDetails.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\PalletDetails.cs"/>
-          <File Id="PalletStacking.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\PalletStacking.cs"/> 
-          <File Id="SessionVariables.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\SessionVariables.cs"/> 
+        <File Id="BoxPositionJS.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\BoxPositionJS.cs" KeyPath="yes"/>
+        <File Id="ConfigSettings.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\ConfigSettings.cs"/>
+        <File Id="Extensions.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\Extensions.cs"/>
+        <File Id="FtpHelpers.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\FtpHelpers.cs"/>
+        <File Id="InterlayerDetails" Source="$(var.StackBuilderTechBSASourceDir)\App_code\InterlayerDetails.cs"/>
+        <File Id="LayerDetails.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\LayerDetails.cs"/>
+        <File Id="PalletDetails.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\PalletDetails.cs"/>
+        <File Id="PalletStacking.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\PalletStacking.cs"/>
+        <File Id="SessionVariables.cs" Source="$(var.StackBuilderTechBSASourceDir)\App_code\SessionVariables.cs"/>
       </Component>
       <Component Id="Javascript" Directory="Javascript" Guid="{E4DA2552-6C4C-4C2E-A80C-A976BB1A38CA}">
         <File Id="jquery.keyboard.extension_typing.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\jquery.keyboard.extension-typing.js" KeyPath="yes"/>
@@ -68,6 +74,8 @@
         <File Id="model_element.min.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\model-element.min.js"/>
         <File Id="three.min.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\three.min.js"/>
         <File Id="three_gltf_loader.min.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\three-gltf-loader.min.js"/>
+        <File Id="fabric.min.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\fabric.min.js"/>
+        <File Id="LayerDesignHelpers.js" Source="$(var.StackBuilderTechBSASourceDir)\javascript\LayerDesignHelpers.js"/>
       </Component>
       <Component Id="Css" Directory="Css" Guid="{E943DA53-6825-4049-A417-D174A0D974EF}">
         <File Id="default.css" Source="$(var.StackBuilderTechBSASourceDir)\css\default.css" KeyPath="yes"/>
@@ -95,7 +103,12 @@
         <File Source="$(var.StackBuilderTechBSASourceDir)\Images\export.png"/>
         <File Source="$(var.StackBuilderTechBSASourceDir)\Images\Texture.png"/>
         <File Source="$(var.StackBuilderTechBSASourceDir)\Images\BnInsert.png"/>
-        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\BnRemove.png"/>       
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\BnRemove.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\Add1.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\Add2.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\Add3.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\Add4.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\BnRemoveCross.png"/>
       </Component>
       <Component Id="CreateFolder" Directory="Output" Guid="{EF0D883F-2500-4C41-83D5-183186DF13A5}">
         <CreateFolder Directory="Output">
@@ -103,7 +116,6 @@
         </CreateFolder>
       </Component>
     </ComponentGroup>
-
 		<Feature Id="ProductFeature" Title="treeDiM.StackBuilder.TechnologyBSA" Level="1">
       <ComponentGroupRef Id="CompGroup_WebSitePages"/>
 			<ComponentGroupRef Id="CompGroup_StackBuilderTechBSABin" />

@@ -287,11 +287,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
             constraintSet.SetMaxHeight(new OptDouble(true, maxPalletHeight));
 
-            var boxPositions = listBoxPositionIndexed.ConvertAll<BoxPosition>(bi => bi.BPos);
-
             // layer
-            var layer2D = new Layer2DBrickExp(caseDim, new Vector2D(palletDim.X, palletDim.Y), "", HalfAxis.HAxis.AXIS_Z_P);
-            layer2D.SetPositions(boxPositions);
+            var layer2D = new Layer2DBrickExpIndexed(caseDim, new Vector2D(palletDim.X, palletDim.Y), "", HalfAxis.HAxis.AXIS_Z_P);
+            layer2D.SetPositions(listBoxPositionIndexed);
             // analysis
             var analysis = new AnalysisCasePallet(boxProperties, palletProperties, constraintSet);
             analysis.AddInterlayer(new InterlayerProperties(null, "interlayer", "", palletDim.X, palletDim.Y, 1.0, 0.0, Color.LightYellow));
@@ -313,7 +311,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             var exporter = ExporterFactory.GetExporterByName("csv (TechnologyBSA)");
             exporter.PositionCoordinateMode = Exporter.CoordinateMode.CM_COG;
             Stream stream = new MemoryStream();
-            exporter.ExportIndexed(analysis, listBoxPositionIndexed, ref stream);
+            exporter.ExportIndexed(analysis, ref stream);
             // save stream to file
             using (var br = new BinaryReader(stream))
                 fileBytes = br.ReadBytes((int)stream.Length);

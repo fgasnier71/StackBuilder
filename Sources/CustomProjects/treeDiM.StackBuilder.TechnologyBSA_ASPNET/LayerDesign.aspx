@@ -5,6 +5,70 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Layer design page</title>
+    <style>
+        .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+/*END OF TOGGLE SWITCH*/
+
+    </style>
     <link type="text/css" href="css/default.css" rel="stylesheet" />
     <link href="css/jquery-ui.css" rel="stylesheet" />
     <link href="css/keyboard.css" rel="stylesheet" />
@@ -15,7 +79,7 @@
     <script type="text/javascript" src="javascript/fabric.min.js"></script>
     <script type="text/javascript" src="javascript/layerDesignHelpers.js"></script>
     <script type="text/javascript">
-        var snap = 5;
+        var snap = 3;
         var counter = 0;
         var rectLeft = 0;
         var rectTop = 0;
@@ -23,7 +87,7 @@
         var canvasHeight = 0;
         var caseWidth = <%= this.javaSerial.Serialize(this._casePixelWidth)%>;
         var caseHeight = <%= this.javaSerial.Serialize(this._casePixelHeight)%>;
-        var boxPositions = <%= this.javaSerial.Serialize(this._boxPositions)%>;
+        var boxPositions = <%= this.javaSerial.Serialize(this._boxPositionsJS)%>;
         var palletDimensions = <%= this.javaSerial.Serialize(this._palletDims)%>
 
         $(window).load(function () {
@@ -123,6 +187,8 @@
                 var counter = 0;
 
                 canvas.forEachObject(function (obj) {
+                    if (obj.type !== 'group') return;
+
                     var name = obj.name;
                     var splitName = name.split("_");
                     var indexCase = splitName[2];
@@ -142,7 +208,16 @@
                 $("#HFBoxArray").val(JSON.stringify(boxPositions));
             });
         }
+        function snapOnOff() {
+            var checkBox = document.getElementById("ChkbSnapping");
 
+            if (checkBox.checked == true) {
+                snap = 3;
+            }
+            else {
+                snap = 0;
+            }
+        }
     </script>
 </head>
 
@@ -185,6 +260,17 @@
                                         <input id="Remove" type="buttonremove" onclick="JavaScript: remove();" />
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+
+                                        <label>Snap</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="switch"><input id="ChkbSnapping" type="checkbox" onclick="JavaScript: snapOnOff();"/><span class="slider round hide-off"></span></label>
+                                    </td>
+                                </tr>
                             </table>
                         </td>
                     </tr>
@@ -205,7 +291,6 @@
                                 <td class="style100pct" />
                                 <asp:Button ID="bnNext" runat="server" CssClass="buttonNext" OnClientClick="javascript:Save()" OnClick="OnNext" Text="Next &gt;" />
                                 <asp:HiddenField ID="HFBoxArray" ClientIDMode="Static" runat="server" />
-                                <!--input id="ButtonSave" type="button" value="Next &gt;" onclick="JavaScript: Save();" /-->
                             </tr>
                         </table>
                     </ContentTemplate>

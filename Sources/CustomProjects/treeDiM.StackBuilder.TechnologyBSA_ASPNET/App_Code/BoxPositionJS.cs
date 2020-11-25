@@ -63,23 +63,23 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 
         public BoxPositionJS BPosWorldToCanvas(BoxPositionIndexed bposi, int number, Vector3D dimCase)
         {
-            // top corner
-            Vector3D topCorner = bposi.BPos.Position + number * dimCase.Y * HalfAxis.ToVector3D(bposi.BPos.DirectionWidth);
-            Vector2D topCornerCanvas = PtWorldToCanvas(new Vector2D(topCorner.X, topCorner.Y));
             // angle
             double angle = 0;
+            Vector2D offsetPos = Vector2D.Zero;
             switch (bposi.BPos.DirectionLength)
             {
-                case HalfAxis.HAxis.AXIS_X_P: angle = 0.0; break;
-                case HalfAxis.HAxis.AXIS_Y_P: angle = 90.0; break;
-                case HalfAxis.HAxis.AXIS_X_N: angle = 180.0; break;
-                case HalfAxis.HAxis.AXIS_Y_N: angle = 270.0; break;
+                case HalfAxis.HAxis.AXIS_X_P: angle = 0.0; offsetPos = new Vector2D(0.0, -dimCase.Y); break;
+                case HalfAxis.HAxis.AXIS_Y_P: angle = 90.0; offsetPos = new Vector2D(0.0, -dimCase.X); break;
+                case HalfAxis.HAxis.AXIS_X_N: angle = 180.0; offsetPos = new Vector2D(0.0, dimCase.Y); break;
+                case HalfAxis.HAxis.AXIS_Y_N: angle = 270.0; offsetPos = new Vector2D(0.0, dimCase.X); break;
                 default: break;
             }
+
+            Vector2D canvasPosition = PtWorldToCanvas(new Vector2D(bposi.BPos.Position.X, bposi.BPos.Position.Y) - offsetPos);
             return new BoxPositionJS()
             {
-                X = topCornerCanvas.X,
-                Y = topCornerCanvas.Y,
+                X = canvasPosition.X,
+                Y = canvasPosition.Y,
                 Angle = angle,
                 NumberCase = number,
                 Index = bposi.Index
@@ -90,23 +90,24 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         {
             HalfAxis.HAxis axisLength = HalfAxis.HAxis.AXIS_X_P;
             HalfAxis.HAxis axisWidth = HalfAxis.HAxis.AXIS_Y_P;
+            Vector2D offsetPos = Vector2D.Zero;
+            Vector3D multDir = Vector3D.Zero;
 
             if (Math.Abs(bposjs.Angle) < 1.0)
-            { axisLength = HalfAxis.HAxis.AXIS_X_P; axisWidth = HalfAxis.HAxis.AXIS_Y_P; }
+            { axisLength = HalfAxis.HAxis.AXIS_X_P; axisWidth = HalfAxis.HAxis.AXIS_Y_P; offsetPos = new Vector2D(0.0, -dimCase.Y); multDir = -Vector3D.YAxis; }
             else if (Math.Abs(bposjs.Angle - 90.0) < 1.0)
-            { axisLength = HalfAxis.HAxis.AXIS_Y_P; axisWidth = HalfAxis.HAxis.AXIS_X_N; }
+            { axisLength = HalfAxis.HAxis.AXIS_Y_P; axisWidth = HalfAxis.HAxis.AXIS_X_N; offsetPos = new Vector2D(0.0, -dimCase.X); multDir = -Vector3D.XAxis; }
             else if (Math.Abs(bposjs.Angle - 180.0) < 1.0)
-            { axisLength = HalfAxis.HAxis.AXIS_X_N; axisWidth = HalfAxis.HAxis.AXIS_Y_N; }
+            { axisLength = HalfAxis.HAxis.AXIS_X_N; axisWidth = HalfAxis.HAxis.AXIS_Y_N; offsetPos = new Vector2D(0.0, dimCase.Y); multDir = Vector3D.YAxis; }
             else if (Math.Abs(bposjs.Angle - 270.0) < 1.0)
-            { axisLength = HalfAxis.HAxis.AXIS_Y_N; axisWidth = HalfAxis.HAxis.AXIS_X_P; }
-
+            { axisLength = HalfAxis.HAxis.AXIS_Y_N; axisWidth = HalfAxis.HAxis.AXIS_X_P; offsetPos = new Vector2D(0.0, dimCase.X); multDir = Vector3D.XAxis; }
 
             var boxPositions = new List<BoxPositionIndexed>();
-            Vector2D pos2D = PtCanvasToWorld(new Vector2D(bposjs.X, bposjs.Y));
+            Vector2D pos2D = PtCanvasToWorld(new Vector2D(bposjs.X, bposjs.Y)) + offsetPos;
 
             for (int i = 0; i < bposjs.NumberCase; ++i)
             {
-                Vector3D position = new Vector3D(pos2D.X, pos2D.Y, 0.0) - (i+1) * dimCase.Y * HalfAxis.ToVector3D(axisWidth);
+                Vector3D position = new Vector3D(pos2D.X, pos2D.Y, 0.0) + i * dimCase.Y * multDir;
                 boxPositions.Add(new BoxPositionIndexed(position, axisLength, axisWidth, bposjs.Index));
             }
             return boxPositions;

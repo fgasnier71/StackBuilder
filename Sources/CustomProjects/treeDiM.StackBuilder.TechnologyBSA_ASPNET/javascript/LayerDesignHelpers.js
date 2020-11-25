@@ -15,7 +15,7 @@
             originY: 'top',
             hasRotatingPoint: false,
             hasControls: false,
-            angle: angle,
+            angle: 0,
         });
         img.perPixelTargetFind = true;
 
@@ -26,12 +26,14 @@
         var bound = img.getBoundingRect();
         text.set('top', (bound.height / 2) - (text.height / 2));
         text.set('left', (bound.width / 2) - (text.width / 2));
+        text.rotate(-angle);
 
         var group = new fabric.Group([img, text], {
             name: caseName,
             left: leftImg,
             top: topImg,
         });
+        group.set('angle', angle);
         canvas.add(group);
     });
     counter++;
@@ -188,7 +190,9 @@ function Move(canvas, target) {
 
         target.setCoords();
 
-        if (snap > 0) {
+        console.log("snap : " + snap);
+
+        if (snap > 1) {
             // Snap objects to each other horizontally
             // If bottom points are on same Y axis
             if (Math.abs(actualBottom(target) - actualBottom(obj)) < snap) {

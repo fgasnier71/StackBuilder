@@ -211,17 +211,6 @@
                         </tr>
                         <tr>
                             <td>
-                                <label class="switch">
-                                    <asp:CheckBox ID="ChkbCasesConnectedAlongWidth" runat="server" AutoPostBack="true" />
-                                    <span class="slider round"/>
-                                </label>
-                            </td>
-                            <td/>
-                            <asp:Label ID="LbCasesConnectedAlongWidth" runat="server" Text="Cases connected along width" CssClass="label"></asp:Label><td/>
-                            <td/>
-                        </tr>
-                        <tr>
-                            <td>
                                <asp:Image ID="ImageCase1" runat="server" Height="150px" Width="150px" alt="Dynamic Image" ImageUrl="~/HandlerCaseSet.ashx?number=1"/>
                             </td>
                             <td>

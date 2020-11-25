@@ -9,35 +9,28 @@
         .auto-style1 {
             width: 100%;
         }
-
         .auto-style2 {
             width: 550px;
             text-align: center;
         }
-
         .auto-style3 {
             width: 500px;
             text-align: left;
         }
-
         .auto-style4 {
             text-align: right;
         }
-
-        .border {
-            border: solid 8px;
-            color: lightblue;
-        }
-
         .auto-style5 {
             text-align: left;
         }
-
         .auto-style6 {
         }
-
         .auto-style7 {
             text-align: right;
+        }
+        .border {
+            border: solid 8px;
+            color: lightblue;
         }
         .switch {
             position: relative;
