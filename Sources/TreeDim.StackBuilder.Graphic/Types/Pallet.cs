@@ -931,6 +931,29 @@ namespace treeDiM.StackBuilder.Graphics
             }
         }
 
+        public void Draw(Graphics2D graphics, Vector3D dimensions, Color color)
+        {
+            double coefX = dimensions.X / Dimensions.X;
+            double coefY = dimensions.Y / Dimensions.Y;
+            double coefZ = dimensions.Z / Dimensions.Z;
+            uint pickId = 0;
+            foreach (Position pos in Positions)
+            {
+                double coef0 = coefX, coef1 = coefY, coef2 = coefZ;
+                if (pos.Axis1 == HalfAxis.HAxis.AXIS_X_P && pos.Axis2 == HalfAxis.HAxis.AXIS_Y_P)
+                { coef0 = coefX; coef1 = coefY; }
+                else if (pos.Axis1 == HalfAxis.HAxis.AXIS_Y_P && pos.Axis2 == HalfAxis.HAxis.AXIS_X_N)
+                { coef0 = coefY; coef1 = coefX; }
+                Vector3D dim = Lumbers[pos.Index];
+                Box box = new Box(pickId++, dim.X * coef0, dim.Y * coef1, dim.Z * coef2
+                            , new BoxPosition(
+                                new Vector3D(pos.XYZ.X * coefX, pos.XYZ.Y * coefY, pos.XYZ.Z * coefZ), pos.Axis1, pos.Axis2)
+                            );
+                box.SetAllFacesColor(color);
+                box.Draw(graphics);
+            }
+        }
+
         // list of boxes
         public List<Box> BuildListOfBoxes(Vector3D dimensions, Color color, Transform3D t)
         {
@@ -977,14 +1000,17 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Overrides
+        public void Draw(Graphics2D graphics)
+        {
+            PalletData palletType = PalletData.GetByName(TypeName);
+            if (Length == 0 || Width == 0 || Height == 0 || null == palletType) return;
+            palletType.Draw(graphics, new Vector3D(Length, Width, Height), Color);
+        }
         public void Draw(Graphics3D graphics, Transform3D t)
         {
-            if (Length == 0.0 || Width == 0.0 || Height == 0.0)
-                return;
-
             PalletData palletType = PalletData.GetByName(TypeName);
-            if (null != palletType)
-                palletType.Draw(graphics, new Vector3D(Length, Width, Height), Color, t);
+            if (Length == 0.0 || Width == 0.0 || Height == 0.0 || null == palletType) return;
+            palletType.Draw(graphics, new Vector3D(Length, Width, Height), Color, t);
         }
 
         public List<Box> BuildListOfBoxes()

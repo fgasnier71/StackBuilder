@@ -109,6 +109,7 @@
         <File Source="$(var.StackBuilderTechBSASourceDir)\Images\Add3.png"/>
         <File Source="$(var.StackBuilderTechBSASourceDir)\Images\Add4.png"/>
         <File Source="$(var.StackBuilderTechBSASourceDir)\Images\BnRemoveCross.png"/>
+        <File Source="$(var.StackBuilderTechBSASourceDir)\Images\BnRotate.png"/>
       </Component>
       <Component Id="CreateFolder" Directory="Output" Guid="{EF0D883F-2500-4C41-83D5-183186DF13A5}">
         <CreateFolder Directory="Output">

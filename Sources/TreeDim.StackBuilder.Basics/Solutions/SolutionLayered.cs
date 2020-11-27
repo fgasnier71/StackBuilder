@@ -333,7 +333,8 @@ namespace treeDiM.StackBuilder.Basics
 
             while (!constraintSet.CritHeightReached(zTop)
                 && !constraintSet.CritWeightReached(weight)
-                && !constraintSet.CritNumberReached(number))
+                && !constraintSet.CritNumberReached(number)
+                && !constraintSet.CritLayerNumberReached(SolutionItems.Count))
             {
                 number += _layerTypes[0].Count;
                 weight += _layerTypes[0].Count * Analysis.ContentWeight;
@@ -517,7 +518,7 @@ namespace treeDiM.StackBuilder.Basics
         public List<InterlayerProperties> Interlayers => AnalysisCast.Interlayers;
         public List<SolutionItem> SolutionItems
         {
-            get { return _solutionItems; }
+            get => _solutionItems;
             set
             {
                 _solutionItems = value;

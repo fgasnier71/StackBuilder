@@ -23,9 +23,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 
                 DimCase = new Vector3D(300.0, 280.0, 275.0);
                 WeightCase = 1.0;
-                DimPallet = new Vector3D(1200.0, 1000.0, 155.0);
                 WeightPallet = 23.0;
-                MaxPalletHeight = 1700.0;
+                PalletIndex = 0;
+                NumberOfLayers = 8;
                 BoxPositions = new List<BoxPositionIndexed>();
             }
         }
@@ -38,9 +38,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             {
                 DimCase = new Vector3D(300.0, 280.0, 275.0);
                 WeightCase = 1.0;
-                DimPallet = new Vector3D(1200.0, 1000.0, 155.0);
                 WeightPallet = 23.0;
-                MaxPalletHeight = 1700.0;
+                PalletIndex = 0;
+                NumberOfLayers = 5;
                 LayersMirrorX = false; LayersMirrorY = false;
                 Interlayers = "";
                 FileName = "Untitled.csv";
@@ -70,7 +70,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 queryString = sb.ToString();
             }
 
-            if (LayerDesignMode == 1)
+            if (LayerDesignMode == 0)
                 Response.Redirect("LayerDesignIntro.aspx");
             else
                 Response.Redirect("LayerSelectionWebGL.aspx" + queryString);
@@ -83,8 +83,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             double weightCase = 0.0;
             var dimPallet = Vector3D.Zero;
             double weightPallet = 0.0;
-            double maxPalletHeight = 0.0;
-            bool MirrorX = false, MirrorY = false; ;
+            bool MirrorX = false, MirrorY = false;
+            int numberOfLayers = 0;
             List<BoxPositionIndexed> boxPositions = new List<BoxPositionIndexed>();
             List<bool> interlayers = new List<bool>();
 
@@ -95,7 +95,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 ref boxPositions,
                 ref dimCase, ref weightCase,
                 ref dimPallet, ref weightPallet,
-                ref maxPalletHeight,
+                ref numberOfLayers,
                 ref MirrorX, ref MirrorY,
                 ref interlayers);
 
@@ -104,8 +104,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             if (ConfigSettings.UseSessionState)
             {
                 DimCase = dimCase; WeightCase = weightCase;
-                DimPallet = dimPallet; WeightPallet = weightPallet;
-                MaxPalletHeight = maxPalletHeight;
+                PalletIndex = 0; WeightPallet = weightPallet;
+                NumberOfLayers = numberOfLayers;
                 BoxPositions = boxPositions;
                 LayersMirrorX = MirrorX;
                 LayersMirrorY = MirrorY;
@@ -124,7 +124,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 sb.Append($"WeightCase={weightCase}");
                 sb.Append($"&DimPallet={dimPallet}");
                 sb.Append($"&WeightPallet={weightPallet}");
-                sb.Append($"&MaxPalletWeight={maxPalletHeight}");
+                sb.Append($"&NumberOfLayers={numberOfLayers}");
                 sb.Append($"&BoxPositionsFile={fileBoxPositions}");
                 sb.Append($"&LayerMirrorX={MirrorX}");
                 sb.Append($"&LayerMirrorY={MirrorY}");
@@ -146,12 +146,12 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         { set => Session[SessionVariables.DimCase] = value.ToString(); }
         private double WeightCase
         { set => Session[SessionVariables.WeightCase] = value; }
-        private Vector3D DimPallet
-        { set => Session[SessionVariables.DimPallet] = value.ToString(); }
+        private int PalletIndex
+        { set => Session[SessionVariables.PalletIndex] = value; }
         private double WeightPallet
         { set => Session[SessionVariables.WeightPallet] = value; }
-        private double MaxPalletHeight
-        { set => Session[SessionVariables.MaxPalletHeight] = value; }
+        private int NumberOfLayers
+        { set => Session[SessionVariables.NumberOfLayers] = value; }
         private List<BoxPositionIndexed> BoxPositions
         { set => Session[SessionVariables.BoxPositions] = value; }
         private bool LayersMirrorX

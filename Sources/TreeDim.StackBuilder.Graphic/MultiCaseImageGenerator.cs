@@ -46,11 +46,23 @@ namespace treeDiM.StackBuilder.Graphics
                 if (content is PackProperties pack)
                     b = new Pack(pickId++, pack, new BoxPosition(v));
                 else if (content is PackableBrick brick)
-                    b = new Box(pickId++, brick, new BoxPosition(v));
+                    b = new Box(pickId++, brick, new BoxPosition(v)) { ShowOrientationMark = true };
                 else
                     return null;
                 b.Draw(graphics);
             }
+            return graphics.Bitmap;
+        }
+
+        public Bitmap GeneratePalletImage(PalletProperties palletProperties)
+        {
+            Graphics2DImage graphics = new Graphics2DImage(ImageSize);
+            graphics.SetViewport(PtMin - new Vector2D(0.5f, 0.5f), PtMax + new Vector2D(0.5, 0.5));
+            graphics.MarginRatio = 0.0f;
+
+            Pallet pallet = new Pallet(palletProperties);
+            pallet.Draw(graphics);
+
             return graphics.Bitmap;
         }
 
@@ -84,8 +96,19 @@ namespace treeDiM.StackBuilder.Graphics
             bmp.Save(filename);
         }
 
+        public static void GenerateDefaultPalletImage(Vector3D dimPallet, string typeName, Size imgSize, string filename)
+        {
+            // instantiate pallet
+            var palletProperties = new PalletProperties(null, typeName, dimPallet.X, dimPallet.Y, dimPallet.Z);
+
+            MultiCaseImageGenerator imageGenerator = new MultiCaseImageGenerator(imgSize, Vector2D.Zero, new Vector2D(dimPallet.X, dimPallet.Y));
+            Bitmap bmp = imageGenerator.GeneratePalletImage(palletProperties);
+            bmp.Save(filename);
+        }
+        #region Data members
         public Size ImageSize { get; set; }
         public Vector2D PtMin { get; set; }
         public Vector2D PtMax { get; set; }
+        #endregion
     }
 }

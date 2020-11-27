@@ -93,7 +93,11 @@
     <script type="text/javascript" src="javascript/model-element.min.js"></script>
     <script type="text/javascript">
         function ActivateVirtualKeyboard() {
-            $('#TBFileName').keyboard({ layout: 'qwerty' }).addTyping();
+            $('#TBFileName').keyboard({
+                layout: 'qwerty',
+                autoAccept: true,
+                enterNavigation: true
+            }).addTyping();
             /* Code to get jQuery UI to work with jQuery 3.4+ ... */
             $.isArray = function (a) {
                 return Object.prototype.toString.call(a) === '[object Array]';

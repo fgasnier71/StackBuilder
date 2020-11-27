@@ -19,7 +19,7 @@ public class HandlerLayerEditor : IHttpHandler, System.Web.SessionState.IRequire
         var sz = new Size((int)context.Session[SessionVariables.ImageWidth], (int)context.Session[SessionVariables.ImageHeight]);
         int selectedIndex =  (int)context.Session[SessionVariables.SelectedIndex];
         var dimCase = Vector3D.Parse((string)context.Session[SessionVariables.DimCase]);
-        var dimPallet = Vector3D.Parse((string)context.Session[SessionVariables.DimPallet]);
+        var dimPallet = PalletStacking.PalletIndexToDim3D((int)context.Session[SessionVariables.PalletIndex]);
         var dimContainer = new Vector2D(dimPallet.X, dimPallet.Y);
 
         var boxProperties = new BoxProperties(null, dimCase.X, dimCase.Y, dimCase.Z)

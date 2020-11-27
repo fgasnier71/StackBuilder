@@ -5,10 +5,10 @@
         public const string SelectedIndex = "SelectedIndex";
         public const string DimCase = "DimCase";
         public const string WeightCase = "WeightCase";
-        public const string DimPallet = "DimPallet";
+        public const string PalletIndex = "PalletIndex";
         public const string WeightPallet = "WeightPallet";
         public const string BoxPositions = "BoxPositions";
-        public const string MaxPalletHeight = "MaxPalletHeight";
+        public const string NumberOfLayers = "NumberOfLayers";
         public const string ImageHeight = "ImageHeight";
         public const string ImageWidth = "ImageWidth";
         public const string ImageBytes = "ImageBytes";

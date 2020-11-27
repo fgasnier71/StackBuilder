@@ -21,8 +21,8 @@
                     </td>
                     <td>
                         <asp:DropDownList ID="DropDownLayerDesignMode" CssClass="select" runat="server" Width="180px" Height="60px" >
-                            <asp:ListItem>Default</asp:ListItem>
                             <asp:ListItem>User designed layer</asp:ListItem>
+                            <asp:ListItem>Default</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                 </tr>

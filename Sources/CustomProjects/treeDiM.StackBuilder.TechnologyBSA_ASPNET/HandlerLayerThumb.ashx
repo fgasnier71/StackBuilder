@@ -26,9 +26,9 @@ public class HandlerLayerThumb : IHttpHandler, IRequiresSessionState
         try
         {
             Vector3D caseDim = Vector3D.Parse((string)context.Session[SessionVariables.DimCase]);
-            Vector3D dimPallet = Vector3D.Parse((string)context.Session[SessionVariables.DimPallet]);
-            Vector2D dimContainer = new Vector2D(dimPallet.X, dimPallet.Y);
-            double maxPalletHeight = (double)context.Session[SessionVariables.MaxPalletHeight];
+            int palletIndex = (int)context.Session[SessionVariables.PalletIndex];
+            Vector2D dimContainer = PalletStacking.PalletIndexToDim2D(palletIndex);
+            int numberOfLayers = (int)context.Session[SessionVariables.NumberOfLayers];
 
             string sLayerDesc = context.Request.QueryString["LayerDesc"];
 
@@ -45,7 +45,7 @@ public class HandlerLayerThumb : IHttpHandler, IRequiresSessionState
 
             // build image
             Bitmap bmp = LayerToImage.DrawEx(
-                        layer, boxProperties, maxPalletHeight - dimPallet.Z, ThumbnailSize, false
+                        layer, boxProperties, numberOfLayers * boxProperties.Height, ThumbnailSize, false
                         , Show3D ? LayerToImage.EGraphMode.GRAPH_3D : LayerToImage.EGraphMode.GRAPH_2D, true);
 
             try

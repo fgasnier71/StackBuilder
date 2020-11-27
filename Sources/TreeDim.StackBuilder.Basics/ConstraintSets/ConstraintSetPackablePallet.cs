@@ -20,7 +20,7 @@ namespace treeDiM.StackBuilder.Basics
                 || (axisOrtho == HalfAxis.HAxis.AXIS_Z_P);
         }
         public override bool AllowUncompleteLayer => false;
-        public override bool Valid => HasSomeAllowedOrientations || _maxHeight.Activated || OptMaxWeight.Activated || OptMaxNumber.Activated;
+        public override bool Valid => HasSomeAllowedOrientations || _maxHeight.Activated || OptMaxWeight.Activated || OptMaxNumber.Activated || OptMaxLayerNumber.Activated;
 
         public void SetMaxHeight(OptDouble maxHeight)
         {

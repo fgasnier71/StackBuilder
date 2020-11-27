@@ -8,7 +8,6 @@
     
     fabric.Image.fromURL(images[n - 1], function (img) {
         img.set({
-            //name: caseName,
             top: 0,//topImg,
             left: 0, //leftImg,
             originX: 'left',
@@ -19,7 +18,7 @@
         });
         img.perPixelTargetFind = true;
 
-        var text = new fabric.Text("#" + currentId, {
+        var text = new fabric.Text(currentId.toString(), {
             fontFamily: 'Arial',
             fontSize: 25
         });
@@ -43,6 +42,23 @@ function remove(canvas, activeObject) {
     reIndex();
 
     counter--;
+}
+
+function insertPallet(canvas, leftImg, topImg)
+{
+    fabric.Image.fromURL('./Output/pallet.png', function (img) {
+        // add background image
+        canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
+            top: topImg,
+            left: leftImg,
+            originX: 'left',
+            originY: 'top',
+            angle: 0,
+            hasRotatingPoint: false,
+            hasControls: false,
+            selectable: false,
+        });
+    });
 }
 
 function reIndex(canvas) {
@@ -116,7 +132,7 @@ function actualLeft(obj) { return obj.getBoundingRect().left; }
 function actualRight(obj) { var bound = obj.getBoundingRect(); return bound.left + bound.width; }
 function actualTop(obj) { return obj.getBoundingRect().top; }
 function actualBottom(obj) { var bound = obj.getBoundingRect(); return bound.top + bound.height; }
-function mod(n, m) { return ((n % m) + m) % m; }
+function mod(n, m) { if (n < 0) n = n + m; return ((n % m) + m) % m; }
 function setActualLeft(leftValue, obj) {
     var angleRot = obj.get('angle');
     switch (angleRot) {
@@ -176,7 +192,8 @@ function Move(canvas, target) {
     // Loop through objects
     canvas.forEachObject(function (obj) {
         if (obj === target) return;
-        if (obj.get('type') === "line") return;
+        if (obj.get('type') === 'line') return;
+        if (obj.get('name') === 'pallet') return;
 
         // If objects intersect
         if (target.isContainedWithinObject(obj) || target.intersectsWithObject(obj) || obj.isContainedWithinObject(target)) {
@@ -189,8 +206,6 @@ function Move(canvas, target) {
         }
 
         target.setCoords();
-
-        console.log("snap : " + snap);
 
         if (snap > 1) {
             // Snap objects to each other horizontally
@@ -262,7 +277,8 @@ function Move(canvas, target) {
 
     canvas.forEachObject(function (obj) {
         if (obj === target) return;
-        if (obj.get('type') === "line") return;
+        if (obj.get('name') === 'pallet') return;
+        if (obj.get('type') === 'line') return;
 
         if (target.isContainedWithinObject(obj)
             || obj.isContainedWithinObject(target)) {
@@ -302,16 +318,16 @@ function Move(canvas, target) {
                 intersectSize = intersectWidth * intersectHeight;
             }
             // Set outer snapping area
-            if (actualLeft(obj) < outerAreaLeft || outerAreaLeft == null) {
+            if (actualLeft(obj) < outerAreaLeft || outerAreaLeft === null) {
                 outerAreaLeft = actualLeft(obj);
             }
-            if (actualTop(obj) < outerAreaTop || outerAreaTop == null) {
+            if (actualTop(obj) < outerAreaTop || outerAreaTop === null) {
                 outerAreaTop = actualTop(obj);
             }
-            if ((actualRight(obj)) > outerAreaRight || outerAreaRight == null) {
+            if ((actualRight(obj)) > outerAreaRight || outerAreaRight === null) {
                 outerAreaRight = actualRight(obj);
             }
-            if ((actualBottom(obj)) > outerAreaBottom || outerAreaBottom == null) {
+            if ((actualBottom(obj)) > outerAreaBottom || outerAreaBottom === null) {
                 outerAreaBottom = actualBottom(obj);
             }
             // If objects are intersecting, reposition outside all shapes which touch

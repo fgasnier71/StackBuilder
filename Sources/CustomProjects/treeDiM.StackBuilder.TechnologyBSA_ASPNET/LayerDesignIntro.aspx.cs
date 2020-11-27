@@ -20,9 +20,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             {
                 DimCaseCtrl = DimCase;
                 WeightCaseCtrl = WeightCase;
-                DimPalletCtrl = DimPallet;
+                PalletIndexCtrl = PalletIndex;
                 WeightPalletCtrl = WeightPallet;
-                MaxPalletHeightCtrl = MaxPalletHeight;
+                NumberOfLayersCtrl = NumberOfLayers;
             }
             OnRefresh(this, null);
 
@@ -32,9 +32,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         {
             DimCase = DimCaseCtrl;
             WeightCase = WeightCaseCtrl;
-            DimPallet = DimPalletCtrl;
+            PalletIndex = PalletIndexCtrl;
             WeightPallet = WeightPalletCtrl;
-            MaxPalletHeight = MaxPalletHeightCtrl;
+            NumberOfLayers = NumberOfLayersCtrl;
             BoxPositions = new List<BoxPositionIndexed>
             {
                 new BoxPositionIndexed(Vector3D.Zero, HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P, 1)
@@ -67,23 +67,30 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         }
         private Vector3D DimPalletCtrl
         {
-            get => new Vector3D(double.Parse(TBPalletLength.Text), double.Parse(TBPalletWidth.Text), double.Parse(TBPalletHeight.Text));
-            set
+            get
             {
-                TBPalletLength.Text = value.X.ToString(CultureInfo.InvariantCulture);
-                TBPalletWidth.Text = value.Y.ToString(CultureInfo.InvariantCulture);
-                TBPalletHeight.Text = value.Z.ToString(CultureInfo.InvariantCulture);
+                int nSel = DropDownPalletDimensions.SelectedIndex;
+                switch (nSel)
+                {
+                    case 0: return new Vector3D(1200.0, 800.0, 144.0);
+                    default: return new Vector3D(1200.0, 1000.0, 144.0);
+                }
             }
+        }
+        private int PalletIndexCtrl
+        {
+            get => DropDownPalletDimensions.SelectedIndex;
+            set => DropDownPalletDimensions.SelectedIndex = value;        
         }
         private double WeightPalletCtrl
         {
             get => double.Parse(TBPalletWeight.Text);
             set => TBPalletWeight.Text = value.ToString();
         }
-        private double MaxPalletHeightCtrl
+        private int NumberOfLayersCtrl
         {
-            get => double.Parse(TBMaxPalletHeight.Text);
-            set => TBMaxPalletHeight.Text = value.ToString();
+            get => int.Parse(TBNumberOfLayers.Text);
+            set => TBNumberOfLayers.Text = value.ToString();
         }
         private Vector3D DimCase
         {
@@ -95,20 +102,20 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             get => (double)Session[SessionVariables.WeightCase];
             set => Session[SessionVariables.WeightCase] = value;
         }
-        private Vector3D DimPallet
+        private int PalletIndex
         {
-            get => Vector3D.Parse((string)Session[SessionVariables.DimPallet]);
-            set => Session[SessionVariables.DimPallet] = value.ToString();
+            get => (int)Session[SessionVariables.PalletIndex];
+            set => Session[SessionVariables.PalletIndex] = value;
         }
         private double WeightPallet
         {
             get => (double)Session[SessionVariables.WeightPallet];
             set => Session[SessionVariables.WeightPallet] = value;
         }
-        private double MaxPalletHeight
+        private int NumberOfLayers
         {
-            get => (double)Session[SessionVariables.MaxPalletHeight];
-            set => Session[SessionVariables.MaxPalletHeight] = value;
+            get => (int)Session[SessionVariables.NumberOfLayers];
+            set => Session[SessionVariables.NumberOfLayers] = value;
         }
         private List<BoxPositionIndexed> BoxPositions
         {

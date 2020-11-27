@@ -170,6 +170,8 @@ namespace treeDiM.StackBuilder.Graphics
         public bool ShowTape => TapeWidth.Activated;
         public OptDouble TapeWidth { get; set; }
         public Color TapeColor { get; set; }
+        public bool ShowOrientationMark { get; set; } = false;
+        public Color OrientationMarkColor { get; set; } = Color.White;
         public Vector3D[] TapePoints
         {
             get
@@ -398,21 +400,31 @@ namespace treeDiM.StackBuilder.Graphics
             Pen penPath = new Pen(new SolidBrush(TopFace.ColorPath));
 
             // get points
-            Point[] pt = graphics.TransformPoint(TopFace.Points);
+            Point[] ptsFace = graphics.TransformPoint(TopFace.Points);
 
             // draw solid face
             Brush brushSolid = new SolidBrush(TopFace.ColorFill);
-            g.FillPolygon(brushSolid, pt);
-            g.DrawPolygon(penPath, pt);
+            g.FillPolygon(brushSolid, ptsFace);
+            g.DrawPolygon(penPath, ptsFace);
             // draw box tape
             if (TapeWidth.Activated)
             {
                 // instantiate brush
                 Brush brushTape = new SolidBrush(TapeColor);
                 // fill polygon
-                Point[] pts = graphics.TransformPoint(TapePoints);
-                g.FillPolygon(brushTape, pts);
-                g.DrawPolygon(penPath, pts);
+                Point[] ptsTape = graphics.TransformPoint(TapePoints);
+                g.FillPolygon(brushTape, ptsTape);
+                g.DrawPolygon(penPath, ptsTape);
+            }
+            // orientation mark
+            if (ShowOrientationMark)
+            {
+                Pen penPathOrientationMark = new Pen(new SolidBrush(OrientationMarkColor), 5.0F);
+                Vector3D pt0 = TopFace.Points[0];
+                Vector3D pt1 = TopFace.Points[1];
+                double offset = 0.1 * (pt1 - pt0).GetLength();
+                Point[] ptsOrientMark = graphics.TransformPoint(new Vector3D[] { pt0 + new Vector3D(offset, offset, 0.0), pt1 + new Vector3D(-offset, offset, 0.0) });
+                g.DrawLine(penPathOrientationMark, ptsOrientMark[0], ptsOrientMark[1]);
             }
         }
         public override void Draw(Graphics3D graphics)

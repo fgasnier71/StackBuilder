@@ -21,7 +21,7 @@ public partial class LayerDesign : Page
     {
         if (!Page.IsPostBack)
         {
-            CanvasCoordConverter canvasCoord = new CanvasCoordConverter(950, 500, PtMin, PtMax);
+            CanvasCoordConverter canvasCoord = new CanvasCoordConverter(850, 550, PtMin, PtMax);
 
             // pallet dimensions
             var palletTopLeft = canvasCoord.PtWorldToCanvas(new Vector2D(0.0, DimPallet.Y));
@@ -35,11 +35,16 @@ public partial class LayerDesign : Page
             _casePixelWidth = (int)(canvasCoord.LengthWorldToCanvas(DimCase.X));
             _casePixelHeight = (int)(canvasCoord.LengthWorldToCanvas(DimCase.Y));
 
+
+            int palletPixelWidth = (int)(canvasCoord.LengthWorldToCanvas(DimPallet.X));
+            int palletPixelHeight = (int)(canvasCoord.LengthWorldToCanvas(DimPallet.Y));
+
             // generate box position from 
             MultiCaseImageGenerator.GenerateDefaultCaseImage(DimCase, new Size(_casePixelWidth, _casePixelHeight), 1, MultiCaseImageGenerator.CaseAlignement.SHARING_LENGTH, Path.Combine(Output, "case1.png"));
             MultiCaseImageGenerator.GenerateDefaultCaseImage(DimCase, new Size(_casePixelWidth, _casePixelHeight), 2, MultiCaseImageGenerator.CaseAlignement.SHARING_LENGTH, Path.Combine(Output, "case2.png"));
             MultiCaseImageGenerator.GenerateDefaultCaseImage(DimCase, new Size(_casePixelWidth, _casePixelHeight), 3, MultiCaseImageGenerator.CaseAlignement.SHARING_LENGTH, Path.Combine(Output, "case3.png"));
             MultiCaseImageGenerator.GenerateDefaultCaseImage(DimCase, new Size(_casePixelWidth, _casePixelHeight), 4, MultiCaseImageGenerator.CaseAlignement.SHARING_LENGTH, Path.Combine(Output, "case4.png"));
+            MultiCaseImageGenerator.GenerateDefaultPalletImage(DimPallet, PalletIndex == 0? "EUR" : "EUR2", new Size(palletPixelWidth, palletPixelHeight), Path.Combine(Output, "pallet.png"));
 
             // build reduced list of unique box positions indexed
             BoxPositionIndexed.ReduceListBoxPositionIndexed(BoxPositions, out List<BoxPositionIndexed> listBPIReduced, out Dictionary<int, int> dictIndexNumber);
@@ -56,7 +61,7 @@ public partial class LayerDesign : Page
     protected void OnNext(object sender, EventArgs e)
     {
         // instantiate canvasCoord
-        var canvasCoord = new CanvasCoordConverter(950, 500, PtMin, PtMax);
+        var canvasCoord = new CanvasCoordConverter(850, 550, PtMin, PtMax);
         // read box positions serialized as Json in field HFBoxArray
         string sValue = HFBoxArray.Value;
         var bposJS = JsonConvert.DeserializeObject<IList<BoxPositionJS>>(sValue);
@@ -80,7 +85,8 @@ public partial class LayerDesign : Page
     #endregion
 
     private Vector3D DimCase => Vector3D.Parse((string)Session[SessionVariables.DimCase]);
-    private Vector3D DimPallet => Vector3D.Parse((string)Session[SessionVariables.DimPallet]);
+    private int PalletIndex => (int)Session[SessionVariables.PalletIndex];
+    private Vector3D DimPallet => PalletStacking.PalletIndexToDim3D(PalletIndex);
     private List<BoxPositionIndexed> BoxPositions
     {
         get => (List<BoxPositionIndexed>)Session[SessionVariables.BoxPositions];
@@ -93,8 +99,8 @@ public partial class LayerDesign : Page
     public int _casePixelHeight;
     public JavaScriptSerializer javaSerial = new JavaScriptSerializer();
     private string Output => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Output");
-    private Vector2D PtMin => new Vector2D(-DimCase.X, -DimCase.X);
-    private Vector2D PtMax => new Vector2D((DimPallet.Y + DimCase.X) * 950.0 / 500.0, DimPallet.Y + DimCase.X);
+    private Vector2D PtMin => new Vector2D(-50.0, -50.0);
+    private Vector2D PtMax => new Vector2D((DimPallet.Y + DimCase.X) * 850.0 / 550.0, DimPallet.Y + DimCase.X);
     #endregion
 
 }

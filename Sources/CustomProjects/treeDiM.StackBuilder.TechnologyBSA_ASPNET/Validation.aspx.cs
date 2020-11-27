@@ -29,7 +29,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 
                 var interlayerArray = Interlayers.Select(p => p == '1' ? true : false).ToArray();
                 var listInterlayers = new List<InterlayerDetails>();
-                PalletStacking.InitializeInterlayers(DimCase, DimPallet, MaxPalletHeight, string.Empty, ref listInterlayers);
+                PalletStacking.InitializeInterlayers(DimCase, PalletIndex, NumberOfLayers, string.Empty, ref listInterlayers);
                 for (var i = 0; i < interlayerArray.Length; ++i)
                 {
                     if (i < listInterlayers.Count)
@@ -63,8 +63,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 
             PalletStacking.GetSolution(
                 DimCase, WeightCase, BitmapTexture,
-                DimPallet, WeightPallet,
-                MaxPalletHeight, BoxPositions,
+                PalletIndex, WeightPallet,
+                NumberOfLayers, BoxPositions,
                 ChkbMirrorLength.Checked, ChkbMirrorWidth.Checked,
                 InterlayersBoolArray,
                 Angle,
@@ -105,8 +105,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             byte[] imageFileBytes = null;
             PalletStacking.Export(
                 DimCase, WeightCase,
-                DimPallet, WeightPallet,
-                MaxPalletHeight, BoxPositions,
+                PalletIndex, WeightPallet,
+                NumberOfLayers, BoxPositions,
                 ChkbMirrorLength.Checked, ChkbMirrorWidth.Checked,
                 InterlayersBoolArray,
                 ref fileBytes,
@@ -152,9 +152,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         }
         private Vector3D DimCase=> Vector3D.Parse((string)Session[SessionVariables.DimCase]);
         private double WeightCase => (double)Session[SessionVariables.WeightCase];
-        private Vector3D DimPallet => Vector3D.Parse((string)Session[SessionVariables.DimPallet]);
+        private int PalletIndex => (int)Session[SessionVariables.PalletIndex];
         private double WeightPallet => (double)Session[SessionVariables.WeightPallet];
-        private double MaxPalletHeight => (double)Session[SessionVariables.MaxPalletHeight];
+        private int NumberOfLayers => (int)Session[SessionVariables.NumberOfLayers];
         private bool LayersMirrorLength => (bool)Session[SessionVariables.LayersMirrorLength];
         private bool LayersMirrorWidth => (bool)Session[SessionVariables.LayersMirrorWidth];
         private bool LayerEdited => (bool)Session[SessionVariables.LayerEdited];

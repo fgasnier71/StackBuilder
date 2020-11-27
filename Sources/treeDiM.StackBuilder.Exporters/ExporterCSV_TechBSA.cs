@@ -233,8 +233,8 @@ namespace treeDiM.StackBuilder.Exporters
                     $"Program:StackBuilder;Program:StackBuilder.PalletDimension.W;REAL;{palletProperties.Weight.ToString("0,0.0", nfi)}");
             }
 
-            double maxPalletHeight = analysis.ConstraintSet.OptMaxHeight.Value;
-            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Pallet.MaxPalletHeight;REAL;{maxPalletHeight.ToString("0,0.0", nfi)}");
+            int numberOfLayers = analysis.ConstraintSet.OptMaxLayerNumber.Value;
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Pallet.NumberOfLayers;REAL;{numberOfLayers}");
             bool layersMirrorX = false;
             if (sol.ItemCount > 1)
                 layersMirrorX = sol.SolutionItems[0].SymetryX != sol.SolutionItems[1].SymetryX;
@@ -257,7 +257,7 @@ namespace treeDiM.StackBuilder.Exporters
             ref List<BoxPositionIndexed> boxPositions,
             ref Vector3D dimCase, ref double weightCase,
             ref Vector3D dimPallet, ref double weightPallet,
-            ref double maxPalletHeight,
+            ref int numberOfLayers,
             ref bool layersMirrorX, ref bool layersMirrorY,
             ref List<bool> interlayers)
         {
@@ -272,7 +272,7 @@ namespace treeDiM.StackBuilder.Exporters
                 csvParser.ReadLine();
 
                 double zMin = double.MaxValue;
-                maxPalletHeight = 1700.0;
+                numberOfLayers = 0;
 
                 while (!csvParser.EndOfData)
                 {
@@ -353,9 +353,9 @@ namespace treeDiM.StackBuilder.Exporters
                         weightPallet = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
 
                     }
-                    else if (f1.Contains("Program:StackBuilder.MaxPalletHeight"))
+                    else if (f1.Contains("Program:StackBuilder.NumberOfLayers"))
                     {
-                        maxPalletHeight = double.Parse(fields[3], NumberFormatInfo.InvariantInfo);
+                        numberOfLayers = int.Parse(fields[3], NumberFormatInfo.InvariantInfo);
                     }
                     else if (f1.Contains("Program:StackBuilder.LayersMirrorXOnOff"))
                     {

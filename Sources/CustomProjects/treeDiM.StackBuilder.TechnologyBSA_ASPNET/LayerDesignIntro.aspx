@@ -63,6 +63,11 @@
             border-radius: 50%;
         }
 
+        .auto-style8 {
+            font-family: Arial, Verdana;
+            font-size: 16px;
+        }
+
     </style>
     <link type="text/css" href="css/default.css" rel="stylesheet" />
     <link href="css/jquery-ui.css" rel="stylesheet" />
@@ -112,7 +117,7 @@
                         <table class="style100pct">
                             <tr>
                                 <td>
-                                    <asp:label ID="LBCaseDim" runat="server" Text="Case dimensions" CssClass="label" />
+                                    <asp:Label ID="LBCaseDim" runat="server" Text="Case dimensions" CssClass="label" />
                                 </td>
                                 <td class="style65px">
                                     <asp:TextBox ID="TBCaseLength" runat="server" Width="60px" CssClass="textbox" OnTextChanged="OnRefresh"/>
@@ -126,17 +131,15 @@
                                 <td class="style65px">
                                     <asp:Label ID="LBCaseHeightUnit" runat="server" Text="mm" CssClass="label"/>
                                 </td>
+                                <td />
                                 <td>
                                     <asp:label ID="LBPalletDim" runat="server" Text="Pallet dimensions" CssClass="label" />
                                 </td>
-                                <td class="style65px">
-                                    <asp:TextBox ID="TBPalletLength" runat="server" Width="60px" CssClass="textbox" OnTextChanged="OnRefresh"/>
-                                </td>
-                                <td class="style65px">
-                                    <asp:TextBox ID="TBPalletWidth" runat="server" Width="60px" CssClass="textbox" OnTextChanged="OnRefresh"/>
-                                </td>
-                                <td class="style65px">
-                                    <asp:TextBox ID="TBPalletHeight" runat="server" Width="60px" CssClass="textbox" OnTextChanged="OnRefresh"/>
+                                <td class="style195px">
+                                    <asp:DropDownList ID="DropDownPalletDimensions" CssClass="select" runat="server" Width="180px" Height="60px">
+                                        <asp:ListItem Value="0">1200x800</asp:ListItem>
+                                        <asp:ListItem Value="1">1200x1000</asp:ListItem>
+                                    </asp:DropDownList>
                                 </td>
                                 <td>
                                     <asp:Label ID="LBPalletDimUnit" runat="server" Text="mm" CssClass="label" />
@@ -150,18 +153,17 @@
                                     <asp:TextBox ID="TBCaseWeight" runat="server" Width="60px" CssClass="textbox"/>
                                 </td>
                                 <td />
-                                <td />
                                 <td>
                                     <asp:Label ID="LBCaseWeightUnit" runat="server" Text="kg" CssClass="label" />
                                 </td>
+                                <td />
+                                <td />
                                 <td>
                                     <asp:Label ID="LBPalletWeight" runat="server" Text="Pallet weight" CssClass="label"/>
                                 </td>
                                 <td>
                                     <asp:TextBox ID="TBPalletWeight" runat="server" Width="60px" CssClass="textbox"/>
                                 </td>
-                                <td />
-                                <td />
                                 <td>
                                     <asp:Label Id="LBPalletWeightUnit" runat="server" Text="kg" CssClass="label" />
                                 </td>
@@ -175,17 +177,15 @@
                                 <td />
                                 <td />
                                 <td />
+                                <td />
                                 <td>
-                                    <asp:Label ID="LBMaximumPalletHeight" runat="server" Text="Maximum Pallet Height" CssClass="label"/>
-                                <td>
-                                    <asp:TextBox ID="TBMaxPalletHeight" runat="server" Width="60px" CssClass="textbox"/>
+                                    <asp:Label ID="LBNumberOfLayers" runat="server" Text="Number of layers" CssClass="label"/>
                                 </td>
-                                <td />
-                                <td />
                                 <td>
-                                    <asp:Label ID="LBMaxPalletHeightUnit" runat="server" Text="mm" CssClass="label"/>
+                                    <asp:TextBox ID="TBNumberOfLayers" TextMode="Number" min="1" max="100" runat="server" Width="60px" CssClass="textbox"/>
                                 </td>
-                                <td />
+                                <td>
+                                    &nbsp;</td>
                             </tr>
                         </table>
                     </div>
@@ -196,16 +196,9 @@
                     <table class="style100pct">
                         <tr>
                             <td>
-                            <asp:Label ID="LbMaxNumberGrabbed" runat="server" Text="Maximum number of cases grabbed" CssClass="label"></asp:Label>
-                            </td>
+                                &nbsp;</td>
                                <td> 
-                            <asp:DropDownList ID="DropDownMaxNumberGrabbed" CssClass="select" runat="server" Width="160px" Height="60px" OnSelectedIndexChanged="OnRefresh">
-                                <asp:ListItem>1</asp:ListItem>
-                                <asp:ListItem>2</asp:ListItem>
-                                <asp:ListItem>3</asp:ListItem>
-                                <asp:ListItem>4</asp:ListItem>
-                            </asp:DropDownList>
-                                </td>
+                                   &nbsp;</td>
                             <td/>
                             <td/>                            
                         </tr>

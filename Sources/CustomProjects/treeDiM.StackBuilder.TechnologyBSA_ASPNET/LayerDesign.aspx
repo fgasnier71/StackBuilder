@@ -107,39 +107,7 @@
             canvasWidth = canvas.width;
             canvasHeight = canvas.height;
 
-            // pallet rectangle
-            var line1 = new fabric.Line(
-                [palletDimensions.X1, palletDimensions.Y1, palletDimensions.X1, palletDimensions.Y2], {
-                stroke: 'red',
-                strokewidth: 1,
-                selectable: false,
-                name: 'pallet1',
-            });
-            canvas.add(line1);
-            var line2 = new fabric.Line(
-                [palletDimensions.X1, palletDimensions.Y2, palletDimensions.X2, palletDimensions.Y2], {
-                stroke: 'red',
-                strokewidth: 1,
-                selectable: false,
-                name: 'pallet2',
-            });
-            canvas.add(line2);
-            var line3 = new fabric.Line(
-                [palletDimensions.X2, palletDimensions.Y2, palletDimensions.X2, palletDimensions.Y1], {
-                stroke: 'red',
-                strokewidth: 1,
-                selectable: false,
-                name: 'pallet3',
-            });
-            canvas.add(line3);
-            var line4 = new fabric.Line(
-                [palletDimensions.X2, palletDimensions.Y1, palletDimensions.X1, palletDimensions.Y1], {
-                stroke: 'red',
-                strokewidth: 1,
-                selectable: false,
-                name: 'pallet4',
-            });
-            canvas.add(line4);
+            insertPallet(canvas, palletDimensions.X1, palletDimensions.Y1);
 
             counter = 0;
             var len = boxPositions.length;
@@ -150,13 +118,13 @@
             
             fabric.util.addListener(canvas.upperCanvasEl, 'dblclick', function (e) {
                 var target = canvas.findTarget(e);
-                target.setCoords();
-                target.rotate(mod(target.get('angle') + 90, 360));
                 if (target.type === 'group')
                 {
+                    target.setCoords();
+                    target.rotate(mod(target.get('angle') - 90, 360));
                     var text = target.item(1);
                     if (text.type === 'text')
-                        text.rotate(text.get('angle') - 90);
+                        text.rotate(text.get('angle') + 90);
                 }
                 target.setCoords();
                 canvas.renderAll();
@@ -172,6 +140,21 @@
             insertCase(canvas, number, canvasWidth - (caseWidth + 10), 0, 0);
             canvas.renderAll();
         }
+        function rotate() {
+            var canvas = document.getElementById('canvas').fabric;
+            canvas.getActiveObjects().forEach((obj) => {
+                if (obj.type === 'group') {
+                    obj.setCoords();
+                    obj.rotate(mod(obj.get('angle') - 90, 360));
+                    var text = obj.item(1);
+                    if (text.type === 'text')
+                        text.rotate(text.get('angle') + 90);
+                }
+                obj.setCoords();
+            });
+            canvas.renderAll();
+        }
+
         function remove() {
             var canvas = document.getElementById('canvas').fabric;
             canvas.getActiveObjects().forEach((obj) => {
@@ -209,72 +192,72 @@
             });
         }
         function snapOnOff() {
-            var checkBox = document.getElementById("ChkbSnapping");
-
-            if (checkBox.checked == true) {
-                snap = 3;
-            }
-            else {
-                snap = 0;
-            }
+            snap = 0;
+            var checkBox = document.getElementById("ChkbSnap");
+            if (checkBox.checked == true) { snap = 3; } 
         }
     </script>
 </head>
 
 <body>
-    <form id="form1" runat="server">
+    <form runat="server">
         <div class="div980x780">
             <asp:ScriptManager ID="pageUpdates" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
-<table>
-                    <tr>
-                        <td colspan="4">
-            <div class="canvas-container" style="width: 950px; height: 500px; position: relative; user-select: none;">
-                
-                            <canvas id="canvas" width="950" height="500" style="border: 1px solid #ccc" runat="server"></canvas>
-            </div>
-                        </td>
-                        <td colspan="1">
-                            <table class="style100pct">
-                                <tr>
-                                    <td>
-                                        <input id="ButtonAdd1" type="buttonadd1" onclick="JavaScript: insertCases(1);" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input id="ButtonAdd2" type="buttonadd2" onclick="JavaScript: insertCases(2);" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input id="ButtonAdd3" type="buttonadd3" onclick="JavaScript: insertCases(3);" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input id="ButtonAdd4" type="buttonadd4"  onclick="JavaScript: insertCases(4);" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input id="Remove" type="buttonremove" onclick="JavaScript: remove();" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
+            <table>
+                <tr>
+                    <td colspan="4">
+                        <div class="canvas-container" style="width: 850px; height: 550px; position: relative; user-select: none;">
+                            <canvas id="canvas" width="850" height="550" style="border: 1px solid #ccc" runat="server"></canvas>
+                        </div>
+                    </td>
+                    <td colspan="1">
+                        <table class="style100pct">
+                            <tr>
+                                <td>
+                                    <input id="ButtonAdd1" type="buttonadd1" onclick="JavaScript: insertCases(1);" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input id="ButtonAdd2" type="buttonadd2" onclick="JavaScript: insertCases(2);" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input id="ButtonAdd3" type="buttonadd3" onclick="JavaScript: insertCases(3);" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input id="ButtonAdd4" type="buttonadd4" onclick="JavaScript: insertCases(4);" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input id="ButtonRotate" type="buttonrotate" onclick="JavaScript: rotate();" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input id="Remove" type="buttonremove" onclick="JavaScript: remove();" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
 
-                                        <label>Snap</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="switch"><input id="ChkbSnapping" type="checkbox" onclick="JavaScript: snapOnOff();"/><span class="slider round hide-off"></span></label>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
+                                    <label>Snap</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="switch">
+                                        <input id="ChkbSnap" type="checkbox" onclick="JavaScript: snapOnOff();" /><span class="slider round hide-off"></span></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
             <div>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                     <ContentTemplate>

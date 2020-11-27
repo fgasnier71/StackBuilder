@@ -10,10 +10,7 @@
             border: solid 8px;
             color: lightblue;
         }
-        .auto-style6 {
-            height: 504px;
-        }
-    </style>
+        </style>
     <link type="text/css" href="css/default.css" rel="stylesheet" />
     <link href="css/jquery-ui.css" rel="stylesheet" />
     <link href="css/keyboard.css" rel="stylesheet" />
@@ -80,14 +77,15 @@
                                     <asp:label ID="LBPalletDim" runat="server" Text="Pallet dimensions" CssClass="label" />
                                 </td>
                                 <td class="style65px">
-                                    <asp:TextBox ID="TBPalletLength" runat="server" Width="60px" CssClass="textbox"/>
+                                    <asp:DropDownList ID="DropDownListPallet" runat="server">
+                                        <asp:ListItem>1200x800</asp:ListItem>
+                                        <asp:ListItem>1200x1000</asp:ListItem>
+                                    </asp:DropDownList>
                                 </td>
                                 <td class="style65px">
-                                    <asp:TextBox ID="TBPalletWidth" runat="server" Width="60px" CssClass="textbox"/>
-                                </td>
+                                    &nbsp;</td>
                                 <td class="style65px">
-                                    <asp:TextBox ID="TBPalletHeight" runat="server" Width="60px" CssClass="textbox"/>
-                                </td>
+                                    &nbsp;</td>
                                 <td>
                                     <asp:Label ID="LBPalletDimUnit" runat="server" Text="mm" CssClass="label" />
                                 <td />
@@ -124,9 +122,9 @@
                                 <td />
                                 <td />
                                 <td>
-                                    <asp:Label ID="LBMaximumPalletHeight" runat="server" Text="Maximum Pallet Height" CssClass="label"/>
+                                    <asp:Label ID="LBNumberOfLayers" runat="server" Text="Number of layers" CssClass="label"/>
                                 <td>
-                                    <asp:TextBox ID="TBMaxPalletHeight" runat="server" Width="60px" CssClass="textbox"/>
+                                    <asp:TextBox ID="TBNumberOfLayers" TextMode="Number" min="1" max="100" runat="server" Width="60px" CssClass="textbox"/>
                                 </td>
                                 <td />
                                 <td />

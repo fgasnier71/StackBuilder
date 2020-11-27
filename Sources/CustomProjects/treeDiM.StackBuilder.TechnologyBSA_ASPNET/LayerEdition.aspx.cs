@@ -141,7 +141,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         {
             get
             {
-                Vector3D vDimContainer = DimPallet;
+                Vector3D vDimContainer = PalletStacking.PalletIndexToDim3D(PalletIndex);
                 return new Vector2D(vDimContainer.X, vDimContainer.Y);
             }
         }
@@ -158,7 +158,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         }
 
         private Vector3D DimCase => Vector3D.Parse((string)Session[SessionVariables.DimCase]);
-        private Vector3D DimPallet => Vector3D.Parse((string)Session[SessionVariables.DimPallet]);
+        private int PalletIndex => (int)Session[SessionVariables.PalletIndex];
         private List<BoxPosition> BoxPositions
         {
             get => (List<BoxPosition>)Session[SessionVariables.BoxPositions];

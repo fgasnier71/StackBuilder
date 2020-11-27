@@ -113,6 +113,19 @@ input[type=buttonadd4] {
     width: 50px;
     height: 50px;
 }
+input[type=buttonrotate] {
+    background: #F2F4F4 url("/Images/BnRotate.png") no-repeat center;
+    color: dimgray;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+}
 input[type=buttonremove] {
     background: #F2F4F4 url("/Images/BnRemoveCross.png") no-repeat center;
     color: dimgray;
@@ -172,6 +185,7 @@ input[type=buttonremove] {
     font-family: Arial, Verdana;
     color: dimgray;
 }
+
 .label {
     font-size: 16px;
     font-family: Arial, Verdana;
@@ -218,6 +232,9 @@ input[type=buttonremove] {
 
 .style65px {
     width: 65px;
+}
+.style195px {
+    width: 195px;
 }
 
 .style75px {

@@ -99,17 +99,17 @@
                                     <asp:Label ID="LBPalletDim" runat="server" Text="Pallet dimensions" CssClass="label" />
                                 </td>
                                 <td class="style65px">
-                                    <asp:TextBox ID="TBPalletLength" runat="server" Width="60px" CssClass="textbox" />
+                                    <asp:DropDownList ID="DropDownPalletDim" runat="server">
+                                        <asp:ListItem>1200x800</asp:ListItem>
+                                        <asp:ListItem>1200x1000</asp:ListItem>
+                                    </asp:DropDownList>
                                 </td>
                                 <td class="style65px">
-                                    <asp:TextBox ID="TBPalletWidth" runat="server" Width="60px" CssClass="textbox" />
                                 </td>
                                 <td class="style65px">
-                                    <asp:TextBox ID="TBPalletHeight" runat="server" Width="60px" CssClass="textbox" />
-                                </td>
+                                    &nbsp;</td>
                                 <td>
-                                    <asp:Label ID="LBPalletDimUnit" runat="server" Text="mm" CssClass="label" />
-                                    <td />
+                                    &nbsp;<td />
                             </tr>
                             <tr>
                                 <td>
@@ -143,14 +143,13 @@
                                 <td />
                                 <td />
                                 <td>
-                                    <asp:Label ID="LBMaximumPalletHeight" runat="server" Text="Maximum Pallet Height" CssClass="label" /></td>
+                                    <asp:Label ID="LBMaximumPalletHeight" runat="server" Text="Number of layers" CssClass="label" /></td>
                                 <td>
-                                    <asp:TextBox ID="TBMaxPalletHeight" runat="server" Width="60px" CssClass="textbox" /></td>
+                                    <asp:TextBox ID="TBNumberOfLayers" TextMode="Number" min="1" max="100" runat="server" Width="60px" CssClass="textbox" /></td>
                                 <td />
                                 <td />
                                 <td>
-                                    <asp:Label ID="LBMaxPalletHeightUnit" runat="server" Text="mm" CssClass="label" />
-                                </td>
+                                    &nbsp;</td>
                                 <td>
                                     <asp:Button ID="BTRefresh" runat="server" Text="Refresh" OnClick="BTRefresh_Click" CssClass="buttonRefresh" />
                                 </td>

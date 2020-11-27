@@ -19,7 +19,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
     /// </summary>
     public static class PalletStacking
     {
-        public static void GetLayers(Vector3D caseDim, double caseWeight, Vector3D palletDim, double palletWeight, double maxPalletHeight, bool bestLayersOnly, ref List<LayerDetails> listLayers)
+        public static void GetLayers(Vector3D caseDim, double caseWeight, int palletIndex, double palletWeight, int layerNumber, bool bestLayersOnly, ref List<LayerDetails> listLayers)
         {
             // case
             var boxProperties = new BoxProperties(null, caseDim.X, caseDim.Y, caseDim.Z)
@@ -30,7 +30,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             boxProperties.SetWeight(caseWeight);
             boxProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
             // pallet
-            var palletProperties = new PalletProperties(null, "EUR2", palletDim.X, palletDim.Y, palletDim.Z)
+            Vector3D palletDim = PalletIndexToDim3D(palletIndex);
+            var palletProperties = new PalletProperties(null, PalletIndexToPalletType(palletIndex), palletDim.X, palletDim.Y, palletDim.Z)
             {
                 Weight = palletWeight,
                 Color = Color.Yellow
@@ -43,7 +44,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 Overhang = Vector2D.Zero,
             };
             constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
-            constraintSet.SetMaxHeight(new OptDouble(true, maxPalletHeight));
+            constraintSet.OptMaxLayerNumber = layerNumber;
             Vector3D vPalletDim = palletProperties.GetStackingDimensions(constraintSet);
             // ###
 
@@ -62,13 +63,12 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         }
 
         public static void InitializeInterlayers(
-            Vector3D caseDim, Vector3D palletDim, double maxPalletHeight,
+            Vector3D caseDim, int palletIndex, int noLayers,
             string initializer,
             ref List<InterlayerDetails> interlayers)
         {
             bool[] arrayBool = initializer.Select(c => c == '1').ToArray();
 
-            var noLayers = (int)Math.Floor((maxPalletHeight - palletDim.Z) / caseDim.Z);
             for (var i = 0; i<noLayers; ++i)
                 interlayers.Add(new InterlayerDetails($"# {i+1}", (i<arrayBool.Length) && arrayBool[i]));
             interlayers.Add(new InterlayerDetails("Top", (noLayers<arrayBool.Length) && arrayBool[noLayers]));
@@ -76,7 +76,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 
         public static void GetSolution(
             Vector3D caseDim, double caseWeight, Bitmap bmpTexture,
-            Vector3D palletDim, double palletWeight,
+            int palletIndex, double palletWeight,
             double maxPalletHeight,
             List<BoxPositionIndexed> boxPositions,
             bool mirrorLength, bool mirrorWidth,
@@ -109,7 +109,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             boxProperties.SetWeight(caseWeight);
             boxProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
             // pallet
-            var palletProperties = new PalletProperties(null, "EUR2", palletDim.X, palletDim.Y, palletDim.Z)
+            Vector3D palletDim = PalletIndexToDim3D(palletIndex);
+            var palletProperties = new PalletProperties(null, PalletIndexToPalletType(palletIndex), palletDim.X, palletDim.Y, palletDim.Z)
             {
                 Weight = palletWeight,
                 Color = Color.Yellow
@@ -158,8 +159,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         }
 
         public static void GenerateExport(Vector3D caseDim, double caseWeight, Bitmap bmpTexture,
-            Vector3D palletDim, double palletWeight,
-            double maxPalletHeight,
+            int palletIndex, double palletWeight,
+            int layerNumber,
             List<BoxPositionIndexed> boxPositions,
             bool mirrorLength, bool mirrorWidth,
             List<bool> interlayers,
@@ -189,7 +190,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             boxProperties.SetWeight(caseWeight);
             boxProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
             // pallet
-            var palletProperties = new PalletProperties(null, "EUR2", palletDim.X, palletDim.Y, palletDim.Z)
+            Vector3D palletDim = PalletIndexToDim3D(palletIndex);
+            var palletProperties = new PalletProperties(null, PalletIndexToPalletType(palletIndex), palletDim.X, palletDim.Y, palletDim.Z)
             {
                 Weight = palletWeight,
                 Color = Color.Yellow
@@ -197,7 +199,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             // constraint set
             var constraintSet = new ConstraintSetCasePallet();
             constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
-            constraintSet.SetMaxHeight(new OptDouble(true, maxPalletHeight));
+            constraintSet.OptMaxLayerNumber = layerNumber;
             // layer 2D
             var layer2D = new Layer2DBrickExpIndexed(caseDim, new Vector2D(), "", HalfAxis.HAxis.AXIS_Z_P);
             layer2D.SetPositions(boxPositions);
@@ -257,8 +259,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 
         public static void Export(
             Vector3D caseDim, double caseWeight,
-            Vector3D palletDim, double palletWeight,
-            double maxPalletHeight,
+            int palletIndex, double palletWeight,
+            int noLayers,
             List<BoxPositionIndexed> listBoxPositionIndexed,
             bool mirrorLength, bool mirrorWidth,
             List<bool> interlayers,
@@ -277,7 +279,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             boxProperties.SetWeight(caseWeight);
             boxProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
             // pallet
-            var palletProperties = new PalletProperties(null, "EUR2", palletDim.X, palletDim.Y, palletDim.Z)
+            Vector3D palletDim = PalletIndexToDim3D(palletIndex);
+            var palletProperties = new PalletProperties(null, PalletIndexToPalletType(palletIndex), palletDim.X, palletDim.Y, palletDim.Z)
             {
                 Weight = palletWeight,
                 Color = Color.Yellow
@@ -285,7 +288,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             // constraint set
             var constraintSet = new ConstraintSetCasePallet();
             constraintSet.SetAllowedOrientations(new bool[] { false, false, true });
-            constraintSet.SetMaxHeight(new OptDouble(true, maxPalletHeight));
+            constraintSet.OptMaxLayerNumber = noLayers;
 
             // layer
             var layer2D = new Layer2DBrickExpIndexed(caseDim, new Vector2D(palletDim.X, palletDim.Y), "", HalfAxis.HAxis.AXIS_Z_P);
@@ -335,6 +338,28 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 img.Save(stream, imageFormat);
                 return stream.ToArray();
             }
+        }
+
+        public static Vector3D PalletIndexToDim3D(int index)
+        {
+            switch (index)
+            {
+                case 0: return new Vector3D(1200.0, 800.0, 144.0);
+                default: return new Vector3D(1200.0, 1000.0, 144.0);
+            }
+        }
+        public static Vector2D PalletIndexToDim2D(int index)
+        {
+            var dimPallet = PalletIndexToDim3D(index);
+            return new Vector2D(dimPallet.X, dimPallet.Y);
+        }
+        public static string PalletIndexToPalletType(int index)
+        { 
+            switch (index)
+            {
+                case 0: return "EUR";
+                default: return "EUR2";
+            }        
         }
     }
 }
