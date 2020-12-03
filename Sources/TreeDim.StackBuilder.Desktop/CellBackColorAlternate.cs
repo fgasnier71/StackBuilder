@@ -48,6 +48,31 @@ namespace treeDiM.StackBuilder.Desktop
         }
     }
 
+    internal class ColumnHeaderSolution : SourceGrid.Cells.ColumnHeader
+    {
+        public ColumnHeaderSolution(object value) : base(value)
+        {
+            SourceGrid.Cells.Views.ColumnHeader view = new SourceGrid.Cells.Views.ColumnHeader
+            {
+                Background = new DevAge.Drawing.VisualElements.ColumnHeader()
+                {
+                    BackColor = Color.SteelBlue,
+                    Border = DevAge.Drawing.RectangleBorder.NoBorder
+                },
+                ForeColor = Color.Black,
+                Font = new Font("Arial", CellProperties.GridFontSize, FontStyle.Bold),
+                TextAlignment = DevAge.Drawing.ContentAlignment.MiddleRight
+            };
+            View = view;
+            AutomaticSortEnabled = false;
+        }
+    }
+
+    internal class RowHeaderPropSolution : SourceGrid.Cells.RowHeader
+    {
+        public RowHeaderPropSolution(object value) : base(value) { View = CellProperties.VisualPropValue; }
+    }
+
     internal class CellProperties
     {
         public static SourceGrid.Cells.Views.RowHeader VisualPropHeader
@@ -56,16 +81,17 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (null == _captionHeader)
                 {
-                    _captionHeader = new SourceGrid.Cells.Views.RowHeader();
-                    DevAge.Drawing.VisualElements.RowHeader veHeaderCaption = new DevAge.Drawing.VisualElements.RowHeader()
+                    _captionHeader = new SourceGrid.Cells.Views.RowHeader
                     {
-                        BackColor = Color.SteelBlue,
-                        Border = DevAge.Drawing.RectangleBorder.NoBorder,
+                        Background = new DevAge.Drawing.VisualElements.RowHeader()
+                        {
+                            BackColor = Color.SteelBlue,
+                            Border = DevAge.Drawing.RectangleBorder.NoBorder,
+                        },
+                        ForeColor = Color.Black,
+                        Font = new Font("Arial", GridFontSize, FontStyle.Bold),
+                        TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter
                     };
-                    _captionHeader.Background = veHeaderCaption;
-                    _captionHeader.ForeColor = Color.Black;
-                    _captionHeader.Font = new Font("Arial", GridFontSize, FontStyle.Bold);
-                    _captionHeader.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
                 }
                 return _captionHeader;
             }
@@ -76,21 +102,22 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 if (null == _viewRowHeader)
                 {
-                    _viewRowHeader = new SourceGrid.Cells.Views.RowHeader();
-                    DevAge.Drawing.VisualElements.RowHeader backHeader = new DevAge.Drawing.VisualElements.RowHeader()
+                    _viewRowHeader = new SourceGrid.Cells.Views.RowHeader
                     {
-                        BackColor = Color.LightGray,
-                        Border = DevAge.Drawing.RectangleBorder.NoBorder
+                        Background = new DevAge.Drawing.VisualElements.RowHeader()
+                        {
+                            BackColor = Color.LightGray,
+                            Border = DevAge.Drawing.RectangleBorder.NoBorder
+                        },
+                        ForeColor = Color.Black,
+                        Font = new Font("Arial", GridFontSize, FontStyle.Regular)
                     };
-                    _viewRowHeader.Background = backHeader;
-                    _viewRowHeader.ForeColor = Color.Black;
-                    _viewRowHeader.Font = new Font("Arial", GridFontSize, FontStyle.Regular);
                 }
                 return _viewRowHeader;
             }
         }
 
         private static SourceGrid.Cells.Views.RowHeader _captionHeader, _viewRowHeader;
-        private static int GridFontSize => Settings.Default.GridFontSize;
+        public static int GridFontSize => Settings.Default.GridFontSize;
     }
 }

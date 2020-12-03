@@ -98,6 +98,7 @@ namespace treeDiM.StackBuilder.Desktop
             gridSolution.BorderStyle = BorderStyle.FixedSingle;
             gridSolution.ColumnsCount = 2;
             gridSolution.FixedColumns = 1;
+            gridSolution.FixedRows = 1;
         }
         private void UpdateGrid()
         {
@@ -112,23 +113,14 @@ namespace treeDiM.StackBuilder.Desktop
                 var vPropHeader = CellProperties.VisualPropHeader;
                 var vPropValue = CellProperties.VisualPropValue;
 
-                SourceGrid.Cells.RowHeader rowHeader;
                 int iRow = -1;
                 // pallet caption
                 gridSolution.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader("Truck")
-                {
-                    ColumnSpan = 2,
-                    View = vPropHeader
-                };
-                gridSolution[iRow, 0] = rowHeader;
+                gridSolution[iRow, 0] = new ColumnHeaderSolution(Resources.ID_TRUCK) { ColumnSpan = 1 };
+                gridSolution[iRow, 1] = new ColumnHeaderSolution(string.Empty) { ColumnSpan = 1 };
                 // layer #
                 gridSolution.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader("Layer #")
-                {
-                    View = vPropValue
-                };
-                gridSolution[iRow, 0] = rowHeader;
+                gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(Resources.ID_LAYERNUMBER) { View = vPropValue };
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(_solution.LayerCount);
                 // *** Item # (Recursive count)
                 Packable content = _analysis.Content;
@@ -138,11 +130,7 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     itemCount *= number;
                     gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader(string.Format("{0} #", content.DetailedName))
-                    {
-                        View = vPropValue
-                    };
-                    gridSolution[iRow, 0] = rowHeader;
+                    gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(string.Format("{0} #", content.DetailedName)) { View = vPropValue };
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(itemCount);
                 }
                 while (null != content && content.InnerContent(ref content, ref number));
@@ -151,57 +139,35 @@ namespace treeDiM.StackBuilder.Desktop
                 BBox3D bboxLoad = _solution.BBoxLoad;
                 // ---
                 gridSolution.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader(
-                    string.Format(Resources.ID_LOADDIMENSIONS, UnitsManager.LengthUnitString))
-                {
-                    View = vPropValue
-                };
-                gridSolution[iRow, 0] = rowHeader;
+                gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(
+                    string.Format(Resources.ID_LOADDIMENSIONS, UnitsManager.LengthUnitString)) { View = vPropValue };
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                     string.Format(CultureInfo.InvariantCulture, "{0:0.#} x {1:0.#} x {2:0.#}", bboxLoad.Length, bboxLoad.Width, bboxLoad.Height));
                 // net weight
                 if (_solution.HasNetWeight)
                 {
                     gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader(
-                        string.Format(Resources.ID_NETWEIGHT_WU, UnitsManager.MassUnitString))
-                    {
-                        View = vPropValue
-                    };
-                    gridSolution[iRow, 0] = rowHeader;
+                    gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(
+                        string.Format(Resources.ID_NETWEIGHT_WU, UnitsManager.MassUnitString)) { View = vPropValue };
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                         string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.NetWeight.Value));
                 }
                 // load weight
                 gridSolution.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader(
-                    string.Format(Resources.ID_LOADWEIGHT_WU, UnitsManager.MassUnitString))
-                {
-                    View = vPropValue
-                };
-                gridSolution[iRow, 0] = rowHeader;
+                gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(
+                    string.Format(Resources.ID_LOADWEIGHT_WU, UnitsManager.MassUnitString)) { View = vPropValue };
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                     string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.LoadWeight));
                 // total weight
                 gridSolution.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader(
-                    string.Format(Resources.ID_TOTALWEIGHT_WU, UnitsManager.MassUnitString))
-                {
-                    View = vPropValue
-                };
-                gridSolution[iRow, 0] = rowHeader;
+                gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(string.Format(Resources.ID_TOTALWEIGHT_WU, UnitsManager.MassUnitString)) {View = vPropValue };
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                     string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.Weight));
                 // volume efficiency
                 gridSolution.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_VOLUMEEFFICIENCY)
-                {
-                    View = vPropValue
-                };
-                gridSolution[iRow, 0] = rowHeader;
+                gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(Resources.ID_VOLUMEEFFICIENCY) { View = vPropValue };
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                     string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.VolumeEfficiency));
-
                 // ### layers : begin
                 for (int i = 0; i < _solution.Layers.Count; ++i)
                 {

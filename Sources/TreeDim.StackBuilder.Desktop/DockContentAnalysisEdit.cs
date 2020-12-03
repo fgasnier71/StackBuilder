@@ -136,7 +136,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
-        #region Virtual functions
+        #region Grid filling virtual method
         public virtual void FillGrid()
         {
             // clear grid
@@ -144,7 +144,9 @@ namespace treeDiM.StackBuilder.Desktop
             // border
             gridSolution.BorderStyle = BorderStyle.FixedSingle;
             gridSolution.ColumnsCount = 2;
-            gridSolution.FixedColumns = 1;
+
+            gridSolution.Columns[0].AutoSizeMode = SourceGrid.AutoSizeMode.EnableStretch;
+            gridSolution.Columns[1].AutoSizeMode = SourceGrid.AutoSizeMode.EnableStretch;
         }
         public virtual void UpdateGrid()
         {
@@ -317,10 +319,7 @@ namespace treeDiM.StackBuilder.Desktop
                         string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.LayerMaximumSpace(i)));
                 }
                 // ### layers : end
-
-                gridSolution.AutoSizeCells();
-                gridSolution.Columns.StretchToFit();
-                gridSolution.AutoStretchColumnsToFitWidth = true;
+                
                 gridSolution.Invalidate();
             }
             catch (Exception ex)
@@ -541,6 +540,5 @@ namespace treeDiM.StackBuilder.Desktop
         protected static readonly ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisEdit));
 
         #endregion
-
     }
 }

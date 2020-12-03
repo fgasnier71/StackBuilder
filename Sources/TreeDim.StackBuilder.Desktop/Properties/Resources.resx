@@ -875,6 +875,9 @@ Continue?</value>
   <data name="ID_USETRANSPARENCYORHATCHING" xml:space="preserve">
     <value>Use transparency and/or hatching</value>
   </data>
+  <data name="ID_VALUE" xml:space="preserve">
+    <value>Value</value>
+  </data>
   <data name="ID_VERSION" xml:space="preserve">
     <value>Version : {0}</value>
   </data>

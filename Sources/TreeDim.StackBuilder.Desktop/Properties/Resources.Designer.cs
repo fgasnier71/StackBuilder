@@ -2336,6 +2336,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Value.
+        /// </summary>
+        internal static string ID_VALUE {
+            get {
+                return ResourceManager.GetString("ID_VALUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Version : {0}.
         /// </summary>
         internal static string ID_VERSION {
