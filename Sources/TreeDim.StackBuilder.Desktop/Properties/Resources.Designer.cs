@@ -2219,6 +2219,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Spaces.
+        /// </summary>
+        internal static string ID_SPACES {
+            get {
+                return ResourceManager.GetString("ID_SPACES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Spaces ({0}).
         /// </summary>
         internal static string ID_SPACES_WU {

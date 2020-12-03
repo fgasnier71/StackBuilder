@@ -373,7 +373,7 @@ namespace treeDiM.StackBuilder.Desktop
                         string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.LayerWeight(i)));
                     // layer space
                     gridSolution.Rows.Insert(++iRow);
-                    gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader("Spaces") { View = vPropValue };
+                    gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(Resources.ID_SPACES) { View = vPropValue };
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                         string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.LayerMaximumSpace(i)));
                 }

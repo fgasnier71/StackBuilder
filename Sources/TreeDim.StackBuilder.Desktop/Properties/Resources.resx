@@ -836,6 +836,9 @@ Continue?</value>
   <data name="ID_SORTINGSOLUTIONS" xml:space="preserve">
     <value>Sorting solutions...</value>
   </data>
+  <data name="ID_SPACES" xml:space="preserve">
+    <value>Spaces</value>
+  </data>
   <data name="ID_SPACES_WU" xml:space="preserve">
     <value>Spaces ({0})</value>
   </data>
