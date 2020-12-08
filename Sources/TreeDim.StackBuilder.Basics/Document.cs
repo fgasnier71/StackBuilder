@@ -132,7 +132,7 @@ namespace treeDiM.StackBuilder.Basics
             , Color[] colors)
         {
             // instantiate and initialize
-            BoxProperties boxProperties = new BoxProperties(this, length, width, height);
+            var boxProperties = new BoxProperties(this, length, width, height) { CAType = BoxProperties.CreatedAsType.Box };
             boxProperties.SetWeight( weight );
             boxProperties.ID.SetNameDesc( name, description);
             boxProperties.SetAllColors(colors);
@@ -144,12 +144,9 @@ namespace treeDiM.StackBuilder.Basics
             return boxProperties;
         }
         public BoxProperties CreateNewBox(BoxProperties boxProp)
-        { 
+        {
             // instantiate and initialize
-            BoxProperties boxPropClone = new BoxProperties(this
-                , boxProp.Length
-                , boxProp.Width
-                , boxProp.Height);
+            var boxPropClone = new BoxProperties(this, boxProp.Length, boxProp.Width, boxProp.Height) { CAType = boxProp.CAType };
             boxPropClone.SetWeight( boxProp.Weight );
             boxPropClone.SetNetWeight( boxProp.NetWeight );
             boxPropClone.ID.SetNameDesc( boxProp.ID.Name, boxProp.ID.Description );
@@ -217,13 +214,9 @@ namespace treeDiM.StackBuilder.Basics
         public BoxProperties CreateNewCase(BoxProperties boxProp)
         {
             // instantiate and initialize
-            BoxProperties boxPropClone = new BoxProperties(this
-                , boxProp.Length
-                , boxProp.Width
-                , boxProp.Height
-                , boxProp.InsideLength
-                , boxProp.InsideWidth
-                , boxProp.InsideHeight);
+            var boxPropClone = new BoxProperties(this
+                , boxProp.Length, boxProp.Width, boxProp.Height
+                , boxProp.InsideLength, boxProp.InsideWidth, boxProp.InsideHeight)  { CAType = BoxProperties.CreatedAsType.Case };
             boxPropClone.SetWeight( boxProp.Weight );
             boxPropClone.SetNetWeight( boxProp.NetWeight );
             boxPropClone.ID.SetNameDesc( boxProp.ID.Name, boxProp.ID.Description );
@@ -1256,6 +1249,8 @@ namespace treeDiM.StackBuilder.Basics
             }
             string sweight = eltBoxProperties.Attributes["Weight"].Value;
             OptDouble optNetWeight = LoadOptDouble(eltBoxProperties, "NetWeight", UnitsManager.UnitType.UT_MASS);
+            string sCAType = eltBoxProperties.HasAttribute("CAType") ? eltBoxProperties.Attributes["CAType"].Value : string.Empty;
+
 
             Color[] colors = new Color[6];
             List<Pair<HalfAxis.HAxis, Texture>> listTexture = new List<Pair<HalfAxis.HAxis,Texture>>();
@@ -1277,9 +1272,13 @@ namespace treeDiM.StackBuilder.Basics
                     LoadStrapperSet(childElt, ref strapperSet);
             }
 
+            bool isCase = hasInsideDimensions || hasTape;
+            if (!string.IsNullOrEmpty(sCAType))
+                isCase = string.Equals(sCAType, "Case", StringComparison.CurrentCultureIgnoreCase);
+
             // create new BoxProperties instance
             BoxProperties boxProperties;
-            if (hasInsideDimensions || hasTape) // case
+            if (isCase)
             {
                 double insideLength = 0.0, insideWidth = 0.0, insideHeight = 0.0;
                 if (!string.IsNullOrEmpty(sInsideLength)) insideLength = Convert.ToDouble(sInsideLength, CultureInfo.InvariantCulture);
@@ -2795,6 +2794,10 @@ namespace treeDiM.StackBuilder.Basics
             XmlAttribute netWeightAttribute = xmlDoc.CreateAttribute("NetWeight");
             netWeightAttribute.Value = boxProperties.NetWeight.ToString();
             eltBoxProperties.Attributes.Append(netWeightAttribute);
+            // CAType
+            XmlAttribute caTypeAttribute = xmlDoc.CreateAttribute("CAType");
+            caTypeAttribute.Value = boxProperties.CAType.ToString();
+            eltBoxProperties.Attributes.Append(caTypeAttribute);
             // colors
             SaveColors(boxProperties.Colors, eltBoxProperties, xmlDoc);
             // texture

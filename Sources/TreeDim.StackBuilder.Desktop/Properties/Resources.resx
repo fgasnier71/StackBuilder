@@ -806,6 +806,9 @@ Continue?</value>
   <data name="ID_PREMIUMVERSIONURL" xml:space="preserve">
     <value>http://www.plmpack.com/stackbuilder/premium/premium.html</value>
   </data>
+  <data name="ID_RADIUSROUNDING_WU" xml:space="preserve">
+    <value>Radius ({0})</value>
+  </data>
   <data name="ID_READY" xml:space="preserve">
     <value>Ready</value>
   </data>

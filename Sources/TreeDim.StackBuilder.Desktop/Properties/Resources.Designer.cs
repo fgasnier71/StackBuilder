@@ -2129,6 +2129,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Radius ({0}).
+        /// </summary>
+        internal static string ID_RADIUSROUNDING_WU {
+            get {
+                return ResourceManager.GetString("ID_RADIUSROUNDING_WU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ready.
         /// </summary>
         internal static string ID_READY {

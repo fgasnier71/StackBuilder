@@ -26,7 +26,7 @@ namespace treeDiM.StackBuilder.Basics
             _length = 0.0; _width = 0.0; _height = 0.0;
             HasInsideDimensions = true;
         }
-        
+
         /// <summary>
         /// Constructor 2
         /// </summary>
@@ -37,9 +37,9 @@ namespace treeDiM.StackBuilder.Basics
         public BoxProperties(Document document, double length, double width, double height)
             : base(document)
         {
-            _length     = length;
-            _width      = width;
-            _height     = height;
+            _length = length;
+            _width = width;
+            _height = height;
             HasInsideDimensions = false;
         }
 
@@ -68,9 +68,9 @@ namespace treeDiM.StackBuilder.Basics
             , double insideLength, double insideWidth, double insideHeight)
             : base(document)
         {
-            _length     = length;
-            _width      = width;
-            _height     = height;
+            _length = length;
+            _width = width;
+            _height = height;
             _insideLength = insideLength;
             _insideWidth = insideWidth;
             _insideHeight = insideHeight;
@@ -136,7 +136,7 @@ namespace treeDiM.StackBuilder.Basics
             Array.Sort(dimCase);
             return dimItem[0] <= dimCase[0]
                 && dimItem[1] <= dimCase[1]
-                && dimItem[2] <= dimCase[2];        
+                && dimItem[2] <= dimCase[2];
         }
         public Vector3D GetStackingDimensions(ConstraintSetAbstract constraintSet) => InsideDimensions;
         public Vector3D GetOffset(ConstraintSetAbstract constraintSet) => new Vector3D(0.0, 0.0, 0.5 * (Height - InsideHeight));
@@ -149,10 +149,10 @@ namespace treeDiM.StackBuilder.Basics
             {
                 if (
                     (dimItem[0] <= dimCase[0]) && (
-                        ( (dimItem[1] <= dimCase[1]) && (dimItem[2] <= dimCase[2]) )
-                    || ( (dimItem[1] <= dimCase[2]) && (dimItem[2] <= dimCase[1]) ) )
+                        ((dimItem[1] <= dimCase[1]) && (dimItem[2] <= dimCase[2]))
+                    || ((dimItem[1] <= dimCase[2]) && (dimItem[2] <= dimCase[1])))
                     )
-                return true;
+                    return true;
             }
             if (allowVerticalY)
             {
@@ -241,7 +241,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 var list = new List<Pair<HalfAxis.HAxis, Texture>>();
                 foreach (var tex in _textures)
-                    list.Add(new Pair< HalfAxis.HAxis, Texture >(tex.first, tex.second.Clone()));
+                    list.Add(new Pair<HalfAxis.HAxis, Texture>(tex.first, tex.second.Clone()));
                 return list;
             }
         }
@@ -253,6 +253,8 @@ namespace treeDiM.StackBuilder.Basics
         public override bool IsBundle => false;
         protected override string TypeName => IsCase ? Properties.Resources.ID_NAMECASE : Properties.Resources.ID_NAMEBOX;
 
+        public CreatedAsType CAType { get; set; } = CreatedAsType.Case;
+
 
         #region Non-Public Members
         private double _height;
@@ -260,6 +262,10 @@ namespace treeDiM.StackBuilder.Basics
         private Color[] _colors = new Color[6];
         private List<Pair<HalfAxis.HAxis, Texture>> _textures = new List<Pair<HalfAxis.HAxis, Texture>>();
         private OptDouble _maxWeight;
+        #endregion
+
+        #region Enum
+        public enum CreatedAsType { Case, Box };
         #endregion
     }
 }

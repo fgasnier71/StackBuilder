@@ -16,6 +16,7 @@ using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Desktop.Properties;
 
 using treeDiM.PLMPack.DBClient;
+using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -53,7 +54,7 @@ namespace treeDiM.StackBuilder.Desktop
             base.OnLoad(e);
             graphCtrl.DrawingContainer = this;
             // enable / disable
-            bnSendToDB.Enabled = false;
+            bnSendToDB.Enabled = WCFClient.IsConnected;
             // disable Ok button
             UpdateStatus(string.Empty);
         }
@@ -454,10 +455,32 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     ItemName = ItemName
                 };
+                var diameters = new Tuple<float, float>[Profile.Count];
+                int i = 0;
+                foreach (var v in Profile)
+                {
+                    diameters[i] = new Tuple<float, float>((float)v.X, (float)v.Y);
+                    i++;
+                }
                 if (DialogResult.OK == form.ShowDialog())
                 {
                     using (WCFClient wcfClient = new WCFClient())
                     {
+                        int color = ColorBottle.ToArgb();
+                        var client = wcfClient.Client;
+                            client?.CreateNewBottle(
+                                new DCSBBottle()
+                                {
+                                    Name = form.ItemName,
+                                    Description = ItemDescription,
+                                    UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                                    Diameters = diameters,
+                                    Weight = Weight,
+                                    NetWeight = NetWeight.Activated ? NetWeight.Value : new double?(),
+                                    Color = color,
+                                    AutoInsert = false
+                                }
+                                );
                     }
                 }
             }

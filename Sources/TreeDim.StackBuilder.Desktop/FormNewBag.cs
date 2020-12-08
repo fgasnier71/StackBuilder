@@ -2,17 +2,17 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 using log4net;
+using Sharp3D.Math.Core;
 
 using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Desktop.Properties;
-
 using treeDiM.PLMPack.DBClient;
-using Sharp3D.Math.Core;
-using System.Linq;
+using treeDiM.PLMPack.DBClient.PLMPackSR;
 #endregion
 
 namespace treeDiM.StackBuilder.Desktop
@@ -133,7 +133,24 @@ namespace treeDiM.StackBuilder.Desktop
                 if (DialogResult.OK == form.ShowDialog())
                 {
                     using (WCFClient wcfClient = new WCFClient())
-                    { 
+                    {
+                        int color = ColorFill.ToArgb();
+                        var client = wcfClient.Client;
+
+                        client?.CreateNewBag(
+                            new DCSBBag()
+                            {
+                                Name = form.ItemName,
+                                Description = ItemDescription,
+                                UnitSystem = (int)UnitsManager.CurrentUnitSystem,
+                                DimensionsOuter = new DCSBDim3D() { M0 = uCtrlOuterDimensions.ValueX, M1 = uCtrlOuterDimensions.ValueY, M2 = uCtrlOuterDimensions.ValueZ },
+                                Color = color,
+                                Weight = Weight,
+                                NetWeight = NetWeight.Activated ? NetWeight.Value : new double?(),
+                                AutoInsert = false
+                            }
+                            );
+                        ;
                     }
                 }
             }

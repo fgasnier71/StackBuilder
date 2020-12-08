@@ -1877,10 +1877,43 @@
     <EmbeddedResource Include="FormNewAnalysisPalletTruck.zh.resx">
       <DependentUpon>FormNewAnalysisPalletTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.de.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.es.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewBag.fr.resx">
       <DependentUpon>FormNewBag.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.it.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.ja.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.nl.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.pl.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.pt.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewBag.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.ru.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.sl.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.sv.resx">
+      <DependentUpon>FormNewBag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBag.zh.resx">
       <DependentUpon>FormNewBag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBase.pt.resx">

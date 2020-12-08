@@ -493,7 +493,7 @@ namespace treeDiM.Basics
                 default: throw new Exception("Invalid unit system!");
             }
         }
-        public static double ConvertLengthTo(double value, UnitsManager.UnitSystem unitSystem)
+        public static double ConvertLengthTo(double value, UnitSystem unitSystem)
         {
             if (unitSystem == CurrentUnitSystem)
                 return value;

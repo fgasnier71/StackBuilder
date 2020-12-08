@@ -187,9 +187,9 @@ namespace treeDiM.StackBuilder.Desktop
                 // truck
                 if (_selectedItem is DCSBTruck dcsbtruck)
                 {
-                    double truckLength = dcsbtruck.DimensionsInner.M0;
-                    double truckWidth = dcsbtruck.DimensionsInner.M1;
-                    double truckHeight = dcsbtruck.DimensionsInner.M2;
+                    double truckLength = UnitsManager.ConvertLengthFrom(dcsbtruck.DimensionsInner.M0, us);
+                    double truckWidth = UnitsManager.ConvertLengthFrom(dcsbtruck.DimensionsInner.M1, us);
+                    double truckHeight = UnitsManager.ConvertLengthFrom(dcsbtruck.DimensionsInner.M2, us);
                     TruckProperties truckProperties = new TruckProperties(null, truckLength, truckWidth, truckHeight)
                     {
                         Color = Color.FromArgb(dcsbtruck.Color)
@@ -198,6 +198,43 @@ namespace treeDiM.StackBuilder.Desktop
                     truck.DrawBegin(graphics);
                     truck.DrawEnd(graphics);
                     graphics.AddDimensions(new DimensionCube(truckLength, truckWidth, truckHeight));
+                }
+                // bag
+                if (_selectedItem is DCSBBag dcsbBag)
+                {
+                    double length = UnitsManager.ConvertLengthFrom(dcsbBag.DimensionsOuter.M0, us);
+                    double width = UnitsManager.ConvertLengthFrom(dcsbBag.DimensionsOuter.M1, us);
+                    double height = UnitsManager.ConvertLengthFrom(dcsbBag.DimensionsOuter.M2, us);
+                    double radius = UnitsManager.ConvertLengthFrom(dcsbBag.Radius, us);
+
+                    var bagProperties = new BagProperties(null, dcsbBag.Name, dcsbBag.Description, length, width, height, radius)
+                    {
+                        ColorFill = Color.FromArgb(dcsbBag.Color)
+                    };
+                    var bag = new BoxRounded(0, bagProperties, BoxPosition.Zero);
+                    graphics.AddBox(bag);
+                    graphics.AddDimensions(new DimensionCube(Vector3D.Zero, length, width, height, Color.Black, false));
+                }
+                // bottle
+                if (_selectedItem is DCSBBottle dcsbBottle)
+                {
+                    var profile = new List<Vector2D>();
+                    double diameter = 0.0;
+                    double height = 0.0;
+                    foreach (var t in dcsbBottle.Diameters)
+                    {
+                        height = Math.Max(height, (double)t.Item1);
+                        diameter = Math.Max(diameter, (double)t.Item2);
+                        profile.Add(new Vector2D(UnitsManager.ConvertLengthFrom(t.Item1, us), UnitsManager.ConvertLengthFrom(t.Item2, us)));
+                    }
+                    var bottleProp = new BottleProperties(
+                        null, dcsbBottle.Name, dcsbBottle.Description,
+                        profile,
+                        UnitsManager.ConvertMassFrom(dcsbBottle.Weight, us),
+                        Color.FromArgb(dcsbBottle.Color));
+                    var bottle = new Bottle(0, bottleProp);
+                    graphics.AddCylinder(bottle);
+                    graphics.AddDimensions(new DimensionCube(new Vector3D(-0.5 * diameter, -0.5 * diameter, 0.0), diameter, diameter, height, Color.Black, false));
                 }
             }
             catch (Exception ex)
@@ -361,6 +398,10 @@ namespace treeDiM.StackBuilder.Desktop
                         FillGridCylinders(wcfClient);
                     else if (string.Equals(tabName, "tabPageTruck"))
                         FillGridTrucks(wcfClient);
+                    else if (string.Equals(tabName, "tabPageBags"))
+                        FillGridBags(wcfClient);
+                    else if (string.Equals(tabName, "tabPageBottles"))
+                        FillGridBottles(wcfClient);
                 }
                 UpdateButtons();
             }
@@ -832,6 +873,100 @@ namespace treeDiM.StackBuilder.Desktop
             GridFinalize(gridTrucks);
         }
         #endregion
+        #region Bags
+        private void FillGridBags(WCFClient wcfClient)
+        {
+            // initialize grid
+            var captions = new List<string>
+            {
+                string.Format(Properties.Resources.ID_DIMENSIONS, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_RADIUSROUNDING_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS))
+            };
+            GridInitialize(gridBags, captions);
+            // handling checkbox event
+            SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
+            checkBoxEvent.Click += new EventHandler(OnAutoImport);
+            // handling delete event
+            SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
+            buttonDelete.Click += new EventHandler(OnDeleteItem);
+            // get all bags
+            _bags = wcfClient.Client.GetAllBagsSearch(SearchString, SearchDescription, RangeIndex, ref _numberOfItems, false);
+            int iIndex = 0;
+            foreach (DCSBBag b in _bags)
+            {
+                gridBags.Rows.Insert(++iIndex);
+                gridBags[iIndex, 0] = new SourceGrid.Cells.Cell(b.Name);
+                gridBags[iIndex, 1] = new SourceGrid.Cells.Cell(b.Description);
+                gridBags[iIndex, 2] = new SourceGrid.Cells.Cell(
+                    string.Format("{0:0.##} x {1:0.##} x {2:0.##}",
+                    UnitsManager.ConvertLengthFrom(b.DimensionsOuter.M0, (UnitsManager.UnitSystem)b.UnitSystem),
+                    UnitsManager.ConvertLengthFrom(b.DimensionsOuter.M1, (UnitsManager.UnitSystem)b.UnitSystem),
+                    UnitsManager.ConvertLengthFrom(b.DimensionsOuter.M2, (UnitsManager.UnitSystem)b.UnitSystem))
+                    );
+                gridBags[iIndex, 3] = new SourceGrid.Cells.Cell(
+                    string.Format("{0:0.##}", UnitsManager.ConvertLengthFrom(b.Radius, (UnitsManager.UnitSystem)b.UnitSystem))
+                    );
+                gridBags[iIndex, 4] = new SourceGrid.Cells.Cell(
+                    string.Format("{0:0.##}", UnitsManager.ConvertMassFrom(b.Weight, (UnitsManager.UnitSystem)b.UnitSystem))
+                    );
+                gridBags[iIndex, 5] = new SourceGrid.Cells.CheckBox(null, b.AutoInsert);
+                gridBags[iIndex, 5].AddController(checkBoxEvent);
+                gridBags[iIndex, 6] = new SourceGrid.Cells.Button("") { Image = Properties.Resources.Delete };
+                gridBags[iIndex, 6].AddController(buttonDelete);
+            }
+            GridFinalize(gridBags);
+        }
+        #endregion
+        #region Bottles
+        private void FillGridBottles(WCFClient wcfClient)
+        {
+            // initialize grid
+            var captions = new List<string>
+            {
+                string.Format(Properties.Resources.ID_HEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_DIAMETEROUTER_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_LENGTH)),
+                string.Format(Properties.Resources.ID_WEIGHT_WU, UnitsManager.UnitString(UnitsManager.UnitType.UT_MASS))
+            };
+            GridInitialize(gridBottles, captions);
+            // handling checkbox event
+            SourceGrid.Cells.Controllers.CustomEvents checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
+            checkBoxEvent.Click += new EventHandler(OnAutoImport);
+            // handling delete event
+            SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
+            buttonDelete.Click += new EventHandler(OnDeleteItem);
+            // get all bags
+            _bottles = wcfClient.Client.GetAllBottlesSearch(SearchString, SearchDescription, RangeIndex, ref _numberOfItems, false);
+            int iIndex = 0;
+            foreach (DCSBBottle b in _bottles)
+            {
+                float height = 0.0f;
+                float diameter = 0.0f;
+                foreach (var t in b.Diameters)
+                {
+                    height = Math.Max(t.Item1, height);
+                    diameter = Math.Max(t.Item2, diameter);                
+                }
+                gridBottles.Rows.Insert(++iIndex);
+                gridBottles[iIndex, 0] = new SourceGrid.Cells.Cell(b.Name);
+                gridBottles[iIndex, 1] = new SourceGrid.Cells.Cell(b.Description);
+                gridBottles[iIndex, 2] = new SourceGrid.Cells.Cell(
+                    string.Format("{0:0.##}", UnitsManager.ConvertLengthFrom((double)height, (UnitsManager.UnitSystem)b.UnitSystem))
+                    );
+                gridBottles[iIndex, 3] = new SourceGrid.Cells.Cell(
+                    string.Format("{0:0.##}", UnitsManager.ConvertLengthFrom((double)diameter, (UnitsManager.UnitSystem)b.UnitSystem))
+                );
+                gridBottles[iIndex, 4] = new SourceGrid.Cells.Cell(
+                    string.Format("{0:0.##}", UnitsManager.ConvertMassFrom(b.Weight, (UnitsManager.UnitSystem)b.UnitSystem))
+                );
+                gridBottles[iIndex, 5] = new SourceGrid.Cells.CheckBox(null, b.AutoInsert);
+                gridBottles[iIndex, 5].AddController(checkBoxEvent);
+                gridBottles[iIndex, 6] = new SourceGrid.Cells.Button("") { Image = Properties.Resources.Delete };
+                gridBottles[iIndex, 6].AddController(buttonDelete);
+            }
+            GridFinalize(gridBottles);
+        }
+        #endregion
         #endregion
 
         #region Event handlers
@@ -900,6 +1035,16 @@ namespace treeDiM.StackBuilder.Desktop
                         wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TTruck, _trucks[iSel].ID, !_trucks[iSel].AutoInsert);
                         FillGridTrucks(wcfClient);
                     }
+                    else if (g == gridBags)
+                    {
+                        wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TBag, _bags[iSel].ID, !_bags[iSel].AutoInsert);
+                        FillGridBags(wcfClient);
+                    }
+                    else if (g == gridBottles)
+                    {
+                        wcfClient.Client.SetAutoInsert(DCSBTypeEnum.TBottle, _bottles[iSel].ID, _bottles[iSel].AutoInsert);
+                        FillGridBottles(wcfClient);
+                    }
                 }
             }
             catch (Exception ex)
@@ -917,56 +1062,66 @@ namespace treeDiM.StackBuilder.Desktop
 
                 using (WCFClient wcfClient = new WCFClient())
                 {
-                    if (g == gridPallets)
-                    {
-                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TPallet, _pallets[iSel].ID);
-                        FillGridPallets(wcfClient);
-                    }
-                    else if (g == gridInterlayers)
-                    {
-                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TInterlayer, _interlayers[iSel].ID);
-                        FillGridInterlayers(wcfClient);
-                    }
-                    else if (g == gridPalletCorners)
-                    {
-                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TPalletCorner, _palletCorners[iSel].ID);
-                        FillGridPalletCorners(wcfClient);
-                    }
-                    else if (g == gridPalletCaps)
-                    {
-                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TPalletCap, _palletCaps[iSel].ID);
-                        FillGridPalletCaps(wcfClient);
-                    }
-                    else if (g == gridPalletFilms)
-                    {
-                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TPalletFilm, _palletFilms[iSel].ID);
-                        FillGridPalletFilms(wcfClient);
-                    }
-                    else if (g == gridBoxes)
-                    {
-                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TCase, _boxes[iSel].ID);
-                        FillGridBoxes(wcfClient);
-                    }
-                    else if (g == gridCases)
-                    {
-                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TCase, _cases[iSel].ID);
-                        FillGridCases(wcfClient);
-                    }
-                    else if (g == gridBundles)
-                    {
-                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TBundle, _bundles[iSel].ID);
-                        FillGridBundles(wcfClient);
-                    }
-                    else if (g == gridCylinders)
-                    {
-                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TCylinder, _cylinders[iSel].ID);
-                        FillGridCylinders(wcfClient);
-                    }
-                    else if (g == gridTrucks)
-                    {
-                        wcfClient.Client.RemoveItemById(DCSBTypeEnum.TTruck, _trucks[iSel].ID);
-                        FillGridTrucks(wcfClient);
-                    }
+                        if (g == gridPallets)
+                        {
+                            wcfClient.Client.RemoveItemById(DCSBTypeEnum.TPallet, _pallets[iSel].ID);
+                            FillGridPallets(wcfClient);
+                        }
+                        else if (g == gridInterlayers)
+                        {
+                            wcfClient.Client.RemoveItemById(DCSBTypeEnum.TInterlayer, _interlayers[iSel].ID);
+                            FillGridInterlayers(wcfClient);
+                        }
+                        else if (g == gridPalletCorners)
+                        {
+                            wcfClient.Client.RemoveItemById(DCSBTypeEnum.TPalletCorner, _palletCorners[iSel].ID);
+                            FillGridPalletCorners(wcfClient);
+                        }
+                        else if (g == gridPalletCaps)
+                        {
+                            wcfClient.Client.RemoveItemById(DCSBTypeEnum.TPalletCap, _palletCaps[iSel].ID);
+                            FillGridPalletCaps(wcfClient);
+                        }
+                        else if (g == gridPalletFilms)
+                        {
+                            wcfClient.Client.RemoveItemById(DCSBTypeEnum.TPalletFilm, _palletFilms[iSel].ID);
+                            FillGridPalletFilms(wcfClient);
+                        }
+                        else if (g == gridBoxes)
+                        {
+                            wcfClient.Client.RemoveItemById(DCSBTypeEnum.TCase, _boxes[iSel].ID);
+                            FillGridBoxes(wcfClient);
+                        }
+                        else if (g == gridCases)
+                        {
+                            wcfClient.Client.RemoveItemById(DCSBTypeEnum.TCase, _cases[iSel].ID);
+                            FillGridCases(wcfClient);
+                        }
+                        else if (g == gridBundles)
+                        {
+                            wcfClient.Client.RemoveItemById(DCSBTypeEnum.TBundle, _bundles[iSel].ID);
+                            FillGridBundles(wcfClient);
+                        }
+                        else if (g == gridCylinders)
+                        {
+                            wcfClient.Client.RemoveItemById(DCSBTypeEnum.TCylinder, _cylinders[iSel].ID);
+                            FillGridCylinders(wcfClient);
+                        }
+                        else if (g == gridTrucks)
+                        {
+                            wcfClient.Client.RemoveItemById(DCSBTypeEnum.TTruck, _trucks[iSel].ID);
+                            FillGridTrucks(wcfClient);
+                        }
+                        else if (g == gridBags)
+                        {
+                            wcfClient.Client.RemoveItemById(DCSBTypeEnum.TBag, _bags[iSel].ID);
+                            FillGridBags(wcfClient);
+                        }
+                        else if (g == gridBottles)
+                        {
+                            wcfClient.Client.RemoveItemById(DCSBTypeEnum.TBottle, _bottles[iSel].ID);
+                            FillGridBottles(wcfClient);
+                        }
                 }
                 UpdateButtons();
             }
@@ -1008,6 +1163,8 @@ namespace treeDiM.StackBuilder.Desktop
                     if (g == gridBundles) _selectedItem = _bundles[iSel];
                     if (g == gridCylinders) _selectedItem = _cylinders[iSel];
                     if (g == gridTrucks) _selectedItem = _trucks[iSel];
+                    if (g == gridBags) _selectedItem = _bags[iSel];
+                    if (g == gridBottles) _selectedItem = _bottles[iSel];
                 }
                 graphCtrl.Invalidate();
             }
@@ -1116,13 +1273,38 @@ namespace treeDiM.StackBuilder.Desktop
                 // trucks
                 if (_selectedItem is DCSBTruck dcsbTruck)
                 {
-                    TruckProperties truckProp = Document.CreateNewTruck(
+                    var truckProp = Document.CreateNewTruck(
                         name, dcsbTruck.Description,
                         UnitsManager.ConvertLengthFrom(dcsbTruck.DimensionsInner.M0, us),
                         UnitsManager.ConvertLengthFrom(dcsbTruck.DimensionsInner.M1, us),
                         UnitsManager.ConvertLengthFrom(dcsbTruck.DimensionsInner.M2, us),
                         UnitsManager.ConvertMassFrom(dcsbTruck.AdmissibleLoad, us),
                         Color.FromArgb(dcsbTruck.Color)
+                        );
+                }
+                if (_selectedItem is DCSBBag dcsbBag)
+                {
+                    var bagProp = Document.CreateNewBag(
+                        name, dcsbBag.Description,
+                        new Vector3D(UnitsManager.ConvertLengthFrom(dcsbBag.DimensionsOuter.M0, us), UnitsManager.ConvertLengthFrom(dcsbBag.DimensionsOuter.M1, us), UnitsManager.ConvertLengthFrom(dcsbBag.DimensionsOuter.M2, us)),
+                        UnitsManager.ConvertLengthFrom(dcsbBag.Radius, us),
+                        UnitsManager.ConvertMassFrom(dcsbBag.Weight, us),
+                        dcsbBag.NetWeight.HasValue ? new OptDouble(true, UnitsManager.ConvertMassFrom(dcsbBag.NetWeight.Value, us)) : OptDouble.Zero,
+                        Color.FromArgb(dcsbBag.Color)
+                        );                    
+                }
+                if (_selectedItem is DCSBBottle dcsbBottle)
+                {
+                    var profile = new List<Vector2D>();
+                    foreach (var t in dcsbBottle.Diameters)
+                        profile.Add(new Vector2D(UnitsManager.ConvertLengthFrom(t.Item1, us), UnitsManager.ConvertLengthFrom(t.Item2, us)));
+
+                    var bottleProp = Document.CreateNewBottle(
+                        name, dcsbBottle.Description,
+                        profile,
+                        UnitsManager.ConvertMassFrom(dcsbBottle.Weight, us),
+                        dcsbBottle.NetWeight.HasValue ? new OptDouble(true, UnitsManager.ConvertMassFrom(dcsbBottle.NetWeight.Value, us)) : OptDouble.Zero,
+                        Color.FromArgb(dcsbBottle.Color)
                         );
                 }
                 // pallet cap
@@ -1259,6 +1441,8 @@ namespace treeDiM.StackBuilder.Desktop
         private DCSBCylinder[] _cylinders = null;
         private DCSBInterlayer[] _interlayers = null;
         private DCSBTruck[] _trucks = null;
+        private DCSBBag[] _bags = null;
+        private DCSBBottle[] _bottles = null;
         private DocumentSB _doc = null;
         #endregion
     }

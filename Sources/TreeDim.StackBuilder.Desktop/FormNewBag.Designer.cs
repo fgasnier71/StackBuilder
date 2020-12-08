@@ -76,6 +76,11 @@
             // uCtrlRadius
             // 
             resources.ApplyResources(this.uCtrlRadius, "uCtrlRadius");
+            this.uCtrlRadius.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlRadius.Minimum = new decimal(new int[] {
             0,
             0,
@@ -123,6 +128,11 @@
             // uCtrlWeight
             // 
             resources.ApplyResources(this.uCtrlWeight, "uCtrlWeight");
+            this.uCtrlWeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlWeight.Minimum = new decimal(new int[] {
             0,
             0,
@@ -248,7 +258,8 @@
             resources.GetString("cbColor.Items97"),
             resources.GetString("cbColor.Items98"),
             resources.GetString("cbColor.Items99"),
-            resources.GetString("cbColor.Items100")});
+            resources.GetString("cbColor.Items100"),
+            resources.GetString("cbColor.Items101")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
@@ -260,6 +271,7 @@
             // graphCtrl
             // 
             resources.ApplyResources(this.graphCtrl, "graphCtrl");
+            this.graphCtrl.AngleHoriz = 45D;
             this.graphCtrl.Name = "graphCtrl";
             this.graphCtrl.TabStop = false;
             this.graphCtrl.Viewer = null;
