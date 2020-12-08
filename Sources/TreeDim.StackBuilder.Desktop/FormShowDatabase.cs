@@ -44,6 +44,8 @@ namespace treeDiM.StackBuilder.Desktop
             gridCylinders.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
             gridInterlayers.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
             gridTrucks.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
+            gridBags.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
+            gridBottles.Selection.SelectionChanged += new SourceGrid.RangeRegionChangedEventHandler(OnSelChangeGrid);
 
             tabCtrlDBItems.SelectedIndex = 0;
             OnSelectedTabChanged(this, null);
@@ -223,8 +225,8 @@ namespace treeDiM.StackBuilder.Desktop
                     double height = 0.0;
                     foreach (var t in dcsbBottle.Diameters)
                     {
-                        height = Math.Max(height, (double)t.Item1);
-                        diameter = Math.Max(diameter, (double)t.Item2);
+                        height = Math.Max(height, t.Item1);
+                        diameter = Math.Max(diameter, t.Item2);
                         profile.Add(new Vector2D(UnitsManager.ConvertLengthFrom(t.Item1, us), UnitsManager.ConvertLengthFrom(t.Item2, us)));
                     }
                     var bottleProp = new BottleProperties(

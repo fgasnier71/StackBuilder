@@ -144,6 +144,7 @@ namespace treeDiM.StackBuilder.Desktop
                                 Description = ItemDescription,
                                 UnitSystem = (int)UnitsManager.CurrentUnitSystem,
                                 DimensionsOuter = new DCSBDim3D() { M0 = uCtrlOuterDimensions.ValueX, M1 = uCtrlOuterDimensions.ValueY, M2 = uCtrlOuterDimensions.ValueZ },
+                                Radius = RoundingRadius,
                                 Color = color,
                                 Weight = Weight,
                                 NetWeight = NetWeight.Activated ? NetWeight.Value : new double?(),
