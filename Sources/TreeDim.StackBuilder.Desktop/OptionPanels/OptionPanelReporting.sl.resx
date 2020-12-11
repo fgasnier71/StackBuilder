@@ -153,4 +153,13 @@
   <data name="lbTop.Text" xml:space="preserve">
     <value>Top</value>
   </data>
+  <data name="tabMargins.Text" xml:space="preserve">
+    <value>Robovi</value>
+  </data>
+  <data name="uCtrlTimeBeforeDeletion.Text" xml:space="preserve">
+    <value>Brisanje slik po</value>
+  </data>
+  <data name="tabImageDeletion.Text" xml:space="preserve">
+    <value>Brisanje slike</value>
+  </data>
 </root>

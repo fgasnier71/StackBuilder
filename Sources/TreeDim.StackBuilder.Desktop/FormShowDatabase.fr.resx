@@ -329,4 +329,10 @@
   <data name="bnRemoveAll.Text" xml:space="preserve">
     <value>Supprimer tous les</value>
   </data>
+  <data name="tabPageBags.Text" xml:space="preserve">
+    <value>Sacs</value>
+  </data>
+  <data name="tabPageBottles.Text" xml:space="preserve">
+    <value>Bouteilles</value>
+  </data>
 </root>

@@ -291,4 +291,7 @@
   <data name="uCtrlMaxLoadWeight.Text" xml:space="preserve">
     <value>Peso de carga admissível</value>
   </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

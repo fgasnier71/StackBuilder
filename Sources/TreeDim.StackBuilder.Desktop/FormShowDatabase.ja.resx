@@ -312,4 +312,10 @@
   <data name="lbCount.Text" xml:space="preserve">
     <value>0 から 1-20</value>
   </data>
+  <data name="tabPageBags.Text" xml:space="preserve">
+    <value>バッグ</value>
+  </data>
+  <data name="tabPageBottles.Text" xml:space="preserve">
+    <value>ボトル</value>
+  </data>
 </root>

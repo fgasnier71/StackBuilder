@@ -171,4 +171,7 @@
   <data name="bnEditLayer.Text" xml:space="preserve">
     <value>Ausgewählte Ebene bearbeiten</value>
   </data>
+  <data name="bnEditLayerRight.Text" xml:space="preserve">
+    <value>Bearbeiten...</value>
+  </data>
 </root>

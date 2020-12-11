@@ -171,4 +171,7 @@
   <data name="bnEditLayer.Text" xml:space="preserve">
     <value>Отсечение выбранного слоя</value>
   </data>
+  <data name="bnEditLayerRight.Text" xml:space="preserve">
+    <value>Редактировать...</value>
+  </data>
 </root>

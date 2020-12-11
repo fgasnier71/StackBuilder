@@ -264,4 +264,10 @@
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>重量</value>
   </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>还行</value>
+  </data>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>重量</value>
+  </data>
 </root>

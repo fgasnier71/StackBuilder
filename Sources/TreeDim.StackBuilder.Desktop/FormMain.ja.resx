@@ -825,4 +825,19 @@
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>新しいボトル</value>
   </data>
+  <data name="toolStripMenuItemBag.Text" xml:space="preserve">
+    <value>新しいバッグ</value>
+  </data>
+  <data name="toolStripMenuItemPalletLabel.Text" xml:space="preserve">
+    <value>新しいパレット ラベル</value>
+  </data>
+  <data name="toolStripButtonBag.Text" xml:space="preserve">
+    <value>ツールストリップボタンバッグ</value>
+  </data>
+  <data name="toolStripMIPalletLabel.Text" xml:space="preserve">
+    <value>パレットラベル</value>
+  </data>
+  <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
+    <value>新しいパレット ラベルを追加します。</value>
+  </data>
 </root>

@@ -963,4 +963,25 @@
   <data name="vcWeight.Text" xml:space="preserve">
     <value>Peso</value>
   </data>
+  <data name="lbWarningBoxCaseAnalysis.Text" xml:space="preserve">
+    <value>(por favor, defina se deve ser usado como um caso na análise caixa/caso)</value>
+  </data>
+  <data name="cbColor.Items129" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbColor.Items130" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbColor.Items131" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbTapeColor.Items130" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbTapeColor.Items131" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbTapeColor.Items132" xml:space="preserve">
+    <value>Cor</value>
+  </data>
 </root>

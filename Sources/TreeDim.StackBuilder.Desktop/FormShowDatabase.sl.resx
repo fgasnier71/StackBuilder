@@ -183,4 +183,10 @@
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>Orodja</value>
   </data>
+  <data name="tabPageBags.Text" xml:space="preserve">
+    <value>Vrečke</value>
+  </data>
+  <data name="tabPageBottles.Text" xml:space="preserve">
+    <value>Steklenice</value>
+  </data>
 </root>

@@ -16,7 +16,6 @@ using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Engine;
 using treeDiM.StackBuilder.TechnologyBSA_ASPNET;
-
 #endregion
 
 public class HandlerLayerThumb : IHttpHandler, IRequiresSessionState
@@ -26,12 +25,12 @@ public class HandlerLayerThumb : IHttpHandler, IRequiresSessionState
         try
         {
             Vector3D caseDim = Vector3D.Parse((string)context.Session[SessionVariables.DimCase]);
-            int palletIndex = (int)context.Session[SessionVariables.PalletIndex];
-            Vector2D dimContainer = PalletStacking.PalletIndexToDim2D(palletIndex);
             int numberOfLayers = (int)context.Session[SessionVariables.NumberOfLayers];
 
+            string sPalletIndex = context.Request.QueryString["PalletIndex"];
+            int palletIndex = int.Parse(sPalletIndex);
+            Vector2D dimContainer = PalletStacking.PalletIndexToDim2D(palletIndex);
             string sLayerDesc = context.Request.QueryString["LayerDesc"];
-
             var layerDesc = LayerDescBox.Parse(sLayerDesc) as LayerDescBox;
             LayerSolver solver = new LayerSolver();
             var layer = solver.BuildLayer(caseDim, dimContainer, layerDesc, 0.0);

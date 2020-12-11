@@ -979,4 +979,25 @@
   <data name="bnOK.Text" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="lbWarningBoxCaseAnalysis.Text" xml:space="preserve">
+    <value>(s’il vous plaît, définissez s’il faut être utilisé comme un cas dans l’analyse boîte / cas)</value>
+  </data>
+  <data name="cbColor.Items129" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items130" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbColor.Items131" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbTapeColor.Items130" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbTapeColor.Items131" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbTapeColor.Items132" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
 </root>

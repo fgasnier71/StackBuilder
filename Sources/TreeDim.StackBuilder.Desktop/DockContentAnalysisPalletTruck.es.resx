@@ -132,4 +132,10 @@
   <data name="uCtrlMaxNoPallets.Text" xml:space="preserve">
     <value>Número máximo de palets</value>
   </data>
+  <data name="toolStripButtonScreenshot.Text" xml:space="preserve">
+    <value>Tome una captura de pantalla y agregue al portapapeles</value>
+  </data>
+  <data name="toolStripButtonScreenshot.ToolTipText" xml:space="preserve">
+    <value>Tome una captura de pantalla y agregue al portapapeles</value>
+  </data>
 </root>

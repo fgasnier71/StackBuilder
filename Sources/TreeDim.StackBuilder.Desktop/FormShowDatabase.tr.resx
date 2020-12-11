@@ -183,4 +183,10 @@
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>Araçları</value>
   </data>
+  <data name="tabPageBags.Text" xml:space="preserve">
+    <value>Çanta</value>
+  </data>
+  <data name="tabPageBottles.Text" xml:space="preserve">
+    <value>Şişe</value>
+  </data>
 </root>

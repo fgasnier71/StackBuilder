@@ -900,4 +900,58 @@ Kontynuować?</value>
   <data name="ID_WARNINGEDITLAYER" xml:space="preserve">
     <value>Należy pamiętać, że tylko konta "Premium" mogą używać zmodyfikowanej warstwy w palecie.</value>
   </data>
+  <data name="ID_ADDNEWBAG" xml:space="preserve">
+    <value>Dodaj nową torbę...</value>
+  </data>
+  <data name="ID_ADDNEWPALLETLABEL" xml:space="preserve">
+    <value>Dodaj nową etykietę paletową...</value>
+  </data>
+  <data name="ID_BAG" xml:space="preserve">
+    <value>Torba</value>
+  </data>
+  <data name="ID_INVALIDROUNDINGRADIUS" xml:space="preserve">
+    <value>Nieprawidłowy promień zaokrąglania</value>
+  </data>
+  <data name="ID_LABEL" xml:space="preserve">
+    <value>Etykiety</value>
+  </data>
+  <data name="ID_LINEARMASS" xml:space="preserve">
+    <value>Masa liniowa</value>
+  </data>
+  <data name="ID_MOVEDOWN" xml:space="preserve">
+    <value>Przenieś w dół</value>
+  </data>
+  <data name="ID_MOVEUP" xml:space="preserve">
+    <value>Przenieś w górę</value>
+  </data>
+  <data name="ID_MULTIPLELAYER" xml:space="preserve">
+    <value>Wielowarstwowe</value>
+  </data>
+  <data name="ID_NODE_PALLETACCESSORIES" xml:space="preserve">
+    <value>Akcesoria paletowe</value>
+  </data>
+  <data name="ID_PALLETLABEL" xml:space="preserve">
+    <value>Etykieta paletowa</value>
+  </data>
+  <data name="ID_PALLETSIDE" xml:space="preserve">
+    <value>Strona palety</value>
+  </data>
+  <data name="ID_PALLETSTACKON" xml:space="preserve">
+    <value>Stos palet włączony</value>
+  </data>
+  <data name="ID_POSX" xml:space="preserve">
+    <value>Horiz. Pozycji</value>
+  </data>
+  <data name="ID_POSY" xml:space="preserve">
+    <value>Pozycja Vert.</value>
+  </data>
+  <data name="ID_RADIUSROUNDING_WU" xml:space="preserve">
+    <value>Promień ({0})</value>
+  </data>
+  <data name="ID_SPACES" xml:space="preserve">
+    <value>Przestrzenie</value>
+  </data>
+  <data name="ID_VALUE" xml:space="preserve">
+    <value>Wartość</value>
+  </data>
 </root>

@@ -183,4 +183,10 @@
   <data name="toolStripMain.Text" xml:space="preserve">
     <value>Ferramentas</value>
   </data>
+  <data name="tabPageBags.Text" xml:space="preserve">
+    <value>Sacos</value>
+  </data>
+  <data name="tabPageBottles.Text" xml:space="preserve">
+    <value>Garrafas</value>
+  </data>
 </root>

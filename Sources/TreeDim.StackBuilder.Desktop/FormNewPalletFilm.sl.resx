@@ -189,4 +189,16 @@
   <data name="uCtrlSpacing.Text" xml:space="preserve">
     <value>Razmik</value>
   </data>
+  <data name="uCtrlMass.Text" xml:space="preserve">
+    <value>Težo</value>
+  </data>
+  <data name="cbColor.Items17" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbColor.Items18" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbColor.Items19" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
 </root>

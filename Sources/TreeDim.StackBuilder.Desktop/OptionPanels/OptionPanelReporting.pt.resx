@@ -153,4 +153,13 @@
   <data name="lbTop.Text" xml:space="preserve">
     <value>Início</value>
   </data>
+  <data name="tabMargins.Text" xml:space="preserve">
+    <value>Margens</value>
+  </data>
+  <data name="uCtrlTimeBeforeDeletion.Text" xml:space="preserve">
+    <value>Exclua imagens após</value>
+  </data>
+  <data name="tabImageDeletion.Text" xml:space="preserve">
+    <value>Exclusão de imagem</value>
+  </data>
 </root>

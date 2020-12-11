@@ -334,4 +334,7 @@
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Gewicht</value>
   </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

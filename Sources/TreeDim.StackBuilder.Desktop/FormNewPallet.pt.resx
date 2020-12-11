@@ -231,4 +231,7 @@
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Peso</value>
   </data>
+  <data name="bnAccept.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

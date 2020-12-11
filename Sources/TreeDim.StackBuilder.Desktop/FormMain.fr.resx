@@ -1867,4 +1867,16 @@
         AAD//wAA//8AAA==
 </value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>StackBuilder</value>
+  </data>
+  <data name="toolStripMenuItemPalletLabel.Text" xml:space="preserve">
+    <value>Nouvelle étiquette de palette</value>
+  </data>
+  <data name="toolStripButtonBag.Text" xml:space="preserve">
+    <value>outilStripButtonBag</value>
+  </data>
+  <data name="toolStripStandard.Text" xml:space="preserve">
+    <value>Standard</value>
+  </data>
 </root>

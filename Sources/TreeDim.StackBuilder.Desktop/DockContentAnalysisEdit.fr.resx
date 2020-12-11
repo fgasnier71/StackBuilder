@@ -323,4 +323,7 @@
   <data name="toolStripButtonScreenShot.ToolTipText" xml:space="preserve">
     <value>Prendre une capture d'écran et l'ajouter au presse-papiers</value>
   </data>
+  <data name="toolStripButtonExportGLB.Text" xml:space="preserve">
+    <value>Exportation comme GLB...</value>
+  </data>
 </root>

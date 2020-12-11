@@ -159,4 +159,67 @@
   <data name="tabPagePalletCornersTop.Text" xml:space="preserve">
     <value>Pall hörn Topp</value>
   </data>
+  <data name="chkbPalletCornersTopY.Text" xml:space="preserve">
+    <value>Pallhörnor (bredd)</value>
+  </data>
+  <data name="chkbPalletCornersTopX.Text" xml:space="preserve">
+    <value>Pallhörnor (längd)</value>
+  </data>
+  <data name="uCtrlPalletFilmCovering.Text" xml:space="preserve">
+    <value>Film topp täcker</value>
+  </data>
+  <data name="bnAdd.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="tabPagePalletLabels.Text" xml:space="preserve">
+    <value>Etiketter</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items1" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items2" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items3" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items4" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items5" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items6" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items7" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items8" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items9" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items10" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items11" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items12" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items13" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="chkbPalletSleeve.Text" xml:space="preserve">
+    <value>Ärm</value>
+  </data>
+  <data name="tabPagePalletSleeve.Text" xml:space="preserve">
+    <value>Ärm</value>
+  </data>
 </root>

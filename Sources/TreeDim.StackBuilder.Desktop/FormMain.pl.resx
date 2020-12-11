@@ -1989,4 +1989,19 @@
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>Nowa butelka</value>
   </data>
+  <data name="toolStripMenuItemBag.Text" xml:space="preserve">
+    <value>Nowa torba</value>
+  </data>
+  <data name="toolStripMenuItemPalletLabel.Text" xml:space="preserve">
+    <value>Nowa etykieta paletowa</value>
+  </data>
+  <data name="toolStripButtonBag.Text" xml:space="preserve">
+    <value>narzędzieStripButtonBag</value>
+  </data>
+  <data name="toolStripMIPalletLabel.Text" xml:space="preserve">
+    <value>Etykieta paletowa</value>
+  </data>
+  <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
+    <value>Dodaj nową etykietę paletową...</value>
+  </data>
 </root>

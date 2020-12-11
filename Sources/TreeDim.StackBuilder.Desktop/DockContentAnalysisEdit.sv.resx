@@ -150,4 +150,13 @@
   <data name="toolStripButtonExport3D.Text" xml:space="preserve">
     <value>Exportera 3D-modell...</value>
   </data>
+  <data name="toolStripButtonExportGLB.Text" xml:space="preserve">
+    <value>Exportera som GLB...</value>
+  </data>
+  <data name="toolStripButtonScreenShot.Text" xml:space="preserve">
+    <value>Ta en skärmbild och lägg till i Urklipp</value>
+  </data>
+  <data name="toolStripButtonScreenShot.ToolTipText" xml:space="preserve">
+    <value>Ta en skärmbild och lägg till i Urklipp</value>
+  </data>
 </root>

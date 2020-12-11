@@ -159,4 +159,67 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Analiza primera/palete...</value>
   </data>
+  <data name="chkbPalletCornersTopY.Text" xml:space="preserve">
+    <value>Koti za stranišče (širina)</value>
+  </data>
+  <data name="chkbPalletCornersTopX.Text" xml:space="preserve">
+    <value>Koti za stranišče (dolžina)</value>
+  </data>
+  <data name="uCtrlPalletFilmCovering.Text" xml:space="preserve">
+    <value>Filmska obloga na vrhu</value>
+  </data>
+  <data name="bnAdd.Text" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="tabPagePalletLabels.Text" xml:space="preserve">
+    <value>Oznake</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items1" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items2" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items3" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items4" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items5" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items6" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items7" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items8" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items9" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items10" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items11" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items12" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items13" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="chkbPalletSleeve.Text" xml:space="preserve">
+    <value>Rokav</value>
+  </data>
+  <data name="tabPagePalletSleeve.Text" xml:space="preserve">
+    <value>Rokav</value>
+  </data>
 </root>

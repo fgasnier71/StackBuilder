@@ -73,10 +73,14 @@ namespace treeDiM.StackBuilder.Basics
         {
             if (!(constraintSet is ConstraintSetPackablePallet constraintSetPackablePallet))
                 throw new InvalidConstraintSetException();
+            double stackingHeight = 0.0;
+            if (constraintSetPackablePallet.OptMaxHeight.Activated)
+                stackingHeight = constraintSetPackablePallet.OptMaxHeight.Value - Height;
+
             return new Vector3D(
                 _length + 2.0 * constraintSetPackablePallet.Overhang.X
                 , _width + 2.0 * constraintSetPackablePallet.Overhang.Y
-                , constraintSetPackablePallet.OptMaxHeight.Value - Height);
+                , stackingHeight);
         }
         #endregion
 

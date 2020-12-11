@@ -162,4 +162,7 @@
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>Saliência</value>
   </data>
+  <data name="bnEditLayerRight.Text" xml:space="preserve">
+    <value>Editar...</value>
+  </data>
 </root>

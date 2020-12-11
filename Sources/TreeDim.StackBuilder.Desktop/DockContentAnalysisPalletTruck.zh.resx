@@ -132,4 +132,10 @@
   <data name="uCtrlMaxNoPallets.Text" xml:space="preserve">
     <value>最大托盘数量</value>
   </data>
+  <data name="toolStripButtonScreenshot.Text" xml:space="preserve">
+    <value>截屏并添加到剪贴板</value>
+  </data>
+  <data name="toolStripButtonScreenshot.ToolTipText" xml:space="preserve">
+    <value>截屏并添加到剪贴板</value>
+  </data>
 </root>

@@ -132,4 +132,10 @@
   <data name="uCtrlMaxNoPallets.Text" xml:space="preserve">
     <value>Maksimum palet sayısı</value>
   </data>
+  <data name="toolStripButtonScreenshot.Text" xml:space="preserve">
+    <value>Ekran görüntüsü alın ve panoya ekleyin</value>
+  </data>
+  <data name="toolStripButtonScreenshot.ToolTipText" xml:space="preserve">
+    <value>Ekran görüntüsü alın ve panoya ekleyin</value>
+  </data>
 </root>

@@ -495,4 +495,19 @@
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>Новая бутылка</value>
   </data>
+  <data name="toolStripMenuItemBag.Text" xml:space="preserve">
+    <value>Новый мешок</value>
+  </data>
+  <data name="toolStripMenuItemPalletLabel.Text" xml:space="preserve">
+    <value>Новая этикетка поддонов</value>
+  </data>
+  <data name="toolStripButtonBag.Text" xml:space="preserve">
+    <value>toolStripButtonBag</value>
+  </data>
+  <data name="toolStripMIPalletLabel.Text" xml:space="preserve">
+    <value>Этикетка поддона</value>
+  </data>
+  <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
+    <value>Добавьте новую этикетку поддонов...</value>
+  </data>
 </root>

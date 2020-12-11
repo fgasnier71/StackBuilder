@@ -314,4 +314,13 @@
   <data name="toolStripButtonExport3D.Text" xml:space="preserve">
     <value>Exportar modelo 3D...</value>
   </data>
+  <data name="toolStripButtonExportGLB.Text" xml:space="preserve">
+    <value>Exportar como GLB...</value>
+  </data>
+  <data name="toolStripButtonScreenShot.Text" xml:space="preserve">
+    <value>Tome una captura de pantalla y agregue al portapapeles</value>
+  </data>
+  <data name="toolStripButtonScreenShot.ToolTipText" xml:space="preserve">
+    <value>Tome una captura de pantalla y agregue al portapapeles</value>
+  </data>
 </root>

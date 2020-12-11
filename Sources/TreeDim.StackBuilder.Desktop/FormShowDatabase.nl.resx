@@ -183,4 +183,10 @@
   <data name="lbCount.Text" xml:space="preserve">
     <value>1-20 uit 0</value>
   </data>
+  <data name="tabPageBags.Text" xml:space="preserve">
+    <value>Zakken</value>
+  </data>
+  <data name="tabPageBottles.Text" xml:space="preserve">
+    <value>Flessen</value>
+  </data>
 </root>

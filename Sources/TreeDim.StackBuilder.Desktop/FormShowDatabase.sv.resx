@@ -183,4 +183,10 @@
   <data name="lbCount.Text" xml:space="preserve">
     <value>1-20 av 0</value>
   </data>
+  <data name="tabPageBags.Text" xml:space="preserve">
+    <value>Väskor</value>
+  </data>
+  <data name="tabPageBottles.Text" xml:space="preserve">
+    <value>Flaskor</value>
+  </data>
 </root>

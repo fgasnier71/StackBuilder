@@ -291,4 +291,7 @@
   <data name="uCtrlMaxLoadWeight.Text" xml:space="preserve">
     <value>Dopustna teža bremena</value>
   </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>v redu</value>
+  </data>
 </root>

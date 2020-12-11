@@ -166,4 +166,13 @@
   <data name="lbTop.Text" xml:space="preserve">
 		<value>トップ</value>
 	</data>
+  <data name="tabMargins.Text" xml:space="preserve">
+    <value>余白</value>
+  </data>
+  <data name="uCtrlTimeBeforeDeletion.Text" xml:space="preserve">
+    <value>後の画像を削除</value>
+  </data>
+  <data name="tabImageDeletion.Text" xml:space="preserve">
+    <value>画像の削除</value>
+  </data>
 </root>

@@ -1030,4 +1030,25 @@
   <data name="tabPageTape.Text" xml:space="preserve">
     <value>Nastro</value>
   </data>
+  <data name="lbWarningBoxCaseAnalysis.Text" xml:space="preserve">
+    <value>(si prega di definire se essere utilizzato come caso nell'analisi casella/caso)</value>
+  </data>
+  <data name="cbColor.Items129" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items130" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items131" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbTapeColor.Items130" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbTapeColor.Items131" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbTapeColor.Items132" xml:space="preserve">
+    <value>Colore</value>
+  </data>
 </root>

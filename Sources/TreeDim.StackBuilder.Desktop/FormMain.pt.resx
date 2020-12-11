@@ -480,4 +480,19 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Construtor de pilhas</value>
   </data>
+  <data name="toolStripMenuItemBag.Text" xml:space="preserve">
+    <value>Novo Saco</value>
+  </data>
+  <data name="toolStripMenuItemPalletLabel.Text" xml:space="preserve">
+    <value>Novo rótulo de palete</value>
+  </data>
+  <data name="toolStripButtonBag.Text" xml:space="preserve">
+    <value>ferramentasStripButtonBag</value>
+  </data>
+  <data name="toolStripMIPalletLabel.Text" xml:space="preserve">
+    <value>Etiqueta de palete</value>
+  </data>
+  <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
+    <value>Adicione novo rótulo de palete...</value>
+  </data>
 </root>

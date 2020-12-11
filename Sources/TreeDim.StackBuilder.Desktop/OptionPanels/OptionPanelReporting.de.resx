@@ -157,4 +157,13 @@
   <data name="lbTop.Text" xml:space="preserve">
     <value>Nach oben</value>
   </data>
+  <data name="tabMargins.Text" xml:space="preserve">
+    <value>Ränder</value>
+  </data>
+  <data name="uCtrlTimeBeforeDeletion.Text" xml:space="preserve">
+    <value>Löschen von Bildern nach</value>
+  </data>
+  <data name="tabImageDeletion.Text" xml:space="preserve">
+    <value>Bildlöschung</value>
+  </data>
 </root>

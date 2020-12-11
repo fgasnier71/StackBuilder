@@ -477,4 +477,25 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Yeni paket oluşturun...</value>
   </data>
+  <data name="cbWrapperColor.Items43" xml:space="preserve">
+    <value>Renk</value>
+  </data>
+  <data name="cbTrayColor.Items45" xml:space="preserve">
+    <value>Renk</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>Renk</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>Renk</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>Renk</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>Renk</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>Renk</value>
+  </data>
 </root>

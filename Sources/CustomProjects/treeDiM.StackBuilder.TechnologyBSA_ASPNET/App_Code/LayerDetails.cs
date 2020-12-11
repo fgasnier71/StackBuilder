@@ -2,7 +2,7 @@
 {
     public class LayerDetails
     {
-        public LayerDetails(string name, string layerDesc, int noCasesPerLayer, int noLayers, double length, double width, double height)
+        public LayerDetails(string name, string layerDesc, int noCasesPerLayer, int noLayers, double length, double width, double height, int palletIndex)
         {
             Name = name;
             LayerDesc = layerDesc;
@@ -11,6 +11,7 @@
             Length = length;
             Width = width;
             Height = height;
+            PalletIndex = palletIndex;
         }
         public string Name { get; set; }
         public int NoLayers { get; set; }
@@ -21,5 +22,6 @@
         public int NoCases => NoLayers * NoCasesPerLayer;
         public string LayerDesc { get; set; }
         public string Dimensions => $"{Length}x{Width}x{Height}";
+        public int PalletIndex { get; set; }
     }
 }

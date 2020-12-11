@@ -162,4 +162,7 @@
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>Previs</value>
   </data>
+  <data name="bnEditLayerRight.Text" xml:space="preserve">
+    <value>Urejanje...</value>
+  </data>
 </root>

@@ -1495,4 +1495,19 @@
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>Neue Flasche</value>
   </data>
+  <data name="toolStripMenuItemBag.Text" xml:space="preserve">
+    <value>Neue Tasche</value>
+  </data>
+  <data name="toolStripMenuItemPalletLabel.Text" xml:space="preserve">
+    <value>Neues Palettenetikett</value>
+  </data>
+  <data name="toolStripButtonBag.Text" xml:space="preserve">
+    <value>toolStripButtonBag</value>
+  </data>
+  <data name="toolStripMIPalletLabel.Text" xml:space="preserve">
+    <value>Palettenetikett</value>
+  </data>
+  <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
+    <value>Neues Palettenetikett hinzufügen...</value>
+  </data>
 </root>

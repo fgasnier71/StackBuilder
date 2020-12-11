@@ -495,4 +495,19 @@
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>新瓶</value>
   </data>
+  <data name="toolStripMenuItemBag.Text" xml:space="preserve">
+    <value>新包</value>
+  </data>
+  <data name="toolStripMenuItemPalletLabel.Text" xml:space="preserve">
+    <value>新托盘标签</value>
+  </data>
+  <data name="toolStripButtonBag.Text" xml:space="preserve">
+    <value>工具条纹按钮袋</value>
+  </data>
+  <data name="toolStripMIPalletLabel.Text" xml:space="preserve">
+    <value>托盘标签</value>
+  </data>
+  <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
+    <value>添加新的托盘标签...</value>
+  </data>
 </root>

@@ -1002,4 +1002,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Definirajte nov cilinder...</value>
   </data>
+  <data name="cbColorWall.Items63" xml:space="preserve">
+    <value>Barvo</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>v redu</value>
+  </data>
 </root>

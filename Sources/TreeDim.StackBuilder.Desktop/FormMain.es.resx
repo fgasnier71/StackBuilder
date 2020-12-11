@@ -1477,4 +1477,19 @@
   <data name="saveFileDialogExport.Filter" xml:space="preserve">
     <value>eXchange Markup Language (*.xml)|*.xml|Todos los archivos|*.*</value>
   </data>
+  <data name="toolStripMenuItemBag.Text" xml:space="preserve">
+    <value>New Bag</value>
+  </data>
+  <data name="toolStripMenuItemPalletLabel.Text" xml:space="preserve">
+    <value>Nueva etiqueta de palet</value>
+  </data>
+  <data name="toolStripButtonBag.Text" xml:space="preserve">
+    <value>toolStripButtonBag</value>
+  </data>
+  <data name="toolStripMIPalletLabel.Text" xml:space="preserve">
+    <value>Etiqueta de palé</value>
+  </data>
+  <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
+    <value>Añadir nueva etiqueta de palet...</value>
+  </data>
 </root>

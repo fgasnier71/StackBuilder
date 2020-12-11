@@ -219,7 +219,7 @@
     <value>uCtrlRadius</value>
   </data>
   <data name="&gt;&gt;uCtrlRadius.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.2.25, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlRadius.Parent" xml:space="preserve">
     <value>gbDimensions</value>
@@ -246,7 +246,7 @@
     <value>uCtrlOuterDimensions</value>
   </data>
   <data name="&gt;&gt;uCtrlOuterDimensions.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriDouble, treeDiM.Basics, Version=3.0.2.25, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOuterDimensions.Parent" xml:space="preserve">
     <value>gbDimensions</value>
@@ -297,7 +297,7 @@
     <value>uCtrlNetWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlNetWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.2.25, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlNetWeight.Parent" xml:space="preserve">
     <value>gbWeight</value>
@@ -324,7 +324,7 @@
     <value>uCtrlWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.2.25, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlWeight.Parent" xml:space="preserve">
     <value>gbWeight</value>

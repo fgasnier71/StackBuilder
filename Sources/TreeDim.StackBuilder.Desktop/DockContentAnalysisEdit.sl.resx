@@ -147,4 +147,13 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Analizo...</value>
   </data>
+  <data name="toolStripButtonExportGLB.Text" xml:space="preserve">
+    <value>Izvoz kot GLB...</value>
+  </data>
+  <data name="toolStripButtonScreenShot.Text" xml:space="preserve">
+    <value>Slika zaslona in dodajanje v odložišče</value>
+  </data>
+  <data name="toolStripButtonScreenShot.ToolTipText" xml:space="preserve">
+    <value>Slika zaslona in dodajanje v odložišče</value>
+  </data>
 </root>

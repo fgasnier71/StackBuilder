@@ -10,6 +10,9 @@
             border: solid 8px;
             color: lightblue;
         }
+        .auto-style1 {
+            height: 28px;
+        }
     </style>
     <link type="text/css" href="css/default.css" rel="stylesheet" />
     <link href="css/jquery-ui.css" rel="stylesheet" />
@@ -31,7 +34,7 @@
             $('#TBPalletWidth').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             $('#TBPalletHeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             $('#TBPalletWeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
-            $('#TBMaxPalletHeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBNumberOfLayers').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             /* Code to get jQuery UI to work with jQuery 3.4+ ... */
             $.isArray = function (a) {
                 return Object.prototype.toString.call(a) === '[object Array]';
@@ -99,7 +102,7 @@
                                     <asp:Label ID="LBPalletDim" runat="server" Text="Pallet dimensions" CssClass="label" />
                                 </td>
                                 <td class="style65px">
-                                    <asp:DropDownList ID="DropDownPalletDim" runat="server">
+                                    <asp:DropDownList ID="DropDownPalletDim" runat="server" CssClass="select" OnSelectedIndexChanged="BTRefresh_Click" AutoPostBack="True">
                                         <asp:ListItem>1200x800</asp:ListItem>
                                         <asp:ListItem>1200x1000</asp:ListItem>
                                     </asp:DropDownList>
@@ -112,29 +115,29 @@
                                     &nbsp;<td />
                             </tr>
                             <tr>
-                                <td>
+                                <td class="auto-style1">
                                     <asp:Label ID="LBCaseWeight" runat="server" Text="Case weight" CssClass="label" />
                                 </td>
-                                <td>
+                                <td class="auto-style1">
                                     <asp:TextBox ID="TBCaseWeight" runat="server" Width="60px" CssClass="textbox" />
                                 </td>
-                                <td />
-                                <td />
-                                <td>
+                                <td class="auto-style1" />
+                                <td class="auto-style1" />
+                                <td class="auto-style1">
                                     <asp:Label ID="LBCaseWeightUnit" runat="server" Text="kg" CssClass="label" />
                                 </td>
-                                <td>
+                                <td class="auto-style1">
                                     <asp:Label ID="LBPalletWeight" runat="server" Text="Pallet weight" CssClass="label" />
                                 </td>
-                                <td>
+                                <td class="auto-style1">
                                     <asp:TextBox ID="TBPalletWeight" runat="server" Width="60px" CssClass="textbox" />
                                 </td>
-                                <td />
-                                <td />
-                                <td>
+                                <td class="auto-style1" />
+                                <td class="auto-style1" />
+                                <td class="auto-style1">
                                     <asp:Label ID="LBPalletWeightUnit" runat="server" Text="kg" CssClass="label" />
                                 </td>
-                                <td />
+                                <td class="auto-style1" />
                             </tr>
                             <tr>
                                 <td />
@@ -145,7 +148,7 @@
                                 <td>
                                     <asp:Label ID="LBMaximumPalletHeight" runat="server" Text="Number of layers" CssClass="label" /></td>
                                 <td>
-                                    <asp:TextBox ID="TBNumberOfLayers" TextMode="Number" min="1" max="100" runat="server" Width="60px" CssClass="textbox" /></td>
+                                    <asp:TextBox ID="TBNumberOfLayers" min="1" max="100" runat="server" Width="60px" CssClass="textbox" /></td>
                                 <td />
                                 <td />
                                 <td>
@@ -174,7 +177,7 @@
                                     runat="server"
                                     Height='<%# Unit.Parse(ConfigSettings.ThumbSize) %>'
                                     Width='<%# Unit.Parse(ConfigSettings.ThumbSize) %>'
-                                    ImageUrl='<%# "HandlerLayerThumb.ashx?LayerDesc=" + Eval("LayerDesc") + "&Dimensions=" + Eval("Dimensions")%>'
+                                    ImageUrl='<%# "HandlerLayerThumb.ashx?LayerDesc=" + Eval("LayerDesc") + "&Dimensions=" + Eval("Dimensions") + "&PalletIndex=" + Eval("PalletIndex")%>'
                                     CommandName="ImageButtonClick"
                                     CommandArgument='<%# Eval("LayerDesc")%>' Style="flex: 0 0 auto;" />
                             </ItemTemplate>

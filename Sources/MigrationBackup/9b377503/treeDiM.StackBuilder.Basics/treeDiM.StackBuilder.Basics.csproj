@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{444C01D0-53FD-49A1-9D55-267B49161357}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>treeDiM.StackBuilder.Basics</RootNamespace>
+    <AssemblyName>treeDiM.StackBuilder.Basics</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cureos.Measures, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdPartyAssemblies\Cureos.Measures.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MIConvexHull, Version=1.1.19.1018, Culture=neutral, PublicKeyToken=2644b6f8be52c998, processorArchitecture=MSIL">
+      <HintPath>..\packages\MIConvexHull.1.1.19.1019\lib\netstandard2.0\MIConvexHull.dll</HintPath>
+    </Reference>
+    <Reference Include="Sharp3D.Math, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sharp3D.Math.1.0.3\lib\net45\Sharp3D.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.5.0.0\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Analyses\Analysis.cs" />
+    <Compile Include="Analyses\AnalysisCylinderTruck.cs" />
+    <Compile Include="Analyses\AnalysisHCyl.cs" />
+    <Compile Include="Analyses\AnalysisHomo.cs" />
+    <Compile Include="Analyses\AnalysisBoxCase.cs" />
+    <Compile Include="Analyses\AnalysisCasePallet.cs" />
+    <Compile Include="Analyses\AnalysisCaseTruck.cs" />
+    <Compile Include="Analyses\AnalysisCylinderCase.cs" />
+    <Compile Include="Analyses\AnalysisCylinderPallet.cs" />
+    <Compile Include="Analyses\AnalysisHPalletTruck.cs" />
+    <Compile Include="Analyses\AnalysisPackableCase.cs" />
+    <Compile Include="Analyses\AnalysisPackablePallet.cs" />
+    <Compile Include="Analyses\AnalysisPackableTruck.cs" />
+    <Compile Include="Analyses\AnalysisPalletTruck.cs" />
+    <Compile Include="Analyses\AnalysisComparer.cs" />
+    <Compile Include="Analyses\AnalysisHetero.cs" />
+    <Compile Include="Analyses\HAnalysisCase.cs" />
+    <Compile Include="Analyses\HAnalysisPallet.cs" />
+    <Compile Include="Analyses\HAnalysisTruck.cs" />
+    <Compile Include="Analyses\LoadedCase.cs" />
+    <Compile Include="Analyses\LoadedPallet.cs" />
+    <Compile Include="Analyses\PackableLoaded.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetAbstract.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetBoxCase.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetCasePallet.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetCaseTruck.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetCylinderContainer.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetPackableCase.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetPackablePallet.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetPackableTruck.cs" />
+    <Compile Include="ConstraintSets\ConstraintSetPalletTruck.cs" />
+    <Compile Include="ConstraintSets\HConstraintSet.cs" />
+    <Compile Include="ConstraintSets\HConstraintSetCase.cs" />
+    <Compile Include="ConstraintSets\HConstraintSetPallet.cs" />
+    <Compile Include="ConstraintSets\HConstraintSetTruck.cs" />
+    <Compile Include="ConstraintSets\PackPalletConstraintSet.cs" />
+    <Compile Include="Containers\BagProperties.cs" />
+    <Compile Include="Containers\BottleProperties.cs" />
+    <Compile Include="Containers\PackArrangement.cs" />
+    <Compile Include="Containers\PackProperties.cs" />
+    <Compile Include="Containers\PackTray.cs" />
+    <Compile Include="Containers\PackWrapper.cs" />
+    <Compile Include="Containers\Strappers.cs" />
+    <Compile Include="Containers\WrapperCardboard.cs" />
+    <Compile Include="Containers\WrapperPaper.cs" />
+    <Compile Include="Containers\WrapperPolyethilene.cs" />
+    <Compile Include="Controls\CtrlStrapperSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CtrlStrapperSet.Designer.cs">
+      <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FormValueArray.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\FormValueArray.Designer.cs">
+      <DependentUpon>FormValueArray.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Helpers\BBox3D.cs" />
+    <Compile Include="Helpers\BoxelOrdererBPos.cs" />
+    <Compile Include="Helpers\BoxPositionIndexed.cs" />
+    <Compile Include="Helpers\GlobID.cs" />
+    <Compile Include="Helpers\IItemListener.cs" />
+    <Compile Include="Helpers\IPackContainer.cs" />
+    <Compile Include="Helpers\ItemBaseNamed.cs" />
+    <Compile Include="Helpers\Packable.cs" />
+    <Compile Include="Helpers\CylinderPosition.cs" />
+    <Compile Include="Helpers\PackableBrick.cs" />
+    <Compile Include="Helpers\PackableBrickNamed.cs" />
+    <Compile Include="Helpers\PackableNamed.cs" />
+    <Compile Include="IDocumentListener.cs" />
+    <Compile Include="PalletDecoration\PalletCornerProperties.cs" />
+    <Compile Include="PalletDecoration\PalletCapProperties.cs" />
+    <Compile Include="PalletDecoration\PalletFilmProperties.cs" />
+    <Compile Include="PalletDecoration\PalletLabelProperties.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Solutions\BaseSolution.cs" />
+    <Compile Include="Helpers\BoxPosition.cs" />
+    <Compile Include="Containers\CylinderProperties.cs" />
+    <Compile Include="Containers\BoxProperties.cs" />
+    <Compile Include="Containers\CaseOfBoxesProperties.cs" />
+    <Compile Include="Containers\BProperties.cs" />
+    <Compile Include="Containers\BundleProperties.cs" />
+    <Compile Include="Containers\PalletProperties.cs" />
+    <Compile Include="Containers\TruckProperties.cs" />
+    <Compile Include="Solutions\CaseDefinition.cs" />
+    <Compile Include="Solutions\CaseOptimSolution.cs" />
+    <Compile Include="ConstraintSets\PalletConstraintSet.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="Helpers\HalfAxis.cs" />
+    <Compile Include="Containers\InterlayerProperties.cs" />
+    <Compile Include="Helpers\ItemBase.cs" />
+    <Compile Include="Solutions\FastEvaluatorLayer2Pallet.cs" />
+    <Compile Include="Solutions\HCylLayout.cs" />
+    <Compile Include="Solutions\Solution.cs" />
+    <Compile Include="Solutions\SolutionHCyl.cs" />
+    <Compile Include="Solutions\HSolution.cs" />
+    <Compile Include="Solutions\ILayer2D.cs" />
+    <Compile Include="Solutions\Layer2DBrickImp.cs" />
+    <Compile Include="Solutions\Layer2DBrick.cs" />
+    <Compile Include="Solutions\Layer2DCylExp.cs" />
+    <Compile Include="Solutions\Layer2DCylImp.cs" />
+    <Compile Include="Solutions\Layer2DBrickExp.cs" />
+    <Compile Include="Solutions\LayerDesc.cs" />
+    <Compile Include="Solutions\ParamSetPackOptim.cs" />
+    <Compile Include="Solutions\PalletSolution.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\Texture.cs" />
+    <Compile Include="ConstraintSets\TruckConstraintSet.cs" />
+    <Compile Include="Solutions\SolutionLayered.cs" />
+    <Compile Include="UnitsManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OfficePickers\OfficePickers.csproj">
+      <Project>{cad56b75-481b-4c76-b090-4bc2ff5e5681}</Project>
+      <Name>OfficePickers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\treeDiM.Basics\treeDiM.Basics.csproj">
+      <Project>{646ee507-e57d-43a7-93f3-365a687aec4b}</Project>
+      <Name>treeDiM.Basics</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Schemas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\CtrlStrapperSet.fr.resx">
+      <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CtrlStrapperSet.it.resx">
+      <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CtrlStrapperSet.pt.resx">
+      <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CtrlStrapperSet.resx">
+      <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CtrlStrapperSet.sl.resx">
+      <DependentUpon>CtrlStrapperSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FormValueArray.fr.resx">
+      <DependentUpon>FormValueArray.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FormValueArray.it.resx">
+      <DependentUpon>FormValueArray.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FormValueArray.pt.resx">
+      <DependentUpon>FormValueArray.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FormValueArray.resx">
+      <DependentUpon>FormValueArray.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FormValueArray.sl.resx">
+      <DependentUpon>FormValueArray.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de.resx" />
+    <EmbeddedResource Include="Properties\Resources.es.resx" />
+    <EmbeddedResource Include="Properties\Resources.fr.resx" />
+    <EmbeddedResource Include="Properties\Resources.it.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja.resx" />
+    <EmbeddedResource Include="Properties\Resources.nl.resx" />
+    <EmbeddedResource Include="Properties\Resources.pl.resx" />
+    <EmbeddedResource Include="Properties\Resources.pt.resx" />
+    <EmbeddedResource Include="Properties\Resources.ru.resx" />
+    <EmbeddedResource Include="Properties\Resources.sl.resx" />
+    <EmbeddedResource Include="Properties\Resources.sv.resx" />
+    <EmbeddedResource Include="Properties\Resources.tr.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" $(TargetPath)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
+  </Target>
+  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
+    <Error Condition="!Exists('..\packages\NuGet.Build.Tasks.Pack.5.8.0\build\NuGet.Build.Tasks.Pack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Tasks.Pack.5.8.0\build\NuGet.Build.Tasks.Pack.targets'))" />
+  </Target>
+  <Import Project="..\packages\NuGet.Build.Tasks.Pack.5.8.0\build\NuGet.Build.Tasks.Pack.targets" Condition="Exists('..\packages\NuGet.Build.Tasks.Pack.5.8.0\build\NuGet.Build.Tasks.Pack.targets')" />
+</Project>

@@ -159,4 +159,67 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Análise de caso/palete...</value>
   </data>
+  <data name="chkbPalletCornersTopY.Text" xml:space="preserve">
+    <value>Cantos de palete (largura)</value>
+  </data>
+  <data name="chkbPalletCornersTopX.Text" xml:space="preserve">
+    <value>Cantos de palete (comprimento)</value>
+  </data>
+  <data name="uCtrlPalletFilmCovering.Text" xml:space="preserve">
+    <value>Cobertura de topo de filme</value>
+  </data>
+  <data name="bnAdd.Text" xml:space="preserve">
+    <value>Adicionar</value>
+  </data>
+  <data name="tabPagePalletLabels.Text" xml:space="preserve">
+    <value>Rótulos</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items1" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items2" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items3" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items4" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items5" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items6" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items7" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items8" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items9" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items10" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items11" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items12" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items13" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="chkbPalletSleeve.Text" xml:space="preserve">
+    <value>Manga</value>
+  </data>
+  <data name="tabPagePalletSleeve.Text" xml:space="preserve">
+    <value>Manga</value>
+  </data>
 </root>

@@ -896,4 +896,58 @@ Closing form...</value>
   <data name="ID_WARNINGEDITLAYER" xml:space="preserve">
     <value>Si prega di notare che solo gli account "Premium" sono in grado di utilizzare il layer modificato in una pallettizzazione.</value>
   </data>
+  <data name="ID_ADDNEWBAG" xml:space="preserve">
+    <value>Aggiungi nuova borsa...</value>
+  </data>
+  <data name="ID_ADDNEWPALLETLABEL" xml:space="preserve">
+    <value>Aggiungi nuova etichetta pallet...</value>
+  </data>
+  <data name="ID_BAG" xml:space="preserve">
+    <value>Borsa</value>
+  </data>
+  <data name="ID_INVALIDROUNDINGRADIUS" xml:space="preserve">
+    <value>Raggio di arrotondamento non valido</value>
+  </data>
+  <data name="ID_LABEL" xml:space="preserve">
+    <value>Etichetta</value>
+  </data>
+  <data name="ID_LINEARMASS" xml:space="preserve">
+    <value>Massa lineare</value>
+  </data>
+  <data name="ID_MOVEDOWN" xml:space="preserve">
+    <value>Muovi in giù</value>
+  </data>
+  <data name="ID_MOVEUP" xml:space="preserve">
+    <value>Muovi in su</value>
+  </data>
+  <data name="ID_MULTIPLELAYER" xml:space="preserve">
+    <value>Multistrato</value>
+  </data>
+  <data name="ID_NODE_PALLETACCESSORIES" xml:space="preserve">
+    <value>Accessori pallet</value>
+  </data>
+  <data name="ID_PALLETLABEL" xml:space="preserve">
+    <value>Etichetta pallet</value>
+  </data>
+  <data name="ID_PALLETSIDE" xml:space="preserve">
+    <value>Lato pallet</value>
+  </data>
+  <data name="ID_PALLETSTACKON" xml:space="preserve">
+    <value>Pila pallet su</value>
+  </data>
+  <data name="ID_POSX" xml:space="preserve">
+    <value>Orizz. Posizione</value>
+  </data>
+  <data name="ID_POSY" xml:space="preserve">
+    <value>Posizione vert.</value>
+  </data>
+  <data name="ID_RADIUSROUNDING_WU" xml:space="preserve">
+    <value>Raggio ({0})</value>
+  </data>
+  <data name="ID_SPACES" xml:space="preserve">
+    <value>Spazi</value>
+  </data>
+  <data name="ID_VALUE" xml:space="preserve">
+    <value>Valore</value>
+  </data>
 </root>

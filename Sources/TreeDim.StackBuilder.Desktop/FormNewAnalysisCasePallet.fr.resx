@@ -184,4 +184,7 @@
   <data name="uCtrlOverhang.Text" xml:space="preserve">
     <value>Débord</value>
   </data>
+  <data name="bnEditLayerRight.Text" xml:space="preserve">
+    <value>Modifier...</value>
+  </data>
 </root>

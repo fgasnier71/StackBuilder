@@ -276,4 +276,7 @@
   <data name="uCtrlWidth.Text" xml:space="preserve">
     <value>Largura</value>
   </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

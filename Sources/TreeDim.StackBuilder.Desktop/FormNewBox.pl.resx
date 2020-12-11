@@ -1417,4 +1417,25 @@
   <data name="tabPageTape.Text" xml:space="preserve">
     <value>Taśmy</value>
   </data>
+  <data name="lbWarningBoxCaseAnalysis.Text" xml:space="preserve">
+    <value>(proszę określić, czy ma być stosowany jako przypadek w analizie pola/przypadku)</value>
+  </data>
+  <data name="cbColor.Items129" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbColor.Items130" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbColor.Items131" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbTapeColor.Items130" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbTapeColor.Items131" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbTapeColor.Items132" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
 </root>

@@ -132,4 +132,10 @@
   <data name="uCtrlMaxNoPallets.Text" xml:space="preserve">
     <value>Maximum aantal pallets</value>
   </data>
+  <data name="toolStripButtonScreenshot.Text" xml:space="preserve">
+    <value>Een schermafbeelding maken en toevoegen aan klembord</value>
+  </data>
+  <data name="toolStripButtonScreenshot.ToolTipText" xml:space="preserve">
+    <value>Een schermafbeelding maken en toevoegen aan klembord</value>
+  </data>
 </root>

@@ -501,4 +501,19 @@
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>Ny flaska</value>
   </data>
+  <data name="toolStripMenuItemBag.Text" xml:space="preserve">
+    <value>Nya Bag</value>
+  </data>
+  <data name="toolStripMenuItemPalletLabel.Text" xml:space="preserve">
+    <value>Ny palletikett</value>
+  </data>
+  <data name="toolStripButtonBag.Text" xml:space="preserve">
+    <value>verktygStripButtonBag</value>
+  </data>
+  <data name="toolStripMIPalletLabel.Text" xml:space="preserve">
+    <value>Palletikett</value>
+  </data>
+  <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
+    <value>Lägg till ny lastpallsetikett...</value>
+  </data>
 </root>

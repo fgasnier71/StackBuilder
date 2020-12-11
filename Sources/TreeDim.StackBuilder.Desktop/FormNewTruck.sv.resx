@@ -297,4 +297,7 @@
   <data name="cbColor.Items52" xml:space="preserve">
     <value>Färg</value>
   </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>Okej</value>
+  </data>
 </root>

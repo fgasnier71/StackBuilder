@@ -1002,4 +1002,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Yeni bir silindir tanımlayın...</value>
   </data>
+  <data name="cbColorWall.Items63" xml:space="preserve">
+    <value>Renk</value>
+  </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
 </root>

@@ -358,7 +358,7 @@
     <value>uCtrlOuterDimensions</value>
   </data>
   <data name="&gt;&gt;uCtrlOuterDimensions.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptTriDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptTriDouble, treeDiM.Basics, Version=3.0.2.25, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOuterDimensions.Parent" xml:space="preserve">
     <value>$this</value>
@@ -382,7 +382,7 @@
     <value>uCtrlLayout</value>
   </data>
   <data name="&gt;&gt;uCtrlLayout.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlTriInt, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriInt, treeDiM.Basics, Version=3.0.2.25, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlLayout.Parent" xml:space="preserve">
     <value>$this</value>
@@ -409,7 +409,7 @@
     <value>uCtrlWrapperWalls</value>
   </data>
   <data name="&gt;&gt;uCtrlWrapperWalls.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlTriInt, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriInt, treeDiM.Basics, Version=3.0.2.25, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlWrapperWalls.Parent" xml:space="preserve">
     <value>tabWrapper</value>
@@ -466,7 +466,7 @@
     <value>uCtrlWrapperWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlWrapperWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.2.25, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlWrapperWeight.Parent" xml:space="preserve">
     <value>tabWrapper</value>
@@ -493,7 +493,7 @@
     <value>uCtrlWrapperThickness</value>
   </data>
   <data name="&gt;&gt;uCtrlWrapperThickness.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.2.25, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlWrapperThickness.Parent" xml:space="preserve">
     <value>tabWrapper</value>
@@ -763,7 +763,7 @@
     <value>uCtrlTrayWalls</value>
   </data>
   <data name="&gt;&gt;uCtrlTrayWalls.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlTriInt, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlTriInt, treeDiM.Basics, Version=3.0.2.25, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlTrayWalls.Parent" xml:space="preserve">
     <value>tabTray</value>
@@ -790,7 +790,7 @@
     <value>uCtrlTrayUnitThickness</value>
   </data>
   <data name="&gt;&gt;uCtrlTrayUnitThickness.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.2.25, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlTrayUnitThickness.Parent" xml:space="preserve">
     <value>tabTray</value>
@@ -817,7 +817,7 @@
     <value>uCtrlTrayWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlTrayWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.2.25, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlTrayWeight.Parent" xml:space="preserve">
     <value>tabTray</value>
@@ -1036,7 +1036,7 @@
     <value>uCtrlTrayHeight</value>
   </data>
   <data name="&gt;&gt;uCtrlTrayHeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.2.25, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlTrayHeight.Parent" xml:space="preserve">
     <value>tabTray</value>

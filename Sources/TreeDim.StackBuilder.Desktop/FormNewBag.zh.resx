@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,340 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bnSendToDB.Text" xml:space="preserve">
+    <value>发送到数据库</value>
+  </data>
+  <data name="uCtrlRadius.Text" xml:space="preserve">
+    <value>舍入半径</value>
+  </data>
+  <data name="uCtrlOuterDimensions.Text" xml:space="preserve">
+    <value>外部尺寸</value>
+  </data>
+  <data name="gbDimensions.Text" xml:space="preserve">
+    <value>尺寸</value>
+  </data>
+  <data name="uCtrlNetWeight.Text" xml:space="preserve">
+    <value>净重</value>
+  </data>
+  <data name="uCtrlWeight.Text" xml:space="preserve">
+    <value>重量</value>
+  </data>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>重量</value>
+  </data>
+  <data name="cbColor.Items" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items1" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items2" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items3" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items4" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items5" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items6" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items7" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items8" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items9" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items10" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items11" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items12" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items13" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items14" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items15" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items16" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items17" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items18" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items19" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items20" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items21" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items22" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items23" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items24" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items25" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items26" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items27" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items28" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items29" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items30" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items31" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items32" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items33" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items34" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items35" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items36" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items37" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items38" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items39" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items40" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items41" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items42" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items43" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items44" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items45" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items46" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items47" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items48" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items49" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items50" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items51" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items52" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items53" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items54" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items55" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items56" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items57" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items58" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items59" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items60" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items61" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items62" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items63" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items64" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items65" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items66" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items67" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items68" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items69" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items70" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items71" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items72" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items73" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items74" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items75" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items76" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items77" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items78" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items79" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items80" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items81" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items82" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items83" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items84" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items85" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items86" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items87" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items88" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items89" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items90" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items91" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items92" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items93" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items94" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items95" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items96" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items97" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items98" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items99" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items100" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbColor.Items101" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="gbColor.Text" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>创建一个新包...</value>
+  </data>
 </root>

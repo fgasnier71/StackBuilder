@@ -582,4 +582,10 @@
   <data name="cbCylLayoutType.Items3" xml:space="preserve">
     <value>Gestaffelt +1</value>
   </data>
+  <data name="cbWrapperColor.Items43" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="cbTrayColor.Items45" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
 </root>

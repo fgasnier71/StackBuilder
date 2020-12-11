@@ -1056,4 +1056,25 @@
   <data name="tabPageTape.Text" xml:space="preserve">
     <value>テープ</value>
   </data>
+  <data name="lbWarningBoxCaseAnalysis.Text" xml:space="preserve">
+    <value>(ボックス/ケース分析でケースとして使用するかどうか定義してください)</value>
+  </data>
+  <data name="cbColor.Items129" xml:space="preserve">
+    <value>カラー</value>
+  </data>
+  <data name="cbColor.Items130" xml:space="preserve">
+    <value>カラー</value>
+  </data>
+  <data name="cbColor.Items131" xml:space="preserve">
+    <value>カラー</value>
+  </data>
+  <data name="cbTapeColor.Items130" xml:space="preserve">
+    <value>カラー</value>
+  </data>
+  <data name="cbTapeColor.Items131" xml:space="preserve">
+    <value>カラー</value>
+  </data>
+  <data name="cbTapeColor.Items132" xml:space="preserve">
+    <value>カラー</value>
+  </data>
 </root>

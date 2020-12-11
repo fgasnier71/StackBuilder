@@ -46,14 +46,14 @@ namespace treeDiM.StackBuilder.Engine
                             {
                                 ForcedSpace = constraintSet.MinimumSpace.Value
                             };
-                            if (layer.NoLayers(constraintSet.OptMaxHeight.Value) < 1)
+                            if (constraintSet.OptMaxHeight.Activated && (layer.NoLayers(constraintSet.OptMaxHeight.Value) < 1))
                                 continue;
                             if (!pattern.GetLayerDimensionsChecked(layer, out double actualLength, out double actualWidth))
                                 continue;
                             pattern.GenerateLayer(layer, actualLength, actualWidth);
                             if (0 == layer.Count)
                                 continue;
-                            if (layer.CountInHeight(constraintSet.OptMaxHeight.Value - offsetZ) > 0)
+                            if (!constraintSet.OptMaxHeight.Activated || (layer.CountInHeight(constraintSet.OptMaxHeight.Value - offsetZ) > 0))
                                 listLayers0.Add(layer);
                         }
                         catch (Exception ex)

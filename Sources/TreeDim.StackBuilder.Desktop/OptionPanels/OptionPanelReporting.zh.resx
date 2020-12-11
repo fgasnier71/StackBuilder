@@ -153,4 +153,13 @@
   <data name="lbTop.Text" xml:space="preserve">
     <value>返回页首</value>
   </data>
+  <data name="tabMargins.Text" xml:space="preserve">
+    <value>边缘</value>
+  </data>
+  <data name="uCtrlTimeBeforeDeletion.Text" xml:space="preserve">
+    <value>删除图像后</value>
+  </data>
+  <data name="tabImageDeletion.Text" xml:space="preserve">
+    <value>图像删除</value>
+  </data>
 </root>

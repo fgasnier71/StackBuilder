@@ -805,4 +805,58 @@ Continuar?</value>
   <data name="ID_WIDTH_WU" xml:space="preserve">
     <value>Largura ({0})</value>
   </data>
+  <data name="ID_ADDNEWBAG" xml:space="preserve">
+    <value>Adicione um saco novo...</value>
+  </data>
+  <data name="ID_ADDNEWPALLETLABEL" xml:space="preserve">
+    <value>Adicione novo rótulo de palete...</value>
+  </data>
+  <data name="ID_BAG" xml:space="preserve">
+    <value>Saco</value>
+  </data>
+  <data name="ID_INVALIDROUNDINGRADIUS" xml:space="preserve">
+    <value>Raio de arredondamento inválido</value>
+  </data>
+  <data name="ID_LABEL" xml:space="preserve">
+    <value>Rótulo</value>
+  </data>
+  <data name="ID_LINEARMASS" xml:space="preserve">
+    <value>Massa linear</value>
+  </data>
+  <data name="ID_MOVEDOWN" xml:space="preserve">
+    <value>Mova-se para baixo</value>
+  </data>
+  <data name="ID_MOVEUP" xml:space="preserve">
+    <value>Mova-se para cima</value>
+  </data>
+  <data name="ID_MULTIPLELAYER" xml:space="preserve">
+    <value>Multi camadas</value>
+  </data>
+  <data name="ID_NODE_PALLETACCESSORIES" xml:space="preserve">
+    <value>Acessórios pallet</value>
+  </data>
+  <data name="ID_PALLETLABEL" xml:space="preserve">
+    <value>Etiqueta de palete</value>
+  </data>
+  <data name="ID_PALLETSIDE" xml:space="preserve">
+    <value>Lado palete</value>
+  </data>
+  <data name="ID_PALLETSTACKON" xml:space="preserve">
+    <value>Pilha de paletes em</value>
+  </data>
+  <data name="ID_POSX" xml:space="preserve">
+    <value>Horiz, horiz. Posição</value>
+  </data>
+  <data name="ID_POSY" xml:space="preserve">
+    <value>Posição vert.</value>
+  </data>
+  <data name="ID_RADIUSROUNDING_WU" xml:space="preserve">
+    <value>Raio ({0})</value>
+  </data>
+  <data name="ID_SPACES" xml:space="preserve">
+    <value>Espaços</value>
+  </data>
+  <data name="ID_VALUE" xml:space="preserve">
+    <value>Valor</value>
+  </data>
 </root>

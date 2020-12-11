@@ -322,4 +322,10 @@
   <data name="lbCount.Text" xml:space="preserve">
     <value>1-20 de 0</value>
   </data>
+  <data name="tabPageBags.Text" xml:space="preserve">
+    <value>Bolsas</value>
+  </data>
+  <data name="tabPageBottles.Text" xml:space="preserve">
+    <value>Botellas</value>
+  </data>
 </root>

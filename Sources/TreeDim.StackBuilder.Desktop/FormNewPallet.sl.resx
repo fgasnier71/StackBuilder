@@ -231,4 +231,7 @@
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Težo</value>
   </data>
+  <data name="bnAccept.Text" xml:space="preserve">
+    <value>v redu</value>
+  </data>
 </root>

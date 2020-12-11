@@ -636,4 +636,13 @@
   <data name="&gt;&gt;nudTop.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="tabMargins.Text" xml:space="preserve">
+    <value>Margini</value>
+  </data>
+  <data name="uCtrlTimeBeforeDeletion.Text" xml:space="preserve">
+    <value>Eliminare immagini dopo</value>
+  </data>
+  <data name="tabImageDeletion.Text" xml:space="preserve">
+    <value>Eliminazione delle immagini</value>
+  </data>
 </root>

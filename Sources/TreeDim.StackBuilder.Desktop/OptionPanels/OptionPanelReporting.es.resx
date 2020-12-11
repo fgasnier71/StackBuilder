@@ -157,4 +157,13 @@
   <data name="lbTop.Text" xml:space="preserve">
     <value>Arriba</value>
   </data>
+  <data name="tabMargins.Text" xml:space="preserve">
+    <value>Márgenes</value>
+  </data>
+  <data name="uCtrlTimeBeforeDeletion.Text" xml:space="preserve">
+    <value>Eliminar imágenes después de</value>
+  </data>
+  <data name="tabImageDeletion.Text" xml:space="preserve">
+    <value>Eliminación de imágenes</value>
+  </data>
 </root>

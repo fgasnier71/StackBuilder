@@ -253,17 +253,6 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             get => (double)Session[SessionVariables.WeightCase];
             set => Session[SessionVariables.WeightCase] = value;
         }
-        private Vector3D DimPallet
-        {
-            get
-            {
-                switch (PalletIndex)
-                {
-                    case 0: return new Vector3D(1200.0, 800.0, 144.0);
-                    default: return new Vector3D(1200.0, 1000.0, 144.0);
-                }
-            }
-        }
         private int PalletIndex
         { 
             get => (int)Session[SessionVariables.PalletIndex];

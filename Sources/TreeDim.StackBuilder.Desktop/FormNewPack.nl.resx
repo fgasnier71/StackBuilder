@@ -646,4 +646,10 @@
   <data name="cbCylLayoutType.Items3" xml:space="preserve">
     <value>Gespreid +1</value>
   </data>
+  <data name="cbWrapperColor.Items43" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTrayColor.Items45" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
 </root>

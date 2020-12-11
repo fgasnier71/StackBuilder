@@ -235,4 +235,13 @@
   <data name="nudRight.Location" type="System.Drawing.Point, System.Drawing">
     <value>238, 50</value>
   </data>
+  <data name="tabMargins.Text" xml:space="preserve">
+    <value>Marges</value>
+  </data>
+  <data name="uCtrlTimeBeforeDeletion.Text" xml:space="preserve">
+    <value>Supprimer des images après</value>
+  </data>
+  <data name="tabImageDeletion.Text" xml:space="preserve">
+    <value>Suppression d’image</value>
+  </data>
 </root>

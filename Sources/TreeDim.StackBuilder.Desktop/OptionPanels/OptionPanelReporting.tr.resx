@@ -153,4 +153,13 @@
   <data name="lbTop.Text" xml:space="preserve">
     <value>Sayfanın Üstü</value>
   </data>
+  <data name="tabMargins.Text" xml:space="preserve">
+    <value>Kenar boşluk -ları</value>
+  </data>
+  <data name="uCtrlTimeBeforeDeletion.Text" xml:space="preserve">
+    <value>Sonra görüntüleri silme</value>
+  </data>
+  <data name="tabImageDeletion.Text" xml:space="preserve">
+    <value>Görüntü silme</value>
+  </data>
 </root>

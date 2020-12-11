@@ -58,7 +58,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                         layer.LayerDescriptor.ToString(),
                         layer.Count,
                         layer.NoLayers(caseDim.Z),
-                        caseDim.X, caseDim.Y, caseDim.Z)
+                        caseDim.X, caseDim.Y, caseDim.Z,
+                        palletIndex)
                 );
         }
 

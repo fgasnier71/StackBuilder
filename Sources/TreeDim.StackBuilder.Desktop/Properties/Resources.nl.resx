@@ -892,4 +892,58 @@ Blijven?</value>
   <data name="ID_WARNINGEDITLAYER" xml:space="preserve">
     <value>Houd er rekening mee dat alleen "Premium"-accounts de gewijzigde laag in een palletisatie kunnen gebruiken.</value>
   </data>
+  <data name="ID_ADDNEWBAG" xml:space="preserve">
+    <value>Voeg nieuwe tas...</value>
+  </data>
+  <data name="ID_ADDNEWPALLETLABEL" xml:space="preserve">
+    <value>Voeg een nieuw palletlabel toe...</value>
+  </data>
+  <data name="ID_BAG" xml:space="preserve">
+    <value>Zak</value>
+  </data>
+  <data name="ID_INVALIDROUNDINGRADIUS" xml:space="preserve">
+    <value>Ongeldige afrondingsstraal</value>
+  </data>
+  <data name="ID_LABEL" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="ID_LINEARMASS" xml:space="preserve">
+    <value>Lineaire massa</value>
+  </data>
+  <data name="ID_MOVEDOWN" xml:space="preserve">
+    <value>Omlaag</value>
+  </data>
+  <data name="ID_MOVEUP" xml:space="preserve">
+    <value>Omhoog</value>
+  </data>
+  <data name="ID_MULTIPLELAYER" xml:space="preserve">
+    <value>Meerdere lagen</value>
+  </data>
+  <data name="ID_NODE_PALLETACCESSORIES" xml:space="preserve">
+    <value>Palletaccessoires</value>
+  </data>
+  <data name="ID_PALLETLABEL" xml:space="preserve">
+    <value>Palletlabel</value>
+  </data>
+  <data name="ID_PALLETSIDE" xml:space="preserve">
+    <value>Palletzijde</value>
+  </data>
+  <data name="ID_PALLETSTACKON" xml:space="preserve">
+    <value>Palletstapel op</value>
+  </data>
+  <data name="ID_POSX" xml:space="preserve">
+    <value>Horiz, ik weet niet wat ik moet doen. Positie</value>
+  </data>
+  <data name="ID_POSY" xml:space="preserve">
+    <value>Vert.</value>
+  </data>
+  <data name="ID_RADIUSROUNDING_WU" xml:space="preserve">
+    <value>Straal ({0})</value>
+  </data>
+  <data name="ID_SPACES" xml:space="preserve">
+    <value>Spaties</value>
+  </data>
+  <data name="ID_VALUE" xml:space="preserve">
+    <value>Waarde</value>
+  </data>
 </root>

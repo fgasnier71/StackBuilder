@@ -189,4 +189,16 @@
   <data name="cbColor.Items16" xml:space="preserve">
     <value>Colore</value>
   </data>
+  <data name="uCtrlMass.Text" xml:space="preserve">
+    <value>Peso</value>
+  </data>
+  <data name="cbColor.Items17" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items18" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbColor.Items19" xml:space="preserve">
+    <value>Colore</value>
+  </data>
 </root>

@@ -1933,4 +1933,19 @@
   <data name="toolStripMenuItemNewBottle.Text" xml:space="preserve">
     <value>Nuova bottiglia</value>
   </data>
+  <data name="toolStripMenuItemBag.Text" xml:space="preserve">
+    <value>Nuova borsa</value>
+  </data>
+  <data name="toolStripMenuItemPalletLabel.Text" xml:space="preserve">
+    <value>Nuova etichetta pallet</value>
+  </data>
+  <data name="toolStripButtonBag.Text" xml:space="preserve">
+    <value>ToolStripButtonBag</value>
+  </data>
+  <data name="toolStripMIPalletLabel.Text" xml:space="preserve">
+    <value>Etichetta pallet</value>
+  </data>
+  <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
+    <value>Aggiungi nuova etichetta pallet...</value>
+  </data>
 </root>

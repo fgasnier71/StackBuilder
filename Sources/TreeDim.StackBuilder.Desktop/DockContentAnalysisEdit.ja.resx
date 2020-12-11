@@ -150,4 +150,13 @@
   <data name="toolStripButtonExport3D.Text" xml:space="preserve">
     <value>3D モデルをエクスポートします。</value>
   </data>
+  <data name="toolStripButtonExportGLB.Text" xml:space="preserve">
+    <value>GLB.としてエクスポートします。</value>
+  </data>
+  <data name="toolStripButtonScreenShot.Text" xml:space="preserve">
+    <value>スクリーンショットを撮ってクリップボードに追加する</value>
+  </data>
+  <data name="toolStripButtonScreenShot.ToolTipText" xml:space="preserve">
+    <value>スクリーンショットを撮ってクリップボードに追加する</value>
+  </data>
 </root>

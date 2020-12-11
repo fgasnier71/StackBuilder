@@ -276,4 +276,7 @@
   <data name="uCtrlWidth.Text" xml:space="preserve">
     <value>Širina</value>
   </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>v redu</value>
+  </data>
 </root>

@@ -800,4 +800,58 @@ Cierre el formulario...</value>
   <data name="ID_WARNINGEDITLAYER" xml:space="preserve">
     <value>Tenga en cuenta que solo las cuentas "Premium" pueden utilizar la capa modificada en una paletización.</value>
   </data>
+  <data name="ID_ADDNEWBAG" xml:space="preserve">
+    <value>Añadir nueva bolsa...</value>
+  </data>
+  <data name="ID_ADDNEWPALLETLABEL" xml:space="preserve">
+    <value>Añadir nueva etiqueta de palet...</value>
+  </data>
+  <data name="ID_BAG" xml:space="preserve">
+    <value>Bolsa</value>
+  </data>
+  <data name="ID_INVALIDROUNDINGRADIUS" xml:space="preserve">
+    <value>Radio de redondeo no válido</value>
+  </data>
+  <data name="ID_LABEL" xml:space="preserve">
+    <value>Etiqueta</value>
+  </data>
+  <data name="ID_LINEARMASS" xml:space="preserve">
+    <value>Masa lineal</value>
+  </data>
+  <data name="ID_MOVEDOWN" xml:space="preserve">
+    <value>Mover abajo</value>
+  </data>
+  <data name="ID_MOVEUP" xml:space="preserve">
+    <value>Mover arriba</value>
+  </data>
+  <data name="ID_MULTIPLELAYER" xml:space="preserve">
+    <value>Multicapa</value>
+  </data>
+  <data name="ID_NODE_PALLETACCESSORIES" xml:space="preserve">
+    <value>Accesorios de palet</value>
+  </data>
+  <data name="ID_PALLETLABEL" xml:space="preserve">
+    <value>Etiqueta de palé</value>
+  </data>
+  <data name="ID_PALLETSIDE" xml:space="preserve">
+    <value>Lado del palé</value>
+  </data>
+  <data name="ID_PALLETSTACKON" xml:space="preserve">
+    <value>Pila de palés en</value>
+  </data>
+  <data name="ID_POSX" xml:space="preserve">
+    <value>Horiz. Posición</value>
+  </data>
+  <data name="ID_POSY" xml:space="preserve">
+    <value>Posición vert.</value>
+  </data>
+  <data name="ID_RADIUSROUNDING_WU" xml:space="preserve">
+    <value>Radio ({0})</value>
+  </data>
+  <data name="ID_SPACES" xml:space="preserve">
+    <value>Espacios</value>
+  </data>
+  <data name="ID_VALUE" xml:space="preserve">
+    <value>Valor</value>
+  </data>
 </root>

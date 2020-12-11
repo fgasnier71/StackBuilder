@@ -276,4 +276,7 @@
   <data name="uCtrlWidth.Text" xml:space="preserve">
     <value>Genişlik</value>
   </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
 </root>

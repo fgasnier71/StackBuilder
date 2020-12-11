@@ -889,4 +889,58 @@
   <data name="ID_WARNINGEDITLAYER" xml:space="preserve">
     <value>「プレミアム」アカウントのみが、パレタイゼーションで変更されたレイヤーを使用できることに注意してください。</value>
   </data>
+  <data name="ID_ADDNEWBAG" xml:space="preserve">
+    <value>新しいバッグを追加します。</value>
+  </data>
+  <data name="ID_ADDNEWPALLETLABEL" xml:space="preserve">
+    <value>新しいパレット ラベルを追加します。</value>
+  </data>
+  <data name="ID_BAG" xml:space="preserve">
+    <value>バッグ</value>
+  </data>
+  <data name="ID_INVALIDROUNDINGRADIUS" xml:space="preserve">
+    <value>丸め半径が無効です</value>
+  </data>
+  <data name="ID_LABEL" xml:space="preserve">
+    <value>ラベル</value>
+  </data>
+  <data name="ID_LINEARMASS" xml:space="preserve">
+    <value>線形質量</value>
+  </data>
+  <data name="ID_MOVEDOWN" xml:space="preserve">
+    <value>下に移動</value>
+  </data>
+  <data name="ID_MOVEUP" xml:space="preserve">
+    <value>上に移動</value>
+  </data>
+  <data name="ID_MULTIPLELAYER" xml:space="preserve">
+    <value>多層</value>
+  </data>
+  <data name="ID_NODE_PALLETACCESSORIES" xml:space="preserve">
+    <value>パレットアクセサリー</value>
+  </data>
+  <data name="ID_PALLETLABEL" xml:space="preserve">
+    <value>パレットラベル</value>
+  </data>
+  <data name="ID_PALLETSIDE" xml:space="preserve">
+    <value>パレット側</value>
+  </data>
+  <data name="ID_PALLETSTACKON" xml:space="preserve">
+    <value>パレットスタックのオン</value>
+  </data>
+  <data name="ID_POSX" xml:space="preserve">
+    <value>ホリス位置</value>
+  </data>
+  <data name="ID_POSY" xml:space="preserve">
+    <value>Vert. 位置</value>
+  </data>
+  <data name="ID_RADIUSROUNDING_WU" xml:space="preserve">
+    <value>半径 ({0})</value>
+  </data>
+  <data name="ID_SPACES" xml:space="preserve">
+    <value>スペース</value>
+  </data>
+  <data name="ID_VALUE" xml:space="preserve">
+    <value>値</value>
+  </data>
 </root>

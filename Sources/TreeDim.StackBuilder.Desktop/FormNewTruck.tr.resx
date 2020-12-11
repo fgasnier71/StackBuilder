@@ -291,4 +291,7 @@
   <data name="uCtrlMaxLoadWeight.Text" xml:space="preserve">
     <value>Kabul edilebilir yük ağırlığı</value>
   </data>
+  <data name="bnOK.Text" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
 </root>

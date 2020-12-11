@@ -264,4 +264,10 @@
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Ağırlık</value>
   </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>Ağırlık</value>
+  </data>
 </root>

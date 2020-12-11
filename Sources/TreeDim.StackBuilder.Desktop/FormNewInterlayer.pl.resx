@@ -387,4 +387,10 @@
   <data name="uCtrlWeight.Text" xml:space="preserve">
     <value>Waga</value>
   </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="gbWeight.Text" xml:space="preserve">
+    <value>Waga</value>
+  </data>
 </root>

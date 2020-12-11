@@ -276,4 +276,7 @@
   <data name="cbColor.Items41" xml:space="preserve">
     <value>颜色</value>
   </data>
+  <data name="bnOk.Text" xml:space="preserve">
+    <value>还行</value>
+  </data>
 </root>

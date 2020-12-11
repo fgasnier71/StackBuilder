@@ -884,14 +884,41 @@
     <EmbeddedResource Include="FormNewBottle.resx">
       <DependentUpon>FormNewBottle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.de.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.es.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.fr.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.it.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.nl.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.pt.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewBox.resx">
       <SubType>Designer</SubType>
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.ru.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.sl.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.sv.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.tr.resx">
+      <DependentUpon>FormNewBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewBox.zh.resx">
       <DependentUpon>FormNewBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewBundle.fr.resx">
@@ -924,13 +951,43 @@
       <SubType>Designer</SubType>
       <DependentUpon>FormNewDocument.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.de.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.es.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysis.fr.resx">
       <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysis.it.resx">
       <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.ja.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.nl.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.pl.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.pt.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysis.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.ru.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.sl.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.sv.resx">
+      <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewHAnalysis.tr.resx">
       <DependentUpon>FormNewHAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewHAnalysisBoxCase.resx">

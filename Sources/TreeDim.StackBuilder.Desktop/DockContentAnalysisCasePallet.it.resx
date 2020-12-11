@@ -159,4 +159,67 @@
   <data name="tabPagePalletCornersTop.Text" xml:space="preserve">
     <value>Angoli pallet Superiore</value>
   </data>
+  <data name="chkbPalletCornersTopY.Text" xml:space="preserve">
+    <value>Angoli pallet (larghezza)</value>
+  </data>
+  <data name="chkbPalletCornersTopX.Text" xml:space="preserve">
+    <value>Angoli pallet (lunghezza)</value>
+  </data>
+  <data name="uCtrlPalletFilmCovering.Text" xml:space="preserve">
+    <value>Rivestimento superiore del film</value>
+  </data>
+  <data name="bnAdd.Text" xml:space="preserve">
+    <value>Aggiungere</value>
+  </data>
+  <data name="tabPagePalletLabels.Text" xml:space="preserve">
+    <value>Etichette</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items1" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items2" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items3" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items4" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items5" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items6" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items7" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items8" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items9" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items10" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items11" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items12" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items13" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="chkbPalletSleeve.Text" xml:space="preserve">
+    <value>Manica</value>
+  </data>
+  <data name="tabPagePalletSleeve.Text" xml:space="preserve">
+    <value>Manica</value>
+  </data>
 </root>
