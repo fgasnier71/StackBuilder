@@ -39,7 +39,7 @@ namespace treeDiM.StackBuilder.Graphics
                 if (analysis is AnalysisCasePallet && -1 == Solution.SelectedLayerIndex)
                 {
                     // ### strappers
-                    SolutionLayered sol = Solution as SolutionLayered;
+                    SolutionLayered sol = Solution;
                     foreach (var sd in sol.Strappers)
                     {
                         if (null != sd.Points && sd.Points.Count > 0)
@@ -113,7 +113,7 @@ namespace treeDiM.StackBuilder.Graphics
                             graphics.AddImage(++pickId, new SubContent(bagProperties), bagProperties.OuterDimensions, boxPositionModified);
                             // bbox used for picking
                             bbox.Extend(new BBox3D(boxPositionModified, bagProperties.OuterDimensions));
-                        }                        
+                        }
                     }
                     else
                     {
@@ -129,6 +129,18 @@ namespace treeDiM.StackBuilder.Graphics
                             graphics.AddBox(b);
                             bbox.Extend(b.BBox);
                         }
+                    }
+                }
+                else if (layer is Layer3DBoxIndexed layerBoxIndexed)
+                {
+                    foreach (var bpi in layerBoxIndexed)
+                    {
+                        BoxPosition boxPositionModified = bpi.BPos.Transform(transform * upTranslation);
+                        var bProperties = analysis.Content as PackableBrick;
+                        BoxGeneric b = new Box(pickId++, analysis.Content as PackableBrick, boxPositionModified);
+                        graphics.AddBox(b);
+                        // bbox used for picking
+                        bbox.Extend(new BBox3D(boxPositionModified, bProperties.OuterDimensions));
                     }
                 }
                 else if (layer is Layer3DCyl layerCyl)
