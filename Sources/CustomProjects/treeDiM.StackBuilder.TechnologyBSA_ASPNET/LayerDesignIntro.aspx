@@ -86,6 +86,7 @@
             $('#TBPalletHeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             $('#TBPalletWeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             $('#TBMaxPalletWeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBNumberOfLayers').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             /* Code to get jQuery UI to work with jQuery 3.4+ ... */
             $.isArray = function (a) {
                 return Object.prototype.toString.call(a) === '[object Array]';
@@ -182,7 +183,7 @@
                                     <asp:Label ID="LBNumberOfLayers" runat="server" Text="Number of layers" CssClass="label"/>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="TBNumberOfLayers" TextMode="Number" min="1" max="100" runat="server" Width="60px" CssClass="textbox"/>
+                                    <asp:TextBox ID="TBNumberOfLayers"  runat="server" Width="60px" CssClass="textbox" />
                                 </td>
                                 <td>
                                     &nbsp;</td>

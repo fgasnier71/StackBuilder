@@ -181,9 +181,14 @@ input[type=buttonremove] {
     font-family: Arial, Verdana;
 }
 .textbox {
+    color: lightgray;
     font-size: 16px;
     font-family: Arial, Verdana;
-    color: dimgray;
+}
+.textboxNum {
+    color: lightgray;
+    font-size: 30px;
+    font-family: Arial, Verdana;
 }
 
 .label {

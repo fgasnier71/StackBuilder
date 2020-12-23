@@ -243,15 +243,17 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-
-                                    <label>Snap</label>
-                                </td>
+                                <td><asp:Label id="LblSnap" runat="server" Text="SNAP" CssClass="label"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td>
                                     <label class="switch">
-                                        <input id="ChkbSnap" type="checkbox" onclick="JavaScript: snapOnOff();" /><span class="slider round hide-off"></span></label>
+                                        <input id="ChkbSnap" type="checkbox" onclick="JavaScript: snapOnOff();" />
+                                        <span class="slider round hide-off"></span>
+                                    </label>
                                 </td>
                             </tr>
                         </table>

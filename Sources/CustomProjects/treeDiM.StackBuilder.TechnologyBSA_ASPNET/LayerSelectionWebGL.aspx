@@ -146,9 +146,9 @@
                                 <td />
                                 <td />
                                 <td>
-                                    <asp:Label ID="LBMaximumPalletHeight" runat="server" Text="Number of layers" CssClass="label" /></td>
+                                    <asp:Label ID="LBNumberOfLayers" runat="server" Text="Number of layers" CssClass="label" /></td>
                                 <td>
-                                    <asp:TextBox ID="TBNumberOfLayers" min="1" max="100" runat="server" Width="60px" CssClass="textbox" /></td>
+                                    <asp:TextBox ID="TBNumberOfLayers" runat="server" Width="60px" CssClass="textbox" />
                                 <td />
                                 <td />
                                 <td>
