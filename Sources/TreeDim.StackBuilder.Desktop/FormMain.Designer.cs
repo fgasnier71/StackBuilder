@@ -151,6 +151,7 @@
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripMIPalletPallet = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -777,7 +778,8 @@
             this.toolStripMIAnalysisCylinderPallet,
             this.toolStripMIAnalysisHCylPallet,
             this.toolStripMIAnalysisBundlePallet,
-            this.toolStripMIHAnalysis});
+            this.toolStripMIHAnalysis,
+            this.toolStripMIPalletPallet});
             resources.ApplyResources(this.toolStripSBAnalysisPallet, "toolStripSBAnalysisPallet");
             this.toolStripSBAnalysisPallet.Name = "toolStripSBAnalysisPallet";
             this.toolStripSBAnalysisPallet.Click += new System.EventHandler(this.OnAnalysisPallet);
@@ -996,6 +998,12 @@
             this.saveFileDialogExport.DefaultExt = "xml";
             resources.ApplyResources(this.saveFileDialogExport, "saveFileDialogExport");
             // 
+            // toolStripMIPalletPallet
+            // 
+            resources.ApplyResources(this.toolStripMIPalletPallet, "toolStripMIPalletPallet");
+            this.toolStripMIPalletPallet.Name = "toolStripMIPalletPallet";
+            this.toolStripMIPalletPallet.Click += new System.EventHandler(this.OnNewPalletsOnPallet);
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -1136,5 +1144,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMIPalletLabel;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBag;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPalletLabel;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMIPalletPallet;
     }
 }

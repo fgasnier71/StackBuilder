@@ -1339,6 +1339,11 @@ namespace treeDiM.StackBuilder.Desktop
             try { ActiveDocumentSB?.CreateNewAnalysisHCylPalletUI(); }
             catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
+        private void OnNewPalletsOnPallet(object sender, EventArgs e)
+        {
+            try { ActiveDocumentSB?.CreateNewPalletsOnPalletUI(); }
+            catch (Exception ex) { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
+        }
         #endregion
         #region Optimisation
         private void OnOptiPack(object sender, EventArgs e)
@@ -1608,5 +1613,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion
+
+
     }
 }

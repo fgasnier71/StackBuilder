@@ -181,7 +181,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Data members
-        static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPallet));
+        private static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPallet));
         #endregion
     }
 }

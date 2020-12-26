@@ -409,6 +409,12 @@ namespace treeDiM.StackBuilder.Desktop
             using (var form = new FormNewAnalysisCylinderCase(this, null))
                 if (DialogResult.OK == form.ShowDialog()) { }
         }
+        public void CreateNewPalletsOnPalletUI()
+        {
+            if (!CanCreatePalletsOnPallet) return;
+            using (var form = new FormNewPalletsOnPallet(this, null))
+                if (DialogResult.OK == form.ShowDialog()) { }
+        }
         public void CreateNewAnalysisPalletTruckUI()
         {
             if (!CanCreateAnalysisPalletTruck) return;

@@ -40,8 +40,8 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>25</ApplicationRevision>
-    <ApplicationVersion>3.0.2.25</ApplicationVersion>
+    <ApplicationRevision>26</ApplicationRevision>
+    <ApplicationVersion>3.0.2.26</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -537,6 +537,12 @@
     </Compile>
     <Compile Include="FormNewPalletFilm.Designer.cs">
       <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewPalletsOnPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewPalletsOnPallet.Designer.cs">
+      <DependentUpon>FormNewPalletsOnPallet.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewTruck.cs">
       <SubType>Form</SubType>
@@ -2531,6 +2537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewPalletFilm.zh.resx">
       <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewPalletsOnPallet.resx">
+      <DependentUpon>FormNewPalletsOnPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.de.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>

@@ -124,6 +124,7 @@
     <Compile Include="Containers\PackProperties.cs" />
     <Compile Include="Containers\PackTray.cs" />
     <Compile Include="Containers\PackWrapper.cs" />
+    <Compile Include="Containers\PalletsOnPalletProperties.cs" />
     <Compile Include="Containers\Strappers.cs" />
     <Compile Include="Containers\WrapperCardboard.cs" />
     <Compile Include="Containers\WrapperPaper.cs" />

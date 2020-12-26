@@ -268,6 +268,15 @@ namespace treeDiM.StackBuilder.Basics.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pallets on pallet.
+        /// </summary>
+        internal static string ID_PALLETSONPALLET {
+            get {
+                return ResourceManager.GetString("ID_PALLETSONPALLET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pallet weight.
         /// </summary>
         internal static string ID_PALLETWEIGHT {
