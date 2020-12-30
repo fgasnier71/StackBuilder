@@ -1,0 +1,34 @@
+﻿#region Using directives
+using System;
+#endregion
+
+namespace treeDiM.StackBuilder.Engine.Heterogeneous2D.Test
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int binWidth = 256, binHeight = 256;
+
+            // 256 256 30 20 50 20 10 80 90 20 90 20
+            RectSize[] rectSizes = {
+                new RectSize(30, 20),
+                new RectSize(50, 20),
+                new RectSize(10, 80),
+                new RectSize(90, 20),
+                new RectSize(90, 20)
+            };
+
+            MaxRectsBinPack bin = new MaxRectsBinPack();
+            bin.Init(binWidth, binHeight);
+            foreach (var rectSize in rectSizes)
+            {
+                Rect rect = bin.Insert(rectSize.Width, rectSize.Height, MaxRectsBinPack.FreeRectChoiceHeuristic.RectBestAreaFit);
+                if (0 != rect.Height)
+                    Console.WriteLine($"Rect -> X={rect.X}, Y={rect.Y}, Width={rect.Width}, Height={rect.Height}, Free space left={100.0f * (1.0f - bin.Occupancy)}");
+                else
+                    Console.WriteLine($"Failed! -> Width = {rectSize.Width}, Height = {rectSize.Height}");
+            }
+        }
+    }
+}
