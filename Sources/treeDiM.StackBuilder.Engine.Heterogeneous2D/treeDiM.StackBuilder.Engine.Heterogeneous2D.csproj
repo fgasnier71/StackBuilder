@@ -41,9 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisjointRectCollection.cs" />
+    <Compile Include="GuillotineBinPack.cs" />
     <Compile Include="MaxRectsBinPack.cs" />
     <Compile Include="Rect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShelfBinPack.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">

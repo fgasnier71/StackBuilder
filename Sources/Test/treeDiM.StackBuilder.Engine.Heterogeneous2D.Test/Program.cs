@@ -19,6 +19,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D.Test
                 new RectSize(90, 20)
             };
 
+            Console.WriteLine("### MaxRectsBinPack ###");
             MaxRectsBinPack bin = new MaxRectsBinPack();
             bin.Init(binWidth, binHeight);
             foreach (var rectSize in rectSizes)
@@ -26,6 +27,30 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D.Test
                 Rect rect = bin.Insert(rectSize.Width, rectSize.Height, MaxRectsBinPack.FreeRectChoiceHeuristic.RectBestAreaFit);
                 if (0 != rect.Height)
                     Console.WriteLine($"Rect -> X={rect.X}, Y={rect.Y}, Width={rect.Width}, Height={rect.Height}, Free space left={100.0f * (1.0f - bin.Occupancy)}");
+                else
+                    Console.WriteLine($"Failed! -> Width = {rectSize.Width}, Height = {rectSize.Height}");
+            }
+
+            Console.WriteLine("### GuillotineBinPack ###");
+            GuillotineBinPack binGuillotine = new GuillotineBinPack();
+            binGuillotine.Init(binWidth, binHeight);
+            foreach (var rectSize in rectSizes)
+            {
+                Rect rect = binGuillotine.Insert(rectSize.Width, rectSize.Height, true, GuillotineBinPack.FreeRectChoiceHeuristic.RectBestAreaFit, GuillotineBinPack.GuillotineSplitHeuristic.SplitLongerAxis);
+                if (0 != rect.Height)
+                    Console.WriteLine($"Rect -> X={rect.X}, Y={rect.Y}, Width={rect.Width}, Height={rect.Height}, Free space left={100.0f * (1.0f - binGuillotine.Occupancy)}");
+                else
+                    Console.WriteLine($"Failed! -> Width = {rectSize.Width}, Height = {rectSize.Height}");
+            }
+
+            Console.WriteLine("### ShelfBinPack ###");
+            ShelfBinPack shelfBinPack = new ShelfBinPack();
+            shelfBinPack.Init(binWidth, binHeight, true);
+            foreach (var rectSize in rectSizes)
+            {
+                Rect rect = shelfBinPack.Insert(rectSize.Width, rectSize.Height, ShelfBinPack.ShelfChoiceHeuristic.ShelfBestAreaFit);
+                if (0 != rect.Height)
+                    Console.WriteLine($"Rect -> X={rect.X}, Y={rect.Y}, Width={rect.Width}, Height={rect.Height}, Free space left={100.0f * (1.0f - shelfBinPack.Occupancy)}");
                 else
                     Console.WriteLine($"Failed! -> Width = {rectSize.Width}, Height = {rectSize.Height}");
             }
