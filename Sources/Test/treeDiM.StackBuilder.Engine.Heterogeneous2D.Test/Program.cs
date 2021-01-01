@@ -8,7 +8,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D.Test
     {
         static void Main(string[] args)
         {
-            int binWidth = 256, binHeight = 256;
+            int binWidth = 128, binHeight = 128;
 
             // 256 256 30 20 50 20 10 80 90 20 90 20
             RectSize[] rectSizes = {
@@ -54,6 +54,19 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D.Test
                 else
                     Console.WriteLine($"Failed! -> Width = {rectSize.Width}, Height = {rectSize.Height}");
             }
+
+            Console.WriteLine("### ShelfNextFitBinPack ###");
+            ShelfNextFitBinPack shelfNextFitBinPack = new ShelfNextFitBinPack();
+            shelfNextFitBinPack.Init(binWidth, binHeight);
+            foreach (var rectSize in rectSizes)
+            {
+                ShelfNextFitBinPack.Node node = shelfNextFitBinPack.Insert(rectSize.Width, rectSize.Height);
+                if (0 != node.Width)
+                    Console.WriteLine($"Rect -> X={node.X}, Y={node.Y}, Width={node.Width}, Height={node.Height}, Free space left={100.0f * (1.0f - shelfNextFitBinPack.Occupancy)}");
+                else
+                    Console.WriteLine($"Failed!-> Width = {node.Width}, Height = {node.Height}");
+            }    
+
         }
     }
 }
