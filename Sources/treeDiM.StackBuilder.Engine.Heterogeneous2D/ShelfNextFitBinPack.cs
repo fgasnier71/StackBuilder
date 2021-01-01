@@ -45,7 +45,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 				(width < height && height > shelfHeight)))
 			{
 				newNode.Flipped = true;
-				swap(ref width, ref height);
+				Swap(ref width, ref height);
 			}
 			else
 				newNode.Flipped = false;
@@ -60,7 +60,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 				// to minimize the new shelf height.
 				if (width < height)
 				{
-					swap(ref width, ref height);
+					Swap(ref width, ref height);
 					newNode.Flipped = !newNode.Flipped;
 				}
 			}
@@ -68,7 +68,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 			// If the rectangle doesn't fit in this orientation, try flipping.
 			if (width > binWidth || currentY + height > binHeight)
 			{
-				swap(ref width, ref height);
+				Swap(ref width, ref height);
 				newNode.Flipped = !newNode.Flipped;
 			}
 
@@ -89,7 +89,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 			return newNode;
 		}
 
-		private void swap(ref int x, ref int y)
+		private void Swap(ref int x, ref int y)
 		{
 			var temp = x;
 			x = y;
@@ -98,15 +98,12 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 
 		/// Computes the ratio of used surface area.
 		public float Occupancy => (float)usedSurfaceArea / (binWidth * binHeight);
-
 		
 		private int binWidth;
 		private int binHeight;
-
 		private int currentX;
 		private int currentY;
 		private int shelfHeight;
-
 		private int usedSurfaceArea;
 	}
 }

@@ -65,8 +65,19 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D.Test
                     Console.WriteLine($"Rect -> X={node.X}, Y={node.Y}, Width={node.Width}, Height={node.Height}, Free space left={100.0f * (1.0f - shelfNextFitBinPack.Occupancy)}");
                 else
                     Console.WriteLine($"Failed!-> Width = {node.Width}, Height = {node.Height}");
-            }    
+            }
+            Console.WriteLine("### SkylineBinPack ###");
+            SkylineBinPack skylineBinPack = new SkylineBinPack();
+            skylineBinPack.Init(binWidth, binHeight, true);
+            foreach (var rectSize in rectSizes)
+            {
+                Rect rect = skylineBinPack.Insert(rectSize.Width, rectSize.Height, SkylineBinPack.LevelChoiceHeuristic.LevelBottomLeft);
 
+                if (0 != rect.Height)
+                    Console.WriteLine($"Rect -> X={rect.X}, Y={rect.Y}, Width={rect.Width}, Height={rect.Height}, Free space left={100.0f * (1.0f - skylineBinPack.Occupancy)}");
+                else
+                    Console.WriteLine($"Failed! -> Width = {rectSize.Width}, Height = {rectSize.Height}");
+            }
         }
     }
 }
