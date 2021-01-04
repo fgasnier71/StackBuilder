@@ -5,33 +5,28 @@ using System.Collections.Generic;
 
 namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 {
-    public class MaxRectsBinPack
+    public class MaxRectsBinPack: BinPack2
     {
 		/// Instantiates a bin of size (0,0). Call Init to create a new bin.
-		public MaxRectsBinPack()
+		public MaxRectsBinPack() : base()
 		{
-			binWidth = 0;
-			binHeight = 0;
 		}
 
 		/// Instantiates a bin of the given size.
 		/// @param allowFlip Specifies whether the packing algorithm is allowed to rotate the input rectangles by 90 degrees to consider a better placement.
-		public MaxRectsBinPack(int width, int height, bool allowFlip = true)
+		public MaxRectsBinPack(int width, int height) : base(width, height)
 		{
-			Init(width, height, allowFlip);
 		}
 
 		/// (Re)initializes the packer to an empty bin of width x height units. Call whenever
 		/// you need to restart with a new bin.
-		public void Init(int width, int height, bool allowFlip = true)
+		public override void Init(int width, int height)
 		{
-			binAllowFlip = allowFlip;
-			binWidth = width;
-			binHeight = height;
+			base.Init(width, height);
+			BinAllowFlip = true;
 
-			usedRectangles.Clear();
 			freeRectangles.Clear();
-			freeRectangles.Add(new Rect { X = 0, Y = 0, Width = binWidth, Height = binHeight } );
+			freeRectangles.Add(new Rect { X = 0, Y = 0, Width = BinWidth, Height = BinHeight } );
 		}
 
 		/// Specifies the different heuristic rules that can be used when deciding where to place a new rectangle.
@@ -43,6 +38,11 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 			RectBottomLeftRule, ///< -BL: Does the Tetris placement.
 			RectContactPointRule ///< -CP: Choosest the placement where the rectangle touches other rects as much as possible.
 		};
+
+		public class Option : GenericOption
+		{
+			public FreeRectChoiceHeuristic Method { get; set; }
+		}
 
 		/// Inserts the given list of rectangles in an offline/batch mode, possibly rotated.
 		/// @param rects The list of rectangles to insert. This vector will be destroyed in the process.
@@ -84,13 +84,16 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 		}
 
 		/// Inserts a single rectangle into the bin, possibly rotated.
-		public Rect Insert(int width, int height, FreeRectChoiceHeuristic method)
+		public override Rect Insert(RectSize rect, GenericOption option)
 		{
 			Rect newNode = new Rect();
 			// Unused in this function. We don't need to know the score after finding the position.
 			int score1 = int.MaxValue;
 			int score2 = int.MaxValue;
-			switch (method)
+
+			int width = rect.Width, height = rect.Height;
+			var optionMaxRectsBinPath = option as Option;
+			switch (optionMaxRectsBinPath.Method)
 			{
 				case FreeRectChoiceHeuristic.RectBestShortSideFit: newNode = FindPositionForNewNodeBestShortSideFit(width, height, ref score1, ref score2); break;
 				case FreeRectChoiceHeuristic.RectBottomLeftRule: newNode = FindPositionForNewNodeBottomLeft(width, height, ref score1, ref score2); break;
@@ -114,29 +117,11 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 			}
 			PruneFreeList();
 
-			usedRectangles.Add(newNode);
+			UsedRectangles.Add(newNode);
 			return newNode;
 		}
 
-		/// Computes the ratio of used surface area to the total bin area.
-		public float Occupancy
-		{
-			get
-			{
-				int usedSurfaceArea = 0;
-				for (int i = 0; i < usedRectangles.Count; ++i)
-					usedSurfaceArea += usedRectangles[i].Width * usedRectangles[i].Height;
-
-				return (float)usedSurfaceArea / (binWidth * binHeight);
-			}
-		}
-
-		private int binWidth;
-		private int binHeight;
-
-		private bool binAllowFlip;
-
-		private List<Rect> usedRectangles = new List<Rect>();
+		private bool BinAllowFlip { get; set; } = true;
 		private List<Rect> freeRectangles = new List<Rect>();
 
 		/// Computes the placement score for placing the given rectangle with the given method.
@@ -184,7 +169,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 				}
 			}
 			PruneFreeList();
-			usedRectangles.Add(node);
+			UsedRectangles.Add(node);
 		}
 
 		/// Computes the placement score for the -CP variant.
@@ -192,17 +177,17 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 		{
 			int score = 0;
 
-			if (x == 0 || x + width == binWidth)
+			if (x == 0 || x + width == BinWidth)
 				score += height;
-			if (y == 0 || y + height == binHeight)
+			if (y == 0 || y + height == BinHeight)
 				score += width;
 
-			for (int i = 0; i < usedRectangles.Count; ++i)
+			for (int i = 0; i < UsedRectangles.Count; ++i)
 			{
-				if (usedRectangles[i].X == x + width || usedRectangles[i].X + usedRectangles[i].Width == x)
-					score += CommonIntervalLength(usedRectangles[i].Y, usedRectangles[i].Y + usedRectangles[i].Height, y, y + height);
-				if (usedRectangles[i].Y == y + height || usedRectangles[i].Y + usedRectangles[i].Height == y)
-					score += CommonIntervalLength(usedRectangles[i].X, usedRectangles[i].X + usedRectangles[i].Width, x, x + width);
+				if (UsedRectangles[i].X == x + width || UsedRectangles[i].X + UsedRectangles[i].Width == x)
+					score += CommonIntervalLength(UsedRectangles[i].Y, UsedRectangles[i].Y + UsedRectangles[i].Height, y, y + height);
+				if (UsedRectangles[i].Y == y + height || UsedRectangles[i].Y + UsedRectangles[i].Height == y)
+					score += CommonIntervalLength(UsedRectangles[i].X, UsedRectangles[i].X + UsedRectangles[i].Width, x, x + width);
 			}
 			return score;
 		}
@@ -237,7 +222,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 						bestX = freeRectangles[i].X;
 					}
 				}
-				if (binAllowFlip && freeRectangles[i].Width >= height && freeRectangles[i].Height >= width)
+				if (BinAllowFlip && freeRectangles[i].Width >= height && freeRectangles[i].Height >= width)
 				{
 					int topSideY = freeRectangles[i].Y + width;
 					if (topSideY < bestY || (topSideY == bestY && freeRectangles[i].X< bestX))
@@ -281,7 +266,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 					}
 				}
 
-				if (binAllowFlip && freeRectangles[i].Width >= height && freeRectangles[i].Height >= width)
+				if (BinAllowFlip && freeRectangles[i].Width >= height && freeRectangles[i].Height >= width)
 				{
 					int flippedLeftoverHoriz = Math.Abs(freeRectangles[i].Width - height);
 					int flippedLeftoverVert = Math.Abs(freeRectangles[i].Height - width);
@@ -329,7 +314,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 					}
 				}
 
-				if (binAllowFlip && freeRectangles[i].Width >= height && freeRectangles[i].Height >= width)
+				if (BinAllowFlip && freeRectangles[i].Width >= height && freeRectangles[i].Height >= width)
 				{
 					int leftoverHoriz = Math.Abs(freeRectangles[i].Width - height);
 					int leftoverVert = Math.Abs(freeRectangles[i].Height - width);
@@ -379,7 +364,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 					}
 				}
 
-				if (binAllowFlip
+				if (BinAllowFlip
 					&& freeRectangles[i].Width >= height
 					&& freeRectangles[i].Height >= width)
 				{
@@ -421,7 +406,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 						bestContactScore = score;
 					}
 				}
-				if (binAllowFlip && freeRectangles[i].Width >= height && freeRectangles[i].Height >= width)
+				if (BinAllowFlip && freeRectangles[i].Width >= height && freeRectangles[i].Height >= width)
 				{
 					int score = ContactPointScoreNode(freeRectangles[i].X, freeRectangles[i].Y, height, width);
 					if (score > bestContactScore)

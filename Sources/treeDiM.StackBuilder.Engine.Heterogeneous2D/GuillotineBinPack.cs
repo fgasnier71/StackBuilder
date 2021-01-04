@@ -8,28 +8,22 @@ using System.Threading.Tasks;
 
 namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 {
-    public class GuillotineBinPack
+    public class GuillotineBinPack : BinPack2
     {
         /// The initial bin size will be (0,0). Call Init to set the bin size.
-        public GuillotineBinPack()
+        public GuillotineBinPack() : base()
         {
         }
         /// Initializes a new bin of the given size.
-        public GuillotineBinPack(int width, int height)
+        public GuillotineBinPack(int width, int height) : base(width, height)
         {
-            Init(width, height);
         }
         /// (Re)initializes the packer to an empty bin of width x height units. Call whenever
         /// you need to restart with a new bin.
-        public void Init(int width, int height)
+        public override void Init(int width, int height)
         {
-            binWidth = width;
-            binHeight = height;
-
+            base.Init(width, height);
             disjointRects.Clear();
-
-            // Clear any memory of previously packed rectangles.
-            usedRectangles.Clear();
 
             // We start with a single big free rectangle that spans the whole bin.
             freeRectangles.Clear();
@@ -59,6 +53,12 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 			SplitShorterAxis, ///< -SAS
 			SplitLongerAxis ///< -LAS
 		};
+        public class Option : GenericOption
+        {
+            public bool Merge { get; set; }
+            public FreeRectChoiceHeuristic FreeRectChoice { get; set; }
+            public GuillotineSplitHeuristic GuillotineSplit { get; set; }
+        }
 
         /// Inserts a single rectangle into the bin. The packer might rotate the rectangle, in which case the returned
         /// struct will have the width and height values swapped.
@@ -67,26 +67,30 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
         ///		some extra time.
         /// @param rectChoice The free rectangle choice heuristic rule to use.
         /// @param splitMethod The free rectangle split heuristic rule to use.
-        public Rect Insert(int width, int height, bool merge, FreeRectChoiceHeuristic rectChoice, GuillotineSplitHeuristic splitMethod)
+        public override Rect Insert(RectSize rectSize, GenericOption option)
         {
+            var opt = option as Option;
+            int width = rectSize.Width;
+            int height = rectSize.Height;
+
             // Find where to put the new rectangle.
             int freeNodeIndex = 0;
-            Rect newRect = FindPositionForNewNode(width, height, rectChoice, ref freeNodeIndex);
+            Rect newRect = FindPositionForNewNode(width, height, opt.FreeRectChoice, ref freeNodeIndex);
 
             // Abort if we didn't have enough space in the bin.
             if (newRect.Height == 0)
                 return newRect;
 
             // Remove the space that was just consumed by the new rectangle.
-            SplitFreeRectByHeuristic(freeRectangles[freeNodeIndex], newRect, splitMethod);
+            SplitFreeRectByHeuristic(freeRectangles[freeNodeIndex], newRect, opt.GuillotineSplit);
             freeRectangles.RemoveAt(freeNodeIndex);
 
             // Perform a Rectangle Merge step if desired.
-            if (merge)
+            if (opt.Merge)
                 MergeFreeList();
 
             // Remember the new used rectangle.
-            usedRectangles.Add(newRect);
+            UsedRectangles.Add(newRect);
 
             // Check that we're really producing correct packings here.
             disjointRects.Add(newRect);
@@ -196,7 +200,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
                     MergeFreeList();
 
                 // Remember the new used rectangle.
-                usedRectangles.Add(newNode);
+                UsedRectangles.Add(newNode);
 
                 // Check that we're really producing correct packings here.
                 disjointRects.Add(newNode);
@@ -206,18 +210,6 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
         // Implements GUILLOTINE-MAXFITTING, an experimental heuristic that's really cool but didn't quite work in practice.
         //	void InsertMaxFitting(std::vector<RectSize> &rects, std::vector<Rect> &dst, bool merge, 
         //		FreeRectChoiceHeuristic rectChoice, GuillotineSplitHeuristic splitMethod);
-
-        /// Computes the ratio of used/total surface area. 0.00 means no space is yet used, 1.00 means the whole bin is used.
-        public float Occupancy
-        {
-            get
-            {
-                long usedSurfaceArea = 0;
-                foreach (var usedRectangle in usedRectangles)
-                    usedSurfaceArea += usedRectangle.Width * usedRectangle.Height;
-                return (float)usedSurfaceArea / (binWidth * binHeight);
-            }
-        }
 
         /// Performs a Rectangle Merge operation. This procedure looks for adjacent free rectangles and merges them if they
         /// can be represented with a single rectangle. Takes up Theta(|freeRectangles|^2) time.
@@ -297,11 +289,6 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
                 test.Add(freeRect);
         }
 
-        private int binWidth;
-        private int binHeight;
-        /// Stores a list of all the rectangles that we have packed so far. This is used only to compute the Occupancy ratio,
-        /// so if you want to have the packer consume less memory, this can be removed.
-        private readonly List<Rect> usedRectangles = new List<Rect>();
         /// Stores a list of rectangles that represents the free area of the bin. This rectangles in this list are disjoint.
         private readonly List<Rect> freeRectangles = new List<Rect>();
 

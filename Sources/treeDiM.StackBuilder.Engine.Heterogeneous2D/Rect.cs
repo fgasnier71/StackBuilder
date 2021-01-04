@@ -13,6 +13,13 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
         public RectSize(int width, int height) { Width = width; Height = height; }
         public int Width { get; set; }
         public int Height { get; set; }
+        public int Area => Width * Height;
+
+        public override int GetHashCode() => Width.GetHashCode() & Height.GetHashCode();
+        public override bool Equals(object obj) { if (obj is RectSize o) return o.Width.Equals(Width) && o.Height.Equals(Height); else return false; }
+        public static bool operator ==(RectSize left, RectSize right) => left.Equals(right);
+        public static bool operator !=(RectSize left, RectSize right) => !(left == right);
+        public override string ToString() => $"Dimensions = ({Width},{Height})";
     }
 
     public struct Rect
@@ -21,6 +28,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
         public int Y { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
+        public int Area => Width * Height;
 
         public static bool IsContainedIn(Rect a, Rect b)
         {
@@ -28,5 +36,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
                 && a.X + a.Width <= b.X + b.Width
                 && a.Y + a.Height <= b.Y + b.Height;
         }
+
+        public override string ToString() => $"Position = ({X}, {Y}) Dim = ({Width}, {Height})";
     }
 }

@@ -10,7 +10,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D.Test
         {
             int binWidth = 128, binHeight = 128;
 
-            // 256 256 30 20 50 20 10 80 90 20 90 20
+            // 128 128 30 20 50 20 10 80 90 20 90 20
             RectSize[] rectSizes = {
                 new RectSize(30, 20),
                 new RectSize(50, 20),
@@ -20,15 +20,15 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D.Test
             };
 
             Console.WriteLine("### MaxRectsBinPack ###");
-            MaxRectsBinPack bin = new MaxRectsBinPack();
-            bin.Init(binWidth, binHeight);
+            MaxRectsBinPack maxRectsBinPack = new MaxRectsBinPack();
+            maxRectsBinPack.Init(binWidth, binHeight);
             foreach (var rectSize in rectSizes)
             {
-                Rect rect = bin.Insert(rectSize.Width, rectSize.Height, MaxRectsBinPack.FreeRectChoiceHeuristic.RectBestAreaFit);
+                Rect rect = maxRectsBinPack.Insert(rectSize, new MaxRectsBinPack.Option() { Method = MaxRectsBinPack.FreeRectChoiceHeuristic.RectBestAreaFit });
                 if (0 != rect.Height)
-                    Console.WriteLine($"Rect -> X={rect.X}, Y={rect.Y}, Width={rect.Width}, Height={rect.Height}, Free space left={100.0f * (1.0f - bin.Occupancy)}");
+                    Console.WriteLine($"Rect -> {rect}, Free space left={maxRectsBinPack.FreeSpaceLeft}");
                 else
-                    Console.WriteLine($"Failed! -> Width = {rectSize.Width}, Height = {rectSize.Height}");
+                    Console.WriteLine($"Failed!-> {rectSize}");
             }
 
             Console.WriteLine("### GuillotineBinPack ###");
@@ -36,23 +36,31 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D.Test
             binGuillotine.Init(binWidth, binHeight);
             foreach (var rectSize in rectSizes)
             {
-                Rect rect = binGuillotine.Insert(rectSize.Width, rectSize.Height, true, GuillotineBinPack.FreeRectChoiceHeuristic.RectBestAreaFit, GuillotineBinPack.GuillotineSplitHeuristic.SplitLongerAxis);
+                Rect rect = binGuillotine.Insert(rectSize, new GuillotineBinPack.Option()
+                {
+                    Merge = true,
+                    FreeRectChoice = GuillotineBinPack.FreeRectChoiceHeuristic.RectBestAreaFit,
+                    GuillotineSplit = GuillotineBinPack.GuillotineSplitHeuristic.SplitLongerAxis
+                });
                 if (0 != rect.Height)
-                    Console.WriteLine($"Rect -> X={rect.X}, Y={rect.Y}, Width={rect.Width}, Height={rect.Height}, Free space left={100.0f * (1.0f - binGuillotine.Occupancy)}");
+                    Console.WriteLine($"Rect -> {rect}, Free space left={binGuillotine.FreeSpaceLeft}");
                 else
-                    Console.WriteLine($"Failed! -> Width = {rectSize.Width}, Height = {rectSize.Height}");
+                    Console.WriteLine($"Failed!-> {rectSize}");
             }
 
             Console.WriteLine("### ShelfBinPack ###");
-            ShelfBinPack shelfBinPack = new ShelfBinPack();
-            shelfBinPack.Init(binWidth, binHeight, true);
+            ShelfBinPack shelfBinPack = new ShelfBinPack
+            {
+                UseWasteMap = true
+            };
+            shelfBinPack.Init(binWidth, binHeight);
             foreach (var rectSize in rectSizes)
             {
-                Rect rect = shelfBinPack.Insert(rectSize.Width, rectSize.Height, ShelfBinPack.ShelfChoiceHeuristic.ShelfBestAreaFit);
+                Rect rect = shelfBinPack.Insert(rectSize, new ShelfBinPack.Option() { Method = ShelfBinPack.ShelfChoiceHeuristic.ShelfBestAreaFit } );
                 if (0 != rect.Height)
-                    Console.WriteLine($"Rect -> X={rect.X}, Y={rect.Y}, Width={rect.Width}, Height={rect.Height}, Free space left={100.0f * (1.0f - shelfBinPack.Occupancy)}");
+                    Console.WriteLine($"Rect -> {rect}, Free space left= {shelfBinPack.FreeSpaceLeft}");
                 else
-                    Console.WriteLine($"Failed! -> Width = {rectSize.Width}, Height = {rectSize.Height}");
+                    Console.WriteLine($"Failed!-> {rectSize}");
             }
 
             Console.WriteLine("### ShelfNextFitBinPack ###");
@@ -60,23 +68,23 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D.Test
             shelfNextFitBinPack.Init(binWidth, binHeight);
             foreach (var rectSize in rectSizes)
             {
-                ShelfNextFitBinPack.Node node = shelfNextFitBinPack.Insert(rectSize.Width, rectSize.Height);
-                if (0 != node.Width)
-                    Console.WriteLine($"Rect -> X={node.X}, Y={node.Y}, Width={node.Width}, Height={node.Height}, Free space left={100.0f * (1.0f - shelfNextFitBinPack.Occupancy)}");
+                Rect rect = shelfNextFitBinPack.Insert(rectSize, new OptionNone());
+                if (0 != rect.Width)
+                    Console.WriteLine($"Rect -> {rect}, Free space left={shelfNextFitBinPack.FreeSpaceLeft}");
                 else
-                    Console.WriteLine($"Failed!-> Width = {node.Width}, Height = {node.Height}");
+                    Console.WriteLine($"Failed!-> {rectSize}");
             }
             Console.WriteLine("### SkylineBinPack ###");
             SkylineBinPack skylineBinPack = new SkylineBinPack();
-            skylineBinPack.Init(binWidth, binHeight, true);
+            skylineBinPack.Init(binWidth, binHeight);
             foreach (var rectSize in rectSizes)
             {
-                Rect rect = skylineBinPack.Insert(rectSize.Width, rectSize.Height, SkylineBinPack.LevelChoiceHeuristic.LevelBottomLeft);
+                Rect rect = skylineBinPack.Insert(rectSize, new SkylineBinPack.Option() { Method = SkylineBinPack.LevelChoiceHeuristic.LevelBottomLeft });
 
                 if (0 != rect.Height)
-                    Console.WriteLine($"Rect -> X={rect.X}, Y={rect.Y}, Width={rect.Width}, Height={rect.Height}, Free space left={100.0f * (1.0f - skylineBinPack.Occupancy)}");
+                    Console.WriteLine($"Rect -> {rect}, Free space left= {skylineBinPack.FreeSpaceLeft}");
                 else
-                    Console.WriteLine($"Failed! -> Width = {rectSize.Width}, Height = {rectSize.Height}");
+                    Console.WriteLine($"Failed! -> {rectSize}");
             }
         }
     }

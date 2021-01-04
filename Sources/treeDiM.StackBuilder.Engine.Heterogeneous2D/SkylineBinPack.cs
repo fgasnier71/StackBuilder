@@ -6,38 +6,33 @@ using System.Diagnostics;
 
 namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 {
-    public class SkylineBinPack
+    public class SkylineBinPack : BinPack1
     {
         /// Instantiates a bin of size (0,0). Call Init to create a new bin.
-        public SkylineBinPack()
+        public SkylineBinPack() : base()
         {
-            binWidth = 0; binHeight = 0;
         }
         /// Instantiates a bin of the given size.
-        public SkylineBinPack(int binWidth, int binHeight, bool useWasteMap)
+        public SkylineBinPack(int binWidth, int binHeight)
+            : base(binWidth, binHeight)
         {
-            Init(binWidth, binHeight, useWasteMap);
         }
         /// (Re)initializes the packer to an empty bin of width x height units. Call whenever
         /// you need to restart with a new bin.
-        public void Init(int width, int height, bool useWasteMap_)
+        public override void Init(int width, int height)
         {
-            binWidth = width;
-            binHeight = height;
-
-            useWasteMap = useWasteMap_;
+            base.Init(width, height);
 
             disjointRects.Clear();
 
-            usedSurfaceArea = 0;
             skyLine.Clear();
             SkylineNode node;
             node.x = 0;
             node.y = 0;
-            node.width = binWidth;
+            node.width = BinWidth;
             skyLine.Add(node);
 
-            if (useWasteMap)
+            if (UseWasteMap)
             {
                 wasteMap.Init(width, height);
                 wasteMap.FreeRectangles.Clear();
@@ -49,6 +44,11 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
             LevelBottomLeft,
             LevelMinWasteFit
         };
+
+        public class Option : GenericOption
+        {
+            public LevelChoiceHeuristic Method { get; set; }
+        }
 
         /// Inserts the given list of rectangles in an offline/batch mode, possibly rotated.
         /// @param rects The list of rectangles to insert. This vector will be destroyed in the process.
@@ -106,19 +106,24 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
                 Debug.Assert(disjointRects.Disjoint(bestNode));
                 disjointRects.Add(bestNode);
                 AddSkylineLevel(bestSkylineIndex, ref bestNode);
-                usedSurfaceArea += rects[bestRectIndex].Width * rects[bestRectIndex].Height;
+                IncrementUsedArea( rects[bestRectIndex].Width * rects[bestRectIndex].Height );
                 rects.RemoveAt(bestRectIndex);
                 dst.Add(bestNode);
             }
         }
 
         /// Inserts a single rectangle into the bin, possibly rotated.
-        public Rect Insert(int width, int height, LevelChoiceHeuristic method)
+        public override Rect Insert(RectSize rectSize, GenericOption option)
         {
+            int width = rectSize.Width;
+            int height = rectSize.Height;
             // First try to pack this rectangle into the waste map, if it fits.
-            Rect node = wasteMap.Insert(width, height, true,
-                GuillotineBinPack.FreeRectChoiceHeuristic.RectBestShortSideFit,
-                GuillotineBinPack.GuillotineSplitHeuristic.SplitMaximizeArea);
+            Rect node = wasteMap.Insert(rectSize, new GuillotineBinPack.Option()
+            {
+                Merge = true,
+                FreeRectChoice = GuillotineBinPack.FreeRectChoiceHeuristic.RectBestShortSideFit,
+                GuillotineSplit = GuillotineBinPack.GuillotineSplitHeuristic.SplitMaximizeArea
+            });
             Debug.Assert(disjointRects.Disjoint(node));
 
             if (node.Height != 0)
@@ -128,25 +133,20 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
                 newNode.Y = node.Y;
                 newNode.Width = node.Width;
                 newNode.Height = node.Height;
-                usedSurfaceArea += width * height;
+                IncrementUsedArea( width * height );
                 Debug.Assert(disjointRects.Disjoint(newNode));
                 disjointRects.Add(newNode);
                 return newNode;
             }
 
-            switch (method)
+            Option opt = option as Option;
+            switch (opt.Method)
             {
                 case LevelChoiceHeuristic.LevelBottomLeft: return InsertBottomLeft(width, height);
                 case LevelChoiceHeuristic.LevelMinWasteFit: return InsertMinWaste(width, height);
                 default: Debug.Assert(false); return node;
             }
         }
-
-        /// Computes the ratio of used surface area to the total bin area.
-        public float Occupancy => (float)usedSurfaceArea / (binWidth * binHeight);
-
-        private int binWidth;
-        private int binHeight;
 
         private DisjointRectCollection disjointRects = new DisjointRectCollection();
 
@@ -162,11 +162,10 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
         };
 
         private readonly List<SkylineNode> skyLine = new List<SkylineNode>();
-        private int usedSurfaceArea;
 
         /// If true, we use the GuillotineBinPack structure to recover wasted areas into a waste map.
-        bool useWasteMap;
-        GuillotineBinPack wasteMap = new GuillotineBinPack();
+        public bool UseWasteMap { get; set; } = true;
+        private GuillotineBinPack wasteMap = new GuillotineBinPack();
 
         private Rect InsertBottomLeft(int width, int height)
         {
@@ -182,7 +181,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
                 // Perform the actual packing.
                 AddSkylineLevel(bestIndex, ref newNode);
 
-                usedSurfaceArea += width * height;
+                IncrementUsedArea( width * height ); 
                 disjointRects.Add(newNode);
             }
             else
@@ -204,7 +203,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
                 // Perform the actual packing.
                 AddSkylineLevel(bestIndex, ref newNode);
 
-                usedSurfaceArea += width * height;
+                IncrementUsedArea( width * height );
                 disjointRects.Add(newNode);
             }
             else
@@ -300,7 +299,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
         private bool RectangleFits(int skylineNodeIndex, int width, int height, ref int y)
         {
             int x = skyLine[skylineNodeIndex].x;
-            if (x + width > binWidth)
+            if (x + width > BinWidth)
                 return false;
             int widthLeft = width;
             int i = skylineNodeIndex;
@@ -308,7 +307,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
             while (widthLeft > 0)
             {
                 y = Math.Max(y, skyLine[i].y);
-                if (y + height > binHeight)
+                if (y + height > BinHeight)
                     return false;
                 widthLeft -= skyLine[i].width;
                 ++i;
@@ -368,7 +367,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
         private void AddSkylineLevel(int skylineNodeIndex, ref Rect rect)
         {
             // First track all wasted areas and mark them into the waste map if we're using one.
-            if (useWasteMap)
+            if (UseWasteMap)
                 AddWasteMapArea(skylineNodeIndex, rect.Width, rect.Height, rect.Y);
 
             SkylineNode newNode;
@@ -377,8 +376,8 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
             newNode.width = rect.Width;
             skyLine.Insert(skylineNodeIndex, newNode);
 
-            Debug.Assert(newNode.x + newNode.width <= binWidth);
-            Debug.Assert(newNode.y <= binHeight);
+            Debug.Assert(newNode.x + newNode.width <= BinWidth);
+            Debug.Assert(newNode.y <= BinHeight);
 
             for (int i = skylineNodeIndex + 1; i < skyLine.Count; ++i)
             {

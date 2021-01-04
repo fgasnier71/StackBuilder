@@ -9,34 +9,30 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 {
 	/* ShelfBinPack implements different bin packing algorithms that use the SHELF data structure.ShelfBinPack
 	also uses GuillotineBinPack for the waste map if it is enabled. */
-	public class ShelfBinPack
+	public class ShelfBinPack : BinPack1
 	{
 		/// Default ctor initializes a bin of size (0,0). Call Init() to init an instance.
-		public ShelfBinPack()
+		public ShelfBinPack() : base()
 		{
-			binWidth = 0; binHeight = 0; currentY = 0; usedSurfaceArea = 0;
-			useWasteMap = false;
+			UseWasteMap = false;
 		}
 
-		public ShelfBinPack(int width, int height, bool useWasteMap)
+		public ShelfBinPack(int width, int height, bool useWasteMap_) : base(width, height)
 		{
-			Init(width, height, useWasteMap);
+			UseWasteMap = useWasteMap_;
+			Init(width, height);
 		}
 
 		/// Clears all previously packed rectangles and starts packing from scratch into a bin of the given size.
-		public void Init(int width, int height, bool useWasteMap_)
+		public override void Init(int width, int height)
 		{
-			useWasteMap = useWasteMap_;
-			binWidth = width;
-			binHeight = height;
-
+			base.Init(width, height);
 			currentY = 0;
-			usedSurfaceArea = 0;
 
 			shelves.Clear();
 			StartNewShelf(0);
 
-			if (useWasteMap)
+			if (UseWasteMap)
 			{
 				wasteMap.Init(width, height);
 				wasteMap.FreeRectangles.Clear();
@@ -54,28 +50,37 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 			ShelfBestWidthFit, ///< -BWF: Choose the shelf that has the least remaining horizontal shelf space available after packing.
 			ShelfWorstWidthFit, ///< -WWF: Choose the shelf that will have most remainining horizontal shelf space available after packing.
 		};
+		public class Option : GenericOption
+		{
+			public ShelfChoiceHeuristic Method { get; set; }
+		}
 
 		/// Inserts a single rectangle into the bin. The packer might rotate the rectangle, in which case the returned
 		/// struct will have the width and height values swapped.
 		/// @param method The heuristic rule to use for choosing a shelf if multiple ones are possible.
-		public Rect Insert(int width, int height, ShelfChoiceHeuristic method)
+		public override Rect Insert(RectSize rectSize, GenericOption option)
 		{
 			Rect newNode = new Rect();
 
 			// First try to pack this rectangle into the waste map, if it fits.
-			if (useWasteMap)
+			if (UseWasteMap)
 			{
-				newNode = wasteMap.Insert(width, height, true, GuillotineBinPack.FreeRectChoiceHeuristic.RectBestShortSideFit,
-					GuillotineBinPack.GuillotineSplitHeuristic.SplitMaximizeArea);
+				newNode = wasteMap.Insert(rectSize, new GuillotineBinPack.Option()
+				{
+					Merge = true,
+					FreeRectChoice = GuillotineBinPack.FreeRectChoiceHeuristic.RectBestShortSideFit,
+					GuillotineSplit = GuillotineBinPack.GuillotineSplitHeuristic.SplitMaximizeArea
+				});
 				if (newNode.Height != 0)
 				{
 					// Track the space we just used.
-					usedSurfaceArea += width * height;
+					IncrementUsedArea( rectSize.Area );
 					return newNode;
 				}
 			}
-
-			switch (method)
+			int width = rectSize.Width, height = rectSize.Height;
+			Option shelfBinPackOption = option as Option;
+			switch (shelfBinPackOption.Method)
 			{
 				case ShelfChoiceHeuristic.ShelfNextFit:
 					if (FitsOnShelf(shelves.Last(), width, height, true))
@@ -105,7 +110,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 							RotateToShelf(shelves[i], ref width, ref height);
 							if (FitsOnShelf(shelves[i], width, height, i == shelves.Count - 1))
 							{
-								int surfaceArea = (binWidth - shelves[i].currentX) * shelves[i].height;
+								int surfaceArea = (BinWidth - shelves[i].currentX) * shelves[i].height;
 								if (surfaceArea < bestShelfSurfaceArea)
 								{
 									bestShelf = shelves[i];
@@ -116,7 +121,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 
 						if (null != bestShelf)
 						{
-							AddToShelf(bestShelf, width, height, ref newNode);
+							AddToShelf(bestShelf, rectSize.Width, rectSize.Height, ref newNode);
 							return newNode;
 						}
 					}
@@ -134,7 +139,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 							RotateToShelf(shelves[i], ref width, ref height);
 							if (FitsOnShelf(shelves[i], width, height, i == shelves.Count - 1))
 							{
-								int surfaceArea = (binWidth - shelves[i].currentX) * shelves[i].height;
+								int surfaceArea = (BinWidth - shelves[i].currentX) * shelves[i].height;
 								if (surfaceArea > bestShelfSurfaceArea)
 								{
 									bestShelf = shelves[i];
@@ -155,7 +160,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 					{
 						// Best Height Fit rule: Choose the shelf with best-matching height.
 						Shelf bestShelf = null;
-						int bestShelfHeightDifference = 0x7FFFFFFF;
+						int bestShelfHeightDifference = int.MaxValue;
 						for (int i = 0; i < shelves.Count; ++i)
 						{
 							// Pre-rotate the rect onto the shelf here already so that the height fit computation
@@ -186,7 +191,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 					{
 						// Best Width Fit rule: Choose the shelf with smallest remaining shelf width.
 						Shelf bestShelf = null;
-						int bestShelfWidthDifference = 0x7FFFFFFF;
+						int bestShelfWidthDifference = int.MaxValue;
 						for (int i = 0; i < shelves.Count; ++i)
 						{
 							// Pre-rotate the rect onto the shelf here already so that the height fit computation
@@ -194,7 +199,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 							RotateToShelf(shelves[i], ref width, ref height);
 							if (FitsOnShelf(shelves[i], width, height, i == shelves.Count - 1))
 							{
-								int widthDifference = binWidth - shelves[i].currentX - width;
+								int widthDifference = BinWidth - shelves[i].currentX - width;
 								Debug.Assert(widthDifference >= 0);
 
 								if (widthDifference < bestShelfWidthDifference)
@@ -225,7 +230,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 							RotateToShelf(shelves[i], ref width, ref height);
 							if (FitsOnShelf(shelves[i], width, height, i == shelves.Count - 1))
 							{
-								int widthDifference = binWidth - shelves[i].currentX - width;
+								int widthDifference = BinWidth - shelves[i].currentX - width;
 								Debug.Assert(widthDifference >= 0);
 
 								if (widthDifference > bestShelfWidthDifference)
@@ -247,12 +252,12 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 
 			// The rectangle did not fit on any of the shelves. Open a new shelf.
 			// Flip the rectangle so that the long side is horizontal.
-			if (width < height && height <= binWidth)
+			if (width < height && height <= BinWidth)
 				Swap(ref width, ref height);
 
 			if (CanStartNewShelf(height))
 			{
-				if (useWasteMap)
+				if (UseWasteMap)
 					MoveShelfToWasteMap(shelves.LastOrDefault());
 				StartNewShelf(height);
 				Debug.Assert(FitsOnShelf(shelves.LastOrDefault(), width, height, true));
@@ -288,26 +293,15 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 			return newNode;
 		}
 
-		private void Swap(ref int x, ref int y)
-		{
-			var temp = x;
-			x = y;
-			y = temp;
-		}
 
-        /// Computes the ratio of used surface area to the total bin area.
-        public float Occupancy => (float)usedSurfaceArea / (binWidth * binHeight);
-        private int binWidth;
-        private int binHeight;
+
 
         /// Stores the starting y-coordinate of the latest (topmost) shelf.
         private int currentY;
 
-        /// Tracks the total consumed surface area.
-        private long usedSurfaceArea;
 
         /// If true, the following GuillotineBinPack structure is used to recover the SHELF data structure from losing space.
-        private bool useWasteMap;
+        public bool UseWasteMap { get; set; }
         private GuillotineBinPack wasteMap = new GuillotineBinPack();
 
         /// Describes a horizontal slab of space where rectangles may be placed.
@@ -358,14 +352,14 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
             {
                 X = shelf.currentX,
                 Y = shelf.startY,
-                Width = binWidth - shelf.currentX,
+                Width = BinWidth - shelf.currentX,
                 Height = shelf.height
             };
             if (newNode.Width > 0)
 				freeRects.Add(newNode);
 
 			// This shelf is DONE.
-			shelf.currentX = binWidth;
+			shelf.currentX = BinWidth;
 
 			// Perform a rectangle merge step.
 			wasteMap.MergeFreeList();
@@ -375,9 +369,9 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
         /// @param canResize If true, denotes that the shelf height may be increased to fit the object.
         private bool FitsOnShelf(Shelf shelf, int width, int height, bool canResize)
         {
-            int shelfHeight = canResize ? (binHeight - shelf.startY) : shelf.height;
-            return ((shelf.currentX + width <= binWidth && height <= shelfHeight) ||
-                (shelf.currentX + height <= binWidth && width <= shelfHeight));
+            int shelfHeight = canResize ? (BinHeight - shelf.startY) : shelf.height;
+            return ((shelf.currentX + width <= BinWidth && height <= shelfHeight) ||
+                (shelf.currentX + height <= BinWidth && width <= shelfHeight));
         }
 
         /// Measures and if desirable, flips width and height so that the rectangle fits the given shelf the best.
@@ -388,9 +382,9 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 			// If the width > height and the long edge of the new rectangle fits vertically onto the current shelf,
 			// flip it. If the short edge is larger than the current shelf height, store
 			// the short edge vertically.
-			if ((width > height && width > binWidth - shelf.currentX) ||
+			if ((width > height && width > BinWidth - shelf.currentX) ||
 				(width > height && width < shelf.height) ||
-				(width < height && height > shelf.height && height <= binWidth - shelf.currentX))
+				(width < height && height > shelf.height && height <= BinWidth - shelf.currentX))
 				Swap(ref width, ref height);
 		}
 
@@ -412,17 +406,17 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
 
 			// Advance the shelf end position horizontally.
 			shelf.currentX += width;
-			Debug.Assert(shelf.currentX <= binWidth);
+			Debug.Assert(shelf.currentX <= BinWidth);
 
 			// Grow the shelf height.
 			shelf.height = Math.Max(shelf.height, height);
-			Debug.Assert(shelf.height <= binHeight);
+			Debug.Assert(shelf.height <= BinHeight);
 
-			usedSurfaceArea += width * height;
+			IncrementUsedArea( width * height );
 		}
 
         /// Returns true if there is still room in the bin to start a new shelf of the given height.
-        private bool CanStartNewShelf(int height) => shelves.LastOrDefault().startY + shelves.LastOrDefault().height + height <= binHeight;
+        private bool CanStartNewShelf(int height) => shelves.LastOrDefault().startY + shelves.LastOrDefault().height + height <= BinHeight;
 
 
         /// Creates a new shelf of the given starting height, which will become the topmost 'open' shelf.
@@ -432,7 +426,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
             {
                 Debug.Assert(shelves.LastOrDefault().height != 0);
                 currentY += shelves.LastOrDefault().height;
-                Debug.Assert(currentY < binHeight);
+                Debug.Assert(currentY < BinHeight);
             }
 
             Shelf shelf = new Shelf()
@@ -442,7 +436,7 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous2D
                 startY = currentY
             };
 
-            Debug.Assert(shelf.startY + shelf.height <= binHeight);
+            Debug.Assert(shelf.startY + shelf.height <= BinHeight);
             shelves.Add(shelf);
         }
     }
