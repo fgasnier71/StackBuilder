@@ -1,6 +1,7 @@
 ﻿#region Using directives
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Sharp3D.Math.Core;
 #endregion
@@ -178,6 +179,52 @@ namespace treeDiM.StackBuilder.Basics
                                 + bProperties.Height * Vector3D.CrossProduct(HalfAxis.ToVector3D(bPos.DirectionLength), HalfAxis.ToVector3D(bPos.DirectionWidth));
             return Math.Abs(diagonale.Z);
         }
+        public Layer3DBoxIndexed Sort(Packable packable)
+        {
+            Vector3D dimensions = packable.OuterDimensions;
+            Vector3D minPoint = BoundingBox(packable).PtMin;
+            Dictionary<int, double> dictIndexDist = new Dictionary<int, double>();
+
+            foreach (var boxPos in this)
+            {
+                int index = boxPos.Index;
+                double maxDist = boxPos.BPos.MaxDistance(dimensions, minPoint);
+
+                if (dictIndexDist.ContainsKey(index))
+                {
+                    dictIndexDist[index] = Math.Max(dictIndexDist[index], maxDist);
+                }
+                else
+                    dictIndexDist.Add(index, maxDist);
+            }
+            // sort by ascending distance
+            var sortedDict = from entry in dictIndexDist orderby entry.Value ascending select entry;
+
+            // instantiate new layer
+            Layer3DBoxIndexed sortedLayer = new Layer3DBoxIndexed(ZLow, LayerIndex);
+            foreach (var elt in sortedDict)
+            {
+                int index = elt.Key;
+                var boxPositions = FindAll(bp => bp.Index == index);
+
+                Vector3D vAxisWidth = HalfAxis.ToVector3D(boxPositions[0].BPos.DirectionWidth);
+                boxPositions.Sort(
+                    delegate (BoxPositionIndexed bp1, BoxPositionIndexed bp2)
+                    {
+                        double abscissa1 = Vector3D.DotProduct(bp1.BPos.Position, vAxisWidth);
+                        double abscissa2 = Vector3D.DotProduct(bp2.BPos.Position, vAxisWidth);
+
+                        if (abscissa1 > abscissa2) return 1;
+                        else if (abscissa2 < abscissa1) return -1;
+                        else return 0;
+                    });
+                foreach (var bpos in boxPositions)
+                    sortedLayer.Add(bpos);
+            }
+            return sortedLayer;            
+        }
+
+
         #endregion
         #region Public properties
         public int LayerIndex { get; }

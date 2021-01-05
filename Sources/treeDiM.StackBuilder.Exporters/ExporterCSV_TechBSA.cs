@@ -19,7 +19,10 @@ namespace treeDiM.StackBuilder.Exporters
         #region Static members
         public static string FormatName => "csv (TechnologyBSA)";
         #endregion
-        #region Constructor
+        #region TechBSA specific
+        private double HeightOffset(AnalysisLayered analysisLayered) => -(analysisLayered.Container as PalletProperties).Height;
+        #endregion
+        #region Override Exporter
         public override string Name => FormatName;
         public override string Filter => "Comma Separated Values (*.csv) |*.csv";
         public override string Extension => "csv";
@@ -35,6 +38,10 @@ namespace treeDiM.StackBuilder.Exporters
                 NumberGroupSeparator = "",
                 NumberDecimalDigits = 1
             };
+
+            // height offset
+            double heightOffset = HeightOffset(analysis);
+            Vector3D positionOffset = heightOffset * Vector3D.ZAxis;
 
             // initialize csv file
             var csv = new StringBuilder();
@@ -53,7 +60,7 @@ namespace treeDiM.StackBuilder.Exporters
                     layerBox.Sort(analysis.Content, Layer3DBox.SortType.DIST_MAXCORNER);
                     foreach (var bPosition in layerBox)
                     {
-                        var pos = ConvertPosition(bPosition, analysis.ContentDimensions);
+                        var pos = ConvertPosition(bPosition, analysis.ContentDimensions) + positionOffset;
                         int angle = 0;
                         switch (bPosition.DirectionLength)
                         {
@@ -114,13 +121,13 @@ namespace treeDiM.StackBuilder.Exporters
                 csv.AppendLine(
                     $"Program:StackBuilder;Program:StackBuilder.PalletDimension.P;REAL;{palletProperties.Width.ToString("0,0.0", nfi)}");
                 csv.AppendLine(
-                    $"Program:StackBuilder;Program:StackBuilder.PalletDimension.H;REAL;{palletProperties.Height.ToString("0,0.0", nfi)}");
+                    $"Program:StackBuilder;Program:StackBuilder.PalletDimension.H;REAL;{(palletProperties.Height + heightOffset).ToString("0,0.0", nfi)}");
                 csv.AppendLine(
                     $"Program:StackBuilder;Program:StackBuilder.PalletDimension.W;REAL;{palletProperties.Weight.ToString("0,0.0", nfi)}");
             }
 
-            double maxPalletHeight = analysis.ConstraintSet.OptMaxHeight.Value;
-            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Pallet.MaxPalletHeight;REAL;{maxPalletHeight.ToString("0,0.0", nfi)}");
+            int numberOfLayers = analysis.ConstraintSet.OptMaxLayerNumber.Value;
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.NumberOfLayers;INT;{numberOfLayers}");
             bool layersMirrorX = false;
             if (sol.ItemCount > 1)
                 layersMirrorX = sol.SolutionItems[0].SymetryX != sol.SolutionItems[1].SymetryX;
@@ -149,6 +156,10 @@ namespace treeDiM.StackBuilder.Exporters
                 NumberDecimalDigits = 1
             };
 
+            // height offset
+            double heightOffset = HeightOffset(analysis);
+            Vector3D positionOffset = heightOffset * Vector3D.ZAxis;
+
             // initialize csv file
             var csv = new StringBuilder();
             csv.AppendLine("Parameter; Field; DataType; Value");
@@ -163,10 +174,11 @@ namespace treeDiM.StackBuilder.Exporters
             {
                 if (layer is Layer3DBoxIndexed layerBox)
                 {
-                    foreach (var bpi in layerBox)
+                    var sortedLayer3DBox = layerBox.Sort(analysis.Content);
+                    foreach (var bpi in sortedLayer3DBox)
                     {
                         var bPosition = bpi.BPos;
-                        var pos = ConvertPosition(bPosition, analysis.ContentDimensions);
+                        var pos = ConvertPosition(bPosition, analysis.ContentDimensions) + positionOffset;
                         int angle = 0;
                         switch (bPosition.DirectionLength)
                         {
@@ -228,13 +240,13 @@ namespace treeDiM.StackBuilder.Exporters
                 csv.AppendLine(
                     $"Program:StackBuilder;Program:StackBuilder.PalletDimension.P;REAL;{palletProperties.Width.ToString("0,0.0", nfi)}");
                 csv.AppendLine(
-                    $"Program:StackBuilder;Program:StackBuilder.PalletDimension.H;REAL;{palletProperties.Height.ToString("0,0.0", nfi)}");
+                    $"Program:StackBuilder;Program:StackBuilder.PalletDimension.H;REAL;{(palletProperties.Height+heightOffset).ToString("0,0.0", nfi)}");
                 csv.AppendLine(
                     $"Program:StackBuilder;Program:StackBuilder.PalletDimension.W;REAL;{palletProperties.Weight.ToString("0,0.0", nfi)}");
             }
 
             int numberOfLayers = analysis.ConstraintSet.OptMaxLayerNumber.Value;
-            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.Pallet.NumberOfLayers;REAL;{numberOfLayers}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.NumberOfLayers;INT;{numberOfLayers}");
             bool layersMirrorX = false;
             if (sol.ItemCount > 1)
                 layersMirrorX = sol.SolutionItems[0].SymetryX != sol.SolutionItems[1].SymetryX;
