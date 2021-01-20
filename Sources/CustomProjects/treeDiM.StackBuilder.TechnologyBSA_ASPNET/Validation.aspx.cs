@@ -109,6 +109,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 NumberOfLayers, BoxPositions,
                 ChkbMirrorLength.Checked, ChkbMirrorWidth.Checked,
                 InterlayersBoolArray,
+                LayerDesignMode,
                 ref fileBytes,
                 ParseImageFormat(ConfigSettings.ExportImageFormat),
                 ref imageFileBytes);
@@ -163,6 +164,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         private List<BoxPositionIndexed> BoxPositions => (List<BoxPositionIndexed>)Session[SessionVariables.BoxPositions];
         private Bitmap BitmapTexture => (Bitmap)Session[SessionVariables.BitmapTexture];
         private string Interlayers => (string)Session[SessionVariables.Interlayers];
+        private int LayerDesignMode => (int)Session[SessionVariables.LayerDesignMode];
         #endregion
     }
 }

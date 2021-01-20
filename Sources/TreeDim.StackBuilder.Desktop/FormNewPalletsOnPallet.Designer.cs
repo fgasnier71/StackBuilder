@@ -30,8 +30,8 @@ namespace treeDiM.StackBuilder.Desktop
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbHalf = new System.Windows.Forms.RadioButton();
+            this.rbQuarter = new System.Windows.Forms.RadioButton();
             this.lbInputPallet1 = new System.Windows.Forms.Label();
             this.lbInputPallet2 = new System.Windows.Forms.Label();
             this.lbInputPallet3 = new System.Windows.Forms.Label();
@@ -66,27 +66,29 @@ namespace treeDiM.StackBuilder.Desktop
             this.label1.TabIndex = 13;
             this.label1.Text = "Destination pallet";
             // 
-            // radioButton1
+            // rbHalf
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(8, 67);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(111, 17);
-            this.radioButton1.TabIndex = 14;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Load 2 half pallets";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbHalf.AutoSize = true;
+            this.rbHalf.Location = new System.Drawing.Point(8, 67);
+            this.rbHalf.Name = "rbHalf";
+            this.rbHalf.Size = new System.Drawing.Size(111, 17);
+            this.rbHalf.TabIndex = 14;
+            this.rbHalf.TabStop = true;
+            this.rbHalf.Text = "Load 2 half pallets";
+            this.rbHalf.UseVisualStyleBackColor = true;
+            this.rbHalf.CheckedChanged += new System.EventHandler(this.OnPalletLayoutChanged);
             // 
-            // radioButton2
+            // rbQuarter
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(8, 90);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(127, 17);
-            this.radioButton2.TabIndex = 15;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Load 4 quarter pallets";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbQuarter.AutoSize = true;
+            this.rbQuarter.Location = new System.Drawing.Point(8, 90);
+            this.rbQuarter.Name = "rbQuarter";
+            this.rbQuarter.Size = new System.Drawing.Size(127, 17);
+            this.rbQuarter.TabIndex = 15;
+            this.rbQuarter.TabStop = true;
+            this.rbQuarter.Text = "Load 4 quarter pallets";
+            this.rbQuarter.UseVisualStyleBackColor = true;
+            this.rbQuarter.CheckedChanged += new System.EventHandler(this.OnPalletLayoutChanged);
             // 
             // lbInputPallet1
             // 
@@ -197,8 +199,8 @@ namespace treeDiM.StackBuilder.Desktop
             this.Controls.Add(this.lbInputPallet3);
             this.Controls.Add(this.lbInputPallet2);
             this.Controls.Add(this.lbInputPallet1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rbQuarter);
+            this.Controls.Add(this.rbHalf);
             this.Controls.Add(this.label1);
             this.Name = "FormNewPalletsOnPallet";
             this.Text = "Pallets on pallet...";
@@ -209,8 +211,8 @@ namespace treeDiM.StackBuilder.Desktop
             this.Controls.SetChildIndex(this.tbName, 0);
             this.Controls.SetChildIndex(this.tbDescription, 0);
             this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.radioButton1, 0);
-            this.Controls.SetChildIndex(this.radioButton2, 0);
+            this.Controls.SetChildIndex(this.rbHalf, 0);
+            this.Controls.SetChildIndex(this.rbQuarter, 0);
             this.Controls.SetChildIndex(this.lbInputPallet1, 0);
             this.Controls.SetChildIndex(this.lbInputPallet2, 0);
             this.Controls.SetChildIndex(this.lbInputPallet3, 0);
@@ -230,8 +232,8 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rbHalf;
+        private System.Windows.Forms.RadioButton rbQuarter;
         private System.Windows.Forms.Label lbInputPallet1;
         private System.Windows.Forms.Label lbInputPallet2;
         private System.Windows.Forms.Label lbInputPallet3;

@@ -70,7 +70,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 
             var layerEditHelper = new LayerEditorHelpers(ImageSize, DimCase, DimContainer)
             {
-                Positions = (List<BoxPosition>)Session[SessionVariables.BoxPositions],
+                Positions = BoxPositions,
                 SelectedIndex = SelectedIndex
             };
             layerEditHelper.MoveMax(axis);
@@ -161,8 +161,8 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         private int PalletIndex => (int)Session[SessionVariables.PalletIndex];
         private List<BoxPosition> BoxPositions
         {
-            get => (List<BoxPosition>)Session[SessionVariables.BoxPositions];
-            set => Session[SessionVariables.BoxPositions] = value;
+            get => BoxPositionIndexed.ToListBoxPosition((List<BoxPositionIndexed>)Session[SessionVariables.BoxPositions]);
+            set => Session[SessionVariables.BoxPositions] = BoxPositionIndexed.FromListBoxPosition(value);
         }
         private int SelectedIndex
         {

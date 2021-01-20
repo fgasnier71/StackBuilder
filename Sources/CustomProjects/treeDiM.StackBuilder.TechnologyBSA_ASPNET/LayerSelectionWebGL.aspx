@@ -115,10 +115,10 @@
                                     &nbsp;<td />
                             </tr>
                             <tr>
-                                <td class="auto-style1">
+                                <td class="style65px">
                                     <asp:Label ID="LBCaseWeight" runat="server" Text="Case weight" CssClass="label" />
                                 </td>
-                                <td class="auto-style1">
+                                <td class="style65px">
                                     <asp:TextBox ID="TBCaseWeight" runat="server" Width="60px" CssClass="textbox" />
                                 </td>
                                 <td class="auto-style1" />

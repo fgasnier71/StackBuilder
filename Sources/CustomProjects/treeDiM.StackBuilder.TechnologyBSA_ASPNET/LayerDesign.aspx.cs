@@ -69,9 +69,10 @@ public partial class LayerDesign : Page
         if (null != bposJS)
         {
             var listBoxPositions = new List<BoxPositionIndexed>();
+            int localIndex = 0;
             foreach (var bpjs in bposJS)
             {
-                var listIndex = canvasCoord.ToBoxPositionIndexed(bpjs, DimCase);
+                var listIndex = canvasCoord.ToBoxPositionIndexed(bpjs, DimCase, localIndex++);
                 listBoxPositions.AddRange(listIndex);                
             }
             // sort according to index

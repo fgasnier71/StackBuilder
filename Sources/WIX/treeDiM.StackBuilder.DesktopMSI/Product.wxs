@@ -65,8 +65,8 @@
     <Property Id="ARPURLINFOABOUT" Value="$(var.CompanyURL)" />
     <!-- Conditions-->
     <Condition Message="A later version of [ProductName] is already installed. Setup will now exit.">NOT PROJECT_DOWNGRADE OR Installed</Condition>
-    <Condition Message="This application is only supported on Windows XP, Windows Vista, Windows 7 and Windows Server 2008, or higher."><![CDATA[Installed OR (VersionNT >= 500)]]></Condition>
-    <Condition Message="This application requires .NET Framework 4.6.1. Please, install the .NET framework then run this installer again."><![CDATA[Installed OR NETFRAMEWORK40CLIENT]]></Condition>
+    <Condition Message="This application is only supported on Windows 7, 8, 10 and Windows Server 2008, or higher."><![CDATA[Installed OR (VersionNT >= 500)]]></Condition>
+    <Condition Message="This application requires .NET Framework 4.8.0. Please, install the .NET framework then run this installer again."><![CDATA[Installed OR NETFRAMEWORK40CLIENT]]></Condition>
     <!-- Install execute sequence -->
     <InstallExecuteSequence />
     <InstallUISequence />

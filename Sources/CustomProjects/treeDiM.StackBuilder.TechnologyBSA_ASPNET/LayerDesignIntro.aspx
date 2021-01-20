@@ -81,6 +81,7 @@
             $('#TBCaseLength').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             $('#TBCaseWidth').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             $('#TBCaseHeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
+            $('#TBCaseWeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             $('#TBPalletLength').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             $('#TBPalletWidth').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
             $('#TBPalletHeight').keyboard({ layout: 'num', restrictInput: true, preventPaste: true, autoAccept: true, accepted: function () { $('#BTRefresh').click(); } }).addTyping();
@@ -147,11 +148,11 @@
                                 <td />
                             </tr>
                             <tr>
-                                <td>
+                                <td class="style65px">
                                     <asp:Label ID="LBCaseWeight" runat="server" Text="Case weight" CssClass="label"/>
                                 </td>
-                                <td>
-                                    <asp:TextBox ID="TBCaseWeight" runat="server" Width="60px" CssClass="textbox"/>
+                                <td class="style65px">
+                                    <asp:TextBox ID="TBCaseWeight" runat="server" Width="60px" CssClass="textbox" OnTextChanged="OnRefresh"/>
                                 </td>
                                 <td />
                                 <td>
@@ -163,7 +164,7 @@
                                     <asp:Label ID="LBPalletWeight" runat="server" Text="Pallet weight" CssClass="label"/>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="TBPalletWeight" runat="server" Width="60px" CssClass="textbox"/>
+                                    <asp:TextBox ID="TBPalletWeight" runat="server" Width="60px" CssClass="textbox" OnTextChanged="OnRefresh"/>
                                 </td>
                                 <td>
                                     <asp:Label Id="LBPalletWeightUnit" runat="server" Text="kg" CssClass="label" />

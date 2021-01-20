@@ -265,6 +265,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             List<BoxPositionIndexed> listBoxPositionIndexed,
             bool mirrorLength, bool mirrorWidth,
             List<bool> interlayers,
+            int layerDesignMode,
             ref byte[] fileBytes,
             System.Drawing.Imaging.ImageFormat imageFormat,
             ref byte[] imageFileBytes)
@@ -315,7 +316,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             var exporter = ExporterFactory.GetExporterByName("csv (TechnologyBSA)");
             exporter.PositionCoordinateMode = Exporter.CoordinateMode.CM_COG;
             Stream stream = new MemoryStream();
-            exporter.ExportIndexed(analysis, ref stream);
+            exporter.ExportIndexed(analysis, layerDesignMode, ref stream);
             // save stream to file
             using (var br = new BinaryReader(stream))
                 fileBytes = br.ReadBytes((int)stream.Length);

@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
 using System.Data;
 using System.Globalization;
 
@@ -15,7 +13,6 @@ using treeDiM.StackBuilder.Plugin;
 
 namespace ExcelDataReader
 {
-
     /// <summary>
     /// Main class implementation
     /// </summary>

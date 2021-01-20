@@ -229,7 +229,7 @@
                             <td class="auto-style4">
                                 <asp:TextBox ID="TBFileName" runat="server" Width="100%" CssClass="textbox" />
                             </td>
-                            <td>
+                            <td class="styleTextAlignRight">
                                 <asp:Button ID="btExport" runat="server" OnClick="OnExport" Text="Export" CssClass="button" Style="background-image: url('Images/Export.png'); background-repeat: no-repeat" />
                             </td>
                         </tr>

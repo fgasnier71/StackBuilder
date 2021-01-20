@@ -29,9 +29,11 @@ public class HandlerLayerEditor : IHttpHandler, System.Web.SessionState.IRequire
         };
         boxProperties.SetAllColors(Enumerable.Repeat(Color.Beige, 6).ToArray());
 
+        
+
         var layerEditorHelpers = new LayerEditorHelpers(sz, dimCase, dimContainer)
         {
-            Positions = (List<BoxPosition>)context.Session[SessionVariables.BoxPositions],
+            Positions = BoxPositionIndexed.ToListBoxPosition((List<BoxPositionIndexed>)context.Session[SessionVariables.BoxPositions]),
             SelectedIndex = selectedIndex,
             FontSizeRatio = ConfigSettings.FontSizeRatio
         };

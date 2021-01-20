@@ -86,7 +86,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             };
         }
 
-        public List<BoxPositionIndexed> ToBoxPositionIndexed(BoxPositionJS bposjs, Vector3D dimCase)
+        public List<BoxPositionIndexed> ToBoxPositionIndexed(BoxPositionJS bposjs, Vector3D dimCase, int relIndex)
         {
             HalfAxis.HAxis axisLength = HalfAxis.HAxis.AXIS_X_P;
             HalfAxis.HAxis axisWidth = HalfAxis.HAxis.AXIS_Y_P;
@@ -108,7 +108,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             for (int i = 0; i < bposjs.NumberCase; ++i)
             {
                 Vector3D position = new Vector3D(pos2D.X, pos2D.Y, 0.0) + i * dimCase.Y * multDir;
-                boxPositions.Add(new BoxPositionIndexed(position, axisLength, axisWidth, bposjs.Index));
+                boxPositions.Add(new BoxPositionIndexed(position, axisLength, axisWidth, relIndex));
             }
             return boxPositions;
         }

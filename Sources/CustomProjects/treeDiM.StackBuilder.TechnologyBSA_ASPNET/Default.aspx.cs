@@ -32,48 +32,20 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 
         protected void OnNewProject(object sender, EventArgs e)
         {
-            string queryString = string.Empty;
+            DimCase = new Vector3D(300.0, 280.0, 275.0);
+            WeightCase = 1.0;
+            WeightPallet = 23.0;
+            PalletIndex = 0;
+            NumberOfLayers = 5;
+            LayersMirrorX = false; LayersMirrorY = false;
+            Interlayers = "";
+            FileName = "Untitled.csv";
+            LayerDesignMode = LayerDesignModeCtrl;
 
-            if (ConfigSettings.UseSessionState)
-            {
-                DimCase = new Vector3D(300.0, 280.0, 275.0);
-                WeightCase = 1.0;
-                WeightPallet = 23.0;
-                PalletIndex = 0;
-                NumberOfLayers = 5;
-                LayersMirrorX = false; LayersMirrorY = false;
-                Interlayers = "";
-                FileName = "Untitled.csv";
-            }
-            else
-            {
-                Vector3D dimCase = new Vector3D(300.0, 280.0, 275.0);
-                double weightCase = 1.0;
-                Vector3D dimPallet = new Vector3D(1200.0, 1000.0, 155.0);
-                double weightPallet = 23.0;
-                double maxPalletHeight = 1700.0;
-                bool mirrorX = false, mirrorY = false;
-                string filePath = "untitled.csv";
-
-                StringBuilder sb = new StringBuilder();
-                sb.Append(" ? ");
-                sb.Append($"DimCase={dimCase}");
-                sb.Append($"WeightCase={weightCase}");
-                sb.Append($"&DimPallet={dimPallet}");
-                sb.Append($"&WeightPallet={weightPallet}");
-                sb.Append($"&MaxPalletWeight={maxPalletHeight}");
-                sb.Append($"&LayerMirrorX={mirrorX}");
-                sb.Append($"&LayerMirrorY={mirrorY}");
-                sb.Append($"LayerEdited={true}");
-                sb.Append($"FileName={filePath}");
-
-                queryString = sb.ToString();
-            }
-
-            if (LayerDesignMode == 0)
+            if (LayerDesignModeCtrl == 0)
                 Response.Redirect("LayerDesignIntro.aspx");
             else
-                Response.Redirect("LayerSelectionWebGL.aspx" + queryString);
+                Response.Redirect("LayerSelectionWebGL.aspx");
         }
 
         protected void OnOpenProject(object sender, EventArgs e)
@@ -87,6 +59,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             int numberOfLayers = 0;
             List<BoxPositionIndexed> boxPositions = new List<BoxPositionIndexed>();
             List<bool> interlayers = new List<bool>();
+            int layerDesignMode = 0;
 
             string filePath = DropDownListFiles.SelectedValue;
             byte[] fileContent = null;
@@ -97,48 +70,24 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                 ref dimPallet, ref weightPallet,
                 ref numberOfLayers,
                 ref MirrorX, ref MirrorY,
-                ref interlayers);
+                ref interlayers,
+                ref layerDesignMode);
 
-            string queryString = string.Empty;
-
-            if (ConfigSettings.UseSessionState)
-            {
-                DimCase = dimCase; WeightCase = weightCase;
-                PalletIndex = 0; WeightPallet = weightPallet;
-                NumberOfLayers = numberOfLayers;
-                BoxPositions = boxPositions;
-                LayersMirrorX = MirrorX;
-                LayersMirrorY = MirrorY;
-                LayerEdited = true;
-                FileName = filePath;
-                Interlayers = string.Concat(interlayers.Select(p => p ? "1" : "0").ToArray()); ;
-            }
-            else
-            {
-                string interlayerArray = string.Concat(interlayers.Select(p => p ? "1" : "0").ToArray());
-                string fileBoxPositions = string.Empty;
-
-                StringBuilder sb = new StringBuilder();
-                sb.Append(" ? ");
-                sb.Append($"DimCase={dimCase}");
-                sb.Append($"WeightCase={weightCase}");
-                sb.Append($"&DimPallet={dimPallet}");
-                sb.Append($"&WeightPallet={weightPallet}");
-                sb.Append($"&NumberOfLayers={numberOfLayers}");
-                sb.Append($"&BoxPositionsFile={fileBoxPositions}");
-                sb.Append($"&LayerMirrorX={MirrorX}");
-                sb.Append($"&LayerMirrorY={MirrorY}");
-                sb.Append($"LayerEdited={true}");
-                sb.Append($"FileName={filePath}");
-                sb.Append($"Interlayers={interlayerArray}");
-
-                queryString = sb.ToString();
-            }
+            DimCase = dimCase; WeightCase = weightCase;
+            PalletIndex = 0; WeightPallet = weightPallet;
+            NumberOfLayers = numberOfLayers;
+            BoxPositions = boxPositions;
+            LayersMirrorX = MirrorX;
+            LayersMirrorY = MirrorY;
+            LayerEdited = true;
+            FileName = filePath;
+            Interlayers = string.Concat(interlayers.Select(p => p ? "1" : "0").ToArray());
+            LayerDesignMode = layerDesignMode;
 
             if (ConfigSettings.WebGLMode)
-                Response.Redirect("ValidationWebGL.aspx" + queryString);
+                Response.Redirect("ValidationWebGL.aspx");
             else
-                Response.Redirect("Validation.aspx" + queryString);
+                Response.Redirect("Validation.aspx");
         }
 
         #region Private properties
@@ -164,7 +113,9 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         { set => Session[SessionVariables.Interlayers] = value; }
         private bool LayerEdited
         { set => Session[SessionVariables.LayerEdited] = value; }
-        private int LayerDesignMode => DropDownLayerDesignMode.SelectedIndex;
+        private int LayerDesignModeCtrl => DropDownLayerDesignMode.SelectedIndex;
+        private int LayerDesignMode
+        { set => Session[SessionVariables.LayerDesignMode] = value; }
         #endregion
     }
 }

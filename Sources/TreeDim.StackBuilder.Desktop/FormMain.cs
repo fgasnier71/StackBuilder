@@ -153,12 +153,10 @@ namespace treeDiM.StackBuilder.Desktop
             if (!Program.IsSubscribed)
                 Program.IsSubscribed = true;
         }
-
         private void OpenGeneratedFile(string s)
         {
             OpenDocument(s);
         }
-
         protected override void OnClosing(CancelEventArgs e)
         {
              try
@@ -277,7 +275,7 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 _log.Error(ex.Message);
             }
-         }
+        }
         private void CloseStartPage()
         {
             if (null != _dockStartPage)

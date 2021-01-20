@@ -1,5 +1,4 @@
 ﻿#region Using directives
-using System;
 using System.Linq;
 #endregion
 
@@ -20,19 +19,14 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Helpers
-        private double MaxPalletHeight
-        {
-            get
-            {
-                var max = LoadedPallets.Select((n, i) => (Number: n.Height, Index: i)).Max().Number;
-                return max;
-            }
-        }
+        private double MaxPalletHeight => LoadedPallets.Select((n, i) => (Number: n.Height, Index: i)).Max().Number;
         #endregion
 
         #region Public properties
+        public enum EMode { PALLET_HALF, PALLET_QUARTER }
         public PalletProperties DestinationPallet { get; set; }
         public LoadedPallet[] LoadedPallets { get; set; } = new LoadedPallet[4];
+        public EMode Mode { get; set; } = EMode.PALLET_HALF;
         #endregion
     }
 }

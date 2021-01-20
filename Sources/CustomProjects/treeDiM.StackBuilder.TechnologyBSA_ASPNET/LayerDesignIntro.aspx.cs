@@ -1,7 +1,6 @@
 ﻿#region Using directives
 using System;
 using System.Web.UI;
-using System.Globalization;
 using System.Collections.Generic;
 
 using Sharp3D.Math.Core;

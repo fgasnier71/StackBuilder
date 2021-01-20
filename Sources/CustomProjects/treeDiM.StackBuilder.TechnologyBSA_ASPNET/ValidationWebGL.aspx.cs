@@ -100,6 +100,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
                     NoLayers, BoxPositions,
                     ChkbMirrorLength.Checked, ChkbMirrorWidth.Checked,
                     InterlayersBoolArray,
+                    LayerDesignMode,
                     ref fileBytes,
                     ParseImageFormat(ConfigSettings.ExportImageFormat),
                     ref imageFileBytes);
@@ -120,10 +121,15 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
             // clear output directory
             DirectoryHelpers.ClearDirectory(Output);
 
-            if (LayerEdited)
+            if (0 == LayerDesignMode)
                 Response.Redirect("LayerDesign.aspx");
             else
-                Response.Redirect("LayerSelectionWebGL.aspx");
+            {
+                if (LayerEdited)
+                    Response.Redirect("LayerEdition.aspx");
+                else
+                    Response.Redirect("LayerSelectionWebGL.aspx");
+            }
         }
         #endregion
 
@@ -161,6 +167,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
         private Bitmap BitmapTexture => (Bitmap)Session[SessionVariables.BitmapTexture];
         private string Output => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Output");
         private string Interlayers => (string) Session[SessionVariables.Interlayers];
+        private int LayerDesignMode => (int)Session[SessionVariables.LayerDesignMode];
         #endregion
 
     }

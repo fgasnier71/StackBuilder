@@ -18,5 +18,6 @@
         public const string LayerEdited = "LayerEdited";
         public const string BitmapTexture = "BitmapTexture";
         public const string Interlayers = "Interlayers";
+        public const string LayerDesignMode = "LayerDesignMode";
     }
 }

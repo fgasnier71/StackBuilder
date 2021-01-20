@@ -57,8 +57,6 @@ namespace treeDiM.StackBuilder.Desktop
         #region IItemBaseFilter
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
-            //if (!(itemBase is LoadedPallet || itemBase is PalletProperties) )
-                //return false;
             if (ctrl == cbDestinationPallet)
                 return itemBase is PalletProperties;
             else if (ctrl == cbInputPallet1
@@ -70,6 +68,16 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Handlers
+        private void OnPalletLayoutChanged(object sender, EventArgs e)
+        {
+            bool quarter = rbQuarter.Checked;
+            lbInputPallet3.Visible = quarter;
+            lbInputPallet4.Visible = quarter;
+            cbInputPallet3.Visible = quarter;
+            cbInputPallet4.Visible = quarter;
+        }
+        #endregion
         #region IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
@@ -78,16 +86,23 @@ namespace treeDiM.StackBuilder.Desktop
             Pallet pallet = new Pallet(DestinationPallet);
             pallet.Draw(graphics, Transform3D.Identity);
 
+            if ()
+
+
+
             graphics.AddDimensions(new DimensionCube(DestinationPallet.Length, DestinationPallet.Width, DestinationPallet.Height));
         }
         #endregion
 
         #region Accessors
         private PalletProperties DestinationPallet => cbDestinationPallet.SelectedType as PalletProperties;
+        private int Mode => rbHalf.Checked ? 0 : 1;
         #endregion
 
         #region Data members
         private static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPalletsOnPallet));
         #endregion
+
+
     }
 }

@@ -136,6 +136,7 @@ namespace treeDiM.StackBuilder.Exporters
             if (sol.ItemCount > 1)
                 layersMirrorY = sol.SolutionItems[0].SymetryY != sol.SolutionItems[1].SymetryY;
             csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.LayersMirrorYOnOff;BOOL;{Bool2string(layersMirrorY)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.LayerDesignMode;INT;1");
             csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.TotalWeight;REAL;{sol.Weight.ToString("0,0.0", nfi)}");
 
             var writer = new StreamWriter(stream);
@@ -143,7 +144,7 @@ namespace treeDiM.StackBuilder.Exporters
             writer.Flush();
             stream.Position = 0;
         }
-        public override void ExportIndexed(AnalysisLayered analysis, ref Stream stream)
+        public override void ExportIndexed(AnalysisLayered analysis, int layerDesignMode, ref Stream stream)
         {
             if (analysis.SolutionLay.ItemCount > MaximumNumberOfCases)
                 throw new ExceptionTooManyItems(Name, analysis.Solution.ItemCount, MaximumNumberOfCases);
@@ -256,6 +257,7 @@ namespace treeDiM.StackBuilder.Exporters
                 layersMirrorY = sol.SolutionItems[0].SymetryY != sol.SolutionItems[1].SymetryY;
             csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.LayersMirrorYOnOff;BOOL;{Bool2string(layersMirrorY)}");
             csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.TotalWeight;REAL;{sol.Weight.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"Program:StackBuilder;Program:StackBuilder.LayerDesignMode;INT;{layerDesignMode}");
 
             var writer = new StreamWriter(stream);
             writer.Write(csv.ToString());
@@ -271,7 +273,8 @@ namespace treeDiM.StackBuilder.Exporters
             ref Vector3D dimPallet, ref double weightPallet,
             ref int numberOfLayers,
             ref bool layersMirrorX, ref bool layersMirrorY,
-            ref List<bool> interlayers)
+            ref List<bool> interlayers,
+            ref int layerDesignMode)
         {
             using (TextFieldParser csvParser = new TextFieldParser(csvStream))
             {
@@ -376,6 +379,10 @@ namespace treeDiM.StackBuilder.Exporters
                     else if (f1.Contains("Program:StackBuilder.LayersMirrorYOnOff"))
                     {
                         layersMirrorY = String2Bool(fields[3]);
+                    }
+                    else if (f1.Contains("Program:StackBuilder.LayerDesignMode"))
+                    {
+                        layerDesignMode = int.Parse(fields[3]);
                     }
                 }
             }

@@ -65,7 +65,7 @@ namespace treeDiM.StackBuilder.Desktop
             _log.Info(string.Format("Starting {0} with user culture {1}", Application.ProductName, Thread.CurrentThread.CurrentUICulture));
 
             // set unit system
-            UnitsManager.CurrentUnitSystem = (UnitsManager.UnitSystem)Properties.Settings.Default.UnitSystem; 
+            UnitsManager.CurrentUnitSystem = (UnitsManager.UnitSystem)Settings.Default.UnitSystem; 
 
             // file association
             RegisterFileType();
