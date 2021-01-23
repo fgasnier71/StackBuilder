@@ -12,21 +12,12 @@ namespace treeDiM.StackBuilder.Graphics
     public class ViewerILayer2D : IDisposable
     {
         #region Data members
-        private ILayer2D _layer;
-        private static int _fontSize = 9;
+        public static int FontSize { get; set; } = 9;
+        public ILayer2D Layer { get; set; }
         #endregion
 
         #region Constructor
-        public ViewerILayer2D(ILayer2D layer)
-        {
-            _layer = layer;
-        }
-        #endregion
-
-        #region Implementation IDispose
-        public void Dispose()
-        { 
-        }
+        public ViewerILayer2D(ILayer2D layer) { Layer = layer; }
         #endregion
 
         #region Public methods
@@ -34,12 +25,12 @@ namespace treeDiM.StackBuilder.Graphics
         {
             graphics.NumberOfViews = 1;
             graphics.Clear(selected ? Color.LightBlue : Color.White);
-            graphics.SetViewport(0.0f, 0.0f, (float)_layer.Length, (float)_layer.Width);
+            graphics.SetViewport(0.0f, 0.0f, (float)Layer.Length, (float)Layer.Width);
             graphics.SetCurrentView(0);
-            graphics.DrawRectangle(Vector2D.Zero, new Vector2D(_layer.Length, _layer.Width), Color.Black);
+            graphics.DrawRectangle(Vector2D.Zero, new Vector2D(Layer.Length, Layer.Width), Color.Black);
 
             // draw layer (brick)
-            if (_layer is Layer2DBrick layer2D)
+            if (Layer is Layer2DBrick layer2D)
             {
                 uint pickId = 0;
                 foreach (var bPosition in layer2D.Positions)
@@ -54,9 +45,9 @@ namespace treeDiM.StackBuilder.Graphics
                 }
             }
             // draw layer (cylinder)
-            else if (_layer is Layer2DCylImp)
+            else if (Layer is Layer2DCylImp)
             {
-                Layer2DCylImp layer2DCyl = _layer as Layer2DCylImp;
+                Layer2DCylImp layer2DCyl = Layer as Layer2DCylImp;
                 uint pickId = 0;
                 foreach (Vector2D pos in layer2DCyl)
                 {
@@ -69,9 +60,9 @@ namespace treeDiM.StackBuilder.Graphics
             if (showAxis)
             {
                 // draw axis X
-                graphics.DrawLine(Vector2D.Zero, new Vector2D(_layer.Length, 0.0), Color.Red);
+                graphics.DrawLine(Vector2D.Zero, new Vector2D(Layer.Length, 0.0), Color.Red);
                 // draw axis Y
-                graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, _layer.Width), Color.Green);
+                graphics.DrawLine(Vector2D.Zero, new Vector2D(0.0, Layer.Width), Color.Green);
             }
             // annotate thumbnail
             if (annotate)
@@ -83,7 +74,7 @@ namespace treeDiM.StackBuilder.Graphics
             graphics.CameraPosition = Graphics3D.Corner_0;
 
             // draw layer (brick)
-            if (_layer is Layer2DBrick layer2D)
+            if (Layer is Layer2DBrick layer2D)
             {
                 uint pickId = 0;
                 foreach (var bPosition in layer2D.Positions)
@@ -95,9 +86,9 @@ namespace treeDiM.StackBuilder.Graphics
                 }
             }
             // draw layer (cylinder)
-            else if (_layer is Layer2DCylImp)
+            else if (Layer is Layer2DCylImp)
             {
-                Layer2DCylImp layer2DCyl = _layer as Layer2DCylImp;
+                Layer2DCylImp layer2DCyl = Layer as Layer2DCylImp;
                 uint pickId = 0;
                 foreach (Vector2D pos in layer2DCyl)
                 {
@@ -122,18 +113,18 @@ namespace treeDiM.StackBuilder.Graphics
             // *** Annotate : begin ***
             if (height > 0)
             {
-                string annotation = string.Format(
-                    "{0}*{1}={2}"
-                    , _layer.Count
-                    , _layer.NoLayers(height)
-                    , _layer.CountInHeight(height));
-                Font tfont = new Font("Arial", _fontSize);
+                string annotation = $"{Layer.Count}*{Layer.NoLayers(height)}={Layer.CountInHeight(height)}";
+                Font tfont = new Font("Arial", FontSize);
                 StringFormat sf = new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Far };
                 Size txtSize = g.MeasureString(annotation, tfont).ToSize();
                 g.FillRectangle(new SolidBrush(Color.Black), new Rectangle(s.Width - txtSize.Width - 2, s.Height - txtSize.Height - 2, txtSize.Width + 2, txtSize.Height + 2));
                 g.DrawString(annotation, tfont, new SolidBrush(Color.White), new Point(s.Width - 3, s.Height - 3), sf);
             }
             // *** Annotate : end ***
+        }
+
+        public void Dispose()
+        {
         }
         #endregion
     }

@@ -121,19 +121,14 @@ namespace treeDiM.StackBuilder.Graphics
     #region BoxOrderer
     public abstract class BoxOrderer
     {
-        #region Data members
-        protected List<BoxGeneric> Boxes { get; set; } = new List<BoxGeneric>();
-        #endregion
-
         #region Public methods
-        public void Add(BoxGeneric b)
-        {
-            Boxes.Add(b);
-        }
+        public void Add(BoxGeneric b)  { Boxes.Add(b); }
         #endregion
-
         #region Public abstract methods
         public abstract List<BoxGeneric> GetSortedList();
+        #endregion
+        #region Data members
+        protected List<BoxGeneric> Boxes { get; set; } = new List<BoxGeneric>();
         #endregion
     }
     #endregion

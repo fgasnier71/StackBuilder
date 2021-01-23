@@ -86,10 +86,6 @@ namespace treeDiM.StackBuilder.Desktop
             Pallet pallet = new Pallet(DestinationPallet);
             pallet.Draw(graphics, Transform3D.Identity);
 
-            if ()
-
-
-
             graphics.AddDimensions(new DimensionCube(DestinationPallet.Length, DestinationPallet.Width, DestinationPallet.Height));
         }
         #endregion

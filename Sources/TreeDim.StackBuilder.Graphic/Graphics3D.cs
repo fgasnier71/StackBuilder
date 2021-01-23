@@ -454,14 +454,12 @@ namespace treeDiM.StackBuilder.Graphics
                         }
                     }
                 }
-
                 // remaining boxes
                 var boxelOrdererRem = new BoxelOrderer(boxes, ViewDirection);
                 boxes = boxelOrdererRem.GetSortedList();
                 // draw boxes
                 foreach (var box in boxes)
                     box.Draw(this);
-
                 // remaining cylinders
                 cylinders.Sort(new DrawableComparerSimplifiedPainterAlgo(GetWorldToEyeTransformation()));
                 // draw cylinders
@@ -498,14 +496,11 @@ namespace treeDiM.StackBuilder.Graphics
             // draw faces : end
             foreach (Face face in Faces)
                 Draw(face, FaceDir.FRONT);
-
             // draw segment list (e.g. hatching)
             foreach (Segment seg in Segments)
                 Draw(seg);
-
             foreach (var label in PalletLabels)
                 Draw(label.Face, FaceDir.FRONT);
-
             // draw cotation cubes
             if (ShowDimensions)
             {
@@ -614,7 +609,6 @@ namespace treeDiM.StackBuilder.Graphics
                         vecMax.Y = Math.Max(vecMax.Y, ptT.Y);
                         vecMax.Z = Math.Max(vecMax.Z, ptT.Z);
                     }
-
                     Vector3D vecMin1 = vecMin, vecMax1 = vecMax;
                     // adjust width/height
                     if ((vecMax.Y - vecMin.Y) / Size.Height > (vecMax.X - vecMin.X) / Size.Width)
@@ -710,7 +704,6 @@ namespace treeDiM.StackBuilder.Graphics
             if (tr.DrawPath[2])
                 g.DrawLine(pen0, pt[pt.Length - 1], pt[0]);
         }
-
         /// <summary>
         /// Draw a face
         /// </summary>
@@ -757,7 +750,6 @@ namespace treeDiM.StackBuilder.Graphics
             }
             g.DrawLine(new Pen(brush0, 1.5f), pt[ptCount - 1], pt[0]);
         }
-
         internal void Draw(Face face, FaceDir dir, Color colorApply, bool transparent)
         {
             System.Drawing.Graphics g = Graphics;
@@ -790,7 +782,6 @@ namespace treeDiM.StackBuilder.Graphics
             }
             g.DrawLine(new Pen(brush0, fThickness), pt[pt.Length - 1], pt[0]);
         }
-
         internal void Draw(ImageInst img)
         {
             try

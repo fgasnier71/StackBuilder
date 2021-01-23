@@ -43,13 +43,13 @@
             this.uCtrlMaxNumber = new treeDiM.Basics.UCtrlOptInt();
             this.uCtrlMaxHeight = new treeDiM.Basics.UCtrlDouble();
             this.gbLayer = new System.Windows.Forms.GroupBox();
+            this.bnLayerImage = new System.Windows.Forms.Button();
             this.chkbAlternateLayers = new System.Windows.Forms.CheckBox();
             this.chkbBestLayers = new System.Windows.Forms.CheckBox();
             this.cbLayers = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboLayer();
             this.gbResults = new System.Windows.Forms.GroupBox();
             this.rtbResults = new System.Windows.Forms.RichTextBox();
             this.pbPalletization = new System.Windows.Forms.PictureBox();
-            this.bnLayerImage = new System.Windows.Forms.Button();
             this.gbCase.SuspendLayout();
             this.gbPallet.SuspendLayout();
             this.gbConstraints.SuspendLayout();
@@ -72,6 +72,11 @@
             // uCtrlCaseWeight
             // 
             this.uCtrlCaseWeight.Location = new System.Drawing.Point(7, 47);
+            this.uCtrlCaseWeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlCaseWeight.Minimum = new decimal(new int[] {
             0,
             0,
@@ -119,6 +124,11 @@
             // uCtrlPalletWeight
             // 
             this.uCtrlPalletWeight.Location = new System.Drawing.Point(7, 47);
+            this.uCtrlPalletWeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlPalletWeight.Minimum = new decimal(new int[] {
             0,
             0,
@@ -231,6 +241,11 @@
             // uCtrlMaxHeight
             // 
             this.uCtrlMaxHeight.Location = new System.Drawing.Point(7, 40);
+            this.uCtrlMaxHeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlMaxHeight.Minimum = new decimal(new int[] {
             10000,
             0,
@@ -258,6 +273,16 @@
             this.gbLayer.TabIndex = 4;
             this.gbLayer.TabStop = false;
             this.gbLayer.Text = "Layers";
+            // 
+            // bnLayerImage
+            // 
+            this.bnLayerImage.Location = new System.Drawing.Point(147, 81);
+            this.bnLayerImage.Name = "bnLayerImage";
+            this.bnLayerImage.Size = new System.Drawing.Size(154, 23);
+            this.bnLayerImage.TabIndex = 4;
+            this.bnLayerImage.Text = "Generate layer image";
+            this.bnLayerImage.UseVisualStyleBackColor = true;
+            this.bnLayerImage.Click += new System.EventHandler(this.OnGenerateLayerImage);
             // 
             // chkbAlternateLayers
             // 
@@ -330,16 +355,6 @@
             this.pbPalletization.Size = new System.Drawing.Size(567, 489);
             this.pbPalletization.TabIndex = 0;
             this.pbPalletization.TabStop = false;
-            // 
-            // bnLayerImage
-            // 
-            this.bnLayerImage.Location = new System.Drawing.Point(147, 81);
-            this.bnLayerImage.Name = "bnLayerImage";
-            this.bnLayerImage.Size = new System.Drawing.Size(154, 23);
-            this.bnLayerImage.TabIndex = 4;
-            this.bnLayerImage.Text = "Generate layer image";
-            this.bnLayerImage.UseVisualStyleBackColor = true;
-            this.bnLayerImage.Click += new System.EventHandler(this.OnGenerateLayerImage);
             // 
             // FormMain
             // 

@@ -57,55 +57,41 @@ namespace treeDiM.StackBuilder.Graphics.Controls
     }
     public class LayerDropDownItem
     {
-        #region Data members
-        private ILayer2D _layer;
-        #endregion
-
         #region Constructor
         public LayerDropDownItem(ILayer2D layer, Packable packable, bool selected, Size imgSize, bool show3D)
         {
             // save layer
-            _layer = layer;
+            Layer = layer;
             // build image
             if (show3D)
             {
                 Graphics3DImage graphics = new Graphics3DImage(imgSize);
-                using (ViewerILayer2D solViewer = new ViewerILayer2D(_layer))
+                using (ViewerILayer2D solViewer = new ViewerILayer2D(Layer))
                 {
                     solViewer.Draw(graphics, packable, 0.0, selected, true);
-                    _img = graphics.Bitmap;
+                    Image = graphics.Bitmap;
                 }
             }
             else
             {
                 // build image
                 Graphics2DImage graphics = new Graphics2DImage(imgSize);
-                using (ViewerILayer2D solViewer = new ViewerILayer2D(_layer))
+                using (ViewerILayer2D solViewer = new ViewerILayer2D(Layer))
                 {
                     solViewer.Draw(graphics, packable, 0.0, selected, true);
-                    _img = graphics.Bitmap;
+                    Image = graphics.Bitmap;
                 }
             }
         }
         #endregion
-
         #region Public properties
-        public Image Image
-        {
-            get { return _img; }
-            set { _img = value; }
-        }
+        public Image Image { get; set; }
         #endregion
-
         #region Override object
-        public override string ToString()
-        {
-            return _layer.ToString();
-        }
+        public override string ToString() => Layer.ToString();
         #endregion
-
         #region Data members
-        private Image _img;
+        private ILayer2D Layer { get; set; }
         #endregion
     }
 }

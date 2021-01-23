@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+using System.Linq;
 
 using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
@@ -18,10 +19,21 @@ namespace treeDiM.StackBuilder.Graphics
 
         #region Data members
         private Vector3D[] _points;
-        private Transform3D _transf = Transform3D.Identity;
+        private Transform3D Transf { get; set; } = Transform3D.Identity;
         #endregion
 
         #region Constructor
+        public Case(uint pickId, Vector3D dimOuter, Vector3D dimInner) : base(pickId)
+        {
+            Length = dimOuter.X;
+            Width = dimOuter.Y;
+            Height = dimOuter.Z;
+            InsideLength = dimInner.X;
+            InsideWidth = dimInner.Y;
+            InsideHeight = dimInner.Z;
+            Colors = Enumerable.Repeat(Color.Beige, 6).ToArray();
+            ColorPath = Color.Black;
+        }
         public Case(BoxProperties boxProperties)
             : base(0)
         {
@@ -45,7 +57,7 @@ namespace treeDiM.StackBuilder.Graphics
             InsideHeight = boxProperties.InsideHeight;
             Colors = boxProperties.Colors;
             ColorPath = Color.Black;
-            _transf = transf;
+            Transf = transf;
         }
         #endregion
 
@@ -60,15 +72,15 @@ namespace treeDiM.StackBuilder.Graphics
                 if (null == _points)
                 {
                     _points = new Vector3D[8];
-                    _points[0] = _transf.transform(new Vector3D(0.0,    0.0,    0.0));
-                    _points[1] = _transf.transform(new Vector3D(Length, 0.0,    0.0));
-                    _points[2] = _transf.transform(new Vector3D(Length, Width,  0.0));
-                    _points[3] = _transf.transform(new Vector3D(0.0,    Width,  0.0));
+                    _points[0] = Transf.transform(new Vector3D(0.0,    0.0,    0.0));
+                    _points[1] = Transf.transform(new Vector3D(Length, 0.0,    0.0));
+                    _points[2] = Transf.transform(new Vector3D(Length, Width,  0.0));
+                    _points[3] = Transf.transform(new Vector3D(0.0,    Width,  0.0));
 
-                    _points[4] = _transf.transform(new Vector3D(0.0,    0.0,    Height));
-                    _points[5] = _transf.transform(new Vector3D(Length, 0.0,    Height));
-                    _points[6] = _transf.transform(new Vector3D(Length, Width,  Height));
-                    _points[7] = _transf.transform(new Vector3D(0.0,    Width,  Height));
+                    _points[4] = Transf.transform(new Vector3D(0.0,    0.0,    Height));
+                    _points[5] = Transf.transform(new Vector3D(Length, 0.0,    Height));
+                    _points[6] = Transf.transform(new Vector3D(Length, Width,  Height));
+                    _points[7] = Transf.transform(new Vector3D(0.0,    Width,  Height));
                 }
                 return _points;
             }
@@ -83,15 +95,15 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     _points = new Vector3D[8];
 
-                    _points[0] = _transf.transform(new Vector3D(0.0,            0.0,        zThickness));
-                    _points[1] = _transf.transform(new Vector3D(InsideLength,   0.0,        zThickness));
-                    _points[2] = _transf.transform(new Vector3D(InsideLength,   InsideWidth, zThickness));
-                    _points[3] = _transf.transform(new Vector3D(0.0,            InsideWidth, zThickness));
+                    _points[0] = Transf.transform(new Vector3D(0.0,            0.0,        zThickness));
+                    _points[1] = Transf.transform(new Vector3D(InsideLength,   0.0,        zThickness));
+                    _points[2] = Transf.transform(new Vector3D(InsideLength,   InsideWidth, zThickness));
+                    _points[3] = Transf.transform(new Vector3D(0.0,            InsideWidth, zThickness));
 
-                    _points[4] = _transf.transform(new Vector3D(0.0,            0.0,            InsideHeight + zThickness));
-                    _points[5] = _transf.transform(new Vector3D(InsideLength,   0.0,            InsideHeight + zThickness));
-                    _points[6] = _transf.transform(new Vector3D(InsideLength,   InsideWidth,    InsideHeight + zThickness));
-                    _points[7] = _transf.transform(new Vector3D(0.0,            InsideWidth,    InsideHeight + zThickness));
+                    _points[4] = Transf.transform(new Vector3D(0.0,            0.0,            InsideHeight + zThickness));
+                    _points[5] = Transf.transform(new Vector3D(InsideLength,   0.0,            InsideHeight + zThickness));
+                    _points[6] = Transf.transform(new Vector3D(InsideLength,   InsideWidth,    InsideHeight + zThickness));
+                    _points[7] = Transf.transform(new Vector3D(0.0,            InsideWidth,    InsideHeight + zThickness));
                 }
                 return _points;
             }

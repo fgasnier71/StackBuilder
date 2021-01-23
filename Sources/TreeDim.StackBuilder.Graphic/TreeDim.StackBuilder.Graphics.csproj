@@ -125,12 +125,16 @@
     <Compile Include="Corner.cs" />
     <Compile Include="CylinderComparer.cs" />
     <Compile Include="DrawableComparerSimplifiedPainterAlgo.cs" />
+    <Compile Include="BoxLayerToImage.cs" />
     <Compile Include="HCylLayoutToImage.cs" />
+    <Compile Include="LayeredCrateToImage.cs" />
     <Compile Include="LayerEditorHelpers.cs" />
     <Compile Include="MultiCaseImageGenerator.cs" />
     <Compile Include="SolutionViewers\Viewer.cs" />
     <Compile Include="SolutionViewers\ViewerHCylLayout.cs" />
+    <Compile Include="SolutionViewers\ViewerHLayeredCrate.cs" />
     <Compile Include="SolutionViewers\ViewerHSolution.cs" />
+    <Compile Include="SolutionViewers\ViewerLayeredBoxes.cs" />
     <Compile Include="SolutionViewers\ViewerSolutionHCyl.cs" />
     <Compile Include="Triangle.cs" />
     <Compile Include="Types\Bottle.cs" />

@@ -89,9 +89,7 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region IDisposable
-        public void Dispose()
-        {
-        }
+        public void Dispose() { }
         #endregion
     }
 }
