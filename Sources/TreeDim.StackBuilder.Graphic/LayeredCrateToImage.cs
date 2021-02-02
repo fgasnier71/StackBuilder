@@ -10,12 +10,16 @@ namespace treeDiM.StackBuilder.Graphics
     public static class LayeredCrateToImage
     {
         #region Drawing
-        public static Bitmap Draw(IEnumerable<Box> boxes, Vector3D dimensions, bool selected, Size size)
+        public static Bitmap Draw(
+            IEnumerable<Box> boxes,
+            Vector3D crateDimensions, Color crateColor,
+            bool selected, bool showOuterDimensions,
+            Size size)
         {
             var graphics = new Graphics3DImage(size) { MarginPercentage = 0.05 };
             graphics.SetViewport(-500.0f, -500.0f, 500.0f, 500.0f);
-            using (var viewer = new ViewerHLayeredCrate(dimensions))
-                viewer.Draw(graphics, boxes, selected);
+            using (var viewer = new ViewerHLayeredCrate(crateDimensions, crateColor))
+                viewer.Draw(graphics, boxes, selected, showOuterDimensions);
             return graphics.Bitmap;
         }
         #endregion

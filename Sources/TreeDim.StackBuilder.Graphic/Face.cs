@@ -97,8 +97,6 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Public properties
-
-
         /// <summary>
         /// The center point of the face
         /// </summary>

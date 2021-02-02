@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 using Sharp3D.Math.Core;
 
@@ -13,18 +14,19 @@ namespace treeDiM.StackBuilder.Graphics
     internal class ViewerHLayeredCrate : IDisposable
     {
         #region Constructor
-        public ViewerHLayeredCrate(Vector3D dimOuter)
+        public ViewerHLayeredCrate(Vector3D dimOuter, Color crateColor)
         {
             Dimensions = dimOuter;
+            CrateColor = crateColor;
         }
         #endregion
         #region Drawing
-        public void Draw(Graphics3D graphics, IEnumerable<Box> boxes, bool selected)
+        public void Draw(Graphics3D graphics, IEnumerable<Box> boxes, bool selected, bool showOuterDimensions)
         {
             graphics.BackgroundColor = selected ? Color.LightBlue : Color.White;
             graphics.CameraPosition = Graphics3D.Corner_0;
             // draw case (inside)
-            Case crate = new Case(0, Dimensions, Dimensions);
+            Case crate = new Case(0, Dimensions, Dimensions, CrateColor);
             crate.DrawInside(graphics, Transform3D.Identity);
 
             var bbox = BBox3D.Initial;
@@ -33,15 +35,19 @@ namespace treeDiM.StackBuilder.Graphics
                 graphics.AddBox(b);
                 bbox.Extend(b.BBox);
             }
-            graphics.Flush();
             crate.DrawEnd(graphics);
+            if (showOuterDimensions)
+                graphics.AddDimensions(new DimensionCube(Dimensions));
+
+            graphics.Flush();
         }
         #endregion
         #region IDisposable
         public void Dispose() {}
         #endregion
         #region Data members
-        public Vector3D Dimensions { get; set; }
+        private Vector3D Dimensions { get; set; }
+        private Color CrateColor { get; set; }
         #endregion
     }
 }

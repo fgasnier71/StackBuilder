@@ -441,7 +441,6 @@ namespace treeDiM.StackBuilder.Graphics
         private PackArrangement _arrangement;
         private PackProperties _packProperties;
         private List<Vector3D> _convexHull;
-
         #endregion
     }
 }

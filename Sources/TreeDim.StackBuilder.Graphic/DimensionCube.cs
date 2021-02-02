@@ -1,7 +1,4 @@
 ﻿#region Using directives
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 
 using Sharp3D.Math.Core;
@@ -11,65 +8,45 @@ namespace treeDiM.StackBuilder.Graphics
 {
     public class DimensionCube
     {
-        #region Data members
-        private Vector3D _position = Vector3D.Zero;
-        private double[] _dim = new double[3];
-        private bool[] _showArrow = new bool[3];
-        private double offsetPerc = 0.2;
-        private Vector3D[] _pts = new Vector3D[8];
-        private Color _color = Color.Black;
-        private bool _above = false;
-        #endregion
-
         #region Constructors
+        public DimensionCube(Vector3D dimensions)
+        {
+            Dimensions[0] = dimensions.X; Dimensions[1] = dimensions.Y; Dimensions[2] = dimensions.Z;
+            BuildPoints();
+        }
         public DimensionCube(double length, double width, double height)
         { 
-            _dim[0] = length; _dim[1] = width; _dim[2] = height;
-            for (int i = 0; i < 3; ++i) _showArrow[i] = true;
+            Dimensions[0] = length; Dimensions[1] = width; Dimensions[2] = height;
             BuildPoints();
         }
         public DimensionCube(double[] dim)
         {
-            for (int i = 0; i < 3; ++i) _dim[i] = dim[i];
-            for (int i = 0; i < 3; ++i) _showArrow[i] = true;
+            for (int i = 0; i < 3; ++i) Dimensions[i] = dim[i];
             BuildPoints();
         }
         public DimensionCube(Vector3D position, double length, double width, double height, Color color, bool above)
         {
-            _position = position;
-            _dim[0] = length; _dim[1] = width; _dim[2] = height;
-            _color = color;
-            _above = above;
-            for (int i = 0; i < 3; ++i) _showArrow[i] = true;
+            Position = position;
+            Dimensions[0] = length; Dimensions[1] = width; Dimensions[2] = height;
+            Color = color;
+            Above = above;
             BuildPoints();
         }
         public DimensionCube(Basics.BBox3D bbox, Color color, bool above)
         {
-            _position = bbox.PtMin;
-            _dim[0] = bbox.Length; _dim[1] = bbox.Width; _dim[2] = bbox.Height;
-            _color = color;
-            _above = above;
-            for (int i = 0; i < 3; ++i) _showArrow[i] = true;
+            Position = bbox.PtMin;
+            Dimensions[0] = bbox.Length; Dimensions[1] = bbox.Width; Dimensions[2] = bbox.Height;
+            Color = color;
+            Above = above;
             BuildPoints();
         }
         #endregion
 
         #region Public properties
-        public bool[] ShowArrow
-        {
-            get { return _showArrow; }
-            set { _showArrow = value; }
-        }
-        public Color Color
-        {
-            get { return _color; }
-            set { _color = value; }
-        }
-        public Vector3D Position
-        {
-            get { return _position; }
-            set { _position = value; }
-        }
+        public bool[] ShowArrow { get; set; } = new bool[] { true, true, true };
+        public Vector3D Position { get; set; }
+        public Color Color { get; set; } = Color.Black;
+        public bool Above { get; set; } = false;
         #endregion
 
         #region Drawing
@@ -89,12 +66,12 @@ namespace treeDiM.StackBuilder.Graphics
             const double exageration = 1.2;
 
             Vector3D[] pts = new Vector3D[6];
-            pts[0] = _pts[arrow0[0]] + (_pts[arrow0[0]] - _pts[arrow0[2]]) * offsetPerc * exageration;
-            pts[1] = _pts[arrow0[1]] + (_pts[arrow0[1]] - _pts[arrow0[3]]) * offsetPerc * exageration;
-            pts[2] = _pts[arrow1[0]] + (_pts[arrow1[0]] - _pts[arrow1[2]]) * offsetPerc * exageration;
-            pts[3] = _pts[arrow1[1]] + (_pts[arrow1[1]] - _pts[arrow1[3]]) * offsetPerc * exageration;
-            pts[4] = _pts[arrow2[0]] + (_pts[arrow2[0]] - _pts[arrow2[2]]) * offsetPerc * exageration;
-            pts[5] = _pts[arrow2[1]] + (_pts[arrow2[1]] - _pts[arrow2[3]]) * offsetPerc * exageration;
+            pts[0] = Points[arrow0[0]] + (Points[arrow0[0]] - Points[arrow0[2]]) * OffsetPerc * exageration;
+            pts[1] = Points[arrow0[1]] + (Points[arrow0[1]] - Points[arrow0[3]]) * OffsetPerc * exageration;
+            pts[2] = Points[arrow1[0]] + (Points[arrow1[0]] - Points[arrow1[2]]) * OffsetPerc * exageration;
+            pts[3] = Points[arrow1[1]] + (Points[arrow1[1]] - Points[arrow1[3]]) * OffsetPerc * exageration;
+            pts[4] = Points[arrow2[0]] + (Points[arrow2[0]] - Points[arrow2[2]]) * OffsetPerc * exageration;
+            pts[5] = Points[arrow2[1]] + (Points[arrow2[1]] - Points[arrow2[3]]) * OffsetPerc * exageration;
             return pts;
         }
         #endregion
@@ -102,26 +79,26 @@ namespace treeDiM.StackBuilder.Graphics
         #region Transformation
         public static DimensionCube Transform(DimensionCube dimCube, Transform3D transform)
         {
-            Vector3D pos = transform.transform(dimCube._position);
-            Vector3D dim = transform.transformRot(new Vector3D(dimCube._dim) );
+            Vector3D pos = transform.transform(dimCube.Position);
+            Vector3D dim = transform.transformRot(new Vector3D(dimCube.Dimensions) );
             if (dim.X < 0) { pos.X += dim.X; dim.X = -dim.X; }
             if (dim.Y < 0) { pos.Y += dim.Y; dim.Y = -dim.Y; }
             if (dim.Z < 0) { pos.Z += dim.Z; dim.Z = -dim.Z; }
-            return new DimensionCube(pos, dim.X, dim.Y, dim.Z, dimCube.Color, dimCube._above);
+            return new DimensionCube(pos, dim.X, dim.Y, dim.Z, dimCube.Color, dimCube.Above);
         }
         #endregion
 
         #region Helpers
         private void BuildPoints()
         {
-            _pts[0] = _position;
-            _pts[1] = _position + _dim[0] * Vector3D.XAxis;
-            _pts[2] = _position + _dim[0] * Vector3D.XAxis + _dim[1] * Vector3D.YAxis;
-            _pts[3] = _position + _dim[1] * Vector3D.YAxis;
-            _pts[4] = _position + _dim[2] * Vector3D.ZAxis;
-            _pts[5] = _position + _dim[0] * Vector3D.XAxis + _dim[2] * Vector3D.ZAxis;
-            _pts[6] = _position + _dim[0] * Vector3D.XAxis + _dim[1] * Vector3D.YAxis + _dim[2] * Vector3D.ZAxis;
-            _pts[7] = _position + _dim[1] * Vector3D.YAxis + _dim[2] * Vector3D.ZAxis; 
+            Points[0] = Position;
+            Points[1] = Position + Dimensions[0] * Vector3D.XAxis;
+            Points[2] = Position + Dimensions[0] * Vector3D.XAxis + Dimensions[1] * Vector3D.YAxis;
+            Points[3] = Position + Dimensions[1] * Vector3D.YAxis;
+            Points[4] = Position + Dimensions[2] * Vector3D.ZAxis;
+            Points[5] = Position + Dimensions[0] * Vector3D.XAxis + Dimensions[2] * Vector3D.ZAxis;
+            Points[6] = Position + Dimensions[0] * Vector3D.XAxis + Dimensions[1] * Vector3D.YAxis + Dimensions[2] * Vector3D.ZAxis;
+            Points[7] = Position + Dimensions[1] * Vector3D.YAxis + Dimensions[2] * Vector3D.ZAxis; 
         }
 
         private void ArrowPoints(Graphics3D graphics, out int[] arrow0, out int[] arrow1, out int[] arrow2)
@@ -131,7 +108,7 @@ namespace treeDiM.StackBuilder.Graphics
             arrow1 = null;
             arrow2 = null;
 
-            if (!_above)
+            if (!Above)
             {
                 if (viewDir.X < 0.0 && viewDir.Y >= 0.0)
                 {
@@ -189,24 +166,30 @@ namespace treeDiM.StackBuilder.Graphics
 
         private void DrawArrow(int[] arrow, Graphics3D graphics)
         {
-            Vector3D pt0 = _pts[arrow[0]];
-            Vector3D pt0_ = pt0 + (pt0 - _pts[arrow[2]]) * offsetPerc;
-            Vector3D pt00_ = pt0 + (pt0 - _pts[arrow[2]]) * offsetPerc * 1.1;
+            Vector3D pt0 = Points[arrow[0]];
+            Vector3D pt0_ = pt0 + (pt0 - Points[arrow[2]]) * OffsetPerc;
+            Vector3D pt00_ = pt0 + (pt0 - Points[arrow[2]]) * OffsetPerc * 1.1;
 
-            Vector3D pt1 = _pts[arrow[1]];
-            Vector3D pt1_ = pt1 + (pt1 - _pts[arrow[3]]) * offsetPerc;
-            Vector3D pt11_ = pt1 + (pt1 - _pts[arrow[3]]) * offsetPerc * 1.1;
+            Vector3D pt1 = Points[arrow[1]];
+            Vector3D pt1_ = pt1 + (pt1 - Points[arrow[3]]) * OffsetPerc;
+            Vector3D pt11_ = pt1 + (pt1 - Points[arrow[3]]) * OffsetPerc * 1.1;
 
             if ((pt1 - pt0).GetLengthSquared() < 1.0E-03)
                 return;
 
             string text = string.Format("{0:0.0}", (pt1-pt0).GetLength());
-            graphics.Draw(text, 0.5 * (pt1_ + pt0_), _color, graphics.FontSize);
-            graphics.Draw(new Segment(pt0_, pt0_ + (pt1 - pt0) * (2.0 / 5.0), _color));
-            graphics.Draw(new Segment(pt0_ + (pt1 - pt0) * (3.0 / 5.0), pt1_, _color));
-            graphics.Draw(new Segment(pt0, pt00_, _color));
-            graphics.Draw(new Segment(pt1, pt11_, _color));
+            graphics.Draw(text, 0.5 * (pt1_ + pt0_), Color, graphics.FontSize);
+            graphics.Draw(new Segment(pt0_, pt0_ + (pt1 - pt0) * (2.0 / 5.0), Color));
+            graphics.Draw(new Segment(pt0_ + (pt1 - pt0) * (3.0 / 5.0), pt1_, Color));
+            graphics.Draw(new Segment(pt0, pt00_, Color));
+            graphics.Draw(new Segment(pt1, pt11_, Color));
         }
+        #endregion
+
+        #region Data members
+        private double[] Dimensions = new double[3];
+        private double OffsetPerc { get; set; } = 0.2;
+        private Vector3D[] Points = new Vector3D[8];
         #endregion
     }
 }

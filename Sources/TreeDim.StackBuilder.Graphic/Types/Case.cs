@@ -23,7 +23,8 @@ namespace treeDiM.StackBuilder.Graphics
         #endregion
 
         #region Constructor
-        public Case(uint pickId, Vector3D dimOuter, Vector3D dimInner) : base(pickId)
+        public Case(uint pickId, Vector3D dimOuter, Vector3D dimInner, Color color)
+            : base(pickId)
         {
             Length = dimOuter.X;
             Width = dimOuter.Y;
@@ -31,7 +32,7 @@ namespace treeDiM.StackBuilder.Graphics
             InsideLength = dimInner.X;
             InsideWidth = dimInner.Y;
             InsideHeight = dimInner.Z;
-            Colors = Enumerable.Repeat(Color.Beige, 6).ToArray();
+            Colors = Enumerable.Repeat(color, 6).ToArray();
             ColorPath = Color.Black;
         }
         public Case(BoxProperties boxProperties)

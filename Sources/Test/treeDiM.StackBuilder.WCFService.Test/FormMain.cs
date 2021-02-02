@@ -67,7 +67,6 @@ namespace treeDiM.StackBuilder.WCFService.Test
                 using (StackBuilderClient client = new StackBuilderClient())
                 {
                     DCSBSolution sol = null;
-
                     if (tabCtrlContent.SelectedIndex == 0 && tabCtrlContainer.SelectedIndex == 0)
                     {
                         sol = client.SB_GetCasePalletBestSolution(
@@ -192,7 +191,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
                                 HasInnerDims = true,
                                 DimensionsOuter = null,
                                 DimensionsInner = InnerDimensions,
-                                Colors = Enumerable.Repeat<int>(Color.Chocolate.ToArgb(), 6).ToArray()
+                                Colors = Enumerable.Repeat(Color.Chocolate.ToArgb(), 6).ToArray()
                             }
                             , null
                             , new DCSBConstraintSet()
