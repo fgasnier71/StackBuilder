@@ -6,7 +6,6 @@ using System.Data;
 using System.Globalization;
 
 using ExcelDataReader;
-
 using log4net;
 #endregion
 
