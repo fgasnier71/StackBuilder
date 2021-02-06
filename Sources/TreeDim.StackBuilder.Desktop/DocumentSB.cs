@@ -160,6 +160,7 @@ namespace treeDiM.StackBuilder.Desktop
                     BoxProperties boxProperties = CreateNewBox(form.BoxName, form.Description
                         , form.BoxLength, form.BoxWidth, form.BoxHeight
                         , form.Weight, form.Colors);
+                    boxProperties.Bulge = form.Bulge;
                     boxProperties.SetNetWeight(form.NetWeight);
                     boxProperties.TextureList = form.TextureList;
                 }
@@ -178,12 +179,13 @@ namespace treeDiM.StackBuilder.Desktop
                         , form.BoxLength, form.BoxWidth, form.BoxHeight
                         , form.InsideLength, form.InsideWidth, form.InsideHeight, form.HasInsideDimensions
                         , form.Weight, form.Colors);
+                    boxProperties.Bulge = form.Bulge;
                     boxProperties.SetNetWeight(form.NetWeight);
                     boxProperties.TapeColor = form.TapeColor;
                     boxProperties.TapeWidth = form.TapeWidth;
                     boxProperties.TextureList = form.TextureList;
                     boxProperties.StrapperSet = form.StrapperSet;
-                }
+                 }
             }
         }
         public void CreateNewBagUI()
@@ -197,6 +199,7 @@ namespace treeDiM.StackBuilder.Desktop
                         , form.OuterDimensions, form.RoundingRadius
                         , form.Weight, form.NetWeight
                         , form.ColorFill);
+                    bagProperties.Bulge = form.Bulge;
                 }
             }
         }
@@ -220,6 +223,7 @@ namespace treeDiM.StackBuilder.Desktop
                     if (form.HasForcedOuterDimensions)
                         packProperties.ForceOuterDimensions(form.OuterDimensions);
                     packProperties.StrapperSet = form.StrapperSet;
+                    packProperties.Bulge = form.Bulge;
                 }
             }
         }

@@ -102,7 +102,7 @@ namespace treeDiM.StackBuilder.Engine
             , ref int iCount, ref Vector2D actualDimensions)
         {
             // instantiate layer 
-            var layer = new Layer2DBrickImp(new Vector3D(dimContent.X, dimContent.Y, 0.0), new Vector2D(length, width), pattern.Name, HalfAxis.HAxis.AXIS_Z_P, swapped)
+            var layer = new Layer2DBrickImp(new Vector3D(dimContent.X, dimContent.Y, 0.0), Vector3D.Zero, new Vector2D(length, width), pattern.Name, HalfAxis.HAxis.AXIS_Z_P, swapped)
             {
                 ForcedSpace = forcedSpace
             };
@@ -118,7 +118,7 @@ namespace treeDiM.StackBuilder.Engine
         {
             boxPositions = null;
            // instantiate layer 
-            var layer = new Layer2DBrickImp(new Vector3D(dimContent.X, dimContent.Y, 0.0), dimContainer, pattern.Name, HalfAxis.HAxis.AXIS_Z_P, swapped)
+            var layer = new Layer2DBrickImp(new Vector3D(dimContent.X, dimContent.Y, 0.0), Vector3D.Zero, dimContainer, pattern.Name, HalfAxis.HAxis.AXIS_Z_P, swapped)
             {
                 ForcedSpace = forcedSpace
             };

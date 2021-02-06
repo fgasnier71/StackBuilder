@@ -40,6 +40,7 @@
             this.cbColor = new OfficePickers.ColorPicker.ComboBoxColorPicker();
             this.label1 = new System.Windows.Forms.Label();
             this.graphCtrl = new treeDiM.StackBuilder.Graphics.Graphics3DControl();
+            this.uCtrlOptBulge = new treeDiM.Basics.UCtrlOptTriDouble();
             this.gbDimensions.SuspendLayout();
             this.gbWeight.SuspendLayout();
             this.gbColor.SuspendLayout();
@@ -67,6 +68,7 @@
             // 
             // gbDimensions
             // 
+            this.gbDimensions.Controls.Add(this.uCtrlOptBulge);
             this.gbDimensions.Controls.Add(this.uCtrlRadius);
             this.gbDimensions.Controls.Add(this.uCtrlOuterDimensions);
             resources.ApplyResources(this.gbDimensions, "gbDimensions");
@@ -259,7 +261,8 @@
             resources.GetString("cbColor.Items98"),
             resources.GetString("cbColor.Items99"),
             resources.GetString("cbColor.Items100"),
-            resources.GetString("cbColor.Items101")});
+            resources.GetString("cbColor.Items101"),
+            resources.GetString("cbColor.Items102")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnValueChanged);
             // 
@@ -275,6 +278,21 @@
             this.graphCtrl.Name = "graphCtrl";
             this.graphCtrl.TabStop = false;
             this.graphCtrl.Viewer = null;
+            // 
+            // uCtrlOptBulge
+            // 
+            this.uCtrlOptBulge.Checked = false;
+            resources.ApplyResources(this.uCtrlOptBulge, "uCtrlOptBulge");
+            this.uCtrlOptBulge.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlOptBulge.Name = "uCtrlOptBulge";
+            this.uCtrlOptBulge.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlOptBulge.X = 0D;
+            this.uCtrlOptBulge.Y = 0D;
+            this.uCtrlOptBulge.Z = 0D;
             // 
             // FormNewBag
             // 
@@ -320,5 +338,6 @@
         private System.Windows.Forms.GroupBox gbColor;
         private System.Windows.Forms.Label label1;
         private OfficePickers.ColorPicker.ComboBoxColorPicker cbColor;
+        private treeDiM.Basics.UCtrlOptTriDouble uCtrlOptBulge;
     }
 }

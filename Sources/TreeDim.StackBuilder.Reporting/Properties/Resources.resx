@@ -150,6 +150,9 @@
   <data name="ID_RN_BOX" xml:space="preserve">
     <value>Box</value>
   </data>
+  <data name="ID_RN_BULGE" xml:space="preserve">
+    <value>Bulge</value>
+  </data>
   <data name="ID_RN_BUNDLE" xml:space="preserve">
     <value>Bundle</value>
   </data>

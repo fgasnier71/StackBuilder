@@ -52,6 +52,8 @@
             this.tabPageTape = new System.Windows.Forms.TabPage();
             this.tabPageStrappers = new System.Windows.Forms.TabPage();
             this.ctrlStrapperSet = new treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet();
+            this.tabPageBulge = new System.Windows.Forms.TabPage();
+            this.uCtrlOptBulge = new treeDiM.Basics.UCtrlOptTriDouble();
             this.gbDimensions.SuspendLayout();
             this.gbFaceColor.SuspendLayout();
             this.gbWeight.SuspendLayout();
@@ -59,6 +61,7 @@
             this.tabCtrl.SuspendLayout();
             this.tabPageTape.SuspendLayout();
             this.tabPageStrappers.SuspendLayout();
+            this.tabPageBulge.SuspendLayout();
             this.SuspendLayout();
             // 
             // bnOk
@@ -278,7 +281,8 @@
             resources.GetString("cbColor.Items128"),
             resources.GetString("cbColor.Items129"),
             resources.GetString("cbColor.Items130"),
-            resources.GetString("cbColor.Items131")});
+            resources.GetString("cbColor.Items131"),
+            resources.GetString("cbColor.Items132")});
             this.cbColor.Name = "cbColor";
             this.cbColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -518,7 +522,8 @@
             resources.GetString("cbTapeColor.Items129"),
             resources.GetString("cbTapeColor.Items130"),
             resources.GetString("cbTapeColor.Items131"),
-            resources.GetString("cbTapeColor.Items132")});
+            resources.GetString("cbTapeColor.Items132"),
+            resources.GetString("cbTapeColor.Items133")});
             this.cbTapeColor.Name = "cbTapeColor";
             this.cbTapeColor.SelectedColorChanged += new System.EventHandler(this.OnFaceColorChanged);
             // 
@@ -538,6 +543,7 @@
             // 
             this.tabCtrl.Controls.Add(this.tabPageTape);
             this.tabCtrl.Controls.Add(this.tabPageStrappers);
+            this.tabCtrl.Controls.Add(this.tabPageBulge);
             resources.ApplyResources(this.tabCtrl, "tabCtrl");
             this.tabCtrl.Name = "tabCtrl";
             this.tabCtrl.SelectedIndex = 0;
@@ -565,6 +571,28 @@
             this.ctrlStrapperSet.Number = 0;
             this.ctrlStrapperSet.StrapperSet = null;
             this.ctrlStrapperSet.ValueChanged += new treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet.OnValueChanged(this.OnBoxPropertyChanged);
+            // 
+            // tabPageBulge
+            // 
+            this.tabPageBulge.Controls.Add(this.uCtrlOptBulge);
+            resources.ApplyResources(this.tabPageBulge, "tabPageBulge");
+            this.tabPageBulge.Name = "tabPageBulge";
+            this.tabPageBulge.UseVisualStyleBackColor = true;
+            // 
+            // uCtrlOptBulge
+            // 
+            this.uCtrlOptBulge.Checked = false;
+            resources.ApplyResources(this.uCtrlOptBulge, "uCtrlOptBulge");
+            this.uCtrlOptBulge.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlOptBulge.Name = "uCtrlOptBulge";
+            this.uCtrlOptBulge.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlOptBulge.X = 0D;
+            this.uCtrlOptBulge.Y = 0D;
+            this.uCtrlOptBulge.Z = 0D;
             // 
             // FormNewBox
             // 
@@ -600,6 +628,7 @@
             this.tabPageTape.ResumeLayout(false);
             this.tabPageTape.PerformLayout();
             this.tabPageStrappers.ResumeLayout(false);
+            this.tabPageBulge.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -629,5 +658,7 @@
         private System.Windows.Forms.TabPage tabPageStrappers;
         private Basics.Controls.CtrlStrapperSet ctrlStrapperSet;
         private System.Windows.Forms.Label lbWarningBoxCaseAnalysis;
+        private System.Windows.Forms.TabPage tabPageBulge;
+        private treeDiM.Basics.UCtrlOptTriDouble uCtrlOptBulge;
     }
 }

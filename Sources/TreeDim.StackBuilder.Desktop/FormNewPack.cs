@@ -55,16 +55,14 @@ namespace treeDiM.StackBuilder.Desktop
                 Tray = PackProp.Tray;
                 uCtrlOuterDimensions.Checked = PackProp.HasForcedOuterDimensions;
                 OuterDimensions = PackProp.OuterDimensions;
+                Bulge = PackProp.Bulge;
             }
             else
             {
                 cbDir.SelectedIndex = 5; // HalfAxis.HAxis.AXIS_Z_P
                 RevSolidLayout = PackProperties.EnuRevSolidLayout.ALIGNED;
                 Arrangement = new PackArrangement(3, 2, 1);
-                Wrapper = new WrapperPolyethilene(0.1, 0.010, Color.LightGray)
-                {
-                    
-                };
+                Wrapper = new WrapperPolyethilene(0.1, 0.010, Color.LightGray) {};
                 Tray = new PackTray(UnitsManager.ConvertLengthFrom(40, UnitsManager.UnitSystem.UNIT_METRIC1), 0.050, Color.Chocolate)
                 {
                     UnitThickness = UnitsManager.ConvertLengthFrom(1.0, UnitsManager.UnitSystem.UNIT_METRIC1)
@@ -269,6 +267,15 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlOuterDimensions.X = value.X;
                 uCtrlOuterDimensions.Y = value.Y;
                 uCtrlOuterDimensions.Z = value.Z;
+            }
+        }
+        public Vector3D Bulge
+        {
+            get => uCtrlOptBulge.Checked ? uCtrlOptBulge.Value : Vector3D.Zero;
+            set
+            {
+                uCtrlOptBulge.Checked = value.GetLength() > 0;
+                uCtrlOptBulge.Value = value;
             }
         }
         #endregion

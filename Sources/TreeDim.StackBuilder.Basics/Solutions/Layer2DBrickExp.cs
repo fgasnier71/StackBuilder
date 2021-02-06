@@ -9,8 +9,8 @@ namespace treeDiM.StackBuilder.Basics
     public class Layer2DBrickExp : Layer2DBrick
     {
         #region Constructor
-        public Layer2DBrickExp(Vector3D dimBox, Vector2D dimContainer, string name, HalfAxis.HAxis axisOrtho)
-            : base(dimBox, dimContainer, name, axisOrtho)
+        public Layer2DBrickExp(Vector3D dimBox, Vector3D bulge, Vector2D dimContainer, string name, HalfAxis.HAxis axisOrtho)
+            : base(dimBox, bulge, dimContainer, name, axisOrtho)
         {
         }
         #endregion

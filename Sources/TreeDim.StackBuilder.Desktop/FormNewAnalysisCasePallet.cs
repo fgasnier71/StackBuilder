@@ -227,12 +227,13 @@ namespace treeDiM.StackBuilder.Desktop
         private void FillLayerList()
         { 
             // get case /pallet
-            if (!(cbCases.SelectedType is Packable packable) || !(cbPallets.SelectedType is PalletProperties palletProperties))
+            if (!(cbCases.SelectedType is PackableBrick packable) || !(cbPallets.SelectedType is PalletProperties palletProperties))
                 return;
             // compute
             LayerSolver solver = new LayerSolver();
             List<Layer2DBrickImp> layers = solver.BuildLayers(
                 packable.OuterDimensions
+                , packable.Bulge
                 , new Vector2D(palletProperties.Length + 2.0*uCtrlOverhang.ValueX, palletProperties.Width + 2.0*uCtrlOverhang.ValueY)
                 , palletProperties.Height
                 , BuildConstraintSet()
@@ -257,13 +258,14 @@ namespace treeDiM.StackBuilder.Desktop
         {
             try
             {
-                if (!(cbCases.SelectedType is Packable packable) || !(cbPallets.SelectedType is PalletProperties palletProperties))
+                if (!(cbCases.SelectedType is PackableBrick packable) || !(cbPallets.SelectedType is PalletProperties palletProperties))
                     return;
                 ConstraintSetCasePallet constraintSet = BuildConstraintSet();
                 // get best combination
                 List<KeyValuePair<LayerEncap, int>> listLayer = new List<KeyValuePair<LayerEncap,int>>();
                 LayerSolver.GetBestCombination(
                     packable.OuterDimensions,
+                    packable.Bulge,
                     palletProperties.GetStackingDimensions(constraintSet),
                     constraintSet,
                     ref listLayer);

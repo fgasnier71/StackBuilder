@@ -26,8 +26,6 @@ namespace treeDiM.StackBuilder.Desktop
         private Mode ModeInit { get; set; }
         #endregion
 
-
-
         #region Constructor
         /// <summary>
         /// FormNewBox constructor used when defining a new BoxProperties item
@@ -143,6 +141,8 @@ namespace treeDiM.StackBuilder.Desktop
                 // set StrapperSet
                 StrapperSet = boxProperties.StrapperSet.Clone();
                 ctrlStrapperSet.StrapperSet = StrapperSet;
+                // bulge
+                Bulge = boxProperties.Bulge;
 
                 // disable Ok button
                 UpdateStatus(string.Empty);
@@ -268,7 +268,14 @@ namespace treeDiM.StackBuilder.Desktop
             get => cbTapeColor.Color;
             set => cbTapeColor.Color = value; 
         }
-
+        /// <summary>
+        /// Bulge
+        /// </summary>
+        public Vector3D Bulge
+        {
+            get => uCtrlOptBulge.Checked ? uCtrlOptBulge.Value : Vector3D.Zero;
+            set { uCtrlOptBulge.Checked = value.GetLength() > 0; uCtrlOptBulge.Value = value; }
+        }
         #endregion
 
         #region FormNewBase override

@@ -129,6 +129,7 @@ namespace treeDiM.StackBuilder.Desktop
                 var listLayer = new List<KeyValuePair<LayerEncap, int>>();
                 LayerSolver.GetBestCombination(
                     packable.OuterDimensions,
+                    packable.Bulge,
                     caseProperties.GetStackingDimensions(constraintSet),
                     constraintSet,
                     ref listLayer);
@@ -221,6 +222,7 @@ namespace treeDiM.StackBuilder.Desktop
                 LayerSolver solver = new LayerSolver();
                 List<Layer2DBrickImp> layers = solver.BuildLayers(
                     packable.OuterDimensions
+                    , packable.Bulge
                     , new Vector2D(caseProperties.InsideLength, caseProperties.InsideWidth)
                     , 0.5 * (caseProperties.Height-caseProperties.InsideHeight)
                     , BuildConstraintSet()

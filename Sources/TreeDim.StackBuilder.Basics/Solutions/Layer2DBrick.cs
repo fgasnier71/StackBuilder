@@ -10,11 +10,12 @@ namespace treeDiM.StackBuilder.Basics
     public abstract class Layer2DBrick : ILayer2D
     {
         #region Constructor
-        protected Layer2DBrick(Vector3D dimBox, Vector2D dimContainer, string name, HalfAxis.HAxis axisOrtho)
+        protected Layer2DBrick(Vector3D dimBox, Vector3D bulge, Vector2D dimContainer, string name, HalfAxis.HAxis axisOrtho)
         {
             Name = name;
             PatternName = name;
             DimBox = dimBox;
+            Bulge = bulge;
             DimContainer = dimContainer;
             AxisOrtho = axisOrtho;
         }
@@ -32,9 +33,9 @@ namespace treeDiM.StackBuilder.Basics
         public virtual double MaximumSpace { get => 0.0; }
         public void Clear() { _listBoxPosition.Clear(); }
         public int CountInHeight(double height) => NoLayers(height) * Count;
-        public int NoLayers(double height) => (int) Math.Floor(height / LayerHeight);
+        public int NoLayers(double height) => (int)Math.Floor(height / LayerHeight);
         public virtual string Tooltip(double height) => $"{Count} * {NoLayers(height)} = {CountInHeight(height)} | {HalfAxis.ToString(AxisOrtho)}";
-        public virtual void UpdateMaxSpace(double space, string patternName) {}
+        public virtual void UpdateMaxSpace(double space, string patternName) { }
         public BBox3D BBox
         {
             get
@@ -57,12 +58,12 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (AxisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return DimBox.Z;
-                    case HalfAxis.HAxis.AXIS_X_P: return DimBox.Z;
-                    case HalfAxis.HAxis.AXIS_Y_N: return DimBox.X;
-                    case HalfAxis.HAxis.AXIS_Y_P: return DimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Z_N: return DimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Z_P: return DimBox.X;
+                    case HalfAxis.HAxis.AXIS_X_N: return DimBoxTotal.Z;
+                    case HalfAxis.HAxis.AXIS_X_P: return DimBoxTotal.Z;
+                    case HalfAxis.HAxis.AXIS_Y_N: return DimBoxTotal.X;
+                    case HalfAxis.HAxis.AXIS_Y_P: return DimBoxTotal.Y;
+                    case HalfAxis.HAxis.AXIS_Z_N: return DimBoxTotal.Y;
+                    case HalfAxis.HAxis.AXIS_Z_P: return DimBoxTotal.X;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
@@ -73,12 +74,12 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (AxisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return DimBox.Y;
-                    case HalfAxis.HAxis.AXIS_X_P: return DimBox.X;
-                    case HalfAxis.HAxis.AXIS_Y_N: return DimBox.Z;
-                    case HalfAxis.HAxis.AXIS_Y_P: return DimBox.Z;
-                    case HalfAxis.HAxis.AXIS_Z_N: return DimBox.X;
-                    case HalfAxis.HAxis.AXIS_Z_P: return DimBox.Y;
+                    case HalfAxis.HAxis.AXIS_X_N: return DimBoxTotal.Y;
+                    case HalfAxis.HAxis.AXIS_X_P: return DimBoxTotal.X;
+                    case HalfAxis.HAxis.AXIS_Y_N: return DimBoxTotal.Z;
+                    case HalfAxis.HAxis.AXIS_Y_P: return DimBoxTotal.Z;
+                    case HalfAxis.HAxis.AXIS_Z_N: return DimBoxTotal.X;
+                    case HalfAxis.HAxis.AXIS_Z_P: return DimBoxTotal.Y;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
@@ -89,12 +90,12 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (AxisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return DimBox.X;
-                    case HalfAxis.HAxis.AXIS_X_P: return DimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Y_N: return DimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Y_P: return DimBox.X;
-                    case HalfAxis.HAxis.AXIS_Z_N: return DimBox.Z;
-                    case HalfAxis.HAxis.AXIS_Z_P: return DimBox.Z;
+                    case HalfAxis.HAxis.AXIS_X_N: return DimBoxTotal.X;
+                    case HalfAxis.HAxis.AXIS_X_P: return DimBoxTotal.Y;
+                    case HalfAxis.HAxis.AXIS_Y_N: return DimBoxTotal.Y;
+                    case HalfAxis.HAxis.AXIS_Y_P: return DimBoxTotal.X;
+                    case HalfAxis.HAxis.AXIS_Z_N: return DimBoxTotal.Z;
+                    case HalfAxis.HAxis.AXIS_Z_P: return DimBoxTotal.Z;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
@@ -133,6 +134,8 @@ namespace treeDiM.StackBuilder.Basics
         }
 
         public Vector3D DimBox { get; private set; }
+        public Vector3D Bulge { get; private set; }
+        public Vector3D DimBoxTotal => DimBox + Bulge;
         public Vector2D DimContainer { get; private set; }
         protected void Add(BoxPosition position) => _listBoxPosition.Add(position);
         protected void AddRange(List<BoxPosition> positions) => _listBoxPosition.AddRange(positions);
@@ -210,12 +213,12 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (AxisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return DimBox.Z;
-                    case HalfAxis.HAxis.AXIS_X_P: return DimBox.Z;
-                    case HalfAxis.HAxis.AXIS_Y_N: return DimBox.X;
-                    case HalfAxis.HAxis.AXIS_Y_P: return DimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Z_N: return DimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Z_P: return DimBox.X;
+                    case HalfAxis.HAxis.AXIS_X_N: return DimBoxTotal.Z;
+                    case HalfAxis.HAxis.AXIS_X_P: return DimBoxTotal.Z;
+                    case HalfAxis.HAxis.AXIS_Y_N: return DimBoxTotal.X;
+                    case HalfAxis.HAxis.AXIS_Y_P: return DimBoxTotal.Y;
+                    case HalfAxis.HAxis.AXIS_Z_N: return DimBoxTotal.Y;
+                    case HalfAxis.HAxis.AXIS_Z_P: return DimBoxTotal.X;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
@@ -226,12 +229,12 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (AxisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return DimBox.Y;
-                    case HalfAxis.HAxis.AXIS_X_P: return DimBox.X;
-                    case HalfAxis.HAxis.AXIS_Y_N: return DimBox.Z;
-                    case HalfAxis.HAxis.AXIS_Y_P: return DimBox.Z;
-                    case HalfAxis.HAxis.AXIS_Z_N: return DimBox.X;
-                    case HalfAxis.HAxis.AXIS_Z_P: return DimBox.Y;
+                    case HalfAxis.HAxis.AXIS_X_N: return DimBoxTotal.Y;
+                    case HalfAxis.HAxis.AXIS_X_P: return DimBoxTotal.X;
+                    case HalfAxis.HAxis.AXIS_Y_N: return DimBoxTotal.Z;
+                    case HalfAxis.HAxis.AXIS_Y_P: return DimBoxTotal.Z;
+                    case HalfAxis.HAxis.AXIS_Z_N: return DimBoxTotal.X;
+                    case HalfAxis.HAxis.AXIS_Z_P: return DimBoxTotal.Y;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
@@ -242,12 +245,12 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (AxisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return DimBox.X;
-                    case HalfAxis.HAxis.AXIS_X_P: return DimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Y_N: return DimBox.Y;
-                    case HalfAxis.HAxis.AXIS_Y_P: return DimBox.X;
-                    case HalfAxis.HAxis.AXIS_Z_N: return DimBox.Z;
-                    case HalfAxis.HAxis.AXIS_Z_P: return DimBox.Z;
+                    case HalfAxis.HAxis.AXIS_X_N: return DimBoxTotal.X;
+                    case HalfAxis.HAxis.AXIS_X_P: return DimBoxTotal.Y;
+                    case HalfAxis.HAxis.AXIS_Y_N: return DimBoxTotal.Y;
+                    case HalfAxis.HAxis.AXIS_Y_P: return DimBoxTotal.X;
+                    case HalfAxis.HAxis.AXIS_Z_N: return DimBoxTotal.Z;
+                    case HalfAxis.HAxis.AXIS_Z_P: return DimBoxTotal.Z;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
@@ -285,6 +288,8 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
         public Vector3D DimBox { get; private set; }
+        public Vector3D Bulge { get; set; }
+        public Vector3D DimBoxTotal => DimBox + Bulge;
         public Vector2D DimContainer { get; private set; }
         protected void Add(BoxPositionIndexed position) => _listBoxPosition.Add(position);
         protected void AddRange(List<BoxPositionIndexed> positions) => _listBoxPosition.AddRange(positions);

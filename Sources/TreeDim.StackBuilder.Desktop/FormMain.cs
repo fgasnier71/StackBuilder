@@ -387,6 +387,7 @@ namespace treeDiM.StackBuilder.Desktop
                         box.SetLength(form.BoxLength);
                         box.SetWidth(form.BoxWidth);
                         box.SetHeight(form.BoxHeight);
+                        box.Bulge = form.Bulge;
                         box.SetWeight(form.Weight);
                         box.SetNetWeight(form.NetWeight);
                         box.HasInsideDimensions = form.HasInsideDimensions;
@@ -413,6 +414,7 @@ namespace treeDiM.StackBuilder.Desktop
                         bag.SetLength(form.OuterDimensions.X);
                         bag.SetWidth(form.OuterDimensions.Y);
                         bag.SetHeight(form.OuterDimensions.Z);
+                        bag.Bulge = form.Bulge;
                         bag.Radius = form.RoundingRadius;
                         bag.SetWeight(form.Weight);
                         bag.SetNetWeight(form.NetWeight);
@@ -432,6 +434,7 @@ namespace treeDiM.StackBuilder.Desktop
                     {
                         if (!UserAcknowledgeDependancies(pack)) return;
                         pack.ID.SetNameDesc(form.ItemName, form.ItemDescription);
+                        pack.Bulge = form.Bulge;
                         pack.Content = form.SelectedPackable;
                         pack.BoxOrientation = form.BoxOrientation;
                         pack.Arrangement = form.Arrangement;

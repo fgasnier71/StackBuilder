@@ -58,8 +58,8 @@ namespace treeDiM.StackBuilder.Basics
     public class Layer2DBrickImp : Layer2DBrick
     {
         #region Constructor
-        public Layer2DBrickImp(Vector3D dimBox, Vector2D dimContainer, string patternName, HalfAxis.HAxis axisOrtho, bool swapped)
-            : base(dimBox, dimContainer, patternName, axisOrtho)
+        public Layer2DBrickImp(Vector3D dimBox, Vector3D bulge, Vector2D dimContainer, string patternName, HalfAxis.HAxis axisOrtho, bool swapped)
+            : base(dimBox, bulge, dimContainer, patternName, axisOrtho)
         {
             Swapped = swapped;
         }
@@ -99,9 +99,21 @@ namespace treeDiM.StackBuilder.Basics
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(LengthAxis)))
                 , HalfAxis.ToHalfAxis(localTransfInv.transform(HalfAxis.ToVector3D(WidthAxis)))
                 );
+
+            // spacing ?
             layerPos.Position += new Vector3D(0.5 * ForcedSpace, 0.5 * ForcedSpace, 0.0);
+            var bposAdj = layerPos.Adjusted(DimBoxTotal);
+            // bulge ?
+            Vector3D vecBulge = Vector3D.Zero;
+            if (Bulge.X > 0)
+                vecBulge += 0.5 * Bulge.X * HalfAxis.ToVector3D(bposAdj.DirectionLength);
+            if (Bulge.Y > 0)
+                vecBulge += 0.5 * Bulge.Y * HalfAxis.ToVector3D(bposAdj.DirectionWidth);
+            if (Bulge.Z > 0)
+                vecBulge += 0.5 * Bulge.Z * HalfAxis.ToVector3D(bposAdj.DirectionHeight);
+            bposAdj.Position += vecBulge;
             // add position
-            Add(layerPos.Adjusted(DimBox));
+            Add(bposAdj);
         }
         public bool IsValidPosition(Vector2D vPosition, HalfAxis.HAxis lengthAxis, HalfAxis.HAxis widthAxis)
         {
@@ -167,12 +179,12 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (AxisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return DimBox.Z + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_X_P: return DimBox.Z + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_N: return DimBox.X + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_P: return DimBox.Y + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Z_N: return DimBox.Y + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Z_P: return DimBox.X + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_N: return DimBoxTotal.Z + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_P: return DimBoxTotal.Z + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_N: return DimBoxTotal.X + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_P: return DimBoxTotal.Y + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Z_N: return DimBoxTotal.Y + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Z_P: return DimBoxTotal.X + ForcedSpace;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
@@ -183,12 +195,12 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (AxisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return DimBox.Y + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_X_P: return DimBox.X + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_N: return DimBox.Z + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Y_P: return DimBox.Z + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Z_N: return DimBox.X + ForcedSpace;
-                    case HalfAxis.HAxis.AXIS_Z_P: return DimBox.Y + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_N: return DimBoxTotal.Y + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_X_P: return DimBoxTotal.X + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_N: return DimBoxTotal.Z + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Y_P: return DimBoxTotal.Z + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Z_N: return DimBoxTotal.X + ForcedSpace;
+                    case HalfAxis.HAxis.AXIS_Z_P: return DimBoxTotal.Y + ForcedSpace;
                     default: throw new Exception("Invalid ortho axis");
                 }
             }
@@ -199,11 +211,11 @@ namespace treeDiM.StackBuilder.Basics
             {
                 switch (AxisOrtho)
                 {
-                    case HalfAxis.HAxis.AXIS_X_N: return new Vector3D(DimBox.Z, 0.0, 0.0);
+                    case HalfAxis.HAxis.AXIS_X_N: return new Vector3D(DimBoxTotal.Z, 0.0, 0.0);
                     case HalfAxis.HAxis.AXIS_X_P: return new Vector3D(0.0, 0.0, 0.0); ;
-                    case HalfAxis.HAxis.AXIS_Y_N: return new Vector3D(0.0, DimBox.Z, 0.0);
+                    case HalfAxis.HAxis.AXIS_Y_N: return new Vector3D(0.0, DimBoxTotal.Z, 0.0);
                     case HalfAxis.HAxis.AXIS_Y_P: return Vector3D.Zero;
-                    case HalfAxis.HAxis.AXIS_Z_N: return new Vector3D(0.0, 0.0, DimBox.Z);
+                    case HalfAxis.HAxis.AXIS_Z_N: return new Vector3D(0.0, 0.0, DimBoxTotal.Z);
                     case HalfAxis.HAxis.AXIS_Z_P: return Vector3D.Zero;
                     default: throw new Exception("Invalid ortho axis");
                 }
@@ -216,7 +228,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Generate Layer2DEdited
         public Layer2DBrickExp GenerateLayer2DEdited()
         {
-            var layer = new Layer2DBrickExp(DimBox, DimContainer, $"{Name}_edit_{_indexEdit++}", AxisOrtho);
+            var layer = new Layer2DBrickExp(DimBox, Bulge, DimContainer, $"{Name}_edit_{_indexEdit++}", AxisOrtho);
             foreach (var lp in Positions)
                 layer.AddPosition(new BoxPosition(lp));
             return layer;

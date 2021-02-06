@@ -26,6 +26,7 @@ namespace treeDiM.StackBuilder.Engine
             var solver = new LayerSolver();
             List<Layer2DBrickImp> layers = solver.BuildLayers(
                     _packable.OuterDimensions
+                    , _packable.Bulge
                     , new Vector2D(_caseProperties.InsideLength, _caseProperties.InsideWidth)
                     , 0.0 /* offsetZ */
                     , ConstraintSet
@@ -46,6 +47,7 @@ namespace treeDiM.StackBuilder.Engine
                var listLayerEncap = new List<KeyValuePair<LayerEncap, int>>();
                 LayerSolver.GetBestCombination(
                     _packable.OuterDimensions,
+                    _packable.Bulge,
                     _caseProperties.GetStackingDimensions(ConstraintSet),
                     ConstraintSet,
                     ref listLayerEncap);
@@ -66,6 +68,7 @@ namespace treeDiM.StackBuilder.Engine
                 var solver = new LayerSolver();
                 List<Layer2DBrickImp> layers = solver.BuildLayers(
                      _packable.OuterDimensions
+                     , _packable.Bulge
                      , new Vector2D(_caseProperties.InsideLength, _caseProperties.InsideWidth)
                      , 0.0 /* offsetZ */
                      , ConstraintSet

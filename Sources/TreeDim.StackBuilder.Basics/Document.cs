@@ -923,6 +923,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 List<Layer2DBrickImp> layers = solver.BuildLayers(
                     box.OuterDimensions
+                    , box.Bulge
                     , new Vector2D(pallet.Length + constraintSetNew.Overhang.X, pallet.Width + constraintSetNew.Overhang.Y), pallet.Height
                     , constraintSetNew
                     , true);
@@ -960,6 +961,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 List<Layer2DBrickImp> layers = solver.BuildLayers(
                     pack.OuterDimensions
+                    , pack.Bulge
                     , new Vector2D(pallet.Length + constraintSetNew.Overhang.X, pallet.Width + constraintSetNew.Overhang.Y), pallet.Height
                     , constraintSetNew
                     , true);
@@ -1248,6 +1250,9 @@ namespace treeDiM.StackBuilder.Basics
                 sInsideWidth = eltBoxProperties.Attributes["InsideWidth"].Value;
                 sInsideHeight = eltBoxProperties.Attributes["InsideHeight"].Value;
             }
+            Vector3D bulge = Vector3D.Zero;
+            if (eltBoxProperties.HasAttribute("Bulge"))
+                bulge = UnitsManagerEx.ConvertLengthFrom(Vector3D.Parse(eltBoxProperties.Attributes["Bulge"].Value), UnitSystem);
             string sweight = eltBoxProperties.Attributes["Weight"].Value;
             OptDouble optNetWeight = LoadOptDouble(eltBoxProperties, "NetWeight", UnitsManager.UnitType.UT_MASS);
             string sCAType = eltBoxProperties.HasAttribute("CAType") ? eltBoxProperties.Attributes["CAType"].Value : string.Empty;
@@ -1315,6 +1320,8 @@ namespace treeDiM.StackBuilder.Basics
             boxProperties.StrapperSet = strapperSet;
             // inside dimensions
             boxProperties.HasInsideDimensions = hasInsideDimensions;
+            // bulge
+            boxProperties.Bulge = bulge;
         }
 
         private void LoadBagProperties(XmlElement eltBagProperties)
@@ -1330,8 +1337,12 @@ namespace treeDiM.StackBuilder.Basics
             OptDouble optNetWeight = LoadOptDouble(eltBagProperties, "NetWeight", UnitsManager.UnitType.UT_MASS);
             string sColor = eltBagProperties.Attributes["Color"].Value;
             Color color = Color.FromArgb(Convert.ToInt32(sColor));
+            Vector3D bulge = Vector3D.Zero;
+            if (eltBagProperties.HasAttribute("Bulge"))
+                bulge = UnitsManagerEx.ConvertLengthFrom(Vector3D.Parse(eltBagProperties.Attributes["Bulge"].Value), UnitSystem);
 
             var bagProperties = CreateNewBag(sname, sdescription, new Vector3D(length, width, height), radius, weight, optNetWeight, color);
+            bagProperties.Bulge = bulge;
             bagProperties.ID.IGuid = new Guid(sid);
         }
 
@@ -1352,12 +1363,15 @@ namespace treeDiM.StackBuilder.Basics
             foreach (XmlElement node in eltPackProperties.ChildNodes)
             {
                 if (string.Equals(node.Name, "Wrapper", StringComparison.CurrentCultureIgnoreCase))
-                    wrapper = LoadWrapper(node as XmlElement);
+                    wrapper = LoadWrapper(node);
                 else if (string.Equals(node.Name, "Tray", StringComparison.CurrentCultureIgnoreCase))
-                    tray = LoadTray(node as XmlElement);
+                    tray = LoadTray(node);
                 else if (string.Equals(node.Name, "StrapperSet", StringComparison.CurrentCultureIgnoreCase))
-                    LoadStrapperSet(node as XmlElement, ref strapperSet);
+                    LoadStrapperSet(node, ref strapperSet);
             }
+            Vector3D bulge = Vector3D.Zero;
+            if (eltPackProperties.HasAttribute("Bulge"))
+                bulge = UnitsManagerEx.ConvertLengthFrom(Vector3D.Parse(eltPackProperties.Attributes["Bulge"].Value), UnitSystem);
             PackProperties packProperties = CreateNewPack(
                 sname
                 , sdescription
@@ -1366,6 +1380,7 @@ namespace treeDiM.StackBuilder.Basics
                 , HalfAxis.Parse(sOrientation), revSolidLayout
                 , wrapper
                 , tray);
+            packProperties.Bulge = bulge;
             packProperties.ID.IGuid = new Guid(sid);
             packProperties.StrapperSet = strapperSet;
  
@@ -2222,7 +2237,7 @@ namespace treeDiM.StackBuilder.Basics
             LayerDesc layerDesc = new LayerDescBox("Column", HalfAxis.HAxis.AXIS_Z_P, false);
             if (null != SolutionLayered.Solver)
                 layerDesc = SolutionLayered.Solver.BestLayerDesc(
-                    packable.OuterDimensions,
+                    packable.OuterDimensions, Vector3D.Zero,
                     new Vector2D(palletProperties.Length + 2.0 * overhang.X, palletProperties.Width + 2.0 * overhang.Y),
                     palletProperties.Height,
                     constraintSet);
@@ -2232,7 +2247,7 @@ namespace treeDiM.StackBuilder.Basics
                 , packable, palletProperties
                 , interlayers
                 , palletCorners, palletCap, palletFilm
-                , constraintSet as ConstraintSetCasePallet
+                , constraintSet
                 , new List<LayerEncap>() { new LayerEncap(layerDesc) }) as AnalysisLayered;
             if (!string.IsNullOrEmpty(sId))
                 analysis.ID.IGuid = Guid.Parse(sId);
@@ -2272,7 +2287,7 @@ namespace treeDiM.StackBuilder.Basics
             var layerDesc = new LayerDescBox("Column", HalfAxis.HAxis.AXIS_Z_P, false);
             if (null != SolutionLayered.Solver)
                 SolutionLayered.Solver.BestLayerDesc(
-                    packable.OuterDimensions,
+                    packable.OuterDimensions, Vector3D.Zero,
                     new Vector2D(caseProperties.InsideDimensions.X, caseProperties.InsideDimensions.Y),
                     0.0,
                     constraintSet
@@ -2600,7 +2615,7 @@ namespace treeDiM.StackBuilder.Basics
                             Vector3D dimBox = UnitsManagerEx.ConvertLengthFrom( Vector3D.Parse(eltLayerDesc.Attributes["DimBox"].Value), UnitSystem);
                             Vector2D dimContainer = UnitsManagerEx.ConvertLengthFrom(Vector2D.Parse(eltLayerDesc.Attributes["DimContainer"].Value), UnitSystem);
                             HalfAxis.HAxis axisOrtho = HalfAxis.Parse(eltLayerDesc.Attributes["AxisOrtho"].Value);
-                            var layer2D = new Layer2DBrickExp(dimBox, dimContainer, name, axisOrtho);
+                            var layer2D = new Layer2DBrickExp(dimBox, Vector3D.Zero, dimContainer, name, axisOrtho);
                             foreach (XmlNode nodeBP in eltLayerDesc.ChildNodes)
                                 layer2D.AddPosition(LoadBoxPosition(nodeBP as XmlElement));
                             listDesc.Add(new LayerEncap(layer2D));
@@ -2787,6 +2802,14 @@ namespace treeDiM.StackBuilder.Basics
                 insideHeightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", boxProperties.InsideHeight);
                 eltBoxProperties.Attributes.Append(insideHeightAttribute);
             }
+            // bulge
+            if (boxProperties.HasBulge)
+            {
+                // bulge
+                XmlAttribute bulgeAttribute = xmlDoc.CreateAttribute("Bulge");
+                bulgeAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", boxProperties.Bulge.ToString());
+                eltBoxProperties.Attributes.Append(bulgeAttribute);
+            }
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
             weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", boxProperties.Weight);
@@ -2856,6 +2879,13 @@ namespace treeDiM.StackBuilder.Basics
             XmlAttribute radiusAttribute = xmlDoc.CreateAttribute("Radius");
             radiusAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", bagProperties.Radius);
             eltBagProperties.Attributes.Append(radiusAttribute);
+            // bulge
+            if (bagProperties.HasBulge)
+            {
+                XmlAttribute bulgeAttrib = xmlDoc.CreateAttribute("Bulge");
+                bulgeAttrib.Value = string.Format(CultureInfo.InvariantCulture, "{0}", bagProperties.Bulge);
+                eltBagProperties.Attributes.Append(bulgeAttrib);
+            }
             // weight
             XmlAttribute weightAttribute = xmlDoc.CreateAttribute("Weight");
             weightAttribute.Value = string.Format(CultureInfo.InvariantCulture, "{0}", bagProperties.Weight);
@@ -2904,6 +2934,13 @@ namespace treeDiM.StackBuilder.Basics
                 XmlAttribute revSolidLayoutAttrib = xmlDoc.CreateAttribute("CylLayout");
                 revSolidLayoutAttrib.Value = packProperties.RevSolidLayout.ToString();
                 eltPackProperties.Attributes.Append(revSolidLayoutAttrib);
+            }
+            // bulge
+            if (packProperties.HasBulge)
+            {
+                XmlAttribute bulgeAttrib = xmlDoc.CreateAttribute("Bulge");
+                bulgeAttrib.Value = packProperties.Bulge.ToString();
+                eltPackProperties.Attributes.Append(bulgeAttrib);
             }
             // wrapper
             PackWrapper packWrapper = packProperties.Wrap;

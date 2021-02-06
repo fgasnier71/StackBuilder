@@ -770,6 +770,9 @@
   <data name="cbColor.Items131" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items132" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>188, 37</value>
   </data>
@@ -1428,6 +1431,9 @@
   <data name="cbTapeColor.Items132" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbTapeColor.Items133" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbTapeColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>271, 5</value>
   </data>
@@ -1577,6 +1583,54 @@
   </data>
   <data name="&gt;&gt;tabPageStrappers.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="uCtrlOptBulge.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 3</value>
+  </data>
+  <data name="uCtrlOptBulge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 20</value>
+  </data>
+  <data name="uCtrlOptBulge.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="uCtrlOptBulge.Text" xml:space="preserve">
+    <value>Bulge</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptBulge.Name" xml:space="preserve">
+    <value>uCtrlOptBulge</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptBulge.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlOptTriDouble, treeDiM.Basics, Version=3.0.2.26, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptBulge.Parent" xml:space="preserve">
+    <value>tabPageBulge</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptBulge.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageBulge.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageBulge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>570, 84</value>
+  </data>
+  <data name="tabPageBulge.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPageBulge.Text" xml:space="preserve">
+    <value>Bulge</value>
+  </data>
+  <data name="&gt;&gt;tabPageBulge.Name" xml:space="preserve">
+    <value>tabPageBulge</value>
+  </data>
+  <data name="&gt;&gt;tabPageBulge.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageBulge.Parent" xml:space="preserve">
+    <value>tabCtrl</value>
+  </data>
+  <data name="&gt;&gt;tabPageBulge.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="tabCtrl.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 322</value>

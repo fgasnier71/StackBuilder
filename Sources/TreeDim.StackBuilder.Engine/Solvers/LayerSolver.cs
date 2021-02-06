@@ -10,13 +10,13 @@ namespace treeDiM.StackBuilder.Engine
 {
     public class LayerSolver : ILayerSolver
     {
-        public LayerDesc BestLayerDesc(Vector3D dimBox, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet)
+        public LayerDesc BestLayerDesc(Vector3D dimBox, Vector3D bulge, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet)
         {
-            var layers = BuildLayers(dimBox, dimContainer, offsetZ, constraintSet, true);
+            var layers = BuildLayers(dimBox, bulge, dimContainer, offsetZ, constraintSet, true);
             return layers[0].LayerDescriptor;
         }
         public List<Layer2DBrickImp> BuildLayers(
-            Vector3D dimBox, Vector2D dimContainer,
+            Vector3D dimBox, Vector3D bulge, Vector2D dimContainer,
             double offsetZ, /* e.g. pallet height */
             ConstraintSetAbstract constraintSet, bool keepOnlyBest)
         {
@@ -31,7 +31,7 @@ namespace treeDiM.StackBuilder.Engine
                 foreach (HalfAxis.HAxis axisOrtho in patternAxes)
                 {
                     // is orientation allowed
-                    if (!constraintSet.AllowOrientation(Layer2DBrickImp.VerticalAxis(axisOrtho)))
+                    if (!constraintSet.AllowOrientation(Layer2DBrick.VerticalAxis(axisOrtho)))
                         continue;
                     // not swapped vs swapped pattern
                     for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
@@ -42,7 +42,7 @@ namespace treeDiM.StackBuilder.Engine
                             if (!pattern.CanBeSwapped && (iSwapped == 1))
                                 continue;
                             // instantiate layer
-                            var layer = new Layer2DBrickImp(dimBox, dimContainer, pattern.Name, axisOrtho, iSwapped == 1)
+                            var layer = new Layer2DBrickImp(dimBox, bulge, dimContainer, pattern.Name, axisOrtho, iSwapped == 1)
                             {
                                 ForcedSpace = constraintSet.MinimumSpace.Value
                             };
@@ -58,11 +58,8 @@ namespace treeDiM.StackBuilder.Engine
                         }
                         catch (Exception ex)
                         {
-                            _log.ErrorFormat("Pattern: {0} Orient: {1} Swapped: {2} Message: {3}"
-                                , pattern.Name
-                                , axisOrtho.ToString()
-                                , iSwapped == 1 ? "true" : "false"
-                                , ex.Message);
+                            string sSwapped = iSwapped == 1 ? "true" : "false";
+                            _log.ErrorFormat($"Pattern: {pattern.Name} Orient: {axisOrtho} Swapped: {sSwapped} Message: {ex.Message}");
                         }
                     }
                 }
@@ -108,7 +105,7 @@ namespace treeDiM.StackBuilder.Engine
                     foreach (HalfAxis.HAxis axisOrtho in patternAxes)
                     {
                         // is orientation allowed
-                        if (!constraintSet.AllowOrientation(Layer2DBrickImp.VerticalAxis(axisOrtho)))
+                        if (!constraintSet.AllowOrientation(Layer2DBrick.VerticalAxis(axisOrtho)))
                             continue;
                         // not swapped vs swapped pattern
                         for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
@@ -119,7 +116,7 @@ namespace treeDiM.StackBuilder.Engine
                                 if (!pattern.CanBeSwapped && (iSwapped == 1))
                                     continue;
                                 // instantiate layer
-                                var layer = new Layer2DBrickImp(packableBrick.OuterDimensions, dimContainer, pattern.Name, axisOrtho, iSwapped == 1)
+                                var layer = new Layer2DBrickImp(packableBrick.OuterDimensions, packableBrick.Bulge, dimContainer, pattern.Name, axisOrtho, iSwapped == 1)
                                 {
                                     ForcedSpace = constraintSet.MinimumSpace.Value
                                 };
@@ -200,7 +197,7 @@ namespace treeDiM.StackBuilder.Engine
         {
             LayerDescBox layerDescBox = layerDesc as LayerDescBox;
             // instantiate layer
-            var layer = new Layer2DBrickImp(dimBox, dimContainer, layerDescBox.PatternName, layerDescBox.AxisOrtho, layerDesc.Swapped)
+            var layer = new Layer2DBrickImp(dimBox, Vector3D.Zero, dimContainer, layerDescBox.PatternName, layerDescBox.AxisOrtho, layerDesc.Swapped)
             {
                 ForcedSpace = minSpace
             };
@@ -219,12 +216,12 @@ namespace treeDiM.StackBuilder.Engine
         public ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc, double minSpace)
         {
             ILayer2D layer = null;
-            if (packable.IsBrick)
+            if (packable is PackableBrick packableBrick)
             {
                 if (layerDesc is LayerDescBox layerDescBox)
                 {
                     // layer instantiation
-                    layer = new Layer2DBrickImp(packable.OuterDimensions, dimContainer, layerDesc.PatternName, layerDescBox.AxisOrtho, layerDesc.Swapped) { ForcedSpace = minSpace };
+                    layer = new Layer2DBrickImp(packable.OuterDimensions, packableBrick.Bulge, dimContainer, layerDesc.PatternName, layerDescBox.AxisOrtho, layerDesc.Swapped) { ForcedSpace = minSpace };
                     // get layer pattern
                     LayerPatternBox pattern = LayerPatternBox.GetByName(layerDesc.PatternName);
                     // dimensions
@@ -260,11 +257,11 @@ namespace treeDiM.StackBuilder.Engine
         {
             ILayer2D layer = null;
             LayerPattern pattern = null;
-            if (packable.IsBrick)
+            if (packable is PackableBrick packableBrick)
             {
                 LayerDescBox layerDescBox = layerDesc as LayerDescBox;
                 // instantiate layer
-                layer = new Layer2DBrickImp(packable.OuterDimensions, dimContainer, layerDescBox.PatternName, layerDescBox.AxisOrtho, layerDesc.Swapped)
+                layer = new Layer2DBrickImp(packable.OuterDimensions, packableBrick.Bulge, dimContainer, layerDescBox.PatternName, layerDescBox.AxisOrtho, layerDesc.Swapped)
                 {
                     ForcedSpace = minSpace
                 };
@@ -291,10 +288,10 @@ namespace treeDiM.StackBuilder.Engine
             return layer;
         }
 
-        public Layer2DBrickImp BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc, Vector2D actualDimensions, double minSpace)
+        public Layer2DBrickImp BuildLayer(Vector3D dimBox, Vector3D bulge, Vector2D dimContainer, LayerDescBox layerDesc, Vector2D actualDimensions, double minSpace)
         {
             // instantiate layer
-            var layer = new Layer2DBrickImp(dimBox, dimContainer, layerDesc.PatternName, layerDesc.AxisOrtho, layerDesc.Swapped)
+            var layer = new Layer2DBrickImp(dimBox, bulge, dimContainer, layerDesc.PatternName, layerDesc.AxisOrtho, layerDesc.Swapped)
             {
                 ForcedSpace = minSpace
             };
@@ -317,11 +314,11 @@ namespace treeDiM.StackBuilder.Engine
                 // dimensions
                 double actualLength = 0.0, actualWidth = 0.0;
 
-                if (packable.IsBrick)
+                if (packable is PackableBrick packableBrick)
                 {
                     LayerDescBox layerDescBox = layerDesc as LayerDescBox;
                     // instantiate layer
-                    var layer = new Layer2DBrickImp(packable.OuterDimensions, dimContainer, layerDescBox.PatternName, layerDescBox.AxisOrtho, layerDesc.Swapped)
+                    var layer = new Layer2DBrickImp(packable.OuterDimensions, packableBrick.Bulge, dimContainer, layerDescBox.PatternName, layerDescBox.AxisOrtho, layerDesc.Swapped)
                     {
                         ForcedSpace = minSpace
                     };
@@ -359,7 +356,7 @@ namespace treeDiM.StackBuilder.Engine
             return true;
         }
 
-        public static bool GetBestCombination(Vector3D dimBox, Vector3D dimContainer
+        public static bool GetBestCombination(Vector3D dimBox, Vector3D bulge, Vector3D dimContainer
             , ConstraintSetAbstract constraintSet
             , ref List<KeyValuePair<LayerEncap, int>> listLayer)
         {
@@ -376,7 +373,7 @@ namespace treeDiM.StackBuilder.Engine
                 foreach (HalfAxis.HAxis axisOrtho in patternAxes)
                 {
                     // is orientation allowed
-                    if (!constraintSet.AllowOrientation(Layer2DBrickImp.VerticalAxis(axisOrtho)))
+                    if (!constraintSet.AllowOrientation(Layer2DBrick.VerticalAxis(axisOrtho)))
                         continue;
                     // not swapped vs swapped pattern
                     for (int iSwapped = 0; iSwapped < 2; ++iSwapped)
@@ -387,7 +384,7 @@ namespace treeDiM.StackBuilder.Engine
                             if (!pattern.CanBeSwapped && (iSwapped == 1))
                                 continue;
                             // instantiate layer
-                            var layer = new Layer2DBrickImp(dimBox, layerDim, pattern.Name, axisOrtho, iSwapped == 1)
+                            var layer = new Layer2DBrickImp(dimBox, bulge, layerDim, pattern.Name, axisOrtho, iSwapped == 1)
                             {
                                 ForcedSpace = constraintSet.MinimumSpace.Value
                             };
@@ -408,7 +405,7 @@ namespace treeDiM.StackBuilder.Engine
                         }
                         catch (Exception ex)
                         {
-                            _log.Error($"Pattern: {pattern.Name} Orient: {axisOrtho.ToString()} Swapped: {iSwapped == 1} Message: {ex.Message}");
+                            _log.Error($"Pattern: {pattern.Name} Orient: {axisOrtho} Swapped: {iSwapped == 1} Message: {ex.Message}");
                         }
                     }
                 }

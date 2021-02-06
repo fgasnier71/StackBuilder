@@ -164,6 +164,7 @@ namespace treeDiM.StackBuilder.Desktop
                 LayerSolver solver = new LayerSolver();
                 List<Layer2DBrickImp> layers = solver.BuildLayers(
                     packable.OuterDimensions
+                    , packable.Bulge
                     , new Vector2D(
                         truckProperties.InsideLength - 2.0 * uCtrlMinDistanceLoadWall.ValueX
                         , truckProperties.InsideWidth - 2.0 * uCtrlMinDistanceLoadWall.ValueY)

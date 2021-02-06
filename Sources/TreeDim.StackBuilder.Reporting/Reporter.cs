@@ -1590,6 +1590,13 @@ namespace treeDiM.StackBuilder.Reporting
                 AppendElementValue(xmlDoc, elemPack, "width", UnitsManager.UnitType.UT_LENGTH, packProperties.Width);
                 AppendElementValue(xmlDoc, elemPack, "height", UnitsManager.UnitType.UT_LENGTH, packProperties.Height);
             }
+            // bulge
+            if (packProperties.HasBulge && rnPack.GetChildByName(Resources.ID_RN_BULGE).Activated)
+            {
+                AppendElementValue(xmlDoc, elemPack, "bulgeX", UnitsManager.UnitType.UT_LENGTH, packProperties.Bulge.X);
+                AppendElementValue(xmlDoc, elemPack, "bulgeY", UnitsManager.UnitType.UT_LENGTH, packProperties.Bulge.Y);
+                AppendElementValue(xmlDoc, elemPack, "bulgeZ", UnitsManager.UnitType.UT_LENGTH, packProperties.Bulge.Z);
+            }
             // weight
             if (rnPack.GetChildByName(Resources.ID_RN_WEIGHT).Activated)
             {
@@ -1639,6 +1646,13 @@ namespace treeDiM.StackBuilder.Reporting
                 AppendElementValue(xmlDoc, elemBox, "width", UnitsManager.UnitType.UT_LENGTH, boxProperties.Width);
                 AppendElementValue(xmlDoc, elemBox, "height", UnitsManager.UnitType.UT_LENGTH, boxProperties.Height);
             }
+            // bulge
+            if (boxProperties.HasBulge && rnBox.GetChildByName(Resources.ID_RN_BULGE).Activated)
+            {
+                AppendElementValue(xmlDoc, elemBox, "bulgeX", UnitsManager.UnitType.UT_LENGTH, boxProperties.Bulge.X);
+                AppendElementValue(xmlDoc, elemBox, "bulgeY", UnitsManager.UnitType.UT_LENGTH, boxProperties.Bulge.Y);
+                AppendElementValue(xmlDoc, elemBox, "bulgeZ", UnitsManager.UnitType.UT_LENGTH, boxProperties.Bulge.Z);
+            }
             // weight
             if (rnBox.GetChildByName(Resources.ID_RN_WEIGHT).Activated)
             {
@@ -1683,6 +1697,13 @@ namespace treeDiM.StackBuilder.Reporting
                 AppendElementValue(xmlDoc, elemBox, "length", UnitsManager.UnitType.UT_LENGTH, bagProperties.Length);
                 AppendElementValue(xmlDoc, elemBox, "width", UnitsManager.UnitType.UT_LENGTH, bagProperties.Width);
                 AppendElementValue(xmlDoc, elemBox, "height", UnitsManager.UnitType.UT_LENGTH, bagProperties.Height);
+            }
+            // bulge
+            if (bagProperties.HasBulge && rnBag.GetChildByName(Resources.ID_RN_BULGE).Activated)
+            {
+                AppendElementValue(xmlDoc, elemBox, "bulgeX", UnitsManager.UnitType.UT_LENGTH, bagProperties.Bulge.X);
+                AppendElementValue(xmlDoc, elemBox, "bulgeY", UnitsManager.UnitType.UT_LENGTH, bagProperties.Bulge.Y);
+                AppendElementValue(xmlDoc, elemBox, "bulgeZ", UnitsManager.UnitType.UT_LENGTH, bagProperties.Bulge.Z);
             }
             // weight
             if (rnBag.GetChildByName(Resources.ID_RN_WEIGHT).Activated)

@@ -160,6 +160,15 @@ namespace treeDiM.StackBuilder.Reporting.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bulge.
+        /// </summary>
+        internal static string ID_RN_BULGE {
+            get {
+                return ResourceManager.GetString("ID_RN_BULGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bundle.
         /// </summary>
         internal static string ID_RN_BUNDLE {

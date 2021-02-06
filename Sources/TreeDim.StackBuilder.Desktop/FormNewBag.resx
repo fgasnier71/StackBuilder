@@ -228,6 +228,30 @@
   <data name="&gt;&gt;bnSendToDB.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="uCtrlOptBulge.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 67</value>
+  </data>
+  <data name="uCtrlOptBulge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 20</value>
+  </data>
+  <data name="uCtrlOptBulge.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="uCtrlOptBulge.Text" xml:space="preserve">
+    <value>Bulge</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptBulge.Name" xml:space="preserve">
+    <value>uCtrlOptBulge</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptBulge.Type" xml:space="preserve">
+    <value>treeDiM.Basics.UCtrlOptTriDouble, treeDiM.Basics, Version=3.0.2.26, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptBulge.Parent" xml:space="preserve">
+    <value>gbDimensions</value>
+  </data>
+  <data name="&gt;&gt;uCtrlOptBulge.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="uCtrlRadius.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 41</value>
   </data>
@@ -253,7 +277,7 @@
     <value>gbDimensions</value>
   </data>
   <data name="&gt;&gt;uCtrlRadius.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="uCtrlOuterDimensions.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 16</value>
@@ -280,13 +304,13 @@
     <value>gbDimensions</value>
   </data>
   <data name="&gt;&gt;uCtrlOuterDimensions.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="gbDimensions.Location" type="System.Drawing.Point, System.Drawing">
     <value>2, 64</value>
   </data>
   <data name="gbDimensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>364, 68</value>
+    <value>364, 93</value>
   </data>
   <data name="gbDimensions.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -361,7 +385,7 @@
     <value>1</value>
   </data>
   <data name="gbWeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 139</value>
+    <value>2, 173</value>
   </data>
   <data name="gbWeight.Size" type="System.Drawing.Size, System.Drawing">
     <value>364, 68</value>
@@ -696,6 +720,9 @@
   <data name="cbColor.Items101" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items102" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>109, 13</value>
   </data>
@@ -745,7 +772,7 @@
     <value>1</value>
   </data>
   <data name="gbColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 214</value>
+    <value>2, 248</value>
   </data>
   <data name="gbColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>364, 41</value>

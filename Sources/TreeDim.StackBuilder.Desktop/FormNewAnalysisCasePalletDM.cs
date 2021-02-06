@@ -198,14 +198,13 @@ namespace treeDiM.StackBuilder.Desktop
             {
                 _timer.Stop();
                 // get case /pallet
-                Packable packable = cbCases.SelectedType as Packable;
-                PalletProperties palletProperties = cbPallets.SelectedType as PalletProperties;
-                if (null == packable || null == palletProperties)
+                if (!(cbCases.SelectedType is PackableBrick packable) || !(cbPallets.SelectedType is PalletProperties palletProperties))
                     return;
                 // compute
                 LayerSolver solver = new LayerSolver();
                 _layers = solver.BuildLayers(
                     packable.OuterDimensions
+                    , packable.Bulge
                     , new Vector2D(
                         palletProperties.Length + 2.0 * uCtrlOverhang.ValueX
                         , palletProperties.Width + 2.0 * uCtrlOverhang.ValueY)

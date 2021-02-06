@@ -56,11 +56,14 @@
             this.ctrlStrapperSet = new treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet();
             this.lbCylLayoutType = new System.Windows.Forms.Label();
             this.cbCylLayoutType = new System.Windows.Forms.ComboBox();
+            this.tabPageBulge = new System.Windows.Forms.TabPage();
+            this.uCtrlOptBulge = new treeDiM.Basics.UCtrlOptTriDouble();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
             this.tabCtrl.SuspendLayout();
             this.tabWrapper.SuspendLayout();
             this.tabTray.SuspendLayout();
             this.tabStrappers.SuspendLayout();
+            this.tabPageBulge.SuspendLayout();
             this.SuspendLayout();
             // 
             // bnOk
@@ -78,6 +81,7 @@
             // graphCtrl
             // 
             resources.ApplyResources(this.graphCtrl, "graphCtrl");
+            this.graphCtrl.AngleHoriz = 45D;
             this.graphCtrl.Name = "graphCtrl";
             this.graphCtrl.Viewer = null;
             // 
@@ -163,6 +167,11 @@
             // uCtrlWrapperWeight
             // 
             resources.ApplyResources(this.uCtrlWrapperWeight, "uCtrlWrapperWeight");
+            this.uCtrlWrapperWeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlWrapperWeight.Minimum = new decimal(new int[] {
             10000,
             0,
@@ -175,6 +184,11 @@
             // uCtrlWrapperThickness
             // 
             resources.ApplyResources(this.uCtrlWrapperThickness, "uCtrlWrapperThickness");
+            this.uCtrlWrapperThickness.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlWrapperThickness.Minimum = new decimal(new int[] {
             0,
             0,
@@ -242,7 +256,8 @@
             resources.GetString("cbWrapperColor.Items40"),
             resources.GetString("cbWrapperColor.Items41"),
             resources.GetString("cbWrapperColor.Items42"),
-            resources.GetString("cbWrapperColor.Items43")});
+            resources.GetString("cbWrapperColor.Items43"),
+            resources.GetString("cbWrapperColor.Items44")});
             this.cbWrapperColor.Name = "cbWrapperColor";
             this.cbWrapperColor.SelectedColorChanged += new System.EventHandler(this.OnPackChanged);
             // 
@@ -252,6 +267,7 @@
             this.tabCtrl.Controls.Add(this.tabWrapper);
             this.tabCtrl.Controls.Add(this.tabTray);
             this.tabCtrl.Controls.Add(this.tabStrappers);
+            this.tabCtrl.Controls.Add(this.tabPageBulge);
             this.tabCtrl.Name = "tabCtrl";
             this.tabCtrl.SelectedIndex = 0;
             // 
@@ -299,6 +315,11 @@
             // uCtrlTrayUnitThickness
             // 
             resources.ApplyResources(this.uCtrlTrayUnitThickness, "uCtrlTrayUnitThickness");
+            this.uCtrlTrayUnitThickness.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlTrayUnitThickness.Minimum = new decimal(new int[] {
             0,
             0,
@@ -311,6 +332,11 @@
             // uCtrlTrayWeight
             // 
             resources.ApplyResources(this.uCtrlTrayWeight, "uCtrlTrayWeight");
+            this.uCtrlTrayWeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlTrayWeight.Minimum = new decimal(new int[] {
             10000,
             0,
@@ -382,13 +408,19 @@
             resources.GetString("cbTrayColor.Items42"),
             resources.GetString("cbTrayColor.Items43"),
             resources.GetString("cbTrayColor.Items44"),
-            resources.GetString("cbTrayColor.Items45")});
+            resources.GetString("cbTrayColor.Items45"),
+            resources.GetString("cbTrayColor.Items46")});
             this.cbTrayColor.Name = "cbTrayColor";
             this.cbTrayColor.SelectedColorChanged += new System.EventHandler(this.OnPackChanged);
             // 
             // uCtrlTrayHeight
             // 
             resources.ApplyResources(this.uCtrlTrayHeight, "uCtrlTrayHeight");
+            this.uCtrlTrayHeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlTrayHeight.Minimum = new decimal(new int[] {
             1,
             0,
@@ -431,6 +463,28 @@
             this.cbCylLayoutType.Name = "cbCylLayoutType";
             this.cbCylLayoutType.SelectedIndexChanged += new System.EventHandler(this.OnPackChanged);
             // 
+            // tabPageBulge
+            // 
+            this.tabPageBulge.Controls.Add(this.uCtrlOptBulge);
+            resources.ApplyResources(this.tabPageBulge, "tabPageBulge");
+            this.tabPageBulge.Name = "tabPageBulge";
+            this.tabPageBulge.UseVisualStyleBackColor = true;
+            // 
+            // uCtrlOptBulge
+            // 
+            this.uCtrlOptBulge.Checked = false;
+            resources.ApplyResources(this.uCtrlOptBulge, "uCtrlOptBulge");
+            this.uCtrlOptBulge.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.uCtrlOptBulge.Name = "uCtrlOptBulge";
+            this.uCtrlOptBulge.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlOptBulge.X = 0D;
+            this.uCtrlOptBulge.Y = 0D;
+            this.uCtrlOptBulge.Z = 0D;
+            // 
             // FormNewPack
             // 
             resources.ApplyResources(this, "$this");
@@ -469,6 +523,7 @@
             this.tabTray.ResumeLayout(false);
             this.tabTray.PerformLayout();
             this.tabStrappers.ResumeLayout(false);
+            this.tabPageBulge.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -503,5 +558,7 @@
         private treeDiM.Basics.UCtrlDouble uCtrlTrayUnitThickness;
         private System.Windows.Forms.Label lbCylLayoutType;
         private System.Windows.Forms.ComboBox cbCylLayoutType;
+        private System.Windows.Forms.TabPage tabPageBulge;
+        private treeDiM.Basics.UCtrlOptTriDouble uCtrlOptBulge;
     }
 }

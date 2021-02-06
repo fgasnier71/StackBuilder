@@ -18,11 +18,11 @@ namespace treeDiM.StackBuilder.Basics
     #region ILayerSolver
     public interface ILayerSolver
     {
-        LayerDesc BestLayerDesc(Vector3D dimBox, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet);
-        List<Layer2DBrickImp> BuildLayers(Vector3D dimBox, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet, bool keepOnlyBest);
+        LayerDesc BestLayerDesc(Vector3D dimBox, Vector3D bulge, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet);
+        List<Layer2DBrickImp> BuildLayers(Vector3D dimBox, Vector3D bulge, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet, bool keepOnlyBest);
         List<ILayer2D> BuildLayers(Packable packable, Vector2D dimContainer, double offsetZ, ConstraintSetAbstract constraintSet, bool keepOnlyBest);
         Layer2DBrickImp BuildLayer(Vector3D dimBox, Vector2D actualDimensions, LayerDescBox layerDesc, double minSpace);
-        Layer2DBrickImp BuildLayer(Vector3D dimBox, Vector2D dimContainer, LayerDescBox layerDesc, Vector2D actualDimensions, double minSpace);
+        Layer2DBrickImp BuildLayer(Vector3D dimBox, Vector3D bulge, Vector2D dimContainer, LayerDescBox layerDesc, Vector2D actualDimensions, double minSpace);
         ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc, double minSpace);
         ILayer2D BuildLayer(Packable packable, Vector2D dimContainer, LayerDesc layerDesc, Vector2D actualDimensions, double minSpace);
         bool GetDimensions(List<LayerDesc> layers, Packable packable, Vector2D dimContainer, double minSpace, ref Vector2D actualDimensions);

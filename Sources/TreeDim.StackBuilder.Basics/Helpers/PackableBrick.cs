@@ -18,6 +18,17 @@ namespace treeDiM.StackBuilder.Basics
         public override Vector3D OuterDimensions => new Vector3D(Length, Width, Height);
         public virtual bool OrientationAllowed(HalfAxis.HAxis axis) { return true; }
         public override bool IsBrick => true;
+        public Vector3D Bulge
+        {
+            get => _bulge;
+            set
+            {
+                if (value.X < 0 || value.Y < 0 || value.Z < 0)
+                    throw new Exception($"Invalid bulge value {value}");
+                _bulge = value;
+            }
+        }
+        public bool HasBulge => _bulge.GetLengthSquared() > EPSILON;
 
         public double Dim(int index)
         {
@@ -59,5 +70,11 @@ namespace treeDiM.StackBuilder.Basics
                 );
             return sBuilder.ToString();
         }
+
+        #region Non-Public Members
+        protected Vector3D _bulge = Vector3D.Zero;
+        protected static readonly double EPSILON = 1.0E-03;
+        #endregion
+
     }
 }

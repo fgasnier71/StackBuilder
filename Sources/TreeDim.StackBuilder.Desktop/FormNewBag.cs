@@ -36,6 +36,7 @@ namespace treeDiM.StackBuilder.Desktop
                 uCtrlWeight.Value = bag.Weight;
                 uCtrlNetWeight.Value = bag.NetWeight;
                 cbColor.Color = bag.ColorFill;
+                Bulge = bag.Bulge;
             }
             else
             {
@@ -92,6 +93,15 @@ namespace treeDiM.StackBuilder.Desktop
             set => cbColor.Color = value;
         }
         public double MinDimension => new double[]{ OuterDimensions.X, OuterDimensions.Y, OuterDimensions.Z }.Min();
+        public Vector3D Bulge
+        {
+            get => uCtrlOptBulge.Checked ? uCtrlOptBulge.Value : Vector3D.Zero;
+            set
+            {
+                uCtrlOptBulge.Checked = value.GetLength() > 0;
+                uCtrlOptBulge.Value = value;
+            }
+        }
         #endregion
         #region IDrawingContrainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
