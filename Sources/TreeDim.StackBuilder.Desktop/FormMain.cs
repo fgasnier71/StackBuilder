@@ -1614,7 +1614,5 @@ namespace treeDiM.StackBuilder.Desktop
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion
-
-
     }
 }

@@ -8,7 +8,6 @@ using Sharp3D.Math.Core;
 
 using treeDiM.Basics;
 using treeDiM.StackBuilder.Basics;
-using stb;
 
 namespace treeDiM.StackBuilder.Exporters
 {
@@ -45,14 +44,14 @@ namespace treeDiM.StackBuilder.Exporters
                         quantity = analysis.Solution.ItemCount
                     },
                     loadSpace = BuildLoadSpace(analysis),
-                    item = BuildItem(analysis),
+                    itemList = BuildItemArray(analysis),
                     load = new load()
                     {
                         loadSpaceId = 1,
                         statistics = new statistics()
                         {
                             loadVolume = sol.LoadVolume,
-                            loadWeight = sol.LoadWeight,
+                            weightLoad = sol.LoadWeight,
                             volumeUtilization = sol.VolumeEfficiency,
                             weightUtilization = sol.WeightEfficiency.ToDouble(),
                             cOfG = new cOfG() { x = sol.COfG.X, y = sol.COfG.Y, z = sol.COfG.Z },
@@ -106,10 +105,13 @@ namespace treeDiM.StackBuilder.Exporters
             else
                 throw new Exception($"Unexpected analysis type : {analysis.GetType()}");
         }
-        private item BuildItem(AnalysisLayered analysis)
+        private item[] BuildItemArray(AnalysisLayered analysis)
         {
             Packable packable = analysis.Content;
+            List<item> items = new List<item>();
+            int itemIndex = 0;
 
+            // case ?
             if (analysis is AnalysisCasePallet analysisCasePallet)
             {
                 ConstraintSetCasePallet constraintSet = analysisCasePallet.ConstraintSet as ConstraintSetCasePallet;
@@ -117,33 +119,58 @@ namespace treeDiM.StackBuilder.Exporters
                 StringBuilder sbOrient = new StringBuilder();
                 foreach (bool b in orient)
                 { sbOrient.Append(b ? "1" : "0"); }
-                return new item()
-                {
-                    id = 1,
-                    name = packable.Name,
-                    length = packable.OuterDimensions.X,
-                    width = packable.OuterDimensions.Y,
-                    height = packable.OuterDimensions.Z,
-                    weight = packable.Weight,
-                    maxWeightOnTop = 0.0,
-                    permittedOrientations = sbOrient.ToString()
-                };
+
+                items.Add(
+                    new item()
+                    {
+                        id = ++itemIndex,
+                        name = packable.Name,
+                        length = packable.OuterDimensions.X,
+                        width = packable.OuterDimensions.Y,
+                        height = packable.OuterDimensions.Z,
+                        weight = packable.Weight,
+                        maxWeightOnTop = 0.0,
+                        permittedOrientations = sbOrient.ToString()
+                    }
+                );
             }
+            // cylinder ?
             else if (analysis is AnalysisCylinderPallet analysisCylinderPallet)
             {
-                return new item()
-                {
-                    id = 1,
-                    name = packable.Name,
-                    length = packable.OuterDimensions.X,
-                    width = packable.OuterDimensions.Y,
-                    height = packable.OuterDimensions.Z,
-                    maxWeightOnTop = 0.0,
-                    permittedOrientations = "001"
-                };
+                items.Add(
+                    new item()
+                    {
+                        id = ++itemIndex,
+                        name = packable.Name,
+                        length = packable.OuterDimensions.X,
+                        width = packable.OuterDimensions.Y,
+                        height = packable.OuterDimensions.Z,
+                        maxWeightOnTop = 0.0,
+                        permittedOrientations = "001"
+                    }
+                );
             }
             else
                 throw new Exception($"Unexpected analysis type : {analysis.GetType()}");
+
+            // interlayers
+            OffsetIndexInterlayers = itemIndex + 1;
+            foreach (var interlayer in analysis.Interlayers)
+            {
+                items.Add(
+                    new item()
+                    {
+                        id = ++itemIndex,
+                        name = interlayer.Name,
+                        length = interlayer.Length,
+                        width = interlayer.Width,
+                        height = interlayer.Thickness,
+                        weight = interlayer.Weight
+                    }
+                );
+            }
+
+            return items.ToArray();
         }
         private placement[] BuildPlacementArray(SolutionLayered sol, AnalysisLayered analysis)
         {
@@ -179,10 +206,33 @@ namespace treeDiM.StackBuilder.Exporters
                             new placement()
                             {
                                 itemId = 1,
-                                x = vPos.X, y = vPos.Y, z = vPos.Z
+                                x = vPos.X,
+                                y = vPos.Y,
+                                z = vPos.Z,
+                                LSpecified = false,
+                                WSpecified = false
                             }
                             );
                     }
+                }
+                else if (layer is InterlayerPos interlayerPos)
+                {
+                    var interlayerProp = sol.Interlayers[interlayerPos.TypeId];
+                    var bPosition = new BoxPosition(new Vector3D(
+                            0.5 * (analysis.ContainerDimensions.X - interlayerProp.Length)
+                            , 0.5 * (analysis.ContainerDimensions.Y - interlayerProp.Width)
+                            , interlayerPos.ZLow),
+                            HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                    Vector3D writtenPosition = ConvertPosition(bPosition, interlayerProp.Dimensions);
+                    lPlacements.Add(
+                        new placement()
+                        {
+                            itemId = interlayerPos.TypeId + OffsetIndexInterlayers,
+                            x = writtenPosition.X,
+                            y = writtenPosition.Y,
+                            z = writtenPosition.Z
+                        }
+                        );
                 }
             }
             return lPlacements.ToArray();
@@ -202,5 +252,6 @@ namespace treeDiM.StackBuilder.Exporters
         }
         #endregion
 
+        private int OffsetIndexInterlayers { get; set; } = 1;
     }
 }

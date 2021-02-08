@@ -85,9 +85,9 @@
         <xs:element name="y" type="stb:double"/>
         <xs:element name="z" type="stb:double"/>
         <!--Length axis-->
-        <xs:element name="L" type="stb:HAxis"/>
+        <xs:element name="L" type="stb:HAxis" minOccurs="0" maxOccurs="1"/>
         <!--Width axis -->
-        <xs:element name="W" type="stb:HAxis"/>
+        <xs:element name="W" type="stb:HAxis" minOccurs="0" maxOccurs="1"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -107,17 +107,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="itemList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="stb:item" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="item">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="id" type="stb:int"/>
-        <xs:element name="name" type="stb:string"/>
-        <xs:element name="length" type="stb:double"/>
-        <xs:element name="width" type="stb:double"/>
-        <xs:element name="height" type="stb:double"/>
-        <xs:element name="weight" type="stb:double"/>
-        <xs:element name="maxWeightOnTop" type="stb:double"/>
-        <xs:element name="permittedOrientations" type="stb:string"/>
+        <xs:element name="id" type="stb:int" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="name" type="stb:string" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="length" type="stb:double" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="width" type="stb:double" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="height" type="stb:double" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="weight" type="stb:double" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="maxWeightOnTop" type="stb:double" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="permittedOrientations" type="stb:string" minOccurs="0" maxOccurs="1"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -170,8 +177,8 @@
             <xs:sequence>
               <xs:element name="orderNumber" type="stb:string" minOccurs="1" maxOccurs="1"/>
               <xs:element ref="stb:loadSpace" minOccurs="1" maxOccurs="1"/>
-              <xs:element ref="stb:item" minOccurs="1"/>
-              <xs:element ref="stb:orderLine"/>
+              <xs:element ref="stb:itemList" minOccurs="1" maxOccurs="1"/>
+              <xs:element ref="stb:orderLine" minOccurs="1" maxOccurs="1"/>              
               <xs:element ref="stb:load" minOccurs="1" maxOccurs="1"/>
             </xs:sequence>
           </xs:complexType>
