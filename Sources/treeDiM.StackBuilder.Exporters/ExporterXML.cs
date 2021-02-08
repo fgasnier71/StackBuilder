@@ -251,7 +251,8 @@ namespace treeDiM.StackBuilder.Exporters
             }
         }
         #endregion
-
+        #region Data members
         private int OffsetIndexInterlayers { get; set; } = 1;
+        #endregion
     }
 }

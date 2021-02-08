@@ -61,8 +61,24 @@ namespace treeDiM.StackBuilder.Exporters
                             $"{vPos.X.ToString("0,0.0", nfi)};" +
                             $"{vPos.Y.ToString("0,0.0", nfi)};" +
                             $"{vPos.Z.ToString("0,0.0", nfi)};"
-                            );                    
+                            );
                     }
+                }
+                else if (layer is InterlayerPos interlayerPos)
+                {
+                    var interlayerProp = sol.Interlayers[interlayerPos.TypeId];
+                    var bPosition = new BoxPosition(new Vector3D(
+                            0.5 * (analysis.ContainerDimensions.X - interlayerProp.Length)
+                            , 0.5 * (analysis.ContainerDimensions.Y - interlayerProp.Width)
+                            , interlayerPos.ZLow),
+                            HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                    Vector3D pos = ConvertPosition(bPosition, interlayerProp.Dimensions);
+                    csv.AppendLine(
+                        $"{interlayerPos.TypeId + 1};" +
+                        $"{pos.X.ToString("0,0.0", nfi)};" +
+                        $"{pos.Y.ToString("0,0.0", nfi)};" +
+                        $"{pos.Z.ToString("0,0.0", nfi)};"
+                        );
                 }
             }
             var writer = new StreamWriter(stream);
