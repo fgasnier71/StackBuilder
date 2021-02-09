@@ -46,15 +46,22 @@ namespace treeDiM.StackBuilder.Desktop
             graphCtrlPack.DrawingContainer = this;
             graphCtrlSolution.DrawingContainer = this;
             // set default pallet height
-            MaximumPalletHeight = Settings.Default.PalletHeight;
+            MaximumPalletHeight = UnitsManager.ConvertLengthFrom(Settings.Default.PalletHeight, UnitsManager.UnitSystem.UNIT_METRIC1);
             // set default wall numbers and thickness
+            HasWrapper = Settings.Default.OptHasWrapper;
             uCtrlWrapperWalls.NoX = Settings.Default.NumberWallsLength;
             uCtrlWrapperWalls.NoY = Settings.Default.NumberWallsWidth;
             uCtrlWrapperWalls.NoZ = Settings.Default.NumberWallsHeight;
-            WrapperWallThickness = Settings.Default.WrapperThickness;
-            WrapperWallSurfMass = Settings.Default.WrapperSurfMass;
-            HasWrapper = Settings.Default.OptHasWrapper;
+            WrapperWallThickness = UnitsManager.ConvertLengthFrom(Settings.Default.WrapperThickness, UnitsManager.UnitSystem.UNIT_METRIC1);
+            WrapperWallSurfMass = UnitsManager.ConvertSurfaceMassFrom(Settings.Default.WrapperSurfMass, UnitsManager.UnitSystem.UNIT_METRIC1);
+
             HasTray = Settings.Default.OptHasTray;
+            uCtrlTrayWalls.NoX = Settings.Default.NumberWallsLength;
+            uCtrlTrayWalls.NoY = Settings.Default.NumberWallsWidth;
+            uCtrlTrayWalls.NoZ = Settings.Default.NumberWallsHeight;
+            uCtrlTrayHeight.Value = UnitsManager.ConvertLengthFrom(Settings.Default.TrayHeight, UnitsManager.UnitSystem.UNIT_METRIC1);
+            uCtrlTrayThickness.Value = UnitsManager.ConvertLengthFrom(Settings.Default.TrayThickness, UnitsManager.UnitSystem.UNIT_METRIC1);
+            uCtrlTraySurfMass.Value = UnitsManager.ConvertSurfaceMassFrom(Settings.Default.TraySurfMass, UnitsManager.UnitSystem.UNIT_METRIC1);
 
 
             // set default number of boxes
@@ -74,15 +81,16 @@ namespace treeDiM.StackBuilder.Desktop
             // default pallet height
             Settings.Default.PalletHeight = MaximumPalletHeight;
             // default wall numbers and thickness
+            Settings.Default.OptHasWrapper = HasWrapper;
             Settings.Default.NumberWallsLength = uCtrlWrapperWalls.NoX;
             Settings.Default.NumberWallsWidth = uCtrlWrapperWalls.NoY;
             Settings.Default.NumberWallsHeight = uCtrlWrapperWalls.NoZ;
             Settings.Default.WrapperThickness = WrapperWallThickness;
             Settings.Default.WrapperSurfMass = WrapperWallSurfMass;
-            Settings.Default.TrayThickness = TrayWallThickness;
-            Settings.Default.TraySurfMass = TrayWallSurfaceMass;
-            Settings.Default.OptHasWrapper = HasWrapper;
+
             Settings.Default.OptHasTray = HasTray;
+            Settings.Default.TrayThickness = UnitsManager.ConvertLengthTo(TrayWallThickness, UnitsManager.UnitSystem.UNIT_METRIC1);
+            Settings.Default.TrayHeight = UnitsManager.ConvertLengthTo(TrayHeight, UnitsManager.UnitSystem.UNIT_METRIC1);
 
             // default number of boxes
             Settings.Default.NumberBoxesPerCase = (int)nudNumber.Value;
@@ -348,8 +356,6 @@ namespace treeDiM.StackBuilder.Desktop
             uCtrlTraySurfMass.Enabled = enabled;
             uCtrlTrayHeight.Enabled = enabled;
 
-            uCtrlTrayHeight.Enabled = enabled;
-
             OnDataChanged(sender, e);
         }
         private void OnTimerTick(object sender, EventArgs e)
@@ -557,5 +563,6 @@ namespace treeDiM.StackBuilder.Desktop
         private AnalysisLayered _selectedAnalysis;
         private static ILog _log = LogManager.GetLogger(typeof(FormOptimizePack));
         #endregion
+
     }
 }

@@ -122,6 +122,7 @@
             this.toolStripMIAnalysisHCylPallet = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIAnalysisBundlePallet = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIHAnalysis = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMIPalletPallet = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSBAnalysesCase = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripMIAnalysisBoxCase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIAnalysisCylinderCase = new System.Windows.Forms.ToolStripMenuItem();
@@ -151,7 +152,6 @@
             this.saveFileDialogWebGL = new System.Windows.Forms.SaveFileDialog();
             this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripMIPalletPallet = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.toolStripStandard.SuspendLayout();
             this.SuspendLayout();
@@ -814,6 +814,12 @@
             this.toolStripMIHAnalysis.Name = "toolStripMIHAnalysis";
             this.toolStripMIHAnalysis.Click += new System.EventHandler(this.OnNewHAnalysisPallet);
             // 
+            // toolStripMIPalletPallet
+            // 
+            resources.ApplyResources(this.toolStripMIPalletPallet, "toolStripMIPalletPallet");
+            this.toolStripMIPalletPallet.Name = "toolStripMIPalletPallet";
+            this.toolStripMIPalletPallet.Click += new System.EventHandler(this.OnNewPalletsOnPallet);
+            // 
             // toolStripSBAnalysesCase
             // 
             this.toolStripSBAnalysesCase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -997,12 +1003,6 @@
             // 
             this.saveFileDialogExport.DefaultExt = "xml";
             resources.ApplyResources(this.saveFileDialogExport, "saveFileDialogExport");
-            // 
-            // toolStripMIPalletPallet
-            // 
-            resources.ApplyResources(this.toolStripMIPalletPallet, "toolStripMIPalletPallet");
-            this.toolStripMIPalletPallet.Name = "toolStripMIPalletPallet";
-            this.toolStripMIPalletPallet.Click += new System.EventHandler(this.OnNewPalletsOnPallet);
             // 
             // FormMain
             // 

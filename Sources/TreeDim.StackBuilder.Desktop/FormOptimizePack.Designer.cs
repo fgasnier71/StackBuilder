@@ -209,7 +209,10 @@
             resources.GetString("cbWrapperColor.Items42"),
             resources.GetString("cbWrapperColor.Items43"),
             resources.GetString("cbWrapperColor.Items44"),
-            resources.GetString("cbWrapperColor.Items45")});
+            resources.GetString("cbWrapperColor.Items45"),
+            resources.GetString("cbWrapperColor.Items46"),
+            resources.GetString("cbWrapperColor.Items47"),
+            resources.GetString("cbWrapperColor.Items48")});
             this.cbWrapperColor.Name = "cbWrapperColor";
             this.cbWrapperColor.SelectedColorChanged += new System.EventHandler(this.OnDataChanged);
             // 
@@ -221,6 +224,11 @@
             // uCtrlWrapperSurfMass
             // 
             resources.ApplyResources(this.uCtrlWrapperSurfMass, "uCtrlWrapperSurfMass");
+            this.uCtrlWrapperSurfMass.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlWrapperSurfMass.Minimum = new decimal(new int[] {
             0,
             0,
@@ -233,6 +241,11 @@
             // uCtrlWrapperThickness
             // 
             resources.ApplyResources(this.uCtrlWrapperThickness, "uCtrlWrapperThickness");
+            this.uCtrlWrapperThickness.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlWrapperThickness.Minimum = new decimal(new int[] {
             0,
             0,
@@ -269,6 +282,11 @@
             // uCtrlTraySurfMass
             // 
             resources.ApplyResources(this.uCtrlTraySurfMass, "uCtrlTraySurfMass");
+            this.uCtrlTraySurfMass.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlTraySurfMass.Minimum = new decimal(new int[] {
             0,
             0,
@@ -276,6 +294,7 @@
             0});
             this.uCtrlTraySurfMass.Name = "uCtrlTraySurfMass";
             this.uCtrlTraySurfMass.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_SURFACEMASS;
+            this.uCtrlTraySurfMass.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // uCtrlTrayWalls
             // 
@@ -284,10 +303,16 @@
             this.uCtrlTrayWalls.NoX = 1;
             this.uCtrlTrayWalls.NoY = 1;
             this.uCtrlTrayWalls.NoZ = 1;
+            this.uCtrlTrayWalls.ValueChanged += new treeDiM.Basics.UCtrlTriInt.ValueChangedDelegate(this.OnDataChanged);
             // 
             // uCtrlTrayThickness
             // 
             resources.ApplyResources(this.uCtrlTrayThickness, "uCtrlTrayThickness");
+            this.uCtrlTrayThickness.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlTrayThickness.Minimum = new decimal(new int[] {
             0,
             0,
@@ -295,6 +320,7 @@
             0});
             this.uCtrlTrayThickness.Name = "uCtrlTrayThickness";
             this.uCtrlTrayThickness.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlTrayThickness.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // chkbTray
             // 
@@ -360,12 +386,21 @@
             resources.GetString("cbTrayColor.Items44"),
             resources.GetString("cbTrayColor.Items45"),
             resources.GetString("cbTrayColor.Items46"),
-            resources.GetString("cbTrayColor.Items47")});
+            resources.GetString("cbTrayColor.Items47"),
+            resources.GetString("cbTrayColor.Items48"),
+            resources.GetString("cbTrayColor.Items49"),
+            resources.GetString("cbTrayColor.Items50")});
             this.cbTrayColor.Name = "cbTrayColor";
+            this.cbTrayColor.SelectedColorChanged += new System.EventHandler(this.OnDataChanged);
             // 
             // uCtrlTrayHeight
             // 
             resources.ApplyResources(this.uCtrlTrayHeight, "uCtrlTrayHeight");
+            this.uCtrlTrayHeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlTrayHeight.Minimum = new decimal(new int[] {
             1,
             0,
@@ -373,6 +408,7 @@
             0});
             this.uCtrlTrayHeight.Name = "uCtrlTrayHeight";
             this.uCtrlTrayHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
+            this.uCtrlTrayHeight.ValueChanged += new treeDiM.Basics.UCtrlDouble.ValueChangedDelegate(this.OnDataChanged);
             // 
             // btClose
             // 
@@ -413,6 +449,11 @@
             // uCtrlPalletHeight
             // 
             resources.ApplyResources(this.uCtrlPalletHeight, "uCtrlPalletHeight");
+            this.uCtrlPalletHeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlPalletHeight.Minimum = new decimal(new int[] {
             0,
             0,
@@ -583,12 +624,14 @@
             // graphCtrlSolution
             // 
             resources.ApplyResources(this.graphCtrlSolution, "graphCtrlSolution");
+            this.graphCtrlSolution.AngleHoriz = 45D;
             this.graphCtrlSolution.Name = "graphCtrlSolution";
             this.graphCtrlSolution.Viewer = null;
             // 
             // graphCtrlPack
             // 
             resources.ApplyResources(this.graphCtrlPack, "graphCtrlPack");
+            this.graphCtrlPack.AngleHoriz = 45D;
             this.graphCtrlPack.Name = "graphCtrlPack";
             this.graphCtrlPack.Viewer = null;
             // 

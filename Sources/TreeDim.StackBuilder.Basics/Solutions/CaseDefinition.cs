@@ -78,9 +78,9 @@ namespace treeDiM.StackBuilder.Basics
         public Vector3D OuterDimensions(PackableBrick packBrick, ParamSetPackOptim paramSet)
         {
             return new Vector3D(
-                _arrangement.Length * packBrick.Dim(Dim0) + paramSet.WrapperThickness * paramSet.NoWrapperWalls[0]
-                , _arrangement.Width * packBrick.Dim(Dim1) + paramSet.WrapperThickness * paramSet.NoWrapperWalls[1]
-                , _arrangement.Height * packBrick.Dim(Dim2) + paramSet.WrapperThickness * paramSet.NoWrapperWalls[2]
+                _arrangement.Length * packBrick.Dim(Dim0) + paramSet.WrapperThickness * paramSet.NoWrapperWalls[0] + paramSet.TrayThickness * paramSet.NoTrayWalls[0]
+                , _arrangement.Width * packBrick.Dim(Dim1) + paramSet.WrapperThickness * paramSet.NoWrapperWalls[1] + paramSet.TrayThickness * paramSet.NoTrayWalls[1]
+                , _arrangement.Height * packBrick.Dim(Dim2) + paramSet.WrapperThickness * paramSet.NoWrapperWalls[2] + paramSet.TrayThickness * paramSet.NoTrayWalls[2]
                 );
         }
         public Vector3D InnerOffset(ParamSetPackOptim paramSet)

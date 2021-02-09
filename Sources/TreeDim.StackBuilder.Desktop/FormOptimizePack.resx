@@ -139,7 +139,7 @@
     <value>NoControl</value>
   </data>
   <data name="chkbWrapper.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 16</value>
+    <value>6, 12</value>
   </data>
   <data name="chkbWrapper.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 17</value>
@@ -166,10 +166,10 @@
     <value>Top, Right</value>
   </data>
   <data name="uCtrlWrapperWalls.Location" type="System.Drawing.Point, System.Drawing">
-    <value>379, 16</value>
+    <value>459, 12</value>
   </data>
   <data name="uCtrlWrapperWalls.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 20</value>
+    <value>262, 20</value>
   </data>
   <data name="uCtrlWrapperWalls.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -333,8 +333,17 @@
   <data name="cbWrapperColor.Items45" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbWrapperColor.Items46" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbWrapperColor.Items47" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbWrapperColor.Items48" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbWrapperColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 39</value>
+    <value>88, 40</value>
   </data>
   <data name="cbWrapperColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 22</value>
@@ -346,7 +355,7 @@
     <value>cbWrapperColor</value>
   </data>
   <data name="&gt;&gt;cbWrapperColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.26, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbWrapperColor.Parent" xml:space="preserve">
     <value>tabPageWrapper</value>
@@ -361,7 +370,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbWrapperColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 42</value>
+    <value>6, 45</value>
   </data>
   <data name="lbWrapperColor.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 13</value>
@@ -385,7 +394,7 @@
     <value>3</value>
   </data>
   <data name="uCtrlWrapperSurfMass.Location" type="System.Drawing.Point, System.Drawing">
-    <value>186, 39</value>
+    <value>186, 41</value>
   </data>
   <data name="uCtrlWrapperSurfMass.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -411,8 +420,11 @@
   <data name="&gt;&gt;uCtrlWrapperSurfMass.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="uCtrlWrapperThickness.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
   <data name="uCtrlWrapperThickness.Location" type="System.Drawing.Point, System.Drawing">
-    <value>379, 39</value>
+    <value>459, 41</value>
   </data>
   <data name="uCtrlWrapperThickness.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -448,7 +460,7 @@
     <value>Cardboard</value>
   </data>
   <data name="cbWrapperType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 14</value>
+    <value>88, 12</value>
   </data>
   <data name="cbWrapperType.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
@@ -475,7 +487,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageWrapper.Size" type="System.Drawing.Size, System.Drawing">
-    <value>688, 73</value>
+    <value>768, 73</value>
   </data>
   <data name="tabPageWrapper.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -496,13 +508,13 @@
     <value>0</value>
   </data>
   <data name="uCtrlTraySurfMass.Location" type="System.Drawing.Point, System.Drawing">
-    <value>230, 34</value>
+    <value>230, 35</value>
   </data>
   <data name="uCtrlTraySurfMass.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
   </data>
   <data name="uCtrlTraySurfMass.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 20</value>
+    <value>189, 20</value>
   </data>
   <data name="uCtrlTraySurfMass.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -526,10 +538,10 @@
     <value>Top, Right</value>
   </data>
   <data name="uCtrlTrayWalls.Location" type="System.Drawing.Point, System.Drawing">
-    <value>415, 9</value>
+    <value>451, 9</value>
   </data>
   <data name="uCtrlTrayWalls.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 20</value>
+    <value>308, 20</value>
   </data>
   <data name="uCtrlTrayWalls.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -549,14 +561,17 @@
   <data name="&gt;&gt;uCtrlTrayWalls.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="uCtrlTrayThickness.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
   <data name="uCtrlTrayThickness.Location" type="System.Drawing.Point, System.Drawing">
-    <value>417, 34</value>
+    <value>451, 35</value>
   </data>
   <data name="uCtrlTrayThickness.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
   </data>
   <data name="uCtrlTrayThickness.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 20</value>
+    <value>226, 20</value>
   </data>
   <data name="uCtrlTrayThickness.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -756,6 +771,15 @@
   <data name="cbTrayColor.Items47" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbTrayColor.Items48" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTrayColor.Items49" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTrayColor.Items50" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbTrayColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>125, 7</value>
   </data>
@@ -769,7 +793,7 @@
     <value>cbTrayColor</value>
   </data>
   <data name="&gt;&gt;cbTrayColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.26, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbTrayColor.Parent" xml:space="preserve">
     <value>tabPageTray</value>
@@ -778,7 +802,7 @@
     <value>4</value>
   </data>
   <data name="uCtrlTrayHeight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 34</value>
+    <value>10, 35</value>
   </data>
   <data name="uCtrlTrayHeight.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -811,7 +835,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageTray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>688, 73</value>
+    <value>768, 73</value>
   </data>
   <data name="tabPageTray.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -835,7 +859,7 @@
     <value>4, 228</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>696, 99</value>
+    <value>776, 99</value>
   </data>
   <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -859,7 +883,7 @@
     <value>NoControl</value>
   </data>
   <data name="btClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>626, 3</value>
+    <value>706, 3</value>
   </data>
   <data name="btClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -898,7 +922,7 @@
     <value>cbPallets</value>
   </data>
   <data name="&gt;&gt;cbPallets.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.26, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbPallets.Parent" xml:space="preserve">
     <value>gbPallet</value>
@@ -1021,7 +1045,7 @@
     <value>327, 31</value>
   </data>
   <data name="gbPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>374, 116</value>
+    <value>454, 116</value>
   </data>
   <data name="gbPallet.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1051,7 +1075,7 @@
     <value>0, 333</value>
   </data>
   <data name="gridSolutions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>704, 176</value>
+    <value>784, 190</value>
   </data>
   <data name="gridSolutions.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1177,7 +1201,7 @@
     <value>3, 152</value>
   </data>
   <data name="gbCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>698, 69</value>
+    <value>778, 69</value>
   </data>
   <data name="gbCase.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1210,7 +1234,7 @@
     <value>cbBoxes</value>
   </data>
   <data name="&gt;&gt;cbBoxes.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.26, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbBoxes.Parent" xml:space="preserve">
     <value>groupBox</value>
@@ -1399,10 +1423,10 @@
     <value>Bottom, Left, Right</value>
   </data>
   <data name="tbAnalysisDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>119, 182</value>
+    <value>119, 188</value>
   </data>
   <data name="tbAnalysisDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>444, 20</value>
+    <value>524, 20</value>
   </data>
   <data name="tbAnalysisDescription.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1429,7 +1453,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbAnalysisDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 186</value>
+    <value>6, 192</value>
   </data>
   <data name="lbAnalysisDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 13</value>
@@ -1456,10 +1480,10 @@
     <value>Bottom, Left, Right</value>
   </data>
   <data name="tbAnalysisName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 156</value>
+    <value>118, 162</value>
   </data>
   <data name="tbAnalysisName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 20</value>
+    <value>309, 20</value>
   </data>
   <data name="tbAnalysisName.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1486,7 +1510,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbAnalysisName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 160</value>
+    <value>5, 166</value>
   </data>
   <data name="lbAnalysisName.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 13</value>
@@ -1516,7 +1540,7 @@
     <value>318, 3</value>
   </data>
   <data name="graphCtrlSolution.Size" type="System.Drawing.Size, System.Drawing">
-    <value>386, 147</value>
+    <value>466, 153</value>
   </data>
   <data name="graphCtrlSolution.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1525,7 +1549,7 @@
     <value>graphCtrlSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.26, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
     <value>splitContainer.Panel2</value>
@@ -1540,7 +1564,7 @@
     <value>3, 3</value>
   </data>
   <data name="graphCtrlPack.Size" type="System.Drawing.Size, System.Drawing">
-    <value>309, 147</value>
+    <value>309, 153</value>
   </data>
   <data name="graphCtrlPack.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1549,7 +1573,7 @@
     <value>graphCtrlPack</value>
   </data>
   <data name="&gt;&gt;graphCtrlPack.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.18, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.26, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlPack.Parent" xml:space="preserve">
     <value>splitContainer.Panel2</value>
@@ -1560,8 +1584,11 @@
   <data name="bnCreateAnalysis.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
+  <data name="bnCreateAnalysis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="bnCreateAnalysis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>570, 179</value>
+    <value>650, 185</value>
   </data>
   <data name="bnCreateAnalysis.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 23</value>
@@ -1597,10 +1624,10 @@
     <value>1</value>
   </data>
   <data name="splitContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>704, 719</value>
+    <value>784, 739</value>
   </data>
   <data name="splitContainer.SplitterDistance" type="System.Int32, mscorlib">
-    <value>509</value>
+    <value>523</value>
   </data>
   <data name="splitContainer.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1627,10 +1654,10 @@
     <value>toolStripStatusLabelDef</value>
   </data>
   <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 719</value>
+    <value>0, 739</value>
   </data>
   <data name="statusStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>704, 22</value>
+    <value>784, 22</value>
   </data>
   <data name="statusStrip.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1660,10 +1687,10 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>704, 741</value>
+    <value>784, 761</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>650, 736</value>
+    <value>700, 750</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Find optimal pack...</value>
@@ -1685,20 +1712,5 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cbColor.Items5" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items6" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items7" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items8" xml:space="preserve">
-    <value>Color</value>
-  </data>
-  <data name="cbColor.Items9" xml:space="preserve">
-    <value>Color</value>
   </data>
 </root>
