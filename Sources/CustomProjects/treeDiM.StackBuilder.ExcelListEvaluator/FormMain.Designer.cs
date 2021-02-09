@@ -53,6 +53,8 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
             this.uCtrlTruckDimensions = new treeDiM.Basics.UCtrlTriDouble();
             this.lbCaseLoaded = new System.Windows.Forms.Label();
             this.gbOutput = new System.Windows.Forms.GroupBox();
+            this.bnDirectoryPath = new System.Windows.Forms.Button();
+            this.tbDirectoryPath = new System.Windows.Forms.TextBox();
             this.chkbGenerateImageFolder = new System.Windows.Forms.CheckBox();
             this.chkbGenerateImage = new System.Windows.Forms.CheckBox();
             this.chkbOpenFile = new System.Windows.Forms.CheckBox();
@@ -60,8 +62,6 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
             this.lbOutputFilePath = new System.Windows.Forms.Label();
             this.bnGenerate = new System.Windows.Forms.Button();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
-            this.tbDirectoryPath = new System.Windows.Forms.TextBox();
-            this.bnDirectoryPath = new System.Windows.Forms.Button();
             this.folderBrowserDlg = new System.Windows.Forms.FolderBrowserDialog();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -133,6 +133,7 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
             // graphCtrlPallet
             // 
             resources.ApplyResources(this.graphCtrlPallet, "graphCtrlPallet");
+            this.graphCtrlPallet.AngleHoriz = 45D;
             this.graphCtrlPallet.Name = "graphCtrlPallet";
             this.graphCtrlPallet.Viewer = null;
             // 
@@ -191,6 +192,11 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
             // uCtrlMaximumPalletHeight
             // 
             resources.ApplyResources(this.uCtrlMaximumPalletHeight, "uCtrlMaximumPalletHeight");
+            this.uCtrlMaximumPalletHeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.uCtrlMaximumPalletHeight.Minimum = new decimal(new int[] {
             10000,
             0,
@@ -198,7 +204,6 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
             -2147483648});
             this.uCtrlMaximumPalletHeight.Name = "uCtrlMaximumPalletHeight";
             this.uCtrlMaximumPalletHeight.Unit = treeDiM.Basics.UnitsManager.UnitType.UT_LENGTH;
-            this.uCtrlMaximumPalletHeight.Value = 0D;
             // 
             // cbPalletType
             // 
@@ -253,6 +258,19 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
             this.gbOutput.Name = "gbOutput";
             this.gbOutput.TabStop = false;
             // 
+            // bnDirectoryPath
+            // 
+            resources.ApplyResources(this.bnDirectoryPath, "bnDirectoryPath");
+            this.bnDirectoryPath.Name = "bnDirectoryPath";
+            this.bnDirectoryPath.UseVisualStyleBackColor = true;
+            this.bnDirectoryPath.Click += new System.EventHandler(this.OnEditDirectory);
+            // 
+            // tbDirectoryPath
+            // 
+            resources.ApplyResources(this.tbDirectoryPath, "tbDirectoryPath");
+            this.tbDirectoryPath.Name = "tbDirectoryPath";
+            this.tbDirectoryPath.TextChanged += new System.EventHandler(this.OnImageFolderChanged);
+            // 
             // chkbGenerateImageFolder
             // 
             resources.ApplyResources(this.chkbGenerateImageFolder, "chkbGenerateImageFolder");
@@ -294,19 +312,6 @@ namespace treeDiM.StackBuilder.ExcelListEvaluator
             // 
             resources.ApplyResources(this.richTextBoxLog, "richTextBoxLog");
             this.richTextBoxLog.Name = "richTextBoxLog";
-            // 
-            // tbDirectoryPath
-            // 
-            resources.ApplyResources(this.tbDirectoryPath, "tbDirectoryPath");
-            this.tbDirectoryPath.Name = "tbDirectoryPath";
-            this.tbDirectoryPath.TextChanged += new System.EventHandler(this.OnImageFolderChanged);
-            // 
-            // bnDirectoryPath
-            // 
-            resources.ApplyResources(this.bnDirectoryPath, "bnDirectoryPath");
-            this.bnDirectoryPath.Name = "bnDirectoryPath";
-            this.bnDirectoryPath.UseVisualStyleBackColor = true;
-            this.bnDirectoryPath.Click += new System.EventHandler(this.OnEditDirectory);
             // 
             // FormMain
             // 

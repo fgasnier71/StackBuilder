@@ -24,7 +24,6 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         {
             InitializeComponent();
         }
-
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -47,7 +46,6 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                 Console.WriteLine(ex.ToString());
             }
         }
-
         private void OnCompute(object sender, EventArgs e)
         {
             try

@@ -153,8 +153,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Engine
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "TechnologyBSA.ALCE.DesktopMSI", "WIX\TechnologyBSA.ALCE.DesktopMSI\TechnologyBSA.ALCE.DesktopMSI.wixproj", "{F025A776-08FB-487B-BD29-C5FBF75C1DBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnologyBSA.ALCE.Desktop", "TechnologyBSA.ALCE.Desktop\TechnologyBSA.ALCE.Desktop.csproj", "{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}"
-EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "treeDiM.StackBuilder.LayerCanvas", "treeDiM.StackBuilder.LayerCanvas\", "{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
@@ -951,22 +949,6 @@ Global
 		{F025A776-08FB-487B-BD29-C5FBF75C1DBC}.Release|x64.ActiveCfg = Release|x86
 		{F025A776-08FB-487B-BD29-C5FBF75C1DBC}.Release|x86.ActiveCfg = Release|x86
 		{F025A776-08FB-487B-BD29-C5FBF75C1DBC}.Release|x86.Build.0 = Release|x86
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Debug|x64.ActiveCfg = Debug|x64
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Debug|x64.Build.0 = Debug|x64
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Debug|x86.Build.0 = Debug|Any CPU
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Release|x64.ActiveCfg = Release|x64
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Release|x64.Build.0 = Release|x64
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Release|x86.ActiveCfg = Release|Any CPU
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5}.Release|x86.Build.0 = Release|Any CPU
 		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -1060,16 +1042,15 @@ Global
 		{4CD1F740-17DC-48C8-A320-31729D128DEB} = {7C541C76-20F1-40D8-A683-29062638D9B9}
 		{47BAF1D9-7CBE-4965-BA0A-3F7A5B6295CD} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{F025A776-08FB-487B-BD29-C5FBF75C1DBC} = {7C541C76-20F1-40D8-A683-29062638D9B9}
-		{A9B5A1C3-BDAB-4677-B700-46761A5FCFE5} = {6A9F4A88-DE9C-4EAB-9659-197FF7DFF6AD}
 		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{57B1ECA3-25B6-4673-AB04-882F4997206D} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_NeutralResourcesLanguage = en-001
-		RESX_ExcelExportMode = SingleSheet
-		RESX_ConfirmAddLanguageFile = False
-		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
-		RESX_AutoCreateNewLanguageFiles = True
 		RESX_PrefixTranslations = False
+		RESX_AutoCreateNewLanguageFiles = True
+		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
+		RESX_ConfirmAddLanguageFile = False
+		RESX_ExcelExportMode = SingleSheet
+		RESX_NeutralResourcesLanguage = en-001
 	EndGlobalSection
 EndGlobal
