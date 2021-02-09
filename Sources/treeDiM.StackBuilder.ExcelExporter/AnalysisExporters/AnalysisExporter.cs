@@ -1,10 +1,12 @@
 ﻿#region Using directives
+using System;
 using System.Drawing;
 using System.IO;
 
 using Microsoft.Office.Core;
 using Microsoft.Office.Interop.Excel;
 
+using log4net;
 using Sharp3D.Math.Core;
 
 using treeDiM.StackBuilder.Basics;
@@ -50,25 +52,40 @@ namespace treeDiM.StackBuilder.ExcelExporter
 
         protected void InsertImage(Analysis analysis, int colIndex)
         {
-            if (!(analysis is AnalysisLayered analysisHomo))
-                return;
-            var stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
-            var graphics = new Graphics3DImage(new Size(768, 768))
+            try
             {
-                FontSizeRatio = 0.01f,
-                CameraPosition = Graphics3D.Corner_0
-            };
-            using (ViewerSolution sv = new ViewerSolution(analysisHomo.SolutionLay))
-                sv.Draw(graphics, Transform3D.Identity);
-            graphics.Flush();
-            Bitmap bmp = graphics.Bitmap;
-            bmp.Save(stackImagePath, System.Drawing.Imaging.ImageFormat.Png);
-            Range imageCell = (Range)WSheet.Cells[RowIndex, colIndex];
-            imageCell.RowHeight = 128;
-            imageCell.ColumnWidth = 24;
-            WSheet.Shapes.AddPicture(stackImagePath,
-                LinkToFile: MsoTriState.msoFalse, SaveWithDocument: MsoTriState.msoCTrue,
-                Left: (int)imageCell.Left + 1, Top: (int)imageCell.Top + 1, Width: (int)imageCell.Width - 2, Height: (int)imageCell.Height - 2);
+                if (analysis is AnalysisLayered analysisHomo)
+                {
+                    var stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
+                    var graphics = new Graphics3DImage(new Size(768, 768))
+                    {
+                        FontSizeRatio = 0.01f,
+                        CameraPosition = Graphics3D.Corner_0
+                    };
+                    using (ViewerSolution sv = new ViewerSolution(analysisHomo.SolutionLay))
+                        sv.Draw(graphics, Transform3D.Identity);
+                    graphics.Flush();
+                    Bitmap bmp = graphics.Bitmap;
+                    bmp.Save(stackImagePath, System.Drawing.Imaging.ImageFormat.Png);
+                    Range imageCell = (Range)WSheet.Cells[RowIndex, colIndex];
+                    imageCell.RowHeight = 128;
+                    imageCell.ColumnWidth = 24;
+                    WSheet.Shapes.AddPicture(stackImagePath,
+                        LinkToFile: MsoTriState.msoFalse,
+                        SaveWithDocument: MsoTriState.msoCTrue,
+                        Left: float.Parse(imageCell.Left.ToString()) + 1,
+                        Top: float.Parse(imageCell.Top.ToString()) + 1,
+                        Width: float.Parse(imageCell.Width.ToString()) - 2,
+                        Height: float.Parse(imageCell.Height.ToString()) - 2
+                        );
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error($"Failed to insert image in Excel sheet with error:{ex.Message}");
+            }
         }
+
+        protected static ILog _log = LogManager.GetLogger(typeof(AnalysisExporter));
     }
 }

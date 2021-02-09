@@ -36,27 +36,31 @@ namespace treeDiM.StackBuilder.ExcelExporter
         }
         protected override void ExportAnalysisSpecific(Analysis analysis)
         {
-            var analysisCasePallet = analysis as AnalysisCasePallet;
             // analysis name
-            WSheet.Cells[RowIndex, 1] = analysisCasePallet.Name;
-            // case
-            BoxProperties caseProperties = analysisCasePallet.Content as BoxProperties;
-            WSheet.Cells[RowIndex, 2] = caseProperties.Name;
-            WSheet.Cells[RowIndex, 3] = caseProperties.Description;
-            WSheet.Cells[RowIndex, 4] = caseProperties.Length;
-            WSheet.Cells[RowIndex, 5] = caseProperties.Width;
-            WSheet.Cells[RowIndex, 6] = caseProperties.Height;
-            // constraints
-            ConstraintSetCasePallet constraintSet = analysisCasePallet.ConstraintSet as ConstraintSetCasePallet;
-            WSheet.Cells[RowIndex, 7] = constraintSet.OptMaxHeight.Value;
-            // solution
-            SolutionLayered sol = analysisCasePallet.SolutionLay;
-            WSheet.Cells[RowIndex, 8] = sol.ItemCount;
-            WSheet.Cells[RowIndex, 9] = sol.LayerCount;
-            WSheet.Cells[RowIndex, 10] = sol.LayerBoxCount(0);
-            WSheet.Cells[RowIndex, 11] = sol.LoadWeight;
-            WSheet.Cells[RowIndex, 12] = sol.Weight;
-            WSheet.Cells[RowIndex, 13] = sol.VolumeEfficiency;
+            WSheet.Cells[RowIndex, 1] = analysis.Name;
+            if (analysis is AnalysisCasePallet analysisCasePallet)
+            {
+                // case
+                if (analysisCasePallet.Content is BoxProperties caseProperties)
+                {
+                    WSheet.Cells[RowIndex, 2] = caseProperties.Name;
+                    WSheet.Cells[RowIndex, 3] = caseProperties.Description;
+                    WSheet.Cells[RowIndex, 4] = caseProperties.Length;
+                    WSheet.Cells[RowIndex, 5] = caseProperties.Width;
+                    WSheet.Cells[RowIndex, 6] = caseProperties.Height;
+                }
+                // constraints
+                ConstraintSetCasePallet constraintSet = analysisCasePallet.ConstraintSet as ConstraintSetCasePallet;
+                WSheet.Cells[RowIndex, 7] = constraintSet.OptMaxHeight.Value;
+                // solution
+                SolutionLayered sol = analysisCasePallet.SolutionLay;
+                WSheet.Cells[RowIndex, 8] = sol.ItemCount;
+                WSheet.Cells[RowIndex, 9] = sol.LayerCount;
+                WSheet.Cells[RowIndex, 10] = sol.LayerBoxCount(0);
+                WSheet.Cells[RowIndex, 11] = sol.LoadWeight;
+                WSheet.Cells[RowIndex, 12] = sol.Weight;
+                WSheet.Cells[RowIndex, 13] = sol.VolumeEfficiency;
+            }
             InsertImage(analysis, 14);
         }
     }
