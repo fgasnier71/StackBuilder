@@ -764,6 +764,20 @@ namespace treeDiM.StackBuilder.Reporting
             if (constraintSet is HConstraintSetCase constraintSetCase)
             { }
         }
+        private void RecurAppendContentItem(XmlDocument xmlDoc, XmlElement eltSolution, Packable content, int number)
+        {
+            AppendContentItem(xmlDoc, eltSolution, content.DetailedName, number);
+
+            List<Pair<Packable, int>> listInnerContent = new List<Pair<Packable, int>>();
+            if (content.InnerContent(ref listInnerContent)) 
+            {
+                foreach (var item in listInnerContent)
+                {
+                    RecurAppendContentItem(xmlDoc, eltSolution, item.first, number * item.second);
+                }
+            }
+        }
+
         private void AppendSolutionElement(SolutionHomo sol, ReportNode rnSolution, XmlElement elemAnalysis, XmlDocument xmlDoc)
         {
             string ns = xmlDoc.DocumentElement.NamespaceURI;
@@ -772,15 +786,7 @@ namespace treeDiM.StackBuilder.Reporting
 
             // *** Item # (Recursive count)
             AnalysisHomo analysis = sol.Analysis;
-            Packable content = analysis.Content;
-            int itemCount = sol.ItemCount;
-            int number = 1;
-            do
-            {
-                itemCount *= number;
-                AppendContentItem(xmlDoc, elemSolution, content.DetailedName, itemCount);
-            }
-            while (null != content && content.InnerContent(ref content, ref number));
+            RecurAppendContentItem(xmlDoc, elemSolution, analysis.Content, sol.ItemCount);
 
             if (sol is SolutionLayered solLayer)
             {
@@ -888,7 +894,7 @@ namespace treeDiM.StackBuilder.Reporting
             }
             if (sol is SolutionLayered solLay3)
             { 
-            ReportNode rnLayers = rnSolution.GetChildByName(Resources.ID_RN_LAYERS);
+                ReportNode rnLayers = rnSolution.GetChildByName(Resources.ID_RN_LAYERS);
                 if (rnLayers.Activated)
                 {
                     // layers
@@ -906,15 +912,7 @@ namespace treeDiM.StackBuilder.Reporting
                         elemLayer.AppendChild(elemLayerIndexes);
                         elemLayerIndexes.InnerText = layerSum.LayerIndexesString;
                         // item count
-                        content = sol.Analysis.Content;
-                        itemCount = layerSum.ItemCount;
-                        number = 1;
-                        do
-                        {
-                            itemCount *= number;
-                            AppendContentItem(xmlDoc, elemLayer, content.DetailedName, itemCount);
-                        }
-                        while (null != content && content.InnerContent(ref content, ref number));
+                        RecurAppendContentItem(xmlDoc, elemLayer, analysis.Content, layerSum.ItemCount);
                         // ***
                         if (rnLayers.GetChildByName(Resources.ID_RN_DIMENSIONS).Activated)
                         {

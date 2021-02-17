@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Collections.Generic;
 
 using log4net;
 using Sharp3D.Math.Core;
@@ -78,6 +79,23 @@ namespace treeDiM.StackBuilder.Desktop
             gridSolution.ColumnsCount = 2;
             gridSolution.FixedColumns = 1;
         }
+        public void RecurInsertContent(ref int iRow, Packable content, int number)
+        {
+            gridSolution.Rows.Insert(++iRow);
+            SourceGrid.Cells.RowHeader rowHeader = new SourceGrid.Cells.RowHeader($"{content.DetailedName} #")
+            {
+                View = CellProperties.VisualPropValue
+            };
+            gridSolution[iRow, 0] = rowHeader;
+            gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(number);
+
+            List<Pair<Packable, int>> listContentItems = new List<Pair<Packable, int>>();
+            content.InnerContent(ref listContentItems);
+            foreach (var item in listContentItems)
+            {
+                RecurInsertContent(ref iRow, item.first, item.second * number);
+            }
+        }
         public virtual void UpdateGrid()
         {
             try
@@ -101,25 +119,9 @@ namespace treeDiM.StackBuilder.Desktop
                 };
                 gridSolution[iRow, 0] = rowHeader;
 
-                // *** Item # (Recursive count)
-                Packable content = Analysis.Content;
                 var solution = Analysis.Solution;
-                int itemCount = solution.ItemCount;
-                int number = 1;
-                do
-                {
-                    itemCount *= number;
-                    gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader(string.Format("{0} #", content.DetailedName))
-                    {
-                        View = vPropValue
-                    };
-                    gridSolution[iRow, 0] = rowHeader;
-                    gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(itemCount);
-                }
-                while (null != content && content.InnerContent(ref content, ref number));
-                // ***
-
+                // *** Item # (Recursive count)
+                RecurInsertContent(ref iRow, Analysis.Content, solution.ItemCount);
                 // load dimensions
                 BBox3D bboxLoad = solution.BBoxLoad;
                 // ---

@@ -1,4 +1,6 @@
-﻿namespace treeDiM.StackBuilder.Basics
+﻿using System.Collections.Generic;
+
+namespace treeDiM.StackBuilder.Basics
 {
     public class LoadedCase : PackableLoaded
     {
@@ -25,11 +27,10 @@
         public override double Width => Analysis.CaseProperties.Width;
         public override double Height => Analysis.CaseProperties.Height;
         #endregion
-
-        public override bool InnerContent(ref Packable innerPackable, ref int number)
+        public override bool InnerContent(ref List<Pair<Packable, int>> listInnerPackables)
         {
-            innerPackable = ParentAnalysis.Content;
-            number = ParentSolution.ItemCount;
+            if (null == listInnerPackables) listInnerPackables = new List<Pair<Packable, int>>();
+            listInnerPackables.Add(new Pair<Packable, int>(ParentAnalysis.Content, ParentSolution.ItemCount));
             return true;
         }
         public override bool InnerAnalysis(ref AnalysisHomo analysis)

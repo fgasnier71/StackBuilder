@@ -1,5 +1,6 @@
 ﻿using Sharp3D.Math.Core;
 using System;
+using System.Collections.Generic;
 using treeDiM.Basics;
 
 namespace treeDiM.StackBuilder.Basics
@@ -37,12 +38,18 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Override PackableBrickNamed
+        public override bool InnerContent(ref List<Pair<Packable, int>> listInnerPackables)
+        {
+            listInnerPackables = new List<Pair<Packable, int>>() { new Pair<Packable, int>(Content, Number) };
+            return true;
+        }
+        /*
         public override bool InnerContent(ref Packable innerPackable, ref int number)
         {
             innerPackable = Content;
             number = Number;
             return true;
-        }
+        }*/
         public override bool IsCase => true;
         #endregion
 

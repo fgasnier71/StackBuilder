@@ -263,20 +263,22 @@ namespace treeDiM.StackBuilder.Desktop
             gridSolution.ColumnsCount = 2;
             gridSolution.FixedColumns = 1;
             gridSolution.FixedRows = 1;
-
+            /*
             gridSolution.Columns[0].AutoSizeMode = SourceGrid.AutoSizeMode.None;
-            gridSolution.Columns[0].Width = 100;
+            gridSolution.Columns[0].Width = 200;
             gridSolution.Columns[1].AutoSizeMode = SourceGrid.AutoSizeMode.EnableAutoSize;
+            gridSolution.Columns[1].Width = 200;
+            */
         }
         public override void UpdateGrid()
         {
             try
             {
                 // sanity check
-                if (gridSolution.ColumnsCount < 2)
-                    return;
+                if (gridSolution.ColumnsCount < 2)  return;
                 // remove all existing rows
                 gridSolution.Rows.Clear();
+
                 // cell visual properties
                 var vPropHeader = CellProperties.VisualPropHeader;
                 var vPropValue = CellProperties.VisualPropValue;
@@ -298,17 +300,7 @@ namespace treeDiM.StackBuilder.Desktop
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(_solution.InterlayerCount);
                 }
                 // *** Item # (Recursive count)
-                Packable content = _analysis.Content;
-                int itemCount = _solution.ItemCount ;
-                int number = 1;
-                do
-                {
-                    itemCount *= number;
-                    gridSolution.Rows.Insert(++iRow);
-                    gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(string.Format("{0} #", content.DetailedName)) { View = vPropValue };
-                    gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(itemCount);
-                }
-                while (null != content && content.InnerContent(ref content, ref number));
+                RecurInsertContent(ref iRow, _analysis.Content, _solution.ItemCount);
                 // ***
                 // outer dimensions
                 BBox3D bboxGlobal = _solution.BBoxGlobal;
@@ -353,18 +345,7 @@ namespace treeDiM.StackBuilder.Desktop
                     gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(_solution.LayerCaption(i)) { ColumnSpan = 2, View = vPropHeader };
 
                     // *** Item # (recursive count)
-                    content = _analysis.Content;
-                    itemCount = _solution.LayerBoxCount(i);
-                    number = 1;
-                    do
-                    {
-                        itemCount *= number;
-
-                        gridSolution.Rows.Insert(++iRow);
-                        gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader($"{content.DetailedName} #") { View = vPropValue };
-                        gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(itemCount);
-                    }
-                    while (null != content && content.InnerContent(ref content, ref number));
+                    RecurInsertContent(ref iRow, _analysis.Content, _solution.LayerBoxCount(i));
                     // ***
                     // layer weight
                     gridSolution.Rows.Insert(++iRow);
@@ -379,9 +360,10 @@ namespace treeDiM.StackBuilder.Desktop
                 }
                 // ### layers : end
                 gridSolution.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                gridSolution.AutoStretchColumnsToFitWidth = true;
-              
+
+                gridSolution.AutoSizeCells();
                 gridSolution.Columns.StretchToFit();
+                gridSolution.AutoStretchColumnsToFitWidth = true;
                 gridSolution.Invalidate();
             }
             catch (Exception ex)

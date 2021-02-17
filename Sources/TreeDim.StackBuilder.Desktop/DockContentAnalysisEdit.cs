@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Collections.Generic;
 
 // log4net
 using log4net;
@@ -148,6 +149,25 @@ namespace treeDiM.StackBuilder.Desktop
             gridSolution.Columns[0].AutoSizeMode = SourceGrid.AutoSizeMode.EnableStretch;
             gridSolution.Columns[1].AutoSizeMode = SourceGrid.AutoSizeMode.EnableStretch;
         }
+        public void RecurInsertContent(ref int iRow, Packable content, int number)
+        {
+            gridSolution.Rows.Insert(++iRow);
+            SourceGrid.Cells.RowHeader rowHeader = new SourceGrid.Cells.RowHeader($"{content.DetailedName} #")
+            {
+                View = CellProperties.VisualPropValue
+            };
+            gridSolution[iRow, 0] = rowHeader;
+            gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(number);
+
+            List<Pair<Packable, int>> listContentItems = new List<Pair<Packable, int>>();
+            if (content.InnerContent(ref listContentItems) && null != listContentItems)
+            {
+                foreach (var item in listContentItems)
+                {
+                    RecurInsertContent(ref iRow, item.first, item.second * number);
+                }
+            }
+        }
         public virtual void UpdateGrid()
         {
             try
@@ -190,21 +210,7 @@ namespace treeDiM.StackBuilder.Desktop
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(_solution.InterlayerCount);
                 }
                 // *** Item # (Recursive count)
-                Packable content = _analysis.Content;
-                int itemCount = _solution.ItemCount;
-                int number = 1;
-                do
-                {
-                    itemCount *= number;
-                    gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader(string.Format("{0} #", content.DetailedName))
-                    {
-                        View = vPropValue
-                    };
-                    gridSolution[iRow, 0] = rowHeader;
-                    gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(itemCount);
-                }
-                while (null != content && content.InnerContent(ref content, ref number));
+                RecurInsertContent(ref iRow, _analysis.Content, _solution.ItemCount);
                 // ***
 
                 // load dimensions
@@ -280,24 +286,7 @@ namespace treeDiM.StackBuilder.Desktop
                     gridSolution[iRow, 0] = rowHeader;
 
                     // *** Item # (recursive count)
-                    content = _analysis.Content;
-                    itemCount = _solution.LayerBoxCount(i);
-                    number = 1;
-                    do
-                    {
-                        itemCount *= number;
-
-                        gridSolution.Rows.Insert(++iRow);
-                        rowHeader = new SourceGrid.Cells.RowHeader(
-                            string.Format("{0} #", content.DetailedName))
-                        {
-                            View = vPropValue
-                        };
-                        gridSolution[iRow, 0] = rowHeader;
-                        gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(itemCount);
-                    }
-                    while (null != content && content.InnerContent(ref content, ref number));
-                    // ***
+                    RecurInsertContent(ref iRow, _analysis.Content, _solution.LayerBoxCount(i));
 
                     // layer weight
                     gridSolution.Rows.Insert(++iRow);
@@ -319,7 +308,9 @@ namespace treeDiM.StackBuilder.Desktop
                         string.Format(CultureInfo.InvariantCulture, "{0:0.#}", _solution.LayerMaximumSpace(i)));
                 }
                 // ### layers : end
-                
+                gridSolution.AutoSizeCells();
+                gridSolution.Columns.StretchToFit();
+                gridSolution.AutoStretchColumnsToFitWidth = true;
                 gridSolution.Invalidate();
             }
             catch (Exception ex)

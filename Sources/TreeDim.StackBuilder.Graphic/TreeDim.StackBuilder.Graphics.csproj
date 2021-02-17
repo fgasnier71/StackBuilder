@@ -136,6 +136,7 @@
     <Compile Include="SolutionViewers\ViewerHSolution.cs" />
     <Compile Include="SolutionViewers\ViewerLayeredBoxes.cs" />
     <Compile Include="SolutionViewers\ViewerSolutionHCyl.cs" />
+    <Compile Include="SolutionViewers\ViewerSolutionPalletsOnPallet.cs" />
     <Compile Include="Triangle.cs" />
     <Compile Include="Types\Bottle.cs" />
     <Compile Include="Types\BoxGeneric.cs" />

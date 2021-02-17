@@ -1,6 +1,5 @@
 ﻿#region Using directives
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 using System.Globalization;
 
@@ -88,21 +87,7 @@ namespace treeDiM.StackBuilder.Desktop
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(_solution.InterlayerCount);
             }
             // *** Item # (recursive count)
-            Packable content = _analysis.Content;
-            int itemCount = _solution.ItemCount;
-            int number = 1;
-            do
-            {
-                itemCount *= number;
-                gridSolution.Rows.Insert(++iRow);
-                rowHeader = new SourceGrid.Cells.RowHeader(string.Format("{0} #", content.DetailedName))
-                {
-                    View = vPropValue
-                };
-                gridSolution[iRow, 0] = rowHeader;
-                gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(itemCount);
-            }
-            while (null != content && content.InnerContent(ref content, ref number));
+            RecurInsertContent(ref iRow, _analysis.Content, _solution.ItemCount);
             // ***
             // load dimensions
             BBox3D bboxLoad = _solution.BBoxLoad;
@@ -175,23 +160,7 @@ namespace treeDiM.StackBuilder.Desktop
                 gridSolution[iRow, 0] = rowHeader;
 
                 // *** Item # (recursive count)
-                content = _analysis.Content;
-                itemCount = _solution.LayerBoxCount(i);
-                number = 1;
-                do
-                {
-                    itemCount *= number;
-
-                    gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader(
-                        string.Format("{0} #", content.DetailedName))
-                    {
-                        View = vPropValue
-                    };
-                    gridSolution[iRow, 0] = rowHeader;
-                    gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(itemCount);
-                }
-                while (null != content && content.InnerContent(ref content, ref number));
+                RecurInsertContent(ref iRow, _analysis.Content, _solution.LayerBoxCount(i));
                 // ***
 
                 // layer weight

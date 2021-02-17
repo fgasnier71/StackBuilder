@@ -28,6 +28,7 @@
   <ItemGroup>
     <Content Include="CommonConfig.wxi" />
     <Content Include="Config.wxi" />
+    <Content Include="WixHarvestStackbuilderDesktop.bat" />
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixUtilExtension">

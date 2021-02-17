@@ -416,7 +416,7 @@ namespace treeDiM.StackBuilder.Desktop
         public void CreateNewPalletsOnPalletUI()
         {
             if (!CanCreatePalletsOnPallet) return;
-            using (var form = new FormNewPalletsOnPallet(this, null))
+            using (var form = new FormNewAnalysisPalletsOnPallet(this, null))
                 if (DialogResult.OK == form.ShowDialog()) { }
         }
         public void CreateNewAnalysisPalletTruckUI()

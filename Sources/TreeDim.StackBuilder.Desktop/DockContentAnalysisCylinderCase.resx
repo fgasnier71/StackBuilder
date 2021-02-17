@@ -292,9 +292,6 @@
   <data name="&gt;&gt;graphCtrlSolution.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;gridSolutions.Name" xml:space="preserve">
-    <value>gridSolutions</value>
-  </data>
   <data name="&gt;&gt;gridSolutions.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel2</value>
   </data>

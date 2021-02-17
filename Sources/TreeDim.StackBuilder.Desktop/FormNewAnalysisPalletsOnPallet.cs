@@ -16,11 +16,11 @@ using treeDiM.StackBuilder.Desktop.Properties;
 
 namespace treeDiM.StackBuilder.Desktop
 {
-    public partial class FormNewPalletsOnPallet : FormNewBase, IDrawingContainer, IItemBaseFilter
+    public partial class FormNewAnalysisPalletsOnPallet : FormNewAnalysis, IDrawingContainer, IItemBaseFilter
     {
         #region Constructor
-        public FormNewPalletsOnPallet(Document doc, PalletsOnPalletProperties palletsOnPalletProperties)
-            : base(doc, palletsOnPalletProperties)
+        public FormNewAnalysisPalletsOnPallet(Document doc, AnalysisPalletsOnPallet analysisPalletsOnPallet)
+            : base(doc, analysisPalletsOnPallet)
         {
             InitializeComponent();
         }
@@ -53,7 +53,6 @@ namespace treeDiM.StackBuilder.Desktop
         public override string ItemDefaultName => Resources.ID_PALLET;
         #endregion
 
-
         #region IItemBaseFilter
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
@@ -78,14 +77,17 @@ namespace treeDiM.StackBuilder.Desktop
             cbInputPallet4.Visible = quarter;
         }
         #endregion
+
         #region IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
             if (null == DestinationPallet)
                 return;
+
+
+
             Pallet pallet = new Pallet(DestinationPallet);
             pallet.Draw(graphics, Transform3D.Identity);
-
             graphics.AddDimensions(new DimensionCube(DestinationPallet.Length, DestinationPallet.Width, DestinationPallet.Height));
         }
         #endregion
@@ -96,7 +98,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Data members
-        private static readonly ILog _log = LogManager.GetLogger(typeof(FormNewPalletsOnPallet));
+        private static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisPalletsOnPallet));
         #endregion
 
 

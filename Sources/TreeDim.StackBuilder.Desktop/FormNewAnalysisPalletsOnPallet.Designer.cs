@@ -1,7 +1,7 @@
 ﻿
 namespace treeDiM.StackBuilder.Desktop
 {
-    partial class FormNewPalletsOnPallet
+    partial class FormNewAnalysisPalletsOnPallet
     {
         /// <summary>
         /// Required designer variable.
@@ -44,18 +44,6 @@ namespace treeDiM.StackBuilder.Desktop
             this.cbDestinationPallet = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
             ((System.ComponentModel.ISupportInitialize)(this.graphCtrl)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bnOk
-            // 
-            this.bnOk.Location = new System.Drawing.Point(576, 10);
-            // 
-            // bnCancel
-            // 
-            this.bnCancel.Location = new System.Drawing.Point(575, 38);
-            // 
-            // tbDescription
-            // 
-            this.tbDescription.Size = new System.Drawing.Size(453, 20);
             // 
             // label1
             // 
@@ -202,10 +190,8 @@ namespace treeDiM.StackBuilder.Desktop
             this.Controls.Add(this.rbQuarter);
             this.Controls.Add(this.rbHalf);
             this.Controls.Add(this.label1);
-            this.Name = "FormNewPalletsOnPallet";
+            this.Name = "FormNewAnalysisPalletsOnPallet";
             this.Text = "Pallets on pallet...";
-            this.Controls.SetChildIndex(this.bnOk, 0);
-            this.Controls.SetChildIndex(this.bnCancel, 0);
             this.Controls.SetChildIndex(this.lbName, 0);
             this.Controls.SetChildIndex(this.lbDescription, 0);
             this.Controls.SetChildIndex(this.tbName, 0);

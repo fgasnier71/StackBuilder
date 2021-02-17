@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Collections.Generic;
 
 using Sharp3D.Math.Core;
 
@@ -33,13 +34,16 @@ namespace treeDiM.StackBuilder.Basics
             analysis = null;
             return false;
         }
-
+        /*
         public virtual bool InnerContent(ref Packable innerPackable, ref int number)
         {
             innerPackable = null;
             number = 0;
             return false;
         }
+        */
+        public virtual bool InnerContent(ref List<Pair<Packable, int>> listInnerPackables)
+        { listInnerPackables = null; return false; }
 
         public bool FitsIn(IContainer container, ConstraintSetAbstract constraintSet)
         {

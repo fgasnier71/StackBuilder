@@ -1,4 +1,9 @@
-﻿namespace treeDiM.StackBuilder.Basics
+﻿#region Using directives
+using System.Collections.Generic;
+#endregion
+
+
+namespace treeDiM.StackBuilder.Basics
 {
     public class LoadedPallet : PackableLoaded
     {
@@ -10,12 +15,22 @@
         public override double Length => ParentSolution.BBoxGlobal.Length;
         public override double Width => ParentSolution.BBoxGlobal.Width;
         public override double Height => ParentSolution.BBoxGlobal.Height;
+        public override bool InnerContent(ref List<Pair<Packable, int>> listInnerPackables)
+        {
+            listInnerPackables = new List<Pair<Packable, int>>
+            {
+                new Pair<Packable, int>(ParentAnalysis.Content, ParentSolution.ItemCount)
+            };
+            return false;
+        }
+        /*
         public override bool InnerContent(ref Packable innerPackable, ref int number)
         {
             innerPackable = ParentAnalysis.Content;
             number = ParentSolution.ItemCount;
             return true;
         }
+        */
         public override bool InnerAnalysis(ref AnalysisHomo analysis)
         {
             analysis = ParentAnalysis;

@@ -538,11 +538,11 @@
     <Compile Include="FormNewPalletFilm.Designer.cs">
       <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNewPalletsOnPallet.cs">
+    <Compile Include="FormNewAnalysisPalletsOnPallet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNewPalletsOnPallet.Designer.cs">
-      <DependentUpon>FormNewPalletsOnPallet.cs</DependentUpon>
+    <Compile Include="FormNewAnalysisPalletsOnPallet.Designer.cs">
+      <DependentUpon>FormNewAnalysisPalletsOnPallet.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNewTruck.cs">
       <SubType>Form</SubType>
@@ -896,6 +896,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCylinderCase.resx">
       <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisCylinderCase.ru.resx">
       <DependentUpon>DockContentAnalysisCylinderCase.cs</DependentUpon>
@@ -2538,8 +2539,8 @@
     <EmbeddedResource Include="FormNewPalletFilm.zh.resx">
       <DependentUpon>FormNewPalletFilm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewPalletsOnPallet.resx">
-      <DependentUpon>FormNewPalletsOnPallet.cs</DependentUpon>
+    <EmbeddedResource Include="FormNewAnalysisPalletsOnPallet.resx">
+      <DependentUpon>FormNewAnalysisPalletsOnPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewTruck.de.resx">
       <DependentUpon>FormNewTruck.cs</DependentUpon>
@@ -3617,82 +3618,82 @@ if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"
   <ItemGroup>
     <PublishFile Include="ReportTemplates\DEU.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\ENU.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\ESP.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\FRA.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\ITA.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\JPN.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\NLD.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ReportTemplates\POL.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
