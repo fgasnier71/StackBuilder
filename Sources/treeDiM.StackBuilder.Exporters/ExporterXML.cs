@@ -191,7 +191,9 @@ namespace treeDiM.StackBuilder.Exporters
                                 x = writtenPosition.X,
                                 y = writtenPosition.Y,
                                 z = writtenPosition.Z,
+                                LSpecified = true,
                                 L = ToAxis(bPosition.DirectionLength),
+                                WSpecified = true,
                                 W = ToAxis(bPosition.DirectionWidth)
                             }
                             );
