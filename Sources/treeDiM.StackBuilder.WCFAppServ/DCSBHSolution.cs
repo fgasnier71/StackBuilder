@@ -21,6 +21,10 @@ namespace treeDiM.StackBuilder.WCFAppServ
         public int PalletCount { get; set; }
         [DataMember]
         public string Algorithm { get; set; }
+        [DataMember]
+        public DCCompFileOutput OutFile { get; set; }
+        [DataMember]
+        public string[] Errors { get; set; }
     }
 
     [DataContract]

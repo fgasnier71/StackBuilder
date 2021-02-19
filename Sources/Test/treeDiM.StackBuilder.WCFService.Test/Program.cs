@@ -1,8 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿#region Using directives
+using System;
 using System.Windows.Forms;
+using System.Diagnostics;
+
+using log4net;
+using log4net.Config;
+#endregion
 
 namespace treeDiM.StackBuilder.WCFService.Test
 {
@@ -14,9 +17,16 @@ namespace treeDiM.StackBuilder.WCFService.Test
         [STAThread]
         static void Main()
         {
+            // set up a simple logging configuration
+            XmlConfigurator.Configure();
+            if (!LogManager.GetRepository().Configured)
+                Debug.Fail("Logging not configured!\n Press ignore to continue");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
+
+            
         }
     }
 }

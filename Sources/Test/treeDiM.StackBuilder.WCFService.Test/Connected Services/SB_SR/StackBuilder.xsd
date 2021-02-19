@@ -1,180 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://51.144.242.159/StackBuilder.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:complexType name="DCSBCase">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:DCSBItem">
-        <xs:sequence>
-          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Colors" nillable="true" type="q1:ArrayOfint" />
-          <xs:element minOccurs="0" name="DimensionsInner" nillable="true" type="tns:DCSBDim3D" />
-          <xs:element minOccurs="0" name="DimensionsOuter" nillable="true" type="tns:DCSBDim3D" />
-          <xs:element minOccurs="0" name="HasInnerDims" type="xs:boolean" />
-          <xs:element minOccurs="0" name="MaxWeight" nillable="true" type="xs:double" />
-          <xs:element minOccurs="0" name="NetWeight" nillable="true" type="xs:double" />
-          <xs:element minOccurs="0" name="ShowTape" type="xs:boolean" />
-          <xs:element minOccurs="0" name="TapeColor" type="xs:int" />
-          <xs:element minOccurs="0" name="TapeWidth" type="xs:double" />
-          <xs:element minOccurs="0" name="Weight" type="xs:double" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DCSBCase" nillable="true" type="tns:DCSBCase" />
-  <xs:complexType name="DCSBItem">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="UnitSystem" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DCSBItem" nillable="true" type="tns:DCSBItem" />
-  <xs:complexType name="DCSBDim3D">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="M0" type="xs:double" />
-      <xs:element minOccurs="0" name="M1" type="xs:double" />
-      <xs:element minOccurs="0" name="M2" type="xs:double" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DCSBDim3D" nillable="true" type="tns:DCSBDim3D" />
-  <xs:complexType name="DCSBPallet">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:DCSBItem">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Color" type="xs:int" />
-          <xs:element minOccurs="0" name="Dimensions" nillable="true" type="tns:DCSBDim3D" />
-          <xs:element minOccurs="0" name="PalletType" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Weight" type="xs:double" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DCSBPallet" nillable="true" type="tns:DCSBPallet" />
-  <xs:complexType name="DCSBInterlayer">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:DCSBItem">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Color" type="xs:int" />
-          <xs:element minOccurs="0" name="Dimensions" nillable="true" type="tns:DCSBDim3D" />
-          <xs:element minOccurs="0" name="Weight" type="xs:double" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DCSBInterlayer" nillable="true" type="tns:DCSBInterlayer" />
-  <xs:complexType name="DCSBConstraintSet">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AllowMultipleLayerOrientations" type="xs:boolean" />
-      <xs:element minOccurs="0" name="MaxHeight" nillable="true" type="tns:DCSBConstraintDouble" />
-      <xs:element minOccurs="0" name="MaxNumber" nillable="true" type="tns:DCSBConstraintInt" />
-      <xs:element minOccurs="0" name="MaxWeight" nillable="true" type="tns:DCSBConstraintDouble" />
-      <xs:element minOccurs="0" name="Orientation" nillable="true" type="tns:DCSBBool3" />
-      <xs:element minOccurs="0" name="Overhang" nillable="true" type="tns:DCSBDim2D" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DCSBConstraintSet" nillable="true" type="tns:DCSBConstraintSet" />
-  <xs:complexType name="DCSBConstraintDouble">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:DCSBConstraint">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Value_d" type="xs:double" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DCSBConstraintDouble" nillable="true" type="tns:DCSBConstraintDouble" />
-  <xs:complexType name="DCSBConstraint">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Active" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DCSBConstraint" nillable="true" type="tns:DCSBConstraint" />
-  <xs:complexType name="DCSBConstraintInt">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:DCSBConstraint">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Value_i" type="xs:int" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DCSBConstraintInt" nillable="true" type="tns:DCSBConstraintInt" />
-  <xs:complexType name="DCSBBool3">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="X" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Y" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Z" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DCSBBool3" nillable="true" type="tns:DCSBBool3" />
-  <xs:complexType name="DCSBDim2D">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="M0" type="xs:double" />
-      <xs:element minOccurs="0" name="M1" type="xs:double" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DCSBDim2D" nillable="true" type="tns:DCSBDim2D" />
-  <xs:complexType name="DCCompFormat">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Format" type="tns:OutFormat" />
-      <xs:element minOccurs="0" name="Size" nillable="true" type="tns:DCCompSize" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DCCompFormat" nillable="true" type="tns:DCCompFormat" />
-  <xs:simpleType name="OutFormat">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="NONE" />
-      <xs:enumeration value="IMAGE" />
-      <xs:enumeration value="CFF2" />
-      <xs:enumeration value="DXF" />
-      <xs:enumeration value="AI" />
-      <xs:enumeration value="PDF" />
-      <xs:enumeration value="DES" />
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="anyType" nillable="true" type="xs:anyType" />
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+  <xs:element name="boolean" nillable="true" type="xs:boolean" />
+  <xs:element name="byte" nillable="true" type="xs:byte" />
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+  <xs:element name="decimal" nillable="true" type="xs:decimal" />
+  <xs:element name="double" nillable="true" type="xs:double" />
+  <xs:element name="float" nillable="true" type="xs:float" />
+  <xs:element name="int" nillable="true" type="xs:int" />
+  <xs:element name="long" nillable="true" type="xs:long" />
+  <xs:element name="QName" nillable="true" type="xs:QName" />
+  <xs:element name="short" nillable="true" type="xs:short" />
+  <xs:element name="string" nillable="true" type="xs:string" />
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+  <xs:element name="char" nillable="true" type="tns:char" />
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration" />
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:element name="OutFormat" nillable="true" type="tns:OutFormat" />
-  <xs:complexType name="DCCompSize">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CX" type="xs:int" />
-      <xs:element minOccurs="0" name="CY" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DCCompSize" nillable="true" type="tns:DCCompSize" />
-  <xs:complexType name="DCSBSolution">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="BBoxLoad" nillable="true" type="tns:DCSBDim3D" />
-      <xs:element minOccurs="0" name="BBoxTotal" nillable="true" type="tns:DCSBDim3D" />
-      <xs:element minOccurs="0" name="CaseCount" type="xs:int" />
-      <xs:element minOccurs="0" name="Efficiency" type="xs:double" />
-      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Errors" nillable="true" type="q2:ArrayOfstring" />
-      <xs:element minOccurs="0" name="InterlayerCount" type="xs:int" />
-      <xs:element minOccurs="0" name="LayerCount" type="xs:int" />
-      <xs:element minOccurs="0" name="NetWeight" nillable="true" type="xs:double" />
-      <xs:element minOccurs="0" name="OutFile" nillable="true" type="tns:DCCompFileOutput" />
-      <xs:element minOccurs="0" name="PalletMapPhrase" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="WeightLoad" type="xs:double" />
-      <xs:element minOccurs="0" name="WeightTotal" type="xs:double" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DCSBSolution" nillable="true" type="tns:DCSBSolution" />
-  <xs:complexType name="DCCompFileOutput">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Bytes" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="Format" nillable="true" type="tns:DCCompFormat" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DCCompFileOutput" nillable="true" type="tns:DCCompFileOutput" />
-  <xs:complexType name="DCSBBundle">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:DCSBItem">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Color" type="xs:int" />
-          <xs:element minOccurs="0" name="DimensionsUnit" nillable="true" type="tns:DCSBDim3D" />
-          <xs:element minOccurs="0" name="Number" type="xs:int" />
-          <xs:element minOccurs="0" name="UnitWeight" type="xs:double" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DCSBBundle" nillable="true" type="tns:DCSBBundle" />
+  <xs:element name="guid" nillable="true" type="tns:guid" />
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName" />
+  <xs:attribute name="Id" type="xs:ID" />
+  <xs:attribute name="Ref" type="xs:IDREF" />
 </xs:schema>

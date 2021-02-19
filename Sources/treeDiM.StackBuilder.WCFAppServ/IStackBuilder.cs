@@ -31,12 +31,12 @@ namespace treeDiM.StackBuilder.WCFAppServ
             , DCCompFormat expectedFormat, bool showCotations);
         // Heterogeneous stacking
         [OperationContract]
-        DCSBHSolutionList SB_GetHCasePalletSolution(DCSBContentItem[] sbConstentItems
+        DCSBHSolution SB_GetHSolutionBestCasePallet(DCSBContentItem[] sbConstentItems
             , DCSBPallet sbPallet
             , DCSBHConstraintSet sbConstraintSet 
-            );
+            , DCCompFormat expectedFormat, bool showCotations);
         [OperationContract]
-        DCSBHSolutionItem SB_GetSolutionItem(
+        DCSBHSolutionItem SB_GetHSolutionPart(
             DCSBContentItem[] sbContentItems, DCSBPallet sbPallet, DCSBHConstraintSet sbConstraintSet
             , int solIndex, int binIndex
             , DCCompFormat expectedFormat, bool showCotations

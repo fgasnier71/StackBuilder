@@ -1086,6 +1086,9 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
         private int LayerCountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] LayerDescsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> NetWeightField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1197,6 +1200,19 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
                 if ((this.LayerCountField.Equals(value) != true)) {
                     this.LayerCountField = value;
                     this.RaisePropertyChanged("LayerCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] LayerDescs {
+            get {
+                return this.LayerDescsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LayerDescsField, value) != true)) {
+                    this.LayerDescsField = value;
+                    this.RaisePropertyChanged("LayerDescs");
                 }
             }
         }
@@ -1337,6 +1353,458 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBContentItem", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
+    [System.SerializableAttribute()]
+    public partial class DCSBContentItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase CaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private uint NumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBBool3 OrientationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PriorityIndexField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase Case {
+            get {
+                return this.CaseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CaseField, value) != true)) {
+                    this.CaseField = value;
+                    this.RaisePropertyChanged("Case");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public uint Number {
+            get {
+                return this.NumberField;
+            }
+            set {
+                if ((this.NumberField.Equals(value) != true)) {
+                    this.NumberField = value;
+                    this.RaisePropertyChanged("Number");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBBool3 Orientation {
+            get {
+                return this.OrientationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrientationField, value) != true)) {
+                    this.OrientationField = value;
+                    this.RaisePropertyChanged("Orientation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PriorityIndex {
+            get {
+                return this.PriorityIndexField;
+            }
+            set {
+                if ((this.PriorityIndexField.Equals(value) != true)) {
+                    this.PriorityIndexField = value;
+                    this.RaisePropertyChanged("PriorityIndex");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBHConstraintSet", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
+    [System.SerializableAttribute()]
+    public partial class DCSBHConstraintSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintDouble MaxHeightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintDouble MaxWeightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBDim2D OverhangField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintDouble MaxHeight {
+            get {
+                return this.MaxHeightField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MaxHeightField, value) != true)) {
+                    this.MaxHeightField = value;
+                    this.RaisePropertyChanged("MaxHeight");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintDouble MaxWeight {
+            get {
+                return this.MaxWeightField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MaxWeightField, value) != true)) {
+                    this.MaxWeightField = value;
+                    this.RaisePropertyChanged("MaxWeight");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBDim2D Overhang {
+            get {
+                return this.OverhangField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OverhangField, value) != true)) {
+                    this.OverhangField = value;
+                    this.RaisePropertyChanged("Overhang");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBHSolution", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
+    [System.SerializableAttribute()]
+    public partial class DCSBHSolution : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AlgorithmField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] ErrorsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFileOutput OutFileField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PalletCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SolIndexField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Algorithm {
+            get {
+                return this.AlgorithmField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AlgorithmField, value) != true)) {
+                    this.AlgorithmField = value;
+                    this.RaisePropertyChanged("Algorithm");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] Errors {
+            get {
+                return this.ErrorsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorsField, value) != true)) {
+                    this.ErrorsField = value;
+                    this.RaisePropertyChanged("Errors");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFileOutput OutFile {
+            get {
+                return this.OutFileField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OutFileField, value) != true)) {
+                    this.OutFileField = value;
+                    this.RaisePropertyChanged("OutFile");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PalletCount {
+            get {
+                return this.PalletCountField;
+            }
+            set {
+                if ((this.PalletCountField.Equals(value) != true)) {
+                    this.PalletCountField = value;
+                    this.RaisePropertyChanged("PalletCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SolIndex {
+            get {
+                return this.SolIndexField;
+            }
+            set {
+                if ((this.SolIndexField.Equals(value) != true)) {
+                    this.SolIndexField = value;
+                    this.RaisePropertyChanged("SolIndex");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DCSBHSolutionItem", Namespace="http://schemas.datacontract.org/2004/07/treeDiM.StackBuilder.WCFAppServ")]
+    [System.SerializableAttribute()]
+    public partial class DCSBHSolutionItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBDim3D BBoxLoadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBDim3D BBoxTotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int BinIndexField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBContentItem[] ContentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] ErrorsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFileOutput OutFileField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SolIndexField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double WeightLoadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double WeightTotalField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBDim3D BBoxLoad {
+            get {
+                return this.BBoxLoadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BBoxLoadField, value) != true)) {
+                    this.BBoxLoadField = value;
+                    this.RaisePropertyChanged("BBoxLoad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBDim3D BBoxTotal {
+            get {
+                return this.BBoxTotalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BBoxTotalField, value) != true)) {
+                    this.BBoxTotalField = value;
+                    this.RaisePropertyChanged("BBoxTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BinIndex {
+            get {
+                return this.BinIndexField;
+            }
+            set {
+                if ((this.BinIndexField.Equals(value) != true)) {
+                    this.BinIndexField = value;
+                    this.RaisePropertyChanged("BinIndex");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBContentItem[] Content {
+            get {
+                return this.ContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContentField, value) != true)) {
+                    this.ContentField = value;
+                    this.RaisePropertyChanged("Content");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] Errors {
+            get {
+                return this.ErrorsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorsField, value) != true)) {
+                    this.ErrorsField = value;
+                    this.RaisePropertyChanged("Errors");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFileOutput OutFile {
+            get {
+                return this.OutFileField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OutFileField, value) != true)) {
+                    this.OutFileField = value;
+                    this.RaisePropertyChanged("OutFile");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SolIndex {
+            get {
+                return this.SolIndexField;
+            }
+            set {
+                if ((this.SolIndexField.Equals(value) != true)) {
+                    this.SolIndexField = value;
+                    this.RaisePropertyChanged("SolIndex");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double WeightLoad {
+            get {
+                return this.WeightLoadField;
+            }
+            set {
+                if ((this.WeightLoadField.Equals(value) != true)) {
+                    this.WeightLoadField = value;
+                    this.RaisePropertyChanged("WeightLoad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double WeightTotal {
+            get {
+                return this.WeightTotalField;
+            }
+            set {
+                if ((this.WeightTotalField.Equals(value) != true)) {
+                    this.WeightTotalField = value;
+                    this.RaisePropertyChanged("WeightTotal");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SB_SR.IStackBuilder")]
     public interface IStackBuilder {
@@ -1360,10 +1828,22 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
         System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetBundleCaseBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBBundle sbBundle, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetBoxCaseBestSolution", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetBoxCaseBestSolutionResponse")]
-        treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetBoxCaseBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbBox, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet cSBConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetBoxCaseBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbBox, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetBoxCaseBestSolution", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetBoxCaseBestSolutionResponse")]
-        System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetBoxCaseBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbBox, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet cSBConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetBoxCaseBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbBox, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetHSolutionBestCasePallet", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetHSolutionBestCasePalletResponse")]
+        treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHSolution SB_GetHSolutionBestCasePallet(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBContentItem[] sbConstentItems, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetHSolutionBestCasePallet", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetHSolutionBestCasePalletResponse")]
+        System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHSolution> SB_GetHSolutionBestCasePalletAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBContentItem[] sbConstentItems, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetHSolutionPart", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetHSolutionPartResponse")]
+        treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHSolutionItem SB_GetHSolutionPart(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBContentItem[] sbContentItems, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHConstraintSet sbConstraintSet, int solIndex, int binIndex, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStackBuilder/SB_GetHSolutionPart", ReplyAction="http://tempuri.org/IStackBuilder/SB_GetHSolutionPartResponse")]
+        System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHSolutionItem> SB_GetHSolutionPartAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBContentItem[] sbContentItems, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHConstraintSet sbConstraintSet, int solIndex, int binIndex, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1417,12 +1897,28 @@ namespace treeDiM.StackBuilder.WCFService.Test.SB_SR {
             return base.Channel.SB_GetBundleCaseBestSolutionAsync(sbBundle, sbCase, sbConstraintSet, expectedFormat, showCotations);
         }
         
-        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetBoxCaseBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbBox, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet cSBConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
-            return base.Channel.SB_GetBoxCaseBestSolution(sbBox, sbCase, sbInterlayer, cSBConstraintSet, expectedFormat, showCotations);
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution SB_GetBoxCaseBestSolution(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbBox, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetBoxCaseBestSolution(sbBox, sbCase, sbInterlayer, sbConstraintSet, expectedFormat, showCotations);
         }
         
-        public System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetBoxCaseBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbBox, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet cSBConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
-            return base.Channel.SB_GetBoxCaseBestSolutionAsync(sbBox, sbCase, sbInterlayer, cSBConstraintSet, expectedFormat, showCotations);
+        public System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution> SB_GetBoxCaseBestSolutionAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbBox, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBCase sbCase, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBInterlayer sbInterlayer, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetBoxCaseBestSolutionAsync(sbBox, sbCase, sbInterlayer, sbConstraintSet, expectedFormat, showCotations);
+        }
+        
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHSolution SB_GetHSolutionBestCasePallet(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBContentItem[] sbConstentItems, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetHSolutionBestCasePallet(sbConstentItems, sbPallet, sbConstraintSet, expectedFormat, showCotations);
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHSolution> SB_GetHSolutionBestCasePalletAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBContentItem[] sbConstentItems, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHConstraintSet sbConstraintSet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetHSolutionBestCasePalletAsync(sbConstentItems, sbPallet, sbConstraintSet, expectedFormat, showCotations);
+        }
+        
+        public treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHSolutionItem SB_GetHSolutionPart(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBContentItem[] sbContentItems, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHConstraintSet sbConstraintSet, int solIndex, int binIndex, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetHSolutionPart(sbContentItems, sbPallet, sbConstraintSet, solIndex, binIndex, expectedFormat, showCotations);
+        }
+        
+        public System.Threading.Tasks.Task<treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHSolutionItem> SB_GetHSolutionPartAsync(treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBContentItem[] sbContentItems, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBPallet sbPallet, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHConstraintSet sbConstraintSet, int solIndex, int binIndex, treeDiM.StackBuilder.WCFService.Test.SB_SR.DCCompFormat expectedFormat, bool showCotations) {
+            return base.Channel.SB_GetHSolutionPartAsync(sbContentItems, sbPallet, sbConstraintSet, solIndex, binIndex, expectedFormat, showCotations);
         }
     }
 }

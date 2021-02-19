@@ -13,5 +13,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
         public uint Number;
         [DataMember]
         public DCSBBool3 Orientation { get; set; }
+        [DataMember]
+        public int PriorityIndex { get; set; }
     }
 }

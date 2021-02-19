@@ -141,6 +141,7 @@
     </Compile>
     <Compile Include="IStackBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StackBuilderProcessor.cs" />
     <Compile Include="WebRole.cs" />
   </ItemGroup>
   <ItemGroup>

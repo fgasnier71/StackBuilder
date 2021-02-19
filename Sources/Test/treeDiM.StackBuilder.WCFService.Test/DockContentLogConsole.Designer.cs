@@ -1,7 +1,7 @@
 ﻿
 namespace treeDiM.StackBuilder.WCFService.Test
 {
-    partial class FormMain
+    partial class DockContentLogConsole
     {
         /// <summary>
         /// Required designer variable.
@@ -29,36 +29,39 @@ namespace treeDiM.StackBuilder.WCFService.Test
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
+            this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // dockPanel
+            // richTextBoxLog
             // 
-            this.dockPanel.ActiveAutoHideContent = null;
-            this.dockPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dockPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
-            this.dockPanel.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel.Name = "dockPanel";
-            this.dockPanel.Size = new System.Drawing.Size(884, 561);
-            this.dockPanel.TabIndex = 1;
+            this.richTextBoxLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxLog.Location = new System.Drawing.Point(0, 0);
+            this.richTextBoxLog.Name = "richTextBoxLog";
+            this.richTextBoxLog.Size = new System.Drawing.Size(800, 102);
+            this.richTextBoxLog.TabIndex = 0;
+            this.richTextBoxLog.Text = "";
             // 
-            // FormMain
+            // DockContentLogConsole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 561);
-            this.Controls.Add(this.dockPanel);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.IsMdiContainer = true;
-            this.Name = "FormMain";
-            this.Text = "treeDiM.StackBuilder.WCFService.Test";
+            this.ClientSize = new System.Drawing.Size(800, 102);
+            this.ControlBox = false;
+            this.Controls.Add(this.richTextBoxLog);
+            this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom)));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "DockContentLogConsole";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.TabText = "Log console";
+            this.Text = "Log console";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel;
+        private System.Windows.Forms.RichTextBox richTextBoxLog;
     }
 }

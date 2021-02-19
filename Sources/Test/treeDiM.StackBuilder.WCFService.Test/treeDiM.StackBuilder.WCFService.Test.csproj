@@ -76,8 +76,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -98,16 +100,43 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="DockContentLogConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentLogConsole.Designer.cs">
+      <DependentUpon>DockContentLogConsole.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTestHeterogeneous.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestHeterogeneous.Designer.cs">
+      <DependentUpon>FormTestHeterogeneous.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestHomogeneous.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestHomogeneous.Designer.cs">
+      <DependentUpon>FormTestHomogeneous.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DockContentLogConsole.resx">
+      <DependentUpon>DockContentLogConsole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestHeterogeneous.resx">
+      <DependentUpon>FormTestHeterogeneous.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestHomogeneous.resx">
+      <DependentUpon>FormTestHomogeneous.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -133,6 +162,12 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SB_SR\StackBuilderServ.wsdl" />
+    <None Include="Connected Services\SB_SR\treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHSolution.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SB_SR\treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHSolutionItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\SB_SR\treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -173,6 +208,20 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="treeDim.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="log4net">
+      <Version>2.0.12</Version>
+    </PackageReference>
+    <PackageReference Include="RichTextBoxAppender">
+      <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="SourceGrid">
+      <Version>4.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="WeifenLuo.WinFormsUI.Docking">
+      <Version>2.1.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\SB_SR\" />
