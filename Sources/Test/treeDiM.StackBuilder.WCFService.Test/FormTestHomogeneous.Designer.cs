@@ -132,7 +132,7 @@
             this.pbStackbuilder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbStackbuilder.Location = new System.Drawing.Point(0, 0);
             this.pbStackbuilder.Name = "pbStackbuilder";
-            this.pbStackbuilder.Size = new System.Drawing.Size(691, 557);
+            this.pbStackbuilder.Size = new System.Drawing.Size(691, 357);
             this.pbStackbuilder.TabIndex = 19;
             this.pbStackbuilder.TabStop = false;
             // 
@@ -154,7 +154,7 @@
             // splitContainerHoriz.Panel2
             // 
             this.splitContainerHoriz.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainerHoriz.Size = new System.Drawing.Size(934, 761);
+            this.splitContainerHoriz.Size = new System.Drawing.Size(934, 561);
             this.splitContainerHoriz.SplitterDistance = 200;
             this.splitContainerHoriz.TabIndex = 0;
             // 
@@ -725,7 +725,7 @@
             this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletEfficiency);
             this.splitContainer3.Panel2.Controls.Add(this.lbLoadedPalletWeight);
             this.splitContainer3.Panel2.Controls.Add(this.lbTotalPalletDim);
-            this.splitContainer3.Size = new System.Drawing.Size(934, 557);
+            this.splitContainer3.Size = new System.Drawing.Size(934, 357);
             this.splitContainer3.SplitterDistance = 691;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -841,7 +841,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 761);
+            this.ClientSize = new System.Drawing.Size(934, 561);
             this.Controls.Add(this.splitContainerHoriz);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

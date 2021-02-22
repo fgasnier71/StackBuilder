@@ -18,7 +18,7 @@
     <DirectoryRef Id="BIN"/>
     <ComponentGroup Id="ServiceBinaries" Directory="BIN">
       <Component Id="log4net.dll" Guid="{5D99E00C-F330-4ADD-97F8-E9D78117EE85}">
-        <File Source="$(var.BinDir)log4net.dll"/>
+        <File Id="log4netServ" Source="$(var.BinDir)log4net.dll"/>
       </Component>
       <Component Id="Cureos.Measures.dll" Guid="{3E465F27-406D-43DC-A465-53EB96500EA6}">
         <File Source="$(var.BinDir)Cureos.Measures.dll"/>
@@ -31,6 +31,9 @@
       </Component>
       <Component Id="OfficePickers.dll" Guid="{ADD0331B-5B32-441E-BD55-1DB405A94F3E}">
         <File Source="$(var.BinDir)OfficePickers.dll"/>
+      </Component>
+      <Component Id="Sharp3D.Boxologic.dll" Guid="{BA42CA4A-0EBE-455F-B440-7A7C0B7C74EC}">
+        <File Source="$(var.BinDir)Sharp3D.Boxologic.dll"/>
       </Component>
       <Component Id="Microsoft.WindowsAzure" Guid="{A81001AA-7F67-4AE0-B7A6-8621527F1B44}">
         <File Source="$(var.BinDir)Microsoft.Azure.KeyVault.Core.dll"/>
@@ -45,6 +48,7 @@
         <File Source="$(var.BinDir)System.Spatial.dll"/>
       </Component>
       <Component Id="treeDiM.StackBuilder" Guid="{C61D9742-6CF1-464F-9400-9DB6AF07E1D2}">
+        <File Source="$(var.BinDir)treeDiM.Basics.dll"/>
         <File Source="$(var.BinDir)treeDiM.StackBuilder.Basics.dll"/>
         <File Source="$(var.BinDir)treeDiM.StackBuilder.Engine.dll"/>
         <File Source="$(var.BinDir)treeDiM.StackBuilder.Graphics.dll"/>

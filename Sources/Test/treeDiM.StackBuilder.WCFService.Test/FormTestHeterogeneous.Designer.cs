@@ -32,8 +32,6 @@ namespace treeDiM.StackBuilder.WCFService.Test
             this.splitContainerHoriz = new System.Windows.Forms.SplitContainer();
             this.bnCompute = new System.Windows.Forms.Button();
             this.gbPallet = new System.Windows.Forms.GroupBox();
-            this.nudMaxPalletWeight = new System.Windows.Forms.NumericUpDown();
-            this.lbMaxPalletWeight = new System.Windows.Forms.Label();
             this.nudOverhangY = new System.Windows.Forms.NumericUpDown();
             this.lbPalletDim = new System.Windows.Forms.Label();
             this.nudOverhangX = new System.Windows.Forms.NumericUpDown();
@@ -48,15 +46,15 @@ namespace treeDiM.StackBuilder.WCFService.Test
             this.gbBoxes = new System.Windows.Forms.GroupBox();
             this.bnRemove = new System.Windows.Forms.Button();
             this.bnAdd = new System.Windows.Forms.Button();
-            this.gridBoxes = new SourceGrid.Grid();
+            this.gridContent = new SourceGrid.Grid();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.pbStackbuilder = new System.Windows.Forms.PictureBox();
+            this.lbPalletCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
             this.splitContainerHoriz.SuspendLayout();
             this.gbPallet.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverhangY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverhangX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimX)).BeginInit();
@@ -67,6 +65,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
             this.gbBoxes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).BeginInit();
             this.splitContainerVert.Panel1.SuspendLayout();
+            this.splitContainerVert.Panel2.SuspendLayout();
             this.splitContainerVert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStackbuilder)).BeginInit();
             this.SuspendLayout();
@@ -88,14 +87,14 @@ namespace treeDiM.StackBuilder.WCFService.Test
             // splitContainerHoriz.Panel2
             // 
             this.splitContainerHoriz.Panel2.Controls.Add(this.splitContainerVert);
-            this.splitContainerHoriz.Size = new System.Drawing.Size(984, 761);
+            this.splitContainerHoriz.Size = new System.Drawing.Size(934, 561);
             this.splitContainerHoriz.SplitterDistance = 200;
             this.splitContainerHoriz.TabIndex = 0;
             // 
             // bnCompute
             // 
             this.bnCompute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bnCompute.Location = new System.Drawing.Point(831, 157);
+            this.bnCompute.Location = new System.Drawing.Point(781, 157);
             this.bnCompute.Name = "bnCompute";
             this.bnCompute.Size = new System.Drawing.Size(141, 23);
             this.bnCompute.TabIndex = 3;
@@ -106,8 +105,6 @@ namespace treeDiM.StackBuilder.WCFService.Test
             // gbPallet
             // 
             this.gbPallet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbPallet.Controls.Add(this.nudMaxPalletWeight);
-            this.gbPallet.Controls.Add(this.lbMaxPalletWeight);
             this.gbPallet.Controls.Add(this.nudOverhangY);
             this.gbPallet.Controls.Add(this.lbPalletDim);
             this.gbPallet.Controls.Add(this.nudOverhangX);
@@ -119,34 +116,12 @@ namespace treeDiM.StackBuilder.WCFService.Test
             this.gbPallet.Controls.Add(this.label2);
             this.gbPallet.Controls.Add(this.nudMaxPalletHeight);
             this.gbPallet.Controls.Add(this.lbMaxPalletHeight);
-            this.gbPallet.Location = new System.Drawing.Point(443, 3);
+            this.gbPallet.Location = new System.Drawing.Point(524, 3);
             this.gbPallet.Name = "gbPallet";
-            this.gbPallet.Size = new System.Drawing.Size(529, 147);
+            this.gbPallet.Size = new System.Drawing.Size(398, 147);
             this.gbPallet.TabIndex = 2;
             this.gbPallet.TabStop = false;
             this.gbPallet.Text = "Pallet";
-            // 
-            // nudMaxPalletWeight
-            // 
-            this.nudMaxPalletWeight.DecimalPlaces = 1;
-            this.nudMaxPalletWeight.Location = new System.Drawing.Point(443, 90);
-            this.nudMaxPalletWeight.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.nudMaxPalletWeight.Name = "nudMaxPalletWeight";
-            this.nudMaxPalletWeight.Size = new System.Drawing.Size(74, 20);
-            this.nudMaxPalletWeight.TabIndex = 85;
-            // 
-            // lbMaxPalletWeight
-            // 
-            this.lbMaxPalletWeight.AutoSize = true;
-            this.lbMaxPalletWeight.Location = new System.Drawing.Point(341, 92);
-            this.lbMaxPalletWeight.Name = "lbMaxPalletWeight";
-            this.lbMaxPalletWeight.Size = new System.Drawing.Size(92, 13);
-            this.lbMaxPalletWeight.TabIndex = 84;
-            this.lbMaxPalletWeight.Text = "Max. pallet weight";
             // 
             // nudOverhangY
             // 
@@ -289,7 +264,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
             // 
             this.gbBoxes.Controls.Add(this.bnRemove);
             this.gbBoxes.Controls.Add(this.bnAdd);
-            this.gbBoxes.Controls.Add(this.gridBoxes);
+            this.gbBoxes.Controls.Add(this.gridContent);
             this.gbBoxes.Location = new System.Drawing.Point(3, 3);
             this.gbBoxes.Name = "gbBoxes";
             this.gbBoxes.Size = new System.Drawing.Size(433, 177);
@@ -317,17 +292,17 @@ namespace treeDiM.StackBuilder.WCFService.Test
             this.bnAdd.UseVisualStyleBackColor = true;
             this.bnAdd.Click += new System.EventHandler(this.OnBoxesAdd);
             // 
-            // gridBoxes
+            // gridContent
             // 
-            this.gridBoxes.EnableSort = true;
-            this.gridBoxes.Location = new System.Drawing.Point(6, 19);
-            this.gridBoxes.Name = "gridBoxes";
-            this.gridBoxes.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
-            this.gridBoxes.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.gridBoxes.Size = new System.Drawing.Size(334, 152);
-            this.gridBoxes.TabIndex = 0;
-            this.gridBoxes.TabStop = true;
-            this.gridBoxes.ToolTipText = "";
+            this.gridContent.EnableSort = true;
+            this.gridContent.Location = new System.Drawing.Point(6, 19);
+            this.gridContent.Name = "gridContent";
+            this.gridContent.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
+            this.gridContent.SelectionMode = SourceGrid.GridSelectionMode.Row;
+            this.gridContent.Size = new System.Drawing.Size(334, 152);
+            this.gridContent.TabIndex = 0;
+            this.gridContent.TabStop = true;
+            this.gridContent.ToolTipText = "";
             // 
             // splitContainerVert
             // 
@@ -338,8 +313,12 @@ namespace treeDiM.StackBuilder.WCFService.Test
             // splitContainerVert.Panel1
             // 
             this.splitContainerVert.Panel1.Controls.Add(this.pbStackbuilder);
-            this.splitContainerVert.Size = new System.Drawing.Size(984, 557);
-            this.splitContainerVert.SplitterDistance = 700;
+            // 
+            // splitContainerVert.Panel2
+            // 
+            this.splitContainerVert.Panel2.Controls.Add(this.lbPalletCount);
+            this.splitContainerVert.Size = new System.Drawing.Size(934, 357);
+            this.splitContainerVert.SplitterDistance = 664;
             this.splitContainerVert.TabIndex = 0;
             // 
             // pbStackbuilder
@@ -347,19 +326,27 @@ namespace treeDiM.StackBuilder.WCFService.Test
             this.pbStackbuilder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbStackbuilder.Location = new System.Drawing.Point(0, 0);
             this.pbStackbuilder.Name = "pbStackbuilder";
-            this.pbStackbuilder.Size = new System.Drawing.Size(700, 557);
+            this.pbStackbuilder.Size = new System.Drawing.Size(664, 357);
             this.pbStackbuilder.TabIndex = 0;
             this.pbStackbuilder.TabStop = false;
+            // 
+            // lbPalletCount
+            // 
+            this.lbPalletCount.AutoSize = true;
+            this.lbPalletCount.Location = new System.Drawing.Point(19, 22);
+            this.lbPalletCount.Name = "lbPalletCount";
+            this.lbPalletCount.Size = new System.Drawing.Size(66, 13);
+            this.lbPalletCount.TabIndex = 0;
+            this.lbPalletCount.Text = "Pallet count:";
             // 
             // FormTestHeterogeneous
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 761);
+            this.ClientSize = new System.Drawing.Size(934, 561);
             this.Controls.Add(this.splitContainerHoriz);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(950, 700);
             this.Name = "FormTestHeterogeneous";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -371,7 +358,6 @@ namespace treeDiM.StackBuilder.WCFService.Test
             this.splitContainerHoriz.ResumeLayout(false);
             this.gbPallet.ResumeLayout(false);
             this.gbPallet.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverhangY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOverhangX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPalletDimX)).EndInit();
@@ -381,6 +367,8 @@ namespace treeDiM.StackBuilder.WCFService.Test
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxPalletHeight)).EndInit();
             this.gbBoxes.ResumeLayout(false);
             this.splitContainerVert.Panel1.ResumeLayout(false);
+            this.splitContainerVert.Panel2.ResumeLayout(false);
+            this.splitContainerVert.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
             this.splitContainerVert.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbStackbuilder)).EndInit();
@@ -392,13 +380,11 @@ namespace treeDiM.StackBuilder.WCFService.Test
 
         private System.Windows.Forms.SplitContainer splitContainerHoriz;
         private System.Windows.Forms.SplitContainer splitContainerVert;
-        private SourceGrid.Grid gridBoxes;
+        private SourceGrid.Grid gridContent;
         private System.Windows.Forms.GroupBox gbPallet;
         private System.Windows.Forms.GroupBox gbBoxes;
         private System.Windows.Forms.Button bnRemove;
         private System.Windows.Forms.Button bnAdd;
-        private System.Windows.Forms.NumericUpDown nudMaxPalletWeight;
-        private System.Windows.Forms.Label lbMaxPalletWeight;
         private System.Windows.Forms.NumericUpDown nudOverhangY;
         private System.Windows.Forms.Label lbPalletDim;
         private System.Windows.Forms.NumericUpDown nudOverhangX;
@@ -412,5 +398,6 @@ namespace treeDiM.StackBuilder.WCFService.Test
         private System.Windows.Forms.Label lbMaxPalletHeight;
         private System.Windows.Forms.Button bnCompute;
         private System.Windows.Forms.PictureBox pbStackbuilder;
+        private System.Windows.Forms.Label lbPalletCount;
     }
 }

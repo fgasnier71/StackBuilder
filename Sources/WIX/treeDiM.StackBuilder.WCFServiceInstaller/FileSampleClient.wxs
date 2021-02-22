@@ -10,6 +10,10 @@
       <Component Id="treeDiM.StackBuilder.WCFService.Test.exe" Guid="{2992012D-9BD4-42CB-99B6-8C73846AECFD}">
         <File Source="$(var.TestAppBinDir)treeDiM.StackBuilder.WCFService.Test.exe"/>
         <File Source="$(var.TestAppBinDir)treeDiM.StackBuilder.WCFService.Test.exe.config"/>
+        <File Id="log4netTest" Source="$(var.TestAppBinDir)log4net.dll"/>
+        <File Source="$(var.TestAppBinDir)RichTextBoxAppender.dll"/>
+        <File Source="$(var.TestAppBinDir)SourceGrid.dll"/>
+        <File Source="$(var.TestAppBinDir)WeifenLuo.WinFormsUI.Docking.dll"/>        
       </Component>
     </ComponentGroup>
     <DirectoryRef Id="DesktopFolder"/>

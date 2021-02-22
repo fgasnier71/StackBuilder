@@ -59,5 +59,23 @@ namespace treeDiM.StackBuilder.WCFService.Test.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string ID_NAME {
+            get {
+                return ResourceManager.GetString("ID_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        internal static string ID_NUMBER {
+            get {
+                return ResourceManager.GetString("ID_NUMBER", resourceCulture);
+            }
+        }
     }
 }

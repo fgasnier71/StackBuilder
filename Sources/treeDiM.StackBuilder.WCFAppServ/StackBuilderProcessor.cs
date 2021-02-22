@@ -253,10 +253,10 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 HSolver solver = new HSolver();
                 var solutions = solver.BuildSolutions(analysis);
 
-                // best solution is most likely 1
+                // best solution is most likely : 5
                 if (solutions.Count > 0)
                 {
-                    var sol = solutions[0];
+                    var sol = solutions[solutions.Count-1];
                     algorithm = sol.Algorithm;
                     palletCount = sol.SolItemCount;
 
@@ -310,7 +310,6 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 HSolver solver = new HSolver();
                 var solutions = solver.BuildSolutions(analysis);
 
-                // best solution is most likely 1
                 if (solIndex < solutions.Count)
                 {
                     var sol = solutions[solIndex];

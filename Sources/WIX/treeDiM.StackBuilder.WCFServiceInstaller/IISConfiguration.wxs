@@ -12,7 +12,7 @@
                         Name="StackBuilderWebApp"
                         Identity="applicationPoolIdentity"
                         ManagedPipelineMode="Integrated"
-                        ManagedRuntimeVersion="v4.6"
+                        ManagedRuntimeVersion="v4.8"
                       />
 
         <!--define web site-->
