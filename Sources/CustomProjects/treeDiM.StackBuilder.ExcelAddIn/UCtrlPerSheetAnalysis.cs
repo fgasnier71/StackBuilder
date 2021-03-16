@@ -185,5 +185,4 @@ namespace treeDiM.StackBuilder.ExcelAddIn
         }
         #endregion
     }
-
 }

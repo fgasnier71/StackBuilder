@@ -172,8 +172,8 @@ namespace treeDiM.StackBuilder.GUIExtension
                     return;
                 // compute
                 ILayerSolver solver = new LayerSolver();
-                List<Layer2DBrickImp> layers = solver.BuildLayers(
-                    packable.OuterDimensions
+                List<ILayer2D> layers = solver.BuildLayers(
+                    packable
                     , new Vector2D(palletProperties.Length + 2.0*uCtrlOverhang.ValueX, palletProperties.Width + 2.0*uCtrlOverhang.ValueY)
                     , palletProperties.Height
                     , BuildConstraintSet()

@@ -126,7 +126,6 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     }
                     double largestDimensionMinimum = LargestDimMin;
 
-
                     string colName = Settings.Default.ColumnLetterName;
                     string colDescription = Settings.Default.ColumnLetterDescription;
                     string colLength = Settings.Default.ColumnLetterLength;
@@ -215,7 +214,6 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                             throw ex; // rethrow
                         }
                     } // loop row
-
                     // increment palletColStartIndex
                     palletColStartIndex += iNoCols;
 

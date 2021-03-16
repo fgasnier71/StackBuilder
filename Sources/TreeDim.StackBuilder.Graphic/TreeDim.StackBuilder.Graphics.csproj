@@ -139,6 +139,7 @@
     <Compile Include="SolutionViewers\ViewerSolutionPalletsOnPallet.cs" />
     <Compile Include="Triangle.cs" />
     <Compile Include="Types\Bottle.cs" />
+    <Compile Include="Types\BoxExplicitDir.cs" />
     <Compile Include="Types\BoxGeneric.cs" />
     <Compile Include="Types\BoxRounded.cs" />
     <Compile Include="Types\Film.cs" />

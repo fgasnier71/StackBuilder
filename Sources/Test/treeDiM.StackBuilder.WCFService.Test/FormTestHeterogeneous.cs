@@ -307,6 +307,69 @@ namespace treeDiM.StackBuilder.WCFService.Test
                 _log.Error(ex.ToString());
             }
         }
+        private void ComputeSinglePallet(int binIndex)
+        {
+            try
+            {
+                DateTime dt0 = DateTime.Now;
+                _log.Info($"Calling web service method {binIndex}");
+
+                using (var client = new StackBuilderClient())
+                {
+                    var hSolItem = client.SB_GetHSolutionPart(
+                        Items.ToArray(),
+                        new DCSBPallet()
+                        {
+                            Name = "EUR2",
+                            Description = "EUR2",
+                            PalletType = "EUR2",
+                            Color = Color.Yellow.ToArgb(),
+                            Dimensions = PalletDimensions,
+                            Weight = PalletWeight
+                        },
+                        new DCSBHConstraintSet()
+                        {
+                            MaxHeight = new DCSBConstraintDouble() { Active = true, Value_d = MaxPalletHeight },
+                            MaxWeight = new DCSBConstraintDouble() { Active = false, Value_d = 1000.0 },
+                            Overhang = PalletOverhang
+                        },
+                        0, // solution index
+                        binIndex,
+                        new DCCompFormat()
+                        {
+                            Size = new DCCompSize()
+                            {
+                                CX = pbStackbuilder.Size.Width,
+                                CY = pbStackbuilder.Size.Height
+                            },
+                            Format = OutFormat.IMAGE
+                        },
+                        true
+                        );
+                    var bboxLoad = hSolItem.BBoxLoad;
+                    var bboxTotal = hSolItem.BBoxTotal;
+                    double weightLoad = hSolItem.WeightLoad;
+                    double weightTotal = hSolItem.WeightTotal;
+                    DCSBContentItem[] content = hSolItem.Content;
+
+                    if (null != hSolItem.OutFile)
+                    {
+                        using (var ms = new System.IO.MemoryStream(hSolItem.OutFile.Bytes))
+                        {
+                            Image img = Image.FromStream(ms);
+                            pbStackbuilder.Image = img;
+                        }
+                    }
+                }
+
+                DateTime dt1 = DateTime.Now;
+                _log.Info($"Web service answered in {(dt1 - dt0).TotalMilliseconds} ms");
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+        }
         #endregion
 
         #region Properties

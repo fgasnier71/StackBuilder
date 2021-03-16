@@ -32,9 +32,9 @@ namespace treeDiM.StackBuilder.Reporting
             {
                 try { Directory.CreateDirectory(outDir); }
                 catch (UnauthorizedAccessException /*ex*/)
-                { throw new UnauthorizedAccessException(string.Format("User not allowed to write under {0}", Directory.GetParent(outDir).FullName)); }
+                { throw new UnauthorizedAccessException($"User not allowed to write under {Directory.GetParent(outDir).FullName}"); }
                 catch (Exception ex)
-                { throw new Exception(string.Format("Directory {0} does not exist, and could not be created.", outDir), ex); }
+                { throw new Exception($"Directory {outDir} does not exist, and could not be created.", ex); }
             }
             // html file path
             string htmlFilePath = Path.ChangeExtension(absOutputFilePath, "html");

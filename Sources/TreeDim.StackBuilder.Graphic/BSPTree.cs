@@ -33,7 +33,11 @@ namespace treeDiM.StackBuilder.Graphics
             foreach (Triangle tr in b.Triangles)
                 Insert(tr);
         }
-
+        public void InsertBox(BoxExplicitDir b)
+        {
+            foreach (Triangle tr in b.Triangles)
+                Insert(tr);
+        }
         public void Draw(Graphics3D g)
         {
             if (null == Root)

@@ -1569,6 +1569,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Free version can only process {0} rows....
+        /// </summary>
+        internal static string ID_MASSEXCEL_FREEVERSIONLIMITEDNUMBER {
+            get {
+                return ResourceManager.GetString("ID_MASSEXCEL_FREEVERSIONLIMITEDNUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximum case weight should exceed {0} {1}..
         /// </summary>
         internal static string ID_MAXIMUMCASEWEIGHTSHOULDEXCEED {
@@ -2161,6 +2170,78 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_REMOVINGEXISTINGTYPE {
             get {
                 return ResourceManager.GetString("ID_REMOVINGEXISTINGTYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report.
+        /// </summary>
+        internal static string ID_REPORT {
+            get {
+                return ResourceManager.GetString("ID_REPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Efficiency.
+        /// </summary>
+        internal static string ID_RESULT_EFFICIENCY {
+            get {
+                return ResourceManager.GetString("ID_RESULT_EFFICIENCY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        internal static string ID_RESULT_IMAGE {
+            get {
+                return ResourceManager.GetString("ID_RESULT_IMAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Layers x Per Layer.
+        /// </summary>
+        internal static string ID_RESULT_LAYERCOUNT {
+            get {
+                return ResourceManager.GetString("ID_RESULT_LAYERCOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load weight.
+        /// </summary>
+        internal static string ID_RESULT_LOADWEIGHT {
+            get {
+                return ResourceManager.GetString("ID_RESULT_LOADWEIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of cases.
+        /// </summary>
+        internal static string ID_RESULT_NOCASES {
+            get {
+                return ResourceManager.GetString("ID_RESULT_NOCASES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No valid solution found!.
+        /// </summary>
+        internal static string ID_RESULT_NOSOLUTIONFOUND {
+            get {
+                return ResourceManager.GetString("ID_RESULT_NOSOLUTIONFOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total pallet weight.
+        /// </summary>
+        internal static string ID_RESULT_TOTALPALLETWEIGHT {
+            get {
+                return ResourceManager.GetString("ID_RESULT_TOTALPALLETWEIGHT", resourceCulture);
             }
         }
         

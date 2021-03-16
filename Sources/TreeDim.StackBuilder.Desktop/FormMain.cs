@@ -838,7 +838,6 @@ namespace treeDiM.StackBuilder.Desktop
                 SolutionLayered.SetSolver(new LayerSolver());
                 SolutionHCyl.SetSolver(new CylLayoutSolver());
 
-
                 if (!File.Exists(filePath))
                 {
                     // update mruFileManager as we failed to load file
@@ -1496,6 +1495,16 @@ namespace treeDiM.StackBuilder.Desktop
             catch (Exception ex)
             { _log.Error(ex.ToString()); Program.SendCrashReport(ex); }
         }
+        private void OnExelSheetPerRow(object sender, EventArgs e)
+        {
+            try
+            {
+                var form = new FormExcelMassAnalysis();
+                if (DialogResult.OK == form.ShowDialog())  {}
+            }
+            catch (Exception ex)
+            { _log.Error(ex.ToString()); }
+        }
         #endregion
         #endregion
         #region Document / View status change handlers
@@ -1614,5 +1623,7 @@ namespace treeDiM.StackBuilder.Desktop
         #region Static instance accessor
         public static FormMain GetInstance()  { return _instance; }
         #endregion
+
+
     }
 }

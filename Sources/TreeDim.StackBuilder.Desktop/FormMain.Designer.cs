@@ -138,6 +138,9 @@
             this.toolStripMIBestCase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIBestPack = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripSBExcelPerRow = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSB_BCT = new System.Windows.Forms.ToolStripSplitButton();
             this.palletisationBCTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caseBCTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -572,6 +575,8 @@
             this.toolStripSeparator11,
             this.toolStripSBOptimisations,
             this.toolStripSeparator10,
+            this.toolStripSplitButton1,
+            this.toolStripSeparator7,
             this.toolStripSB_BCT,
             this.toolStripSeparator6,
             this.toolStripButtonPremium,
@@ -924,6 +929,26 @@
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             resources.ApplyResources(this.toolStripSeparator10, "toolStripSeparator10");
             // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSBExcelPerRow});
+            resources.ApplyResources(this.toolStripSplitButton1, "toolStripSplitButton1");
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Click += new System.EventHandler(this.OnExelSheetPerRow);
+            // 
+            // toolStripSBExcelPerRow
+            // 
+            resources.ApplyResources(this.toolStripSBExcelPerRow, "toolStripSBExcelPerRow");
+            this.toolStripSBExcelPerRow.Name = "toolStripSBExcelPerRow";
+            this.toolStripSBExcelPerRow.Click += new System.EventHandler(this.OnExelSheetPerRow);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
+            // 
             // toolStripSB_BCT
             // 
             this.toolStripSB_BCT.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -1145,5 +1170,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBag;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPalletLabel;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIPalletPallet;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripSBExcelPerRow;
     }
 }

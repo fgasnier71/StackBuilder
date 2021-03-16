@@ -8,7 +8,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
     [ServiceContract]
     public interface IStackBuilder
     {
-        // Homogeneous stacking
+        #region Homogeneous stacking
         [OperationContract]
         DCSBSolution SB_GetCasePalletBestSolution(
             DCSBCase sbCase, DCSBPallet sbPallet, DCSBInterlayer sbInterlayer
@@ -29,7 +29,9 @@ namespace treeDiM.StackBuilder.WCFAppServ
             DCSBCase sbBox, DCSBCase sbCase, DCSBInterlayer sbInterlayer
             , DCSBConstraintSet sbConstraintSet
             , DCCompFormat expectedFormat, bool showCotations);
-        // Heterogeneous stacking
+        #endregion
+
+        #region Heterogeneous stacking
         [OperationContract]
         DCSBHSolution SB_GetHSolutionBestCasePallet(DCSBContentItem[] sbConstentItems
             , DCSBPallet sbPallet
@@ -41,5 +43,6 @@ namespace treeDiM.StackBuilder.WCFAppServ
             , int solIndex, int binIndex
             , DCCompFormat expectedFormat, bool showCotations
             );
+        #endregion
     }
 }

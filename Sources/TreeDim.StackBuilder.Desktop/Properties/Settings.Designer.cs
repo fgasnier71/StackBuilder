@@ -1085,15 +1085,6 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://plmpack.com/stackbuilder/download/AutoUpdater.xml")]
-        public string AutoUpdaterXMLPath {
-            get {
-                return ((string)(this["AutoUpdaterXMLPath"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
@@ -1196,6 +1187,183 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
             }
             set {
                 this["TrayHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.treedim.com/DL/StackBuilder/AutoUpdater.xml")]
+        public string AutoUpdaterXMLPath {
+            get {
+                return ((string)(this["AutoUpdaterXMLPath"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool MassExcelGenerateImageInRow {
+            get {
+                return ((bool)(this["MassExcelGenerateImageInRow"]));
+            }
+            set {
+                this["MassExcelGenerateImageInRow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MassExcelGenerateImagesInFolder {
+            get {
+                return ((bool)(this["MassExcelGenerateImagesInFolder"]));
+            }
+            set {
+                this["MassExcelGenerateImagesInFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MassExcelGenerateReportsInFolder {
+            get {
+                return ((bool)(this["MassExcelGenerateReportsInFolder"]));
+            }
+            set {
+                this["MassExcelGenerateReportsInFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MassExcelImageFolderPath {
+            get {
+                return ((string)(this["MassExcelImageFolderPath"]));
+            }
+            set {
+                this["MassExcelImageFolderPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MassExcelReportFolderPath {
+            get {
+                return ((string)(this["MassExcelReportFolderPath"]));
+            }
+            set {
+                this["MassExcelReportFolderPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("150")]
+        public int MassExcelImageSize {
+            get {
+                return ((int)(this["MassExcelImageSize"]));
+            }
+            set {
+                this["MassExcelImageSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2000")]
+        public int MassExcelStackCountMax {
+            get {
+                return ((int)(this["MassExcelStackCountMax"]));
+            }
+            set {
+                this["MassExcelStackCountMax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("A")]
+        public string MassExcelColLetterName {
+            get {
+                return ((string)(this["MassExcelColLetterName"]));
+            }
+            set {
+                this["MassExcelColLetterName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("B")]
+        public string MassExcelColLetterDescription {
+            get {
+                return ((string)(this["MassExcelColLetterDescription"]));
+            }
+            set {
+                this["MassExcelColLetterDescription"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C")]
+        public string MassExcelColLetterLength {
+            get {
+                return ((string)(this["MassExcelColLetterLength"]));
+            }
+            set {
+                this["MassExcelColLetterLength"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("D")]
+        public string MassExcelColLetterWidth {
+            get {
+                return ((string)(this["MassExcelColLetterWidth"]));
+            }
+            set {
+                this["MassExcelColLetterWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("E")]
+        public string MassExcelColLetterHeight {
+            get {
+                return ((string)(this["MassExcelColLetterHeight"]));
+            }
+            set {
+                this["MassExcelColLetterHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("F")]
+        public string MassExcelColLetterWeight {
+            get {
+                return ((string)(this["MassExcelColLetterWeight"]));
+            }
+            set {
+                this["MassExcelColLetterWeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("M")]
+        public string MassExcelColLetterOutputStart {
+            get {
+                return ((string)(this["MassExcelColLetterOutputStart"]));
+            }
+            set {
+                this["MassExcelColLetterOutputStart"] = value;
             }
         }
     }

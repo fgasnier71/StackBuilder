@@ -50,7 +50,7 @@ namespace treeDiM.StackBuilder.TechnologyBSA_ASPNET
 
             // get a list of all possible layers and fill ListView control
             ILayerSolver solver = new LayerSolver();
-            var layers = solver.BuildLayers(boxProperties.OuterDimensions, new Vector2D(vPalletDim.X, vPalletDim.Y), 0.0, constraintSet, bestLayersOnly);
+            var layers = solver.BuildLayers(boxProperties.OuterDimensions, Vector3D.Zero, new Vector2D(vPalletDim.X, vPalletDim.Y), 0.0, constraintSet, bestLayersOnly);
             foreach (var layer in layers)
                 listLayers.Add(
                     new LayerDetails(

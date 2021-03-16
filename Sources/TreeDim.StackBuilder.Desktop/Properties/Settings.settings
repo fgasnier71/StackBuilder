@@ -275,9 +275,6 @@
     <Setting Name="MaximumCaseWeight" Type="System.Double" Scope="User">
       <Value Profile="(Default)">20</Value>
     </Setting>
-    <Setting Name="AutoUpdaterXMLPath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://plmpack.com/stackbuilder/download/AutoUpdater.xml</Value>
-    </Setting>
     <Setting Name="ExportCoordinatesMode" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
@@ -304,6 +301,51 @@
     </Setting>
     <Setting Name="TrayHeight" Type="System.Double" Scope="User">
       <Value Profile="(Default)">40</Value>
+    </Setting>
+    <Setting Name="AutoUpdaterXMLPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.treedim.com/DL/StackBuilder/AutoUpdater.xml</Value>
+    </Setting>
+    <Setting Name="MassExcelGenerateImageInRow" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MassExcelGenerateImagesInFolder" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="MassExcelGenerateReportsInFolder" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="MassExcelImageFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MassExcelReportFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MassExcelImageSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">150</Value>
+    </Setting>
+    <Setting Name="MassExcelStackCountMax" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2000</Value>
+    </Setting>
+    <Setting Name="MassExcelColLetterName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">A</Value>
+    </Setting>
+    <Setting Name="MassExcelColLetterDescription" Type="System.String" Scope="User">
+      <Value Profile="(Default)">B</Value>
+    </Setting>
+    <Setting Name="MassExcelColLetterLength" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C</Value>
+    </Setting>
+    <Setting Name="MassExcelColLetterWidth" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D</Value>
+    </Setting>
+    <Setting Name="MassExcelColLetterHeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E</Value>
+    </Setting>
+    <Setting Name="MassExcelColLetterWeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">F</Value>
+    </Setting>
+    <Setting Name="MassExcelColLetterOutputStart" Type="System.String" Scope="User">
+      <Value Profile="(Default)">M</Value>
     </Setting>
   </Settings>
 </SettingsFile>

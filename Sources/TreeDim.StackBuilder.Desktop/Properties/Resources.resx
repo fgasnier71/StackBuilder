@@ -618,6 +618,9 @@ Continue?</value>
   <data name="ID_LOADWEIGHT_WU" xml:space="preserve">
     <value>Load weight ({0})</value>
   </data>
+  <data name="ID_MASSEXCEL_FREEVERSIONLIMITEDNUMBER" xml:space="preserve">
+    <value>Free version can only process {0} rows...</value>
+  </data>
   <data name="ID_MAXIMUMCASEWEIGHTSHOULDEXCEED" xml:space="preserve">
     <value>Maximum case weight should exceed {0} {1}.</value>
   </data>
@@ -817,6 +820,30 @@ Continue?</value>
   </data>
   <data name="ID_REMOVINGEXISTINGTYPE" xml:space="preserve">
     <value>Removing existing type {0}...</value>
+  </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Efficiency</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ID_RESULT_LAYERCOUNT" xml:space="preserve">
+    <value>Layers x Per Layer</value>
+  </data>
+  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
+    <value>Load weight</value>
+  </data>
+  <data name="ID_RESULT_NOCASES" xml:space="preserve">
+    <value>Number of cases</value>
+  </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>No valid solution found!</value>
+  </data>
+  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
+    <value>Total pallet weight</value>
   </data>
   <data name="ID_SAVEMODIFIEDFILE" xml:space="preserve">
     <value>Save file {0}?</value>

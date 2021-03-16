@@ -158,8 +158,11 @@ namespace treeDiM.StackBuilder.GUIExtension
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(solution.InterlayerCount);
                 }
                 // *** Item # (Recursive count)
+                RecurInsertContent(ref iRow, _analysis.Content, solution.ItemCount);
+                /*
                 Packable content = _analysis.Content;
                 int itemCount = solution.ItemCount;
+
                 int number = 1;
                 do
                 {
@@ -173,6 +176,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(itemCount);
                 }
                 while (null != content && content.InnerContent(ref content, ref number));
+                */
                 // ***
                 // outer dimensions
                 BBox3D bboxGlobal = solution.BBoxGlobal;
@@ -254,6 +258,8 @@ namespace treeDiM.StackBuilder.GUIExtension
                     rowHeader.View = captionHeader;
                     gridSolution[iRow, 0] = rowHeader;
 
+                    RecurInsertContent(ref iRow, _analysis.Content, solution.ItemCount);
+/*
                     // *** Item # (recursive count)
                     content = _analysis.Content;
                     itemCount = solution.LayerBoxCount(i);
@@ -271,7 +277,7 @@ namespace treeDiM.StackBuilder.GUIExtension
                     }
                     while (null != content && content.InnerContent(ref content, ref number));
                     // ***
-
+*/
                     // layer weight
                     gridSolution.Rows.Insert(++iRow);
                     rowHeader = new SourceGrid.Cells.RowHeader(string.Format(Resources.ID_WEIGHT_WU, UnitsManager.MassUnitString));
@@ -297,6 +303,25 @@ namespace treeDiM.StackBuilder.GUIExtension
             catch (Exception ex)
             {
                 _log.Error(ex.ToString());
+            }
+        }
+        public void RecurInsertContent(ref int iRow, Packable content, int number)
+        {
+            gridSolution.Rows.Insert(++iRow);
+            SourceGrid.Cells.RowHeader rowHeader = new SourceGrid.Cells.RowHeader($"{content.DetailedName} #")
+            {
+                View = CellProperties.VisualPropValue
+            };
+            gridSolution[iRow, 0] = rowHeader;
+            gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(number);
+
+            List<Pair<Packable, int>> listContentItems = new List<Pair<Packable, int>>();
+            if (content.InnerContent(ref listContentItems) && null != listContentItems)
+            {
+                foreach (var item in listContentItems)
+                {
+                    RecurInsertContent(ref iRow, item.first, item.second * number);
+                }
             }
         }
         #endregion
@@ -473,5 +498,53 @@ namespace treeDiM.StackBuilder.GUIExtension
         #region Private properties
         private int GridFontSize { get; set; }
         #endregion
+    }
+
+    internal class CellProperties
+    {
+        public static SourceGrid.Cells.Views.RowHeader VisualPropHeader
+        {
+            get
+            {
+                if (null == _captionHeader)
+                {
+                    _captionHeader = new SourceGrid.Cells.Views.RowHeader
+                    {
+                        Background = new DevAge.Drawing.VisualElements.RowHeader()
+                        {
+                            BackColor = Color.SteelBlue,
+                            Border = DevAge.Drawing.RectangleBorder.NoBorder,
+                        },
+                        ForeColor = Color.Black,
+                        Font = new Font("Arial", GridFontSize, FontStyle.Bold),
+                        TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter
+                    };
+                }
+                return _captionHeader;
+            }
+        }
+        public static SourceGrid.Cells.Views.RowHeader VisualPropValue
+        {
+            get
+            {
+                if (null == _viewRowHeader)
+                {
+                    _viewRowHeader = new SourceGrid.Cells.Views.RowHeader
+                    {
+                        Background = new DevAge.Drawing.VisualElements.RowHeader()
+                        {
+                            BackColor = Color.LightGray,
+                            Border = DevAge.Drawing.RectangleBorder.NoBorder
+                        },
+                        ForeColor = Color.Black,
+                        Font = new Font("Arial", GridFontSize, FontStyle.Regular)
+                    };
+                }
+                return _viewRowHeader;
+            }
+        }
+
+        private static SourceGrid.Cells.Views.RowHeader _captionHeader, _viewRowHeader;
+        public static int GridFontSize => Settings.Default.GridFontSize;
     }
 }
