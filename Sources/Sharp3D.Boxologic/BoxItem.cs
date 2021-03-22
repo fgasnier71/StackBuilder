@@ -12,6 +12,7 @@ namespace Sharp3D.Boxologic
         public bool AllowX { get; set; } = true;
         public bool AllowY { get; set; } = true;
         public bool AllowZ { get; set; } = true;
+        public int Order { get; set; } = -1;
     }
     public class Layer
     {

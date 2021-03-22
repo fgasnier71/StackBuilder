@@ -109,24 +109,26 @@ namespace treeDiM.StackBuilder.Basics
     public class ContentItem
     {
         public ContentItem(Packable p, uint n) { Pack = p; Number = n; }
-        public ContentItem(Packable p, uint n, bool[] orientations) { Pack = p; Number = n; Array.Copy(orientations, _allowOrient, 3); }
+        public ContentItem(Packable p, uint n, bool[] orientations) { Pack = p; Number = n; Array.Copy(orientations, AllowOrient, 3); }
         public Packable Pack { get; set; }
         public uint Number { get; set; }
-        public bool[] AllowedOrientations { get { return new bool[] { AllowOrientX, AllowOrientY, AllowOrientZ }; } set { _allowOrient = value; } }
+        public int Order { get; set; } = -1;
+
+        public bool[] AllowedOrientations { get { return new bool[] { AllowOrientX, AllowOrientY, AllowOrientZ }; } set { AllowOrient = value; } }
         public bool AllowOrientX
         {
-            get { if (Pack.IsBrick) return _allowOrient[0]; else return false; }
-            set { _allowOrient[0] = value; }
+            get { if (Pack.IsBrick) return AllowOrient[0]; else return false; }
+            set { AllowOrient[0] = value; }
         }
         public bool AllowOrientY
         {
-            get { if (Pack.IsBrick) return _allowOrient[1]; else return false; }
-            set { _allowOrient[1] = value; }
+            get { if (Pack.IsBrick) return AllowOrient[1]; else return false; }
+            set { AllowOrient[1] = value; }
         }
         public bool AllowOrientZ
         {
-            get { if (Pack.IsBrick) return _allowOrient[2]; else return true; }
-            set { _allowOrient[2] = value; }
+            get { if (Pack.IsBrick) return AllowOrient[2]; else return true; }
+            set { AllowOrient[2] = value; }
         }
         public bool IsValid => null != Pack && Number > 0 && (AllowOrientX || AllowOrientY || AllowOrientZ);
         public bool MatchDimensions(double length, double width, double height)
@@ -143,7 +145,7 @@ namespace treeDiM.StackBuilder.Basics
             return true;
         }
         private static bool MostlyEqual(double val0, double val1) => Math.Abs(val1 - val0) < 1.0e-03;
-        private bool[] _allowOrient = { true, true, true };
+        private bool[] AllowOrient { get; set; } = { true, true, true };
     }
 
     public class LoadedPalletItem

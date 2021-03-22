@@ -38,7 +38,7 @@ namespace treeDiM.StackBuilder.Engine
                         listCuboids.Add(
                             new Cuboid((decimal)b.Length, (decimal)b.Width, (decimal)b.Height)
                             {
-                                Tag = b
+                                Tag = BoxToID(ci.Pack as BoxProperties)
                                 , AllowOrientX = ci.AllowOrientX
                                 , AllowOrientY = ci.AllowOrientY
                                 , AllowOrientZ = ci.AllowOrientZ
@@ -76,57 +76,82 @@ namespace treeDiM.StackBuilder.Engine
             // *** Sharp3DBinPacking : end
 
             // *** BoxoLogic : begin
-            List<BoxItem> listItems = new List<BoxItem>();
-            foreach (ContentItem ci in contentItems)
+           
+            bool singleSol = true;
+            for (int variant = singleSol? 5 : 1; variant < 6; ++variant)
             {
-                for (int i = 0; i < ci.Number; ++i)
-                {
-                    if (ci.Pack is BoxProperties b)
-                        listItems.Add(
-                            new BoxItem()
-                            {
-                                ID=BoxToID(b),
-                                Boxx=(decimal)b.Length,
-                                Boxy=(decimal)b.Width,
-                                Boxz=(decimal)b.Height,
-                                AllowX = ci.AllowOrientX,
-                                AllowY = ci.AllowOrientY,
-                                AllowZ = ci.AllowOrientZ,
-                                N=1
-                            }
-                        );
-                }
-            }
-            var bl = new Boxlogic() { OutputFilePath = string.Empty };
-            var solArray = new SolutionArray();
-            bl.Run(listItems.ToArray(), (decimal)dimContainer.X, (decimal)dimContainer.Y, (decimal)dimContainer.Z, ref solArray);
-            foreach (var solution in solArray.Solutions)
-            {
-                HSolution sol = new HSolution($"Boxologic - Variant {solution.Variant}") { Analysis = analysis };
-                HSolItem hSolItem = sol.CreateSolItem();
-
-                Transform3D transform;
-                switch (solution.Variant)
-                {
-                    case 1: transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0); break;
-                    case 2: transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationZ(90.0); break;
-                    case 3: transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationZ(90.0); break;
-                    case 4: transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationY(-90.0); break;
-                    case 5: transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0); break;
-                    default: transform = Transform3D.Identity; break;
-                }
-
-                foreach (var item in solution.ItemsPacked)
-                {
-                    BoxInfoToSolItem(contentItems, offset, item, transform, out int index, out BoxPosition pos);
-                    hSolItem.InsertContainedElt(index, pos.Adjusted(new Vector3D((double)item.DimX, (double)item.DimY, (double)item.DimZ)));
-                }
+                HSolution sol = new HSolution($"Boxologic - Variant {variant}") { Analysis = analysis };
+                RunBoxologic(variant, sol, dimContainer, offset, contentItems);
                 solutions.Add(sol);
-            }
+            } // for
             // *** BoxoLogic : end
-
             return solutions;
         }
+
+        private void RunBoxologic(int variant, HSolution hSol, Vector3D dimContainer, Vector3D offset, List<ContentItem> contentItems)
+        {
+            // ContentItem -> BoxItem
+            List<BoxItem> boxItems = new List<BoxItem>();
+            foreach (ContentItem ci in contentItems)
+            {
+                if (ci.Pack is BoxProperties b)
+                    boxItems.Add(
+                        new BoxItem()
+                        {
+                            ID = BoxToID(b),
+                            Boxx = (decimal)b.Length,
+                            Boxy = (decimal)b.Width,
+                            Boxz = (decimal)b.Height,
+                            AllowX = ci.AllowOrientX,
+                            AllowY = ci.AllowOrientY,
+                            AllowZ = ci.AllowOrientZ,
+                            N = (int)ci.Number,
+                            Order = ci.Order
+                        }
+                );
+            }
+
+            // solve
+            var bl = new Boxlogic() { OutputFilePath = string.Empty };
+            var solArray = new SolutionArray();
+            bl.Run(variant, boxItems.ToArray(), (decimal)dimContainer.X, (decimal)dimContainer.Y, (decimal)dimContainer.Z, ref solArray);
+            var solution = solArray.Solutions[0];
+
+            HSolItem hSolItem = hSol.CreateSolItem();
+            Transform3D transform;
+            switch (solution.Variant)
+            {
+                case 1: transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0); break;
+                case 2: transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationZ(90.0); break;
+                case 3: transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationZ(90.0); break;
+                case 4: transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationY(-90.0); break;
+                case 5: transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0); break;
+                default: transform = Transform3D.Identity; break;
+            }
+
+            foreach (var item in solution.ItemsPacked)
+            {
+                BoxInfoToSolItem(contentItems, offset, item, transform, out int index, out BoxPosition pos);
+                hSolItem.InsertContainedElt(index, pos.Adjusted(new Vector3D((double)item.DimX, (double)item.DimY, (double)item.DimZ)));
+            }
+            
+            // remaining
+            List<ContentItem> remainingBoxItems = new List<ContentItem>();
+            foreach (var solItem in solution.ItemsUnpacked)
+            {
+                var ci = contentItems[(int)solItem.Id];
+                ContentItem contentItem = new ContentItem(ci.Pack, 1)
+                {
+                    AllowOrientX = ci.AllowOrientX,
+                    AllowOrientY = ci.AllowOrientY,
+                    AllowOrientZ = ci.AllowOrientZ
+                };
+                remainingBoxItems.Add(contentItem);
+            }
+            if (remainingBoxItems.Count > 0)
+                RunBoxologic(variant, hSol, dimContainer, offset, remainingBoxItems);            
+        }
+
         private uint BoxToID(BoxProperties b)
         {
             if (!_dictionnary.ContainsKey(b))
@@ -172,24 +197,22 @@ namespace treeDiM.StackBuilder.Engine
         {
             index = 0;
             pos = BoxPosition.Zero;
-
-            if (cuboid.Tag is BoxProperties bProperties)
+            try
             {
-                try
-                {
-                    index = contentItems.FindIndex(ci => ci.MatchDimensions((double)cuboid.Width, (double)cuboid.Depth, (double)cuboid.Height));
-                    pos = BoxPosition.FromPositionDimension(
+                index = int.Parse(cuboid.Tag.ToString());
+                BoxProperties bProperties = IDToBox((uint)index);
+
+                pos = BoxPosition.FromPositionDimension(
                         new Vector3D((double)cuboid.X, (double)cuboid.Y, (double)cuboid.Z) + offset,
                         new Vector3D((double)cuboid.Width, (double)cuboid.Height, (double)cuboid.Depth),
                         new Vector3D(bProperties.Length, bProperties.Width, bProperties.Height)
                         );
-                    return true;
-                }
-                catch (Exception ex)
+                return true;
+            }
+            catch (Exception ex)
                 {
                     _log.Error(ex.Message);
                 }
-            }
             return false;
         }
 

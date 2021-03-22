@@ -17,6 +17,7 @@ namespace Sharp3D.Boxologic
         private Scrappad scrapfirst, smallestz;
         private Scrappad trash;
         private Dictionary<int, KeyValuePair<int,decimal>> best_iterations = new Dictionary<int, KeyValuePair<int,decimal>>();
+        private bool Debug { get; set; } = false;
 
         private bool packing = true, layerdone = false, evened = false;
         private int best_variant;
@@ -35,7 +36,6 @@ namespace Sharp3D.Boxologic
         private decimal total_box_volume;
         private double pallet_volume_used_percentage;
         private StreamWriter fso;
-        public bool Debug { get; set; } = false;
         #endregion
         #region Public properties
         public string OutputFilePath { get; set; }
@@ -74,12 +74,12 @@ namespace Sharp3D.Boxologic
             Report_results2(ref solArray);
         }
 
-        public void Run(int variant, BoxItem[] listBoxItem, decimal palletLength, decimal palletWidth, decimal palletHeight, ref SolutionArray solArray)
+        public void Run(int variant, BoxItem[] listBoxItems, decimal palletLength, decimal palletWidth, decimal palletHeight, ref SolutionArray solArray)
         {
             packing = true;
 
             // boxes
-            foreach (BoxItem bi in listBoxItem)
+            foreach (BoxItem bi in listBoxItems)
             {
                 for (int i = 0; i < bi.N; ++i)
                     boxList.Add(
@@ -123,157 +123,87 @@ namespace Sharp3D.Boxologic
         }
         public void Execute_iterations()
         {
-            bool hundredpercent = false;
             for (int variant = 1; variant < 6; ++variant)
             {
-                best_solution_volume = 0;
-                number_of_iterations = 0;
-
-                // initialize pallet
-                pallet.Variant = variant;
-                // LISTS ALL POSSIBLE LAYER HEIGHTS BY GIVING A WEIGHT VALUE TO EACH OF THEM.
-                List_candidate_layers(variant);
-                int iLayerIndex = 0;
-                foreach (Layer l in layers)
-                {
-                    ++number_of_iterations;
-                    double elapsed_time = (DateTime.Now - TimeStart).TotalSeconds;
-                    if (Debug)
-                        Console.WriteLine($"VARIANT: {variant,5:#####}; ITERATION (TOTAL): {number_of_iterations,5:#####}; BEST SO FAR: {pallet_volume_used_percentage:0.000}; TIME: {elapsed_time:0.00}");
-                    packedvolume = 0;
-                    packedy = 0;
-                    packing = true;
-                    layerThickness = l.LayerDim;
-                    int itelayer = iLayerIndex++;
-                    remainpy = pallet.Pallet_y;
-                    remainpz = pallet.Pallet_z;
-                    packednumbox = 0;
-                    foreach (BoxInfo bi in boxList)
-                        bi.Is_packed = false;
-
-                    // ### BEGIN DO-WHILE
-                    do
-                    {
-                        layerinlayer = 0;
-                        layerdone = false;
-                        Pack_layer(variant, false, ref hundredpercent);
-                        packedy = packedy + layerThickness;
-                        remainpy = pallet.Pallet_y - packedy;
-                        if (0 != layerinlayer)
-                        {
-                            prepackedy = packedy;
-                            preremainpy = remainpy;
-                            remainpy = layerThickness - prelayer;
-                            packedy = packedy - layerThickness + prelayer;
-                            remainpz = lilz;
-                            layerThickness = layerinlayer;
-                            layerdone = false;
-                            Pack_layer(variant, false, ref hundredpercent);
-                            packedy = prepackedy;
-                            remainpy = preremainpy;
-                            remainpz = pallet.Pallet_z;
-                        }
-                        Find_layer(remainpy, pallet);
-                    }
-                    while (packing);
-                    // END DO-WHILE
-
-                    decimal best_solution_volume2 = 0;
-                    if (best_iterations.ContainsKey(variant))
-                        best_solution_volume2 = best_iterations[variant].Value;
-
-                    if (packedvolume >= best_solution_volume2/*best_solution_volume*/)
-                    {
-                        best_solution_volume = packedvolume;
-                        best_variant = variant;
-                        best_iteration = itelayer;
-                        number_packed_boxes = packednumbox;
-
-                        best_iterations[variant] = new KeyValuePair<int, decimal>(itelayer, packedvolume);
-                    }
-                    if (hundredpercent) break;
-                    pallet_volume_used_percentage = (double)best_solution_volume * 100 / (double)pallet.Vol;
-                }
-                //if (hundredpercent) break;
+                Execute_iterations(variant);
                 if ((pallet.Dim1 == pallet.Dim2) && (pallet.Dim2 == pallet.Dim3))
                     variant = 5;
             }
         }
+
         public void Execute_iterations(int variant)
         {
             bool hundredpercent = false;
-                best_solution_volume = 0;
-                number_of_iterations = 0;
+            best_solution_volume = 0;
+            number_of_iterations = 0;
 
-                // initialize pallet
-                pallet.Variant = variant;
-                // LISTS ALL POSSIBLE LAYER HEIGHTS BY GIVING A WEIGHT VALUE TO EACH OF THEM.
-                List_candidate_layers(variant);
+            // initialize pallet
+            pallet.Variant = variant;
+            // LISTS ALL POSSIBLE LAYER HEIGHTS BY GIVING A WEIGHT VALUE TO EACH OF THEM.
+            List_candidate_layers(variant);
 
-                int iLayerIndex = 0, itelayer = 0;
-                foreach (Layer l in layers)
+            int iLayerIndex = 0, itelayer = 0;
+            foreach (Layer l in layers)
+            {
+                ++number_of_iterations;
+                double elapsed_time = (DateTime.Now - TimeStart).TotalSeconds;
+                Console.WriteLine(
+                    $"VARIANT: {variant:#####}; ITERATION (TOTAL): {number_of_iterations:#####}; BEST SO FAR: {pallet_volume_used_percentage:0.000}; TIME: {elapsed_time:0.00}"
+                    );
+                packedvolume = 0;
+                packedy = 0;
+                packing = true;
+                layerThickness = l.LayerDim;
+                itelayer = iLayerIndex++;
+                remainpy = pallet.Pallet_y;
+                remainpz = pallet.Pallet_z;
+                packednumbox = 0;
+                foreach (BoxInfo bi in boxList)
+                    bi.Is_packed = false;
+
+                // ### BEGIN DO-WHILE
+                do
                 {
-                    ++number_of_iterations;
-                    double elapsed_time = (DateTime.Now - TimeStart).TotalSeconds;
-                    if (Debug)
+                    layerinlayer = 0;
+                    layerdone = false;
+                    Pack_layer(variant, false, ref hundredpercent);
+                    packedy += layerThickness;
+                    remainpy = pallet.Pallet_y - packedy;
+                    if (0 != layerinlayer)
                     {
-                        Console.WriteLine(
-                            $"VARIANT: {variant,5:#####}; ITERATION (TOTAL): {number_of_iterations,5:#####}; BEST SO FAR: {pallet_volume_used_percentage:0.000}; TIME: {elapsed_time:0.00}");
-                    }
-                    packedvolume = 0;
-                    packedy = 0;
-                    packing = true;
-                    layerThickness = l.LayerDim;
-                    itelayer = iLayerIndex++;
-                    remainpy = pallet.Pallet_y;
-                    remainpz = pallet.Pallet_z;
-                    packednumbox = 0;
-                    foreach (BoxInfo bi in boxList)
-                        bi.Is_packed = false;
-
-                    // ### BEGIN DO-WHILE
-                    do
-                    {
-                        layerinlayer = 0;
+                        prepackedy = packedy;
+                        preremainpy = remainpy;
+                        remainpy = layerThickness - prelayer;
+                        packedy = packedy - layerThickness + prelayer;
+                        remainpz = lilz;
+                        layerThickness = layerinlayer;
                         layerdone = false;
                         Pack_layer(variant, false, ref hundredpercent);
-                        packedy += layerThickness;
-                        remainpy = pallet.Pallet_y - packedy;
-                        if (0 != layerinlayer)
-                        {
-                            prepackedy = packedy;
-                            preremainpy = remainpy;
-                            remainpy = layerThickness - prelayer;
-                            packedy = packedy - layerThickness + prelayer;
-                            remainpz = lilz;
-                            layerThickness = layerinlayer;
-                            layerdone = false;
-                            Pack_layer(variant, false, ref hundredpercent);
-                            packedy = prepackedy;
-                            remainpy = preremainpy;
-                            remainpz = pallet.Pallet_z;
-                        }
-                        Find_layer(remainpy, pallet);
+                        packedy = prepackedy;
+                        remainpy = preremainpy;
+                        remainpz = pallet.Pallet_z;
                     }
-                    while (packing);
-                    // END DO-WHILE
-
-                    decimal best_solution_volume2 = 0;
-                    if (best_iterations.ContainsKey(variant))
-                        best_solution_volume2 = best_iterations[variant].Value;
-
-                    if (packedvolume >= best_solution_volume2)
-                    {
-                        best_solution_volume = packedvolume;
-                        best_variant = variant;
-                        best_iteration = itelayer;
-                        number_packed_boxes = packednumbox;
-
-                        best_iterations[variant] = new KeyValuePair<int, decimal>(itelayer, packedvolume);
-                    }
-                    if (hundredpercent) break;
-                    pallet_volume_used_percentage = (double)best_solution_volume * 100 / (double)pallet.Vol;
+                    Find_layer(remainpy, pallet);
                 }
+                while (packing);
+                // END DO-WHILE
+
+                decimal best_solution_volume2 = 0;
+                if (best_iterations.ContainsKey(variant))
+                    best_solution_volume2 = best_iterations[variant].Value;
+
+                if (packedvolume >= best_solution_volume2/*best_solution_volume*/)
+                {
+                    best_solution_volume = packedvolume;
+                    best_variant = variant;
+                    best_iteration = itelayer;
+                    number_packed_boxes = packednumbox;
+
+                    best_iterations[variant] = new KeyValuePair<int, decimal>(itelayer, packedvolume);
+                }
+                if (hundredpercent) break;
+                pallet_volume_used_percentage = (double)best_solution_volume * 100 / (double)pallet.Vol;
+            }
         }
         #endregion
         #region List_candidate_layers (DONE)
@@ -327,10 +257,12 @@ namespace Sharp3D.Boxologic
                     {
                         if (bi1 != bi2)
                         {
-                            decimal dimdif = Math.Abs(exdim - bi2.Dim1);
-                            if (Math.Abs(exdim - bi2.Dim2) < dimdif)
+                            decimal dimdif = decimal.MaxValue;
+                            if (bi2.AllowX && Math.Abs(exdim - bi2.Dim1) < dimdif)
+                                dimdif = Math.Abs(exdim - bi2.Dim1);
+                            if (bi2.AllowY && Math.Abs(exdim - bi2.Dim2) < dimdif)
                                 dimdif = Math.Abs(exdim - bi2.Dim2);
-                            if (Math.Abs(exdim - bi2.Dim3) < dimdif)
+                            if (bi2.AllowZ && Math.Abs(exdim - bi2.Dim3) < dimdif)
                                 dimdif = Math.Abs(exdim - bi2.Dim3);
                             layereval += dimdif;
                         }
@@ -658,7 +590,7 @@ namespace Sharp3D.Boxologic
         ///----------------------------------------------------------------------------
         private int Find_layer(decimal thickness, PalletInfo p)
         {
-            decimal exdim = 0, dimdif = 0, dimen2 = 0, dimen3 = 0;
+            decimal exdim = 0, dimdif = decimal.MaxValue, dimen2 = 0, dimen3 = 0;
             decimal layereval = 0, eval = decimal.MaxValue;
             layerThickness = 0;
             for (int x = 0; x < boxList.Count; x++)
@@ -699,12 +631,13 @@ namespace Sharp3D.Boxologic
                     {
                         for (int z = 0; z < boxList.Count; z++)
                         {
-                            if (!(x == z) && !(boxList[z].Is_packed))
+                            if ((x != z) && !boxList[z].Is_packed)
                             {
-                                dimdif = Math.Abs(exdim - boxList[z].Dim1);
-                                if (Math.Abs(exdim - boxList[z].Dim2) < dimdif)
+                                if (boxList[z].AllowX && Math.Abs(exdim - boxList[z].Dim1) < dimdif)
+                                    dimdif = Math.Abs(exdim - boxList[z].Dim1);
+                                if (boxList[z].AllowY && Math.Abs(exdim - boxList[z].Dim2) < dimdif)
                                     dimdif = Math.Abs(exdim - boxList[z].Dim2);
-                                if (Math.Abs(exdim - boxList[z].Dim3) < dimdif)
+                                if (boxList[z].AllowZ && Math.Abs(exdim - boxList[z].Dim3) < dimdif)
                                     dimdif = Math.Abs(exdim - boxList[z].Dim3);
                                 layereval += dimdif;
                             }
@@ -733,7 +666,7 @@ namespace Sharp3D.Boxologic
             , decimal bboxi, decimal bboxx, decimal bboxy, decimal bboxz)
         {
             evened = false;
-            if (boxi >= 0 && 0 != boxx * boxy *boxz)
+            if (boxi >= 0 && 0 != boxx * boxy * boxz)
             {
                 cboxi = boxi;
                 cboxx = boxx;
@@ -842,13 +775,12 @@ namespace Sharp3D.Boxologic
         private void Find_box(int variant, decimal hmx, decimal hy, decimal hmy, decimal hz, decimal hmz,
             ref decimal cboxi, ref decimal cboxx, ref decimal cboxy, ref decimal cboxz)
         {
-            decimal boxi = 0;
             decimal boxx = 0, boxy = 0, boxz = 0;
-            decimal bboxi = 0;
             decimal bboxx = 0, bboxy = 0, bboxz = 0;
             decimal bfx = decimal.MaxValue, bfy = decimal.MaxValue, bfz = decimal.MaxValue;
             decimal bbfx = decimal.MaxValue, bbfy = decimal.MaxValue, bbfz = decimal.MaxValue;
-            boxi = 0; bboxi = 0;
+            decimal boxi = 0;
+            decimal bboxi = 0;
 
             for (int y = 0; y < boxList.Count; y += boxList[y].N)
             {
@@ -1107,23 +1039,20 @@ namespace Sharp3D.Boxologic
                     bi.WriteToFile(fso, best_variant, best_iteration);
             }
             */
-            if (Debug)
-            {
-                Console.WriteLine($"ELAPSED TIME                       : Almost {elapsed_time:0.000} s");
-                Console.WriteLine($"TOTAL NUMBER OF ITERATIONS DONE    : {number_of_iterations}");
-                Console.WriteLine($"BEST SOLUTION FOUND AT             : ITERATION: {best_iteration} OF VARIANT: {best_variant}");
-                Console.WriteLine($"TOTAL NUMBER OF BOXES              : {boxList.Count}");
-                Console.WriteLine($"PACKED NUMBER OF BOXES             : {number_packed_boxes}");
-                Console.WriteLine($"TOTAL VOLUME OF ALL BOXES          : {total_box_volume}");
-                Console.WriteLine($"PALLET VOLUME                      : {pallet.Vol}");
-                Console.WriteLine($"BEST SOLUTION'S VOLUME UTILIZATION : {best_solution_volume} OUT OF {pallet.Vol}");
-                Console.WriteLine($"PERCENTAGE OF PALLET VOLUME USED   : {pallet_volume_used_percentage:0.000}");
-                Console.WriteLine($"PERCENTAGE OF PACKEDBOXES (VOLUME) : {packed_box_percentage:0.000}");
-                Console.WriteLine($"WHILE PALLET ORIENTATION           : X={pallet.Pallet_x}; Y={pallet.Pallet_y}; Z= {pallet.Pallet_z}");
-                Console.WriteLine();
-                foreach (var variant in best_iterations.Keys)
-                    Console.WriteLine($"{variant} {best_iterations[variant].Key} -> {best_iterations[variant].Value}");
-            }
+            Console.WriteLine("ELAPSED TIME                       : Almost {0:0.000} s", elapsed_time);
+            Console.WriteLine("TOTAL NUMBER OF ITERATIONS DONE    : {0}", number_of_iterations);
+            Console.WriteLine("BEST SOLUTION FOUND AT             : ITERATION: {0} OF VARIANT: {1}", best_iteration, best_variant);
+            Console.WriteLine("TOTAL NUMBER OF BOXES              : {0}", boxList.Count);
+            Console.WriteLine("PACKED NUMBER OF BOXES             : {0}", number_packed_boxes);
+            Console.WriteLine("TOTAL VOLUME OF ALL BOXES          : {0}", total_box_volume);
+            Console.WriteLine("PALLET VOLUME                      : {0}", pallet.Vol);
+            Console.WriteLine("BEST SOLUTION'S VOLUME UTILIZATION : {0} OUT OF {1}", best_solution_volume, pallet.Vol);
+            Console.WriteLine("PERCENTAGE OF PALLET VOLUME USED   : {0:0.000}", pallet_volume_used_percentage);
+            Console.WriteLine("PERCENTAGE OF PACKEDBOXES (VOLUME) : {0:0.000}", packed_box_percentage);
+            Console.WriteLine("WHILE PALLET ORIENTATION           : X={0}; Y={1}; Z= {2}", pallet.Pallet_x, pallet.Pallet_y, pallet.Pallet_z);
+            Console.WriteLine();
+            foreach (var variant in best_iterations.Keys)
+                Console.WriteLine("{0} {1} -> {2}", variant, best_iterations[variant].Key, best_iterations[variant].Value);
         }
 
         public void Report_results2(ref SolutionArray solArray)
@@ -1183,19 +1112,20 @@ namespace Sharp3D.Boxologic
                         sol.ItemsUnpacked.Add(bi.ToSolItem(variant));
                 }
                 solArray.Solutions.Add(sol);
+
                 if (Debug)
                 {
-                    Console.WriteLine($"ELAPSED TIME                       : Almost {elapsed_time:0.000} s");
-                    Console.WriteLine($"TOTAL NUMBER OF ITERATIONS DONE    : {number_of_iterations}");
-                    Console.WriteLine($"BEST SOLUTION FOUND AT             : ITERATION: {best_iteration} OF VARIANT: {best_variant}");
-                    Console.WriteLine($"TOTAL NUMBER OF BOXES              : {boxList.Count}");
-                    Console.WriteLine($"PACKED NUMBER OF BOXES             : {number_packed_boxes}");
-                    Console.WriteLine($"TOTAL VOLUME OF ALL BOXES          : {total_box_volume}");
-                    Console.WriteLine($"PALLET VOLUME                      : {pallet.Vol}");
-                    Console.WriteLine($"BEST SOLUTION'S VOLUME UTILIZATION : {best_solution_volume} OUT OF {pallet.Vol}");
-                    Console.WriteLine($"PERCENTAGE OF PALLET VOLUME USED   : {pallet_volume_used_percentage:0.000}");
-                    Console.WriteLine($"PERCENTAGE OF PACKEDBOXES (VOLUME) : {packed_box_percentage:0.000}");
-                    Console.WriteLine($"WHILE PALLET ORIENTATION           : X={pallet.Pallet_x}; Y={pallet.Pallet_y}; Z= {pallet.Pallet_z}");
+                    Console.WriteLine("ELAPSED TIME                       : Almost {0:0.000} s", elapsed_time);
+                    Console.WriteLine("TOTAL NUMBER OF ITERATIONS DONE    : {0}", number_of_iterations);
+                    Console.WriteLine("BEST SOLUTION FOUND AT             : ITERATION: {0} OF VARIANT: {1}", best_iteration, best_variant);
+                    Console.WriteLine("TOTAL NUMBER OF BOXES              : {0}", boxList.Count);
+                    Console.WriteLine("PACKED NUMBER OF BOXES             : {0}", number_packed_boxes);
+                    Console.WriteLine("TOTAL VOLUME OF ALL BOXES          : {0}", total_box_volume);
+                    Console.WriteLine("PALLET VOLUME                      : {0}", pallet.Vol);
+                    Console.WriteLine("BEST SOLUTION'S VOLUME UTILIZATION : {0} OUT OF {1}", best_solution_volume, pallet.Vol);
+                    Console.WriteLine("PERCENTAGE OF PALLET VOLUME USED   : {0:0.000}", pallet_volume_used_percentage);
+                    Console.WriteLine("PERCENTAGE OF PACKEDBOXES (VOLUME) : {0:0.000}", packed_box_percentage);
+                    Console.WriteLine("WHILE PALLET ORIENTATION           : X={0}; Y={1}; Z= {2}", pallet.Pallet_x, pallet.Pallet_y, pallet.Pallet_z);
                     Console.WriteLine();
                 }
             }

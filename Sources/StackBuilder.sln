@@ -148,8 +148,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Basics
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.ExportGLTF.Test", "Test\treeDiM.StackBuilder.ExportGLTF.Test\treeDiM.StackBuilder.ExportGLTF.Test.csproj", "{C4AA42EA-8CC4-444F-8386-04C7FEF696F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Engine.TestChunkSolver", "treeDiM.StackBuilder.Engine.TestChunkSolver\treeDiM.StackBuilder.Engine.TestChunkSolver.csproj", "{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}"
-EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "treeDiM.StackBuilder.WCFService.Test_MSI", "WIX\treeDiM.StackBuilder.WCFService.Test_MSI\treeDiM.StackBuilder.WCFService.Test_MSI.wixproj", "{4CD1F740-17DC-48C8-A320-31729D128DEB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Engine.TestTruckLoading", "Test\treeDiM.StackBuilder.Engine.TestTruckLoading\treeDiM.StackBuilder.Engine.TestTruckLoading.csproj", "{47BAF1D9-7CBE-4965-BA0A-3F7A5B6295CD}"
@@ -183,6 +181,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Engine.Heterogeneous2D.Test", "Test\treeDiM.StackBuilder.Engine.Heterogeneous2D.Test\treeDiM.StackBuilder.Engine.Heterogeneous2D.Test.csproj", "{57B1ECA3-25B6-4673-AB04-882F4997206D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharp3D.Pisinger", "Sharp3D.Pisinger\Sharp3D.Pisinger.csproj", "{136556A5-64F5-48A5-B5D6-EC767D3BC5D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Engine.TestChunkSolver", "Test\treeDiM.StackBuilder.Engine.TestChunkSolver\treeDiM.StackBuilder.Engine.TestChunkSolver.csproj", "{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeDiM.StackBuilder.Engine.Heterogeneous3D.Test", "Test\treeDiM.StackBuilder.Engine.Heterogeneous3D.Test\treeDiM.StackBuilder.Engine.Heterogeneous3D.Test.csproj", "{FD895752-4FE9-4818-BCF4-DFFDFBA07021}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -898,22 +900,6 @@ Global
 		{C4AA42EA-8CC4-444F-8386-04C7FEF696F5}.Release|x64.Build.0 = Release|Any CPU
 		{C4AA42EA-8CC4-444F-8386-04C7FEF696F5}.Release|x86.ActiveCfg = Release|Any CPU
 		{C4AA42EA-8CC4-444F-8386-04C7FEF696F5}.Release|x86.Build.0 = Release|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|x64.Build.0 = Debug|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|x86.Build.0 = Debug|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|x64.ActiveCfg = Release|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|x64.Build.0 = Release|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|x86.ActiveCfg = Release|Any CPU
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|x86.Build.0 = Release|Any CPU
 		{4CD1F740-17DC-48C8-A320-31729D128DEB}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{4CD1F740-17DC-48C8-A320-31729D128DEB}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{4CD1F740-17DC-48C8-A320-31729D128DEB}.Debug|Mixed Platforms.Build.0 = Debug|x86
@@ -1018,6 +1004,38 @@ Global
 		{136556A5-64F5-48A5-B5D6-EC767D3BC5D3}.Release|x64.Build.0 = Release|Any CPU
 		{136556A5-64F5-48A5-B5D6-EC767D3BC5D3}.Release|x86.ActiveCfg = Release|Any CPU
 		{136556A5-64F5-48A5-B5D6-EC767D3BC5D3}.Release|x86.Build.0 = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|x64.Build.0 = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Debug|x86.Build.0 = Debug|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|x64.ActiveCfg = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|x64.Build.0 = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|x86.ActiveCfg = Release|Any CPU
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}.Release|x86.Build.0 = Release|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Debug|x64.Build.0 = Debug|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Debug|x86.Build.0 = Debug|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Release|x64.ActiveCfg = Release|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Release|x64.Build.0 = Release|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Release|x86.ActiveCfg = Release|Any CPU
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1059,19 +1077,20 @@ Global
 		{9C04F265-B58B-4179-A1EE-20BA4C9A4EC9} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{FBDBEACF-3409-4C0F-B092-40825DE0A488} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{C4AA42EA-8CC4-444F-8386-04C7FEF696F5} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
-		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{4CD1F740-17DC-48C8-A320-31729D128DEB} = {7C541C76-20F1-40D8-A683-29062638D9B9}
 		{47BAF1D9-7CBE-4965-BA0A-3F7A5B6295CD} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{F025A776-08FB-487B-BD29-C5FBF75C1DBC} = {7C541C76-20F1-40D8-A683-29062638D9B9}
 		{EB6F5634-453E-4FF3-B138-D90F1D2BFB52} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 		{57B1ECA3-25B6-4673-AB04-882F4997206D} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
+		{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
+		{FD895752-4FE9-4818-BCF4-DFFDFBA07021} = {36E4D3C5-28FD-46B9-8763-C3316F67C6BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_PrefixTranslations = False
-		RESX_AutoCreateNewLanguageFiles = True
-		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
-		RESX_ConfirmAddLanguageFile = False
-		RESX_ExcelExportMode = SingleSheet
 		RESX_NeutralResourcesLanguage = en-001
+		RESX_ExcelExportMode = SingleSheet
+		RESX_ConfirmAddLanguageFile = False
+		SolutionGuid = {A8385DDB-1893-4CF8-83DF-F57C7AB7069B}
+		RESX_AutoCreateNewLanguageFiles = True
+		RESX_PrefixTranslations = False
 	EndGlobalSection
 EndGlobal

@@ -4,17 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{43C9CF3A-070F-462A-9B6A-1E2BC1D47EB0}</ProjectGuid>
+    <ProjectGuid>{FD895752-4FE9-4818-BCF4-DFFDFBA07021}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>treeDiM.StackBuilder.Engine.TestChunkSolver</RootNamespace>
-    <AssemblyName>treeDiM.StackBuilder.Engine.TestChunkSolver</AssemblyName>
+    <RootNamespace>treeDiM.StackBuilder.Engine.Heterogeneous3D.Test</RootNamespace>
+    <AssemblyName>treeDiM.StackBuilder.Engine.Heterogeneous3D.Test</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,17 +51,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TreeDim.StackBuilder.Engine\treeDiM.StackBuilder.Engine.csproj">
+    <ProjectReference Include="..\..\treeDiM.Basics\treeDiM.Basics.csproj">
+      <Project>{646ee507-e57d-43a7-93f3-365a687aec4b}</Project>
+      <Name>treeDiM.Basics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TreeDim.StackBuilder.Basics\treeDiM.StackBuilder.Basics.csproj">
+      <Project>{444c01d0-53fd-49a1-9d55-267b49161357}</Project>
+      <Name>treeDiM.StackBuilder.Basics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TreeDim.StackBuilder.Engine\treeDiM.StackBuilder.Engine.csproj">
       <Project>{2e646606-052d-4063-9218-1379430b070e}</Project>
       <Name>treeDiM.StackBuilder.Engine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\TreeDim.StackBuilder.Graphic\treeDiM.StackBuilder.Graphics.csproj">
+      <Project>{2ad4c04c-5b8a-4e69-9b1c-402cb86860a7}</Project>
+      <Name>treeDiM.StackBuilder.Graphics</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NuGet.Build.Tasks.Pack">
-      <Version>5.8.1</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
     <PackageReference Include="Sharp3D.Math">
       <Version>1.0.3</Version>
     </PackageReference>

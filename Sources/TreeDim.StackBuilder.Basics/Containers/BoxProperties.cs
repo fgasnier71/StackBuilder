@@ -43,6 +43,19 @@ namespace treeDiM.StackBuilder.Basics
             HasInsideDimensions = false;
         }
 
+        public BoxProperties(Document document, double length, double width, double height, double weight, Color color)
+            : base(document)
+        {
+            _length = length;
+            _width = width;
+            _height = height;
+            _weight = weight;
+            SetAllColors(Enumerable.Repeat(color, 6).ToArray());
+            TapeColor = Color.White;
+            TapeWidth = new OptDouble(true, 50.0);
+            HasInsideDimensions = false;
+        }
+
         public BoxProperties(Document document, double[] dimensions)
             : base(document)
         {
