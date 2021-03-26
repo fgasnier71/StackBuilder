@@ -165,6 +165,9 @@
   <data name="ID_RESULT_LAYERCOUNT" xml:space="preserve">
     <value>Layers x Per layer</value>
   </data>
+  <data name="ID_RESULT_LOADDIMENSIONS" xml:space="preserve">
+    <value>Load dimensions</value>
+  </data>
   <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
     <value>Load weight</value>
   </data>
@@ -173,6 +176,9 @@
   </data>
   <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
     <value>No valid solution found!</value>
+  </data>
+  <data name="ID_RESULT_PALLETDIMENSIONS" xml:space="preserve">
+    <value>Pallet dimensions</value>
   </data>
   <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
     <value>Total pallet weight</value>

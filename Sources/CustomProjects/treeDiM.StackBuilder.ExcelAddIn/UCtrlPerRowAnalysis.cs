@@ -100,6 +100,14 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     Excel.Range totalPalletWeightHeaderCell = xlSheet.Range[ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + 1];
                     totalPalletWeightHeaderCell.Value = Resources.ID_RESULT_TOTALPALLETWEIGHT + " (" + UnitsManager.MassUnitString + ")";
                     ++iNoCols;
+                    // pallet dimensions
+                    Excel.Range palletDimensionsHeaderCell = xlSheet.Range[ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + 1];
+                    palletDimensionsHeaderCell.Value = $"{Resources.ID_RESULT_PALLETDIMENSIONS} ({UnitsManager.LengthUnitString}x{UnitsManager.LengthUnitString}x{UnitsManager.LengthUnitString})";
+                    ++iNoCols;
+                    // pallet width
+                    Excel.Range loadDimensionsHeaderCell = xlSheet.Range[ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + 1];
+                    loadDimensionsHeaderCell.Value = $"{Resources.ID_RESULT_LOADDIMENSIONS} ({UnitsManager.LengthUnitString}x{UnitsManager.LengthUnitString}x{UnitsManager.LengthUnitString})";
+                    ++iNoCols;
                     // efficiency
                     Excel.Range efficiencyHeaderCell = xlSheet.Range[ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + 1];
                     efficiencyHeaderCell.Value = Resources.ID_RESULT_EFFICIENCY + " (%)";
@@ -158,6 +166,8 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                             // compute stacking
                             int stackCount = 0, layerCount = 0, byLayerCount = 0;
                             double loadWeight = 0.0, totalPalletWeight = 0.0, stackEfficiency = 0.0;
+                            double palletLength = 0.0, palletWidth = 0.0, palletHeight = 0.0;
+                            double loadLength = 0.0, loadWidth = 0.0, loadHeight = 0.0;
                             string stackImagePath = string.Empty;
                             iOutputFieldCount = palletColStartIndex;
                             // generate result
@@ -167,6 +177,8 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                                 , ref stackCount
                                 , ref layerCount, ref byLayerCount 
                                 , ref loadWeight, ref totalPalletWeight
+                                , ref palletLength, ref palletWidth, ref palletHeight
+                                , ref loadLength, ref loadWidth, ref loadHeight
                                 , ref stackEfficiency
                                 , ref stackImagePath);
                             // insert count
@@ -181,6 +193,12 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                             // insert total weight
                             var totalWeightCell = xlSheet.Range[ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow];
                             totalWeightCell.Value = totalPalletWeight;
+                            // insert pallet dimensions
+                            var palletDimCell = xlSheet.Range[ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow];
+                            palletDimCell.Value = $"{palletLength}x{palletWidth}x{palletHeight}";
+                            // insert load dimensions
+                            var loadDimCell = xlSheet.Range[ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow];
+                            loadDimCell.Value = $"{loadLength}x{loadWidth}x{loadHeight}";
                             // efficiency
                             var efficiencyCell = xlSheet.Range[ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow];
                             efficiencyCell.Value = Math.Round(stackEfficiency, 2);
@@ -380,6 +398,8 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             , ref int stackCount
             , ref int layerCount, ref int byLayerCount
             , ref double loadWeight, ref double totalWeight
+            , ref double palletLength, ref double palletWidth, ref double palletHeight
+            , ref double loadLength, ref double loadWidth, ref double loadHeight
             , ref double stackEfficiency
             , ref string stackImagePath)
         {
@@ -432,6 +452,14 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                     layerCount = solutionLayered.LayerCount;
                     if (solutionLayered.Layers.Count > 0)
                         byLayerCount = solutionLayered.Layers[0].BoxCount;
+
+                    palletLength = solutionLayered.BBoxGlobal.Length;
+                    palletWidth = solutionLayered.BBoxGlobal.Width;
+                    palletHeight = solutionLayered.BBoxGlobal.Height;
+
+                    loadLength = solutionLayered.BBoxLoad.Length;
+                    loadWidth = solutionLayered.BBoxLoad.Width;
+                    loadHeight = solutionLayered.BBoxLoad.Height;
                 }
 
                 if (stackCount <= StackCountMax)

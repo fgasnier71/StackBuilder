@@ -441,6 +441,7 @@
     </Compile>
     <AppDesigner Include="Properties\" />
     <None Include="treedim2021.pfx" />
+    <None Include="treedim21.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\treeDiM.Basics\treeDiM.Basics.csproj">
@@ -466,7 +467,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
-      <Version>5.8.1</Version>
+      <Version>5.9.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -482,10 +483,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>treedim2021.pfx</ManifestKeyFile>
+    <ManifestKeyFile>treedim21.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>E560907200F8CCA932E8CA665AA2916D0D74ED5A</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A9ED3433FB58AE1412F173E2B3FB4CAC65A272AA</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
