@@ -42,6 +42,7 @@ namespace treeDiM.StackBuilder.Engine
                                 , AllowOrientX = ci.AllowOrientX
                                 , AllowOrientY = ci.AllowOrientY
                                 , AllowOrientZ = ci.AllowOrientZ
+                                , PriorityLevel = ci.PriorityLevel
                             }
                         );
                 }
@@ -57,7 +58,7 @@ namespace treeDiM.StackBuilder.Engine
             var parameter = new BinPackParameter(
                 (decimal)dimContainer.X, (decimal)dimContainer.Y, (decimal)dimContainer.Z,
                 listCuboids.ToArray())
-            {};
+            { ShuffleCount = 0 };
 
             var binPackResult = binPacker.Pack(parameter);
             {
@@ -106,7 +107,7 @@ namespace treeDiM.StackBuilder.Engine
                             AllowY = ci.AllowOrientY,
                             AllowZ = ci.AllowOrientZ,
                             N = (int)ci.Number,
-                            Order = ci.Order
+                            Order = ci.PriorityLevel
                         }
                 );
             }

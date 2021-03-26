@@ -112,7 +112,7 @@ namespace treeDiM.StackBuilder.Basics
         public ContentItem(Packable p, uint n, bool[] orientations) { Pack = p; Number = n; Array.Copy(orientations, AllowOrient, 3); }
         public Packable Pack { get; set; }
         public uint Number { get; set; }
-        public int Order { get; set; } = -1;
+        public int PriorityLevel { get; set; } = -1;
 
         public bool[] AllowedOrientations { get { return new bool[] { AllowOrientX, AllowOrientY, AllowOrientZ }; } set { AllowOrient = value; } }
         public bool AllowOrientX
