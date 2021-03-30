@@ -127,7 +127,8 @@
             this.cbFileFormat.Items.AddRange(new object[] {
             "xml",
             "csv (default)",
-            "csv (TechnologyBSA)"});
+            "csv (TechnologyBSA)",
+            "csv (Excel-Manutention)"});
             this.cbFileFormat.Location = new System.Drawing.Point(91, 10);
             this.cbFileFormat.Name = "cbFileFormat";
             this.cbFileFormat.Size = new System.Drawing.Size(140, 21);

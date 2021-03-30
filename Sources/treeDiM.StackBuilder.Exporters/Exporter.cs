@@ -61,6 +61,7 @@ namespace treeDiM.StackBuilder.Exporters
                 new ExporterXML(),
                 new ExporterCSV(),
                 new ExporterCSV_TechBSA(),
+                new ExporterCSV_ExcelManutention(),
                 new ExporterJSON()
             };
 
