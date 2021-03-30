@@ -23,6 +23,8 @@ namespace treeDiM.StackBuilder.WCFService.Test
 
             nudWeight.Value = 1.0M;
             nudNumber.Value = 1M;
+
+            cbPriority.SelectedIndex = 0;
         }
 
         #region Event handlers
@@ -41,6 +43,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
         }
         #endregion
 
+        #region Public properties
         public string CaseName => tbName.Text;
         public Color ColorFaces { get; set; } = Color.Chocolate;
         public double CaseLength => (double)nudLength.Value;
@@ -51,5 +54,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
         public bool AllowX => chkbAllowX.Checked;
         public bool AllowY => chkbAllowY.Checked;
         public bool AllowZ => chkbAllowZ.Checked;
+        public int Priority => cbPriority.SelectedIndex - 1;
+        #endregion
     }
 }

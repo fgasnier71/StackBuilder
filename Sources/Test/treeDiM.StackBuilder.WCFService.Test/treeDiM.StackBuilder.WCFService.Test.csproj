@@ -60,7 +60,7 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>E560907200F8CCA932E8CA665AA2916D0D74ED5A</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A9ED3433FB58AE1412F173E2B3FB4CAC65A272AA</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>treedim.pfx</ManifestKeyFile>
@@ -188,6 +188,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="treedim.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

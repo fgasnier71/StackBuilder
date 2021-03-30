@@ -12,7 +12,6 @@ using treeDiM.StackBuilder.Graphics;
 using treeDiM.StackBuilder.Engine;
 #endregion
 
-
 namespace treeDiM.StackBuilder.WCFAppServ
 {
     #region StackBuilderProcessor
@@ -252,25 +251,32 @@ namespace treeDiM.StackBuilder.WCFAppServ
                 };
                 HSolver solver = new HSolver();
                 var solutions = solver.BuildSolutions(analysis);
-
-                // best solution is most likely : 5
+                
+                // get first solution (Sharp3DBin packing)
                 if (solutions.Count > 0)
                 {
-                    var sol = solutions[solutions.Count-1];
+                    var sol = solutions[0];
                     algorithm = sol.Algorithm;
                     palletCount = sol.SolItemCount;
 
-                    Graphics3DImage graphics = new Graphics3DImage(sz)
-                    {
-                        FontSizeRatio = fontSizeRatio,
-                        CameraPosition = cameraPosition,
-                        ShowDimensions = showCotations
-                    };
-                    ViewerHSolution sv = new ViewerHSolution(sol, 0);
-                    sv.Draw(graphics, Transform3D.Identity);
-                    graphics.Flush();
+                    var tileSize = ImageTiling.TileSize(sz, palletCount);
+                    var listTiles = new List<Bitmap>();
 
-                    Bitmap bmp = graphics.Bitmap;
+                    for (int i = 0; i < palletCount; ++i)
+                    {
+                        Graphics3DImage graphics = new Graphics3DImage(tileSize)
+                        {
+                            FontSizeRatio = fontSizeRatio,
+                            CameraPosition = cameraPosition,
+                            ShowDimensions = showCotations
+                        };
+                        ViewerHSolution sv = new ViewerHSolution(sol, i);
+                        sv.Draw(graphics, Transform3D.Identity);
+                        graphics.Flush();
+                        listTiles.Add( graphics.Bitmap );
+                    }
+
+                    var bmp = ImageTiling.TileImage(sz, listTiles);
                     ImageConverter converter = new ImageConverter();
                     imageBytes = (byte[])converter.ConvertTo(bmp, typeof(byte[]));
                 }

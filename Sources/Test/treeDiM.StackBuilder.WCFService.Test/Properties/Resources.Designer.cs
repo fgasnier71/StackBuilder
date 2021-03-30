@@ -77,5 +77,14 @@ namespace treeDiM.StackBuilder.WCFService.Test.Properties {
                 return ResourceManager.GetString("ID_NUMBER", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Priority level.
+        /// </summary>
+        internal static string ID_PRIORITYLEVEL {
+            get {
+                return ResourceManager.GetString("ID_PRIORITYLEVEL", resourceCulture);
+            }
+        }
     }
 }

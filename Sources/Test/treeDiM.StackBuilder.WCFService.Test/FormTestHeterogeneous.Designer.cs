@@ -49,6 +49,10 @@ namespace treeDiM.StackBuilder.WCFService.Test
             this.gridContent = new SourceGrid.Grid();
             this.splitContainerVert = new System.Windows.Forms.SplitContainer();
             this.pbStackbuilder = new System.Windows.Forms.PictureBox();
+            this.rtbPalletData = new System.Windows.Forms.RichTextBox();
+            this.pbPalletIndex = new System.Windows.Forms.PictureBox();
+            this.lbPalletIndex = new System.Windows.Forms.Label();
+            this.cbPalletIndex = new System.Windows.Forms.ComboBox();
             this.lbPalletCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
@@ -68,6 +72,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
             this.splitContainerVert.Panel2.SuspendLayout();
             this.splitContainerVert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStackbuilder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPalletIndex)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerHoriz
@@ -104,7 +109,9 @@ namespace treeDiM.StackBuilder.WCFService.Test
             // 
             // gbPallet
             // 
-            this.gbPallet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbPallet.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbPallet.Controls.Add(this.nudOverhangY);
             this.gbPallet.Controls.Add(this.lbPalletDim);
             this.gbPallet.Controls.Add(this.nudOverhangX);
@@ -116,9 +123,9 @@ namespace treeDiM.StackBuilder.WCFService.Test
             this.gbPallet.Controls.Add(this.label2);
             this.gbPallet.Controls.Add(this.nudMaxPalletHeight);
             this.gbPallet.Controls.Add(this.lbMaxPalletHeight);
-            this.gbPallet.Location = new System.Drawing.Point(524, 3);
+            this.gbPallet.Location = new System.Drawing.Point(442, 3);
             this.gbPallet.Name = "gbPallet";
-            this.gbPallet.Size = new System.Drawing.Size(398, 147);
+            this.gbPallet.Size = new System.Drawing.Size(480, 147);
             this.gbPallet.TabIndex = 2;
             this.gbPallet.TabStop = false;
             this.gbPallet.Text = "Pallet";
@@ -316,9 +323,13 @@ namespace treeDiM.StackBuilder.WCFService.Test
             // 
             // splitContainerVert.Panel2
             // 
+            this.splitContainerVert.Panel2.Controls.Add(this.rtbPalletData);
+            this.splitContainerVert.Panel2.Controls.Add(this.pbPalletIndex);
+            this.splitContainerVert.Panel2.Controls.Add(this.lbPalletIndex);
+            this.splitContainerVert.Panel2.Controls.Add(this.cbPalletIndex);
             this.splitContainerVert.Panel2.Controls.Add(this.lbPalletCount);
             this.splitContainerVert.Size = new System.Drawing.Size(934, 357);
-            this.splitContainerVert.SplitterDistance = 664;
+            this.splitContainerVert.SplitterDistance = 444;
             this.splitContainerVert.TabIndex = 0;
             // 
             // pbStackbuilder
@@ -326,18 +337,56 @@ namespace treeDiM.StackBuilder.WCFService.Test
             this.pbStackbuilder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbStackbuilder.Location = new System.Drawing.Point(0, 0);
             this.pbStackbuilder.Name = "pbStackbuilder";
-            this.pbStackbuilder.Size = new System.Drawing.Size(664, 357);
+            this.pbStackbuilder.Size = new System.Drawing.Size(444, 357);
             this.pbStackbuilder.TabIndex = 0;
             this.pbStackbuilder.TabStop = false;
+            // 
+            // rtbPalletData
+            // 
+            this.rtbPalletData.Location = new System.Drawing.Point(18, 35);
+            this.rtbPalletData.Name = "rtbPalletData";
+            this.rtbPalletData.Size = new System.Drawing.Size(237, 310);
+            this.rtbPalletData.TabIndex = 4;
+            this.rtbPalletData.Text = "";
+            // 
+            // pbPalletIndex
+            // 
+            this.pbPalletIndex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbPalletIndex.Location = new System.Drawing.Point(261, 35);
+            this.pbPalletIndex.Name = "pbPalletIndex";
+            this.pbPalletIndex.Size = new System.Drawing.Size(213, 310);
+            this.pbPalletIndex.TabIndex = 3;
+            this.pbPalletIndex.TabStop = false;
+            // 
+            // lbPalletIndex
+            // 
+            this.lbPalletIndex.AutoSize = true;
+            this.lbPalletIndex.Location = new System.Drawing.Point(15, 10);
+            this.lbPalletIndex.Name = "lbPalletIndex";
+            this.lbPalletIndex.Size = new System.Drawing.Size(33, 13);
+            this.lbPalletIndex.TabIndex = 2;
+            this.lbPalletIndex.Text = "Pallet";
+            // 
+            // cbPalletIndex
+            // 
+            this.cbPalletIndex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPalletIndex.FormattingEnabled = true;
+            this.cbPalletIndex.Location = new System.Drawing.Point(54, 7);
+            this.cbPalletIndex.Name = "cbPalletIndex";
+            this.cbPalletIndex.Size = new System.Drawing.Size(105, 21);
+            this.cbPalletIndex.TabIndex = 1;
+            this.cbPalletIndex.SelectedIndexChanged += new System.EventHandler(this.OnBinIndexChanged);
             // 
             // lbPalletCount
             // 
             this.lbPalletCount.AutoSize = true;
-            this.lbPalletCount.Location = new System.Drawing.Point(19, 22);
+            this.lbPalletCount.Location = new System.Drawing.Point(165, 10);
             this.lbPalletCount.Name = "lbPalletCount";
-            this.lbPalletCount.Size = new System.Drawing.Size(66, 13);
+            this.lbPalletCount.Size = new System.Drawing.Size(37, 13);
             this.lbPalletCount.TabIndex = 0;
-            this.lbPalletCount.Text = "Pallet count:";
+            this.lbPalletCount.Text = "out of ";
             // 
             // FormTestHeterogeneous
             // 
@@ -372,6 +421,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerVert)).EndInit();
             this.splitContainerVert.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbStackbuilder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPalletIndex)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -399,5 +449,9 @@ namespace treeDiM.StackBuilder.WCFService.Test
         private System.Windows.Forms.Button bnCompute;
         private System.Windows.Forms.PictureBox pbStackbuilder;
         private System.Windows.Forms.Label lbPalletCount;
+        private System.Windows.Forms.PictureBox pbPalletIndex;
+        private System.Windows.Forms.Label lbPalletIndex;
+        private System.Windows.Forms.ComboBox cbPalletIndex;
+        private System.Windows.Forms.RichTextBox rtbPalletData;
     }
 }

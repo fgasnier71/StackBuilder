@@ -48,6 +48,8 @@ namespace treeDiM.StackBuilder.WCFService.Test
             this.bnCancel = new System.Windows.Forms.Button();
             this.lbName = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbPriority = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
@@ -122,7 +124,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
             // 
             this.bnColor.Location = new System.Drawing.Point(15, 143);
             this.bnColor.Name = "bnColor";
-            this.bnColor.Size = new System.Drawing.Size(75, 23);
+            this.bnColor.Size = new System.Drawing.Size(75, 20);
             this.bnColor.TabIndex = 5;
             this.bnColor.Text = "Color...";
             this.bnColor.UseVisualStyleBackColor = true;
@@ -225,9 +227,9 @@ namespace treeDiM.StackBuilder.WCFService.Test
             // lbColor
             // 
             this.lbColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lbColor.Location = new System.Drawing.Point(120, 143);
+            this.lbColor.Location = new System.Drawing.Point(123, 143);
             this.lbColor.Name = "lbColor";
-            this.lbColor.Size = new System.Drawing.Size(57, 23);
+            this.lbColor.Size = new System.Drawing.Size(54, 20);
             this.lbColor.TabIndex = 14;
             // 
             // bnCancel
@@ -256,13 +258,39 @@ namespace treeDiM.StackBuilder.WCFService.Test
             this.tbName.Size = new System.Drawing.Size(173, 20);
             this.tbName.TabIndex = 17;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 227);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Priority";
+            // 
+            // cbPriority
+            // 
+            this.cbPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPriority.FormattingEnabled = true;
+            this.cbPriority.Items.AddRange(new object[] {
+            "Default",
+            "0",
+            "1",
+            "2",
+            "3"});
+            this.cbPriority.Location = new System.Drawing.Point(123, 224);
+            this.cbPriority.Name = "cbPriority";
+            this.cbPriority.Size = new System.Drawing.Size(54, 21);
+            this.cbPriority.TabIndex = 19;
+            // 
             // FormAddItem
             // 
             this.AcceptButton = this.bnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bnCancel;
-            this.ClientSize = new System.Drawing.Size(453, 216);
+            this.ClientSize = new System.Drawing.Size(453, 254);
+            this.Controls.Add(this.cbPriority);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.bnCancel);
@@ -317,5 +345,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
         private System.Windows.Forms.Button bnCancel;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbPriority;
     }
 }

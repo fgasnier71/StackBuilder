@@ -893,7 +893,8 @@ namespace treeDiM.StackBuilder.WCFAppServ
                             dcsbItem.Orientation.X,
                             dcsbItem.Orientation.Y,
                             dcsbItem.Orientation.Z
-                        }
+                        },
+                        PriorityLevel = dcsbItem.PriorityIndex
                     }
                     );
             return listContentItems;

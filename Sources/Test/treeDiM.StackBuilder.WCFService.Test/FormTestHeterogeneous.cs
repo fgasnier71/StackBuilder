@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Text;
 
 using log4net;
 using WeifenLuo.WinFormsUI.Docking;
@@ -41,6 +42,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
                         Y = false,
                         Z = true
                     },
+                    PriorityIndex = -1,
                     Case = new DCSBCase()
                     {
                         Name = "Case",
@@ -57,10 +59,10 @@ namespace treeDiM.StackBuilder.WCFService.Test
                         Colors = Enumerable.Repeat(Color.Chocolate.ToArgb(), 6).ToArray()
                     }
                 }
-                );
+                ); ;
             // handling content grid events
             _checkBoxEvent.Click += new EventHandler(OnDataModified);
-            _numUpDownEvent.ValueChanged += new EventHandler(OnDataModified);
+            _nudEvent.ValueChanged += new EventHandler(OnDataModified);
             FillGridContent();
         }
         #endregion
@@ -89,7 +91,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
                 // ***
                 // set first row
                 gridContent.BorderStyle = BorderStyle.FixedSingle;
-                gridContent.ColumnsCount = 5;
+                gridContent.ColumnsCount = 6;
                 gridContent.FixedRows = 1;
 
                 // header
@@ -101,6 +103,11 @@ namespace treeDiM.StackBuilder.WCFService.Test
                     View = viewColumnHeader
                 };
                 gridContent[0, ++iCol] = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_NUMBER)
+                {
+                    AutomaticSortEnabled = false,
+                    View = viewColumnHeader
+                };
+                gridContent[0, ++iCol] = new SourceGrid.Cells.ColumnHeader(Properties.Resources.ID_PRIORITYLEVEL)
                 {
                     AutomaticSortEnabled = false,
                     View = viewColumnHeader
@@ -120,10 +127,16 @@ namespace treeDiM.StackBuilder.WCFService.Test
                     gridContent[iIndex, iCol] = new SourceGrid.Cells.Cell(ci.Case.Name) { View = viewNormal, Tag = ci.Case.Name };
                     // number
                     gridContent[iIndex, ++iCol] = new SourceGrid.Cells.Cell((int)ci.Number) { View = viewNormal };
-                    SourceGrid.Cells.Editors.NumericUpDown l_NumericUpDownEditor = new SourceGrid.Cells.Editors.NumericUpDown(typeof(int), 10000, 0, 1);
-                    l_NumericUpDownEditor.SetEditValue((int)ci.Number);
-                    gridContent[iIndex, iCol].Editor = l_NumericUpDownEditor;
-                    gridContent[iIndex, iCol].AddController(_numUpDownEvent);
+                    SourceGrid.Cells.Editors.NumericUpDown l_nudEditorNumber = new SourceGrid.Cells.Editors.NumericUpDown(typeof(int), 10000, 0, 1);
+                    l_nudEditorNumber.SetEditValue((int)ci.Number);
+                    gridContent[iIndex, iCol].Editor = l_nudEditorNumber;
+                    gridContent[iIndex, iCol].AddController(_nudEvent);
+                    // priority level
+                    gridContent[iIndex, ++iCol] = new SourceGrid.Cells.Cell((int)ci.PriorityIndex) { View = viewNormal };
+                    SourceGrid.Cells.Editors.NumericUpDown l_nudEditorPriority = new SourceGrid.Cells.Editors.NumericUpDown(typeof(int), 5, -1, 1);
+                    l_nudEditorPriority.SetEditValue(ci.PriorityIndex);
+                    gridContent[iIndex, iCol].Editor = l_nudEditorPriority;
+                    gridContent[iIndex, iCol].AddController(_nudEvent);
                     // orientation X
                     gridContent[iIndex, ++iCol] = new SourceGrid.Cells.CheckBox(null, ci.Orientation.X);
                     gridContent[iIndex, iCol].AddController(_checkBoxEvent);
@@ -150,12 +163,14 @@ namespace treeDiM.StackBuilder.WCFService.Test
             {
                 try
                 {
-                    SourceGrid.Cells.Editors.NumericUpDown upDownEditor = gridContent[iRow, 1].Editor as SourceGrid.Cells.Editors.NumericUpDown;
-                    SourceGrid.Cells.CheckBox checkBoxX = gridContent[iRow, 2] as SourceGrid.Cells.CheckBox;
-                    SourceGrid.Cells.CheckBox checkBoxY = gridContent[iRow, 3] as SourceGrid.Cells.CheckBox;
-                    SourceGrid.Cells.CheckBox checkBoxZ = gridContent[iRow, 4] as SourceGrid.Cells.CheckBox;
+                    SourceGrid.Cells.Editors.NumericUpDown nudEditorNumber = gridContent[iRow, 1].Editor as SourceGrid.Cells.Editors.NumericUpDown;
+                    SourceGrid.Cells.Editors.NumericUpDown nudEditorPriority = gridContent[iRow, 2].Editor as SourceGrid.Cells.Editors.NumericUpDown;
+                    SourceGrid.Cells.CheckBox checkBoxX = gridContent[iRow, 3] as SourceGrid.Cells.CheckBox;
+                    SourceGrid.Cells.CheckBox checkBoxY = gridContent[iRow, 4] as SourceGrid.Cells.CheckBox;
+                    SourceGrid.Cells.CheckBox checkBoxZ = gridContent[iRow, 5] as SourceGrid.Cells.CheckBox;
 
-                    Items[iRow - 1].Number = Convert.ToUInt32(upDownEditor.GetEditedValue());
+                    Items[iRow - 1].Number = Convert.ToUInt32(nudEditorNumber.GetEditedValue());
+                    Items[iRow - 1].PriorityIndex = Convert.ToInt32(nudEditorPriority.GetEditedValue());
                     Items[iRow - 1].Orientation = new DCSBBool3() { X = (bool)checkBoxX.Value, Y = (bool)checkBoxY.Value, Z = (bool)checkBoxZ.Value };
                 }
                 catch (Exception ex)
@@ -233,7 +248,8 @@ namespace treeDiM.StackBuilder.WCFService.Test
                            TapeWidth = 50.0,
                            TapeColor = Color.Beige.ToArgb(),
                            Colors = Enumerable.Repeat(form.ColorFaces.ToArgb(), 6).ToArray()
-                       }
+                       },
+                       PriorityIndex = form.Priority
                    }
                    );
                 FillGridContent();
@@ -298,6 +314,13 @@ namespace treeDiM.StackBuilder.WCFService.Test
                             pbStackbuilder.Image = img;
                         }
                     }
+
+                    lbPalletCount.Text = $"out of {hSolution.PalletCount}";
+                    cbPalletIndex.Items.Clear();
+                    for (int i = 0; i < hSolution.PalletCount; ++i)
+                        cbPalletIndex.Items.Add($"{i+1}");
+                    cbPalletIndex.SelectedIndex = 0;
+
                     DateTime dt1 = DateTime.Now;
                     _log.Info($"Web service answered in {(dt1 - dt0).TotalMilliseconds} ms");
                 }
@@ -307,8 +330,14 @@ namespace treeDiM.StackBuilder.WCFService.Test
                 _log.Error(ex.ToString());
             }
         }
-        private void ComputeSinglePallet(int binIndex)
+        private void OnBinIndexChanged(object sender, EventArgs e)
         {
+            int binIndex = cbPalletIndex.SelectedIndex;
+            if (-1 == binIndex)
+            {
+                pbPalletIndex.Image = null;
+                return;
+            }
             try
             {
                 DateTime dt0 = DateTime.Now;
@@ -339,8 +368,8 @@ namespace treeDiM.StackBuilder.WCFService.Test
                         {
                             Size = new DCCompSize()
                             {
-                                CX = pbStackbuilder.Size.Width,
-                                CY = pbStackbuilder.Size.Height
+                                CX = pbPalletIndex.Size.Width,
+                                CY = pbPalletIndex.Size.Height
                             },
                             Format = OutFormat.IMAGE
                         },
@@ -357,9 +386,20 @@ namespace treeDiM.StackBuilder.WCFService.Test
                         using (var ms = new System.IO.MemoryStream(hSolItem.OutFile.Bytes))
                         {
                             Image img = Image.FromStream(ms);
-                            pbStackbuilder.Image = img;
+                            pbPalletIndex.Image = img;
                         }
                     }
+                    var sb = new StringBuilder();
+                    // pallet load dims
+                    sb.AppendLine($"Load dim.   : {hSolItem.BBoxLoad.M0} x {hSolItem.BBoxLoad.M1} x {hSolItem.BBoxLoad.M2}");
+                    // pallet outer dims
+                    sb.AppendLine($"Outer dim.  : {hSolItem.BBoxTotal.M0} x {hSolItem.BBoxTotal.M1} x {hSolItem.BBoxTotal.M2}");
+                    // pallet load weight
+                    sb.AppendLine($"Load weight : {hSolItem.WeightLoad}");
+                    // pallet total weight
+                    sb.AppendLine($"Load height : {hSolItem.WeightTotal}");
+
+                    rtbPalletData.Text = sb.ToString();
                 }
 
                 DateTime dt1 = DateTime.Now;
@@ -373,7 +413,6 @@ namespace treeDiM.StackBuilder.WCFService.Test
         #endregion
 
         #region Properties
-        // pallet
         private double PalletLength { get => (double)nudPalletDimX.Value; set => nudPalletDimX.Value = (decimal)value; }
         private double PalletWidth { get => (double)nudPalletDimY.Value; set => nudPalletDimY.Value = (decimal)value; }
         private double PalletHeight { get => (double)nudPalletDimZ.Value; set => nudPalletDimZ.Value = (decimal)value; }
@@ -386,7 +425,7 @@ namespace treeDiM.StackBuilder.WCFService.Test
         private List<DCSBContentItem> Items { get; } = new List<DCSBContentItem>();
 
         protected SourceGrid.Cells.Controllers.CustomEvents _checkBoxEvent = new SourceGrid.Cells.Controllers.CustomEvents();
-        protected SourceGrid.Cells.Controllers.CustomEvents _numUpDownEvent = new SourceGrid.Cells.Controllers.CustomEvents();
+        protected SourceGrid.Cells.Controllers.CustomEvents _nudEvent = new SourceGrid.Cells.Controllers.CustomEvents();
 
         private ILog _log = LogManager.GetLogger(typeof(FormTestHeterogeneous));
         #endregion
