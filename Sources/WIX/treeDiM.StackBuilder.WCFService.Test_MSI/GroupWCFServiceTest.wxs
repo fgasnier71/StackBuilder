@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="Bin">
+            <Directory Id="dirF8C678F79A40940BB887A96D7A900AC2" Name="bin" />
+            <Directory Id="dir19348A16DF2E48F89CE156173EC97719" Name="Connected Services" />
+            <Directory Id="dir00C0E4DD3A388C11FE595AFB23A7C92F" Name="Properties" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="WCFServiceTestGroup">
+            <Component Id="cmp1910AFB6729C6053ED4D68B5AFE96341" Directory="Bin" Guid="7D088EC8-E3C4-4A8D-AB67-F73F2AA61A47">
+                <File Id="filB0374648CFD7DEC5F9C340A1264BBE77" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\App.config" />
+            </Component>
+            <Component Id="cmpFB9663663B38B40AEE633CC6ED0C938C" Directory="Bin" Guid="0F82AB2A-CC79-4377-B3BE-121AE0BE860D">
+                <File Id="filBF7D265461E0DA4575C2F47451719CF2" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\DockContentLogConsole.cs" />
+            </Component>
+            <Component Id="cmp4B82F2CBDDDB9463E79C1473B22C15DA" Directory="Bin" Guid="4DD07CBB-BF2B-4F68-99A4-0502056A119F">
+                <File Id="filF4CE62627231564F1BD6496F19F9D019" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\DockContentLogConsole.Designer.cs" />
+            </Component>
+            <Component Id="cmpA915C1BF07E921FEEFA7815A5AD0DA89" Directory="Bin" Guid="D015B8E5-8BC9-4AF5-B943-0CA1E9A18D9D">
+                <File Id="fil45577877DC450054CD6207B10C6DC17A" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\DockContentLogConsole.resx" />
+            </Component>
+            <Component Id="cmpF7BEA998C963A0CB5590F106D9A0EDE9" Directory="Bin" Guid="590396E4-E715-46C6-AEC0-65122E3BC5CD">
+                <File Id="fil4DB607B28CF2012CDE6600C07FAB35B0" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\FormAddItem.cs" />
+            </Component>
+            <Component Id="cmp6DF9A994322C65D3699B3099C97526F4" Directory="Bin" Guid="6C19D25D-0FFB-4A43-8468-74324632A15C">
+                <File Id="filB35C32A84EFE621EF1AF4D3C0A0D475D" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\FormAddItem.Designer.cs" />
+            </Component>
+            <Component Id="cmp17EE663A79128828C7020A2EE5BFB7F4" Directory="Bin" Guid="C6BB7B45-4BF4-43E1-8D5B-E46C63268AC2">
+                <File Id="fil1E4F9E3A784C4B543DB2BC5B91EB5FDF" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\FormAddItem.resx" />
+            </Component>
+            <Component Id="cmp750D960140B666884729C6728FBEF2BA" Directory="Bin" Guid="D3D300DC-45A0-43BF-988B-8047877AA750">
+                <File Id="filB4741B95E0C5C193CB1A10817FFFAE57" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\FormMain.cs" />
+            </Component>
+            <Component Id="cmp3C271F9921657F82093A7D3C72AC98AF" Directory="Bin" Guid="387A4036-FC9F-4A33-8174-37E8A5080105">
+                <File Id="filB3D5AFA0658F6FB17D9865F27B529491" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\FormMain.Designer.cs" />
+            </Component>
+            <Component Id="cmp96148F9EC257EC891C9E5895340F4EBD" Directory="Bin" Guid="2E5B8950-D862-4169-A1AC-A45BEE4CB0BB">
+                <File Id="fil832053735D6AD5BBC50308408C38961D" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\FormMain.resx" />
+            </Component>
+            <Component Id="cmp10D3C474C61DF7A56AD9348E03EADBB0" Directory="Bin" Guid="A28C65E1-5FEF-492A-91C4-CA057A5B3FE2">
+                <File Id="fil55AB39DB3A891CCCC7804DDCD50D37C7" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\FormTestHeterogeneous.cs" />
+            </Component>
+            <Component Id="cmp8CDE09D40EC375454A30B8CE4F1021A2" Directory="Bin" Guid="DFF265B3-1F86-4528-ACD8-05BEC3D2931E">
+                <File Id="filE4B5DD9C0E9FA0A9C1E47644545B2BD3" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\FormTestHeterogeneous.Designer.cs" />
+            </Component>
+            <Component Id="cmpF87931AC1A0765D5EE313CEE1B8631FB" Directory="Bin" Guid="D2978AE3-2423-4D2E-9B4D-E927C603BDDE">
+                <File Id="fil37C08F942B2E0E775029AB4C630CEE8E" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\FormTestHeterogeneous.resx" />
+            </Component>
+            <Component Id="cmp5BDED4FAFDB6CC991AA9CE9C937BDE63" Directory="Bin" Guid="59996AF9-BEB3-4FB4-8A64-ECEE5ACCACB3">
+                <File Id="fil14F4CB759F805A4C33FEDD2C4981753D" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\FormTestHomogeneous.cs" />
+            </Component>
+            <Component Id="cmpD5BA1AEAA5D33ED6F714D09D21E4A4AA" Directory="Bin" Guid="956AB571-522F-45F1-B79D-B6D6E96B5850">
+                <File Id="filA81CCD8C9AFEB6F0497DEA7DF62C5E59" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\FormTestHomogeneous.Designer.cs" />
+            </Component>
+            <Component Id="cmp1FF3E72A1F7481BCD770965752FF2470" Directory="Bin" Guid="1558DE04-ED0D-4262-B925-5ACD4AB84FC9">
+                <File Id="fil2957DE2F00C6AFFFD7E950563AE4D36B" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\FormTestHomogeneous.resx" />
+            </Component>
+            <Component Id="cmp15BA56939E2068DB9D348710B2C675DB" Directory="Bin" Guid="339A1EAA-6573-4805-B8F3-26D2D2C7A3D5">
+                <File Id="fil61ED68B59CF16035380A73827ADC7CD7" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Program.cs" />
+            </Component>
+            <Component Id="cmpB836E62002271E6C992A2D3D03E78EA1" Directory="Bin" Guid="B78765CC-B8D9-41EA-9208-4D7035B2DA33">
+                <File Id="filE1B9A799851E18E6094226BED5A4BF53" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\treeDim.ico" />
+            </Component>
+            <Component Id="cmp0C7992FB127B00B704AA62DBAA14D7D1" Directory="Bin" Guid="AE4B6BDA-EB9D-43F1-98EA-F3F28C3904F0">
+                <File Id="filEFD690E28499D526AE7C32AF0AE2257F" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\treeDiM.StackBuilder.WCFService.Test.csproj" />
+            </Component>
+            <Component Id="cmp2A3483982A33B4AF87F4A20FEA2CC5F6" Directory="Bin" Guid="8357A780-2564-45FA-95DE-437D1D339EC8">
+                <File Id="fil958FC85E80B68599122536A59860802E" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\treeDiM.StackBuilder.WCFService.Test.csproj.user" />
+            </Component>
+            <Component Id="cmpE5322E5B37FC8F9EFC18E71C0D350CAA" Directory="dirF710C4F966DECA883CD555B608EEB729" Guid="499876D2-EBE3-4771-8EFC-243A6681535E">
+                <File Id="fil9AF5F32CB2C21531847886A3159CE864" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\bin\Release\log4net.dll" />
+            </Component>
+            <Component Id="cmpAAEAC52C5E56649D6DE08A363115468A" Directory="dirF710C4F966DECA883CD555B608EEB729" Guid="4C1BC2E8-BA35-4C6A-AC4A-F9B517E34A72">
+                <File Id="fil32E826D45EDB8931854934E3282D9B36" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\bin\Release\RichTextBoxAppender.dll" />
+            </Component>
+            <Component Id="cmp939DB3E601CD0ECF5C6F35CFF6E637D3" Directory="dirF710C4F966DECA883CD555B608EEB729" Guid="0B7CB7E1-0E16-4FC5-9339-CFF7482837E0">
+                <File Id="filA6495D81088253AFAFFFD5C782FF0E90" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\bin\Release\SourceGrid.dll" />
+            </Component>
+            <Component Id="cmp5031EB151C802B81FE58FC7BA6BA954C" Directory="dirF710C4F966DECA883CD555B608EEB729" Guid="71BEB461-141F-4DF5-9513-8CDFF93B5E7E">
+                <File Id="filA6C4B24DF32D190BB3B8EE328221B96E" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\bin\Release\treeDiM.StackBuilder.WCFService.Test.application" />
+            </Component>
+            <Component Id="cmp9F00305B6F3F24773E3BC26D348905EC" Directory="dirF710C4F966DECA883CD555B608EEB729" Guid="68DF9213-B314-4E47-812A-2A66FE6D1C5F">
+                <File Id="fil71CEF4C155E2A01F58D8BB03B788505B" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\bin\Release\treeDiM.StackBuilder.WCFService.Test.exe" />
+            </Component>
+            <Component Id="cmpBC680CDA4BCEE5E358F8B9A213AD51B2" Directory="dirF710C4F966DECA883CD555B608EEB729" Guid="51AC8A83-8CB2-4136-9691-3C3548F05A4D">
+                <File Id="fil6561670F1BE69A200440309C790CB26F" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\bin\Release\treeDiM.StackBuilder.WCFService.Test.exe.config" />
+            </Component>
+            <Component Id="cmpEE5C9F3AB9295842E295E8D1D4926DF0" Directory="dirF710C4F966DECA883CD555B608EEB729" Guid="4F8FDD8E-E044-4F6B-98F3-25140B28AB0A">
+                <File Id="filFABEC0FE567AC896629F581785B65437" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\bin\Release\treeDiM.StackBuilder.WCFService.Test.exe.manifest" />
+            </Component>
+            <Component Id="cmpA2C0FC85B36EDA8AC71B9E8A3E21D40B" Directory="dirF710C4F966DECA883CD555B608EEB729" Guid="AB6FBAAE-9025-469F-81C5-BF3512A3B4CF">
+                <File Id="filE83C44E11982C19B746D28BEB578EBE9" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\bin\Release\WeifenLuo.WinFormsUI.Docking.dll" />
+            </Component>
+            <Component Id="cmpEB0E92642FB5C91E05D34AAE063A210B" Directory="dirA5C60B1554AC1A572952895C9B3D7120" Guid="FDC33525-CEAB-462B-9EA6-C3989EFB160A">
+                <File Id="filEB4914C2E9831BB7645E282BF9844436" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Connected Services\SB_SR\configuration.svcinfo" />
+            </Component>
+            <Component Id="cmpFB6FFF7ECE329D698D5737C5762758EB" Directory="dirA5C60B1554AC1A572952895C9B3D7120" Guid="22896619-F2B5-4BEC-8E88-4987717018C5">
+                <File Id="fil96FC10B64443EAD73B65676398A5DE13" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Connected Services\SB_SR\configuration91.svcinfo" />
+            </Component>
+            <Component Id="cmpA261F2F71D216F646390100F61C9600C" Directory="dirA5C60B1554AC1A572952895C9B3D7120" Guid="DDF2B574-6264-4C92-A7F0-7EF8DB4873D6">
+                <File Id="filBB655FD853317E5110FDB6291364E025" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Connected Services\SB_SR\Reference.cs" />
+            </Component>
+            <Component Id="cmpE04CF8880D1943A2BC8883DFF063E254" Directory="dirA5C60B1554AC1A572952895C9B3D7120" Guid="0E443BD6-E78F-4E58-8884-CF3DC414584A">
+                <File Id="filD01F3EEF48908FAA2C3D0711748FD216" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Connected Services\SB_SR\Reference.svcmap" />
+            </Component>
+            <Component Id="cmp5221714228EC770A5F9B8D3405A54755" Directory="dirA5C60B1554AC1A572952895C9B3D7120" Guid="4DE2D3F9-EFE0-49CB-9983-CBF1AC3D7DC5">
+                <File Id="fil64B7BBBA2AA572E7B9FF0FDF2E7A5B05" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Connected Services\SB_SR\StackBuilder.disco" />
+            </Component>
+            <Component Id="cmp8B52C3B9B0B52A7FE28F12B02E4F03D7" Directory="dirA5C60B1554AC1A572952895C9B3D7120" Guid="17B79D7F-1231-4CCF-9471-992090E52492">
+                <File Id="filA29070302B49B086B84469D88CBC7A9A" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Connected Services\SB_SR\StackBuilder.xsd" />
+            </Component>
+            <Component Id="cmp29F6DDD3C44CD3CFB140EAF7DC098CE4" Directory="dirA5C60B1554AC1A572952895C9B3D7120" Guid="8BC14FD2-4572-4311-8954-316E9DDA2903">
+                <File Id="filFBC4B4D7ED0574AC2305A8A880D5F11A" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Connected Services\SB_SR\StackBuilder1.xsd" />
+            </Component>
+            <Component Id="cmp29AD6F68E4BC832288CB8F8A4CDB071F" Directory="dirA5C60B1554AC1A572952895C9B3D7120" Guid="074D73DD-11CF-4A84-99CB-AF33804BD158">
+                <File Id="fil58B273D9C648634E2116620598A3164F" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Connected Services\SB_SR\StackBuilder2.xsd" />
+            </Component>
+            <Component Id="cmp1385CDEA8FD3FCF1F3363312CA007247" Directory="dirA5C60B1554AC1A572952895C9B3D7120" Guid="AACFEE9C-C9E5-4F05-8211-3B40869E6B0B">
+                <File Id="fil82DB80D1CDB52246E3141A8543028B9B" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Connected Services\SB_SR\StackBuilder3.xsd" />
+            </Component>
+            <Component Id="cmp596975892B385323CF584B8CA484A25B" Directory="dirA5C60B1554AC1A572952895C9B3D7120" Guid="1A8ECACB-9EB4-415F-B041-CC67BA7A972C">
+                <File Id="fil4AAE83FB233695F339007A31DD30F635" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Connected Services\SB_SR\StackBuilderServ.wsdl" />
+            </Component>
+            <Component Id="cmp1AC7262BE9C023B9A657C8BD55FCA47A" Directory="dirA5C60B1554AC1A572952895C9B3D7120" Guid="86C944B5-8B98-4FD7-A309-CE70B02920A7">
+                <File Id="filEE26D06D7D79FAFADC4F3632A92C2D63" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Connected Services\SB_SR\treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHSolution.datasource" />
+            </Component>
+            <Component Id="cmp95388822809109C1D17C6220718B4B0A" Directory="dirA5C60B1554AC1A572952895C9B3D7120" Guid="4A0189A4-8477-483A-800D-EFBBCF1002C8">
+                <File Id="filBC7517FC58A9DF4AFFC41388866EFFEE" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Connected Services\SB_SR\treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBHSolutionItem.datasource" />
+            </Component>
+            <Component Id="cmp64A5436A5459AE4E342F407C07A373B9" Directory="dirA5C60B1554AC1A572952895C9B3D7120" Guid="5CF7EB59-8730-4FD6-ACC2-EF08B45380D3">
+                <File Id="filC62398D62FDF54A6FE2A5D3D4FFC7067" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Connected Services\SB_SR\treeDiM.StackBuilder.WCFService.Test.SB_SR.DCSBSolution.datasource" />
+            </Component>
+            <Component Id="cmpB7362DC176DB219FF9BE32991C176D5F" Directory="dir00C0E4DD3A388C11FE595AFB23A7C92F" Guid="2E13F7A3-FDBD-49D5-BFEA-6A817445DFE2">
+                <File Id="fil0ED4BB109C1A9C359FACD6CFFC2E66B4" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Properties\AssemblyInfo.cs" />
+            </Component>
+            <Component Id="cmpA74628719CA09C0B890F94E29735561F" Directory="dir00C0E4DD3A388C11FE595AFB23A7C92F" Guid="0B7F5DC7-D372-4029-B3C1-B82ED141E57D">
+                <File Id="filA92FA5EA40EC79DC77EB00D9C7799F28" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Properties\Resources.Designer.cs" />
+            </Component>
+            <Component Id="cmp2685D0FB0261D2CB9470D579AC4A2CAC" Directory="dir00C0E4DD3A388C11FE595AFB23A7C92F" Guid="BA3AC8DB-B540-4805-8CD3-7880C2E723D0">
+                <File Id="fil105258D551C9029A1D24D995A419485D" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Properties\Resources.resx" />
+            </Component>
+            <Component Id="cmp533E3191E67B7FC205A341E7C879BAA5" Directory="dir00C0E4DD3A388C11FE595AFB23A7C92F" Guid="8F997613-0FD8-4A7A-A983-1E9A7B6B1DB6">
+                <File Id="filD14ECF0182E74CE143D0073A365304DB" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Properties\Settings.Designer.cs" />
+            </Component>
+            <Component Id="cmpC0F2CFB0552AD35DAB2A01D0B7AC9C6E" Directory="dir00C0E4DD3A388C11FE595AFB23A7C92F" Guid="5DAFE4ED-BCE6-40E9-8103-08F0F30DC13F">
+                <File Id="filB387BE825A0D9F0E0D3F2F87EACFD633" KeyPath="yes" Source="$(var.WCFServiceTestSourceDir)\Properties\Settings.settings" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir19348A16DF2E48F89CE156173EC97719">
+            <Directory Id="dirA5C60B1554AC1A572952895C9B3D7120" Name="SB_SR" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirF8C678F79A40940BB887A96D7A900AC2">
+            <Directory Id="dirF710C4F966DECA883CD555B608EEB729" Name="Release" />
+        </DirectoryRef>
+    </Fragment>
+</Wix>

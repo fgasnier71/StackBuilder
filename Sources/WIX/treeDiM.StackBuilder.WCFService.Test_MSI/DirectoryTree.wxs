@@ -8,6 +8,7 @@
             <Directory Id="BIN" Name="Bin"/>
           </Directory>
           <Directory Id="SAMPLECLIENT" Name="treeDiM.StackBuilder.WCFService.Test"/>
+          <Directory Id="DOCUMENTS" Name="Documents"/>
         </Directory>
       </Directory>
       <Directory Id="DesktopFolder" Name="Desktop"/>
