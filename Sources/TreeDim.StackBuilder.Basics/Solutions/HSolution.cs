@@ -101,6 +101,14 @@ namespace treeDiM.StackBuilder.Basics
                 bbox.Extend(solElt.Position.BBox(analysis.ContentTypeByIndex(solElt.ContentType).OuterDimensions));
             return bbox;
         }
+        public void Recenter(HSolution hSol, Vector3D dims)
+        {
+            BBox3D bbox = BBox(hSol);
+            Vector3D offset = new Vector3D((0.5 * dims.X - bbox.Center.X),  (0.5 *dims.Y - bbox.Center.Y), 0.0);
+
+            foreach (var solElt in ContainedElements)
+                solElt.Position = solElt.Position.Transform(Transform3D.Translation(offset));
+        }
         public double LoadWeight(HSolution sol)
         {
             AnalysisHetero analysis = sol.Analysis;

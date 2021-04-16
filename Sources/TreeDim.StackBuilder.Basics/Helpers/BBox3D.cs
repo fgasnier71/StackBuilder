@@ -119,14 +119,9 @@ namespace treeDiM.StackBuilder.Basics
                 return corners;
             }
         }
-        public double[] Dimensions
-        {
-            get { return new double[] { PtMax.X - PtMin.X, PtMax.Y - PtMin.Y, PtMax.Z - PtMin.Z }; }
-        }
-        public Vector3D DimensionsVec
-        {
-            get { return PtMax - PtMin; }
-        }
+        public double[] Dimensions => new double[] { PtMax.X - PtMin.X, PtMax.Y - PtMin.Y, PtMax.Z - PtMin.Z };
+        public Vector3D DimensionsVec => PtMax - PtMin;
+        public Vector3D Center => 0.5 * (PtMin + PtMax);
         #endregion
 
         #region ICloneable Members

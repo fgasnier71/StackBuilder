@@ -58,7 +58,7 @@ namespace treeDiM.StackBuilder.Engine
             var parameter = new BinPackParameter(
                 (decimal)dimContainer.X, (decimal)dimContainer.Y, (decimal)dimContainer.Z,
                 listCuboids.ToArray())
-            { ShuffleCount = 0 };
+            { ShuffleCount = 10 };
 
             var binPackResult = binPacker.Pack(parameter);
             {
@@ -71,6 +71,7 @@ namespace treeDiM.StackBuilder.Engine
                         CuboidToSolItem(contentItems, offset, cuboid, out int index, out BoxPosition pos);
                         hSolItem.InsertContainedElt(index, pos);
                     }
+                    hSolItem.Recenter(sol, dimContainer);
                 }
                 solutions.Add(sol);
             }
@@ -91,11 +92,15 @@ namespace treeDiM.StackBuilder.Engine
 
         private void RunBoxologic(int variant, HSolution hSol, Vector3D dimContainer, Vector3D offset, List<ContentItem> contentItems)
         {
+            _dictionnary.Clear();
             // ContentItem -> BoxItem
+            uint iCountBoxItems = 0;
             List<BoxItem> boxItems = new List<BoxItem>();
             foreach (ContentItem ci in contentItems)
             {
-                if (ci.Pack is BoxProperties b)
+                Console.WriteLine($"--->{ci.Pack.ID.Name} - {ci.Pack.OuterDimensions.X}x{ci.Pack.OuterDimensions.Y}x{ci.Pack.OuterDimensions.Z} - {ci.Number} -> {BoxToID(ci.Pack as BoxProperties)}");
+
+                if ((ci.Number > 0) && (ci.Pack is BoxProperties b))
                     boxItems.Add(
                         new BoxItem()
                         {
@@ -110,8 +115,8 @@ namespace treeDiM.StackBuilder.Engine
                             Order = ci.PriorityLevel
                         }
                 );
+                iCountBoxItems += ci.Number;
             }
-
             // solve
             var bl = new Boxlogic() { OutputFilePath = string.Empty };
             var solArray = new SolutionArray();
@@ -130,27 +135,51 @@ namespace treeDiM.StackBuilder.Engine
                 default: transform = Transform3D.Identity; break;
             }
 
+            var contentItemsClone = new List<ContentItem>();
+            foreach (var ci in contentItems)
+                contentItemsClone.Add(new ContentItem(ci.Pack, ci.Number, new bool[] { ci.AllowOrientX, ci.AllowOrientY, ci.AllowOrientZ }) { PriorityLevel = ci.PriorityLevel });
+
             foreach (var item in solution.ItemsPacked)
             {
-                BoxInfoToSolItem(contentItems, offset, item, transform, out int index, out BoxPosition pos);
+                BoxInfoToSolItem(offset, item, transform, out int index, out BoxPosition pos);
                 hSolItem.InsertContainedElt(index, pos.Adjusted(new Vector3D((double)item.DimX, (double)item.DimY, (double)item.DimZ)));
+
+                var ci = contentItemsClone.Find(c => c.Pack == IDToBox(item.Id));
+                System.Diagnostics.Debug.Assert(null != ci);
+                ci.Number -= 1;
             }
-            
-            // remaining
-            List<ContentItem> remainingBoxItems = new List<ContentItem>();
-            foreach (var solItem in solution.ItemsUnpacked)
-            {
-                var ci = contentItems[(int)solItem.Id];
-                ContentItem contentItem = new ContentItem(ci.Pack, 1)
-                {
-                    AllowOrientX = ci.AllowOrientX,
-                    AllowOrientY = ci.AllowOrientY,
-                    AllowOrientZ = ci.AllowOrientZ
-                };
-                remainingBoxItems.Add(contentItem);
-            }
-            if (remainingBoxItems.Count > 0)
-                RunBoxologic(variant, hSol, dimContainer, offset, remainingBoxItems);            
+            hSolItem.Recenter(hSol, dimContainer);
+
+            Console.WriteLine($"{iCountBoxItems} - {solution.ItemsPacked.Count}");
+            /*            
+                        // remaining
+                        List<ContentItem> remainingBoxItems = new List<ContentItem>();
+                        foreach (var solItem in solution.ItemsUnpacked)
+                        {
+                            var box = IDToBox(solItem.Id);
+                            var ci = contentItems.Find(c => c.Pack == box);
+                            if (null != ci)
+                            {
+                                remainingBoxItems.Add(
+                                    new ContentItem(ci.Pack, ci.Number)
+                                    {
+                                        AllowOrientX = ci.AllowOrientX,
+                                        AllowOrientY = ci.AllowOrientY,
+                                        AllowOrientZ = ci.AllowOrientZ,
+                                        PriorityLevel = ci.PriorityLevel
+                                    }
+                                );
+                            }
+                            else
+                                System.Diagnostics.Debug.Assert(false);
+                        }
+                        if (remainingBoxItems.Count > 0)
+            */
+            // remaining number of items
+            int iCount = contentItemsClone.Sum(c => (int)c.Number);
+
+            if (iCount > 0)
+                RunBoxologic(variant, hSol, dimContainer, offset, contentItemsClone);            
         }
 
         private uint BoxToID(BoxProperties b)
@@ -162,11 +191,11 @@ namespace treeDiM.StackBuilder.Engine
         private BoxProperties IDToBox(uint id)
         {
             if (!_dictionnary.ContainsValue(id))
-                return null;
+                throw new Exception($"Failed to find content item box with Id= {id}");
             return _dictionnary.FirstOrDefault(x => x.Value == id).Key;
         }
 
-        private bool BoxInfoToSolItem(List<ContentItem> contentItems, Vector3D offset, SolItem solItem, Transform3D transform, out int index, out BoxPosition pos)
+        private bool BoxInfoToSolItem(Vector3D offset, SolItem solItem, Transform3D transform, out int index, out BoxPosition pos)
         {
             index = 0;
             pos = BoxPosition.Zero;
