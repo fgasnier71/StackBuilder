@@ -63,7 +63,7 @@
     <Compile Include="ExporterCollada.cs" />
     <Compile Include="ExporterCSV.cs" />
     <Compile Include="ExporterCSV_TechBSA.cs" />
-    <Compile Include="ExporterCSV_ExcelManutention.cs" />
+    <Compile Include="ExporterCSV_FMLogistic.cs" />
     <Compile Include="ExporterGLB.cs" />
     <Compile Include="ExporterJSON.cs" />
     <Compile Include="ExporterXML.cs" />

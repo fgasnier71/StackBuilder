@@ -496,12 +496,12 @@
   <data name="toolStripButtonBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEsSURBVDhPrVK7SgRBEBww1A8wEMTAP9A9Z5aevp3eDUTB
-        aCPNxcRM0R8Q/QEDAwMDAzMDAz/D3B8w8HEHCiaePbcl7B4s3qIFxTDVU7VNb5t/RepD4Ui2ce0Gx/mK
-        YxlZH04gTY81ljyawb2iKGbrZOa5eOJ5E86Hw5pZyZ/K9yblI54JyaOlcN7z+TLsGkBy2QyYjjqvdUQY
-        Yzk/qhVPtSuylPlJur5saf3m563NskVE6Bwo7I5FL/uQWqFdX49DSK4gVUhZjrVwgGsrEuaFqgseQOqG
-        sixnqgAZQeoGomIJHTxD6gbLchsDdG4XkOI+iNXCpu3LRhsdhx1dunu0/7XKPA97XGV+QuFXJizD+Kth
-        raDJdy7lt14qr5OMuppe1PygXZ41vvw3GPMNhYylyd20okwAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEsSURBVDhPrVK7SgRBEFww1A8wEOQC/8C7c2bp6dvpnUAU
+        jDY6czG5TNEfEP0BAwMDAwMzAwM/w9wfMPAJCiaePbcl7B4s3qIFxTDVU7VNbyf/itT5YEmGuLaD5XzV
+        soyN80eQZscaSx7N4G4IYb5KZl6IJ57XYZ3fr5iV/Kl8r1M+4tkjuTfkT/suX4FdA0jO6wGzUee1jogk
+        MZwfVIrH2hUZytw07UC2tH7189Zk2TIidA7kdyaikxGkRmjXl5MQkgtIJVKWQy3s4dqIHvNS2QW/QmqH
+        oijmygAZQ2oHotBBB4+Q2sGwXMcAndsZpLgPYrSwaQay0UTLfluX7hbtf3WZF2GPq8wPKPzKLstb/NWw
+        ltDkG5u6l76V52lGXU1Par7TLk9qX/4bkuQbgc+lwKOifh4AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="toolStripButtonBack.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -539,48 +539,25 @@
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
   </data>
-  <data name="toolStripButtonExportXML.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="toolStripButtonExport.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGBSURBVDhPjZNLqsJQDIY7ERWFIqgo0g6KOtNtCO5DwcdA
-        rU9wBS5J99DiyA2I9a2IE6nyS2Lbe2srNBAOOcn/9eScRni9XqhWqwiHw4jFYr4ejUaRSCQwm80gfNv1
-        ekU2m4WmaTifz76+Wq2QSqUQCoXQarXcEAIUCgUutLY8RjXlchnz+Ry5XA7tdvuvlpL5fB6GYfwE7HY7
-        SJKE9XqNxWLBJ5lOp5/6IAC7RlEUlEolJJNJZDIZPB4PBAKQXS4XbLdbrlsul5Bl+dO2H4B6rNVqTlyv
-        1119E8i5t2/AYDCgFY1GwxFYNw9VVXnvdDqxxgXYbDbo9/tcOBwOHbFt4/GYc71ej4UewOFwsL+A0Wjk
-        AUwmE851u10voFgs4ng8ssiGNJtNB2L1z2KKqQXS+ALIqPA/gO6g0+k4sa3xtGDlA5mrBXoSOpaVC2Su
-        Z6Rh0nUd9LPcbjfc73deKfbbo8FLp9PY7/cQns8njzONbDweZxdFkf1XHIlEUKlUYJom3u14s2QKzz/T
-        AAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB2SURBVDhPnZLRDcAgCESZoGt0TObrVFRQiG2xgC/hQ+Xu
+        CBEiCE/iGscyIh4GWyZvUcmEENETxCZD+NcYmqzSjeViE+mM9rh9YXpD3599yXQfug4RJ9K/sHj7s6jY
+        qk9Sw0x2xA0dfa4SsjgtPvfrPHNy0QDgBt3pYyCp2AxlAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="toolStripButtonExportXML.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+  <data name="toolStripButtonExport.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="toolStripButtonExportXML.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="toolStripButtonExport.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
   </data>
-  <data name="toolStripButtonExportXML.Text" xml:space="preserve">
-    <value>Export as XML...</value>
+  <data name="toolStripButtonExport.Text" xml:space="preserve">
+    <value>Export...</value>
   </data>
-  <data name="toolStripButtonExportCSV.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFjSURBVDhPlZNNjoJAEIVZjKMOThwSJRCCC4Pu9ABcgMSD
-        uJEjcAJXnMYF3AHjygVbo+J/jBsC5o2F4gSBGeYllU5Xv/rS1Z1irtcrBoMByuUyWJbNjGq1Co7jMB6P
-        wbzqdDpBFEU4joPD4ZAZ8/kczWYTpVIJo9EoCSFAp9OJjI9USuTp9/uwLAuSJEHX9R8vHSqKgtVqlQvw
-        PA+yLGOxWMC27egmhmHc/UUAsafdbqPX66HRaEAQBPi+j1wA3AmGt0U13USefLPZDK1W6972fwEkqnm+
-        W5EWXkVvQjUJwHK5LAxYr9dpwHa7TQBcUwWjmnCBFHi/3ycB3W4Xu93uaQSofxW39jNvRYVUkw+YDDMf
-        L1YKkNXCb0q1QF9Cycf5n4prngAapul0iuPxiPP5jMvlEq20z8rR4PE8j81mAyYMw2icaWRrtRo+P97o
-        Jnhnv6I9Rb1ejyLeVyoVaJqGIAjwDZkzmdEFn7ccAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolStripButtonExportCSV.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>White</value>
-  </data>
-  <data name="toolStripButtonExportCSV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="toolStripButtonExportCSV.Text" xml:space="preserve">
-    <value>Export as CSV...</value>
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
   </data>
   <data name="toolStripButtonExportGLB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -817,16 +794,10 @@
   <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonExportXML.Name" xml:space="preserve">
-    <value>toolStripButtonExportXML</value>
+  <data name="&gt;&gt;toolStripButtonExport.Name" xml:space="preserve">
+    <value>toolStripButtonExport</value>
   </data>
-  <data name="&gt;&gt;toolStripButtonExportXML.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonExportCSV.Name" xml:space="preserve">
-    <value>toolStripButtonExportCSV</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonExportCSV.Type" xml:space="preserve">
+  <data name="&gt;&gt;toolStripButtonExport.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripButtonExportGLB.Name" xml:space="preserve">
@@ -846,6 +817,12 @@
   </data>
   <data name="&gt;&gt;toolStripButtonScreenShot.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
+    <value>toolStripSeparator3</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>DockContentAnalysisEdit</value>

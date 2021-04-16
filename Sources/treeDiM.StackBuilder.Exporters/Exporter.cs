@@ -16,7 +16,9 @@ namespace treeDiM.StackBuilder.Exporters
         public abstract string Name { get; }
         public abstract string Extension { get; }
         public abstract string Filter { get; }
+        public virtual bool ShowSelectorCoordinateMode { get; } = true;
         public CoordinateMode PositionCoordinateMode { get; set; } = CoordinateMode.CM_CORNER;
+        public virtual int MaxLayerIndexExporter(AnalysisLayered analysis) => analysis.SolutionLay.LayerCount;
 
         public enum CoordinateMode { CM_CORNER, CM_COG };
         #region Helpers
@@ -28,6 +30,20 @@ namespace treeDiM.StackBuilder.Exporters
                     return bp.Center(boxDim);
                 default:
                     return bp.Position;
+            }
+        }
+        protected int ConvertPositionAngleToPositionIndex(BoxPosition bp)
+        {
+            if (bp.DirectionHeight != HalfAxis.HAxis.AXIS_Z_P)
+                throw new  ExceptionUnexpectedOrientation(bp, this);
+
+            switch (bp.DirectionLength)
+            {
+                case HalfAxis.HAxis.AXIS_X_P: return 1;
+                case HalfAxis.HAxis.AXIS_Y_P: return 2;
+                case HalfAxis.HAxis.AXIS_X_N: return 3;
+                case HalfAxis.HAxis.AXIS_Y_N: return 4;
+                default: throw new ExceptionUnexpectedOrientation(bp, this);
             }
         }
         #endregion
@@ -61,7 +77,7 @@ namespace treeDiM.StackBuilder.Exporters
                 new ExporterXML(),
                 new ExporterCSV(),
                 new ExporterCSV_TechBSA(),
-                new ExporterCSV_ExcelManutention(),
+                new ExporterCSV_FMLogistic(),
                 new ExporterJSON()
             };
 

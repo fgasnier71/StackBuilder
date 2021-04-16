@@ -93,6 +93,15 @@ namespace treeDiM.StackBuilder.Desktop
                 File.WriteAllLines(saveExportFile.FileName, new string[] { textEditorControl.Text }, System.Text.Encoding.UTF8);
             }
         }
+        private void OnCreateBlockOfThree(object sender, EventArgs e)
+        {
+        }
+        private void OnCreateBlockOfTwo(object sender, EventArgs e)
+        {
+        }
+        private void OnReorder(object sender, EventArgs e)
+        {
+        }
         #endregion
 
         #region Public properties

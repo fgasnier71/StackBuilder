@@ -5,11 +5,11 @@ namespace treeDiM.StackBuilder.Exporters
 {
     [Serializable]
     public class ExceptionInvalidName : Exception
-    { 
-        public ExceptionInvalidName(string name)  {  Name = name; }
-        public ExceptionInvalidName() {}
-        public ExceptionInvalidName(string message, Exception innerException) : base(message, innerException) {}
-        protected ExceptionInvalidName(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext) {}
+    {
+        public ExceptionInvalidName(string name) { Name = name; }
+        public ExceptionInvalidName() { }
+        public ExceptionInvalidName(string message, Exception innerException) : base(message, innerException) { }
+        protected ExceptionInvalidName(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext) { }
         public override string Message => $"No exporter found for name = {Name}";
         public string Name { get; set; }
     }
@@ -17,7 +17,7 @@ namespace treeDiM.StackBuilder.Exporters
     [Serializable]
     public class ExceptionInvalidExtension : Exception
     {
-        public ExceptionInvalidExtension(string extension)  {  Extension = extension; }
+        public ExceptionInvalidExtension(string extension) { Extension = extension; }
         public ExceptionInvalidExtension() { }
         public ExceptionInvalidExtension(string message, Exception innerException) : base(message, innerException) { }
         protected ExceptionInvalidExtension(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext) { }
@@ -39,7 +39,7 @@ namespace treeDiM.StackBuilder.Exporters
     [Serializable]
     public class ExceptionTooManyItems : Exception
     {
-        public ExceptionTooManyItems(string formatName, int noItems, int maxNoItems)  { FormatName = formatName; NoItems = noItems; MaxNoItems = maxNoItems; }
+        public ExceptionTooManyItems(string formatName, int noItems, int maxNoItems) { FormatName = formatName; NoItems = noItems; MaxNoItems = maxNoItems; }
         public ExceptionTooManyItems() { }
         public ExceptionTooManyItems(string message, Exception innerException) : base(message, innerException) { }
         protected ExceptionTooManyItems(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext) { }
@@ -47,5 +47,13 @@ namespace treeDiM.StackBuilder.Exporters
         public int NoItems { get; set; }
         public int MaxNoItems { get; set; }
         public string FormatName { get; set; }
+    }
+    [Serializable]
+    public class ExceptionUnexpectedOrientation : Exception
+    {
+        public ExceptionUnexpectedOrientation(BoxPosition bPosition, Exporter exporter) { BoxPosition = bPosition; Exporter = exporter; }
+        public override string Message => $"Format {Exporter.Name} does not support (Length axis: {BoxPosition.DirectionLength}, Width axis: {BoxPosition.DirectionWidth})";
+        private BoxPosition BoxPosition { get; set; }
+        private Exporter Exporter { get; set; }
     }
 }

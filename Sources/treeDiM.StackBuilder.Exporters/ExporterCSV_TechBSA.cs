@@ -26,6 +26,7 @@ namespace treeDiM.StackBuilder.Exporters
         public override string Name => FormatName;
         public override string Filter => "Comma Separated Values (*.csv) |*.csv";
         public override string Extension => "csv";
+        public override bool ShowSelectorCoordinateMode => false;
         public override void Export(AnalysisLayered analysis, ref Stream stream)
         {
             if (analysis.SolutionLay.ItemCount > MaximumNumberOfCases)

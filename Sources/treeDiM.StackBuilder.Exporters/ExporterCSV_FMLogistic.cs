@@ -1,4 +1,5 @@
 ﻿#region Using directives
+using System;
 using System.IO;
 using System.Text;
 using System.Globalization;
@@ -10,12 +11,22 @@ using treeDiM.StackBuilder.Basics;
 
 namespace treeDiM.StackBuilder.Exporters
 {
-    public class ExporterCSV_ExcelManutention : Exporter
+    public class ExporterCSV_FMLogistic : Exporter
     {
+        #region Constructor
+        public ExporterCSV_FMLogistic()
+        {
+            PositionCoordinateMode = CoordinateMode.CM_COG;
+        }
+        #endregion
         #region Override Exporter
         public override string Name => FormatName;
         public override string Extension => "csv";
         public override string Filter => "Comma Separated Values (*.csv) |*.csv";
+        public override bool ShowSelectorCoordinateMode => false;
+        public override int MaxLayerIndexExporter(AnalysisLayered analysis) => Math.Min(analysis.SolutionLay.LayerCount, 2);
+
+
         public override void Export(AnalysisLayered analysis, ref Stream stream)
         {
             var sol = analysis.SolutionLay;
@@ -29,6 +40,8 @@ namespace treeDiM.StackBuilder.Exporters
                 NumberDecimalDigits = 1
             };
 
+            var pallet = analysis.Container as PalletProperties;
+
             var csv = new StringBuilder();
             // case dimension
             Vector3D caseDim = analysis.ContentDimensions;
@@ -37,22 +50,30 @@ namespace treeDiM.StackBuilder.Exporters
             int noDrops = sol.SolutionItems.Count;
             csv.AppendLine($"{sol.SolutionItems.Count};{noDrops}");
             // interlayers
+            int iLayer = 0;
             foreach (var solItem in sol.SolutionItems)
             {
-                csv.AppendLine($"{(solItem.HasInterlayer ? 1 : 0)};{solItem.InterlayerIndex}");
-            }
-            // boxes layer 0
-            if (sol.SolutionItems.Count > 1)
-            {
-                var solItem = sol.SolutionItems[0];
-
+                double xInterlayer = pallet.Length / 2;
+                double yInterlayer = pallet.Width / 2;
+                csv.AppendLine($"{iLayer + 1};{xInterlayer};{yInterlayer};{(solItem.HasInterlayer ? 1 : 0)};{solItem.InterlayerIndex}");
+                ++iLayer;
             }
 
-            // boxes layer 1
-            if (sol.SolutionItems.Count > 2)
+            // 1 line per block in the 2 first layer
+            int iLine = 1;
+            for (iLayer = 0; iLayer < MaxLayerIndexExporter(analysis); ++iLayer)
             {
-                var solItem = sol.SolutionItems[1];
+                var layer0 = layers[iLayer] as Layer3DBox;
+                foreach (var bPos in layer0)
+                {
+                    Vector3D vPos = ConvertPosition(bPos, caseDim);
+                    int orientation = ConvertPositionAngleToPositionIndex(bPos);
+                    int caseNumber = 1;
+                    int blockType = 1;
 
+                    csv.AppendLine($"{iLine};{vPos.X};{vPos.Y};{vPos.Z};{orientation};{caseNumber};{blockType}");
+                    ++iLine;
+                }
             }
 
             // write to stream
@@ -64,7 +85,7 @@ namespace treeDiM.StackBuilder.Exporters
         #endregion
 
         #region Static members
-        public static string FormatName => "csv (Excel-Manutention)";
+        public static string FormatName => "csv (FM Logistic)";
         #endregion
     }
 }

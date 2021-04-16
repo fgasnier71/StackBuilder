@@ -151,30 +151,6 @@ namespace treeDiM.StackBuilder.Engine
             hSolItem.Recenter(hSol, dimContainer);
 
             Console.WriteLine($"{iCountBoxItems} - {solution.ItemsPacked.Count}");
-            /*            
-                        // remaining
-                        List<ContentItem> remainingBoxItems = new List<ContentItem>();
-                        foreach (var solItem in solution.ItemsUnpacked)
-                        {
-                            var box = IDToBox(solItem.Id);
-                            var ci = contentItems.Find(c => c.Pack == box);
-                            if (null != ci)
-                            {
-                                remainingBoxItems.Add(
-                                    new ContentItem(ci.Pack, ci.Number)
-                                    {
-                                        AllowOrientX = ci.AllowOrientX,
-                                        AllowOrientY = ci.AllowOrientY,
-                                        AllowOrientZ = ci.AllowOrientZ,
-                                        PriorityLevel = ci.PriorityLevel
-                                    }
-                                );
-                            }
-                            else
-                                System.Diagnostics.Debug.Assert(false);
-                        }
-                        if (remainingBoxItems.Count > 0)
-            */
             // remaining number of items
             int iCount = contentItemsClone.Sum(c => (int)c.Number);
 

@@ -45,11 +45,11 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonExportXML = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonExportCSV = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonExport = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonExportGLB = new System.Windows.Forms.ToolStripButton();
             this.toolStripSepExport3D = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonScreenShot = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -171,8 +171,8 @@
             this.toolStripSeparator2,
             this.toolStripButtonReport,
             this.toolStripSeparator1,
-            this.toolStripButtonExportXML,
-            this.toolStripButtonExportCSV,
+            this.toolStripButtonExport,
+            this.toolStripSeparator3,
             this.toolStripButtonExportGLB,
             this.toolStripSepExport3D,
             this.toolStripButtonScreenShot});
@@ -203,19 +203,12 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
-            // toolStripButtonExportXML
+            // toolStripButtonExport
             // 
-            this.toolStripButtonExportXML.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButtonExportXML, "toolStripButtonExportXML");
-            this.toolStripButtonExportXML.Name = "toolStripButtonExportXML";
-            this.toolStripButtonExportXML.Click += new System.EventHandler(this.OnGenerateExport);
-            // 
-            // toolStripButtonExportCSV
-            // 
-            this.toolStripButtonExportCSV.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButtonExportCSV, "toolStripButtonExportCSV");
-            this.toolStripButtonExportCSV.Name = "toolStripButtonExportCSV";
-            this.toolStripButtonExportCSV.Click += new System.EventHandler(this.OnGenerateExport);
+            this.toolStripButtonExport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButtonExport, "toolStripButtonExport");
+            this.toolStripButtonExport.Name = "toolStripButtonExport";
+            this.toolStripButtonExport.Click += new System.EventHandler(this.OnGenerateExport);
             // 
             // toolStripButtonExportGLB
             // 
@@ -235,6 +228,11 @@
             resources.ApplyResources(this.toolStripButtonScreenShot, "toolStripButtonScreenShot");
             this.toolStripButtonScreenShot.Name = "toolStripButtonScreenShot";
             this.toolStripButtonScreenShot.Click += new System.EventHandler(this.OnScreenShot);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
             // DockContentAnalysisEdit
             // 
@@ -279,12 +277,12 @@
         private System.Windows.Forms.TextBox tbClickLayer;
         protected SourceGrid.Grid gridSolution;
         private System.Windows.Forms.ToolStripButton toolStripButtonBack;
-        private System.Windows.Forms.ToolStripButton toolStripButtonExportXML;
-        private System.Windows.Forms.ToolStripButton toolStripButtonExportCSV;
+        private System.Windows.Forms.ToolStripButton toolStripButtonExport;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSepExport3D;
         private System.Windows.Forms.ToolStripButton toolStripButtonScreenShot;
         private System.Windows.Forms.ToolStripButton toolStripButtonExportGLB;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
