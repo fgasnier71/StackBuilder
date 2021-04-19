@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?define TestAppDocuments=..\..\Test\treeDiM.StackBuilder.WCFService.Test\Documents\?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    <DirectoryRef Id="DOCUMENTS"/>
+    <ComponentGroup Id="Documents" Directory="DOCUMENTS">
+      <Component Id="ConsumingStackBuilderWCFService.pdf" Guid="{A75ECAF6-D376-4C43-BCF2-D737504F525B}">
+        <File Source ="$(var.TestAppDocuments)ConsumingStackBuilderWCFService.pdf"/>
+      </Component>
+    </ComponentGroup>
+	</Fragment>
+</Wix>

@@ -39,6 +39,11 @@
       <ComponentGroupRef Id="ServiceDefinition" />
       <ComponentGroupRef Id="ServiceBinaries"/>
       <ComponentGroupRef Id="WebIISConfiguration"/>
+      <Feature Id="Documents"
+               Title="Documents"
+               Level="1">
+        <ComponentGroupRef Id="Documents"/>
+      </Feature>
       <Feature Id="SampleClient"
                Title="Sample Client"
                Level="1">

@@ -15,7 +15,6 @@ namespace treeDiM.StackBuilder.Engine.Heterogeneous3D.Test
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             string outputDir = @"D:\GitHub\StackBuilder\Sources\Test\treeDiM.StackBuilder.Engine.Heterogeneous3D.Test\Output";

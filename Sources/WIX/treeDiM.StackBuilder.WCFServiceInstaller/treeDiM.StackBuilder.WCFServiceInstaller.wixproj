@@ -20,6 +20,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DirectoryTree.wxs" />
+    <Compile Include="Documents.wxs" />
     <Compile Include="Files.wxs" />
     <Compile Include="FileSampleClient.wxs" />
     <Compile Include="IISConfiguration.wxs" />
@@ -55,7 +56,6 @@
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"</PostBuildEvent>
   </PropertyGroup>
-
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.
 	Other similar extension points exist, see Wix.targets.
