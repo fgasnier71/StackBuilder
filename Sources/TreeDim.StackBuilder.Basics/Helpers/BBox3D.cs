@@ -62,6 +62,26 @@ namespace treeDiM.StackBuilder.Basics
             foreach (var pt in points)
                 Extend(pt);
         }
+        public BBox3D(BoxPosition bPos, Vector3D dim, Transform3D transf)
+        {
+            Vector3D lengthAxis = HalfAxis.ToVector3D(bPos.DirectionLength);
+            Vector3D widthAxis = HalfAxis.ToVector3D(bPos.DirectionWidth);
+            Vector3D heightAxis = HalfAxis.ToVector3D(bPos.DirectionHeight);
+
+            var points = new Vector3D[8];
+            points[0] = bPos.Position;
+            points[1] = bPos.Position + dim[0] * lengthAxis;
+            points[2] = bPos.Position + dim[0] * lengthAxis + dim[1] * widthAxis;
+            points[3] = bPos.Position + dim[1] * widthAxis;
+
+            points[4] = bPos.Position + dim[2] * heightAxis;
+            points[5] = bPos.Position + dim[2] * heightAxis + dim[0] * lengthAxis;
+            points[6] = bPos.Position + dim[2] * heightAxis + dim[0] * lengthAxis + dim[1] * widthAxis;
+            points[7] = bPos.Position + dim[2] * heightAxis + dim[1] * widthAxis;
+
+            foreach (var pt in points)
+                Extend(transf.transform(pt));
+        }
         #endregion
 
         #region Constants

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 #endregion
 
-
 namespace treeDiM.StackBuilder.Basics
 {
     public class LoadedPallet : PackableLoaded
@@ -23,14 +22,6 @@ namespace treeDiM.StackBuilder.Basics
             };
             return false;
         }
-        /*
-        public override bool InnerContent(ref Packable innerPackable, ref int number)
-        {
-            innerPackable = ParentAnalysis.Content;
-            number = ParentSolution.ItemCount;
-            return true;
-        }
-        */
         public override bool InnerAnalysis(ref AnalysisHomo analysis)
         {
             analysis = ParentAnalysis;

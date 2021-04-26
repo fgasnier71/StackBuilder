@@ -107,6 +107,7 @@ namespace treeDiM.StackBuilder.Graphics
         private Vector3D Dimensions { get; set; }
         private BoxPosition BoxPosition { get; set; }
         public BBox3D GetBBox() => new BBox3D(BoxPosition, Dimensions);
+        public BBox3D GetBBox(Transform3D transform) => new BBox3D(BoxPosition, Dimensions, transform);
         #endregion
         #region Public properties
         public Vector3D PointBase { get { return BoxPosition.Position; } }

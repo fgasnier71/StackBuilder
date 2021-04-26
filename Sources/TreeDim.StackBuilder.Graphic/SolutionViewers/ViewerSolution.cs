@@ -90,7 +90,7 @@ namespace treeDiM.StackBuilder.Graphics
                         foreach (BoxPosition bPosition in layerBox)
                         {
                             var dim = solBBox.DimensionsVec;
-                            graphics.AddImage(++pickId, new SubContent(loadedPallet.ParentAnalysis as AnalysisHomo), solBBox.DimensionsVec, bPosition.Transform(transform));
+                            graphics.AddImage(++pickId, new SubContent(loadedPallet.ParentAnalysis), solBBox.DimensionsVec, bPosition.Transform(transform));
                             // bbox used for picking
                             bbox.Extend(new BBox3D(bPosition.Transform(transform), solBBox.DimensionsVec));
                         }
@@ -302,6 +302,7 @@ namespace treeDiM.StackBuilder.Graphics
                     }
                 }
                 #endregion
+
                 #region Pallet film
                 // ### pallet film
                 Film film = null;

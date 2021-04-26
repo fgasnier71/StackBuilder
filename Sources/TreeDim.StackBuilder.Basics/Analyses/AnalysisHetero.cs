@@ -90,9 +90,8 @@ namespace treeDiM.StackBuilder.Basics
             return Solution;
         }
         public override bool HasValidSolution => null != Solution;
-        #region Non-public members
         public HSolution Solution { get; set; }
-
+        #region Non-public members
         protected override void RemoveItselfFromDependancies()
         {
             base.RemoveItselfFromDependancies();

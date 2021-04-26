@@ -81,19 +81,28 @@ namespace treeDiM.StackBuilder.Desktop
         #region IDrawingContainer
         public void Draw(Graphics3DControl ctrl, Graphics3D graphics)
         {
-            if (null == DestinationPallet)
+            if (null == MasterPallet || null == LoadedPallet0 || null == LoadedPallet1)
                 return;
 
+            var analysis = new AnalysisPalletsOnPallet(null) { PalletProperties = MasterPallet };
+            if (0 == Mode)
+                analysis.SetHalfPallets(LoadedPallet0, LoadedPallet1);
+            else if (1 == Mode && null == LoadedPallet2 && null == LoadedPallet3)
+                analysis.SetQuarterPallets(LoadedPallet0, LoadedPallet1, LoadedPallet2, LoadedPallet3);
 
+            if (!analysis.HasValidSolution) return;
 
-            Pallet pallet = new Pallet(DestinationPallet);
-            pallet.Draw(graphics, Transform3D.Identity);
-            graphics.AddDimensions(new DimensionCube(DestinationPallet.Length, DestinationPallet.Width, DestinationPallet.Height));
+            var viewer = new ViewerSolutionPalletsOnPallet(analysis.Solution);
+            viewer.Draw(graphics, Transform3D.Identity);
         }
         #endregion
 
         #region Accessors
-        private PalletProperties DestinationPallet => cbDestinationPallet.SelectedType as PalletProperties;
+        private PalletProperties MasterPallet => cbDestinationPallet.SelectedType as PalletProperties;
+        private LoadedPallet LoadedPallet0 => cbInputPallet1.SelectedType as LoadedPallet;
+        private LoadedPallet LoadedPallet1 => cbInputPallet2.SelectedType as LoadedPallet;
+        private LoadedPallet LoadedPallet2 => cbInputPallet3.SelectedType as LoadedPallet;
+        private LoadedPallet LoadedPallet3 => cbInputPallet4.SelectedType as LoadedPallet;
         private int Mode => rbHalf.Checked ? 0 : 1;
         #endregion
 

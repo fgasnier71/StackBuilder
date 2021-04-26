@@ -527,6 +527,9 @@ namespace treeDiM.StackBuilder.Graphics
                     // boxes
                     foreach (var box in Boxes)
                        bbox.Extend( box.GetBBox(world2eye) );
+                    // images
+                    foreach (var img in ListImageInst)
+                        bbox.Extend(img.GetBBox(world2eye));
                     // triangles
                     foreach (var tr in Triangles)
                         foreach (Vector3D pt in tr.Points)
