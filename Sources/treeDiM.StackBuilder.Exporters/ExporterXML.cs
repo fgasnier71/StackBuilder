@@ -68,6 +68,10 @@ namespace treeDiM.StackBuilder.Exporters
             stream.Flush();
             stream.Seek(0, SeekOrigin.Begin);
         }
+        public override void Export(RobotPreparation robotPreparation, ref Stream stream)
+        {
+            
+        }
         #region Helpers
         private units CurrentUnit
         {

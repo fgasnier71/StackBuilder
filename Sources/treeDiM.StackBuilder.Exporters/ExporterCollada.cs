@@ -297,6 +297,9 @@ namespace treeDiM.StackBuilder.Exporters
             model.Save(System.IO.Path.ChangeExtension(filePath, "xml"));
             */
         }
+        public override void Export(RobotPreparation robotPreparation, ref Stream stream)
+        { 
+        }
         #endregion
 
         #region Material

@@ -105,6 +105,10 @@ namespace treeDiM.StackBuilder.Exporters
             var model = scene.ToGltf2();
             model.Save(filePath);
         }
+
+        public override void Export(RobotPreparation robotPreparation, ref Stream stream)
+        {
+        }
         #endregion
 
 

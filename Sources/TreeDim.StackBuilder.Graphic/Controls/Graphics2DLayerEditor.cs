@@ -11,7 +11,6 @@ using log4net;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Graphics.Properties;
-using System.Runtime.Remoting.Messaging;
 #endregion
 
 namespace treeDiM.StackBuilder.Graphics
@@ -28,7 +27,6 @@ namespace treeDiM.StackBuilder.Graphics
 
             SetStyle(ControlStyles.Selectable, true);
             TabStop = true;
-
         }
         protected override void OnLoad(EventArgs e)
         {
@@ -341,6 +339,5 @@ namespace treeDiM.StackBuilder.Graphics
         private Rectangle _rotateRectangle;
         private static readonly ILog _log = LogManager.GetLogger(typeof(Graphics2DLayerEditor));
         #endregion
-
     }
 }

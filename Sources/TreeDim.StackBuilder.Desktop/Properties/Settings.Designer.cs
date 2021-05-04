@@ -1366,5 +1366,17 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
                 this["MassExcelColLetterOutputStart"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ExportFormatName {
+            get {
+                return ((string)(this["ExportFormatName"]));
+            }
+            set {
+                this["ExportFormatName"] = value;
+            }
+        }
     }
 }

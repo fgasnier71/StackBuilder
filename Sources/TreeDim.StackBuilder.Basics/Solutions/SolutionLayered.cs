@@ -827,6 +827,50 @@ namespace treeDiM.StackBuilder.Basics
                 return loadTopLayers / noInFirstLayer;
             }
         }
+        public void GetUniqueSolutionItemsAndOccurence(ref List<Layer3DBox> listLayerTypes, ref List<int> layers, ref List<int> interlayerIndexes)
+        {
+            List<SolutionItem> listSolItem = new List<SolutionItem>();
+            foreach (var solItem in _solutionItems)
+            {
+                int index = listSolItem.FindIndex(
+                    si => si.IndexLayer == solItem.IndexLayer
+                    && si.IndexEditedLayer == solItem.IndexEditedLayer
+                    && si.SymetryX == solItem.SymetryX
+                    && si.SymetryY == solItem.SymetryY);
+
+                if (-1 != index)
+                    layers.Add(index);
+                else
+                {
+                    listSolItem.Add(solItem);
+                    layers.Add(listSolItem.Count - 1);
+                }
+                interlayerIndexes.Add(solItem.HasInterlayer ? solItem.InterlayerIndex : -1);
+            }
+
+            double zLayer = 0;
+            foreach (var solItem in listSolItem)
+            {
+                if (solItem.IndexLayer != -1)
+                {
+                    ILayer2D currentLayer = _layerTypes[solItem.IndexLayer];
+                    if (currentLayer is Layer2DBrick layer2DBox)
+                    {
+                        var boxLayer = new Layer3DBox(zLayer, solItem.IndexLayer);
+                        foreach (var layerPos in layer2DBox.Positions)
+                        {
+                            BoxPosition layerPosTemp = AdjustLayerPosition(layerPos, solItem.SymetryX, solItem.SymetryY);
+                            boxLayer.Add(new BoxPosition(
+                                layerPosTemp.Position + Analysis.Offset + zLayer * Vector3D.ZAxis
+                                , layerPosTemp.DirectionLength
+                                , layerPosTemp.DirectionWidth
+                                ));
+                        }
+                        listLayerTypes.Add(boxLayer);
+                    }
+                }
+            }
+        }
         public Dictionary<LayerPhrase, int> LayerPhrases
         {
             get

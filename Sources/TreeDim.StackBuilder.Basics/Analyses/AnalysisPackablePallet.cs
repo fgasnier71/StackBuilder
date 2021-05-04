@@ -54,8 +54,13 @@ namespace treeDiM.StackBuilder.Basics
                     );
             }
         }
+        public void GetPtMinMax(out Vector2D ptMin, out Vector2D ptMax)
+        {
+            ConstraintSetPackablePallet constraintSet = ConstraintSet as ConstraintSetPackablePallet;
+            ptMin = new Vector2D(-constraintSet.Overhang.X, -constraintSet.Overhang.Y);
+            ptMax = new Vector2D(_palletProperties.Length + constraintSet.Overhang.X, _palletProperties.Width + constraintSet.Overhang.Y);
+        }
         public override double ContainerWeight => PalletProperties.Weight;
-
         public override bool HasEquivalentPackable => true;
         public override PackableLoaded EquivalentPackable => new LoadedPallet(this);
 

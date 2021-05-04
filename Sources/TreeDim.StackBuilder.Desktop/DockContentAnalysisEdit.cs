@@ -399,16 +399,7 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnGenerateExport(object sender, EventArgs e)
         {
-            ToolStripButton tsb = sender as ToolStripButton;
-            string formatName = string.Empty;
-            switch (tsb.Name)
-            {
-                case "toolStripButtonExportXML": formatName = Exporters.ExporterXML.FormatName; break;
-                case "toolStripButtonExportCSV": formatName = Exporters.ExporterCSV.FormatName; break;
-                case "toolStripButtonExportDAE": formatName = Exporters.ExporterCollada.FormatName; break;
-                default: break;
-            }
-            FormMain.GenerateExport(_analysis, formatName);
+            FormMain.GenerateExport(_analysis, string.Empty);
         }
         private void OnExport3D(object sender, EventArgs e)
         {

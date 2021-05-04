@@ -194,7 +194,7 @@ namespace treeDiM.StackBuilder.Basics
             }
             throw new Exception("No top face found?");
         }
-        private Vector3D[] Points(Vector3D dim)
+        public Vector3D[] Points(Vector3D dim)
         {
             Vector3D position = Position;
             Vector3D vI = HalfAxis.ToVector3D(DirectionLength);
@@ -426,9 +426,8 @@ namespace treeDiM.StackBuilder.Basics
         public static bool operator !=(BoxPosition left, BoxPosition right) { return !(left == right); }
         #endregion
 
-        #region FromPositionOrientation
-
-        #endregion
+        public static bool HaveSameOrientation(BoxPosition bpos1, BoxPosition bpos2)
+            => bpos1.DirectionLength == bpos2.DirectionLength && bpos1.DirectionWidth == bpos2.DirectionWidth;
 
     }
 

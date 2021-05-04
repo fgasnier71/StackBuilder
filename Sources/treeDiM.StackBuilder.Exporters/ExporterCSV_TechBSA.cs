@@ -402,6 +402,10 @@ namespace treeDiM.StackBuilder.Exporters
                 boxPositions[i] = new BoxPositionIndexed(v, axisLength, axisWidth, index);
             }
         }
+
+        public override void Export(RobotPreparation robotPreparation, ref Stream stream)
+        {
+        }
         #endregion
 
         #region Specific properties

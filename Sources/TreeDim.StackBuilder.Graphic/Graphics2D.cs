@@ -81,9 +81,15 @@ namespace treeDiM.StackBuilder.Graphics
         {
             Point[] pt = TransformPoint(new Vector2D[] { v1, v2 });
             System.Drawing.Graphics g = Graphics;
-            Pen pen = new Pen(penColor);
-            g.DrawLines(pen, pt);
+            g.DrawLines(new Pen(penColor), pt);
         }
+        public void DrawContour(Vector2D[] v, Color penColor)
+        {
+            Point[] pt = TransformPoint(v);
+            System.Drawing.Graphics g = Graphics;
+            g.DrawLines(new Pen(penColor), pt);        
+        }
+
         public void DrawArrow(Vector2D v, int iDir, int length, int baseDistance, int radius, Color color, out Rectangle rectButton)
         {
             Pen pen = new Pen(color, 5)
@@ -125,6 +131,17 @@ namespace treeDiM.StackBuilder.Graphics
 
             Brush brushSolid = new SolidBrush(color);
             Graphics.FillEllipse(brushSolid, rectButton);
+        }
+        public void DrawText(string sText, int size, Vector2D v)
+        {
+            Point[] pt = TransformPoint(new Vector2D[] { v });
+            Point pt0 = pt[0];
+            Font font = new Font("Arial", size);
+            SizeF sizeString = Graphics.MeasureString(sText, font);
+            pt0.X -= (int)sizeString.Width/2;
+            pt0.Y -= (int)sizeString.Height/2;
+
+            Graphics.DrawString(sText, font, new SolidBrush(Color.Red), pt0);
         }
         public void DrawText(string sText, int size)
         {

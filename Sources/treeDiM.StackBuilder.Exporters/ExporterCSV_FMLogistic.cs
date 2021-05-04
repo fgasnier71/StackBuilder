@@ -61,19 +61,25 @@ namespace treeDiM.StackBuilder.Exporters
 
             // 1 line per block in the 2 first layer
             int iLine = 1;
-            for (iLayer = 0; iLayer < MaxLayerIndexExporter(analysis); ++iLayer)
+            int actualLayer = 0;
+            iLayer = 0;
+            while (actualLayer < MaxLayerIndexExporter(analysis))
             {
-                var layer0 = layers[iLayer] as Layer3DBox;
-                foreach (var bPos in layer0)
+                if (layers[iLayer] is Layer3DBox layer0)
                 {
-                    Vector3D vPos = ConvertPosition(bPos, caseDim);
-                    int orientation = ConvertPositionAngleToPositionIndex(bPos);
-                    int caseNumber = 1;
-                    int blockType = 1;
+                    foreach (var bPos in layer0)
+                    {
+                        Vector3D vPos = ConvertPosition(bPos, caseDim);
+                        int orientation = ConvertPositionAngleToPositionIndex(bPos);
+                        int caseNumber = 1;
+                        int blockType = 1;
 
-                    csv.AppendLine($"{iLine};{vPos.X};{vPos.Y};{vPos.Z};{orientation};{caseNumber};{blockType}");
-                    ++iLine;
+                        csv.AppendLine($"{iLine};{vPos.X};{vPos.Y};{vPos.Z};{orientation};{caseNumber};{blockType}");
+                        ++iLine;
+                    }
+                    ++actualLayer;
                 }
+                ++iLayer;
             }
 
             // write to stream
@@ -82,6 +88,28 @@ namespace treeDiM.StackBuilder.Exporters
             writer.Flush();
             stream.Position = 0;
         }
+        public override void Export(RobotPreparation robotPreparation, ref Stream stream)
+        {
+            // number formatting
+            NumberFormatInfo nfi = new NumberFormatInfo
+            {
+                NumberDecimalSeparator = ".",
+                NumberGroupSeparator = "",
+                NumberDecimalDigits = 1
+            };
+            // string builder
+            var csv = new StringBuilder();
+            // case dimensions (X;Y;Z)
+            // number of layers; number of drops
+            // interlayers (layer index;X;Y;0/1;index interlayer)
+            // 1 line per block in the 2 first layer
+            // write to stream
+            var writer = new StreamWriter(stream);
+            writer.Write(csv.ToString());
+            writer.Flush();
+            stream.Position = 0;
+        }
+
         #endregion
 
         #region Static members

@@ -91,6 +91,12 @@
     <Compile Include="Controls\Graphics2DLayerEditor.Designer.cs">
       <DependentUpon>Graphics2DLayerEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Graphics2DRobotDropEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Graphics2DRobotDropEditor.Designer.cs">
+      <DependentUpon>Graphics2DRobotDropEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ItemBaseWrapper.cs" />
     <Compile Include="Controls\UCtrlCaseOrientation.cs">
       <SubType>UserControl</SubType>
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Graphics2DLayerEditor.resx">
       <DependentUpon>Graphics2DLayerEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Graphics2DRobotDropEditor.resx">
+      <DependentUpon>Graphics2DRobotDropEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UCtrlCaseOrientation.resx">
       <DependentUpon>UCtrlCaseOrientation.cs</DependentUpon>

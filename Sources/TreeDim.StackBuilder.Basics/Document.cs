@@ -1996,7 +1996,7 @@ namespace treeDiM.StackBuilder.Basics
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisCylinderPallet", StringComparison.CurrentCultureIgnoreCase))
             {
-                Packable cylinderProperties = GetContentByGuid(Guid.Parse(sContentId)) as Packable;
+                RevSolidProperties revSolidProperties = GetContentByGuid(Guid.Parse(sContentId)) as RevSolidProperties;
                 PalletProperties palletProperties = GetTypeByGuid(sContainerId) as PalletProperties;
 
                 ConstraintSetAbstract constraintSet = null;
@@ -2012,7 +2012,7 @@ namespace treeDiM.StackBuilder.Basics
 
                 var analysis = CreateNewAnalysisCylinderPallet(
                     sName, sDescription
-                    , cylinderProperties as CylinderProperties, palletProperties
+                    , revSolidProperties, palletProperties
                     , interlayers
                     , constraintSet as ConstraintSetPackablePallet, listLayerEncaps)
                     as AnalysisLayered;

@@ -86,5 +86,9 @@ namespace treeDiM.StackBuilder.Exporters
             writer.Flush();
             stream.Position = 0;
         }
+
+        public override void Export(RobotPreparation robotPreparation, ref Stream stream)
+        {
+        }
     }
 }
