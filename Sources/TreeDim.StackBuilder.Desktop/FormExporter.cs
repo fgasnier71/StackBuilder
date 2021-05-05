@@ -19,7 +19,6 @@ namespace treeDiM.StackBuilder.Desktop
             InitializeComponent();
         }
         #endregion
-
         #region Override form
         protected override void OnLoad(EventArgs e)
         {
@@ -35,7 +34,27 @@ namespace treeDiM.StackBuilder.Desktop
 
             // analysis to layered
             RobotPreparation = new RobotPreparation(Analysis as AnalysisCasePallet);
-            layerEditor.Layer = RobotPreparation.LayerTypes[0];
+            // event handler
+            RobotPreparation.LayerModified += RobotPreparationModified;
+            // fill combo layer types
+            FillLayerComboBox();
+        }
+
+        private void FillLayerComboBox()
+        { 
+            for (int i = 0; i < RobotPreparation.LayerTypes.Count; ++i)
+                cbLayers.Items.Add($"{i+1}");
+            cbLayers.SelectedIndexChanged += OnSelectedLayerChanged;
+            if (RobotPreparation.LayerTypes.Count > 0)
+                cbLayers.SelectedIndex = 0;
+        }
+        private void OnSelectedLayerChanged(object sender, EventArgs e)
+        {
+            int iSel = cbLayers.SelectedIndex;
+            if (-1 != iSel)
+                layerEditor.Layer = RobotPreparation.LayerTypes[iSel];
+            layerEditor.Invalidate();
+            RobotPreparation.Update();
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -52,7 +71,6 @@ namespace treeDiM.StackBuilder.Desktop
             return base.ProcessDialogKey(keyData);
         }
         #endregion
-
         #region Compute
         private void Recompute()
         {
@@ -72,8 +90,30 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
-        #endregion
 
+        private void RobotPreparationModified()
+        {
+            if (null == RobotPreparation)
+                return;
+            try
+            {
+
+                Stream stream = new MemoryStream();
+                var exporter = ExporterFactory.GetExporterByName(cbFileFormat.SelectedItem.ToString());
+                exporter.Export(RobotPreparation, ref stream);
+
+                // to text edit control
+                using (StreamReader reader = new StreamReader(stream))
+                    textEditorControl.Text = reader.ReadToEnd();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message);
+            }
+        }
+
+
+        #endregion
         #region EventHandler
         private void OnInputChanged(object sender, EventArgs e)
         {
@@ -106,13 +146,11 @@ namespace treeDiM.StackBuilder.Desktop
             catch (Exception ex) { _log.Error(ex.ToString()); }
         }
         #endregion
-
         #region Public properties
         private Exporter CurrentExporter => ExporterFactory.GetExporterByName(cbFileFormat.SelectedItem.ToString());
         private int SelectedFormatIndex => cbFileFormat.SelectedIndex;
         private string SelectedFormatString => cbFileFormat.SelectedItem.ToString();
         #endregion
-
         #region Data members
         protected ILog _log = LogManager.GetLogger(typeof(FormExporter));
         public string FormatName { get; set; }

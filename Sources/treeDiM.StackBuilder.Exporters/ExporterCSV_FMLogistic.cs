@@ -59,7 +59,7 @@ namespace treeDiM.StackBuilder.Exporters
                 ++iLayer;
             }
 
-            // 1 line per block in the 2 first layer
+            // 1 line per drop in the 2 first layer
             int iLine = 1;
             int actualLayer = 0;
             iLayer = 0;
@@ -90,6 +90,8 @@ namespace treeDiM.StackBuilder.Exporters
         }
         public override void Export(RobotPreparation robotPreparation, ref Stream stream)
         {
+            if (null == robotPreparation) return;
+
             // number formatting
             NumberFormatInfo nfi = new NumberFormatInfo
             {
@@ -100,9 +102,32 @@ namespace treeDiM.StackBuilder.Exporters
             // string builder
             var csv = new StringBuilder();
             // case dimensions (X;Y;Z)
+            var caseDim = robotPreparation.ContentDimensions;
+            csv.AppendLine($"{caseDim.X.ToString("0,0.0", nfi)};{caseDim.Y.ToString("0,0.0", nfi)};{caseDim.Z.ToString("0,0.0", nfi)}");
             // number of layers; number of drops
+            csv.AppendLine($"{robotPreparation.LayerCount};{robotPreparation.DropCount}");
             // interlayers (layer index;X;Y;0/1;index interlayer)
+            int iLayer = 1;
+            Vector3D palletDim = robotPreparation.PalletDimensions;
+            foreach (var indexInterlayer in robotPreparation.InterlayerIndexes)
+                csv.AppendLine($"{iLayer++};{0.5f * palletDim.X};{0.5f * palletDim.Y};{(indexInterlayer != -1 ? 1 : 0)};{indexInterlayer}");
             // 1 line per block in the 2 first layer
+            // get Layer 0
+            int iLine = 1;
+            for (int i = 0; i < 2; ++i)
+            {
+                RobotLayer robotLayer = robotPreparation.GetLayer(i);
+                foreach (var drop in robotLayer.Drops)
+                {
+                    BoxPosition boxPos = drop.BoxPositionMain;
+                    int orientation = ConvertPositionAngleToPositionIndex(boxPos);
+                    int caseNumber = drop.Number;
+                    Vector3D vPos = drop.BoxPositionMain.Position;
+                    int blockType = drop.PackDirection == RobotDrop.PackDir.LENGTH ? 1: 0;
+
+                    csv.AppendLine($"{iLine};{vPos.X};{vPos.Y};{vPos.Z};{orientation};{caseNumber};{blockType}");
+                }
+            }
             // write to stream
             var writer = new StreamWriter(stream);
             writer.Write(csv.ToString());

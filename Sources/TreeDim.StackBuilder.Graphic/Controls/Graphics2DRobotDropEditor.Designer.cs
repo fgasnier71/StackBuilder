@@ -128,6 +128,7 @@ namespace treeDiM.StackBuilder.Graphics
             this.Size = new System.Drawing.Size(300, 300);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnKeyPress);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnMouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp);
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();

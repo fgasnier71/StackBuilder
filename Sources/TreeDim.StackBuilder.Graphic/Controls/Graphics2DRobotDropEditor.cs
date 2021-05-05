@@ -47,7 +47,7 @@ namespace treeDiM.StackBuilder.Graphics
             {
                 Graphics = new Graphics2DForm(this, e.Graphics);
                 if (null == Layer) return;
-                Vector2D margin = new Vector2D(200.0, 200.0);
+                Vector2D margin = new Vector2D(0.0, 100.0);
                 Graphics.SetViewport(Layer.MinPoint - margin, Layer.MaxPoint + margin);
                 // draw layer boundary rectangle
                 Graphics.DrawRectangle(Layer.MinPoint, Layer.MaxPoint, Color.OrangeRed);
@@ -73,7 +73,7 @@ namespace treeDiM.StackBuilder.Graphics
                 b.Draw(Graphics);
             }
             // draw drop boundary
-            Graphics.DrawContour(drop.Contour, Color.Red);
+            Graphics.DrawContour(drop.Contour, Color.Black, 4.0f);
 
             // draw 
             if (showID && drop.ID >= 0)
@@ -81,6 +81,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
         #region Mouse event handlers
+        private void OnMouseMove(object sender, MouseEventArgs e) => SetMessage();
         private void OnMouseDown(object sender, MouseEventArgs e)
         {
             OnStateMouseDown(ClickToIndex(e.Location));
@@ -112,10 +113,10 @@ namespace treeDiM.StackBuilder.Graphics
         private void OnReorder(object sender, EventArgs e) => SetState(new StateReoder(this));
         private void UpdateToolBar()
         {
-            toolStripBnCaseDrop2.Enabled = !StateLoaded;
-            toolStripBnCaseDrop3.Enabled = !StateLoaded;
-            toolStripBnSplitDrop.Enabled = !StateLoaded;
-            toolStripBnReorder.Enabled = !StateLoaded;
+            toolStripBnCaseDrop2.Checked = (CurrentState is StateBuildBlock stateBlock2) && stateBlock2.Number == 2;
+            toolStripBnCaseDrop3.Checked = (CurrentState is StateBuildBlock stateBlock3) && stateBlock3.Number == 3;
+            toolStripBnSplitDrop.Checked = CurrentState is StateSplitDrop;
+            toolStripBnReorder.Checked = CurrentState is StateReoder;
         }
         #endregion
         #region IStateHost implementation
@@ -143,13 +144,24 @@ namespace treeDiM.StackBuilder.Graphics
         public void OnStateMouseDown(int id) => CurrentState?.OnMouseDown(id);
         public void OnStateKeyPress(char c) => CurrentState?.OnKey(c);
         public void SetDefaultState() { CurrentState = new StateDefault(this); }
+        public void SetMessage(string message)
+        {
+            statusLabel.Text = message;        
+        }
         #endregion
         #region Helpers
+        private void SetMessage()
+        {
+            if (null != CurrentState)
+                statusLabel.Text = CurrentState.Message;
+        }
+
         public Rectangle DropToRectangle(RobotDrop rd)
         {
+            Vector3D[] rectPoints = rd.CornerPoints;
             Vector3D[] cornerPoints = new Vector3D[8];
             for (int i = 0; i < 8; ++i)
-                cornerPoints[i] = rd.CornerPoints[i] + new Vector3D(0.0, 200.0, 0.0);
+                cornerPoints[i] = rectPoints[i];
             Point[] pts = Graphics.TransformPoint(cornerPoints);
             int minX = int.MaxValue, maxX = int.MinValue, minY = int.MaxValue, maxY = int.MinValue;
             foreach (var pt in pts)
@@ -163,14 +175,24 @@ namespace treeDiM.StackBuilder.Graphics
         }
         public int ClickToIndex(Point pt)
         {
+            // get world coordinate
+            Vector2D ptWorld = Graphics.ReverseTransform(pt);
+            // test each box positions
             int index = 0;
             foreach (var rd in Layer.Drops)
             {
-                Rectangle rect = DropToRectangle(rd);
-                if (rect.Contains(pt)) return index;
+                if (PointIsInside(rd.BoxPositionMain, rd.Dimensions, ptWorld))
+                    return index; // <- found!
                 ++index;
             }
+            // failed to find
             return -1;
+        }
+        public static bool PointIsInside(BoxPosition bPos, Vector3D dim, Vector2D pt)
+        {
+            var bbox = bPos.BBox(dim);
+            return pt.X >= bbox.PtMin.X && pt.X <= bbox.PtMax.X
+                && pt.Y >= bbox.PtMin.Y && pt.Y <= bbox.PtMax.Y;
         }
         #endregion
         #region Data members
@@ -179,6 +201,8 @@ namespace treeDiM.StackBuilder.Graphics
         private int FontSizeID => 16;
         protected ILog _log = LogManager.GetLogger(typeof(Graphics2DRobotDropEditor));
         private State _currentState;
+        #endregion
+        #region Delegate and event
         #endregion
     }
 
@@ -201,11 +225,13 @@ namespace treeDiM.StackBuilder.Graphics
         public virtual bool ShowSelected(RobotDrop drop) => false;
         public virtual bool ShowAllowed(RobotDrop drop) => false;
         public IStateHost Host { get; set; }
+        public virtual string Message { get; }
     }
     internal class StateDefault : State
     {
         public StateDefault(IStateHost host) { Host = host; }
         public override bool ShowIDs => true;
+        public override string Message => "Ready";
     }
     internal class StateBuildBlock : State
     {
@@ -215,7 +241,7 @@ namespace treeDiM.StackBuilder.Graphics
             Number = number;
             IndexArray = new int[number];            
         }
-        private int Number { get; set; }
+        public int Number { get; set; }
         private int ClickCount { get; set; }
         public override void OnMouseUp(int index)
         {
@@ -230,7 +256,7 @@ namespace treeDiM.StackBuilder.Graphics
         }
         private void Merge()
         {
-            Host.Layer.Merge(Number, IndexArray);
+            Host.Layer.Merge(Number, IndexArray); 
         }
         private void Reset()
         {
@@ -238,11 +264,32 @@ namespace treeDiM.StackBuilder.Graphics
             for (int i = 0; i < Number; ++i) IndexArray[i] = -1;
         }
         private int[] IndexArray;
+        public override string Message
+        {
+            get
+            {
+                if (0 == ClickCount) return "Click first case...";
+                else if (1 == ClickCount) return "Click second case...";
+                else if (2 == ClickCount) return "Click third case...";
+                else return "";
+            }
+        }
     }
 
     internal class StateSplitDrop : State
     {
-        public StateSplitDrop(IStateHost host) { Host = host; }
+        public StateSplitDrop(IStateHost host)
+        {
+            Host = host; 
+        }
+        public override void OnMouseUp(int index)
+        {
+            // not a valid click!
+            if (index == -1)
+                return;
+            // split 
+            Host.Layer.Split(index);
+        }
     }
 
     internal class StateReoder : State
@@ -265,12 +312,12 @@ namespace treeDiM.StackBuilder.Graphics
             if (Host.Layer.IsFullyNumbered)
             {
                 Host.Layer.CompleteNumbering(Vector3D.Zero);
+                Host.Layer.Parent.Update();
                 ExitState();
             }
             Host.Invalidate();
         }
         public override bool ShowIDs => true;
-
         private int ID { get; set; } = 0;
     }
     #endregion

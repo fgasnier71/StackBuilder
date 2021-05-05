@@ -77,19 +77,18 @@ namespace treeDiM.StackBuilder.Graphics
             Pen penRect = new Pen(penColor);
             g.DrawRectangle(penRect, Math.Min(pt[0].X, pt[1].X), Math.Min(pt[0].Y, pt[1].Y), Math.Abs(pt[1].X - pt[0].X), Math.Abs(pt[1].Y - pt[0].Y));
         }
-        public void DrawLine(Vector2D v1, Vector2D v2, Color penColor)
+        public void DrawLine(Vector2D v1, Vector2D v2, Color penColor, float penWidth = 1.0f)
         {
             Point[] pt = TransformPoint(new Vector2D[] { v1, v2 });
             System.Drawing.Graphics g = Graphics;
-            g.DrawLines(new Pen(penColor), pt);
+            g.DrawLines(new Pen(penColor, penWidth), pt);
         }
-        public void DrawContour(Vector2D[] v, Color penColor)
+        public void DrawContour(Vector2D[] v, Color penColor, float penWidth = 1.0f)
         {
             Point[] pt = TransformPoint(v);
             System.Drawing.Graphics g = Graphics;
-            g.DrawLines(new Pen(penColor), pt);        
+            g.DrawLines(new Pen(penColor, penWidth), pt);        
         }
-
         public void DrawArrow(Vector2D v, int iDir, int length, int baseDistance, int radius, Color color, out Rectangle rectButton)
         {
             Pen pen = new Pen(color, 5)

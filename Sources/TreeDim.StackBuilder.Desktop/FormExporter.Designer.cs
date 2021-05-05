@@ -37,9 +37,12 @@
             this.lbFormat = new System.Windows.Forms.Label();
             this.cbFileFormat = new System.Windows.Forms.ComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.layerEditor = new treeDiM.StackBuilder.Graphics.Graphics2DRobotDropEditor();
             this.textEditorControl = new ICSharpCode.TextEditor.TextEditorControlEx();
             this.saveExportFile = new System.Windows.Forms.SaveFileDialog();
-            this.layerEditor = new treeDiM.StackBuilder.Graphics.Graphics2DRobotDropEditor();
+            this.cbLayers = new System.Windows.Forms.ComboBox();
+            this.lbLayers = new System.Windows.Forms.Label();
+            this.splitContainerLayer = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -48,6 +51,10 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerLayer)).BeginInit();
+            this.splitContainerLayer.Panel1.SuspendLayout();
+            this.splitContainerLayer.Panel2.SuspendLayout();
+            this.splitContainerLayer.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerHoriz
@@ -149,7 +156,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.layerEditor);
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainerLayer);
             // 
             // splitContainer1.Panel2
             // 
@@ -157,6 +164,15 @@
             this.splitContainer1.Size = new System.Drawing.Size(800, 371);
             this.splitContainer1.SplitterDistance = 380;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // layerEditor
+            // 
+            this.layerEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layerEditor.Layer = null;
+            this.layerEditor.Location = new System.Drawing.Point(0, 0);
+            this.layerEditor.Name = "layerEditor";
+            this.layerEditor.Size = new System.Drawing.Size(380, 332);
+            this.layerEditor.TabIndex = 0;
             // 
             // textEditorControl
             // 
@@ -169,14 +185,44 @@
             this.textEditorControl.SyntaxHighlighting = "XML";
             this.textEditorControl.TabIndex = 0;
             // 
-            // graphics2DRobotDropEditor1
+            // cbLayers
             // 
-            this.layerEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layerEditor.Layer = null;
-            this.layerEditor.Location = new System.Drawing.Point(0, 0);
-            this.layerEditor.Name = "layerEditor";
-            this.layerEditor.Size = new System.Drawing.Size(380, 371);
-            this.layerEditor.TabIndex = 0;
+            this.cbLayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLayers.FormattingEnabled = true;
+            this.cbLayers.Location = new System.Drawing.Point(91, 8);
+            this.cbLayers.Name = "cbLayers";
+            this.cbLayers.Size = new System.Drawing.Size(140, 21);
+            this.cbLayers.TabIndex = 1;
+            // 
+            // lbLayers
+            // 
+            this.lbLayers.AutoSize = true;
+            this.lbLayers.Location = new System.Drawing.Point(5, 11);
+            this.lbLayers.Name = "lbLayers";
+            this.lbLayers.Size = new System.Drawing.Size(38, 13);
+            this.lbLayers.TabIndex = 2;
+            this.lbLayers.Text = "Layers";
+            // 
+            // splitContainerLayer
+            // 
+            this.splitContainerLayer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerLayer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainerLayer.IsSplitterFixed = true;
+            this.splitContainerLayer.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerLayer.Name = "splitContainerLayer";
+            this.splitContainerLayer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerLayer.Panel1
+            // 
+            this.splitContainerLayer.Panel1.Controls.Add(this.cbLayers);
+            this.splitContainerLayer.Panel1.Controls.Add(this.lbLayers);
+            // 
+            // splitContainerLayer.Panel2
+            // 
+            this.splitContainerLayer.Panel2.Controls.Add(this.layerEditor);
+            this.splitContainerLayer.Size = new System.Drawing.Size(380, 371);
+            this.splitContainerLayer.SplitterDistance = 35;
+            this.splitContainerLayer.TabIndex = 3;
             // 
             // FormExporter
             // 
@@ -201,6 +247,11 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainerLayer.Panel1.ResumeLayout(false);
+            this.splitContainerLayer.Panel1.PerformLayout();
+            this.splitContainerLayer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerLayer)).EndInit();
+            this.splitContainerLayer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -218,5 +269,8 @@
         private System.Windows.Forms.SaveFileDialog saveExportFile;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private Graphics.Graphics2DRobotDropEditor layerEditor;
+        private System.Windows.Forms.SplitContainer splitContainerLayer;
+        private System.Windows.Forms.Label lbLayers;
+        private System.Windows.Forms.ComboBox cbLayers;
     }
 }
