@@ -351,7 +351,6 @@ namespace treeDiM.StackBuilder.Basics
             }
         }
         #endregion
-
         #region Delegate / Event / Event triggering
         public delegate void DelegateLayerModified();
         public event DelegateLayerModified LayerModified;
@@ -360,7 +359,6 @@ namespace treeDiM.StackBuilder.Basics
             LayerModified?.Invoke();
         }
         #endregion
-
         #region Data members
         private AnalysisCasePallet Analysis { get; set; }
         public List<RobotLayer> LayerTypes { get; set; } = new List<RobotLayer>();

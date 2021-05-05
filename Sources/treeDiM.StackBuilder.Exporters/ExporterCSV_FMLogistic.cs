@@ -122,7 +122,7 @@ namespace treeDiM.StackBuilder.Exporters
                     BoxPosition boxPos = drop.BoxPositionMain;
                     int orientation = ConvertPositionAngleToPositionIndex(boxPos);
                     int caseNumber = drop.Number;
-                    Vector3D vPos = drop.BoxPositionMain.Position;
+                    Vector3D vPos = ConvertPosition(drop.BoxPositionMain, drop.Dimensions);
                     int blockType = drop.PackDirection == RobotDrop.PackDir.LENGTH ? 1: 0;
 
                     csv.AppendLine($"{iLine};{vPos.X};{vPos.Y};{vPos.Z};{orientation};{caseNumber};{blockType}");
