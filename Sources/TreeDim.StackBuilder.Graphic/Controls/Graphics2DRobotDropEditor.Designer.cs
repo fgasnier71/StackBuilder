@@ -35,12 +35,12 @@ namespace treeDiM.StackBuilder.Graphics
             this.toolStripBnCaseDrop3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripBnSplitDrop = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripBnReorder = new System.Windows.Forms.ToolStripButton();
             this.toolStripComboCorner = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripBnReorder = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLbAuntoNumber = new System.Windows.Forms.ToolStripLabel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLbAuntoNumber = new System.Windows.Forms.ToolStripLabel();
             this.toolStripMain.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -53,13 +53,13 @@ namespace treeDiM.StackBuilder.Graphics
             this.toolStripBnCaseDrop3,
             this.toolStripBnSplitDrop,
             this.toolStripSeparator1,
+            this.toolStripLbAuntoNumber,
             this.toolStripComboCorner,
             this.toolStripSeparator2,
-            this.toolStripBnReorder,
-            this.toolStripLbAuntoNumber});
+            this.toolStripBnReorder});
             this.toolStripMain.Location = new System.Drawing.Point(0, 0);
             this.toolStripMain.Name = "toolStripMain";
-            this.toolStripMain.Size = new System.Drawing.Size(300, 25);
+            this.toolStripMain.Size = new System.Drawing.Size(350, 25);
             this.toolStripMain.TabIndex = 0;
             this.toolStripMain.Text = "Tools";
             // 
@@ -98,16 +98,6 @@ namespace treeDiM.StackBuilder.Graphics
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripBnReorder
-            // 
-            this.toolStripBnReorder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripBnReorder.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBnReorder.Image")));
-            this.toolStripBnReorder.ImageTransparentColor = System.Drawing.Color.White;
-            this.toolStripBnReorder.Name = "toolStripBnReorder";
-            this.toolStripBnReorder.Size = new System.Drawing.Size(23, 22);
-            this.toolStripBnReorder.Text = "Reorder";
-            this.toolStripBnReorder.Click += new System.EventHandler(this.OnReorder);
-            // 
             // toolStripComboCorner
             // 
             this.toolStripComboCorner.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -120,13 +110,34 @@ namespace treeDiM.StackBuilder.Graphics
             this.toolStripComboCorner.Size = new System.Drawing.Size(90, 25);
             this.toolStripComboCorner.SelectedIndexChanged += new System.EventHandler(this.OnNumberingCornerChanged);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripBnReorder
+            // 
+            this.toolStripBnReorder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripBnReorder.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBnReorder.Image")));
+            this.toolStripBnReorder.ImageTransparentColor = System.Drawing.Color.White;
+            this.toolStripBnReorder.Name = "toolStripBnReorder";
+            this.toolStripBnReorder.Size = new System.Drawing.Size(23, 22);
+            this.toolStripBnReorder.Text = "Manual reorder";
+            this.toolStripBnReorder.Click += new System.EventHandler(this.OnReorder);
+            // 
+            // toolStripLbAuntoNumber
+            // 
+            this.toolStripLbAuntoNumber.Name = "toolStripLbAuntoNumber";
+            this.toolStripLbAuntoNumber.Size = new System.Drawing.Size(95, 22);
+            this.toolStripLbAuntoNumber.Text = "Auto numbering";
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 278);
+            this.statusStrip.Location = new System.Drawing.Point(0, 328);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(300, 22);
+            this.statusStrip.Size = new System.Drawing.Size(350, 22);
             this.statusStrip.TabIndex = 1;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -136,17 +147,6 @@ namespace treeDiM.StackBuilder.Graphics
             this.statusLabel.Size = new System.Drawing.Size(39, 17);
             this.statusLabel.Text = "Ready";
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLbAuntoNumber
-            // 
-            this.toolStripLbAuntoNumber.Name = "toolStripLbAuntoNumber";
-            this.toolStripLbAuntoNumber.Size = new System.Drawing.Size(95, 15);
-            this.toolStripLbAuntoNumber.Text = "Auto numbering";
-            // 
             // Graphics2DRobotDropEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,7 +154,7 @@ namespace treeDiM.StackBuilder.Graphics
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStripMain);
             this.Name = "Graphics2DRobotDropEditor";
-            this.Size = new System.Drawing.Size(300, 300);
+            this.Size = new System.Drawing.Size(350, 350);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnKeyPress);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnMouseMove);
