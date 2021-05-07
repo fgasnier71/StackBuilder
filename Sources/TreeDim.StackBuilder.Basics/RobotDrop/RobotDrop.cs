@@ -228,8 +228,9 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
         #region Numbering
         public void ResetNumbering() { foreach (var d in Drops) d.ID = -1; }
-        public void AutomaticRenumber(Vector3D refPoint)
+        public void AutomaticRenumber()
         {
+            Vector3D refPoint = RefCornerPoint;
             var sortedDrops = Drops.OrderBy(d => d.MaxDistanceToPoint(refPoint)).Reverse();
             int index = 0;
             foreach (var drop in sortedDrops)
@@ -244,6 +245,23 @@ namespace treeDiM.StackBuilder.Basics
             {
                 if (drop.ID == -1)
                     drop.ID = ++maxNumbering;
+            }
+        }
+        public void SortByID() { Drops.Sort(delegate (RobotDrop dropX, RobotDrop dropY) { return dropX.ID.CompareTo(dropY.ID); }); }
+        private Vector3D RefCornerPoint
+        {
+            get
+            {
+                double x, y;
+                switch (RefPointNumbering)
+                {
+                    case enuCornerPoint.LOWERLEFT: x = MinPoint.X; y = MinPoint.Y; break;
+                    case enuCornerPoint.LOWERRIGHT: x = MaxPoint.X; y = MinPoint.Y; break;
+                    case enuCornerPoint.UPPERRIGHT: x = MaxPoint.X; y = MaxPoint.Y; break;
+                    case enuCornerPoint.UPPERLEFT: x = MinPoint.X; y = MaxPoint.Y; break;
+                    default: x = 0.0; y = 0.0; break;
+                }
+                return new Vector3D(x, y, 0.0);
             }
         }
         #endregion
@@ -272,7 +290,7 @@ namespace treeDiM.StackBuilder.Basics
             Drops.RemoveAt(arrIndexes[0]);
             Drops.RemoveAt(arrIndexes[1]);
 
-            AutomaticRenumber(Vector3D.Zero);
+            AutomaticRenumber();
             Parent.Update();
 
             return true;
@@ -286,12 +304,18 @@ namespace treeDiM.StackBuilder.Basics
             foreach (var d in listDrop)
                 Drops.Add(d);
 
-            AutomaticRenumber(Vector3D.Zero);
+            AutomaticRenumber();
             Parent.Update();
         }
         #endregion
         #region Data members
         public List<RobotDrop> Drops { get; set; } = new List<RobotDrop>();
+
+        #endregion
+
+        #region Enums
+        public enum enuCornerPoint { LOWERLEFT, LOWERRIGHT, UPPERRIGHT, UPPERLEFT }
+        public static enuCornerPoint RefPointNumbering { get; set; }
         #endregion
     }
 
@@ -304,9 +328,7 @@ namespace treeDiM.StackBuilder.Basics
 
             // initialize layer types
             List<Layer3DBox> listLayerBoxes = new List<Layer3DBox>();
-            List<int> listInterlayerIndexes = new List<int>();
-
-            Analysis.SolutionLay.GetUniqueSolutionItemsAndOccurence(ref listLayerBoxes, ref ListLayerIndexes, ref listInterlayerIndexes);
+            Analysis.SolutionLay.GetUniqueSolutionItemsAndOccurence(ref listLayerBoxes, ref ListLayerIndexes, ref ListInterlayerIndexes);
 
             // build layer types
             int layerID = 0;
@@ -318,14 +340,18 @@ namespace treeDiM.StackBuilder.Basics
                 {
                     robotLayer.Drops.Add(new RobotDrop(robotLayer) { BoxPositionMain = b, Number = 1, PackDirection = RobotDrop.PackDir.LENGTH });
                 }
-                robotLayer.AutomaticRenumber(Vector3D.Zero);
+                robotLayer.AutomaticRenumber();
             }
         }
         #endregion
         #region Public accessors
         public RobotLayer GetLayer(int index)
         {
-            return LayerTypes[ListLayerIndexes[index]];
+            if (index >= ListLayerIndexes.Count)
+                return null;
+            RobotLayer layer =  LayerTypes[ListLayerIndexes[index]];
+            layer.SortByID();
+            return layer;
         }
         public Vector2D MinPoint { get { Analysis.GetPtMinMax(out Vector2D ptMin, out Vector2D ptMax); return ptMin; } }
         public Vector2D MaxPoint { get { Analysis.GetPtMinMax(out Vector2D ptMin, out Vector2D ptMax); return ptMax; } }
@@ -362,7 +388,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Data members
         private AnalysisCasePallet Analysis { get; set; }
         public List<RobotLayer> LayerTypes { get; set; } = new List<RobotLayer>();
-        public List<int> InterlayerIndexes = new List<int>();
+        public List<int> ListInterlayerIndexes = new List<int>();
         public List<int> ListLayerIndexes = new List<int>();
         #endregion
     }

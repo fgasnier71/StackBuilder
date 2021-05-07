@@ -22,9 +22,6 @@ namespace treeDiM.StackBuilder.Graphics
             SetDoubleBuffered();
             SetStyle(ControlStyles.Selectable, true);
             TabStop = true;
-
-            // set default state
-            SetDefaultState();
         }
         #endregion
         #region Double buffering
@@ -40,6 +37,15 @@ namespace treeDiM.StackBuilder.Graphics
         }
         #endregion
         #region UserControl overrides (Drawing)
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            // set default state
+            SetDefaultState();
+            // initialize automatic numbering corner combo box
+            RobotLayer.RefPointNumbering = (RobotLayer.enuCornerPoint)Properties.Settings.Default.AutomaticNumberingCornerIndex;
+            toolStripComboCorner.SelectedIndex = Properties.Settings.Default.AutomaticNumberingCornerIndex;
+        }
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -117,6 +123,15 @@ namespace treeDiM.StackBuilder.Graphics
             toolStripBnCaseDrop3.Checked = (CurrentState is StateBuildBlock stateBlock3) && stateBlock3.Number == 3;
             toolStripBnSplitDrop.Checked = CurrentState is StateSplitDrop;
             toolStripBnReorder.Checked = CurrentState is StateReoder;
+        }
+        private void OnNumberingCornerChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.AutomaticNumberingCornerIndex = toolStripComboCorner.SelectedIndex;
+            Properties.Settings.Default.Save();
+
+            RobotLayer.RefPointNumbering = (RobotLayer.enuCornerPoint)toolStripComboCorner.SelectedIndex;
+            Layer?.AutomaticRenumber();
+            Invalidate();            
         }
         #endregion
         #region IStateHost implementation
@@ -202,8 +217,11 @@ namespace treeDiM.StackBuilder.Graphics
         protected ILog _log = LogManager.GetLogger(typeof(Graphics2DRobotDropEditor));
         private State _currentState;
         #endregion
+
         #region Delegate and event
         #endregion
+
+
     }
 
     #region State
@@ -221,7 +239,7 @@ namespace treeDiM.StackBuilder.Graphics
         public virtual void OnMouseUp(int id) {}
         public virtual void OnKey(char c) {}
         protected void ExitState() { Host.SetDefaultState(); }
-        public virtual bool ShowIDs { get; } = false;
+        public virtual bool ShowIDs { get; } = true;
         public virtual bool ShowSelected(RobotDrop drop) => false;
         public virtual bool ShowAllowed(RobotDrop drop) => false;
         public IStateHost Host { get; set; }

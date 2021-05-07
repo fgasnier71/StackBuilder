@@ -17,21 +17,6 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public partial class DockContentAnalysisPalletTruck : DockContentView
     {
-        #region Data members
-        /// <summary>
-        /// analysis
-        /// </summary>
-        private AnalysisPalletTruck _analysis;
-        /// <summary>
-        /// solution
-        /// </summary>
-        private SolutionLayered _solution;
-        /// <summary>
-        /// logger
-        /// </summary>
-        static readonly ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisPalletTruck));
-        #endregion
-
         #region Constructor
         public DockContentAnalysisPalletTruck(IDocument document, AnalysisPalletTruck analysis)
             : base(document)
@@ -212,10 +197,6 @@ namespace treeDiM.StackBuilder.Desktop
             graphCtrlSolution.Invalidate();
             UpdateGrid();
         }
-        private void OnScreenshot(object sender, EventArgs e)
-        {
-            graphCtrlSolution.ScreenShotToClipboard();
-        }
         #endregion
 
         #region Toolbar event handlers
@@ -230,6 +211,25 @@ namespace treeDiM.StackBuilder.Desktop
         {
             FormMain.GenerateReport(_analysis);
         }
+        private void OnScreenshot(object sender, EventArgs e)
+        {
+            graphCtrlSolution.ScreenShotToClipboard();
+        }
+        #endregion
+
+        #region Data members
+        /// <summary>
+        /// analysis
+        /// </summary>
+        private AnalysisPalletTruck _analysis;
+        /// <summary>
+        /// solution
+        /// </summary>
+        private SolutionLayered _solution;
+        /// <summary>
+        /// logger
+        /// </summary>
+        static readonly ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisPalletTruck));
         #endregion
     }
 }

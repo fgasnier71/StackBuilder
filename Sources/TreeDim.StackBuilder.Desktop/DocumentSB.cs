@@ -20,19 +20,11 @@ namespace treeDiM.StackBuilder.Desktop
 {
     public class DocumentSB : Document, IDocument
     {
-        #region Data members
-        private string _filePath;
-        private bool _dirty = false;
-        private List<IView> _views = new List<IView>();
-        private IView _activeView;
-        public event EventHandler Modified;
-        #endregion
-
         #region Constructor
         public DocumentSB(string filePath, IDocumentListener listener)
             :base(filePath, listener)
         {
-            _filePath = filePath;
+            FilePath = filePath;
             _dirty = false;
         }
         public DocumentSB(string name, string description, string author, IDocumentListener listener)
@@ -43,31 +35,25 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Public properties
-        public string FilePath
-        {
-            get { return _filePath; }
-            set { _filePath = value; }
-        }
+        public string FilePath { get; set; }
         #endregion
 
         #region IDocument implementation
-        public bool IsDirty { get { return _dirty; } }
-        public bool IsNew { get { return string.IsNullOrEmpty(_filePath); } }
-        public bool HasValidPath  {   get { return System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(_filePath)); } }
+        public bool IsDirty => _dirty;
+        public bool IsNew => string.IsNullOrEmpty(FilePath); 
+        public bool HasValidPath => Directory.Exists(Path.GetDirectoryName(FilePath)); 
         public void Save()
         {
             if (IsNew) return;
             if (!HasValidPath)
-                throw new System.IO.DirectoryNotFoundException(
-                    string.Format("Directory {0} could not be found!", System.IO.Path.GetDirectoryName(_filePath))
-                    );
-            Write(_filePath);
+                throw new DirectoryNotFoundException($"Directory {Path.GetDirectoryName(FilePath)} could not be found!");
+            Write(FilePath);
             _dirty = false;
         }
 
         public void SaveAs(string filePath)
         {
-            _filePath = filePath;
+            FilePath = filePath;
             Save();
         }
 
@@ -124,9 +110,10 @@ namespace treeDiM.StackBuilder.Desktop
             else if (analysis is AnalysisCylinderTruck) form = new DockContentAnalysisCylinderTruck(this, analysis as AnalysisCylinderTruck);
             else if (analysis is AnalysisHCylPallet) form = new DockContentAnalysisHCylPallet(this, analysis as AnalysisHCylPallet);
             else if (analysis is AnalysisHCylTruck) form = new DockContentAnalysisHCylTruck(this, analysis as AnalysisHCylTruck);
+            else if (analysis is AnalysisPalletsOnPallet) form = new DockContentAnalysisPalletsOnPallet(this, analysis as AnalysisPalletsOnPallet);
             else
             {
-                _log.Error(string.Format("Analysis ({0}) type not handled", analysis.Name));
+                _log.Error($"Analysis ({analysis.Name}) type not handled");
                 return null;
             }
             AddView(form);
@@ -139,7 +126,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (analysis is HAnalysisTruck) form = new DockContentHAnalysisCaseTruck(this, analysis);
             else
             {
-                _log.Error(string.Format("Analysis ({0}) type not handled", analysis.Name));
+                _log.Error($"Analysis ({analysis.Name}) type not handled");
                 return null;
             }
             AddView(form);
@@ -203,7 +190,6 @@ namespace treeDiM.StackBuilder.Desktop
                 }
             }
         }
-
         /// <summary>
         /// Creates a new PackProperties object
         /// </summary>
@@ -227,7 +213,6 @@ namespace treeDiM.StackBuilder.Desktop
                 }
             }
         }
-
         public void CreateNewCylinderUI()
         {
             using (FormNewCylinder form = new FormNewCylinder(this, null))
@@ -339,7 +324,6 @@ namespace treeDiM.StackBuilder.Desktop
                         form.Weight,
                         form.Color,
                         form.Bitmap);
-
             }
         }
         /// <summary>
@@ -463,7 +447,6 @@ namespace treeDiM.StackBuilder.Desktop
             using (FormNewHAnalysis form = new FormNewHAnalysisCaseTruck(this, null))
                 if (DialogResult.OK == form.ShowDialog()) { }
         }
-
         public void ExportAnalysesToExcel()
         {
             // open excel file
@@ -597,9 +580,7 @@ namespace treeDiM.StackBuilder.Desktop
                 return;
             }
             if (DialogResult.OK == form.ShowDialog())
-            {
                 Modify();
-            }
         }
         public void EditAnalysis(AnalysisHetero analysis)
         {
@@ -620,17 +601,32 @@ namespace treeDiM.StackBuilder.Desktop
                 return;
             }
             if (DialogResult.OK == form.ShowDialog())
-            {
                 Modify();
-            }
+        }
+        public void EditAnalysis(AnalysisPalletsOnPallet analysis)
+        {
+            // search for DockContentHAnalysis window and close it
+            var seq = (from view in Views
+                       where view is DockContentAnalysisPalletsOnPallet && (analysis == (view as DockContentAnalysisPalletsOnPallet).Analysis)
+                       select view);
+            if (seq.Count() > 0) seq.First().Close();
+
+            Form form = new FormNewAnalysisPalletsOnPallet(this, analysis);
+            if (DialogResult.OK == form.ShowDialog())
+                Modify();
         }
         #endregion
 
         #region Object override
-        public override string ToString()
-        {
-            return Name;
-        }
+        public override string ToString() => Name;
+
+        #endregion
+
+        #region Data members
+        private bool _dirty = false;
+        private List<IView> _views = new List<IView>();
+        private IView _activeView;
+        public event EventHandler Modified;
         #endregion
     }
 }

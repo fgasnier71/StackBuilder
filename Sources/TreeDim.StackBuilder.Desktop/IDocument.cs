@@ -23,6 +23,7 @@ namespace treeDiM.StackBuilder.Desktop
 
         void EditAnalysis(AnalysisHomo analysis);
         void EditAnalysis(AnalysisHetero analysis);
+        void EditAnalysis(AnalysisPalletsOnPallet analysis);
 
         event EventHandler Modified;
     }

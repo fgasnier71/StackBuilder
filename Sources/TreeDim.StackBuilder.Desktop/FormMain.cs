@@ -1521,16 +1521,24 @@ namespace treeDiM.StackBuilder.Desktop
             foreach (IDocument doc in Documents)
                 foreach (IView view in doc.Views)
                 {
-                    if (view is DockContentAnalysisEdit formAnalysisEdit && formAnalysisEdit.Analysis == analysis)
+                    if (view is DockContentAnalysisEdit dockContentAnalysisEdit && dockContentAnalysisEdit.Analysis == analysis)
                     {
-                        formAnalysisEdit.Activate();
+                        dockContentAnalysisEdit.Activate();
                         return;
                     }
-                    if (view is DockContentAnalysisPalletTruck formAnalysisPalletTruck && analysis is AnalysisPalletTruck analysisPalletTruck)
+                    if (view is DockContentAnalysisPalletTruck dockContentAnalysisPalletTruck && analysis is AnalysisPalletTruck analysisPalletTruck)
                     {
-                        if (analysisPalletTruck == formAnalysisPalletTruck.Analysis)
+                        if (analysisPalletTruck == dockContentAnalysisPalletTruck.Analysis)
                         {
-                            formAnalysisPalletTruck.Activate();
+                            dockContentAnalysisPalletTruck.Activate();
+                            return;
+                        }
+                    }
+                    if (view is DockContentAnalysisPalletsOnPallet dockContentAnalysisPalletsOnPallet && analysis is AnalysisPalletsOnPallet analysisPalletsOnPallet)
+                    {
+                        if (analysisPalletsOnPallet == dockContentAnalysisPalletsOnPallet.Analysis)
+                        {
+                            dockContentAnalysisPalletsOnPallet.Activate();
                             return;
                         }
                     }

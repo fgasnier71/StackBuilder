@@ -26,7 +26,6 @@ namespace treeDiM.StackBuilder.Exporters
         public override bool ShowSelectorCoordinateMode => false;
         public override int MaxLayerIndexExporter(AnalysisLayered analysis) => Math.Min(analysis.SolutionLay.LayerCount, 2);
 
-
         public override void Export(AnalysisLayered analysis, ref Stream stream)
         {
             var sol = analysis.SolutionLay;
@@ -109,7 +108,7 @@ namespace treeDiM.StackBuilder.Exporters
             // interlayers (layer index;X;Y;0/1;index interlayer)
             int iLayer = 1;
             Vector3D palletDim = robotPreparation.PalletDimensions;
-            foreach (var indexInterlayer in robotPreparation.InterlayerIndexes)
+            foreach (var indexInterlayer in robotPreparation.ListInterlayerIndexes)
                 csv.AppendLine($"{iLayer++};{0.5f * palletDim.X};{0.5f * palletDim.Y};{(indexInterlayer != -1 ? 1 : 0)};{indexInterlayer}");
             // 1 line per block in the 2 first layer
             // get Layer 0
@@ -117,15 +116,18 @@ namespace treeDiM.StackBuilder.Exporters
             for (int i = 0; i < 2; ++i)
             {
                 RobotLayer robotLayer = robotPreparation.GetLayer(i);
-                foreach (var drop in robotLayer.Drops)
+                if (null != robotLayer)
                 {
-                    BoxPosition boxPos = drop.BoxPositionMain;
-                    int orientation = ConvertPositionAngleToPositionIndex(boxPos);
-                    int caseNumber = drop.Number;
-                    Vector3D vPos = ConvertPosition(drop.BoxPositionMain, drop.Dimensions);
-                    int blockType = drop.PackDirection == RobotDrop.PackDir.LENGTH ? 1: 0;
+                    foreach (var drop in robotLayer.Drops)
+                    {
+                        BoxPosition boxPos = drop.BoxPositionMain;
+                        int orientation = ConvertPositionAngleToPositionIndex(boxPos);
+                        int caseNumber = drop.Number;
+                        Vector3D vPos = ConvertPosition(drop.BoxPositionMain, drop.Dimensions);
+                        int blockType = drop.PackDirection == RobotDrop.PackDir.LENGTH ? 1 : 0;
 
-                    csv.AppendLine($"{iLine};{vPos.X};{vPos.Y};{vPos.Z};{orientation};{caseNumber};{blockType}");
+                        csv.AppendLine($"{iLine};{vPos.X:0.#};{vPos.Y:0.#};{vPos.Z:0.#};{orientation};{caseNumber};{blockType}");
+                    }
                 }
             }
             // write to stream
@@ -134,9 +136,7 @@ namespace treeDiM.StackBuilder.Exporters
             writer.Flush();
             stream.Position = 0;
         }
-
         #endregion
-
         #region Static members
         public static string FormatName => "csv (FM Logistic)";
         #endregion

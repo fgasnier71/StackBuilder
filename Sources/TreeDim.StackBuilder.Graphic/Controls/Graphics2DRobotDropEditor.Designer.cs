@@ -36,8 +36,11 @@ namespace treeDiM.StackBuilder.Graphics
             this.toolStripBnSplitDrop = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripBnReorder = new System.Windows.Forms.ToolStripButton();
+            this.toolStripComboCorner = new System.Windows.Forms.ToolStripComboBox();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLbAuntoNumber = new System.Windows.Forms.ToolStripLabel();
             this.toolStripMain.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +53,10 @@ namespace treeDiM.StackBuilder.Graphics
             this.toolStripBnCaseDrop3,
             this.toolStripBnSplitDrop,
             this.toolStripSeparator1,
-            this.toolStripBnReorder});
+            this.toolStripComboCorner,
+            this.toolStripSeparator2,
+            this.toolStripBnReorder,
+            this.toolStripLbAuntoNumber});
             this.toolStripMain.Location = new System.Drawing.Point(0, 0);
             this.toolStripMain.Name = "toolStripMain";
             this.toolStripMain.Size = new System.Drawing.Size(300, 25);
@@ -102,6 +108,18 @@ namespace treeDiM.StackBuilder.Graphics
             this.toolStripBnReorder.Text = "Reorder";
             this.toolStripBnReorder.Click += new System.EventHandler(this.OnReorder);
             // 
+            // toolStripComboCorner
+            // 
+            this.toolStripComboCorner.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboCorner.Items.AddRange(new object[] {
+            "Lower-left",
+            "Lower-right",
+            "Upper-right",
+            "Upper-left"});
+            this.toolStripComboCorner.Name = "toolStripComboCorner";
+            this.toolStripComboCorner.Size = new System.Drawing.Size(90, 25);
+            this.toolStripComboCorner.SelectedIndexChanged += new System.EventHandler(this.OnNumberingCornerChanged);
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -117,6 +135,17 @@ namespace treeDiM.StackBuilder.Graphics
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(39, 17);
             this.statusLabel.Text = "Ready";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLbAuntoNumber
+            // 
+            this.toolStripLbAuntoNumber.Name = "toolStripLbAuntoNumber";
+            this.toolStripLbAuntoNumber.Size = new System.Drawing.Size(95, 15);
+            this.toolStripLbAuntoNumber.Text = "Auto numbering";
             // 
             // Graphics2DRobotDropEditor
             // 
@@ -149,5 +178,8 @@ namespace treeDiM.StackBuilder.Graphics
         private System.Windows.Forms.ToolStripButton toolStripBnReorder;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboCorner;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripLabel toolStripLbAuntoNumber;
     }
 }
