@@ -733,6 +733,22 @@ namespace treeDiM.StackBuilder.Basics
 
             return InsertAnalysis(analysis);
         }
+        public Analysis CreateNewAnalysisPalletsOnPallet(
+            string name, string description,
+            PalletProperties masterPallet,
+            LoadedPallet loadedPallet0, LoadedPallet loadedPallet1,
+            LoadedPallet loadedPallet2, LoadedPallet loadedPallet3)
+        {
+            AnalysisPalletsOnPallet analysis = new AnalysisPalletsOnPallet(this, masterPallet,
+                loadedPallet0,
+                loadedPallet1,
+                loadedPallet2,
+                loadedPallet3);
+            analysis.ID.SetNameDesc(name, description);
+
+            return InsertAnalysis(analysis);
+        }
+
         public Analysis CreateNewAnalysisCylinderPallet(
             string name, string description
             , RevSolidProperties cylinder, PalletProperties palletProperties
@@ -1008,19 +1024,25 @@ namespace treeDiM.StackBuilder.Basics
             {
                 NotifyOnTypeRemoved(item);
                 if (!_typeList.Remove(item))
-                    _log.Warn(string.Format("Failed to properly remove item {0}", item.ID.Name));
+                    _log.Warn($"Failed to properly remove item {item.ID.Name}");
             }
             else if (item is AnalysisHomo)
             {
                 NotifyOnAnalysisRemoved(item as AnalysisHomo);
                 if (!Analyses.Remove(item as Analysis))
-                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.ID.Name));
+                    _log.Warn($"Failed to properly remove analysis {item.ID.Name}");
             }
             else if (item is AnalysisHetero)
             {
                 NotifyOnAnalysisRemoved(item);
                 if (!HAnalyses.Remove(item as AnalysisHetero))
-                    _log.Warn(string.Format("Failed to properly remove analysis {0}", item.ID.Name));
+                    _log.Warn($"Failed to properly remove analysis {item.ID.Name}");
+            }
+            else if (item is AnalysisPalletsOnPallet)
+            {
+                NotifyOnAnalysisRemoved(item as Analysis);
+                if (!Analyses.Remove(item as Analysis))
+                    _log.Warn($"Failed to properly remove analysis {item.ID.Name}");
             }
             else
                 _log.Error($"Removing document {item.ID.Name} of unknown type {item.GetType()}...");
@@ -2089,7 +2111,7 @@ namespace treeDiM.StackBuilder.Basics
                     , packable, truckProperties, interlayers
                     , constraintSet as ConstraintSetCaseTruck, listLayerEncaps);
             }
-             else if (string.Equals(eltAnalysis.Name, "AnalysisCylinderTruck", StringComparison.CurrentCultureIgnoreCase))
+            else if (string.Equals(eltAnalysis.Name, "AnalysisCylinderTruck", StringComparison.CurrentCultureIgnoreCase))
             {
                 TruckProperties truckProperties = GetTypeByGuid(sContainerId) as TruckProperties;
                 ConstraintSetCylinderTruck constraintSet = null;
@@ -2114,6 +2136,25 @@ namespace treeDiM.StackBuilder.Basics
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
                 analysis.SolutionLay.SolutionItems = listSolItems;
+            }
+            else if (string.Equals(eltAnalysis.Name, "AnalysisPalletsOnPallet", StringComparison.CurrentCultureIgnoreCase))
+            {
+                var palletProperties = GetTypeByGuid(sContainerId) as PalletProperties;
+                LoadedPallet pallet0 = null, pallet1 = null, pallet2 = null, pallet3 = null;
+                if (eltAnalysis.HasAttribute("Pallet0"))
+                    pallet0 = GetContentByGuid(Guid.Parse(eltAnalysis.Attributes["Pallet0"].Value)) as LoadedPallet;
+                if (eltAnalysis.HasAttribute("Pallet1"))
+                    pallet1 = GetContentByGuid(Guid.Parse(eltAnalysis.Attributes["Pallet1"].Value)) as LoadedPallet;
+                if (eltAnalysis.HasAttribute("Pallet2"))
+                    pallet2 = GetContentByGuid(Guid.Parse(eltAnalysis.Attributes["Pallet2"].Value)) as LoadedPallet;
+                if (eltAnalysis.HasAttribute("Pallet3"))
+                    pallet3 = GetContentByGuid(Guid.Parse(eltAnalysis.Attributes["Pallet3"].Value)) as LoadedPallet;
+
+                var analysis = CreateNewAnalysisPalletsOnPallet(
+                    sName, sDescription,
+                    palletProperties, pallet0, pallet1, pallet2, pallet3) as AnalysisPalletsOnPallet;
+                if (!string.IsNullOrEmpty(sId))
+                    analysis.ID.IGuid = Guid.Parse(sId);
             }
             else if (string.Equals(eltAnalysis.Name, "AnalysisHCylPallet", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -2740,7 +2781,12 @@ namespace treeDiM.StackBuilder.Basics
                 XmlElement xmlAnalysesElt = xmlDoc.CreateElement("Analyses");
                 xmlRootElement.AppendChild(xmlAnalysesElt);
                 foreach (var analysis in Analyses)
-                    SaveAnalysis(analysis as AnalysisHomo, xmlAnalysesElt, xmlDoc);
+                {
+                    if (analysis is AnalysisHomo analysisHomo)
+                        SaveAnalysis(analysisHomo, xmlAnalysesElt, xmlDoc);
+                    else if (analysis is AnalysisPalletsOnPallet analysisPalletsOnPallet)
+                        SaveAnalysis(analysisPalletsOnPallet, xmlAnalysesElt, xmlDoc);
+                }
                 XmlElement xmlHAnalysesElt = xmlDoc.CreateElement("HAnalyses");
                 xmlRootElement.AppendChild(xmlHAnalysesElt);
                 foreach (AnalysisHetero analysis in HAnalyses)
@@ -3625,6 +3671,7 @@ namespace treeDiM.StackBuilder.Basics
             else if (analysis is AnalysisCylinderTruck) return "AnalysisCylinderTruck";
             else if (analysis is AnalysisHCylTruck) return "AnalysisHCylTruck";
             else if (analysis is AnalysisPalletTruck) return "AnalysisPalletTruck";
+            else if (analysis is AnalysisPalletsOnPallet) return "AnalysisPalletsOnPallet";
             else return TypeDescriptor.GetClassName(analysis.GetType());
         }
 
@@ -3809,6 +3856,39 @@ namespace treeDiM.StackBuilder.Basics
             else if (analysis is AnalysisHCyl analysisHCyl)
                 SaveSolution(analysisHCyl.Solution as SolutionHCyl, xmlAnalysisElt, xmlDoc);
         }
+        private void SaveAnalysis(AnalysisPalletsOnPallet analysis, XmlElement parentElement, XmlDocument xmlDoc)
+        {
+            // create analysis element
+            XmlElement xmlAnalysisElt = xmlDoc.CreateElement(AnalysisTypeName(analysis));
+            parentElement.AppendChild(xmlAnalysisElt);
+            // guid
+            XmlAttribute analysisGuidAttribute = xmlDoc.CreateAttribute("Id");
+            analysisGuidAttribute.Value = analysis.ID.IGuid.ToString();
+            xmlAnalysisElt.Attributes.Append(analysisGuidAttribute);
+            // name
+            XmlAttribute analysisNameAttribute = xmlDoc.CreateAttribute("Name");
+            analysisNameAttribute.Value = analysis.ID.Name;
+            xmlAnalysisElt.Attributes.Append(analysisNameAttribute);
+            // description
+            XmlAttribute analysisDescriptionAttribute = xmlDoc.CreateAttribute("Description");
+            analysisDescriptionAttribute.Value = analysis.ID.Description;
+            xmlAnalysisElt.Attributes.Append(analysisDescriptionAttribute);
+            // containerId
+            XmlAttribute analysisContainerId = xmlDoc.CreateAttribute("ContainerId");
+            analysisContainerId.Value = analysis.Container.ID.IGuid.ToString();
+            xmlAnalysisElt.Attributes.Append(analysisContainerId);
+            // loaded pallets
+            for (int i = 0; i < 4; ++i)
+            {
+                if (null != analysis.PalletAnalyses[i])
+                {
+                    XmlAttribute palletAttribute = xmlDoc.CreateAttribute($"Pallet{i}");
+                    palletAttribute.Value = analysis.PalletAnalyses[i].ParentAnalysis.ID.IGuid.ToString();
+                    xmlAnalysisElt.Attributes.Append(palletAttribute);
+                }
+            }
+        }
+
         private void SaveSolution(SolutionLayered sol, XmlElement parentElement, XmlDocument xmlDoc)
         {
             XmlElement eltSolution = xmlDoc.CreateElement("Solution");

@@ -128,8 +128,7 @@ namespace treeDiM.StackBuilder.Basics
                 }
                 return solutionItems;
             }
-        }
-      
+        }      
         private readonly List<HSolElement> hSolElt = new List<HSolElement>();
     }
     /// <summary>

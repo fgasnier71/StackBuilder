@@ -1,4 +1,5 @@
 ﻿#region Using directives
+using System;
 using System.Drawing;
 
 using Sharp3D.Math.Core;
@@ -85,7 +86,7 @@ namespace treeDiM.StackBuilder.Graphics
 
         public override int GetHashCode()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
     #endregion

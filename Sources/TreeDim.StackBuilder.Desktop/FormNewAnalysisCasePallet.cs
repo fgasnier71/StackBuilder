@@ -381,6 +381,5 @@ namespace treeDiM.StackBuilder.Desktop
         private List<Layer2DBrickExp> _layersEdited = new List<Layer2DBrickExp>(); 
         static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisCasePallet));
         #endregion
-
     }
 }

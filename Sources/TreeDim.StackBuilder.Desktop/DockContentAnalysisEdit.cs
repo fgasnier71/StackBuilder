@@ -102,7 +102,7 @@ namespace treeDiM.StackBuilder.Desktop
         public override void Kill(ItemBase item)
         {
             Close();
-            _analysis.RemoveListener(this);
+            _analysis?.RemoveListener(this);
         }
         #endregion
 

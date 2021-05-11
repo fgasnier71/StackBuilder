@@ -34,14 +34,6 @@ namespace treeDiM.StackBuilder.Basics
             analysis = null;
             return false;
         }
-        /*
-        public virtual bool InnerContent(ref Packable innerPackable, ref int number)
-        {
-            innerPackable = null;
-            number = 0;
-            return false;
-        }
-        */
         public virtual bool InnerContent(ref List<Pair<Packable, int>> listInnerPackables)
         { listInnerPackables = null; return false; }
 

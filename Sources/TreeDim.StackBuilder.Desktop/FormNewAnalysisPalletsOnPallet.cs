@@ -30,6 +30,16 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            if (null != _item)
+            {
+                tbName.Text = _item.Name;
+                tbDescription.Text = _item.Description;
+            }
+            else if (null != _document)
+            {
+                tbName.Text = _document.GetValidNewAnalysisName(ItemDefaultName);
+                tbDescription.Text = tbName.Text;
+            }
             // graphics3D control
             graphCtrl.DrawingContainer = this;
             // list of pallets
@@ -38,6 +48,8 @@ namespace treeDiM.StackBuilder.Desktop
             cbInputPallet2.Initialize(_document, this, null);
             cbInputPallet3.Initialize(_document, this, null);
             cbInputPallet4.Initialize(_document, this, null);
+
+            rbHalf.Checked = true;
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -45,7 +57,32 @@ namespace treeDiM.StackBuilder.Desktop
         }
         public override void UpdateStatus(string message)
         {
+            if (!Program.IsSubscribed)
+                message = Resources.ID_GOPREMIUMORUNSELECT;
             base.UpdateStatus(message);
+        }
+        public override void OnNext()
+        {
+            try
+            {
+                AnalysisPalletsOnPallet analysis = AnalysisCast;
+                if (null == analysis)
+                {
+                    _item = _document.CreateNewAnalysisPalletsOnPallet(
+                        ItemName, ItemDescription
+                        , MasterPallet
+                        , LoadedPallet0
+                        , LoadedPallet1
+                        , 1 == Mode ? LoadedPallet2 : null
+                        , 1 == Mode ? LoadedPallet3 : null);
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+            base.OnNext();
+            Close();
         }
         #endregion
 
@@ -67,6 +104,11 @@ namespace treeDiM.StackBuilder.Desktop
         }
         #endregion
 
+        #region Public properties
+        public AnalysisPalletsOnPallet AnalysisCast
+        { get => _item as AnalysisPalletsOnPallet;  }
+        #endregion
+
         #region Handlers
         private void OnPalletLayoutChanged(object sender, EventArgs e)
         {
@@ -76,6 +118,10 @@ namespace treeDiM.StackBuilder.Desktop
             cbInputPallet3.Visible = quarter;
             cbInputPallet4.Visible = quarter;
         }
+        private void OnInputChanged(object sender, EventArgs e)
+        {
+            graphCtrl.Invalidate();
+        }
         #endregion
 
         #region IDrawingContainer
@@ -84,11 +130,11 @@ namespace treeDiM.StackBuilder.Desktop
             if (null == MasterPallet || null == LoadedPallet0 || null == LoadedPallet1)
                 return;
 
-            var analysis = new AnalysisPalletsOnPallet(null) { PalletProperties = MasterPallet };
-            if (0 == Mode)
-                analysis.SetHalfPallets(LoadedPallet0, LoadedPallet1);
-            else if (1 == Mode && null == LoadedPallet2 && null == LoadedPallet3)
-                analysis.SetQuarterPallets(LoadedPallet0, LoadedPallet1, LoadedPallet2, LoadedPallet3);
+            var analysis = new AnalysisPalletsOnPallet(null, MasterPallet,
+                LoadedPallet0,
+                LoadedPallet1,
+                1 == Mode ? LoadedPallet2 : null,
+                1 == Mode ? LoadedPallet3 : null);
 
             if (!analysis.HasValidSolution) return;
 
@@ -109,7 +155,5 @@ namespace treeDiM.StackBuilder.Desktop
         #region Data members
         private static readonly ILog _log = LogManager.GetLogger(typeof(FormNewAnalysisPalletsOnPallet));
         #endregion
-
-
     }
 }

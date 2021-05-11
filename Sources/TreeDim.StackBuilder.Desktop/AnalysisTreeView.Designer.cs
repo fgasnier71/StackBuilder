@@ -315,5 +315,14 @@ namespace treeDiM.StackBuilder.Desktop {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        internal static System.Drawing.Bitmap PalletsOnPallet
+        { 
+            get
+            {
+                object obj = ResourceManager.GetObject("PalletsOnPallet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+            
+        }
     }
 }

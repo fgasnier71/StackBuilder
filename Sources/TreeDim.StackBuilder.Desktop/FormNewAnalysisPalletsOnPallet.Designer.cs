@@ -47,7 +47,7 @@ namespace treeDiM.StackBuilder.Desktop
             // 
             // tbDescription
             // 
-            this.tbDescription.Size = new System.Drawing.Size(638, 20);
+            this.tbDescription.Size = new System.Drawing.Size(791, 20);
             // 
             // label1
             // 
@@ -126,7 +126,7 @@ namespace treeDiM.StackBuilder.Desktop
             this.graphCtrl.AngleHoriz = 45D;
             this.graphCtrl.Location = new System.Drawing.Point(309, 125);
             this.graphCtrl.Name = "graphCtrl";
-            this.graphCtrl.Size = new System.Drawing.Size(310, 225);
+            this.graphCtrl.Size = new System.Drawing.Size(463, 383);
             this.graphCtrl.TabIndex = 20;
             this.graphCtrl.Viewer = null;
             // 
@@ -138,6 +138,7 @@ namespace treeDiM.StackBuilder.Desktop
             this.cbInputPallet1.Name = "cbInputPallet1";
             this.cbInputPallet1.Size = new System.Drawing.Size(158, 21);
             this.cbInputPallet1.TabIndex = 21;
+            this.cbInputPallet1.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // cbInputPallet2
             // 
@@ -147,6 +148,7 @@ namespace treeDiM.StackBuilder.Desktop
             this.cbInputPallet2.Name = "cbInputPallet2";
             this.cbInputPallet2.Size = new System.Drawing.Size(158, 21);
             this.cbInputPallet2.TabIndex = 22;
+            this.cbInputPallet2.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // cbInputPallet3
             // 
@@ -156,6 +158,7 @@ namespace treeDiM.StackBuilder.Desktop
             this.cbInputPallet3.Name = "cbInputPallet3";
             this.cbInputPallet3.Size = new System.Drawing.Size(158, 21);
             this.cbInputPallet3.TabIndex = 23;
+            this.cbInputPallet3.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // cbInputPallet4
             // 
@@ -165,22 +168,24 @@ namespace treeDiM.StackBuilder.Desktop
             this.cbInputPallet4.Name = "cbInputPallet4";
             this.cbInputPallet4.Size = new System.Drawing.Size(158, 21);
             this.cbInputPallet4.TabIndex = 24;
+            this.cbInputPallet4.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // cbDestinationPallet
             // 
             this.cbDestinationPallet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbDestinationPallet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDestinationPallet.FormattingEnabled = true;
-            this.cbDestinationPallet.Location = new System.Drawing.Point(398, 68);
+            this.cbDestinationPallet.Location = new System.Drawing.Point(551, 68);
             this.cbDestinationPallet.Name = "cbDestinationPallet";
             this.cbDestinationPallet.Size = new System.Drawing.Size(138, 21);
             this.cbDestinationPallet.TabIndex = 25;
+            this.cbDestinationPallet.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
             // 
             // FormNewAnalysisPalletsOnPallet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 375);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.cbDestinationPallet);
             this.Controls.Add(this.cbInputPallet4);
             this.Controls.Add(this.cbInputPallet3);

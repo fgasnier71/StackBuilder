@@ -36,7 +36,7 @@ namespace treeDiM.StackBuilder.Desktop
             }
             else if (null != _document)
             {
-                tbName.Text = _document.GetValidNewTypeName(ItemDefaultName);
+                tbName.Text = _document.GetValidNewAnalysisName(ItemDefaultName);
                 tbDescription.Text = tbName.Text;
             }
 

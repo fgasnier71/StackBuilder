@@ -3584,6 +3584,7 @@
     <None Include="Resources\BoxCaseAnalysis.bmp" />
     <None Include="Resources\bottle.bmp" />
     <None Include="Resources\Bag_16x16.bmp" />
+    <None Include="Resources\AnalysisPalletsOnPallet_16.png" />
     <Content Include="Resources\CaseAnalysis.bmp" />
     <None Include="Resources\Delete.bmp" />
     <None Include="Resources\Database.bmp" />

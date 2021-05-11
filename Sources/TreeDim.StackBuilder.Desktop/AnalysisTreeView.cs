@@ -54,7 +54,8 @@ namespace treeDiM.StackBuilder.Desktop
                 ImageList.Images.Add(AnalysisPackPallet);          // 21
                 ImageList.Images.Add(Bottle);                      // 22
                 ImageList.Images.Add(Bag);                         // 23
-                ImageList.Images.Add(PalletLabel);                 // 24     
+                ImageList.Images.Add(PalletLabel);                 // 24
+                ImageList.Images.Add(PalletsOnPallet);             // 25
                // instantiate context menu
                 ContextMenuStrip = new ContextMenuStrip();
                 // attach event handlers
@@ -92,6 +93,7 @@ namespace treeDiM.StackBuilder.Desktop
             else if (item is HAnalysisPallet) return 14;
             else if (item is HAnalysisCase) return 17;
             else if (item is HAnalysisTruck) return 16;
+            else if (item is AnalysisPalletsOnPallet) return 25;
             else
             {
                 _log.Error($"Unexpected analysis type = {item.GetType()}");
@@ -1132,6 +1134,7 @@ namespace treeDiM.StackBuilder.Desktop
         /// returns analysis if any
         /// </summary>
         public AnalysisHomo Analysis => ItemProperties as AnalysisHomo;
+        public AnalysisPalletsOnPallet AnalysisPalletsOnPallet => ItemProperties as AnalysisPalletsOnPallet;
         public AnalysisHetero HAnalysis => ItemProperties as AnalysisHetero;
         #endregion
     }
@@ -1151,6 +1154,7 @@ namespace treeDiM.StackBuilder.Desktop
         public Document Document => NodeTag.Document;
         public AnalysisHomo Analysis => NodeTag.Analysis;
         public AnalysisHetero HAnalysis => NodeTag.HAnalysis;
+        public AnalysisPalletsOnPallet AnalysisPalletsOnPallet => NodeTag.AnalysisPalletsOnPallet;
         public ItemBase ItemBase => NodeTag.ItemProperties;
         #endregion
         #region Private properties

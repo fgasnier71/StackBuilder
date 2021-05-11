@@ -127,7 +127,6 @@ namespace treeDiM.StackBuilder.Desktop
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(_solution.LayerCount);
                 // *** Item # (Recursive count)
                 Packable content = _analysis.Content;
-                int itemCount = _solution.ItemCount;
                 RecurInsertContent(ref iRow, content, _solution.ItemCount);
                 // ***
                 // load dimensions

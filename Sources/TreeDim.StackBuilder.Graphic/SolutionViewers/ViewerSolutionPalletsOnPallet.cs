@@ -1,11 +1,7 @@
 ﻿#region Using directives
-using Sharp3D.Math.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+using Sharp3D.Math.Core;
 using treeDiM.StackBuilder.Basics;
 #endregion
 
@@ -48,6 +44,7 @@ namespace treeDiM.StackBuilder.Graphics
         public override void Draw(Graphics2D graphics)
         {
             if (null == Solution) return;
+            throw new NotImplementedException();
         }
         #endregion
 

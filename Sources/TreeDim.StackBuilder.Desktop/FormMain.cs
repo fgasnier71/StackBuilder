@@ -370,6 +370,8 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (null != eventArg.Analysis)
                 CreateOrActivateViewAnalysis(eventArg.Analysis);
+            else if (null != eventArg.AnalysisPalletsOnPallet)
+                CreateOrActivateViewAnalysis(eventArg.AnalysisPalletsOnPallet);
             else if (null != eventArg.HAnalysis)
                 CreateOrActivateViewHAnalysis(eventArg.HAnalysis);
             else if (null != eventArg.ItemBase)
@@ -619,7 +621,7 @@ namespace treeDiM.StackBuilder.Desktop
                         label.Bitmap = form.Bitmap;
                         label.EndUpdate();
                         doc.Modify();
-                    }                
+                    }
                 }
                 else
                     Debug.Assert(false);
