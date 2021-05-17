@@ -165,6 +165,13 @@ namespace treeDiM.StackBuilder.Basics
             get
             {
                 var bbox = new BBox3D();
+
+                foreach (var solElt in ContainedElements)
+                {
+                    LoadedPallet loadedPallet = Analysis.PalletAnalyses[solElt.ContentType];
+                    var dim = loadedPallet.Dimensions;
+                    bbox.Extend(solElt.Position.BBox(new Vector3D(dim[0], dim[1], dim[2])));
+                }
                 return bbox;
             }
         }
@@ -172,7 +179,13 @@ namespace treeDiM.StackBuilder.Basics
         {
             get
             {
-                return 0.0;
+                double weight = 0.0;
+                foreach (var solElt in ContainedElements)
+                {
+                    LoadedPallet loadedPallet = Analysis.PalletAnalyses[solElt.ContentType];
+                    weight += loadedPallet.Weight;
+                }
+                return weight;
             }
         }
     }
