@@ -278,10 +278,10 @@
       <Version>15.0.4797.1003</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Web.WebView2">
-      <Version>1.0.774.44</Version>
+      <Version>1.0.818.41</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
-      <Version>5.9.0</Version>
+      <Version>5.9.1</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -289,7 +289,7 @@
       <Version>1.0.3</Version>
     </PackageReference>
     <PackageReference Include="WkHtmlToXSharp">
-      <Version>1.2.33</Version>
+      <Version>1.2.34</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
