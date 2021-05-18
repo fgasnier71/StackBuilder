@@ -149,9 +149,6 @@ namespace treeDiM.StackBuilder.Desktop
                 CreateBasicLayout();
                 UpdateDisconnectButton();
             }
-            // force IsSubscribed
-            if (!Program.IsSubscribed)
-                Program.IsSubscribed = true;
         }
         private void OpenGeneratedFile(string s)
         {

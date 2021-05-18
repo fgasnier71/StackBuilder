@@ -55,14 +55,47 @@ namespace treeDiM.StackBuilder.Engine
             // BinPackerVerifyOption is used to avoid bugs, it will check whether the result is correct
             var binPacker = BinPacker.GetDefault(BinPackerVerifyOption.BestOnly, bAllowAllOrientations);
             // The result contains bins which contains packed cuboids whith their coordinates
+            decimal containerHeight = (decimal)dimContainer.Z;
             var parameter = new BinPackParameter(
-                (decimal)dimContainer.X, (decimal)dimContainer.Y, (decimal)dimContainer.Z,
+                (decimal)dimContainer.X, (decimal)dimContainer.Y, containerHeight,
                 listCuboids.ToArray())
             { ShuffleCount = 10 };
 
             var binPackResult = binPacker.Pack(parameter);
+
+            // initialize loop
+            int initialBinCount = binPackResult.BestResult.Count;
+            int binCount = initialBinCount;
+            decimal heightIncrement = 0.05M * (decimal)dimContainer.Z;
+
+            // find container height at which 
+            int iIterationCount = 0;
+            do
+            {
+                // --- decrease containerHeight
+                containerHeight -= heightIncrement;
+
+                parameter = new BinPackParameter(
+                (decimal)dimContainer.X, (decimal)dimContainer.Y, containerHeight,
+                listCuboids.ToArray());
+
+                binPackResult = binPacker.Pack(parameter);
+                binCount = binPackResult.BestResult.Count;
+
+                ++iIterationCount;
+            }
+            while (binCount == initialBinCount && iIterationCount < 100);
+
+            // add increment and compute one step up
+            containerHeight += heightIncrement;
+            parameter = new BinPackParameter(
+            (decimal)dimContainer.X, (decimal)dimContainer.Y, containerHeight,
+            listCuboids.ToArray());
+
+            binPackResult = binPacker.Pack(parameter);
             {
                 HSolution sol = new HSolution("Sharp3DBinPacking") { Analysis = analysis };
+
                 foreach (var bins in binPackResult.BestResult)
                 {
                     HSolItem hSolItem = sol.CreateSolItem();
@@ -154,8 +187,21 @@ namespace treeDiM.StackBuilder.Engine
             // remaining number of items
             int iCount = contentItemsClone.Sum(c => (int)c.Number);
 
+
+           if (0 == iCount)
+            {
+                decimal containerHeight = (decimal)dimContainer.Z;
+                // solve until sol
+                int iterationCount = 0;
+                 while (iterationCount < 100)
+                {
+                    ++iterationCount;                
+                }
+            }
+
+
             if (iCount > 0)
-                RunBoxologic(variant, hSol, dimContainer, offset, contentItemsClone);            
+                RunBoxologic(variant, hSol, dimContainer, offset, contentItemsClone);
         }
 
         private uint BoxToID(BoxProperties b)

@@ -79,7 +79,10 @@ namespace treeDiM.StackBuilder.Desktop
                 Stream stream = new MemoryStream();
                 var exporter = ExporterFactory.GetExporterByName(cbFileFormat.SelectedItem.ToString());
                 exporter.PositionCoordinateMode = cbCoordinates.SelectedIndex == 1 ? Exporter.CoordinateMode.CM_COG : Exporter.CoordinateMode.CM_CORNER;
-                exporter.Export(RobotPreparation, ref stream);
+                if (exporter.HandlesRobotPreparation)
+                    exporter.Export(RobotPreparation, ref stream);
+                else
+                    exporter.Export(Analysis, ref stream);
 
                 // to text edit control
                 using (StreamReader reader = new StreamReader(stream))
@@ -111,12 +114,19 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.Message);
             }
         }
-
-
         #endregion
         #region EventHandler
-        private void OnInputChanged(object sender, EventArgs e)
+        private void OnExportFormatChanged(object sender, EventArgs e)
         {
+            if (null == CurrentExporter) return;
+
+            layerEditor.Visible = CurrentExporter.HandlesRobotPreparation;
+            lbLayers.Visible = CurrentExporter.HandlesRobotPreparation;
+            cbLayers.Visible = CurrentExporter.HandlesRobotPreparation;
+
+            lbCoordinates.Visible = CurrentExporter.ShowSelectorCoordinateMode;
+            cbCoordinates.Visible = CurrentExporter.ShowSelectorCoordinateMode;
+
             try
             {
                 // set folding strategy to XML ?
@@ -127,6 +137,11 @@ namespace treeDiM.StackBuilder.Desktop
                 }
             }
             catch (Exception ex) { _log.Error(ex.ToString()); }
+
+            OnInputChanged(sender, e);
+        }
+        private void OnInputChanged(object sender, EventArgs e)
+        {
             Recompute();
         }
         private void OnExport(object sender, EventArgs e)
@@ -157,5 +172,7 @@ namespace treeDiM.StackBuilder.Desktop
         public AnalysisLayered Analysis { get; set; }
         public RobotPreparation RobotPreparation { get; set; }
         #endregion
+
+
     }
 }

@@ -17,6 +17,7 @@ namespace treeDiM.StackBuilder.Exporters
         public abstract string Name { get; }
         public abstract string Extension { get; }
         public abstract string Filter { get; }
+        public virtual bool HandlesRobotPreparation { get; } = false;
         public virtual bool ShowSelectorCoordinateMode { get; } = true;
         public CoordinateMode PositionCoordinateMode { get; set; } = CoordinateMode.CM_CORNER;
         public virtual int MaxLayerIndexExporter(AnalysisLayered analysis) => analysis.SolutionLay.LayerCount;

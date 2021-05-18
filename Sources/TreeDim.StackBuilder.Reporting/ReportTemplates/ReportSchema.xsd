@@ -42,6 +42,7 @@
           </xs:complexType>
         </xs:element>
         <!-- ANALYSIS : END-->
+        <!-- HANALYSIS : BEG -->
         <xs:element name="hAnalysis" minOccurs="0" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
@@ -52,6 +53,18 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <!-- HANALYSIS : END -->
+        <!-- ANALYSISPALLETSONPALLET : BEG -->
+        <xs:element name="analysisPalletsOnPallet" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="description" type="xs:string"/>              
+              <xs:element name="solutionPalletsOnPallet" minOccurs="0" maxOccurs="1" type="rpt:solutionPallets"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <!-- ANALYSISPALLETSONPALLET : END -->
         <!-- TRUCKANALYSIS : BEG-->
         <xs:element name="truckAnalysis" minOccurs="0" maxOccurs="1">
           <xs:complexType>

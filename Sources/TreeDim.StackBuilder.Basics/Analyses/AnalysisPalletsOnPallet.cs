@@ -96,7 +96,18 @@ namespace treeDiM.StackBuilder.Basics
 
                 listInnerPackables.Add(new Pair<Packable, int>(lp, iCount+1));
             }
-            return true;
+            return listInnerPackables.Count > 0;
+        }
+        public virtual bool InnerAnalyses(ref List<AnalysisHomo> analyses)
+        {
+            foreach (var lp in PalletAnalyses)
+            {
+                if (null == lp) continue;
+                var analysis1 = lp.ParentAnalysis;
+                if (!analyses.Contains(analysis1))
+                    analyses.Add(analysis1);
+            }
+            return analyses.Count > 0;
         }
         public double LoadWeight
         {
@@ -175,18 +186,18 @@ namespace treeDiM.StackBuilder.Basics
                 return bbox;
             }
         }
-        public double LoadWeight
+        public BBox3D BBoxGlobal
         {
             get
             {
-                double weight = 0.0;
-                foreach (var solElt in ContainedElements)
-                {
-                    LoadedPallet loadedPallet = Analysis.PalletAnalyses[solElt.ContentType];
-                    weight += loadedPallet.Weight;
-                }
-                return weight;
+                var bbox = BBoxLoad;
+                bbox.Extend(Analysis.PalletProperties.BoundingBox);
+                return bbox;
             }
         }
+        public BBox3D BBoxLoadWDeco => BBoxLoad;
+
+        public double LoadWeight => ContainedElements.Sum(ce => Analysis.PalletAnalyses[ce.ContentType].Weight);
+        public double Weight => LoadWeight + Analysis.PalletProperties.Weight;
     }
 }

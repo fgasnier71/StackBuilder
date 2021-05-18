@@ -37,12 +37,12 @@
             this.lbFormat = new System.Windows.Forms.Label();
             this.cbFileFormat = new System.Windows.Forms.ComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainerLayer = new System.Windows.Forms.SplitContainer();
+            this.cbLayers = new System.Windows.Forms.ComboBox();
+            this.lbLayers = new System.Windows.Forms.Label();
             this.layerEditor = new treeDiM.StackBuilder.Graphics.Graphics2DRobotDropEditor();
             this.textEditorControl = new ICSharpCode.TextEditor.TextEditorControlEx();
             this.saveExportFile = new System.Windows.Forms.SaveFileDialog();
-            this.cbLayers = new System.Windows.Forms.ComboBox();
-            this.lbLayers = new System.Windows.Forms.Label();
-            this.splitContainerLayer = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerHoriz)).BeginInit();
             this.splitContainerHoriz.Panel1.SuspendLayout();
             this.splitContainerHoriz.Panel2.SuspendLayout();
@@ -146,7 +146,7 @@
             this.cbFileFormat.Name = "cbFileFormat";
             this.cbFileFormat.Size = new System.Drawing.Size(140, 21);
             this.cbFileFormat.TabIndex = 0;
-            this.cbFileFormat.SelectedIndexChanged += new System.EventHandler(this.OnInputChanged);
+            this.cbFileFormat.SelectedIndexChanged += new System.EventHandler(this.OnExportFormatChanged);
             // 
             // splitContainer1
             // 
@@ -164,44 +164,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(800, 371);
             this.splitContainer1.SplitterDistance = 380;
             this.splitContainer1.TabIndex = 1;
-            // 
-            // layerEditor
-            // 
-            this.layerEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layerEditor.Layer = null;
-            this.layerEditor.Location = new System.Drawing.Point(0, 0);
-            this.layerEditor.Name = "layerEditor";
-            this.layerEditor.Size = new System.Drawing.Size(380, 332);
-            this.layerEditor.TabIndex = 0;
-            // 
-            // textEditorControl
-            // 
-            this.textEditorControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEditorControl.EnableFolding = false;
-            this.textEditorControl.Font = new System.Drawing.Font("Courier New", 10F);
-            this.textEditorControl.Location = new System.Drawing.Point(0, 0);
-            this.textEditorControl.Name = "textEditorControl";
-            this.textEditorControl.Size = new System.Drawing.Size(416, 371);
-            this.textEditorControl.SyntaxHighlighting = "XML";
-            this.textEditorControl.TabIndex = 0;
-            // 
-            // cbLayers
-            // 
-            this.cbLayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLayers.FormattingEnabled = true;
-            this.cbLayers.Location = new System.Drawing.Point(91, 8);
-            this.cbLayers.Name = "cbLayers";
-            this.cbLayers.Size = new System.Drawing.Size(140, 21);
-            this.cbLayers.TabIndex = 1;
-            // 
-            // lbLayers
-            // 
-            this.lbLayers.AutoSize = true;
-            this.lbLayers.Location = new System.Drawing.Point(5, 11);
-            this.lbLayers.Name = "lbLayers";
-            this.lbLayers.Size = new System.Drawing.Size(38, 13);
-            this.lbLayers.TabIndex = 2;
-            this.lbLayers.Text = "Layers";
             // 
             // splitContainerLayer
             // 
@@ -223,6 +185,44 @@
             this.splitContainerLayer.Size = new System.Drawing.Size(380, 371);
             this.splitContainerLayer.SplitterDistance = 35;
             this.splitContainerLayer.TabIndex = 3;
+            // 
+            // cbLayers
+            // 
+            this.cbLayers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLayers.FormattingEnabled = true;
+            this.cbLayers.Location = new System.Drawing.Point(91, 8);
+            this.cbLayers.Name = "cbLayers";
+            this.cbLayers.Size = new System.Drawing.Size(140, 21);
+            this.cbLayers.TabIndex = 1;
+            // 
+            // lbLayers
+            // 
+            this.lbLayers.AutoSize = true;
+            this.lbLayers.Location = new System.Drawing.Point(5, 11);
+            this.lbLayers.Name = "lbLayers";
+            this.lbLayers.Size = new System.Drawing.Size(38, 13);
+            this.lbLayers.TabIndex = 2;
+            this.lbLayers.Text = "Layers";
+            // 
+            // layerEditor
+            // 
+            this.layerEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layerEditor.Layer = null;
+            this.layerEditor.Location = new System.Drawing.Point(0, 0);
+            this.layerEditor.Name = "layerEditor";
+            this.layerEditor.Size = new System.Drawing.Size(380, 332);
+            this.layerEditor.TabIndex = 0;
+            // 
+            // textEditorControl
+            // 
+            this.textEditorControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textEditorControl.EnableFolding = false;
+            this.textEditorControl.Font = new System.Drawing.Font("Courier New", 10F);
+            this.textEditorControl.Location = new System.Drawing.Point(0, 0);
+            this.textEditorControl.Name = "textEditorControl";
+            this.textEditorControl.Size = new System.Drawing.Size(416, 371);
+            this.textEditorControl.SyntaxHighlighting = "XML";
+            this.textEditorControl.TabIndex = 0;
             // 
             // FormExporter
             // 

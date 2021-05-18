@@ -20,7 +20,7 @@ namespace treeDiM.StackBuilder.Basics
             {
                 new Pair<Packable, int>(ParentAnalysis.Content, ParentSolution.ItemCount)
             };
-            return false;
+            return true;
         }
         public override bool InnerAnalysis(ref AnalysisHomo analysis)
         {

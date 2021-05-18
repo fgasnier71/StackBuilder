@@ -77,6 +77,7 @@ namespace treeDiM.StackBuilder.Desktop
             this.toolStripButtonReport.Name = "toolStripButtonReport";
             this.toolStripButtonReport.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonReport.Text = "Generate report...";
+            this.toolStripButtonReport.Click += new System.EventHandler(this.OnGenerateReport);
             // 
             // toolStripSeparator1
             // 
@@ -91,6 +92,7 @@ namespace treeDiM.StackBuilder.Desktop
             this.toolStripButtonScreenshot.Name = "toolStripButtonScreenshot";
             this.toolStripButtonScreenshot.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonScreenshot.Text = "Take a screenshot and add to clipboard";
+            this.toolStripButtonScreenshot.Click += new System.EventHandler(this.OnScreenshot);
             // 
             // splitContainerVert
             // 

@@ -117,15 +117,28 @@ namespace treeDiM.StackBuilder.Desktop
                 foreach (var pa in listInnerPackables)
                     RecurInsertContent(ref iRow, pa.first, pa.second);
                 // ***
-
+                // outer dimensions
+                BBox3D bboxGlobal = Analysis.Solution.BBoxGlobal;
+                gridSolution.Rows.Insert(++iRow);
+                gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(
+                    string.Format(Resources.ID_OUTERDIMENSIONS, UnitsManager.LengthUnitString)) { View = vPropValue };
+                gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
+                    string.Format(CultureInfo.InvariantCulture, "{0:0.#} x {1:0.#} x {2:0.#}", bboxGlobal.Length, bboxGlobal.Width, bboxGlobal.Height)
+                    );
                 // load dimensions
                 BBox3D bboxLoad = Analysis.Solution.BBoxLoad;
                 gridSolution.Rows.Insert(++iRow);
                 gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(
                     string.Format(Resources.ID_LOADDIMENSIONS, UnitsManager.LengthUnitString)) { View = vPropValue };
                 gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
-                    string.Format(CultureInfo.InvariantCulture, "{0:0.#} x {1:0.#} x {2:0.#}", bboxLoad.Length, bboxLoad.Width, bboxLoad.Height));
-
+                    string.Format(CultureInfo.InvariantCulture, "{0:0.#} x {1:0.#} x {2:0.#}", bboxLoad.Length, bboxLoad.Width, bboxLoad.Height)
+                    );
+                // total weight
+                gridSolution.Rows.Insert(++iRow);
+                gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(
+                    string.Format(Resources.ID_LOADWEIGHT_WU, UnitsManager.MassUnitString)) { View = vPropValue };
+                gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(string.Format(CultureInfo.InvariantCulture, "{0:0.#}", Analysis.Solution.Weight)
+                    );
                 // load weight
                 gridSolution.Rows.Insert(++iRow);
                 gridSolution[iRow, 0] = new SourceGrid.Cells.RowHeader(

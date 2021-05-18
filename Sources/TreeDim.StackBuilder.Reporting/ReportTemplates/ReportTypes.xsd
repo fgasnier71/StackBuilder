@@ -295,6 +295,28 @@
     </xs:sequence>
   </xs:complexType>
   <!--SOLUTION : END-->
+  <!--SOLUTIONPALLETS : BEGIN-->
+  <xs:complexType name="solutionPallets">
+    <xs:sequence>
+      <xs:element name="weightLoad" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="weightTotal" minOccurs="1" maxOccurs="1" type="rpt:valueWUnit"/>
+      <xs:element name="bboxLoad" minOccurs="1" maxOccurs="1" type="rpt:value3WUnit"/>
+      <xs:element name="bboxTotal" minOccurs="1" maxOccurs="1" type="rpt:value3WUnit"/>
+      <xs:element name="view_solution_front" type="rpt:view_solution_front"/>
+      <xs:element name="view_solution_left" type="rpt:view_solution_left"/>
+      <xs:element name="view_solution_right" type="rpt:view_solution_right"/>
+      <xs:element name="view_solution_back" type="rpt:view_solution_back"/>
+      <xs:element name="view_solution_iso" type="rpt:view_solution_iso"/>  
+      <xs:element name="contentItems">
+        <xs:complexType>
+        <xs:sequence>
+          <xs:element name="contentItem" minOccurs="1" maxOccurs="unbounded" type="rpt:contentItem"/>
+        </xs:sequence>        
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--SOLUTIONPALLETS : END-->  
   <!--CONTENTITEM : BEG-->
   <xs:complexType name="contentItem"  >
     <xs:sequence>
