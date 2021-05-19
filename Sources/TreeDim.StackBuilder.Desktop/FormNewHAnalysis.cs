@@ -364,6 +364,8 @@ namespace treeDiM.StackBuilder.Desktop
         }
         private void OnNext(object sender, EventArgs e)
         {
+            if (null == SelectedSolution)
+                return;
             try
             {
                 CreateNewAnalysis();

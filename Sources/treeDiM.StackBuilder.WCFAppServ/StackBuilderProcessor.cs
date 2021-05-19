@@ -249,6 +249,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                     ConstraintSet = constraintSet,
                     Content = items,
                 };
+                HSolver.BoxologicSingleSol = true;
                 HSolver solver = new HSolver();
                 var solutions = solver.BuildSolutions(analysis);
                 
@@ -313,6 +314,7 @@ namespace treeDiM.StackBuilder.WCFAppServ
                     ConstraintSet = constraintSet,
                     Content = items,
                 };
+                HSolver.BoxologicSingleSol = true;
                 HSolver solver = new HSolver();
                 var solutions = solver.BuildSolutions(analysis);
 
