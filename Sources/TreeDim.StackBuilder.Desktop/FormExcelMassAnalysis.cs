@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+
+using Syroot.Windows.IO;
 
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -132,7 +135,6 @@ namespace treeDiM.StackBuilder.Desktop
             Cursor.Current = Cursors.WaitCursor;
             SaveSettings();
             StringBuilder sbErrors = new StringBuilder();
-
             try
             {
                 string colName = ColumnLetterName;
@@ -155,8 +157,8 @@ namespace treeDiM.StackBuilder.Desktop
                 Excel.Worksheet xlSheet = (Excel.Worksheet)xlApp.Sheets[SheetName];
                 Excel.Range range = xlSheet.UsedRange;
                 int rowCount = range.Rows.Count;
-                int colStartIndex = ExcelHelpers.ColumnLetterToColumnIndex(ColumnLetterOutputStart) -1;
-                int palletColStartIndex = colStartIndex - 1;
+                int colStartIndex = ExcelHelpers.ColumnLetterToColumnIndex(ColumnLetterOutputStart);
+                int palletColStartIndex = colStartIndex;
                 // pallet loop
                 var pallets = SelectedPallets;
                 foreach (var palletProperties in pallets)
@@ -219,6 +221,20 @@ namespace treeDiM.StackBuilder.Desktop
                                 cell.Value = string.Format(Resources.ID_MASSEXCEL_FREEVERSIONLIMITEDNUMBER, MaxNumberRowFree);
                                 break;
                             }
+
+                            string[] colHeaders = new string[] { colName, colLength, colWidth, colHeight };
+                            bool readValues = true;
+                            foreach (var s in colHeaders)
+                            {
+                                if (null == xlSheet.Range[s + iRow, s + iRow].Value)
+                                {
+                                    readValues = false;
+                                    break;
+                                }
+                            }
+                            if (!readValues)
+                                continue;
+
                             // get name
                             string name = (xlSheet.Range[colName + iRow, colName + iRow].Value).ToString();
                             // get description
@@ -235,7 +251,9 @@ namespace treeDiM.StackBuilder.Desktop
 
                             // get weight
                             double? weight = null;
-                            try { weight = (double)xlSheet.Range[colWeight + iRow, colWeight + iRow].Value; } catch (Exception /*ex*/) { }
+                            if (!string.IsNullOrEmpty(colWeight)
+                                && null != xlSheet.Range[colWeight + iRow, colWeight + iRow].Value)
+                                weight = (double)xlSheet.Range[colWeight + iRow, colWeight + iRow].Value;
                             // compute stacking
                             int stackCount = 0, layerCount = 0, byLayerCount = 0;
                             double loadWeight = 0.0, totalPalletWeight = 0.0, stackEfficiency = 0.0;
@@ -280,18 +298,16 @@ namespace treeDiM.StackBuilder.Desktop
                                     );
                             }
                         }
-                        catch (OutOfMemoryException ex) { sbErrors.Append(ex.Message); }
-                        catch (EngineException ex) { sbErrors.Append(ex.Message); }
+                        catch (OutOfMemoryException ex) { sbErrors.Append($"{ex.Message}"); }
+                        catch (EngineException ex) { sbErrors.Append($"{ex.Message} (row={iRow})"); }
+                        catch (InvalidCastException /*ex*/) { sbErrors.Append($"Invalid cast exception (row={iRow})"); }
                         catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException /*ex*/)
                         {
                             iOutputFieldCount = ExcelHelpers.ColumnLetterToColumnIndex(ColumnLetterOutputStart) - 1; ;
                             var countCel = xlSheet.Range[ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow];
                             countCel.Value = string.Format($"ERROR : Invalid input data!");
                         }
-                        catch (Exception ex)
-                        {
-                            throw ex; // rethrow
-                        }
+                        catch (Exception ex) { sbErrors.Append($"{ex.Message} (row={iRow})"); }
                     } // loop row
                     // ### rows : end
                     // increment palletColStartIndex
@@ -344,8 +360,8 @@ namespace treeDiM.StackBuilder.Desktop
             // generate image path
             if (GenerateImage)
                 stackImagePath = Path.Combine(Path.ChangeExtension(Path.GetTempFileName(), "png"));
-            else if (GenerateImageInFolder)
-                stackImagePath = Path.ChangeExtension(Path.Combine(DirectoryPathImages, name), "png");
+            if (GenerateImageInFolder)
+                stackImagePath = Path.ChangeExtension(Path.Combine(DirectoryPathImages, $"{name}_on_{palletProperties.Name}"), "png");
 
             Graphics3DImage graphics = null;
             if (GenerateImage || GenerateImageInFolder)
@@ -452,8 +468,13 @@ namespace treeDiM.StackBuilder.Desktop
                 message = $"Invalid input file path {InputFilePath}.";
             else if (SelectedPallets.Count < 1)
                 message = $"No pallet selected. Select one at least.";
+            else if (cbSheets.Items.Count < 1)
+                message = $"No sheet loaded";
+
             statusStripLabel.ForeColor = string.IsNullOrEmpty(message) ? Color.Black : Color.Red;
             statusStripLabel.Text = string.IsNullOrEmpty(message) ? Resources.ID_READY : message;
+
+            bnCompute.Enabled = string.IsNullOrEmpty(message);
         }
         #endregion
         #region Private properties
@@ -514,6 +535,34 @@ namespace treeDiM.StackBuilder.Desktop
         private void OnItemChecked(object sender, ItemCheckEventArgs e)
         {
             UpdateStatus(sender, null);
+        }
+        private void OnDownloadSampleSheet(object sender, EventArgs e)
+        {
+            string fileURL = Settings.Default.MassExcelTestSheetURL;
+            try
+            {
+                var knownFolder = new KnownFolder(KnownFolderType.Downloads);
+                string downloadPath = Path.Combine(knownFolder.Path, Path.GetFileName(fileURL));
+
+                using (var client = new WebClient())
+                { client.DownloadFile(fileURL, downloadPath); }
+
+                if (File.Exists(downloadPath))
+                    fileSelectExcel.FileName = downloadPath;
+
+                // ---
+                cbName.SelectedIndex = 0;
+                chkbDescription.Checked = true;
+                cbDescription.SelectedIndex = 1;
+                cbLength.SelectedIndex = 2;
+                cbWidth.SelectedIndex = 3;
+                cbHeight.SelectedIndex = 4;
+                cbWeight.SelectedIndex = 5;
+                cbOutputStart.SelectedIndex = 6;
+                // ---
+            }
+            catch (WebException ex) { MessageBox.Show($"Failed to download file {fileURL} : {ex.Message}"); }
+            catch (Exception ex) { _log.Error(ex.Message); }
         }
         #endregion
 

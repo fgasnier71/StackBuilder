@@ -175,7 +175,7 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                                 , length, width, height, weight
                                 , palletProperties
                                 , ref stackCount
-                                , ref layerCount, ref byLayerCount 
+                                , ref layerCount, ref byLayerCount
                                 , ref loadWeight, ref totalPalletWeight
                                 , ref palletLength, ref palletWidth, ref palletHeight
                                 , ref loadLength, ref loadWidth, ref loadHeight
@@ -226,6 +226,9 @@ namespace treeDiM.StackBuilder.ExcelAddIn
                             iOutputFieldCount = palletColStartIndex;
                             var countCel = xlSheet.Range[ExcelHelpers.ColumnIndexToColumnLetter(iOutputFieldCount++) + iRow];
                             countCel.Value = string.Format($"ERROR : Invalid input data!");
+                        }
+                        catch (InvalidCastException ex)
+                        {
                         }
                         catch (Exception ex)
                         {

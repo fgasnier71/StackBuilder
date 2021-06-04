@@ -32,10 +32,11 @@ namespace treeDiM.StackBuilder.Desktop
             cbFileFormat.SelectedIndex = iFormat > -1 ? iFormat : 0;
             cbCoordinates.SelectedIndex = Properties.Settings.Default.ExportCoordinatesMode;
 
-            // analysis to layered
-            RobotPreparation = new RobotPreparation(Analysis as AnalysisCasePallet);
-            // event handler
-            RobotPreparation.LayerModified += RobotPreparationModified;
+            if (Analysis is AnalysisCasePallet analysisCasePallet)
+            {
+                RobotPreparation = new RobotPreparation(Analysis as AnalysisCasePallet);
+                RobotPreparation.LayerModified += RobotPreparationModified;
+            }
             // fill combo layer types
             FillLayerComboBox();
         }

@@ -8,6 +8,7 @@ using Sharp3D.Math.Core;
 
 namespace treeDiM.StackBuilder.Basics
 {
+    #region RobotDrop
     public class RobotDrop
     {
         #region Enums
@@ -210,7 +211,8 @@ namespace treeDiM.StackBuilder.Basics
         private RobotLayer Parent { get; set; }
         #endregion
     }
-
+    #endregion
+    #region RobotLayer
     public class RobotLayer
     {
         #region Constructor
@@ -310,26 +312,23 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
         #region Data members
         public List<RobotDrop> Drops { get; set; } = new List<RobotDrop>();
-
         #endregion
-
         #region Enums
         public enum enuCornerPoint { LOWERLEFT, LOWERRIGHT, UPPERRIGHT, UPPERLEFT }
         public static enuCornerPoint RefPointNumbering { get; set; }
         #endregion
     }
-
+    #endregion
+    #region RobotPreparation
     public class RobotPreparation
     {
         #region Constructor
         public RobotPreparation(AnalysisCasePallet analysis)
         {
             Analysis = analysis;
-
             // initialize layer types
             List<Layer3DBox> listLayerBoxes = new List<Layer3DBox>();
             Analysis.SolutionLay.GetUniqueSolutionItemsAndOccurence(ref listLayerBoxes, ref ListLayerIndexes, ref ListInterlayerIndexes);
-
             // build layer types
             int layerID = 0;
             foreach (var layerBox in listLayerBoxes)
@@ -392,4 +391,5 @@ namespace treeDiM.StackBuilder.Basics
         public List<int> ListLayerIndexes = new List<int>();
         #endregion
     }
+    #endregion
 }

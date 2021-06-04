@@ -455,7 +455,7 @@ namespace treeDiM.StackBuilder.Desktop
         {
             if (InvokeRequired)
             {
-                this.Invoke(new Action<string>(AppendRtb), new object[] { value });
+                Invoke(new Action<string>(AppendRtb), new object[] { value });
                 return;
             }
             richTextBoxLog.Text += value + Environment.NewLine;

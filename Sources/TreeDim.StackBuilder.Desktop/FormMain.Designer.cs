@@ -138,7 +138,7 @@
             this.toolStripMIBestCase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIBestPack = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripSplitButtonExcelProcessors = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripSBExcelPerRow = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSB_BCT = new System.Windows.Forms.ToolStripSplitButton();
@@ -575,7 +575,7 @@
             this.toolStripSeparator11,
             this.toolStripSBOptimisations,
             this.toolStripSeparator10,
-            this.toolStripSplitButton1,
+            this.toolStripSplitButtonExcelProcessors,
             this.toolStripSeparator7,
             this.toolStripSB_BCT,
             this.toolStripSeparator6,
@@ -929,14 +929,14 @@
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             resources.ApplyResources(this.toolStripSeparator10, "toolStripSeparator10");
             // 
-            // toolStripSplitButton1
+            // toolStripSplitButtonExcelProcessors
             // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSplitButtonExcelProcessors.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButtonExcelProcessors.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSBExcelPerRow});
-            resources.ApplyResources(this.toolStripSplitButton1, "toolStripSplitButton1");
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Click += new System.EventHandler(this.OnExelSheetPerRow);
+            resources.ApplyResources(this.toolStripSplitButtonExcelProcessors, "toolStripSplitButtonExcelProcessors");
+            this.toolStripSplitButtonExcelProcessors.Name = "toolStripSplitButtonExcelProcessors";
+            this.toolStripSplitButtonExcelProcessors.Click += new System.EventHandler(this.OnExelSheetPerRow);
             // 
             // toolStripSBExcelPerRow
             // 
@@ -1170,7 +1170,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBag;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPalletLabel;
         private System.Windows.Forms.ToolStripMenuItem toolStripMIPalletPallet;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButtonExcelProcessors;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem toolStripSBExcelPerRow;
     }

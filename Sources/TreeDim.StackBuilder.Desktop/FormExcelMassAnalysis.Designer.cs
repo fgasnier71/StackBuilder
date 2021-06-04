@@ -68,6 +68,7 @@ namespace treeDiM.StackBuilder.Desktop
             this.lbStartOutput = new System.Windows.Forms.Label();
             this.lbSheet = new System.Windows.Forms.Label();
             this.cbSheets = new System.Windows.Forms.ComboBox();
+            this.bnDownloadSampleSheet = new System.Windows.Forms.Button();
             this.gbPallet.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.gbInputColumns.SuspendLayout();
@@ -136,6 +137,7 @@ namespace treeDiM.StackBuilder.Desktop
             this.lbPallets.FormattingEnabled = true;
             resources.ApplyResources(this.lbPallets, "lbPallets");
             this.lbPallets.Name = "lbPallets";
+            this.lbPallets.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbPallets.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.OnItemChecked);
             // 
             // fileSelectExcel
@@ -285,6 +287,7 @@ namespace treeDiM.StackBuilder.Desktop
             resources.ApplyResources(this.chkbGenerateReportInFolder, "chkbGenerateReportInFolder");
             this.chkbGenerateReportInFolder.Name = "chkbGenerateReportInFolder";
             this.chkbGenerateReportInFolder.UseVisualStyleBackColor = true;
+            this.chkbGenerateReportInFolder.CheckedChanged += new System.EventHandler(this.OnGenerateReportsInFolderChanged);
             // 
             // bnFolderImages
             // 
@@ -354,10 +357,18 @@ namespace treeDiM.StackBuilder.Desktop
             resources.ApplyResources(this.cbSheets, "cbSheets");
             this.cbSheets.Name = "cbSheets";
             // 
+            // bnDownloadSampleSheet
+            // 
+            resources.ApplyResources(this.bnDownloadSampleSheet, "bnDownloadSampleSheet");
+            this.bnDownloadSampleSheet.Name = "bnDownloadSampleSheet";
+            this.bnDownloadSampleSheet.UseVisualStyleBackColor = true;
+            this.bnDownloadSampleSheet.Click += new System.EventHandler(this.OnDownloadSampleSheet);
+            // 
             // FormExcelMassAnalysis
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.bnDownloadSampleSheet);
             this.Controls.Add(this.cbSheets);
             this.Controls.Add(this.lbSheet);
             this.Controls.Add(this.gbOutput);
@@ -427,5 +438,6 @@ namespace treeDiM.StackBuilder.Desktop
         private System.Windows.Forms.Button bnFolderReports;
         private System.Windows.Forms.Label lbSheet;
         private System.Windows.Forms.ComboBox cbSheets;
+        private System.Windows.Forms.Button bnDownloadSampleSheet;
     }
 }

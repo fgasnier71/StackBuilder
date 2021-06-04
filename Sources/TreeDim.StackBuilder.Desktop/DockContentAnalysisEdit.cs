@@ -1,6 +1,5 @@
 ﻿#region Using directives
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Collections.Generic;
@@ -45,13 +44,11 @@ namespace treeDiM.StackBuilder.Desktop
                 doc.TypeRemoved += OnTypeRemoved;
             }            
         }
-
         private void OnTypeRemoved(ItemBase item)
         {
             if (item is InterlayerProperties)
                 FillInterlayerCombo();
         }
-
         private void OnTypeCreated(ItemBase item)
         {
             if (item is InterlayerProperties)
@@ -67,8 +64,10 @@ namespace treeDiM.StackBuilder.Desktop
 
             // --- window caption
             if (null != Analysis)
+            {
                 Text = Analysis.Name + " - " + Analysis.ParentDocument.Name;
-
+                toolStripButtonExport.Visible = Analysis is AnalysisCasePallet;
+            }
             // initialize drawing container
             graphCtrlSolution.DrawingContainer = this;
             graphCtrlSolution.Viewer = new ViewerSolution(_solution);
@@ -107,7 +106,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region IItemBaseFilter implementation
-        public bool Accept(Control ctrl, ItemBase itemBase)
+        public virtual bool Accept(Control ctrl, ItemBase itemBase)
         {
             InterlayerProperties interlayer = itemBase as InterlayerProperties;
             if (ctrl == cbInterlayer && null != interlayer)
@@ -412,7 +411,7 @@ namespace treeDiM.StackBuilder.Desktop
             if (DialogResult.OK == form.ShowDialog())
             {
                 var exporter = new Exporters.ExporterGLB();
-                exporter.Export(_analysis as AnalysisLayered, form.FileName);
+                exporter.Export(_analysis, form.FileName);
             }
         }
         #endregion
@@ -520,7 +519,6 @@ namespace treeDiM.StackBuilder.Desktop
         /// logger
         /// </summary>
         protected static readonly ILog _log = LogManager.GetLogger(typeof(DockContentAnalysisEdit));
-
         #endregion
     }
 }

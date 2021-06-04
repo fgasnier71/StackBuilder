@@ -238,7 +238,7 @@ namespace treeDiM.StackBuilder.Basics
     }
     #endregion
 
-    #region Solution
+    #region SolutionLayered
     public class SolutionLayered : SolutionHomo
     {
         #region Constructor
@@ -702,12 +702,23 @@ namespace treeDiM.StackBuilder.Basics
                             Vector3D vecMin = new Vector3D(
                                 0.5 * (Analysis.ContainerDimensions.X - interlayerProp.Length)
                                 , 0.5 * (Analysis.ContainerDimensions.Y - interlayerProp.Width)
-                                , 0.0)
-                                + Analysis.Offset;
+                                , layer.ZLow);
                             _bbox.Extend(new BBox3D(vecMin, vecMin + interlayerProp.Dimensions));
                         }
                         firstLayer = false;
                     }
+
+                    if (Analysis is AnalysisCasePallet analysisCasePallet && analysisCasePallet.HasTopInterlayer)
+                    {
+                        double z = _bbox.PtMax.Z;
+                        InterlayerProperties interlayerProp = analysisCasePallet.TopInterlayerProperties;
+                        Vector3D vecMin = new Vector3D(
+                            0.5 * (Analysis.ContainerDimensions.X - interlayerProp.Length)
+                            , 0.5 * (Analysis.ContainerDimensions.X - interlayerProp.Width)
+                            , z);
+                        _bbox.Extend(new BBox3D(vecMin, vecMin + interlayerProp.Dimensions));
+                    }
+
                     // sanity check
                     if (!_bbox.IsValid)
                         _bbox.Extend(Vector3D.Zero);
@@ -847,6 +858,8 @@ namespace treeDiM.StackBuilder.Basics
                 }
                 interlayerIndexes.Add(solItem.HasInterlayer ? solItem.InterlayerIndex : -1);
             }
+            if (Analysis is AnalysisCasePallet analysisCasePallet)
+                interlayerIndexes.Add(analysisCasePallet.HasTopInterlayer ? GetInterlayerIndex(analysisCasePallet.TopInterlayerProperties) : -1);
 
             double zLayer = 0;
             foreach (var solItem in listSolItem)
@@ -1024,22 +1037,10 @@ namespace treeDiM.StackBuilder.Basics
             }
             return sb.ToString();
         }
-        public int LayerBoxCount(int layerTypeIndex)
-        {
-            return _layerTypes[layerTypeIndex].Count;
-        }
-        public double LayerWeight(int layerTypeIndex)
-        {
-            return LayerBoxCount(layerTypeIndex) * Analysis.ContentWeight;
-        }
-        public double LayerNetWeight(int layerTypeIndex)
-        {
-            return LayerBoxCount(layerTypeIndex) * Analysis.Content.NetWeight.Value;
-        }
-        public double LayerMaximumSpace(int LayerTypeIndex)
-        {
-            return _layerTypes[LayerTypeIndex].MaximumSpace;
-        }
+        public int LayerBoxCount(int layerTypeIndex) => _layerTypes[layerTypeIndex].Count;
+        public double LayerWeight(int layerTypeIndex) => LayerBoxCount(layerTypeIndex) * Analysis.ContentWeight;
+        public double LayerNetWeight(int layerTypeIndex) => LayerBoxCount(layerTypeIndex) * Analysis.Content.NetWeight.Value;
+        public double LayerMaximumSpace(int LayerTypeIndex) => _layerTypes[LayerTypeIndex].MaximumSpace;
         public override double InterlayersWeight
         {
             get

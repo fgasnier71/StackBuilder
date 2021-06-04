@@ -44,6 +44,8 @@
             this.cbPalletCornersTop = new System.Windows.Forms.ComboBox();
             this.chkbPalletCornersTopX = new System.Windows.Forms.CheckBox();
             this.tabPagePalletCap = new System.Windows.Forms.TabPage();
+            this.cbTopInterlayer = new treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered();
+            this.chkbTopInterlayer = new System.Windows.Forms.CheckBox();
             this.cbPalletCap = new System.Windows.Forms.ComboBox();
             this.chkbPalletCap = new System.Windows.Forms.CheckBox();
             this.tabPagePalletFilm = new System.Windows.Forms.TabPage();
@@ -226,11 +228,28 @@
             // 
             // tabPagePalletCap
             // 
+            this.tabPagePalletCap.Controls.Add(this.cbTopInterlayer);
+            this.tabPagePalletCap.Controls.Add(this.chkbTopInterlayer);
             this.tabPagePalletCap.Controls.Add(this.cbPalletCap);
             this.tabPagePalletCap.Controls.Add(this.chkbPalletCap);
             resources.ApplyResources(this.tabPagePalletCap, "tabPagePalletCap");
             this.tabPagePalletCap.Name = "tabPagePalletCap";
             this.tabPagePalletCap.UseVisualStyleBackColor = true;
+            // 
+            // cbTopInterlayer
+            // 
+            this.cbTopInterlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTopInterlayer.FormattingEnabled = true;
+            resources.ApplyResources(this.cbTopInterlayer, "cbTopInterlayer");
+            this.cbTopInterlayer.Name = "cbTopInterlayer";
+            this.cbTopInterlayer.SelectedIndexChanged += new System.EventHandler(this.OnPalletProtectionChanged);
+            // 
+            // chkbTopInterlayer
+            // 
+            resources.ApplyResources(this.chkbTopInterlayer, "chkbTopInterlayer");
+            this.chkbTopInterlayer.Name = "chkbTopInterlayer";
+            this.chkbTopInterlayer.UseVisualStyleBackColor = true;
+            this.chkbTopInterlayer.CheckedChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
             // cbPalletCap
             // 
@@ -354,7 +373,9 @@
             resources.GetString("cbPalletSleeveColor.Items12"),
             resources.GetString("cbPalletSleeveColor.Items13"),
             resources.GetString("cbPalletSleeveColor.Items14"),
-            resources.GetString("cbPalletSleeveColor.Items15")});
+            resources.GetString("cbPalletSleeveColor.Items15"),
+            resources.GetString("cbPalletSleeveColor.Items16"),
+            resources.GetString("cbPalletSleeveColor.Items17")});
             this.cbPalletSleeveColor.Name = "cbPalletSleeveColor";
             this.cbPalletSleeveColor.SelectedIndexChanged += new System.EventHandler(this.OnPalletProtectionChanged);
             // 
@@ -429,5 +450,7 @@
         private treeDiM.Basics.UCtrlDouble uCtrlPalletFilmCovering;
         private System.Windows.Forms.Button bnAdd;
         private SourceGrid.Grid gridLabels;
+        private Graphics.Controls.CCtrlComboFiltered cbTopInterlayer;
+        private System.Windows.Forms.CheckBox chkbTopInterlayer;
     }
 }

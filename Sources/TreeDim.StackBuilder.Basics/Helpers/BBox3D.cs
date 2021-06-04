@@ -9,7 +9,7 @@ using Sharp3D.Math.Core;
 namespace treeDiM.StackBuilder.Basics
 {
     #region InvalidBBoxException
-    class InvalidBBoxException : Exception
+    public class InvalidBBoxException : Exception
     {
         #region Constructor
         public InvalidBBoxException(string message)
@@ -85,14 +85,11 @@ namespace treeDiM.StackBuilder.Basics
         #endregion
 
         #region Constants
-        public static BBox3D Initial { get { return new BBox3D(); } }
+        public static BBox3D Initial => new BBox3D();
         #endregion
 
         #region Public methods
-        public bool IsValid
-        {
-            get { return (PtMin.X <= PtMax.X) && (PtMin.Y <= PtMax.Y) && (PtMin.Z <= PtMax.Z); }
-        }
+        public bool IsValid => (PtMin.X <= PtMax.X) && (PtMin.Y <= PtMax.Y) && (PtMin.Z <= PtMax.Z);
         public void Reset()
         {
             PtMin = new Vector3D(double.MaxValue, double.MaxValue, double.MaxValue);
@@ -180,9 +177,8 @@ namespace treeDiM.StackBuilder.Basics
         /// <returns><see langword="true"/> if <paramref name="obj"/> is a <see cref="Box2D"/> and has the same values as this instance; otherwise, <see langword="false"/>.</returns>
         public override bool Equals(object obj)
         {
-            if (obj is BBox3D)
+            if (obj is BBox3D v)
             {
-                BBox3D v = (BBox3D)obj;
                 return (PtMin.Equals(v.PtMin)) && (PtMax.Equals(v.PtMax));
             }
             return false;
@@ -190,11 +186,8 @@ namespace treeDiM.StackBuilder.Basics
         /// <summary>
         /// Returns a string representation of this object.
         /// </summary>
-        /// <returns>A string representation of this object.</returns>        public override string ToString()
-        public override string ToString()
-        {
-            return string.Format("xmin = {0}, ymin = {1}, zmin = {2}, xmax = {3}, ymax = {4}, zmax = {5}", PtMin.X, PtMin.Y, PtMin.Z, PtMax.X, PtMax.Y, PtMax.Z);
-        }
+        /// <returns>A string representation of this object.</returns>
+        public override string ToString() => $"xmin = {PtMin.X}, ymin = {PtMin.Y}, zmin = {PtMin.Z}, xmax = {PtMax.X}, ymax = {PtMax.Y}, zmax = {PtMax.Z}";        
         #endregion
     }
     #endregion

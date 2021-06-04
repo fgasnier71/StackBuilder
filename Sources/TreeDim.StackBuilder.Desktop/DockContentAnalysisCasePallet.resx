@@ -119,13 +119,13 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="graphCtrlSolution.Size" type="System.Drawing.Size, System.Drawing">
-    <value>569, 211</value>
+    <value>633, 211</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Name" xml:space="preserve">
     <value>graphCtrlSolution</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.30, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Graphics3DControl, treeDiM.StackBuilder.Graphics, Version=3.0.2.31, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;graphCtrlSolution.Parent" xml:space="preserve">
     <value>splitContainerVert.Panel1</value>
@@ -169,7 +169,7 @@
     <value>uCtrlOptMaxNumber</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaxNumber.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptInt, treeDiM.Basics, Version=3.0.2.30, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptInt, treeDiM.Basics, Version=3.0.2.31, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaxNumber.Parent" xml:space="preserve">
     <value>gbStopCriterions</value>
@@ -196,7 +196,7 @@
     <value>uCtrlOptMaximumWeight</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumWeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.2.30, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlOptDouble, treeDiM.Basics, Version=3.0.2.31, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlOptMaximumWeight.Parent" xml:space="preserve">
     <value>gbStopCriterions</value>
@@ -223,7 +223,7 @@
     <value>uCtrlMaxPalletHeight</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxPalletHeight.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.2.30, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.2.31, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlMaxPalletHeight.Parent" xml:space="preserve">
     <value>gbStopCriterions</value>
@@ -265,7 +265,7 @@
     <value>0, 0</value>
   </data>
   <data name="ctrlStrapperSet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>664, 87</value>
+    <value>461, 87</value>
   </data>
   <data name="ctrlStrapperSet.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -274,7 +274,7 @@
     <value>ctrlStrapperSet</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.2.30, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Basics.Controls.CtrlStrapperSet, treeDiM.StackBuilder.Basics, Version=3.0.2.31, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ctrlStrapperSet.Parent" xml:space="preserve">
     <value>tabPageStrappers</value>
@@ -286,7 +286,7 @@
     <value>4, 22</value>
   </data>
   <data name="tabPageStrappers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>664, 87</value>
+    <value>461, 87</value>
   </data>
   <data name="tabPageStrappers.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -361,7 +361,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPagePalletCorners.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 87</value>
+    <value>461, 87</value>
   </data>
   <data name="tabPagePalletCorners.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -466,7 +466,7 @@
     <value>4, 22</value>
   </data>
   <data name="tabPagePalletCornersTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 87</value>
+    <value>461, 87</value>
   </data>
   <data name="tabPagePalletCornersTop.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -486,8 +486,56 @@
   <data name="&gt;&gt;tabPagePalletCornersTop.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="cbTopInterlayer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 4</value>
+  </data>
+  <data name="cbTopInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 21</value>
+  </data>
+  <data name="cbTopInterlayer.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;cbTopInterlayer.Name" xml:space="preserve">
+    <value>cbTopInterlayer</value>
+  </data>
+  <data name="&gt;&gt;cbTopInterlayer.Type" xml:space="preserve">
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.31, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;cbTopInterlayer.Parent" xml:space="preserve">
+    <value>tabPagePalletCap</value>
+  </data>
+  <data name="&gt;&gt;cbTopInterlayer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chkbTopInterlayer.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbTopInterlayer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="chkbTopInterlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 17</value>
+  </data>
+  <data name="chkbTopInterlayer.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="chkbTopInterlayer.Text" xml:space="preserve">
+    <value>Top interlayer</value>
+  </data>
+  <data name="&gt;&gt;chkbTopInterlayer.Name" xml:space="preserve">
+    <value>chkbTopInterlayer</value>
+  </data>
+  <data name="&gt;&gt;chkbTopInterlayer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkbTopInterlayer.Parent" xml:space="preserve">
+    <value>tabPagePalletCap</value>
+  </data>
+  <data name="&gt;&gt;chkbTopInterlayer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="cbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 7</value>
+    <value>129, 29</value>
   </data>
   <data name="cbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 21</value>
@@ -505,13 +553,13 @@
     <value>tabPagePalletCap</value>
   </data>
   <data name="&gt;&gt;cbPalletCap.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="chkbPalletCap.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="chkbPalletCap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
+    <value>6, 29</value>
   </data>
   <data name="chkbPalletCap.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 17</value>
@@ -532,7 +580,7 @@
     <value>tabPagePalletCap</value>
   </data>
   <data name="&gt;&gt;chkbPalletCap.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="tabPagePalletCap.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -541,7 +589,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPagePalletCap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 87</value>
+    <value>461, 87</value>
   </data>
   <data name="tabPagePalletCap.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -580,7 +628,7 @@
     <value>uCtrlPalletFilmCovering</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletFilmCovering.Type" xml:space="preserve">
-    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.2.30, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.Basics.UCtrlDouble, treeDiM.Basics, Version=3.0.2.31, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;uCtrlPalletFilmCovering.Parent" xml:space="preserve">
     <value>tabPagePalletFilm</value>
@@ -643,7 +691,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPagePalletFilm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 87</value>
+    <value>461, 87</value>
   </data>
   <data name="tabPagePalletFilm.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -739,7 +787,7 @@
     <value>4, 22</value>
   </data>
   <data name="tabPagePalletLabels.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 87</value>
+    <value>461, 87</value>
   </data>
   <data name="tabPagePalletLabels.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -813,6 +861,12 @@
   <data name="cbPalletSleeveColor.Items15" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbPalletSleeveColor.Items16" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items17" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="cbPalletSleeveColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>81, 5</value>
   </data>
@@ -826,7 +880,7 @@
     <value>cbPalletSleeveColor</value>
   </data>
   <data name="&gt;&gt;cbPalletSleeveColor.Type" xml:space="preserve">
-    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.30, Culture=neutral, PublicKeyToken=null</value>
+    <value>OfficePickers.ColorPicker.ComboBoxColorPicker, OfficePickers, Version=3.0.2.31, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbPalletSleeveColor.Parent" xml:space="preserve">
     <value>tabPagePalletSleeve</value>
@@ -868,7 +922,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPagePalletSleeve.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 87</value>
+    <value>461, 87</value>
   </data>
   <data name="tabPagePalletSleeve.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -892,7 +946,7 @@
     <value>512, 8</value>
   </data>
   <data name="tabCtrl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>672, 113</value>
+    <value>469, 113</value>
   </data>
   <data name="tabCtrl.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -922,7 +976,7 @@
     <value>1</value>
   </data>
   <data name="splitContainerHoriz.Size" type="System.Drawing.Size, System.Drawing">
-    <value>884, 336</value>
+    <value>984, 336</value>
   </data>
   <data name="&gt;&gt;splitContainerHoriz.Name" xml:space="preserve">
     <value>splitContainerHoriz</value>
@@ -961,10 +1015,10 @@
     <value>1</value>
   </data>
   <data name="splitContainerVert.Size" type="System.Drawing.Size, System.Drawing">
-    <value>884, 211</value>
+    <value>984, 211</value>
   </data>
   <data name="splitContainerVert.SplitterDistance" type="System.Int32, mscorlib">
-    <value>569</value>
+    <value>633</value>
   </data>
   <data name="splitContainerVert.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -985,7 +1039,7 @@
     <value>cbInterlayer</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.30, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Graphics.Controls.CCtrlComboFiltered, treeDiM.StackBuilder.Graphics, Version=3.0.2.31, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbInterlayer.Parent" xml:space="preserve">
     <value>gbLayer</value>
@@ -994,7 +1048,7 @@
     <value>1</value>
   </data>
   <data name="gridSolution.Size" type="System.Drawing.Size, System.Drawing">
-    <value>311, 211</value>
+    <value>347, 211</value>
   </data>
   <data name="&gt;&gt;gridSolution.Name" xml:space="preserve">
     <value>gridSolution</value>
@@ -1012,13 +1066,13 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>38</value>
+    <value>65</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>884, 361</value>
+    <value>984, 361</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1155,6 +1209,6 @@
     <value>DockContentAnalysisCasePallet</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>treeDiM.StackBuilder.Desktop.DockContentAnalysisEdit, treeDiM.StackBuilder.Desktop, Version=3.0.2.30, Culture=neutral, PublicKeyToken=null</value>
+    <value>treeDiM.StackBuilder.Desktop.DockContentAnalysisEdit, treeDiM.StackBuilder.Desktop, Version=3.0.2.31, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

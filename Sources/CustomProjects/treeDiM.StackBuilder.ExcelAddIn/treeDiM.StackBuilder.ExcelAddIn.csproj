@@ -440,7 +440,6 @@
       <DependentUpon>StackBuilderAddIn.Designer.xml</DependentUpon>
     </Compile>
     <AppDesigner Include="Properties\" />
-    <None Include="treedim2021.pfx" />
     <None Include="treedim21.pfx" />
   </ItemGroup>
   <ItemGroup>

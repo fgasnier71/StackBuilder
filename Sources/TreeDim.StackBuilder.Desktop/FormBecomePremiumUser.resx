@@ -124,9 +124,6 @@
   <data name="linkLabelPremiumVsFree.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;webBrowser.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="rbSubscription2.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 331</value>
@@ -139,9 +136,6 @@
   </data>
   <data name="linkLabelPremiumVsFree.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 11</value>
-  </data>
-  <data name="tbVATNumber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>230, 411</value>
   </data>
   <data name="&gt;&gt;lbSubscribe.Name" xml:space="preserve">
     <value>lbSubscribe</value>
@@ -161,8 +155,8 @@
   <data name="&gt;&gt;cbSubscriptionDuration.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="cbSubscriptionDuration.Items1" xml:space="preserve">
-    <value>2 years (90 €)</value>
+  <data name="&gt;&gt;tbEmail.Name" xml:space="preserve">
+    <value>tbEmail</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormBecomePremiumUser</value>
@@ -182,9 +176,6 @@
   </data>
   <data name="bnSend.Size" type="System.Drawing.Size, System.Drawing">
     <value>159, 23</value>
-  </data>
-  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
-    <value>bnCancel</value>
   </data>
   <data name="&gt;&gt;cbSubscriptionDuration.Parent" xml:space="preserve">
     <value>$this</value>
@@ -240,9 +231,6 @@
   <data name="bnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;tbEmail.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;lbEmail.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
@@ -273,11 +261,11 @@
   <data name="webBrowser.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
   </data>
-  <data name="webBrowser.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
   <data name="lbVATNumber.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 414</value>
+  </data>
+  <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="rbSubscription1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -285,11 +273,14 @@
   <data name="cbSubscriptionDuration.Size" type="System.Drawing.Size, System.Drawing">
     <value>347, 21</value>
   </data>
+  <data name="&gt;&gt;rbSubscription1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="tbVATNumber.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 20</value>
   </data>
-  <data name="lbEmail.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="&gt;&gt;webBrowser.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="lbEmail.Text" xml:space="preserve">
     <value>at the following address</value>
@@ -312,20 +303,26 @@
   <data name="lbSubscribe.Size" type="System.Drawing.Size, System.Drawing">
     <value>141, 13</value>
   </data>
+  <data name="&gt;&gt;lbSubscribe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;tbVATNumber.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="linkLabelPremiumVsFree.Text" xml:space="preserve">
     <value>See difference between Premium and Free versions</value>
   </data>
-  <data name="tbEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>347, 20</value>
-  </data>
   <data name="&gt;&gt;rbSubscription1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="webBrowser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 66</value>
+  </data>
   <data name="&gt;&gt;bnSend.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="rbSubscription1.Text" xml:space="preserve">
+    <value>Subscribe via paypal</value>
   </data>
   <data name="&gt;&gt;bnCancel.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -333,11 +330,14 @@
   <data name="rbSubscription2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="lbVATNumber.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="lbSubscribe.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="tbVATNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>230, 411</value>
+  </data>
+  <data name="lbEmail.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="lbVATNumber.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -372,14 +372,11 @@
   <data name="lbEmail.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="rbSubscription2.Text" xml:space="preserve">
-    <value>Subscribe via invoice</value>
-  </data>
   <data name="&gt;&gt;rbSubscription2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="rbSubscription1.Text" xml:space="preserve">
-    <value>Subscribe via paypal</value>
+  <data name="webBrowser.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="rbSubscription1.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 43</value>
@@ -396,14 +393,14 @@
   <data name="&gt;&gt;webBrowser.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;tbEmail.Name" xml:space="preserve">
-    <value>tbEmail</value>
+  <data name="&gt;&gt;tbEmail.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="lbVATNumber.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;rbSubscription1.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="cbSubscriptionDuration.Items1" xml:space="preserve">
+    <value>2 years (90 €)</value>
   </data>
   <data name="lbVATNumber.Text" xml:space="preserve">
     <value>VAT Number</value>
@@ -423,20 +420,23 @@
   <data name="&gt;&gt;lbSubscribe.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
+  <data name="&gt;&gt;lbEmail.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;tbVATNumber.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbSubscription2.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="webBrowser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 66</value>
+  <data name="rbSubscription2.Text" xml:space="preserve">
+    <value>Subscribe via invoice</value>
   </data>
   <data name="cbSubscriptionDuration.Items" xml:space="preserve">
     <value>1 year (50 €)</value>
   </data>
-  <data name="&gt;&gt;lbSubscribe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;bnCancel.Name" xml:space="preserve">
+    <value>bnCancel</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>584, 474</value>
@@ -459,8 +459,8 @@
   <data name="&gt;&gt;tbVATNumber.Name" xml:space="preserve">
     <value>tbVATNumber</value>
   </data>
-  <data name="&gt;&gt;lbEmail.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="tbEmail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>347, 20</value>
   </data>
   <data name="&gt;&gt;rbSubscription2.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -470,8 +470,5 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>nds-NL</value>
   </metadata>
 </root>

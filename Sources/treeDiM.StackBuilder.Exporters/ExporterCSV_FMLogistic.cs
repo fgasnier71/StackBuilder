@@ -31,33 +31,26 @@ namespace treeDiM.StackBuilder.Exporters
         {
             var sol = analysis.SolutionLay;
             var layers = sol.Layers;
-
-            // number formatting
-            NumberFormatInfo nfi = new NumberFormatInfo
-            {
-                NumberDecimalSeparator = ".",
-                NumberGroupSeparator = "",
-                NumberDecimalDigits = 1
-            };
-
             var pallet = analysis.Container as PalletProperties;
 
             var csv = new StringBuilder();
             // case dimension
             Vector3D caseDim = analysis.ContentDimensions;
-            csv.AppendLine($"{caseDim.X.ToString("0,0.0", nfi)};{caseDim.Y.ToString("0,0.0", nfi)};{caseDim.Z.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"{(int)caseDim.X},{(int)caseDim.Y},{(int)caseDim.Z}");
             // number of layers; number of drops
             int noDrops = sol.SolutionItems.Count;
-            csv.AppendLine($"{sol.SolutionItems.Count};{noDrops}");
+            csv.AppendLine($"{sol.SolutionItems.Count},{noDrops}");
             // interlayers
             int iLayer = 0;
+            int xInterlayer = (int)(pallet.Length / 2);
+            int yInterlayer = (int)(pallet.Width / 2);
             foreach (var solItem in sol.SolutionItems)
             {
-                double xInterlayer = pallet.Length / 2;
-                double yInterlayer = pallet.Width / 2;
-                csv.AppendLine($"{iLayer + 1};{xInterlayer};{yInterlayer};{(solItem.HasInterlayer ? 1 : 0)};{solItem.InterlayerIndex}");
+                csv.AppendLine($"{iLayer + 1},{xInterlayer},{yInterlayer},{(solItem.HasInterlayer ? 1 : 0)},{solItem.InterlayerIndex}");
                 ++iLayer;
             }
+            bool topInterlayer = analysis is AnalysisCasePallet analysisCasePallet && analysisCasePallet.HasTopInterlayer;
+            csv.AppendLine($"{iLayer + 1},{xInterlayer},{yInterlayer},{(topInterlayer ? 1 : 0)},{1}");
 
             // 1 line per drop in the 2 first layer
             int iLine = 1;
@@ -74,7 +67,7 @@ namespace treeDiM.StackBuilder.Exporters
                         int caseNumber = 1;
                         int blockType = 1;
 
-                        csv.AppendLine($"{iLine};{vPos.X};{vPos.Y};{vPos.Z};{orientation};{caseNumber};{blockType}");
+                        csv.AppendLine($"{iLine},{(int)vPos.X},{(int)vPos.Y},{(int)vPos.Z},{orientation},{caseNumber},{blockType}");
                         ++iLine;
                     }
                     ++actualLayer;
@@ -92,25 +85,19 @@ namespace treeDiM.StackBuilder.Exporters
         {
             if (null == robotPreparation) return;
 
-            // number formatting
-            NumberFormatInfo nfi = new NumberFormatInfo
-            {
-                NumberDecimalSeparator = ".",
-                NumberGroupSeparator = "",
-                NumberDecimalDigits = 1
-            };
             // string builder
             var csv = new StringBuilder();
             // case dimensions (X;Y;Z)
             var caseDim = robotPreparation.ContentDimensions;
-            csv.AppendLine($"{caseDim.X.ToString("0,0.0", nfi)};{caseDim.Y.ToString("0,0.0", nfi)};{caseDim.Z.ToString("0,0.0", nfi)}");
+            csv.AppendLine($"{(int)caseDim.X},{(int)caseDim.Y},{(int)caseDim.Z}");
             // number of layers; number of drops
-            csv.AppendLine($"{robotPreparation.LayerCount};{robotPreparation.DropCount}");
+            csv.AppendLine($"{robotPreparation.LayerCount},{robotPreparation.DropCount}");
             // interlayers (layer index;X;Y;0/1;index interlayer)
             int iLayer = 1;
             Vector3D palletDim = robotPreparation.PalletDimensions;
             foreach (var indexInterlayer in robotPreparation.ListInterlayerIndexes)
-                csv.AppendLine($"{iLayer++};{0.5f * palletDim.X};{0.5f * palletDim.Y};{(indexInterlayer != -1 ? 1 : 0)};{indexInterlayer}");
+                csv.AppendLine($"{iLayer++},{(int)(0.5f * palletDim.X)},{(int)(0.5f * palletDim.Y)},{(indexInterlayer != -1 ? 1 : 0)},{indexInterlayer}");
+
             // 1 line per block in the 2 first layer
             // get Layer 0
             int iLine = 1;
@@ -127,7 +114,7 @@ namespace treeDiM.StackBuilder.Exporters
                         Vector3D vPos = ConvertPosition(drop.BoxPositionMain, drop.Dimensions);
                         int blockType = drop.PackDirection == RobotDrop.PackDir.LENGTH ? 1 : 0;
 
-                        csv.AppendLine($"{iLine};{vPos.X:0.#};{vPos.Y:0.#};{vPos.Z:0.#};{orientation};{caseNumber};{blockType}");
+                        csv.AppendLine($"{iLine},{(int)vPos.X},{(int)vPos.Y},{(int)vPos.Z},{orientation},{caseNumber},{blockType}");
                     }
                 }
             }

@@ -52,6 +52,18 @@ namespace treeDiM.StackBuilder.Basics
                     _palletCornerTopProperties?.AddDependancy(this);
             }
         }
+        public InterlayerProperties TopInterlayerProperties
+        {
+            get => _topInterlayerProperties;
+            set
+            {
+                if (_topInterlayerProperties == value) return;
+                _topInterlayerProperties?.RemoveDependancy(this);
+                _topInterlayerProperties = value;
+                if (!Temporary && null != ParentDocument)
+                    _topInterlayerProperties?.AddDependancy(this);
+            }
+        }
         public PalletCapProperties PalletCapProperties
         {
             get { return _palletCapProperties; }
@@ -82,6 +94,7 @@ namespace treeDiM.StackBuilder.Basics
         public bool HasPalletCorners => null != _palletCornerProperties;
         public bool HasPalletCornersTopX => null != _palletCornerTopProperties && PalletCornersTopX;
         public bool HasPalletCornersTopY => null != _palletCornerTopProperties && PalletCornersTopY;
+        public bool HasTopInterlayer => null != _topInterlayerProperties;
         public bool HasPalletCap => null != _palletCapProperties;
         public bool HasPalletFilm => null != _palletFilmProperties;
         public bool HasStrappers => null != StrapperSet;
@@ -159,6 +172,7 @@ namespace treeDiM.StackBuilder.Basics
         #region Non-Public Members
         private PalletCornerProperties _palletCornerProperties;
         private PalletCornerProperties _palletCornerTopProperties;
+        private InterlayerProperties _topInterlayerProperties;
         private PalletCapProperties _palletCapProperties;
         private PalletFilmProperties _palletFilmProperties;
         private StrapperSet _strapperSet = new StrapperSet();

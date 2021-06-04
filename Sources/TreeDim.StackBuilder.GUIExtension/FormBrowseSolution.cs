@@ -152,31 +152,12 @@ namespace treeDiM.StackBuilder.GUIExtension
                 if (solution.InterlayerCount > 0)
                 {
                     gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_INTERLAYERNUMBER);
-                    rowHeader.View = viewRowHeader;
+                    rowHeader = new SourceGrid.Cells.RowHeader(Resources.ID_INTERLAYERNUMBER) { View = viewRowHeader };
                     gridSolution[iRow, 0] = rowHeader;
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(solution.InterlayerCount);
                 }
                 // *** Item # (Recursive count)
                 RecurInsertContent(ref iRow, _analysis.Content, solution.ItemCount);
-                /*
-                Packable content = _analysis.Content;
-                int itemCount = solution.ItemCount;
-
-                int number = 1;
-                do
-                {
-                    itemCount *= number;
-                    gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader(string.Format("{0} #", content.DetailedName))
-                    {
-                        View = viewRowHeader
-                    };
-                    gridSolution[iRow, 0] = rowHeader;
-                    gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(itemCount);
-                }
-                while (null != content && content.InnerContent(ref content, ref number));
-                */
                 // ***
                 // outer dimensions
                 BBox3D bboxGlobal = solution.BBoxGlobal;
@@ -253,42 +234,22 @@ namespace treeDiM.StackBuilder.GUIExtension
 
                     // layer caption
                     gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader(solution.LayerCaption(i));
-                    rowHeader.ColumnSpan = 2;
-                    rowHeader.View = captionHeader;
-                    gridSolution[iRow, 0] = rowHeader;
-
-                    RecurInsertContent(ref iRow, _analysis.Content, solution.ItemCount);
-/*
-                    // *** Item # (recursive count)
-                    content = _analysis.Content;
-                    itemCount = solution.LayerBoxCount(i);
-                    number = 1;
-                    do
+                    rowHeader = new SourceGrid.Cells.RowHeader(solution.LayerCaption(i))
                     {
-                        itemCount *= number;
-
-                        gridSolution.Rows.Insert(++iRow);
-                        rowHeader = new SourceGrid.Cells.RowHeader(
-                            string.Format("{0} #", content.DetailedName));
-                        rowHeader.View = viewRowHeader;
-                        gridSolution[iRow, 0] = rowHeader;
-                        gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(itemCount);
-                    }
-                    while (null != content && content.InnerContent(ref content, ref number));
-                    // ***
-*/
+                        ColumnSpan = 2,
+                        View = captionHeader
+                    };
+                    gridSolution[iRow, 0] = rowHeader;
+                    RecurInsertContent(ref iRow, _analysis.Content, solution.ItemCount);
                     // layer weight
                     gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader(string.Format(Resources.ID_WEIGHT_WU, UnitsManager.MassUnitString));
-                    rowHeader.View = viewRowHeader;
+                    rowHeader = new SourceGrid.Cells.RowHeader(string.Format(Resources.ID_WEIGHT_WU, UnitsManager.MassUnitString)) { View = viewRowHeader };
                     gridSolution[iRow, 0] = rowHeader;
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                         string.Format(CultureInfo.InvariantCulture, "{0:0.#}", solution.LayerWeight(i)));
                     // layer space
                     gridSolution.Rows.Insert(++iRow);
-                    rowHeader = new SourceGrid.Cells.RowHeader("Spaces");
-                    rowHeader.View = viewRowHeader;
+                    rowHeader = new SourceGrid.Cells.RowHeader("Spaces") { View = viewRowHeader };
                     gridSolution[iRow, 0] = rowHeader;
                     gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(
                         string.Format(CultureInfo.InvariantCulture, "{0:0.#}", solution.LayerMaximumSpace(i)));

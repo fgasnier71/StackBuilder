@@ -1378,5 +1378,14 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
                 this["ExportFormatName"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.plmpack.com/stackbuilder/download/StackBuilderCalculator.xlsx")]
+        public string MassExcelTestSheetURL {
+            get {
+                return ((string)(this["MassExcelTestSheetURL"]));
+            }
+        }
     }
 }

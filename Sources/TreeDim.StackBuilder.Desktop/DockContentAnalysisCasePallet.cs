@@ -59,6 +59,10 @@ namespace treeDiM.StackBuilder.Desktop
 
             AnalysisCasePallet analysisCasePallet = _analysis as AnalysisCasePallet;
 
+
+            cbTopInterlayer.Initialize(Document as Document, this, analysisCasePallet?.TopInterlayerProperties);
+            chkbTopInterlayer.Enabled = (cbTopInterlayer.Items.Count > 0);
+
             ComboBoxHelpers.FillCombo(PalletCorners, cbPalletCorners, analysisCasePallet?.PalletCornerProperties);
             chkbPalletCorners.Enabled = (cbPalletCorners.Items.Count > 0);
             ComboBoxHelpers.FillCombo(PalletCorners, cbPalletCornersTop, analysisCasePallet?.PalletCornerTopProperties);
@@ -111,6 +115,18 @@ namespace treeDiM.StackBuilder.Desktop
         protected override bool AllowExport3D => true;
         #endregion
 
+        public override bool  Accept(Control ctrl, ItemBase itemBase)
+        {
+            // base implementation
+            if (base.Accept(ctrl, itemBase)) return true;
+            // interlayer
+            InterlayerProperties interlayer = itemBase as InterlayerProperties;
+            if (ctrl == cbTopInterlayer && null != interlayer)
+                return _analysis.AllowInterlayer(interlayer);
+
+            return false;
+        }
+
         #region Private properties (Pallet corners, pallet caps, pallet film)
         private PalletCornerProperties SelectedPalletCorners
         {
@@ -149,6 +165,19 @@ namespace treeDiM.StackBuilder.Desktop
                 return null;
             }
         }
+        private InterlayerProperties SelectedTopInterlayer
+        {
+            get
+            {
+                if (cbTopInterlayer.Items.Count > 0 && chkbTopInterlayer.Checked)
+                {
+                    if (cbTopInterlayer.SelectedType is InterlayerProperties interlayer)
+                        return interlayer;
+                }
+                return null;
+            }
+        }
+
         private PalletFilmProperties SelectedPalletFilm
         {
             get
@@ -193,6 +222,11 @@ namespace treeDiM.StackBuilder.Desktop
         {
             get => chkbPalletSleeve.Checked;
             set => chkbPalletSleeve.Checked = value;
+        }
+        private bool HasTopInterlayer
+        {
+            get => chkbTopInterlayer.Checked;
+            set => chkbTopInterlayer.Checked = value;
         }
         private Color PalletSleeveColor
         {
@@ -263,12 +297,6 @@ namespace treeDiM.StackBuilder.Desktop
             gridSolution.ColumnsCount = 2;
             gridSolution.FixedColumns = 1;
             gridSolution.FixedRows = 1;
-            /*
-            gridSolution.Columns[0].AutoSizeMode = SourceGrid.AutoSizeMode.None;
-            gridSolution.Columns[0].Width = 200;
-            gridSolution.Columns[1].AutoSizeMode = SourceGrid.AutoSizeMode.EnableAutoSize;
-            gridSolution.Columns[1].Width = 200;
-            */
         }
         public override void UpdateGrid()
         {
@@ -408,7 +436,7 @@ namespace treeDiM.StackBuilder.Desktop
                 analysisCasePallet.PalletCornerTopProperties = SelectedPalletCornersTop;
                 analysisCasePallet.PalletCornersTopX = PalletCornerTopX;
                 analysisCasePallet.PalletCornersTopY = PalletCornerTopY;
-
+                analysisCasePallet.TopInterlayerProperties = SelectedTopInterlayer;
                 analysisCasePallet.PalletCapProperties = SelectedPalletCap;
                 analysisCasePallet.PalletFilmProperties = SelectedPalletFilm;
                 analysisCasePallet.StrapperSet = ctrlStrapperSet.StrapperSet;
@@ -505,9 +533,7 @@ namespace treeDiM.StackBuilder.Desktop
                 {
                     // handling delete event
                     SourceGrid.Cells.Controllers.CustomEvents buttonDelete = new SourceGrid.Cells.Controllers.CustomEvents();
-                    buttonDelete.Click += new EventHandler(OnDeleteLabel);
-
-                    
+                    buttonDelete.Click += new EventHandler(OnDeleteLabel);                    
 
                     foreach (var pli in analysisCasePallet.PalletLabels)
                     {
@@ -551,7 +577,6 @@ namespace treeDiM.StackBuilder.Desktop
                 _log.Error(ex.ToString());
             }
         }
-
         private List<PalletLabelInst> LoadPalletLabelInst()
         {
             List<PalletLabelInst> palletLabelInst = new List<PalletLabelInst>();

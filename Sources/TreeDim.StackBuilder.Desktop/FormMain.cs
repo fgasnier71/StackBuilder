@@ -806,8 +806,10 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripMIBestPack.Enabled         = (null != doc) && doc.CanCreateOptiPack;
             toolStripMenuItemBestPack.Enabled   = (null != doc) && doc.CanCreateOptiPack;
             // disconnected mode
-            toolStripMenuItemEditDB.Enabled = true;
-            editPaletSolutionsDB.Enabled = true;
+            toolStripMenuItemEditDB.Enabled = WCFClient.IsConnected;
+            editPaletSolutionsDB.Enabled = WCFClient.IsConnected;
+            toolStripSplitButtonExcelProcessors.Enabled = WCFClient.IsConnected;
+            toolStripSBExcelPerRow.Enabled = WCFClient.IsConnected;
             // allow export of project summary to Excel
             toolStripMIExportAnalysesSummaryToExcel.Enabled = (null != doc) && doc.Analyses.Count > 0;
             // BCT

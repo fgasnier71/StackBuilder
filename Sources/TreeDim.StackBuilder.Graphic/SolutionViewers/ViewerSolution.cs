@@ -197,6 +197,24 @@ namespace treeDiM.StackBuilder.Graphics
             BBox3D loadBBoxWDeco = Solution.BBoxLoadWDeco;
             if (analysis is AnalysisCasePallet analysisCasePallet)
             {
+                #region Top interlayer
+                if (analysisCasePallet.HasTopInterlayer)
+                {
+                    var upTranslation = Transform3D.Translation(new Vector3D(0.0, 0.0, -1 != Solution.SelectedLayerIndex ? DistanceAboveSelectedLayer : 0.0));
+                    var interlayerProp = analysisCasePallet.TopInterlayerProperties;
+                    BoxPosition bPosition = new BoxPosition(
+                            new Vector3D(
+                            analysis.Offset.X + 0.5 * (analysis.ContainerDimensions.X - interlayerProp.Length)
+                            , analysis.Offset.Y + 0.5 * (analysis.ContainerDimensions.Y - interlayerProp.Width)
+                            , loadBBox.PtMax.Z
+                            ), HalfAxis.HAxis.AXIS_X_P, HalfAxis.HAxis.AXIS_Y_P);
+                    BoxPosition boxPositionModified = bPosition.Transform(transform * upTranslation);
+                    Box box = new Box(pickId++, interlayerProp, boxPositionModified);
+                    graphics.AddBox(box);
+                    loadBBox.Extend(box.BBox);
+                }
+                #endregion
+
                 #region Pallet corners
                 // ### pallet corners : Begin
                 Corner[] corners = new Corner[4];
@@ -368,7 +386,6 @@ namespace treeDiM.StackBuilder.Graphics
                 // ### pallet cap
                 if (analysisCasePallet.HasPalletCap)
                 {
-
                     PalletCapProperties capProperties = analysisCasePallet.PalletCapProperties;
                     BoxPosition bPosition = new BoxPosition(new Vector3D(
                         0.5 * (analysisCasePallet.PalletProperties.Length - capProperties.Length),

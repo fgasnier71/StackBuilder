@@ -114,7 +114,11 @@ namespace treeDiM.StackBuilder.SampleCasePalletProj
                 // get a list of all possible layers
                 ILayerSolver solver = new LayerSolver();
                 // build layers and fill CCtrl
-                _layers = solver.BuildLayers(_caseProperties.OuterDimensions, new Vector2D(vPalletDim.X, vPalletDim.Y), 0.0, _constraintSet, BestLayersOnly);
+                _layers = solver.BuildLayers(
+                    _caseProperties.OuterDimensions,
+                    Vector3D.Zero,
+                    new Vector2D(vPalletDim.X, vPalletDim.Y),
+                    0.0, _constraintSet, BestLayersOnly);
                 cbLayers.Packable = _caseProperties;
                 // fill combo with layers
                 cbLayers.Items.Clear();

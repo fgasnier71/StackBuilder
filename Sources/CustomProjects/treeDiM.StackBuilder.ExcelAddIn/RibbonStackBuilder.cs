@@ -36,12 +36,10 @@ namespace treeDiM.StackBuilder.ExcelAddIn
             try { Globals.StackBuilderAddIn.OpenSampleFile(); }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
-
         private void OnRibbonStackBuilderLoad(object sender, RibbonUIEventArgs e)
         {
             cbMode.SelectedItemIndex = Properties.Settings.Default.Mode;
         }
-
         private void OnModeChanged(object sender, RibbonControlEventArgs e)
         {
             if (sender is RibbonDropDown ribbonDropDown)

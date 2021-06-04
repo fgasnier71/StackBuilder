@@ -1,6 +1,4 @@
 ﻿#region Using directives
-using log4net;
-
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Desktop.Properties;
 #endregion

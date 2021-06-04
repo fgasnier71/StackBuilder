@@ -1915,6 +1915,9 @@ namespace treeDiM.StackBuilder.Basics
             string sPalletCapId = string.Empty;
             if (eltAnalysis.HasAttribute("PalletCapId"))
                 sPalletCapId = eltAnalysis.Attributes["PalletCapId"].Value;
+            string sTopInterlayerId = string.Empty;
+            if (eltAnalysis.HasAttribute("TopInterlayerId"))
+                sTopInterlayerId = eltAnalysis.Attributes["TopInterlayerId"].Value;
             string sPalletFilmId = string.Empty;
             if (eltAnalysis.HasAttribute("PalletFilmId"))
                 sPalletFilmId = eltAnalysis.Attributes["PalletFilmId"].Value;
@@ -1938,6 +1941,7 @@ namespace treeDiM.StackBuilder.Basics
                 PalletCornerProperties palletCorners = GetTypeByGuid(sPalletCornerId) as PalletCornerProperties;
                 PalletCornerProperties palletCornersTop = GetTypeByGuid(sPalletCornerTopId) as PalletCornerProperties;
                 PalletCapProperties palletCap = GetTypeByGuid(sPalletCapId) as PalletCapProperties;
+                InterlayerProperties topInterlayer = GetTypeByGuid(sTopInterlayerId) as InterlayerProperties;
                 PalletFilmProperties palletFilm = GetTypeByGuid(sPalletFilmId) as PalletFilmProperties;
                 double palletFilmTopCovering = 0.0;
                 if (null != palletFilm)
@@ -1985,6 +1989,7 @@ namespace treeDiM.StackBuilder.Basics
                 analysisCasePallet.PalletFilmTopCovering = palletFilmTopCovering;
                 analysisCasePallet.HasPalletSleeve = hasPalletSleeve;
                 analysisCasePallet.PalletSleeveColor = palletSleeveColor;
+                analysisCasePallet.TopInterlayerProperties = topInterlayer;
 
                 if (!string.IsNullOrEmpty(sId))
                     analysis.ID.IGuid = Guid.Parse(sId);
@@ -3734,6 +3739,12 @@ namespace treeDiM.StackBuilder.Basics
                     XmlAttribute palletCapIdAttribute = xmlDoc.CreateAttribute("PalletCapId");
                     palletCapIdAttribute.Value = string.Format("{0}", analysisCasePallet1.PalletCapProperties.ID.IGuid);
                     xmlAnalysisElt.Attributes.Append(palletCapIdAttribute);
+                }
+                if (analysisCasePallet1.HasTopInterlayer)
+                {
+                    var topInterlayerIdAttribute = xmlDoc.CreateAttribute("TopInterlayerId");
+                    topInterlayerIdAttribute.Value = string.Format("{0}", analysisCasePallet1.TopInterlayerProperties.ID.IGuid);
+                    xmlAnalysisElt.Attributes.Append(topInterlayerIdAttribute);
                 }
                 // PalletFilmId
                 if (null != analysisCasePallet1.PalletFilmProperties)

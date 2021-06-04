@@ -143,6 +143,7 @@
       <DependentUpon>FormValueArray.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Helpers\BBox2D.cs" />
     <Compile Include="Helpers\BBox3D.cs" />
     <Compile Include="Helpers\BoxelOrdererBPos.cs" />
     <Compile Include="Helpers\BoxPositionIndexed.cs" />
