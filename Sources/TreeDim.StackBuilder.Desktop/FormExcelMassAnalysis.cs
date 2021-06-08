@@ -42,7 +42,6 @@ namespace treeDiM.StackBuilder.Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-
             FillPalletList();
 
             ExcelHelpers.FillComboWithColumnName(cbName);

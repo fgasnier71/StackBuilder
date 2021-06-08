@@ -134,10 +134,10 @@ namespace treeDiM.StackBuilder.Desktop
             // 
             // lbPallets
             // 
+            this.lbPallets.CheckOnClick = true;
             this.lbPallets.FormattingEnabled = true;
             resources.ApplyResources(this.lbPallets, "lbPallets");
             this.lbPallets.Name = "lbPallets";
-            this.lbPallets.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbPallets.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.OnItemChecked);
             // 
             // fileSelectExcel

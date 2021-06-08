@@ -121,6 +121,9 @@
   <data name="bnCompute.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
+  <data name="bnCompute.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bnCompute.Location" type="System.Drawing.Point, System.Drawing">
     <value>634, 348</value>
@@ -150,6 +153,9 @@
   <data name="bnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
+  <data name="bnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="bnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>634, 5</value>
   </data>
@@ -176,6 +182,9 @@
   </data>
   <data name="chkbOnlyZOrientation.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="chkbOnlyZOrientation.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="chkbOnlyZOrientation.Location" type="System.Drawing.Point, System.Drawing">
     <value>208, 69</value>
@@ -321,6 +330,9 @@
   <data name="lbExcelFile.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="lbExcelFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="lbExcelFile.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 10</value>
   </data>
@@ -348,6 +360,12 @@
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="statusStripLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 17</value>
+  </data>
+  <data name="statusStripLabel.Text" xml:space="preserve">
+    <value>statusStripLabel</value>
+  </data>
   <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 374</value>
   </data>
@@ -371,180 +389,6 @@
   </data>
   <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="statusStripLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 17</value>
-  </data>
-  <data name="statusStripLabel.Text" xml:space="preserve">
-    <value>statusStripLabel</value>
-  </data>
-  <data name="&gt;&gt;cbWeight.Name" xml:space="preserve">
-    <value>cbWeight</value>
-  </data>
-  <data name="&gt;&gt;cbWeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbWeight.Parent" xml:space="preserve">
-    <value>gbInputColumns</value>
-  </data>
-  <data name="&gt;&gt;cbWeight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;cbHeight.Name" xml:space="preserve">
-    <value>cbHeight</value>
-  </data>
-  <data name="&gt;&gt;cbHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbHeight.Parent" xml:space="preserve">
-    <value>gbInputColumns</value>
-  </data>
-  <data name="&gt;&gt;cbHeight.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;cbWidth.Name" xml:space="preserve">
-    <value>cbWidth</value>
-  </data>
-  <data name="&gt;&gt;cbWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbWidth.Parent" xml:space="preserve">
-    <value>gbInputColumns</value>
-  </data>
-  <data name="&gt;&gt;cbWidth.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;cbLength.Name" xml:space="preserve">
-    <value>cbLength</value>
-  </data>
-  <data name="&gt;&gt;cbLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbLength.Parent" xml:space="preserve">
-    <value>gbInputColumns</value>
-  </data>
-  <data name="&gt;&gt;cbLength.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;cbDescription.Name" xml:space="preserve">
-    <value>cbDescription</value>
-  </data>
-  <data name="&gt;&gt;cbDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbDescription.Parent" xml:space="preserve">
-    <value>gbInputColumns</value>
-  </data>
-  <data name="&gt;&gt;cbDescription.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;cbName.Name" xml:space="preserve">
-    <value>cbName</value>
-  </data>
-  <data name="&gt;&gt;cbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbName.Parent" xml:space="preserve">
-    <value>gbInputColumns</value>
-  </data>
-  <data name="&gt;&gt;cbName.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;chkbDescription.Name" xml:space="preserve">
-    <value>chkbDescription</value>
-  </data>
-  <data name="&gt;&gt;chkbDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbDescription.Parent" xml:space="preserve">
-    <value>gbInputColumns</value>
-  </data>
-  <data name="&gt;&gt;chkbDescription.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>gbInputColumns</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;lbHeight.Name" xml:space="preserve">
-    <value>lbHeight</value>
-  </data>
-  <data name="&gt;&gt;lbHeight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbHeight.Parent" xml:space="preserve">
-    <value>gbInputColumns</value>
-  </data>
-  <data name="&gt;&gt;lbHeight.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;lbWidth.Name" xml:space="preserve">
-    <value>lbWidth</value>
-  </data>
-  <data name="&gt;&gt;lbWidth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbWidth.Parent" xml:space="preserve">
-    <value>gbInputColumns</value>
-  </data>
-  <data name="&gt;&gt;lbWidth.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;lbLength.Name" xml:space="preserve">
-    <value>lbLength</value>
-  </data>
-  <data name="&gt;&gt;lbLength.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbLength.Parent" xml:space="preserve">
-    <value>gbInputColumns</value>
-  </data>
-  <data name="&gt;&gt;lbLength.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;lbName.Name" xml:space="preserve">
-    <value>lbName</value>
-  </data>
-  <data name="&gt;&gt;lbName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbName.Parent" xml:space="preserve">
-    <value>gbInputColumns</value>
-  </data>
-  <data name="&gt;&gt;lbName.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="gbInputColumns.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 65</value>
-  </data>
-  <data name="gbInputColumns.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 179</value>
-  </data>
-  <data name="gbInputColumns.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="gbInputColumns.Text" xml:space="preserve">
-    <value>Input columns</value>
-  </data>
-  <data name="&gt;&gt;gbInputColumns.Name" xml:space="preserve">
-    <value>gbInputColumns</value>
-  </data>
-  <data name="&gt;&gt;gbInputColumns.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbInputColumns.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbInputColumns.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="cbWeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>112, 146</value>
@@ -852,161 +696,29 @@
   <data name="&gt;&gt;lbName.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;bnFolderReports.Name" xml:space="preserve">
-    <value>bnFolderReports</value>
+  <data name="gbInputColumns.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 65</value>
   </data>
-  <data name="&gt;&gt;bnFolderReports.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="gbInputColumns.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 179</value>
   </data>
-  <data name="&gt;&gt;bnFolderReports.Parent" xml:space="preserve">
-    <value>gbOutput</value>
+  <data name="gbInputColumns.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
-  <data name="&gt;&gt;bnFolderReports.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="gbInputColumns.Text" xml:space="preserve">
+    <value>Input columns</value>
   </data>
-  <data name="&gt;&gt;tbFolderReports.Name" xml:space="preserve">
-    <value>tbFolderReports</value>
+  <data name="&gt;&gt;gbInputColumns.Name" xml:space="preserve">
+    <value>gbInputColumns</value>
   </data>
-  <data name="&gt;&gt;tbFolderReports.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbFolderReports.Parent" xml:space="preserve">
-    <value>gbOutput</value>
-  </data>
-  <data name="&gt;&gt;tbFolderReports.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;chkbGenerateReportInFolder.Name" xml:space="preserve">
-    <value>chkbGenerateReportInFolder</value>
-  </data>
-  <data name="&gt;&gt;chkbGenerateReportInFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbGenerateReportInFolder.Parent" xml:space="preserve">
-    <value>gbOutput</value>
-  </data>
-  <data name="&gt;&gt;chkbGenerateReportInFolder.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;bnFolderImages.Name" xml:space="preserve">
-    <value>bnFolderImages</value>
-  </data>
-  <data name="&gt;&gt;bnFolderImages.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bnFolderImages.Parent" xml:space="preserve">
-    <value>gbOutput</value>
-  </data>
-  <data name="&gt;&gt;bnFolderImages.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;tbFolderImages.Name" xml:space="preserve">
-    <value>tbFolderImages</value>
-  </data>
-  <data name="&gt;&gt;tbFolderImages.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbFolderImages.Parent" xml:space="preserve">
-    <value>gbOutput</value>
-  </data>
-  <data name="&gt;&gt;tbFolderImages.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;chkbGenerateImageInFolder.Name" xml:space="preserve">
-    <value>chkbGenerateImageInFolder</value>
-  </data>
-  <data name="&gt;&gt;chkbGenerateImageInFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbGenerateImageInFolder.Parent" xml:space="preserve">
-    <value>gbOutput</value>
-  </data>
-  <data name="&gt;&gt;chkbGenerateImageInFolder.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;chkbGenerateImageInRow.Name" xml:space="preserve">
-    <value>chkbGenerateImageInRow</value>
-  </data>
-  <data name="&gt;&gt;chkbGenerateImageInRow.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkbGenerateImageInRow.Parent" xml:space="preserve">
-    <value>gbOutput</value>
-  </data>
-  <data name="&gt;&gt;chkbGenerateImageInRow.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;nudImageSize.Name" xml:space="preserve">
-    <value>nudImageSize</value>
-  </data>
-  <data name="&gt;&gt;nudImageSize.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nudImageSize.Parent" xml:space="preserve">
-    <value>gbOutput</value>
-  </data>
-  <data name="&gt;&gt;nudImageSize.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>gbOutput</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;cbOutputStart.Name" xml:space="preserve">
-    <value>cbOutputStart</value>
-  </data>
-  <data name="&gt;&gt;cbOutputStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbOutputStart.Parent" xml:space="preserve">
-    <value>gbOutput</value>
-  </data>
-  <data name="&gt;&gt;cbOutputStart.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;lbStartOutput.Name" xml:space="preserve">
-    <value>lbStartOutput</value>
-  </data>
-  <data name="&gt;&gt;lbStartOutput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbStartOutput.Parent" xml:space="preserve">
-    <value>gbOutput</value>
-  </data>
-  <data name="&gt;&gt;lbStartOutput.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="gbOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>187, 65</value>
-  </data>
-  <data name="gbOutput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>441, 179</value>
-  </data>
-  <data name="gbOutput.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="gbOutput.Text" xml:space="preserve">
-    <value>Output</value>
-  </data>
-  <data name="&gt;&gt;gbOutput.Name" xml:space="preserve">
-    <value>gbOutput</value>
-  </data>
-  <data name="&gt;&gt;gbOutput.Type" xml:space="preserve">
+  <data name="&gt;&gt;gbInputColumns.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;gbOutput.Parent" xml:space="preserve">
+  <data name="&gt;&gt;gbInputColumns.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;gbOutput.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;gbInputColumns.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="bnFolderReports.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1308,8 +1020,35 @@
   <data name="&gt;&gt;lbStartOutput.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
+  <data name="gbOutput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>187, 65</value>
+  </data>
+  <data name="gbOutput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>441, 179</value>
+  </data>
+  <data name="gbOutput.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="gbOutput.Text" xml:space="preserve">
+    <value>Output</value>
+  </data>
+  <data name="&gt;&gt;gbOutput.Name" xml:space="preserve">
+    <value>gbOutput</value>
+  </data>
+  <data name="&gt;&gt;gbOutput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbOutput.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbOutput.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="lbSheet.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="lbSheet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lbSheet.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 34</value>
@@ -1355,6 +1094,9 @@
   </data>
   <data name="&gt;&gt;cbSheets.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="bnDownloadSampleSheet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="bnDownloadSampleSheet.Location" type="System.Drawing.Point, System.Drawing">
     <value>449, 29</value>
