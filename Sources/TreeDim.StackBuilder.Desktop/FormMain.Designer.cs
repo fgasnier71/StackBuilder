@@ -48,7 +48,7 @@
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMIExportAnalysesSummaryToExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTools = new System.Windows.Forms.ToolStripMenuItem();
-            this.editPaletSolutionsDB = new System.Windows.Forms.ToolStripMenuItem();
+            this.editPalletSolutionsDB = new System.Windows.Forms.ToolStripMenuItem();
             this.browseEditMaterialListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemBox = new System.Windows.Forms.ToolStripMenuItem();
@@ -278,7 +278,7 @@
             // toolStripMenuItemTools
             // 
             this.toolStripMenuItemTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editPaletSolutionsDB,
+            this.editPalletSolutionsDB,
             this.browseEditMaterialListToolStripMenuItem,
             this.toolStripSeparator15,
             this.toolStripMenuItemBox,
@@ -316,9 +316,9 @@
             // 
             // editPaletSolutionsDB
             // 
-            resources.ApplyResources(this.editPaletSolutionsDB, "editPaletSolutionsDB");
-            this.editPaletSolutionsDB.Name = "editPaletSolutionsDB";
-            this.editPaletSolutionsDB.Click += new System.EventHandler(this.OnShowDatabase);
+            resources.ApplyResources(this.editPalletSolutionsDB, "editPaletSolutionsDB");
+            this.editPalletSolutionsDB.Name = "editPaletSolutionsDB";
+            this.editPalletSolutionsDB.Click += new System.EventHandler(this.OnShowDatabase);
             // 
             // browseEditMaterialListToolStripMenuItem
             // 
@@ -1084,7 +1084,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem mnuFileMRU;
         private System.Windows.Forms.ToolStripButton toolStripMenuItemEditDB;
-        private System.Windows.Forms.ToolStripMenuItem editPaletSolutionsDB;
+        private System.Windows.Forms.ToolStripMenuItem editPalletSolutionsDB;
         private System.Windows.Forms.ToolStripButton toolStripButtonCase;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItemHelp;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;

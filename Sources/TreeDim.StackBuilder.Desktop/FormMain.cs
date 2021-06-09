@@ -807,14 +807,14 @@ namespace treeDiM.StackBuilder.Desktop
             toolStripMenuItemBestPack.Enabled   = (null != doc) && doc.CanCreateOptiPack;
             // disconnected mode
             toolStripMenuItemEditDB.Enabled = WCFClient.IsConnected;
-            editPaletSolutionsDB.Enabled = WCFClient.IsConnected;
-            toolStripSplitButtonExcelProcessors.Enabled = WCFClient.IsConnected;
-            toolStripSBExcelPerRow.Enabled = WCFClient.IsConnected;
+            editPalletSolutionsDB.Enabled = WCFClient.IsConnected;
             // allow export of project summary to Excel
             toolStripMIExportAnalysesSummaryToExcel.Enabled = (null != doc) && doc.Analyses.Count > 0;
             // BCT
             toolStripSB_BCT.Enabled = WCFClient.IsConnected;
-        }
+            toolStripSplitButtonExcelProcessors.Enabled = WCFClient.IsConnected;
+            toolStripSBExcelPerRow.Enabled = WCFClient.IsConnected;
+       }
         #endregion
         #region IDocumentFactory implementation
         public void NewDocument()
@@ -1105,6 +1105,10 @@ namespace treeDiM.StackBuilder.Desktop
                 }
             }
             toolStripSB_BCT.Enabled = WCFClient.IsConnected;
+            toolStripSplitButtonExcelProcessors.Enabled = WCFClient.IsConnected;
+            toolStripSBExcelPerRow.Enabled = WCFClient.IsConnected;
+
+
             toolStripButtonPremium.Visible = !Program.IsSubscribed;
             toolStripMIPremium.Visible = !Program.IsSubscribed;
             toolStripMIPremiumSep.Visible = !Program.IsSubscribed;
