@@ -2444,7 +2444,7 @@ namespace treeDiM.StackBuilder.Basics
             }
             // instantiate analysis
             if (string.Equals(eltAnalysis.Name, "HAnalysisPallet", StringComparison.CurrentCultureIgnoreCase))
-            {                
+            {
                 AnalysisHetero analysis = CreateNewHAnalysisCasePallet(
                     sName, sDescription,
                     contentItems, containers[0] as PalletProperties,
@@ -2454,11 +2454,10 @@ namespace treeDiM.StackBuilder.Basics
             }
             else if (string.Equals(eltAnalysis.Name, "HAnalysisCase"))
             {
-                
+
             }
-            else if (string.Equals(eltAnalysis.Name, "HAnalysisCaseTruck"))
+            else if (string.Equals(eltAnalysis.Name, "HAnalysisTruck"))
             {
-                string sTruckId = eltAnalysis.Attributes["TruckId"].Value;
                 AnalysisHetero analysis = CreateNewHAnalysisCaseTruck(
                     sName, sDescription,
                     contentItems, containers[0] as TruckProperties,
@@ -2469,6 +2468,8 @@ namespace treeDiM.StackBuilder.Basics
             else if (string.Equals(eltAnalysis.Name, "HAnalysisPalletTruck"))
             {
             }
+            else
+                throw new Exception($"unsupported analysis name {eltAnalysis.Name}");
         }
 
         #region ConstraintSet loading
@@ -2795,8 +2796,16 @@ namespace treeDiM.StackBuilder.Basics
                 XmlElement xmlHAnalysesElt = xmlDoc.CreateElement("HAnalyses");
                 xmlRootElement.AppendChild(xmlHAnalysesElt);
                 foreach (AnalysisHetero analysis in HAnalyses)
-                    SaveHAnalysis(analysis, xmlHAnalysesElt, xmlDoc);
-
+                {
+                    try
+                    {
+                        SaveHAnalysis(analysis, xmlHAnalysesElt, xmlDoc);
+                    }
+                    catch (Exception ex)
+                    {
+                        _log.Error(ex.Message);
+                    }
+                }
                 // finally save XmlDocument
                 xmlDoc.Save(filePath);
             }
@@ -3985,15 +3994,13 @@ namespace treeDiM.StackBuilder.Basics
 
         private void SaveHAnalysis(AnalysisHetero analysis, XmlElement parentElement, XmlDocument xmlDoc)
         {
-            HAnalysisPallet analysisPallet = analysis as HAnalysisPallet;
-            HAnalysisCase analysisCase = analysis as HAnalysisCase;
-            HAnalysisTruck analysisTruck = analysis as HAnalysisTruck;
             // analysis name
             string analysisName = string.Empty;
-            if (null != analysisPallet) analysisName = "HAnalysisPallet";
-            else if (null != analysisCase) analysisName = "HAnalysisCase";
-            else if (null != analysisTruck) analysisName = "HAnalysisTruck";
-            else return;
+            if (analysis is HAnalysisPallet) { analysisName = "HAnalysisPallet"; }
+            else if (analysis is HAnalysisCase) { analysisName = "HAnalysisCase"; }
+            else if (analysis is HAnalysisTruck) { analysisName = "HAnalysisTruck"; }
+            else
+                throw new Exception($"Unsupported analysis type {analysis.GetType()}");
 
             // create analysis element
             XmlElement eltAnalysis = xmlDoc.CreateElement(analysisName);
@@ -4070,7 +4077,7 @@ namespace treeDiM.StackBuilder.Basics
                     eltContained.Attributes.Append(attPosition);
                 }
             }
-            if (null != analysisPallet)
+            if (analysis is HAnalysisPallet analysisPallet)
             {
                 HConstraintSetPallet constraintSet = analysisPallet.ConstraintSet as HConstraintSetPallet;
                 // element containers
@@ -4091,14 +4098,14 @@ namespace treeDiM.StackBuilder.Basics
                 attOverhang.Value = constraintSet.Overhang.ToString();
                 eltConstraintSet.Attributes.Append(attOverhang);
             }
-            else if (null != analysisCase)
+            else if (analysis is HAnalysisCase analysisCase)
             {
                 HConstraintSetCase constraintSet = analysisCase.ConstraintSet as HConstraintSetCase;
                 // element HConstraintSetCase
                 var eltConstraintSet = xmlDoc.CreateElement("HConstraintSetCase");
                 eltAnalysis.AppendChild(eltConstraintSet);
             }
-            else if (null != analysisTruck)
+            else if (analysis is HAnalysisTruck analysisTruck)
             {
                 HConstraintSetTruck constraintSet = analysisTruck.ConstraintSet as HConstraintSetTruck;
                 // element HConstraintSetTruck
