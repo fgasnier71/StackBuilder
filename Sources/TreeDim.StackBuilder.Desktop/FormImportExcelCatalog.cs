@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using System.ComponentModel;
-
+using System.Linq;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Net;
@@ -259,6 +259,22 @@ namespace treeDiM.StackBuilder.Desktop
                     }
                     else if (dt is DataPallet dtPallet)
                     {
+                        string[] palletTypes = {
+                            "Block",
+                            "UK Standard",
+                            "GMA 48x40",
+                            "GMA 48*40 with 4-way forklift entry",
+                            "CHEP AU",
+                            "CHEP NZ",
+                            "EUR",
+                            "EUR2",
+                            "EUR3",
+                            "EUR6"
+                        };
+
+                        if (!palletTypes.Contains(dtPallet.TypeName))
+                            dtPallet.TypeName = "EUR2";
+
                         int colorPallet = Color.Yellow.ToArgb();
                         wcfClient.Client.CreateNewPallet(
                             new DCSBPallet()
@@ -270,7 +286,7 @@ namespace treeDiM.StackBuilder.Desktop
                                 { M0 = dtPallet.Dimensions[0], M1 = dtPallet.Dimensions[1], M2 = dtPallet.Dimensions[2] },
                                 Weight = dtPallet.Weight,
                                 Color = colorPallet,
-                                PalletType = "EUR2"
+                                PalletType = dtPallet.TypeName
                             }
                             );
                     }
