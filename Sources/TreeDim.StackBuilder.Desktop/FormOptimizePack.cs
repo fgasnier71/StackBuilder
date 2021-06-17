@@ -149,7 +149,7 @@ namespace treeDiM.StackBuilder.Desktop
                         {
                             graphics.AddDimensions(new DimensionCube(Vector3D.Zero, pack.Length, pack.Width,
                                 pack.Height, Color.Black, true));
-                            if (packProperties.Wrap.Transparent)
+                            if (null != packProperties.Wrap && packProperties.Wrap.Transparent)
                                 graphics.AddDimensions(
                                     new DimensionCube(
                                         packProperties.InnerOffset

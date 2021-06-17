@@ -77,10 +77,12 @@ namespace treeDiM.StackBuilder.Basics
         /// <returns>Outer dimensions stored in Vector3D</returns>
         public Vector3D OuterDimensions(PackableBrick packBrick, ParamSetPackOptim paramSet)
         {
+            int hasWrapper = paramSet.HasWrapper ? 1 : 0;
+            int hasTray = paramSet.HasTray ? 1 : 0;
             return new Vector3D(
-                _arrangement.Length * packBrick.Dim(Dim0) + paramSet.WrapperThickness * paramSet.NoWrapperWalls[0] + paramSet.TrayThickness * paramSet.NoTrayWalls[0]
-                , _arrangement.Width * packBrick.Dim(Dim1) + paramSet.WrapperThickness * paramSet.NoWrapperWalls[1] + paramSet.TrayThickness * paramSet.NoTrayWalls[1]
-                , _arrangement.Height * packBrick.Dim(Dim2) + paramSet.WrapperThickness * paramSet.NoWrapperWalls[2] + paramSet.TrayThickness * paramSet.NoTrayWalls[2]
+                _arrangement.Length * packBrick.Dim(Dim0) + hasWrapper * paramSet.WrapperThickness * paramSet.NoWrapperWalls[0] + hasTray * paramSet.TrayThickness * paramSet.NoTrayWalls[0]
+                , _arrangement.Width * packBrick.Dim(Dim1) + hasWrapper * paramSet.WrapperThickness * paramSet.NoWrapperWalls[1] + hasTray * paramSet.TrayThickness * paramSet.NoTrayWalls[1]
+                , _arrangement.Height * packBrick.Dim(Dim2) + hasWrapper * paramSet.WrapperThickness * paramSet.NoWrapperWalls[2] + hasTray * paramSet.TrayThickness * paramSet.NoTrayWalls[2]
                 );
         }
         public Vector3D InnerOffset(ParamSetPackOptim paramSet)
