@@ -189,4 +189,7 @@
   <data name="ID_NAMEBOTTLE" xml:space="preserve">
     <value>Flaska</value>
   </data>
+  <data name="ID_NAMEBAG" xml:space="preserve">
+    <value>Väska</value>
+  </data>
 </root>

@@ -39,26 +39,26 @@
             // 
             // ContextMenuDock
             // 
+            resources.ApplyResources(this.ContextMenuDock, "ContextMenuDock");
             this.ContextMenuDock.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DockableToolStripMenuItem,
             this.AutoHideToolStripMenuItem});
             this.ContextMenuDock.Name = "ContextMenuStrip";
-            resources.ApplyResources(this.ContextMenuDock, "ContextMenuDock");
             // 
             // DockableToolStripMenuItem
             // 
+            resources.ApplyResources(this.DockableToolStripMenuItem, "DockableToolStripMenuItem");
             this.DockableToolStripMenuItem.Checked = true;
             this.DockableToolStripMenuItem.CheckOnClick = true;
             this.DockableToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.DockableToolStripMenuItem.Name = "DockableToolStripMenuItem";
-            resources.ApplyResources(this.DockableToolStripMenuItem, "DockableToolStripMenuItem");
             this.DockableToolStripMenuItem.Click += new System.EventHandler(this.OnMenuItemDockable);
             // 
             // AutoHideToolStripMenuItem
             // 
+            resources.ApplyResources(this.AutoHideToolStripMenuItem, "AutoHideToolStripMenuItem");
             this.AutoHideToolStripMenuItem.CheckOnClick = true;
             this.AutoHideToolStripMenuItem.Name = "AutoHideToolStripMenuItem";
-            resources.ApplyResources(this.AutoHideToolStripMenuItem, "AutoHideToolStripMenuItem");
             this.AutoHideToolStripMenuItem.Click += new System.EventHandler(this.OnMenuItemAutoHide);
             // 
             // _documentTreeView

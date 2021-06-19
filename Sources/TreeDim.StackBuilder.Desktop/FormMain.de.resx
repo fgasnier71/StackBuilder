@@ -1510,4 +1510,7 @@
   <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
     <value>Neues Palettenetikett hinzufügen...</value>
   </data>
+  <data name="toolStripMenuItemBestCase.ToolTipText" xml:space="preserve">
+    <value>Helfen Sie Auswahl der Fall unter denen in Datenbank verfügbar!</value>
+  </data>
 </root>

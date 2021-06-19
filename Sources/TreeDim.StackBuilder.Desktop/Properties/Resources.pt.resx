@@ -859,4 +859,25 @@ Continuar?</value>
   <data name="ID_VALUE" xml:space="preserve">
     <value>Valor</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Relatório</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Eficiência</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Imagem</value>
+  </data>
+  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
+    <value>Peso de carga</value>
+  </data>
+  <data name="ID_RESULT_NOCASES" xml:space="preserve">
+    <value>Número de casos</value>
+  </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>Nenhuma solução válida encontrada!</value>
+  </data>
+  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
+    <value>Peso total da palete</value>
+  </data>
 </root>

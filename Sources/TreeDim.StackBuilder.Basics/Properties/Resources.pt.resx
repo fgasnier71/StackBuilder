@@ -189,4 +189,7 @@
   <data name="ID_SELECTED" xml:space="preserve">
     <value>Selecionado</value>
   </data>
+  <data name="ID_NAMEBAG" xml:space="preserve">
+    <value>Saco</value>
+  </data>
 </root>

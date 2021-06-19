@@ -495,4 +495,7 @@
   <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
     <value>Adicione novo rótulo de palete...</value>
   </data>
+  <data name="toolStripMenuItemBestCase.ToolTipText" xml:space="preserve">
+    <value>Ajude a selecionar o caso entre os disponíveis no banco de dados!</value>
+  </data>
 </root>

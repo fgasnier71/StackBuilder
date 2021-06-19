@@ -854,4 +854,25 @@
   <data name="ID_VALUE" xml:space="preserve">
     <value>价值</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>报告</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>效率</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>图片</value>
+  </data>
+  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
+    <value>码垛物重量</value>
+  </data>
+  <data name="ID_RESULT_NOCASES" xml:space="preserve">
+    <value>箱子数量</value>
+  </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>没有找到有效地解决方案！</value>
+  </data>
+  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
+    <value>托盘总重量</value>
+  </data>
 </root>

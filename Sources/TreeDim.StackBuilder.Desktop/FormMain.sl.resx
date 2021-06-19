@@ -495,4 +495,7 @@
   <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
     <value>Dodaj novo nalepko s stranico ...</value>
   </data>
+  <data name="toolStripMenuItemBestCase.ToolTipText" xml:space="preserve">
+    <value>Pomoč pri izbiri primera med tistimi, ki so na voljo v zbirki podatkov!</value>
+  </data>
 </root>

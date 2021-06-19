@@ -1492,4 +1492,7 @@
   <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
     <value>Añadir nueva etiqueta de palet...</value>
   </data>
+  <data name="toolStripMenuItemBestCase.ToolTipText" xml:space="preserve">
+    <value>¡Ayuda a elegir entre los disponibles en la base de datos!</value>
+  </data>
 </root>

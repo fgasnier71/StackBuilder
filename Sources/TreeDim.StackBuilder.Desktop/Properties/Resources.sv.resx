@@ -859,4 +859,25 @@ Stänger formulär...</value>
   <data name="ID_VALUE" xml:space="preserve">
     <value>Värde</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Rapport</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Effektivitet</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Bild</value>
+  </data>
+  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
+    <value>Lastens vikt</value>
+  </data>
+  <data name="ID_RESULT_NOCASES" xml:space="preserve">
+    <value>Antal fall</value>
+  </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>Ingen giltig lösning hittade!</value>
+  </data>
+  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
+    <value>Totala palletWeight</value>
+  </data>
 </root>

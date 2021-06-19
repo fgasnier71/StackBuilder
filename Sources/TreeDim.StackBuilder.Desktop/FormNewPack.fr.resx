@@ -598,4 +598,10 @@
   <data name="cbWrapperColor.Items43" xml:space="preserve">
     <value>Couleur</value>
   </data>
+  <data name="cbWrapperColor.Items44" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbTrayColor.Items46" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
 </root>

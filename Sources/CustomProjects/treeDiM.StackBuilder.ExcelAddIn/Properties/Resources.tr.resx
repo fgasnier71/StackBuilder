@@ -171,4 +171,13 @@
   <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
     <value>Toplam palet ağırlığı</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Rapor</value>
+  </data>
+  <data name="ID_RESULT_LOADDIMENSIONS" xml:space="preserve">
+    <value>Yük boyutları</value>
+  </data>
+  <data name="ID_RESULT_PALLETDIMENSIONS" xml:space="preserve">
+    <value>Palet boyutları</value>
+  </data>
 </root>

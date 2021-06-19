@@ -53,51 +53,38 @@ namespace treeDiM.StackBuilder.Desktop
             this.toolStripButtonReport,
             this.toolStripSeparator1,
             this.toolStripButtonScreenshot});
-            this.toolStripAnalysis.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.toolStripAnalysis, "toolStripAnalysis");
             this.toolStripAnalysis.Name = "toolStripAnalysis";
-            this.toolStripAnalysis.Size = new System.Drawing.Size(800, 25);
-            this.toolStripAnalysis.TabIndex = 0;
-            this.toolStripAnalysis.Text = "toolStrip1";
             // 
             // toolStripButtonBack
             // 
             this.toolStripButtonBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonBack.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBack.Image")));
-            this.toolStripButtonBack.ImageTransparentColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.toolStripButtonBack, "toolStripButtonBack");
             this.toolStripButtonBack.Name = "toolStripButtonBack";
-            this.toolStripButtonBack.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonBack.Text = "Back...";
             this.toolStripButtonBack.Click += new System.EventHandler(this.OnBack);
             // 
             // toolStripButtonReport
             // 
             this.toolStripButtonReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonReport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReport.Image")));
-            this.toolStripButtonReport.ImageTransparentColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.toolStripButtonReport, "toolStripButtonReport");
             this.toolStripButtonReport.Name = "toolStripButtonReport";
-            this.toolStripButtonReport.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonReport.Text = "Generate report...";
             this.toolStripButtonReport.Click += new System.EventHandler(this.OnGenerateReport);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // toolStripButtonScreenshot
             // 
             this.toolStripButtonScreenshot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonScreenshot.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonScreenshot.Image")));
-            this.toolStripButtonScreenshot.ImageTransparentColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.toolStripButtonScreenshot, "toolStripButtonScreenshot");
             this.toolStripButtonScreenshot.Name = "toolStripButtonScreenshot";
-            this.toolStripButtonScreenshot.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonScreenshot.Text = "Take a screenshot and add to clipboard";
             this.toolStripButtonScreenshot.Click += new System.EventHandler(this.OnScreenshot);
             // 
             // splitContainerVert
             // 
-            this.splitContainerVert.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerVert.Location = new System.Drawing.Point(0, 25);
+            resources.ApplyResources(this.splitContainerVert, "splitContainerVert");
             this.splitContainerVert.Name = "splitContainerVert";
             // 
             // splitContainerVert.Panel1
@@ -107,42 +94,31 @@ namespace treeDiM.StackBuilder.Desktop
             // splitContainerVert.Panel2
             // 
             this.splitContainerVert.Panel2.Controls.Add(this.gridSolution);
-            this.splitContainerVert.Size = new System.Drawing.Size(800, 425);
-            this.splitContainerVert.SplitterDistance = 562;
-            this.splitContainerVert.TabIndex = 1;
             // 
             // graphCtrlSolution
             // 
             this.graphCtrlSolution.AngleHoriz = 45D;
-            this.graphCtrlSolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.graphCtrlSolution.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.graphCtrlSolution, "graphCtrlSolution");
             this.graphCtrlSolution.Name = "graphCtrlSolution";
-            this.graphCtrlSolution.Size = new System.Drawing.Size(562, 425);
-            this.graphCtrlSolution.TabIndex = 0;
             this.graphCtrlSolution.Viewer = null;
             // 
             // gridSolution
             // 
-            this.gridSolution.Dock = System.Windows.Forms.DockStyle.Fill;
+            resources.ApplyResources(this.gridSolution, "gridSolution");
             this.gridSolution.EnableSort = true;
-            this.gridSolution.Location = new System.Drawing.Point(0, 0);
             this.gridSolution.Name = "gridSolution";
             this.gridSolution.OptimizeMode = SourceGrid.CellOptimizeMode.ForRows;
             this.gridSolution.SelectionMode = SourceGrid.GridSelectionMode.Cell;
-            this.gridSolution.Size = new System.Drawing.Size(234, 425);
-            this.gridSolution.TabIndex = 0;
             this.gridSolution.TabStop = true;
             this.gridSolution.ToolTipText = "";
             // 
             // DockContentAnalysisPalletsOnPallet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.splitContainerVert);
             this.Controls.Add(this.toolStripAnalysis);
             this.Name = "DockContentAnalysisPalletsOnPallet";
-            this.Text = "Pallet/Pallet analysis...";
             this.toolStripAnalysis.ResumeLayout(false);
             this.toolStripAnalysis.PerformLayout();
             this.splitContainerVert.Panel1.ResumeLayout(false);

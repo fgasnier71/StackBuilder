@@ -997,4 +997,10 @@
   <data name="cbTapeColor.Items132" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="cbColor.Items132" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="cbTapeColor.Items133" xml:space="preserve">
+    <value>Color</value>
+  </data>
 </root>

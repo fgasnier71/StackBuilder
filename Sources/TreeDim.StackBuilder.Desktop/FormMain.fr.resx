@@ -1879,4 +1879,7 @@
   <data name="toolStripStandard.Text" xml:space="preserve">
     <value>Standard</value>
   </data>
+  <data name="toolStripMenuItemBestCase.ToolTipText" xml:space="preserve">
+    <value>Permet de choisir parmi les caisses disponibles dans la base de données!</value>
+  </data>
 </root>

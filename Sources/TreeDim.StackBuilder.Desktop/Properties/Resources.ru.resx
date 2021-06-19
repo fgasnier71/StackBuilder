@@ -854,4 +854,25 @@
   <data name="ID_VALUE" xml:space="preserve">
     <value>Значение</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Отчет</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Эффективность</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Изображение</value>
+  </data>
+  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
+    <value>Вес груза</value>
+  </data>
+  <data name="ID_RESULT_NOCASES" xml:space="preserve">
+    <value>Количество случаев</value>
+  </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>Допустимые решения не найдено!</value>
+  </data>
+  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
+    <value>Всего palletWeight</value>
+  </data>
 </root>

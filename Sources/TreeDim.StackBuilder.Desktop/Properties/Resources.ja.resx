@@ -943,4 +943,25 @@
   <data name="ID_VALUE" xml:space="preserve">
     <value>値</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>レポート</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>効率（％）</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>イメージ</value>
+  </data>
+  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
+    <value>積載（kg）</value>
+  </data>
+  <data name="ID_RESULT_NOCASES" xml:space="preserve">
+    <value>ケースの数</value>
+  </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>有効な解決策を見つけた!</value>
+  </data>
+  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
+    <value>合計 palletWeight</value>
+  </data>
 </root>

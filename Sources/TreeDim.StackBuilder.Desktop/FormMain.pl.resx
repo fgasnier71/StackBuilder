@@ -2004,4 +2004,7 @@
   <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
     <value>Dodaj nową etykietę paletową...</value>
   </data>
+  <data name="toolStripMenuItemBestCase.ToolTipText" xml:space="preserve">
+    <value>Pomóc, wybierając wśród tych, które są dostępne w bazie danych!</value>
+  </data>
 </root>

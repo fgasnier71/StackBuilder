@@ -171,4 +171,13 @@
   <data name="ID_RESULT_IMAGE" xml:space="preserve">
     <value>Afbeelding</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Verslag</value>
+  </data>
+  <data name="ID_RESULT_LOADDIMENSIONS" xml:space="preserve">
+    <value>Laden afmetingen</value>
+  </data>
+  <data name="ID_RESULT_PALLETDIMENSIONS" xml:space="preserve">
+    <value>Afmetingen pallet</value>
+  </data>
 </root>

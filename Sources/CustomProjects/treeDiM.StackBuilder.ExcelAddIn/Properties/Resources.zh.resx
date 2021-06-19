@@ -171,4 +171,13 @@
   <data name="ID_RESULT_IMAGE" xml:space="preserve">
     <value>图片</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>报告</value>
+  </data>
+  <data name="ID_RESULT_LOADDIMENSIONS" xml:space="preserve">
+    <value>加载维度</value>
+  </data>
+  <data name="ID_RESULT_PALLETDIMENSIONS" xml:space="preserve">
+    <value>托盘尺寸</value>
+  </data>
 </root>

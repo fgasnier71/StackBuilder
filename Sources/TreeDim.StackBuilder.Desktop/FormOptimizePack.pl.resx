@@ -654,4 +654,22 @@
   <data name="tabPageTray.Text" xml:space="preserve">
     <value>Zasobnik</value>
   </data>
+  <data name="cbWrapperColor.Items46" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbWrapperColor.Items47" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbWrapperColor.Items48" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbTrayColor.Items48" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbTrayColor.Items49" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="cbTrayColor.Items50" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
 </root>

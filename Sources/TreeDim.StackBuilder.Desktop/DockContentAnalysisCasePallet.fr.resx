@@ -367,4 +367,16 @@
   <data name="tabPagePalletSleeve.Text" xml:space="preserve">
     <value>Manchon</value>
   </data>
+  <data name="cbPalletSleeveColor.Items14" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items15" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items16" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items17" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
 </root>

@@ -222,4 +222,16 @@
   <data name="tabPagePalletSleeve.Text" xml:space="preserve">
     <value>套</value>
   </data>
+  <data name="cbPalletSleeveColor.Items14" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items15" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items16" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="cbPalletSleeveColor.Items17" xml:space="preserve">
+    <value>颜色</value>
+  </data>
 </root>

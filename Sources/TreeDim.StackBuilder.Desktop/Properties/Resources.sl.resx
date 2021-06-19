@@ -859,4 +859,25 @@ Nadaljuj?</value>
   <data name="ID_VALUE" xml:space="preserve">
     <value>Vrednost</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Poročilo</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Učinkovitost</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Sliko</value>
+  </data>
+  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
+    <value>Teža bremena</value>
+  </data>
+  <data name="ID_RESULT_NOCASES" xml:space="preserve">
+    <value>Število primerov</value>
+  </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>Veljavna rešitev ni bila najdena!</value>
+  </data>
+  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
+    <value>Skupna teža palet</value>
+  </data>
 </root>

@@ -946,4 +946,25 @@ Blijven?</value>
   <data name="ID_VALUE" xml:space="preserve">
     <value>Waarde</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Verslag</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Efficiëntie</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Afbeelding</value>
+  </data>
+  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
+    <value>Belasting</value>
+  </data>
+  <data name="ID_RESULT_NOCASES" xml:space="preserve">
+    <value>Aantal gevallen</value>
+  </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>Geen geldige oplossing gevonden!</value>
+  </data>
+  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
+    <value>Totale palletWeight</value>
+  </data>
 </root>

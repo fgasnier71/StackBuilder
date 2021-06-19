@@ -860,4 +860,25 @@ Souhaitez-vous continuer?</value>
   <data name="ID_RADIUSROUNDING_WU" xml:space="preserve">
     <value>Rayon ({0})</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Rapport</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Efficacité (%)</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
+    <value>Masse chargement</value>
+  </data>
+  <data name="ID_RESULT_NOCASES" xml:space="preserve">
+    <value>Nombre de caisses</value>
+  </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>Aucune solution valable trouvée !</value>
+  </data>
+  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
+    <value>Poids total de la palette</value>
+  </data>
 </root>

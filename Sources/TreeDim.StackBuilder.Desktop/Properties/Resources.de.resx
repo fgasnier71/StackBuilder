@@ -853,4 +853,25 @@ Möchten Sie fortsetzen?</value>
   <data name="ID_VALUE" xml:space="preserve">
     <value>Wert</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Bericht</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Nutzungsgrad (%)</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Bild</value>
+  </data>
+  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
+    <value>Ladung</value>
+  </data>
+  <data name="ID_RESULT_NOCASES" xml:space="preserve">
+    <value>Zahl der Fälle</value>
+  </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>Keine gültige Lösung gefunden!</value>
+  </data>
+  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
+    <value>Total palletWeight</value>
+  </data>
 </root>

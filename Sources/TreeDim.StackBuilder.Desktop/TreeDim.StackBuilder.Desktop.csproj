@@ -40,8 +40,8 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>31</ApplicationRevision>
-    <ApplicationVersion>3.0.2.31</ApplicationVersion>
+    <ApplicationRevision>32</ApplicationRevision>
+    <ApplicationVersion>3.0.2.32</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1035,7 +1035,46 @@
     <EmbeddedResource Include="DockContentAnalysisHCylTruck.sl.resx">
       <DependentUpon>DockContentAnalysisHCylTruck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.de.resx">
+      <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.es.resx">
+      <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.fr.resx">
+      <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.it.resx">
+      <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.ja.resx">
+      <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.nl.resx">
+      <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.pl.resx">
+      <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.pt.resx">
+      <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.resx">
+      <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.ru.resx">
+      <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.sl.resx">
+      <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.sv.resx">
+      <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.tr.resx">
+      <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContentAnalysisPalletOnPallet.zh.resx">
       <DependentUpon>DockContentAnalysisPalletOnPallet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentAnalysisPalletTruck.de.resx">
@@ -1086,26 +1125,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.es.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.fr.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.it.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.ja.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.nl.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.pl.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.pt.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
@@ -1406,7 +1440,46 @@
     <EmbeddedResource Include="FormExcelLibrary.zh.resx">
       <DependentUpon>FormExcelLibrary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelMassAnalysis.de.resx">
+      <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelMassAnalysis.es.resx">
+      <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelMassAnalysis.fr.resx">
+      <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelMassAnalysis.it.resx">
+      <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelMassAnalysis.ja.resx">
+      <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelMassAnalysis.nl.resx">
+      <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelMassAnalysis.pl.resx">
+      <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelMassAnalysis.pt.resx">
+      <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormExcelMassAnalysis.resx">
+      <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelMassAnalysis.ru.resx">
+      <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelMassAnalysis.sl.resx">
+      <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelMassAnalysis.sv.resx">
+      <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelMassAnalysis.tr.resx">
+      <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcelMassAnalysis.zh.resx">
       <DependentUpon>FormExcelMassAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormExporter.fr.resx">
@@ -3747,7 +3820,7 @@ if $(ConfigurationName) == Release "$(SolutionDir)Signfile.bat" "$(TargetPath)"
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
-      <Version>5.9.1</Version>
+      <Version>5.10.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

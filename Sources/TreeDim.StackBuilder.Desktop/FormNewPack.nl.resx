@@ -652,4 +652,10 @@
   <data name="cbTrayColor.Items45" xml:space="preserve">
     <value>Kleur</value>
   </data>
+  <data name="cbWrapperColor.Items44" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
+  <data name="cbTrayColor.Items46" xml:space="preserve">
+    <value>Kleur</value>
+  </data>
 </root>

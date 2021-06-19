@@ -859,4 +859,25 @@ Devam?</value>
   <data name="ID_VALUE" xml:space="preserve">
     <value>Değer</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Rapor</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Verimli -liği</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Görüntü</value>
+  </data>
+  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
+    <value>Yük ağırlığı</value>
+  </data>
+  <data name="ID_RESULT_NOCASES" xml:space="preserve">
+    <value>Servis talepleri sayısı</value>
+  </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>Geçerli bir çözüm bulunamadı!</value>
+  </data>
+  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
+    <value>Toplam palet ağırlığı</value>
+  </data>
 </root>

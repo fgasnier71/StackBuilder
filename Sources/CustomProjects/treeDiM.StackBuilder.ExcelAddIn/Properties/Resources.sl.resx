@@ -171,4 +171,13 @@
   <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
     <value>Skupna teža palet</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Poročilo</value>
+  </data>
+  <data name="ID_RESULT_LOADDIMENSIONS" xml:space="preserve">
+    <value>Dimenzije obremenitve</value>
+  </data>
+  <data name="ID_RESULT_PALLETDIMENSIONS" xml:space="preserve">
+    <value>Dimenzije palete</value>
+  </data>
 </root>

@@ -1948,4 +1948,7 @@
   <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
     <value>Aggiungi nuova etichetta pallet...</value>
   </data>
+  <data name="toolStripMenuItemBestCase.ToolTipText" xml:space="preserve">
+    <value>Aiuto la selezione di caso tra quelli disponibili nel database!</value>
+  </data>
 </root>

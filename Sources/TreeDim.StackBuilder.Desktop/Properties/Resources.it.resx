@@ -950,4 +950,25 @@ Closing form...</value>
   <data name="ID_VALUE" xml:space="preserve">
     <value>Valore</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Relazione</value>
+  </data>
+  <data name="ID_RESULT_EFFICIENCY" xml:space="preserve">
+    <value>Efficienza</value>
+  </data>
+  <data name="ID_RESULT_IMAGE" xml:space="preserve">
+    <value>Immagine</value>
+  </data>
+  <data name="ID_RESULT_LOADWEIGHT" xml:space="preserve">
+    <value>Carico</value>
+  </data>
+  <data name="ID_RESULT_NOCASES" xml:space="preserve">
+    <value>Numero di cartoni</value>
+  </data>
+  <data name="ID_RESULT_NOSOLUTIONFOUND" xml:space="preserve">
+    <value>Nessuna soluzione valida trovata!</value>
+  </data>
+  <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
+    <value>Totale peso pallet</value>
+  </data>
 </root>

@@ -171,4 +171,13 @@
   <data name="ID_RESULT_TOTALPALLETWEIGHT" xml:space="preserve">
     <value>Peso total da palete</value>
   </data>
+  <data name="ID_REPORT" xml:space="preserve">
+    <value>Relatório</value>
+  </data>
+  <data name="ID_RESULT_LOADDIMENSIONS" xml:space="preserve">
+    <value>Dimensões de carga</value>
+  </data>
+  <data name="ID_RESULT_PALLETDIMENSIONS" xml:space="preserve">
+    <value>Dimensões de paletes</value>
+  </data>
 </root>

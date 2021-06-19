@@ -453,4 +453,7 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Yeni bir çanta oluşturun...</value>
   </data>
+  <data name="cbColor.Items102" xml:space="preserve">
+    <value>Renk</value>
+  </data>
 </root>

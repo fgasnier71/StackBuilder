@@ -840,4 +840,7 @@
   <data name="toolStripMIPalletLabel.ToolTipText" xml:space="preserve">
     <value>新しいパレット ラベルを追加します。</value>
   </data>
+  <data name="toolStripMenuItemBestCase.ToolTipText" xml:space="preserve">
+    <value>データベースで使用可能な間の場合を選択するヘルプ!</value>
+  </data>
 </root>
