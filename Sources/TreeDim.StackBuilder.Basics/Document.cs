@@ -1059,6 +1059,7 @@ namespace treeDiM.StackBuilder.Basics
         public ReadOnlyCollection<ItemBase> TypeList =>new ReadOnlyCollection<ItemBase>(_typeList); 
         public IEnumerable<PackableBrickNamed> Bricks => _typeList.OfType<PackableBrickNamed>();
         public IEnumerable<BoxProperties> Boxes => _typeList.OfType<BoxProperties>();
+        public IEnumerable<BagProperties> Bags => _typeList.OfType<BagProperties>();
         public IEnumerable<BoxProperties> CasesWInsideDims => _typeList.OfType<BoxProperties>().Where(b => b.HasInsideDimensions);
         public IEnumerable<BundleProperties> Bundles => _typeList.OfType<BundleProperties>();
         public IEnumerable<RevSolidProperties> Cylinders => _typeList.OfType<RevSolidProperties>();
@@ -1095,7 +1096,7 @@ namespace treeDiM.StackBuilder.Basics
         public bool CanCreateAnalysisCaseTruck => Boxes.Any() && Trucks.Any();
         public bool CanCreateAnalysisCylinderTruck => Trucks.Any() && Cylinders.Any();
         public bool CanCreateOptiCasePallet => Boxes.Any() && Pallets.Any();
-        public bool CanCreateOptiPack => Boxes.Any() && Pallets.Any();
+        public bool CanCreateOptiPack => Boxes.Any() && Bags.Any() && Pallets.Any();
         public bool CanCreateOptiMulticase => Bundles.Any() || Boxes.Any() && CasesWInsideDims.Any();
         #endregion
 

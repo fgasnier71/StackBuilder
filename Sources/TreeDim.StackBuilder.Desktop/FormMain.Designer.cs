@@ -314,10 +314,10 @@
             this.toolStripMenuItemTools.Name = "toolStripMenuItemTools";
             resources.ApplyResources(this.toolStripMenuItemTools, "toolStripMenuItemTools");
             // 
-            // editPaletSolutionsDB
+            // editPalletSolutionsDB
             // 
-            resources.ApplyResources(this.editPalletSolutionsDB, "editPaletSolutionsDB");
-            this.editPalletSolutionsDB.Name = "editPaletSolutionsDB";
+            resources.ApplyResources(this.editPalletSolutionsDB, "editPalletSolutionsDB");
+            this.editPalletSolutionsDB.Name = "editPalletSolutionsDB";
             this.editPalletSolutionsDB.Click += new System.EventHandler(this.OnShowDatabase);
             // 
             // browseEditMaterialListToolStripMenuItem

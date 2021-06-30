@@ -40,8 +40,8 @@
     <MinimumRequiredVersion>3.0.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>32</ApplicationRevision>
-    <ApplicationVersion>3.0.2.32</ApplicationVersion>
+    <ApplicationRevision>33</ApplicationRevision>
+    <ApplicationVersion>3.0.2.33</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1135,9 +1135,6 @@
     <EmbeddedResource Include="DockContentDocumentExplorer.ja.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DockContentDocumentExplorer.nl.resx">
-      <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DockContentDocumentExplorer.pl.resx">
       <DependentUpon>DockContentDocumentExplorer.cs</DependentUpon>
     </EmbeddedResource>
@@ -1537,6 +1534,10 @@
     <EmbeddedResource Include="FormImportExcelCatalog.zh.resx">
       <DependentUpon>FormImportExcelCatalog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.nl.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.de.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -1554,10 +1555,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.ja.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.nl.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

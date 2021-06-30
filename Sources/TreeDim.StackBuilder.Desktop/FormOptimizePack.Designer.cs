@@ -212,7 +212,8 @@
             resources.GetString("cbWrapperColor.Items45"),
             resources.GetString("cbWrapperColor.Items46"),
             resources.GetString("cbWrapperColor.Items47"),
-            resources.GetString("cbWrapperColor.Items48")});
+            resources.GetString("cbWrapperColor.Items48"),
+            resources.GetString("cbWrapperColor.Items49")});
             this.cbWrapperColor.Name = "cbWrapperColor";
             this.cbWrapperColor.SelectedColorChanged += new System.EventHandler(this.OnDataChanged);
             // 
@@ -389,7 +390,8 @@
             resources.GetString("cbTrayColor.Items47"),
             resources.GetString("cbTrayColor.Items48"),
             resources.GetString("cbTrayColor.Items49"),
-            resources.GetString("cbTrayColor.Items50")});
+            resources.GetString("cbTrayColor.Items50"),
+            resources.GetString("cbTrayColor.Items51")});
             this.cbTrayColor.Name = "cbTrayColor";
             this.cbTrayColor.SelectedColorChanged += new System.EventHandler(this.OnDataChanged);
             // 

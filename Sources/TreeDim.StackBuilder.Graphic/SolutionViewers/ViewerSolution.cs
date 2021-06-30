@@ -407,7 +407,7 @@ namespace treeDiM.StackBuilder.Graphics
                 {
                     foreach (var pli in analysisCasePallet.PalletLabels)
                     {
-                        var pl = new PalletLabel(++pickId, pli.PalletLabelProperties, pli.ToBoxPosition(loadBBox));
+                        var pl = new PalletLabel(++pickId, pli.PalletLabelProperties, pli.ToBoxPosition(loadBBox).Transform(transform));
                         pl.DrawEnd(graphics);
                     }
                 }

@@ -279,8 +279,6 @@ namespace treeDiM.StackBuilder.Graphics
             sizeMax[2] = 1.0;
             return Transform3D.OrthographicProjection(vecMin, vecMax, sizeMin, sizeMax);
         }
-
-
         /// <summary>
         /// Background faces
         /// </summary>

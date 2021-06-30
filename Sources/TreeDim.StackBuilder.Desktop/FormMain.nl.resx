@@ -120,86 +120,6 @@
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>784, 610</value>
-  </data>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAIAICAAAAAAGACoDAAAJgAAABAQAAAAABgAaAMAAM4MAAAoAAAAIAAAAEAAAAABABgAAAAAAAAM
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICA
-        AICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICAAICAAAAAAAAAAAAAAICAAICAAAAAAAAA
-        AAAAAAAAAAAAAICAAICAAAAAAAAAAAAAAICAAICAAICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICAAICA
-        AICAAICAAAAAAICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/
-        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AICAAAAAAICAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
-        AAD/AAD/AP//AAD/AAD/AP//AAD/AICAAAAAAICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/
-        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/
-        AAD/AAAAAICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
-        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AAD/AICAAAAAAICAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
-        AAD/AP//AAD/AAD/AAD/AP//AICAAAAAAICAAAAAAAAAAAAAAAAAAAAAAAAAAP//AP//AP//AP//AP//
-        AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AAD/AAD/AAD/AP//AAD/AICA
-        AAAAAICAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
-        AAD/AAD/AP//AAD/AAD/AP//AP//AAD/AAD/AP//AAD/AAD/AICAAAAAAICAAAAAAAAAAAAAAAAAAAD/
-        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AP//
-        AAD/AP//AAD/AAD/AAD/AICAAAAAAICAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
-        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AP//AAD/AAD/AAD/AP//AICAAAAA
-        AICAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
-        AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AICAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/
-        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AAD/AP//AP//AAD/
-        AAD/AP//AAD/AAD/AICAAAAAAAAAAP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//
-        AP//AP//AP//AP//AP//AP//AAD/AAD/AAD/AP//AAD/AP//AAD/AP//AAD/AAD/AAD/AAAAAAAAAAD/
-        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AP//AAD/
-        AAD/AP//AAD/AAD/AP//AP//AAD/AAD/AAD/AAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
-        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AP//AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/
-        AAD/AAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/
-        AAD/AP//AAD/AAD/AP//AP//AAD/AAD/AAD/AP//AP//AAD/AAD/AAAAAAAAAAD/AAD/AAD/AP//AAD/
-        AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/
-        AAD/AP//AAD/AP//AAD/AAAAAAAAAP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//
-        AP//AP//AP//AP//AP//AP//AAD/AAD/AAD/AP//AP//AAD/AAD/AP//AAD/AAD/AP//AAAAAAAAAAAA
-        AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AAD/
-        AAD/AP//AAD/AP//AAD/AP//AAD/AAD/AAD/AAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/
-        AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AAD/AP//AAD/AAD/AP//AP//AAD/AAD/
-        AAD/AAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/
-        AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAP//
-        AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AAD/AAD/
-        AAD/AP//AP//AAD/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//
-        AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AAD/AAD/AP//AAD/AP//AAD/AAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/
-        AP//AAD/AAD/AAD/AAD/AP//AAD/AAD/AP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/
-        AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/
-        AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AP//AP//AP//AP//AP//AP//AP//AP//
-        AP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AAD/AAD/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//
-        AAD/AAD/AAD/AAD/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/
-        AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AAD/AAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/
-        AAD/AP//AAD/AAD/AAD/AP//AAD/AAD/AAD/AAAA/////4AAD/+c+cf/gAAL/4AABf+AAAL/gAABf4AA
-        AL+AAABfgAAAL4AAABeAAAALgAAABYAAAAOAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABwAAAAeAA
-        AAHwAAAB+AAAAfwAAAH+AAAB/wAAAf+AAAH/wAAB/+AAAf/wAAEoAAAAEAAAACAAAAABABgAAAAAAAAD
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICA
-        AICAAICAAICAAICAAICAAICAAICAAICAAICAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AP//AAD/AAD/
-        AP//AAD/AAD/AP//AAD/AICAAAAAAAAAAAAAAAAAAAAAAAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//
-        AAD/AAD/AICAAAAAAAAAAAAAAAAAAAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AICA
-        AAAAAAAAAAAAAP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AAD/AP//AAD/AICAAAAAAAAAAAD/
-        AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AAD/AP//AP//AAD/AAD/AAAAAAAAAAD/AAD/AP//AAD/AAD/
-        AP//AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AAAAAAAAAAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//
-        AAD/AAD/AP//AP//AAD/AAAAAAAAAAAAAAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AAD/AP//AAD/
-        AP//AAAAAAAAAAAAAAAAAP//AP//AP//AP//AP//AP//AP//AP//AP//AP//AAD/AAD/AAAAAAAAAAAA
-        AAAAAAAAAAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AAD/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAD/
-        AAD/AP//AAD/AAD/AP//AAD/AAD/AP//AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAA//8AAIAfAACADwAAgAcAAIADAACAAQAAgAEAAIABAACAAQAAgAEAAMABAADgAQAA8AEAAPgB
-        AAD//wAA//8AAA==
-</value>
-  </data>
   <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -212,14 +132,8 @@
   <data name="caseOptimisationToolStripMenu.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="caseOptimisationToolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 22</value>
-  </data>
   <data name="closeToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
   </data>
   <data name="disconnectToolStripMenuItem.Text" xml:space="preserve">
     <value>Verbinding verbreken</value>
@@ -227,23 +141,11 @@
   <data name="dockPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="dockPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="dockPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 610</value>
-  </data>
-  <data name="dockPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="donateToolStripMenuItem.Text" xml:space="preserve">
     <value>Doneer!</value>
   </data>
   <data name="editPaletSolutionsDB.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="editPaletSolutionsDB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 22</value>
   </data>
   <data name="editPaletSolutionsDB.Text" xml:space="preserve">
     <value>Bladeren/Edit database...</value>
@@ -251,14 +153,8 @@
   <data name="editPaletSolutionsDBToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Transparent</value>
   </data>
-  <data name="editPaletSolutionsDBToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
   <data name="exitToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Uitgang</value>
@@ -266,20 +162,11 @@
   <data name="exitToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Sluit de toepassing af</value>
   </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
-  </data>
   <data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>Bestand</value>
   </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
   <data name="helpToolStripMenuItem.Text" xml:space="preserve">
     <value>Help</value>
-  </data>
-  <data name="helpToolStripMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
   </data>
   <data name="helpToolStripMenuItemAbout.Text" xml:space="preserve">
     <value>Over StackBuilder...</value>
@@ -287,29 +174,11 @@
   <data name="helpToolStripMenuItemHelp.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="helpToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
   <data name="helpToolStripMenuItemHelp.Text" xml:space="preserve">
     <value>Help</value>
   </data>
-  <data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="menuStripMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 24</value>
-  </data>
-  <data name="menuStripMain.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="menuStripMain.Text" xml:space="preserve">
     <value>menuStripMain</value>
-  </data>
-  <data name="menuStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="mnuFileMRU.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
   </data>
   <data name="mnuFileMRU.Text" xml:space="preserve">
     <value>Recente bestanden...</value>
@@ -317,59 +186,29 @@
   <data name="newAnalysisBundleToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="newAnalysisBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 22</value>
-  </data>
   <data name="newAnalysisToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="newAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 22</value>
   </data>
   <data name="newBoxToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="newBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 22</value>
-  </data>
   <data name="newBundleToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="newBundleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 22</value>
   </data>
   <data name="newCaseAnalysisToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="newCaseAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 22</value>
-  </data>
   <data name="newCaseToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="newCaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 22</value>
-  </data>
-  <data name="newCylinderToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 22</value>
   </data>
   <data name="newInterlayerToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="newInterlayerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 22</value>
-  </data>
   <data name="newPalletToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="newPalletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 22</value>
-  </data>
   <data name="newToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="newToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
   </data>
   <data name="newToolStripMenuItem.Text" xml:space="preserve">
     <value>Nieuw</value>
@@ -380,17 +219,11 @@
   <data name="newTruckToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="newTruckToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 22</value>
-  </data>
   <data name="openFileDialogSB.Filter" xml:space="preserve">
     <value>StackBuilder bestanden (*.stb)|*.stb|Alle bestanden (*.*)|*. *</value>
   </data>
   <data name="openFileDialogSB.Title" xml:space="preserve">
     <value>Open dossier...</value>
-  </data>
-  <data name="openFileDialogSB.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>280, 17</value>
   </data>
   <data name="openLibraryToolStripMenuItem.Text" xml:space="preserve">
     <value>Open Excel sheet bibliotheek...</value>
@@ -413,14 +246,8 @@
   <data name="saveAllToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="saveAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
-  </data>
   <data name="saveAsToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="saveAsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
   </data>
   <data name="saveFileDialogExportXML.Filter" xml:space="preserve">
     <value>Wisselen van Markup Language (*.xml) | * .xml</value>
@@ -431,23 +258,11 @@
   <data name="saveFileDialogSB.Title" xml:space="preserve">
     <value>Bestand opslaan...</value>
   </data>
-  <data name="saveFileDialogSB.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>427, 17</value>
-  </data>
   <data name="saveFileDialogWebGL.Filter" xml:space="preserve">
     <value>HTLM bestand (*.html) | * .html</value>
   </data>
-  <data name="saveFileDialogWebGL.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>570, 17</value>
-  </data>
   <data name="saveToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
-  </data>
-  <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 22</value>
   </data>
   <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
     <value>Instellingen...</value>
@@ -455,32 +270,17 @@
   <data name="toolStripButtonAddNewBox.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="toolStripButtonAddNewBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
   <data name="toolStripButtonAddNewCase.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="toolStripButtonAddNewCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
   </data>
   <data name="toolStripButtonAddNewCylinder.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Transparent</value>
   </data>
-  <data name="toolStripButtonAddNewCylinder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
   <data name="toolStripButtonAddNewPallet.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Transparent</value>
   </data>
-  <data name="toolStripButtonAddNewPallet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
   <data name="toolStripButtonAddNewTruck.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="toolStripButtonAddNewTruck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
   </data>
   <data name="toolStripButtonBox.Text" xml:space="preserve">
     <value>Nieuw vak toevoegen</value>
@@ -494,41 +294,23 @@
   <data name="toolStripButtonCreateNewAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Transparent</value>
   </data>
-  <data name="toolStripButtonCreateNewAnalysis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
   <data name="toolStripButtonCreateNewBundle.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Transparent</value>
-  </data>
-  <data name="toolStripButtonCreateNewBundle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
   </data>
   <data name="toolStripButtonCreateNewBundleAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Transparent</value>
   </data>
-  <data name="toolStripButtonCreateNewBundleAnalysis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
   <data name="toolStripButtonCreateNewCaseAnalysis.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="toolStripButtonCreateNewCaseAnalysis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
   <data name="toolStripButtonCreateNewInterlayer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="toolStripButtonCreateNewInterlayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
   </data>
   <data name="toolStripButtonCylinder.Text" xml:space="preserve">
     <value>Toevoegen van nieuwe cilinder</value>
   </data>
   <data name="toolStripButtonFileOpen.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="toolStripButtonFileOpen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
   </data>
   <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
     <value>Bestand openen</value>
@@ -539,20 +321,11 @@
   <data name="toolStripButtonFileSave.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="toolStripButtonFileSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
   <data name="toolStripButtonFileSaveAll.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="toolStripButtonFileSaveAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
   <data name="toolStripButtonHelp.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="toolStripButtonHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
   </data>
   <data name="toolStripButtonHelp.Text" xml:space="preserve">
     <value>Help</value>
@@ -563,14 +336,8 @@
   <data name="toolStripButtonNewFile.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="toolStripButtonNewFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
   <data name="toolStripButtonOptimiseCase.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
-  </data>
-  <data name="toolStripButtonOptimiseCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
   </data>
   <data name="toolStripButtonPack.Text" xml:space="preserve">
     <value>Voeg nieuwe pack...</value>
@@ -791,56 +558,11 @@
   <data name="toolStripSBUser.ToolTipText" xml:space="preserve">
     <value>Gebruiker</value>
   </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 6</value>
-  </data>
-  <data name="toolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 6</value>
-  </data>
-  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 6</value>
-  </data>
-  <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 6</value>
-  </data>
-  <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 6</value>
-  </data>
-  <data name="toolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="toolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 6</value>
-  </data>
   <data name="toolStripSplitButtonNew.Text" xml:space="preserve">
     <value>Maak een nieuw bestand...</value>
   </data>
-  <data name="toolStripStandard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="toolStripStandard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 25</value>
-  </data>
-  <data name="toolStripStandard.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
   <data name="toolStripStandard.Text" xml:space="preserve">
     <value>Standaard</value>
-  </data>
-  <data name="toolStripStandard.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="tutorialToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
   </data>
   <data name="projectToolStripMenuItem.Text" xml:space="preserve">
     <value>Project</value>

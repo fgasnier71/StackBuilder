@@ -33,10 +33,12 @@ namespace treeDiM.StackBuilder.Exporters
             var layers = sol.Layers;
             var pallet = analysis.Container as PalletProperties;
 
+            int caseNumber = 1;
+
             var csv = new StringBuilder();
             // case dimension
             Vector3D caseDim = analysis.ContentDimensions;
-            csv.AppendLine($"{(int)caseDim.X},{(int)caseDim.Y},{(int)caseDim.Z}");
+            csv.AppendLine($"{caseNumber},{(int)caseDim.X},{(int)caseDim.Y},{(int)caseDim.Z}");
             // number of layers; number of drops
             int noDrops = sol.SolutionItems.Count;
             csv.AppendLine($"{sol.SolutionItems.Count},{noDrops}");
@@ -64,7 +66,6 @@ namespace treeDiM.StackBuilder.Exporters
                     {
                         Vector3D vPos = ConvertPosition(bPos, caseDim);
                         int orientation = ConvertPositionAngleToPositionIndex(bPos);
-                        int caseNumber = 1;
                         int blockType = 1;
 
                         csv.AppendLine($"{iLine},{(int)vPos.X},{(int)vPos.Y},{(int)vPos.Z},{orientation},{caseNumber},{blockType}");
@@ -83,13 +84,14 @@ namespace treeDiM.StackBuilder.Exporters
         }
         public override void Export(RobotPreparation robotPreparation, ref Stream stream)
         {
+            int caseNumber = 1;
             if (null == robotPreparation) return;
 
             // string builder
             var csv = new StringBuilder();
             // case dimensions (X;Y;Z)
             var caseDim = robotPreparation.ContentDimensions;
-            csv.AppendLine($"{(int)caseDim.X},{(int)caseDim.Y},{(int)caseDim.Z}");
+            csv.AppendLine($"{caseNumber},{(int)caseDim.X},{(int)caseDim.Y},{(int)caseDim.Z}");
             // number of layers; number of drops
             csv.AppendLine($"{robotPreparation.LayerCount},{robotPreparation.DropCount}");
             // interlayers (layer index;X;Y;0/1;index interlayer)
@@ -110,11 +112,10 @@ namespace treeDiM.StackBuilder.Exporters
                     {
                         BoxPosition boxPos = drop.BoxPositionMain;
                         int orientation = ConvertPositionAngleToPositionIndex(boxPos);
-                        int caseNumber = drop.Number;
                         Vector3D vPos = ConvertPosition(drop.BoxPositionMain, drop.Dimensions);
                         int blockType = drop.PackDirection == RobotDrop.PackDir.LENGTH ? 1 : 0;
 
-                        csv.AppendLine($"{iLine},{(int)vPos.X},{(int)vPos.Y},{(int)vPos.Z},{orientation},{caseNumber},{blockType}");
+                        csv.AppendLine($"{iLine},{(int)vPos.X},{(int)vPos.Y},{(int)vPos.Z},{orientation},{drop.Number},{blockType}");
                     }
                 }
             }

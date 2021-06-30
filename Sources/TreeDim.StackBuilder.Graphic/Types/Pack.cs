@@ -196,7 +196,16 @@ namespace treeDiM.StackBuilder.Graphics
             { 
                 List<Drawable> drawables = new List<Drawable>();
                 uint pickId = 0;
-                if (_packProperties.Content is PackableBrick boxProp)
+                if (_packProperties.Content is BagProperties bagProp)
+                {
+                    for (int i = 0; i < _arrangement.Length; ++i)
+                        for (int j = 0; j < _arrangement.Width; ++j)
+                            for (int k = 0; k < _arrangement.Height; ++k)
+                                drawables.Add(
+                                    new BoxRounded(pickId++, bagProp, GetPosition(i, j, k, _packProperties.Dim0, _packProperties.Dim1))
+                                );
+                }
+                else if (_packProperties.Content is PackableBrick boxProp)
                 {
                     for (int i = 0; i < _arrangement.Length; ++i)
                         for (int j = 0; j < _arrangement.Width; ++j)

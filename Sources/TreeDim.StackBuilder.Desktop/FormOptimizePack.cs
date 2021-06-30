@@ -119,7 +119,7 @@ namespace treeDiM.StackBuilder.Desktop
         public bool Accept(Control ctrl, ItemBase itemBase)
         {
             if (ctrl == cbBoxes)
-                return itemBase is BoxProperties;
+                return itemBase is BoxProperties || itemBase is BagProperties;
             if (ctrl == cbPallets)
                 return itemBase is PalletProperties;
             return false; 
@@ -448,7 +448,7 @@ namespace treeDiM.StackBuilder.Desktop
         #endregion
 
         #region Private properties
-        private BoxProperties SelectedBox => cbBoxes.SelectedType as BoxProperties;
+        private PackableBrick SelectedBox => cbBoxes.SelectedType as PackableBrick;
         private PalletProperties SelectedPallet => cbPallets.SelectedType as PalletProperties;
         private AnalysisCasePallet SelectedAnalysis => _selectedAnalysis as AnalysisCasePallet;
         private Vector2D Overhang => new Vector2D(uCtrlOverhang.ValueX, uCtrlOverhang.ValueY);
@@ -563,6 +563,5 @@ namespace treeDiM.StackBuilder.Desktop
         private AnalysisLayered _selectedAnalysis;
         private static ILog _log = LogManager.GetLogger(typeof(FormOptimizePack));
         #endregion
-
     }
 }

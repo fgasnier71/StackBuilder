@@ -8,7 +8,7 @@ namespace treeDiM.StackBuilder.Graphics
     public abstract class Drawable
     {
         // constructor
-        public Drawable(uint pickId)
+        protected Drawable(uint pickId)
         {
             PickId = pickId;
         }

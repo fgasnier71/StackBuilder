@@ -181,6 +181,8 @@ namespace treeDiM.StackBuilder.Graphics
             }
         }
         public bool Matches(ImageInst img) => Content.Equals(img.Content) && AxisLength == img.AxisLength && AxisWidth == img.AxisWidth;
+
+        public override string ToString() => $"Size = {Bitmap.Width}x{Bitmap.Height} | VCamera = {VCamera} | VTarget = {VTarget} | Offset = {Offset}";
         #endregion
         #region Data members
         private HalfAxis.HAxis AxisLength { get; }

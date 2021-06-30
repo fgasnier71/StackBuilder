@@ -97,10 +97,12 @@ namespace treeDiM.StackBuilder.Desktop
             gridSolution[iRow, 1] = new SourceGrid.Cells.Cell(number);
 
             List<Pair<Packable, int>> listContentItems = new List<Pair<Packable, int>>();
-            content.InnerContent(ref listContentItems);
-            foreach (var item in listContentItems)
+            if (content.InnerContent(ref listContentItems))
             {
-                RecurInsertContent(ref iRow, item.first, item.second * number);
+                foreach (var item in listContentItems)
+                {
+                    RecurInsertContent(ref iRow, item.first, item.second * number);
+                }
             }
         }
         private void UpdateGrid()

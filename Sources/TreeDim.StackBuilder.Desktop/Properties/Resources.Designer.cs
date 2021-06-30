@@ -2210,6 +2210,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load dimensions.
+        /// </summary>
+        internal static string ID_RESULT_LOADDIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_RESULT_LOADDIMENSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load weight.
         /// </summary>
         internal static string ID_RESULT_LOADWEIGHT {
@@ -2233,6 +2242,15 @@ namespace treeDiM.StackBuilder.Desktop.Properties {
         internal static string ID_RESULT_NOSOLUTIONFOUND {
             get {
                 return ResourceManager.GetString("ID_RESULT_NOSOLUTIONFOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pallet dimensions.
+        /// </summary>
+        internal static string ID_RESULT_PALLETDIMENSIONS {
+            get {
+                return ResourceManager.GetString("ID_RESULT_PALLETDIMENSIONS", resourceCulture);
             }
         }
         
