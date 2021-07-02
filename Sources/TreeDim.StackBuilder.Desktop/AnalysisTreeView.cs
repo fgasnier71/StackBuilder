@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 using treeDiM.StackBuilder.Basics;
 using treeDiM.StackBuilder.Desktop.Properties;
@@ -144,6 +145,27 @@ namespace treeDiM.StackBuilder.Desktop
 
         private void QueryContextMenuItems(NodeTag nodeTag, ContextMenuStrip contextMenuStrip)
         {
+           var types = new List<NodeTag.NodeType>(
+                new NodeTag.NodeType[]
+                {
+                NodeTag.NodeType.NT_BOX
+                , NodeTag.NodeType.NT_CASE
+                , NodeTag.NodeType.NT_BAG
+                , NodeTag.NodeType.NT_PACK
+                , NodeTag.NodeType.NT_CASEOFBOXES
+                , NodeTag.NodeType.NT_CYLINDER
+                , NodeTag.NodeType.NT_BOTTLE
+                , NodeTag.NodeType.NT_PALLET
+                , NodeTag.NodeType.NT_BUNDLE
+                , NodeTag.NodeType.NT_INTERLAYER
+                , NodeTag.NodeType.NT_TRUCK
+                , NodeTag.NodeType.NT_PALLETCORNERS
+                , NodeTag.NodeType.NT_PALLETCAP
+                , NodeTag.NodeType.NT_PALLETFILM
+                , NodeTag.NodeType.NT_PALLETLABEL
+                }
+                );
+
             if (nodeTag.Type == NodeTag.NodeType.NT_DOCUMENT)
             {
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_ADDNEWBOX, Box, new EventHandler(OnCreateNewBox)) { ImageTransparentColor = Color.White } );
@@ -167,21 +189,8 @@ namespace treeDiM.StackBuilder.Desktop
                 contextMenuStrip.Items.Add(new ToolStripSeparator());
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(Resources.ID_CLOSE, null, new EventHandler(OnDocumentClose)));
             }
-            if (nodeTag.Type == NodeTag.NodeType.NT_BOX
-                || nodeTag.Type == NodeTag.NodeType.NT_CASE
-                || nodeTag.Type == NodeTag.NodeType.NT_PACK
-                || nodeTag.Type == NodeTag.NodeType.NT_CASEOFBOXES
-                || nodeTag.Type == NodeTag.NodeType.NT_CYLINDER
-                || nodeTag.Type == NodeTag.NodeType.NT_BOTTLE
-                || nodeTag.Type == NodeTag.NodeType.NT_PALLET
-                || nodeTag.Type == NodeTag.NodeType.NT_BUNDLE
-                || nodeTag.Type == NodeTag.NodeType.NT_INTERLAYER
-                || nodeTag.Type == NodeTag.NodeType.NT_TRUCK
-                || nodeTag.Type == NodeTag.NodeType.NT_PALLETCORNERS
-                || nodeTag.Type == NodeTag.NodeType.NT_PALLETCAP
-                || nodeTag.Type == NodeTag.NodeType.NT_PALLETFILM
-                || nodeTag.Type == NodeTag.NodeType.NT_PALLETLABEL
-                )
+ 
+            if (types.Contains(nodeTag.Type))
             {
                 string message = string.Format(Resources.ID_DELETEITEM, nodeTag.ItemProperties.Name);
                 contextMenuStrip.Items.Add(new ToolStripMenuItem(message, DELETE, new EventHandler(OnDeleteBaseItem)));
