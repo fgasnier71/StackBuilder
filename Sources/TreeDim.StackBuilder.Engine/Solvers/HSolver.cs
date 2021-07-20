@@ -38,7 +38,7 @@ namespace treeDiM.StackBuilder.Engine
                         listCuboids.Add(
                             new Cuboid((decimal)b.Length, (decimal)b.Width, (decimal)b.Height)
                             {
-                                Tag = BoxToID(ci.Pack as BoxProperties)
+                                Tag = BoxToID(ci.Pack as BProperties)
                                 , AllowOrientX = ci.AllowOrientX
                                 , AllowOrientY = ci.AllowOrientY
                                 , AllowOrientZ = ci.AllowOrientZ
@@ -61,77 +61,84 @@ namespace treeDiM.StackBuilder.Engine
                 listCuboids.ToArray())
             { ShuffleCount = 10 };
 
-            var binPackResult = binPacker.Pack(parameter);
-
-            // initialize loop
-            int initialBinCount = binPackResult.BestResult.Count;
-            int binCount = initialBinCount;
-            decimal heightIncrement = 0.05M * (decimal)dimContainer.Z;
-
-            // find container height at which 
-            int iIterationCount = 0;
-            do
-            {
-                // --- decrease containerHeight
-                containerHeight -= heightIncrement;
-
-                parameter = new BinPackParameter(
-                (decimal)dimContainer.X, (decimal)dimContainer.Y, containerHeight,
-                listCuboids.ToArray());
-                try
-                {
-                    binPackResult = binPacker.Pack(parameter);
-                    binCount = binPackResult.BestResult.Count;
-
-                }
-                catch (InvalidOperationException)
-                {
-                    binCount = int.MaxValue;
-                }
-                catch (Exception ex)
-                {
-                    _log.Info(ex.Message);
-                    binCount = int.MaxValue;
-                }
- 
-                ++iIterationCount;
-            }
-            while (binCount == initialBinCount && iIterationCount < 100);
-
             // add increment and compute one step up
-            containerHeight += heightIncrement;
             parameter = new BinPackParameter(
             (decimal)dimContainer.X, (decimal)dimContainer.Y, containerHeight,
             listCuboids.ToArray());
 
-            binPackResult = binPacker.Pack(parameter);
+            var binPackResult = binPacker.Pack(parameter);
+            HSolution sol = new HSolution("Sharp3DBinPacking") { Analysis = analysis };
+
+            foreach (var bins in binPackResult.BestResult)
             {
-                HSolution sol = new HSolution("Sharp3DBinPacking") { Analysis = analysis };
-
-                foreach (var bins in binPackResult.BestResult)
+                HSolItem hSolItem = sol.CreateSolItem();
+                foreach (var cuboid in bins)
                 {
-                    HSolItem hSolItem = sol.CreateSolItem();
-                    foreach (var cuboid in bins)
-                    {
-                        CuboidToSolItem(contentItems, offset, cuboid, out int index, out BoxPosition pos);
-                        hSolItem.InsertContainedElt(index, pos);
-                    }
-                    hSolItem.Recenter(sol, dimContainer);
+                    CuboidToSolItem(contentItems, offset, cuboid, out int index, out BoxPosition pos);
+                    hSolItem.InsertContainedElt(index, pos);
                 }
-                solutions.Add(sol);
+                hSolItem.Recenter(sol, dimContainer);
             }
+            solutions.Add(sol);
             // *** Sharp3DBinPacking : end
-
             try
             {
                 // *** BoxoLogic : begin
-                for (int variant = BoxologicSingleSol ? 5 : 1; variant < 6; ++variant)
+                List<BoxItem> listItems = new List<BoxItem>();
+                foreach (ContentItem ci in contentItems)
                 {
-                    HSolution sol = new HSolution($"Boxologic - Variant {variant}") { Analysis = analysis };
-                    RunBoxologic(variant, sol, dimContainer, offset, contentItems);
-                    solutions.Add(sol);
-                } // for
-                  // *** BoxoLogic : end
+                    for (int i = 0; i < ci.Number; ++i)
+                    {
+                        if (ci.Pack is BoxProperties b)
+                            listItems.Add(
+                                new BoxItem()
+                                {
+                                    ID = BoxToID(b),
+                                    Boxx = (decimal)b.Length,
+                                    Boxy = (decimal)b.Width,
+                                    Boxz = (decimal)b.Height,
+                                    AllowX = ci.AllowOrientX,
+                                    AllowY = ci.AllowOrientY,
+                                    AllowZ = ci.AllowOrientZ,
+                                    N = 1
+                                }
+                            );
+                    }
+                }
+                var bl = new Boxlogic() { OutputFilePath = string.Empty };
+                var solArray = new SolutionArray();
+                bl.Run(listItems.ToArray(), (decimal)dimContainer.X, (decimal)dimContainer.Y, (decimal)dimContainer.Z, ref solArray);
+                foreach (var solution in solArray.Solutions)
+                {
+                    HSolution sol2 = new HSolution("Boxologic") { Analysis = analysis };
+                    HSolItem hSolItem = sol2.CreateSolItem();
+
+                    Transform3D transform = Transform3D.Identity;
+                    switch (solution.Variant)
+                    {
+                        case 1: transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0); break;
+                        case 2: transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationZ(90.0); break;
+                        case 3: transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationZ(90.0); break;
+                        case 4: transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationY(-90.0); break;
+                        case 5: transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0); break;
+                        default: transform = Transform3D.Identity; break;
+                    }
+                    foreach (var item in solution.ItemsPacked)
+                    {
+                        BoxInfoToSolItem(offset, item, transform, out int index, out BoxPosition pos);
+                        hSolItem.InsertContainedElt(index, pos);
+                    }
+                    solutions.Add(sol2);
+                    /*
+                    for (int variant =1; variant < 6; ++variant)
+                    {
+                        HSolution solB = new HSolution($"Boxologic - Variant {variant}") { Analysis = analysis };
+                        RunBoxologic(variant, solB, dimContainer, offset, contentItems);
+                        solutions.Add(solB);
+                    } // for
+                    */
+                    // *** BoxoLogic : end
+                }
             }
             catch (Exception ex)
             {
@@ -148,9 +155,7 @@ namespace treeDiM.StackBuilder.Engine
             List<BoxItem> boxItems = new List<BoxItem>();
             foreach (ContentItem ci in contentItems)
             {
-                //Console.WriteLine($"--->{ci.Pack.ID.Name} - {ci.Pack.OuterDimensions.X}x{ci.Pack.OuterDimensions.Y}x{ci.Pack.OuterDimensions.Z} - {ci.Number} -> {BoxToID(ci.Pack as BoxProperties)}");
-
-                if ((ci.Number > 0) && (ci.Pack is BoxProperties b))
+                if ((ci.Number > 0) && (ci.Pack is BProperties b))
                     boxItems.Add(
                         new BoxItem()
                         {
@@ -175,11 +180,9 @@ namespace treeDiM.StackBuilder.Engine
                 return;
             foreach (var solution in solArray.Solutions)
             {
-                //var solution = solArray.Solutions[0];
-
                 HSolItem hSolItem = hSol.CreateSolItem();
                 Transform3D transform;
-                switch (solution.Variant)
+                switch (variant)
                 {
                     case 1: transform = Transform3D.Translation(new Vector3D(0.0, dimContainer.Y, 0.0)) * Transform3D.RotationX(90.0); break;
                     case 2: transform = Transform3D.Translation(new Vector3D(dimContainer.X, 0.0, 0.0)) * Transform3D.RotationZ(90.0); break;
@@ -206,35 +209,21 @@ namespace treeDiM.StackBuilder.Engine
                 }
                 hSolItem.Recenter(hSol, dimContainer);
 
-                Console.WriteLine($"{iCountBoxItems} - {solution.ItemsPacked.Count}");
                 // remaining number of items
                 int iCount = contentItemsClone.Sum(c => (int)c.Number);
-
-                /*
-                if (0 == iCount)
-                {
-                    decimal containerHeight = (decimal)dimContainer.Z;
-                    // solve until sol
-                    int iterationCount = 0;
-                     while (iterationCount < 100)
-                    {
-                        ++iterationCount;                
-                    }
-                }
-                */
 
                 if (iCount > 0)
                     RunBoxologic(variant, hSol, dimContainer, offset, contentItemsClone);
             }
         }
 
-        private uint BoxToID(BoxProperties b)
+        private uint BoxToID(BProperties b)
         {
             if (!_dictionnary.ContainsKey(b))
                 _dictionnary.Add(b, (uint)_dictionnary.Count);
             return _dictionnary[b];
         }
-        private BoxProperties IDToBox(uint id)
+        private BProperties IDToBox(uint id)
         {
             if (!_dictionnary.ContainsValue(id))
                 throw new Exception($"Failed to find content item box with Id= {id}");
@@ -246,7 +235,7 @@ namespace treeDiM.StackBuilder.Engine
             index = 0;
             pos = BoxPosition.Zero;
 
-            BoxProperties b = IDToBox(solItem.Id);
+            BProperties b = IDToBox(solItem.Id);
             if (null != b)
             {
                 try
@@ -276,7 +265,7 @@ namespace treeDiM.StackBuilder.Engine
             try
             {
                 index = int.Parse(cuboid.Tag.ToString());
-                BoxProperties bProperties = IDToBox((uint)index);
+                BProperties bProperties = IDToBox((uint)index);
 
                 pos = BoxPosition.FromPositionDimension(
                         new Vector3D((double)cuboid.X, (double)cuboid.Y, (double)cuboid.Z) + offset,
@@ -294,7 +283,7 @@ namespace treeDiM.StackBuilder.Engine
 
         public static bool BoxologicSingleSol { get; set; } = false;
 
-        private Dictionary<BoxProperties, uint> _dictionnary = new Dictionary<BoxProperties, uint>();
+        private Dictionary<BProperties, uint> _dictionnary = new Dictionary<BProperties, uint>();
         private static ILog _log = LogManager.GetLogger(typeof(HSolver));
     }
 }
